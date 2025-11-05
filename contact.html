@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - WhyUser</title>
+  <meta name="description" content="Get in touch with WhyUser. Let's talk about your buyers and how we can help you understand them better.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: #FAF8F5;
+      --foreground: #1A1A18;
+      --card: #FFFFFF;
+      --muted: #F0EDE8;
+      --muted-foreground: #4A4A48;
+      --accent: #9CA897;
+      --accent-light: #C8D4C4;
+      --accent-hover: #8A9B85;
+      --lavender: #F5F4F9;
+      --lavender-dark: #E8E6F0;
+      --border: #E5E2DB;
+      --shadow: rgba(58, 58, 56, 0.08);
+      --shadow-hover: rgba(58, 58, 56, 0.12);
+      --purple-cta: #A89FD4;
+      --purple-accent: #8B7FC7;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--foreground);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+    }
+
+    nav .logo {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--foreground);
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    nav .nav-cta {
+      background: var(--accent);
+      color: white;
+      padding: 0.625rem 1.75rem;
+      border-radius: 24px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    nav .nav-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 12px var(--shadow-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Contact Section */
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: var(--lavender);
+      color: var(--foreground);
+      padding: 0.5rem 1.25rem;
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .section-title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .section-text {
+      font-size: 1.25rem;
+      color: var(--muted-foreground);
+      line-height: 1.8;
+      max-width: 48rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .contact-form-box {
+      background: var(--card);
+      border: 3px solid var(--foreground);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-info-card {
+      background: var(--card);
+      border: 3px solid var(--foreground);
+      border-radius: 24px;
+      padding: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-card:hover {
+      box-shadow: 0 6px 20px var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .contact-info-card:last-child {
+      background: var(--lavender);
+    }
+
+    .contact-icon-box {
+      width: 3.5rem;
+      height: 3.5rem;
+      border: 2px solid var(--foreground);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--card);
+    }
+
+    .contact-icon-box svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      stroke: var(--foreground);
+    }
+
+    .contact-info-content h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    .contact-info-content p {
+      color: var(--muted-foreground);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .contact-info-content a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--foreground);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      border: 3px solid var(--foreground);
+      border-radius: 12px;
+      font-size: 0.9375rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--card);
+      color: var(--foreground);
+      transition: all 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted-foreground);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--purple-cta);
+      box-shadow: 0 0 0 3px rgba(168, 159, 212, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--purple-cta);
+      color: var(--foreground);
+      border: 3px solid var(--foreground);
+      border-radius: 12px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--purple-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--shadow-hover);
+    }
+
+    .submit-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 4rem 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      nav .nav-content {
+        padding: 1rem 1.5rem;
+      }
+
+      nav .nav-links {
+        gap: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+
+      .section-text {
+        font-size: 1rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .contact-form-box {
+        padding: 2rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="logo">WhyUser</a>
+      <div class="nav-links">
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#use-cases">Use cases</a>
+        <a href="index.html#examples">Examples</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's talk about your buyers</h2>
+      <p class="section-text">Ready to see how your market interprets your message? Get in touch and we'll help you understand your buyers better.</p>
+
+      <div class="contact-grid">
+        <div class="contact-form-box">
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Your company name">
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us about your go-to-market challenges..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              Send Message
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-info-card">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                <path d="M3 8l9 6 9-6"/>
+              </svg>
+            </div>
+            <div class="contact-info-content">
+              <h3>Email us</h3>
+              <p><a href="mailto:hello@whyuser.com">hello@whyuser.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+              </svg>
+            </div>
+            <div class="contact-info-content">
+              <h3>Schedule a demo</h3>
+              <p>See WhyUser in action with your own content</p>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="contact-info-content">
+              <h3>Quick response</h3>
+              <p>We typically respond within 24 hours. For urgent inquiries, mention it in your message.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1.125rem;">WhyUser</p>
+          <p style="color: var(--muted-foreground); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.7; max-width: 32rem;">
+            A buyer simulation platform for marketing and product teams. Analyses content through real customer logic to reveal how your market interprets your story.
+          </p>
+          <p style="color: var(--muted-foreground); font-size: 0.875rem;">
+            © 2025 WhyUser, Inc. All rights reserved.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="#">About</a>
+          <a href="#">Docs</a>
+          <a href="#">Privacy</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form Submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

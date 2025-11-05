@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhyUser - Bring your buyers into marketing</title>
+  <meta name="description" content="See how your buyers interpret your message before it reaches the market. Buyer simulation platform for B2B marketing teams.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: #FAF8F5;
+      --foreground: #1A1A18;
+      --card: #FFFFFF;
+      --muted: #F0EDE8;
+      --muted-foreground: #4A4A48;
+      --accent: #9CA897;
+      --accent-light: #C8D4C4;
+      --accent-hover: #8A9B85;
+      --lavender: #F5F4F9;
+      --lavender-dark: #E8E6F0;
+      --border: #E5E2DB;
+      --shadow: rgba(58, 58, 56, 0.08);
+      --shadow-hover: rgba(58, 58, 56, 0.12);
+      --blue-accent: #6B9BD1;
+      --purple-accent: #8B7FC7;
+      --purple-cta: #A89FD4;
+      --orange-accent: #E8956B;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--foreground);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+    }
+
+    nav .logo {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--foreground);
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    nav .nav-cta {
+      background: var(--accent);
+      color: white;
+      padding: 0.625rem 1.75rem;
+      border-radius: 24px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    nav .nav-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 12px var(--shadow-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2.25rem;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .btn:hover {
+      box-shadow: 0 6px 20px var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 5rem;
+      position: relative;
+      border-radius: 0 0 48px 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+    }
+
+    /* Analysis Preview */
+    .analysis-preview {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      overflow: hidden;
+      box-shadow: 0 8px 32px var(--shadow);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .analysis-header {
+      background: linear-gradient(135deg, var(--lavender) 0%, var(--lavender-dark) 100%);
+      padding: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .analysis-header .title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--foreground);
+    }
+
+    .analysis-header .subtitle {
+      font-size: 0.8125rem;
+      color: var(--muted-foreground);
+    }
+
+    .analysis-body {
+      padding: 2rem;
+    }
+
+    .persona-progress {
+      margin-bottom: 2rem;
+    }
+
+    .persona-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .persona-avatar {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .persona-avatar.cfo {
+      background: linear-gradient(135deg, #C8D4C4 0%, var(--accent) 100%);
+    }
+
+    .persona-avatar.vp {
+      background: linear-gradient(135deg, #E8E6F0 0%, #B8B4D4 100%);
+    }
+
+    .persona-avatar.user {
+      background: linear-gradient(135deg, #FFE5D9 0%, #FFCAB0 100%);
+    }
+
+    .progress-container {
+      flex: 1;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--foreground);
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: var(--muted);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-light), var(--accent));
+      transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 8px;
+    }
+
+    .insights-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--background) 0%, var(--muted) 100%);
+      padding: 1.5rem;
+    }
+
+    .insights-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--foreground);
+    }
+
+    .insights-title::before {
+      content: "📈 ";
+    }
+
+    .insight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.8125rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+      color: var(--muted-foreground);
+    }
+
+    .insight-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 0;
+      border-radius: 0 0 48px 48px;
+      position: relative;
+      z-index: 10;
+    }
+
+    section::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: var(--background);
+      clip-path: ellipse(50% 100% at 50% 100%);
+      pointer-events: none;
+    }
+    
+    /* section::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: var(--background);
+      clip-path: ellipse(50% 100% at 50% 0%);
+      pointer-events: none;
+      z-index: 1;
+    } */
+
+    section:first-of-type::before {
+      display: none;
+    }
+
+    .bg-card {
+      background: var(--card);
+    }
+
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .section-text {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto 4rem;
+      line-height: 1.8;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 32px var(--shadow-hover);
+      transform: translateY(-4px);
+      border-color: var(--accent-light);
+    }
+
+    .card h3 {
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .card .number {
+      font-size: 2.5rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.25rem;
+    }
+
+    .card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .card .problem-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    /* Persona Cards */
+    .persona-card .badge {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      background: var(--accent-light);
+      color: var(--foreground);
+      border-radius: 24px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 1.25rem;
+    }
+
+    .persona-card.cfo .badge {
+      background: linear-gradient(135deg, #C8D4C4 0%, var(--accent) 100%);
+      color: white;
+    }
+
+    .persona-card.vp .badge {
+      background: linear-gradient(135deg, #E8E6F0 0%, #B8B4D4 100%);
+      color: var(--foreground);
+    }
+
+    .persona-card.user .badge {
+      background: linear-gradient(135deg, #FFE5D9 0%, #FFCAB0 100%);
+      color: var(--foreground);
+    }
+
+    .persona-card ul {
+      list-style: none;
+      margin-top: 1.25rem;
+      padding: 0;
+    }
+
+    .persona-card ul li {
+      color: var(--purple-accent);
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .persona-card ul li::before {
+      content: "●";
+      position: absolute;
+      left: 0;
+      color: var(--purple-accent);
+      font-size: 0.75rem;
+    }
+
+    /* Workflow Flow */
+    .workflow-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .workflow-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--lavender) 0%, #F9F8FC 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: 0 2px 6px var(--shadow);
+    }
+
+    .workflow-arrow {
+      color: var(--accent);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .workflow-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 0.5rem;
+      color: var(--foreground);
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .workflow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Two Column Layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* Causal Chain */
+    .causal-chain {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      background: var(--card);
+      box-shadow: 0 4px 16px var(--shadow);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .causal-chain:hover {
+      box-shadow: 0 8px 24px var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .causal-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .flow-step {
+      text-align: center;
+    }
+
+    .flow-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .flow-box {
+      padding: 0.875rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--background);
+      font-size: 0.875rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .flow-factors {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .factor-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.625rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      font-size: 0.8125rem;
+      transition: all 0.3s ease;
+    }
+
+    .factor-item:hover {
+      background: var(--lavender);
+      border-color: var(--accent-light);
+    }
+
+    .factor-impact {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .outcome-circle {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: 0 auto 0.75rem;
+      color: white;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .outcome-label {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--card);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .arrow {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+
+    /* Causal Graph */
+    .causal-graph {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, var(--lavender) 0%, #F9F8FC 100%);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .graph-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .graph-node {
+      padding: 1rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      font-weight: 600;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .graph-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      width: 100%;
+      max-width: 42rem;
+    }
+
+    .graph-persona {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .graph-avatar {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      background: var(--card);
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .graph-avatar.cfo-avatar {
+      background: linear-gradient(135deg, #C8D4C4 0%, var(--accent) 100%);
+    }
+
+    .graph-avatar.vp-avatar {
+      background: linear-gradient(135deg, #E8E6F0 0%, #B8B4D4 100%);
+    }
+
+    .graph-avatar.user-avatar {
+      background: linear-gradient(135deg, #FFE5D9 0%, #FFCAB0 100%);
+    }
+
+    .confidence-badge {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .risk-box {
+      padding: 0.625rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 2px 6px var(--shadow);
+    }
+
+    .risk-box.low {
+      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+      color: #2E7D32;
+    }
+
+    .risk-box.medium {
+      background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+      color: #E65100;
+    }
+
+    .committee-decision {
+      padding: 1.25rem 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: white;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    /* Platform Cards */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .platform-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .platform-card:hover {
+      box-shadow: 0 8px 24px var(--shadow-hover);
+      transform: translateY(-2px);
+      border-color: var(--accent-light);
+    }
+
+    .platform-card h3 {
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .platform-card p {
+      color: var(--muted-foreground);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .contact-form-box {
+      background: var(--card);
+      border: 3px solid var(--foreground);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-info-card {
+      background: var(--card);
+      border: 3px solid var(--foreground);
+      border-radius: 24px;
+      padding: 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-card:hover {
+      box-shadow: 0 6px 20px var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .contact-info-card:last-child {
+      background: var(--lavender);
+    }
+
+    .contact-icon-box {
+      width: 3.5rem;
+      height: 3.5rem;
+      border: 2px solid var(--foreground);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--card);
+    }
+
+    .contact-icon-box svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      stroke: var(--foreground);
+    }
+
+    .contact-info-content h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    .contact-info-content p {
+      color: var(--muted-foreground);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .contact-info-content a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--foreground);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      border: 3px solid var(--foreground);
+      border-radius: 12px;
+      font-size: 0.9375rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--card);
+      color: var(--foreground);
+      transition: all 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted-foreground);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--purple-cta);
+      box-shadow: 0 0 0 3px rgba(168, 159, 212, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--purple-cta);
+      color: var(--foreground);
+      border: 3px solid var(--foreground);
+      border-radius: 12px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--purple-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--shadow-hover);
+    }
+
+    .submit-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 4rem 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--foreground);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Canvas */
+    #particleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .animate-slide-in-left {
+      animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .animate-slide-in-right {
+      animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .animate-slide-in-up {
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .animate-scale-in {
+      animation: scaleIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      nav .nav-content {
+        padding: 1rem 1.5rem;
+      }
+
+      nav .nav-links {
+        gap: 1.5rem;
+      }
+
+      .hero-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.75rem;
+      }
+
+      .section-title {
+        font-size: 2.25rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .platform-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .causal-flow {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+      .graph-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-content">
+      <a href="#" class="logo">WhyUser</a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#tech">Causal AI</a>
+        <a href="#platform">Platform</a>
+        <a href="#problem">Problem</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content hidden" data-animate="left">
+          <h1>Bring your buyers into marketing</h1>
+          <p>Most teams only find out how their buyers think after the work is live. WhyUser reveals how your message is interpreted before it reaches the market.</p>
+          <p>Paste a page, click Run, and see what each decision-maker understands, questions, and believes.</p>
+          <div class="hero-cta">
+            <a href="contact.html" class="btn">
+              Run Test
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="hidden" data-animate="right">
+          <div class="analysis-preview">
+            <div class="analysis-header">
+              <div class="title">Analyzing: landing-page.com</div>
+              <div class="subtitle">Simulation running...</div>
+            </div>
+            <div class="analysis-body">
+              <div class="persona-progress">
+                <div class="persona-row">
+                  <div class="persona-avatar cfo">💼</div>
+                  <div class="progress-container">
+                    <div class="progress-label">
+                      <span>CFO Analysis</span>
+                      <span style="color: var(--accent)">82%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" data-width="82" style="width: 0%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="persona-row">
+                  <div class="persona-avatar vp">⚙️</div>
+                  <div class="progress-container">
+                    <div class="progress-label">
+                      <span>VP Engineering</span>
+                      <span style="color: var(--accent)">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" data-width="65" style="width: 0%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="persona-row">
+                  <div class="persona-avatar user">👤</div>
+                  <div class="progress-container">
+                    <div class="progress-label">
+                      <span>End User</span>
+                      <span style="color: var(--accent)">91%</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" data-width="91" style="width: 0%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="insights-box">
+                <div class="insights-title">Key Insights</div>
+                <div class="insight-item">
+                  <span>✓</span>
+                  <span>ROI messaging resonates with CFO</span>
+                </div>
+                <div class="insight-item">
+                  <span>⚠️</span>
+                  <span>Tech integration details unclear for VP Eng</span>
+                </div>
+                <div class="insight-item">
+                  <span>✓</span>
+                  <span>User benefits well defined and compelling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="how" class="bg-card">
+    <div class="container">
+      <div class="section-label">Overview</div>
+      <h2 class="section-title">See what your market actually reads</h2>
+      <p class="section-text">
+        Run any page through WhyUser and it analyses it through your buying committee. 
+        The CFO measures ROI, the VP of Engineering scans for risk, and the end-user decides if it fits their day.
+      </p>
+
+      <div class="cards-grid">
+        <div class="card persona-card cfo hidden" data-animate="scale">
+          <div class="icon">💼</div>
+          <h3>CFO</h3>
+          <p>Understands the value but asks for proof of payback period and risk.</p>
+          <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+          <ul>
+            <li>Budget impact</li>
+            <li>Payback timeline</li>
+            <li>Risk assessment</li>
+          </ul>
+          <span class="badge">ROI Focused</span>
+        </div>
+
+        <div class="card persona-card vp hidden" data-animate="scale" style="animation-delay: 0.2s">
+          <div class="icon">⚙️</div>
+          <h3>VP Engineering</h3>
+          <p>Likes the idea but worries about integration cost and maintenance.</p>
+          <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+          <ul>
+            <li>Technical complexity</li>
+            <li>Security</li>
+            <li>Maintenance</li>
+          </ul>
+          <span class="badge">Risk Aware</span>
+        </div>
+
+        <div class="card persona-card user hidden" data-animate="scale" style="animation-delay: 0.4s">
+          <div class="icon">👤</div>
+          <h3>End User</h3>
+          <p>Wants a clear picture of daily use, setup time, and support.</p>
+          <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+          <ul>
+            <li>Ease of use</li>
+            <li>Setup time</li>
+            <li>Daily workflow</li>
+          </ul>
+          <span class="badge">Practicality Focused</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section>
+    <div class="container">
+      <div class="section-label">Workflow</div>
+      <h2 class="section-title">From real data to buyer behaviour</h2>
+      <p class="section-text">WhyUser turns existing context into committee simulations you can rely on.</p>
+
+      <div class="cards-grid">
+        <div class="card hidden" data-animate="scale">
+          <div class="number">1</div>
+          <h3>Seed with reality</h3>
+          <p>Ground simulations in expert knowledge, CRM data, sales transcripts, and customer conversations.</p>
+          <div class="workflow-flow">
+            <div class="workflow-step">
+              <div class="workflow-icon">📄</div>
+              <div class="workflow-label">Documents</div>
+            </div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-step">
+              <div class="workflow-icon">🗄️</div>
+              <div class="workflow-label">Upload</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card hidden" data-animate="scale" style="animation-delay: 0.2s">
+          <div class="number">2</div>
+          <h3>Simulate the committee</h3>
+          <p>Run realistic buying committees through your pages, emails, and launch assets to see how they respond.</p>
+          <div class="workflow-flow">
+            <div class="workflow-step">
+              <div class="workflow-icon">📄</div>
+              <div class="workflow-label">Page</div>
+            </div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-step">
+              <div class="workflow-icon">👥</div>
+              <div class="workflow-label">Simulate</div>
+            </div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-step">
+              <div class="workflow-icon">✅</div>
+              <div class="workflow-label">Report</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card hidden" data-animate="scale" style="animation-delay: 0.4s">
+          <div class="number">3</div>
+          <h3>Resolve friction early</h3>
+          <p>Use the report to fix misunderstandings before you commit budget or sales cycles.</p>
+          <div class="workflow-grid">
+            <div class="workflow-step">
+              <div class="workflow-icon" style="background: linear-gradient(135deg, #FFF3CD 0%, #FFE69C 100%);">⚠️</div>
+              <div class="workflow-label">Issues</div>
+            </div>
+            <div class="workflow-step">
+              <div class="workflow-icon" style="background: linear-gradient(135deg, #FFF3CD 0%, #FFE69C 100%);">✏️</div>
+              <div class="workflow-label">Edit</div>
+            </div>
+            <div class="workflow-step">
+              <div class="workflow-icon" style="background: linear-gradient(135deg, #E8F4F8 0%, #B3DCF2 100%);">🔄</div>
+              <div class="workflow-label">Re-test</div>
+            </div>
+            <div class="workflow-step">
+              <div class="workflow-icon" style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);">✓</div>
+              <div class="workflow-label">Improved</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insight Section -->
+  <section id="platform" class="bg-card">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="section-label" style="text-align: left">Insight</div>
+          <h2 class="section-title" style="text-align: left">Understand the reason behind every decision</h2>
+          <p style="font-size: 1.125rem; color: var(--muted-foreground); margin-bottom: 1rem; line-height: 1.8;">
+            Open any persona and see their internal dialogue as they move through your page. 
+            You see questions form, objections surface, and confidence grow or fade.
+          </p>
+          <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.8;">
+            WhyUser traces cause and effect so you can understand what helped them trust and what made them hesitate.
+          </p>
+        </div>
+
+        <div>
+          <!-- Causal Chain Diagram 1 -->
+          <div class="causal-chain hidden" data-animate="up">
+            <div class="causal-flow">
+              <div class="flow-step">
+                <div class="flow-label">Message</div>
+                <div class="flow-box">"ROI in 6 months"</div>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <div class="flow-step">
+                <div class="flow-label">Persona</div>
+                <div class="persona-avatar cfo">💼</div>
+                <div style="font-size: 0.8125rem; font-weight: 600; margin-top: 0.5rem;">CFO</div>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <div class="flow-step">
+                <div class="flow-label">Causal Factors</div>
+                <div class="flow-factors">
+                  <div class="factor-item">
+                    <span>Specificity</span>
+                    <span class="factor-impact">+20%</span>
+                  </div>
+                  <div class="factor-item">
+                    <span>Timeframe clarity</span>
+                    <span class="factor-impact">+15%</span>
+                  </div>
+                  <div class="factor-item">
+                    <span>Risk assessment</span>
+                    <span class="factor-impact">+10%</span>
+                  </div>
+                </div>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <div class="flow-step">
+                <div class="flow-label">Outcome</div>
+                <div class="outcome-circle">82</div>
+                <div class="outcome-label">Request demo</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Causal Chain Diagram 2 -->
+          <div class="causal-chain hidden" data-animate="up" style="animation-delay: 0.15s">
+            <div class="causal-flow">
+              <div class="flow-step">
+                <div class="flow-label">Message</div>
+                <div class="flow-box">"Seamless integration"</div>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <div class="flow-step">
+                <div class="flow-label">Persona</div>
+                <div class="persona-avatar vp">⚙️</div>
+                <div style="font-size: 0.8125rem; font-weight: 600; margin-top: 0.5rem;">VP Eng</div>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <div class="flow-step">
+                <div class="flow-label">Causal Factors</div>
+                <div class="flow-factors">
+                  <div class="factor-item">
+                    <span>Tech details</span>
+                    <span class="factor-impact">+12%</span>
+                  </div>
+                  <div class="factor-item">
+                    <span>Support mentioned</span>
+                    <span class="factor-impact">+8%</span>
+                  </div>
+                  <div class="factor-item">
+                    <span>Missing security</span>
+                    <span class="factor-impact" style="color: #E56B6F">-15%</span>
+                  </div>
+                </div>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <div class="flow-step">
+                <div class="flow-label">Outcome</div>
+                <div class="outcome-circle">65</div>
+                <div class="outcome-label">Need more info</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Causal AI Section -->
+  <section id="tech">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="causal-graph">
+            <div class="graph-flow">
+              <div class="graph-node">Message Content</div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+              </svg>
+
+              <div class="graph-row">
+                <div class="graph-persona">
+                  <div class="graph-avatar cfo-avatar">💼</div>
+                  <div style="font-size: 0.9375rem; font-weight: 600;">CFO</div>
+                  <div class="confidence-badge">82%</div>
+                </div>
+                <div class="graph-persona">
+                  <div class="graph-avatar vp-avatar">⚙️</div>
+                  <div style="font-size: 0.9375rem; font-weight: 600;">VP Eng</div>
+                  <div class="confidence-badge">65%</div>
+                </div>
+                <div class="graph-persona">
+                  <div class="graph-avatar user-avatar">👤</div>
+                  <div style="font-size: 0.9375rem; font-weight: 600;">End User</div>
+                  <div class="confidence-badge">91%</div>
+                </div>
+              </div>
+
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+              </svg>
+
+              <div class="graph-row">
+                <div class="flow-box" style="font-size: 0.8125rem;">ROI Validated</div>
+                <div class="flow-box" style="font-size: 0.8125rem;">Tech Concerns</div>
+                <div class="flow-box" style="font-size: 0.8125rem;">High Confidence</div>
+              </div>
+
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+              </svg>
+
+              <div class="graph-row">
+                <div class="risk-box low">Risk: Low</div>
+                <div class="risk-box medium">Risk: Medium</div>
+                <div class="risk-box low">Risk: Low</div>
+              </div>
+
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent)">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+              </svg>
+
+              <div class="committee-decision">Committee Decision: 79% Confidence</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label" style="text-align: left">Causal AI</div>
+          <h2 class="section-title" style="text-align: left">Causal Reasoning under the hood</h2>
+          <p style="font-size: 1.125rem; color: var(--muted-foreground); margin-bottom: 1rem; line-height: 1.8;">
+            WhyUser does not rely on surface prediction. It uses causal reasoning that models how changes in your message influence each persona across the reading experience.
+          </p>
+          <p style="color: var(--muted-foreground); margin-bottom: 0.75rem; line-height: 1.7;">At a high level the system:</p>
+          <ol style="color: var(--muted-foreground); padding-left: 1.75rem; line-height: 1.8;">
+            <li style="margin-bottom: 0.75rem;">Ingests your page and buyer data and maps it into a structured representation.</li>
+            <li style="margin-bottom: 0.75rem;">Builds a causal graph that links parts of your message to shifts in belief, risk, and intent.</li>
+            <li>Simulates small interventions to see which edits increase trust or create friction.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Section -->
+  <section class="bg-card">
+    <div class="container">
+      <div class="section-label">Platform</div>
+      <h2 class="section-title">Built for B2B committee dynamics</h2>
+      <p class="section-text">Most tools model individual personas. WhyUser focuses on how roles interact inside a deal so you can see where decisions move forward and where they stall.</p>
+
+      <div class="platform-grid">
+        <div class="platform-card hidden" data-animate="scale">
+          <h3>Causal chain analysis</h3>
+          <p>Pinpoint friction points with transparent decision paths instead of opaque scores.</p>
+        </div>
+
+        <div class="platform-card hidden" data-animate="scale" style="animation-delay: 0.1s">
+          <h3>Dynamic journey mapping</h3>
+          <p>Understand how committee needs shift from first touch to final approval across roles.</p>
+        </div>
+
+        <div class="platform-card hidden" data-animate="scale" style="animation-delay: 0.2s">
+          <h3>Reality check hub</h3>
+          <p>Bring sales, marketing, and product into one view to compare simulations with live field feedback.</p>
+        </div>
+
+        <div class="platform-card hidden" data-animate="scale" style="animation-delay: 0.3s">
+          <h3>Actionable playbooks</h3>
+          <p>Turn insights into specific messaging updates and enablement moves for each committee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section id="problem">
+    <div class="container">
+      <div class="section-label">Problem</div>
+      <h2 class="section-title">Three pressures your go to market already feels</h2>
+      <p class="section-text">WhyUser helps you see where these pressures show up in the way buyers read your message.</p>
+
+      <div class="cards-grid">
+        <div class="card hidden" data-animate="scale">
+          <div class="problem-icon" style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);">💰</div>
+          <h3>The war for budget</h3>
+          <p>GTM spend keeps rising while every new dollar of revenue is harder to win. Finance teams expect proof that each campaign has a clear path to payback.</p>
+        </div>
+
+        <div class="card hidden" data-animate="scale" style="animation-delay: 0.2s">
+          <div class="problem-icon" style="background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);">📊</div>
+          <h3>The war for pipeline</h3>
+          <p>Sales teams reject a large share of marketing sourced leads. Misunderstood value and misaligned targeting waste effort on both sides.</p>
+        </div>
+
+        <div class="card hidden" data-animate="scale" style="animation-delay: 0.4s">
+          <div class="problem-icon" style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);">👁️</div>
+          <h3>The war for attention</h3>
+          <p>Buyers do most research on their own and often decide before talking to sales. Generic messaging disappears in a crowded feed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1.125rem;">WhyUser</p>
+          <p style="color: var(--muted-foreground); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.7; max-width: 32rem;">
+            A buyer simulation platform for marketing and product teams. Analyses content through real customer logic to reveal how your market interprets your story.
+          </p>
+          <p style="color: var(--muted-foreground); font-size: 0.875rem;">
+            © 2025 WhyUser, Inc. All rights reserved.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Docs</a>
+          <a href="#">Privacy</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Particle Background
+    (function() {
+      const canvas = document.getElementById('particleCanvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let mouse = { x: 0, y: 0 };
+      let animationId;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const particleCount = 40;
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            size: Math.random() * 2 + 1,
+            opacity: Math.random() * 0.4 + 0.15
+          });
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(particle => {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+
+          const dx = mouse.x - particle.x;
+          const dy = mouse.y - particle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 120) {
+            const force = (120 - distance) / 120;
+            particle.x -= dx * force * 0.008;
+            particle.y -= dy * force * 0.008;
+          }
+
+          if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+          if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+          particle.x = Math.max(0, Math.min(canvas.width, particle.x));
+          particle.y = Math.max(0, Math.min(canvas.height, particle.y));
+
+          ctx.fillStyle = `rgba(156, 168, 151, ${particle.opacity})`;
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        ctx.strokeStyle = 'rgba(156, 168, 151, 0.08)';
+        ctx.lineWidth = 1;
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 100) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        animationId = requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        createParticles();
+      });
+
+      resizeCanvas();
+      createParticles();
+      animate();
+    })();
+
+    // Scroll Animations
+    (function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const animType = entry.target.dataset.animate;
+            if (animType === 'left') {
+              entry.target.classList.add('animate-slide-in-left');
+            } else if (animType === 'right') {
+              entry.target.classList.add('animate-slide-in-right');
+            } else if (animType === 'up') {
+              entry.target.classList.add('animate-slide-in-up');
+            } else if (animType === 'scale') {
+              entry.target.classList.add('animate-scale-in');
+            }
+            entry.target.classList.remove('hidden');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('[data-animate]').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+
+    // Progress Bar Animation
+    (function() {
+      const progressBars = document.querySelectorAll('.progress-fill');
+      
+      const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const targetWidth = entry.target.dataset.width;
+            setTimeout(() => {
+              entry.target.style.width = targetWidth + '%';
+            }, 600);
+            progressObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      progressBars.forEach(bar => {
+        progressObserver.observe(bar);
+      });
+    })();
+
+    // Card Hover Effect
+    (function() {
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = ((y - centerY) / centerY) * -3;
+          const rotateY = ((x - centerX) / centerX) * 3;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+      });
+    })();
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form Submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

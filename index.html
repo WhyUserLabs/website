@@ -7,9 +7,8 @@
   <meta name="description" content="See how your buyers interpret your message before it reaches the market. Buyer simulation platform for B2B marketing teams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  
   <style>
     * {
       margin: 0;
@@ -23,9 +22,9 @@
       --card: #FFFFFF;
       --muted: #F0EDE8;
       --muted-foreground: #4A4A48;
-      --accent: #9CA897;
-      --accent-light: #C8D4C4;
-      --accent-hover: #8A9B85;
+      --accent: #4e75f9; /* This was your existing --blue-accent */
+      --accent-light: #8cbded; /* A new lighter tint */
+      --accent-hover: #5A8AC6; /* A new darker shade for hover */
       --lavender: #F5F4F9;
       --lavender-dark: #E8E6F0;
       --border: #E5E2DB;
@@ -47,7 +46,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-weight: 600;
       letter-spacing: -0.02em;
       line-height: 1.3;
@@ -79,7 +78,7 @@
     }
 
     nav .logo {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--foreground);
@@ -1134,7 +1133,7 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-content">
-      <a href="#" class="logo">WhyUser</a>
+      <a href="index.html" class="logo">Why<span style="color: var(--accent);">User</span></a>
       <div class="nav-links">
         <a href="#how">How it works</a>
         <a href="#tech">Causal AI</a>

@@ -7,7 +7,7 @@
   <meta name="description" content="Get in touch with WhyUser. Let's talk about your buyers and how we can help you understand them better.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -22,9 +22,9 @@
       --card: #FFFFFF;
       --muted: #F0EDE8;
       --muted-foreground: #4A4A48;
-      --accent: #9CA897;
-      --accent-light: #C8D4C4;
-      --accent-hover: #8A9B85;
+      --accent: #4e75f9; /* This was your existing --blue-accent */
+      --accent-light: #8cbded; /* A new lighter tint */
+      --accent-hover: #5A8AC6; /* A new darker shade for hover */
       --lavender: #F5F4F9;
       --lavender-dark: #E8E6F0;
       --border: #E5E2DB;
@@ -43,7 +43,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-weight: 600;
       letter-spacing: -0.02em;
       line-height: 1.3;
@@ -74,7 +74,7 @@
     }
 
     nav .logo {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--foreground);
@@ -377,7 +377,8 @@
 <body>
   <nav>
     <div class="nav-content">
-      <a href="index.html" class="logo">WhyUser</a>
+      <!-- <a href="index.html" class="logo">WhyUser</a> -->
+      <a href="index.html" class="logo">Why<span style="color: var(--accent);">User</span></a>
       <div class="nav-links">
         <a href="index.html#how">How it works</a>
         <a href="index.html#tech">Causal AI</a>
@@ -400,31 +401,35 @@
         </div>
 
         <div class="contact-info">
-          <div class="contact-info-card">
-            <div class="contact-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                <rect x="3" y="4" width="18" height="16" rx="2"/>
-                <path d="M3 8l9 6 9-6"/>
-              </svg>
+          <a href="mailto:hello@whyuser.com" style="text-decoration: none;">
+            <div class="contact-info-card">
+                <div class="contact-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                    <path d="M3 8l9 6 9-6"/>
+                </svg>
+                </div>
+                <div class="contact-info-content">
+                <h3>Email us</h3>
+                <p>hello@whyuser.com</p>
+                </div>
             </div>
-            <div class="contact-info-content">
-              <h3>Email us</h3>
-              <p><a href="mailto:hello@whyuser.com">hello@whyuser.com</a></p>
-            </div>
-          </div>
+          </a>
 
-          <div class="contact-info-card">
-            <div class="contact-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                <path d="M16 2v4M8 2v4M3 10h18"/>
-              </svg>
+          <a href="https://calendly.com/durga-whyuser/30min" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <div class="contact-info-card">
+                <div class="contact-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+                </div>
+                <div class="contact-info-content">
+                <h3>Schedule a demo</h3>
+                <p>See WhyUser in action with your own content</p>
+                </div>
             </div>
-            <div class="contact-info-content">
-              <h3>Schedule a demo</h3>
-              <p>See WhyUser in action with your own content</p>
-            </div>
-          </div>
+          </a>
 
           <div class="contact-info-card">
             <div class="contact-icon-box">

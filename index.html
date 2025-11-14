@@ -960,9 +960,9 @@
     }
 
     .footer-links {
-      display: flex;
-      gap: 2.5rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Creates 2 columns for 6 links */
+      gap: 1.5rem 1rem; /* 1.5rem gap between rows, 1rem between links */
     }
 
     .footer-links a {
@@ -1123,6 +1123,10 @@
       .footer-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+      }
+
+      .footer-links {
+        grid-template-columns: repeat(2, 1fr); /* 2-column grid on mobile */
       }
     }
   </style>

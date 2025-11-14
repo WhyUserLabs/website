@@ -4,303 +4,470 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beta User Agreement - WhyUser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #FAF8F5;
+            --foreground: #1A1A18;
+            --card: #FFFFFF;
+            --muted: #F0EDE8;
+            --muted-foreground: #4A4A48;
+            --accent: #4e75f9;
+            --accent-light: #8cbded;
+            --accent-hover: #5A8AC6;
+            --lavender: #F5F4F9;
+            --border: #E5E2DB;
+            --shadow: rgba(58, 58, 56, 0.08);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            background-color: #f9f9f9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.7;
+            letter-spacing: -0.01em;
         }
-        .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+        /* Navigation */
+        nav {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        h1, h2, h3 {
-            color: #111;
-            font-weight: 600;
-            margin-top: 1.5em;
+
+        nav .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        h1 {
-            font-size: 2.2em;
-            margin-top: 0;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-        h3 {
-            font-size: 1.4em;
-        }
-        p, li {
-            font-size: 1.1em;
-            margin-bottom: 1em;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: #007bff;
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--foreground);
             text-decoration: none;
+            letter-spacing: -0.03em;
         }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: var(--foreground);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p, li {
+            font-size: 1.0625rem;
+            margin-bottom: 1rem;
+            color: var(--muted-foreground);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            list-style-type: disc;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
         a:hover {
-            text-decoration: underline;
+            color: var(--accent-hover);
         }
+
         strong {
             font-weight: 600;
+            color: var(--foreground);
         }
+
         .last-updated {
             font-style: italic;
-            color: #666;
-            font-size: 1.0em;
+            color: var(--muted-foreground);
+            font-size: 0.9375rem;
+            margin-bottom: 2rem;
         }
+
         .address-block {
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            font-style: normal;
+            padding: 1.25rem;
+            background: var(--muted);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-top: 1.5rem;
         }
+
+        .address-block strong {
+            color: var(--foreground);
+        }
+
         .all-caps {
             text-transform: uppercase;
             font-weight: 700;
             margin-top: 1.5em;
             margin-bottom: 1.5em;
+            color: var(--foreground);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 4rem 0;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 1rem;
+        }
+
+        .footer-links a {
+            color: var(--foreground);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>WhyUser Beta User Agreement</h1>
-        <p class="last-updated">
-            <strong>Last Updated:</strong> November 14, 2025
-        </p>
-
-        <p>
-            This Beta User Agreement ("<strong>Agreement</strong>") is a binding legal agreement 
-            between you (the "<strong>Customer</strong>" or "<strong>You</strong>") and 
-            <strong>WhyUser, Inc.</strong> ("<strong>WhyUser</strong>," "<strong>we</strong>," 
-            "<strong>us</strong>," or "<strong>our</strong>").
-        </p>
-        <p>
-            By clicking "I Agree" or by accessing or using the Service (defined below), 
-            you agree to be bound by this Agreement. If you are entering into this 
-            Agreement on behalf of a company or other legal entity, you represent 
-            that you have the authority to bind such entity to this Agreement.
-        </p>
-        <p>
-            This Agreement governs your access to and use of our beta-stage B2B 
-            go-to-market simulation platform (the "<strong>Service</strong>"). This 
-            Agreement is separate from our public 
-            <a href="/legal/terms-of-use">Website Terms of Use</a>, which only 
-            governs our public-facing website.
-        </p>
-
-        <h2>1.0 The Service & Beta Access</h2>
-        <p>
-            WhyUser grants you a limited, non-exclusive, non-transferable, revocable 
-            license to access and use the Service for the sole purpose of internal 
-            business evaluation and to provide feedback to WhyUser (the "<strong>Purpose</strong>").
-        </p>
-        <p>
-            You acknowledge that the Service is a beta version and is provided 
-            on an "AS IS" and "AS AVAILABLE" basis. The Service may contain bugs, 
-            errors, and other defects. WhyUser is under no obligation to provide 
-            any technical support, or to correct any bugs or errors.
-        </p>
-
-        <h2>2.0 Your Responsibilities</h2>
-        <p>You agree that you will not:</p>
-        <ul>
-            <li>Reverse engineer, decompile, or otherwise attempt to discover the 
-                source code or underlying ideas or algorithms of the Service.</li>
-            <li>Use the Service for any purpose other than the limited Purpose 
-                described herein.</li>
-            <li>Share your access credentials or permit any third party to access 
-                the Service.</li>
-            <li>Use the Service to store or transmit any material in violation of 
-                third-party privacy or intellectual property rights.</li>
-            <li>Use the Service to build a competitive product or service.</li>
-        </ul>
-
-        <h2>3.0 Customer Data</h2>
-        
-        <h3>3.1 Your Ownership of Customer Data</h3>
-        <p>
-            As between you and WhyUser, you retain all right, title, and 
-            interest in and to all data, information, sales call transcripts, 
-            CRM data, or other materials you upload to or provide to the 
-            Service ("<strong>Customer Data</strong>").
-        </p>
-
-        <h3>3.2 Our Limited License to Your Data</h3>
-        <p>
-            You grant WhyUser a limited, non-exclusive, royalty-free, worldwide 
-            license to use, copy, store, transmit, and display your Customer Data 
-            <strong>solely to the extent necessary to provide, maintain, and 
-            improve the Service</strong> and to monitor and improve the 
-            Service's performance. We will not use your Customer Data for any 
-            other purpose without your express consent.
-        </p>
-
-        <h3>3.3 Your Responsibility for Customer Data</h3>
-        <p>
-            You represent and warrant that you have obtained all necessary rights, 
-            consents, and permissions to provide your Customer Data to WhyUser 
-            and to grant the license in Section 3.2. You are solely responsible 
-            for the accuracy, legality, and content of your Customer Data.
-        </p>
-
-        <h2>4.0 Confidentiality</h2>
-
-        <h3>4.1 WhyUser's Confidential Information</h3>
-        <p>
-            You acknowledge that the Service (including its "look and feel," 
-            features, and functionality) and any simulation reports, playbooks, 
-            or analyses generated by the Service (collectively, "<strong>Reports</strong>") 
-            are the confidential and proprietary information of WhyUser 
-            ("<strong>WhyUser Confidential Information</strong>"). You agree to hold 
-            WhyUser Confidential Information in strict confidence and not to 
-            disclose it to any third party or use it for any purpose other 
-            than the Purpose of this Agreement.
-        </p>
-
-        <h3>4.2 Customer's Confidential Information</h3>
-        <p>
-            WhyUser agrees that your Customer Data (such as your sales transcripts) 
-            is your confidential information ("<strong>Customer Confidential 
-            Information</strong>"). WhyUser will use the same degree of care that 
-            it uses to protect its own confidential information (but not less 
-            than reasonable care) to prevent any unauthorized use or disclosure 
-            of your Customer Data.
-        </p>
-        
-        <h3>4.3 Exceptions</h3>
-        <p>
-            Confidential Information does not include information that (i) is 
-            or becomes publicly known through no fault of the receiving party; 
-            (ii) was rightfully known by the receiving party prior to disclosure; 
-            or (iii) is independently developed by the receiving party without 
-            use of the disclosing party's Confidential Information.
-        </p>
-
-        <h2>5.0 Feedback</h2>
-        <p>
-            In consideration for access to the Service, you agree to provide 
-            WhyUser with feedback, suggestions, and reports on the performance 
-            and usability of the Service ("<strong>Feedback</strong>").
-        </p>
-        <p>
-            You hereby grant WhyUser a perpetual, irrevocable, worldwide, 
-            royalty-free, fully paid-up license to use, modify, and incorporate 
-            such Feedback into its products and services without any obligation 
-            of attribution or compensation to you.
-        </p>
-
-        <h2>6.0 Term and Termination</h2>
-
-        <h3>6.1 Term</h3>
-        <p>
-            This Agreement begins on the date you first accept it and continues 
-            until terminated by either party.
-        </p>
-
-        <h3>6.2 Termination</h3>
-        <p>
-            <strong>Either party may terminate this Agreement at any time, for any iso
-            reason or no reason, upon written notice (email sufficient) to 
-            the other party.</strong> WhyUser may also immediately suspend or 
-            terminate your access to the Service at any time, in its sole 
-            discretion.
-        </s:
-
-        <h3>6.3 Effect of Termination</h3>
-        <p>
-            Upon termination, your license to access the Service will be 
-            immediately revoked. You must cease all use of the Service. 
-            WhyUser will have no obligation to retain or provide you with 
-            access to your Customer Data and may delete it, unless prohibited 
-            by law. Sections 3.1, 4, 5, 7, 8, and 9 shall survive termination.
-        </p>
-
-        <h2>7.0 Disclaimer of Warranties</h2>
-        <p class="all-caps">
-            THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT 
-            WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. WHYUSER 
-            DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
-            IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-            PURPOSE, AND NON-INFRINGEMENT. WHYUSER DOES NOT WARRANT THAT 
-            THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.
-        </p>
-
-        <h2>8.0 Limitation of Liability</h2>
-        <p class="all-caps">
-            TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL WHYUSER 
-            OR ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO 
-            YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR 
-            PUNITIVE DAMAGES (INCLUDING DAMAGES FOR LOST PROFITS, LOST DATA, 
-            OR GOODWILL) ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT 
-            OR YOUR USE OF THE SERVICE, WHETHER BASED ON WARRANTY, CONTRACT, 
-            TORT, OR ANY OTHER LEGAL THEORY.
-        </p>
-        <p class="all-caps">
-            IN NO EVENT SHALL WHYUSER'S TOTAL CUMULATIVE LIABILITY TO YOU 
-            FOR ANY AND ALL CLAIMS ARISING FROM THIS AGREEMENT EXCEED 
-            ONE HUNDRED DOLLARS ($100.00).
-        </p>
-
-        <h2>9.0 Governing Law and Jurisdiction</h2>
-        <p>
-            This Agreement shall be governed by and construed in accordance 
-            with the internal laws of the State of California, without regard 
-            to its conflict of law provisions.
-        </p>
-        <p>
-            Any legal suit, action, or proceeding arising out of, or related 
-            to, this Agreement or the Service shall be instituted exclusively 
-            in the federal courts of the United States or the courts of the 
-            State of California, in each case located in the County of 
-            Santa Clara.
-        </s:
-
-        <h2>10.0 General</h2>
-        
-        <h3>10.1 Entire Agreement</h3>
-        <p>
-            This Agreement, together with our 
-            <a href="/legal/privacy-policy">Privacy Policy</a>, constitutes the 
-            entire agreement between you and WhyUser regarding the Service 
-            and supersedes all prior agreements.
-        </p>
-        
-        <h3>10.2 Changes to this Agreement</h3>
-        <p>
-            WhyUser reserves the right to modify this Agreement at any time. 
-            If we make material changes, we will provide you with notice 
-            (e.g., by email or through the Service). Your continued use of 
-            the Service after such notice constitutes your acceptance of 
-            the changes.
-        </p>
-        
-        <h3>10.3 Contact Us</h3>
-        <p>
-            If you have any questions about this Agreement, please contact us at:
-        </p>
-        <div class="address-block">
-            <strong>WhyUser, Inc.</strong><br>
-            1468 Greene Drive<br>
-            San Jose, CA 95129<br>
-            <a href="mailto:hello@whyuser.com">hello@whyuser.com</a>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">WhyUser</a>
+            <div class="nav-links">
+                <a href="/#platform">Platform</a>
+                <a href="/#problem">Problem</a>
+                <a href="/legal/">Legal</a>
+            </div>
         </div>
+    </nav>
 
+    <div class="container">
+        <div class="legal-doc">
+            <h1>WhyUser Beta User Agreement</h1>
+            <p class="last-updated">
+                <strong>Last Updated:</strong> November 14, 2025
+            </p>
+
+            <p>
+                This Beta User Agreement ("<strong>Agreement</strong>") is a binding legal agreement 
+                between you (the "<strong>Customer</strong>" or "<strong>You</strong>") and 
+                <strong>WhyUser, Inc.</strong> ("<strong>WhyUser</strong>," "<strong>we</strong>," 
+                "<strong>us</strong>," or "<strong>our</strong>").
+            </p>
+            <p>
+                By clicking "I Agree" or by accessing or using the Service (defined below), 
+                you agree to be bound by this Agreement. If you are entering into this 
+                Agreement on behalf of a company or other legal entity, you represent 
+                that you have the authority to bind such entity to this Agreement.
+            </p>
+            <p>
+                This Agreement governs your access to and use of our beta-stage B2B 
+                go-to-market simulation platform (the "<strong>Service</strong>"). This 
+                Agreement is separate from our public 
+                <a href="/legal/website-terms-of-use.html">Website Terms of Use</a>, which only 
+                governs our public-facing website.
+            </p>
+
+            <h2>1.0 The Service & Beta Access</h2>
+            <p>
+                WhyUser grants you a limited, non-exclusive, non-transferable, revocable 
+                license to access and use the Service for the sole purpose of internal 
+                business evaluation and to provide feedback to WhyUser (the "<strong>Purpose</strong>").
+            </p>
+            <p>
+                You acknowledge that the Service is a beta version and is provided 
+                on an "AS IS" and "AS AVAILABLE" basis. The Service may contain bugs, 
+                errors, and other defects. WhyUser is under no obligation to provide 
+                any technical support, or to correct any bugs or errors.
+            </p>
+
+            <h2>2.0 Your Responsibilities</h2>
+            <p>You agree that you will not:</p>
+            <ul>
+                <li>Reverse engineer, decompile, or otherwise attempt to discover the 
+                    source code or underlying ideas or algorithms of the Service.</li>
+                <li>Use the Service for any purpose other than the limited Purpose 
+                    described herein.</li>
+                <li>Share your access credentials or permit any third party to access 
+                    the Service.</li>
+                <li>Use the Service to store or transmit any material in violation of 
+                    third-party privacy or intellectual property rights.</li>
+                <li>Use the Service to build a competitive product or service.</li>
+            </ul>
+
+            <h2>3.0 Customer Data</h2>
+            
+            <h3>3.1 Your Ownership of Customer Data</h3>
+            <p>
+                As between you and WhyUser, you retain all right, title, and 
+                interest in and to all data, information, sales call transcripts, 
+                CRM data, or other materials you upload to or provide to the 
+                Service ("<strong>Customer Data</strong>").
+            </p>
+
+            <h3>3.2 Our Limited License to Your Data</h3>
+            <p>
+                You grant WhyUser a limited, non-exclusive, royalty-free, worldwide 
+                license to use, copy, store, transmit, and display your Customer Data 
+                <strong>solely to the extent necessary to provide, maintain, and 
+                improve the Service</strong> and to monitor and improve the 
+                Service's performance. We will not use your Customer Data for any 
+                other purpose without your express consent.
+            </p>
+
+            <h3>3.3 Your Responsibility for Customer Data</h3>
+            <p>
+                You represent and warrant that you have obtained all necessary rights, 
+                consents, and permissions to provide your Customer Data to WhyUser 
+                and to grant the license in Section 3.2. You are solely responsible 
+                for the accuracy, legality, and content of your Customer Data.
+            </p>
+
+            <h2>4.0 Confidentiality</h2>
+
+            <h3>4.1 WhyUser's Confidential Information</h3>
+            <p>
+                You acknowledge that the Service (including its "look and feel," 
+                features, and functionality) and any simulation reports, playbooks, 
+                or analyses generated by the Service (collectively, "<strong>Reports</strong>") 
+                are the confidential and proprietary information of WhyUser 
+                ("<strong>WhyUser Confidential Information</strong>"). You agree to hold 
+                WhyUser Confidential Information in strict confidence and not to 
+                disclose it to any third party or use it for any purpose other 
+                than the Purpose of this Agreement.
+            </p>
+
+            <h3>4.2 Customer's Confidential Information</h3>
+            <p>
+                WhyUser agrees that your Customer Data (such as your sales transcripts) 
+                is your confidential information ("<strong>Customer Confidential 
+                Information</strong>"). WhyUser will use the same degree of care that 
+                it uses to protect its own confidential information (but not less 
+                than reasonable care) to prevent any unauthorized use or disclosure 
+                of your Customer Data.
+            </p>
+            
+            <h3>4.3 Exceptions</h3>
+            <p>
+                Confidential Information does not include information that (i) is 
+                or becomes publicly known through no fault of the receiving party; 
+                (ii) was rightfully known by the receiving party prior to disclosure; 
+                or (iii) is independently developed by the receiving party without 
+                use of the disclosing party's Confidential Information.
+            </p>
+
+            <h2>5.0 Feedback</h2>
+            <p>
+                In consideration for access to the Service, you agree to provide 
+                WhyUser with feedback, suggestions, and reports on the performance 
+                and usability of the Service ("<strong>Feedback</strong>").
+            </p>
+            <p>
+                You hereby grant WhyUser a perpetual, irrevocable, worldwide, 
+                royalty-free, fully paid-up license to use, modify, and incorporate 
+                such Feedback into its products and services without any obligation 
+                of attribution or compensation to you.
+            </p>
+
+            <h2>6.0 Term and Termination</h2>
+
+            <h3>6.1 Term</h3>
+            <p>
+                This Agreement begins on the date you first accept it and continues 
+                until terminated by either party.
+            </p>
+
+            <h3>6.2 Termination</h3>
+            <p>
+                <strong>Either party may terminate this Agreement at any time, for any 
+                reason or no reason, upon written notice (email sufficient) to 
+                the other party.</strong> WhyUser may also immediately suspend or 
+                terminate your access to the Service at any time, in its sole 
+                discretion.
+            </p>
+
+            <h3>6.3 Effect of Termination</h3>
+            <p>
+                Upon termination, your license to access the Service will be 
+                immediately revoked. You must cease all use of the Service. 
+                WhyUser will have no obligation to retain or provide you with 
+                access to your Customer Data and may delete it, unless prohibited 
+                by law. Sections 3.1, 4, 5, 7, 8, and 9 shall survive termination.
+            </p>
+
+            <h2>7.0 Disclaimer of Warranties</h2>
+            <p class="all-caps">
+                THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT 
+                WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. WHYUSER 
+                DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+                IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+                PURPOSE, AND NON-INFRINGEMENT. WHYUSER DOES NOT WARRANT THAT 
+                THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.
+            </p>
+
+            <h2>8.0 Limitation of Liability</h2>
+            <p class="all-caps">
+                TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL WHYUSER 
+                OR ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO 
+                YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR 
+                PUNITIVE DAMAGES (INCLUDING DAMAGES FOR LOST PROFITS, LOST DATA, 
+                OR GOODWILL) ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT 
+                OR YOUR USE OF THE SERVICE, WHETHER BASED ON WARRANTY, CONTRACT, 
+                TORT, OR ANY OTHER LEGAL THEORY.
+            </p>
+            <p class="all-caps">
+                IN NO EVENT SHALL WHYUSER'S TOTAL CUMULATIVE LIABILITY TO YOU 
+                FOR ANY AND ALL CLAIMS ARISING FROM THIS AGREEMENT EXCEED 
+                ONE HUNDRED DOLLARS ($100.00).
+            </p>
+
+            <h2>9.0 Governing Law and Jurisdiction</h2>
+            <p>
+                This Agreement shall be governed by and construed in accordance 
+                with the internal laws of the State of California, without regard 
+                to its conflict of law provisions.
+            </p>
+            <p>
+                Any legal suit, action, or proceeding arising out of, or related 
+                to, this Agreement or the Service shall be instituted exclusively 
+                in the federal courts of the United States or the courts of the 
+                State of California, in each case located in the County of 
+                Santa Clara.
+            </p>
+
+            <h2>10.0 General</h2>
+            
+            <h3>10.1 Entire Agreement</h3>
+            <p>
+                This Agreement, together with our 
+                <a href="/legal/privacy-policy.html">Privacy Policy</a>, constitutes the 
+                entire agreement between you and WhyUser regarding the Service 
+                and supersedes all prior agreements.
+            </p>
+            
+            <h3>10.2 Changes to this Agreement</h3>
+            <p>
+                WhyUser reserves the right to modify this Agreement at any time. 
+                If we make material changes, we will provide you with notice 
+                (e.g., by email or through the Service). Your continued use of 
+                the Service after such notice constitutes your acceptance of 
+                the changes.
+            </p>
+            
+            <h3>10.3 Contact Us</h3>
+            <p>
+                If you have any questions about this Agreement, please contact us at:
+            </p>
+            <div class="address-block">
+                <strong>WhyUser, Inc.</strong><br>
+                1468 Greene Drive<br>
+                San Jose, CA 95129<br>
+                <a href="mailto:hello@whyuser.com">hello@whyuser.com</a>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1.125rem;">WhyUser</p>
+                <p style="color: var(--muted-foreground); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.7; max-width: 32rem;">
+                    A buyer simulation platform for marketing and product teams. Analyses content through real customer logic to reveal how your market interprets your story.
+                </p>
+                <p style="color: var(--muted-foreground); font-size: 0.875rem;">
+                    © 2025 WhyUser, Inc. All rights reserved.
+                </p>
+            </div>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="#">Docs</a>
+                <a href="/legal/privacy-policy.html">Privacy Policy</a>
+                <a href="/legal/website-terms-of-use.html">Terms of Use</a>
+                <a href="/legal/">Legal Center</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

@@ -4,298 +4,463 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - WhyUser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #FAF8F5;
+            --foreground: #1A1A18;
+            --card: #FFFFFF;
+            --muted: #F0EDE8;
+            --muted-foreground: #4A4A48;
+            --accent: #4e75f9;
+            --accent-light: #8cbded;
+            --accent-hover: #5A8AC6;
+            --lavender: #F5F4F9;
+            --border: #E5E2DB;
+            --shadow: rgba(58, 58, 56, 0.08);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            background-color: #f9f9f9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.7;
+            letter-spacing: -0.01em;
         }
-        .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+        /* Navigation */
+        nav {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        h1, h2, h3 {
-            color: #111;
-            font-weight: 600;
-            margin-top: 1.5em;
+
+        nav .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        h1 {
-            font-size: 2.2em;
-            margin-top: 0;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-        h3 {
-            font-size: 1.4em;
-        }
-        p, li {
-            font-size: 1.1em;
-            margin-bottom: 1em;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: #007bff;
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--foreground);
             text-decoration: none;
+            letter-spacing: -0.03em;
         }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: var(--foreground);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p, li {
+            font-size: 1.0625rem;
+            margin-bottom: 1rem;
+            color: var(--muted-foreground);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            list-style-type: disc;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
         a:hover {
-            text-decoration: underline;
+            color: var(--accent-hover);
         }
+
         strong {
             font-weight: 600;
+            color: var(--foreground);
         }
+
         .last-updated {
             font-style: italic;
-            color: #666;
-            font-size: 1.0em;
+            color: var(--muted-foreground);
+            font-size: 0.9375rem;
+            margin-bottom: 2rem;
         }
+
         .address-block {
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            font-style: normal;
+            padding: 1.25rem;
+            background: var(--muted);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-top: 1.5rem;
+        }
+
+        .address-block strong {
+            color: var(--foreground);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 4rem 0;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 1rem;
+        }
+
+        .footer-links a {
+            color: var(--foreground);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>WhyUser Privacy Policy</h1>
-        <p class="last-updated">
-            <strong>Last Updated:</strong> November 14, 2025
-        </p>
-
-        <p>
-            Welcome to WhyUser. This Privacy Policy explains how 
-            <strong>WhyUser, Inc.</strong>
-            ("<strong>WhyUser</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") 
-            collects, uses, and discloses information about you when you visit our website 
-            (www.whyuser.com) and any other websites, social media pages, or forms that link to this 
-            Privacy Policy (collectively, the "<strong>Sites</strong>").
-        </p>
-
-        <h2>1.0 Applicability of this Privacy Policy</h2>
-
-        <p>
-            This Privacy Policy applies to information collected on our Sites. 
-        </p>
-        <p>
-            <strong>This Privacy Policy does not apply to the "Customer Data"</strong> that we process 
-            on behalf of our customers (our "Design Partners" or "Customers") through our B2B 
-            SaaS platform (the "<strong>Service</strong>"). "Customer Data" includes the sensitive 
-            go-to-market materials, sales call transcripts, CRM data, and other information 
-            that our Customers upload to our Service for simulation and analysis.
-        </p>
-        <p>
-            Our collection, use, and processing of Customer Data is governed by the 
-            <a href="/legal/beta-agreement">Beta User Agreement</a> or other master 
-            agreement between us and our Customer. If you are an individual whose data has 
-            been submitted to our Service by a WhyUser Customer (such as an employee or 
-            customer of that Customer), you should contact that Customer directly with 
-            any privacy-related questions.
-        </p>
-
-        <h2>2.0 Information We Collect</h2>
-
-        <p>We collect information in a few different ways:</p>
-
-        <h3>2.1 Information You Provide to Us</h3>
-        <p>
-            We collect information you provide directly to us, such as when you:
-        </p>
-        <ul>
-            <li>Request a demo or more information;</li>
-            <li>Sign up for our waitlist or newsletter;</li>
-            <li>Register for a webinar;</li>
-            <li>Contact us for support or any other reason.</li>
-        </ul>
-        <p>
-            This information may include your name, email address, job title, company name, 
-            phone number, and any other information you choose to provide in your message.
-        </p>
-
-        <h3>2.2 Information We Collect Automatically</h3>
-        <p>
-            When you visit our Sites, we automatically collect certain information 
-            about your device and usage:
-        </p>
-        <ul>
-            <li>
-                <strong>Device and Log Information:</strong> We collect your IP address, browser 
-                type, operating system, referring URLs, and information about your activity 
-                on the Sites.
-            </li>
-            <li>
-                <strong>Information from Cookies and Trackers:</strong> We and our service 
-                providers use cookies and similar technologies (like pixels and web beacons) 
-                to analyze trends, administer the Sites, track users' movements around the 
-                Sites, and gather demographic information. This Privacy Policy does not 
-                cover the use of cookies by third parties. You can control the use of 
-                cookies at the individual browser level.
-            </li>
-        </ul>
-
-        <h2>3.0 How We Use Your Information</h2>
-
-        <p>We use the information we collect for various business purposes, including to:</p>
-        <ul>
-            <li>Provide, maintain, and improve our Sites;</li>
-            <li>Respond to your comments, questions, and demo requests;</li>
-            <li>Communicate with you about products, services, and events offered by WhyUser, 
-                including marketing and promotional messages (you can opt-out at any time);</li>
-            <li>Monitor and analyze trends, usage, and activities in connection with our Sites;</li>
-            <li>Detect, investigate, and prevent fraudulent transactions and other illegal 
-                activities and protect the rights and property of WhyUser and others;</li>
-            <li>Comply with our legal and financial obligations.</li>
-        </ul>
-
-        <h2>4.0 How We Share Your Information</h2>
-
-        <p>We may share your information in the following situations:</p>
-
-        <ul>
-            <li>
-                <strong>With Service Providers:</strong> We share information with third-party 
-                vendors and service providers who perform services on our behalf, such as 
-                website hosting, analytics (e.g., Google Analytics), and email delivery. 
-                These providers are authorized to use your information only as necessary 
-                to provide these services to us.
-            </li>
-            <li>
-                <strong>For Legal Reasons:</strong> We may disclose your information if we 
-                believe it's required by law, subpoena, or other legal process, or if we 
-                have a good faith belief that disclosure is necessary to protect our 
-                rights, protect your safety or the safety of others, or investigate fraud.
-            </li>
-            <li>
-                <strong>In a Business Transfer:</strong> In the event of a merger, acquisition, 
-                financing due diligence, or sale of all or a portion of our assets, your 
-                information may be transferred as part of that transaction. We will notify 
-                you via email and/or a prominent notice on our Site of any change in 
-                ownership.
-            </li>
-            <li>
-                <strong>With Your Consent:</strong> We may share your information for other 
-                purposes with your explicit consent.
-            </li>
-        </ul>
-        <p>
-            <strong>We do not sell your personal information.</strong>
-        </p>
-
-        <h2>5.0 Data Security</h2>
-
-        <p>
-            We take the security of your data seriously. We use reasonable administrative, 
-            technical, and physical safeguards to protect the information we collect. 
-            However, no electronic transmission or storage of data is 100% secure, and 
-            we cannot guarantee its absolute security.
-        </p>
-
-        <h2>6.0 Data Retention</h2>
-
-        <p>
-            We retain your information for as long as is necessary for the purposes set 
-            out in this Privacy Policy, or as needed to comply with our legal obligations, 
-            resolve disputes, and enforce our agreements.
-        </p>
-
-        <h2>7.0 Your Data Rights</h2>
-
-        <p>
-            You may have certain rights regarding your personal information, depending on 
-            your location. This includes the right to access, correct, or delete your 
-            personal information. To exercise these rights, please contact us at 
-            <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>.
-        </p>
-
-        <h3>7.1 Your California Privacy Rights</h3>
-        <p>
-            If you are a California resident, you have specific rights under the 
-            California Consumer Privacy Act (CCPA). These rights include:
-        </p>
-        <ul>
-            <li>
-                <strong>Right to Know:</strong> You have the right to request that we disclose 
-                what personal information we collect, use, and disclose.
-            </li>
-            <li>
-                <strong>Right to Delete:</strong> You have the right to request the deletion 
-                of your personal information, subject to certain exceptions.
-            </li>
-            <li>
-                <strong>Right to Opt-Out:</strong> We do not "sell" or "share" your personal 
-                information as those terms are defined by the CCPA.
-            </li>
-            <li>
-                <strong>Right to Non-Discrimination:</strong> We will not discriminate against 
-                you for exercising any of your CCPA rights.
-            </li>
-        </ul>
-        <p>
-            To exercise your California privacy rights, please contact us at 
-            <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>.
-        </p>
-        <p>
-            California's "Shine the Light" law (Civil Code Section § 1798.83) permits 
-            users of our Sites that are California residents to request certain 
-            information regarding our disclosure of personal information to third parties 
-            for their direct marketing purposes. To make such a request, please 
-            contact us at <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>.
-        </p>
-
-        <h2>8.0 International Data Transfers</h2>
-
-        <p>
-            WhyUser, Inc. is based in the United States, and we process and store 
-            information in the U.S. If you are located outside the U.S., be 
-            aware that your information will be transferred to, processed, and 
-            stored in the U.S.
-        </p>
-
-        <h2>9.0 Children's Privacy</h2>
-
-        <p>
-            Our Sites are not directed to children under the age of 13 (or 16 in 
-            certain jurisdictions), and we do not knowingly collect personal 
-            information from children. If we learn we have collected such information, 
-            we will take steps to delete it.
-        </p>
-
-        <h2>10.0 Changes to This Privacy Policy</h2>
-
-        <p>
-            We may update this Privacy Policy from time to time. If we make material 
-            changes, we will notify you by posting the updated policy on this page 
-            and updating the "Last Updated" date at the top.
-        </p>
-
-        <h2>11.0 Contact Us</h2>
-
-        <p>
-            If you have any questions about this Privacy Policy, please contact us at:
-        </p>
-        <div class="address-block">
-            <strong>WhyUser, Inc.</strong><br>
-            Attn: Privacy Officer<br>
-            1468 Greene Drive<br>
-            San Jose, CA 95129<br>
-            <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>
+    <nav>
+        <div class="nav-content">
+            <a href="/" class="logo">WhyUser</a>
+            <div class="nav-links">
+                <a href="/#platform">Platform</a>
+                <a href="/#problem">Problem</a>
+                <a href="/legal/">Legal</a>
+            </div>
         </div>
+    </nav>
 
+    <div class="container">
+        <div class="legal-doc">
+            <h1>WhyUser Privacy Policy</h1>
+            <p class="last-updated">
+                <strong>Last Updated:</strong> November 14, 2025
+            </p>
+
+            <p>
+                Welcome to WhyUser. This Privacy Policy explains how 
+                <strong>WhyUser, Inc.</strong>
+                ("<strong>WhyUser</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") 
+                collects, uses, and discloses information about you when you visit our website 
+                (www.whyuser.com) and any other websites, social media pages, or forms that link to this 
+                Privacy Policy (collectively, the "<strong>Sites</strong>").
+            </p>
+
+            <h2>1.0 Applicability of this Privacy Policy</h2>
+
+            <p>
+                This Privacy Policy applies to information collected on our Sites. 
+            </p>
+            <p>
+                <strong>This Privacy Policy does not apply to the "Customer Data"</strong> that we process 
+                on behalf of our customers (our "Design Partners" or "Customers") through our B2B 
+                SaaS platform (the "<strong>Service</strong>"). "Customer Data" includes the sensitive 
+                go-to-market materials, sales call transcripts, CRM data, and other information 
+                that our Customers upload to our Service for simulation and analysis.
+            </p>
+            <p>
+                Our collection, use, and processing of Customer Data is governed by the 
+                <a href="/legal/beta-agreement.html">Beta User Agreement</a> or other master 
+                agreement between us and our Customer. If you are an individual whose data has 
+                been submitted to our Service by a WhyUser Customer (such as an employee or 
+                customer of that Customer), you should contact that Customer directly with 
+                any privacy-related questions.
+            </p>
+
+            <h2>2.0 Information We Collect</h2>
+
+            <p>We collect information in a few different ways:</p>
+
+            <h3>2.1 Information You Provide to Us</h3>
+            <p>
+                We collect information you provide directly to us, such as when you:
+            </p>
+            <ul>
+                <li>Request a demo or more information;</li>
+                <li>Sign up for our waitlist or newsletter;</li>
+                <li>Register for a webinar;</li>
+                <li>Contact us for support or any other reason.</li>
+            </ul>
+            <p>
+                This information may include your name, email address, job title, company name, 
+                phone number, and any other information you choose to provide in your message.
+            </p>
+
+            <h3>2.2 Information We Collect Automatically</h3>
+            <p>
+                When you visit our Sites, we automatically collect certain information 
+                about your device and usage:
+            </p>
+            <ul>
+                <li>
+                    <strong>Device and Log Information:</strong> We collect your IP address, browser 
+                    type, operating system, referring URLs, and information about your activity 
+                    on the Sites.
+                </li>
+                <li>
+                    <strong>Information from Cookies and Trackers:</strong> We and our service 
+                    providers use cookies and similar technologies (like pixels and web beacons) 
+                    to analyze trends, administer the Sites, track users' movements around the 
+                    Sites, and gather demographic information. This Privacy Policy does not 
+                    cover the use of cookies by third parties. You can control the use of 
+                    cookies at the individual browser level.
+                </li>
+            </ul>
+
+            <h2>3.0 How We Use Your Information</h2>
+
+            <p>We use the information we collect for various business purposes, including to:</p>
+            <ul>
+                <li>Provide, maintain, and improve our Sites;</li>
+                <li>Respond to your comments, questions, and demo requests;</li>
+                <li>Communicate with you about products, services, and events offered by WhyUser, 
+                    including marketing and promotional messages (you can opt-out at any time);</li>
+                <li>Monitor and analyze trends, usage, and activities in connection with our Sites;</li>
+                <li>Detect, investigate, and prevent fraudulent transactions and other illegal 
+                    activities and protect the rights and property of WhyUser and others;</li>
+                <li>Comply with our legal and financial obligations.</li>
+            </ul>
+
+            <h2>4.0 How We Share Your Information</h2>
+
+            <p>We may share your information in the following situations:</p>
+
+            <ul>
+                <li>
+                    <strong>With Service Providers:</strong> We share information with third-party 
+                    vendors and service providers who perform services on our behalf, such as 
+                    website hosting, analytics (e.g., Google Analytics), and email delivery. 
+                    These providers are authorized to use your information only as necessary 
+                    to provide these services to us.
+                </li>
+                <li>
+                    <strong>For Legal Reasons:</strong> We may disclose your information if we 
+                    believe it's required by law, subpoena, or other legal process, or if we 
+                    have a good faith belief that disclosure is necessary to protect our 
+                    rights, protect your safety or the safety of others, or investigate fraud.
+                </li>
+                <li>
+                    <strong>In a Business Transfer:</strong> In the event of a merger, acquisition, 
+                    financing due diligence, or sale of all or a portion of our assets, your 
+                    information may be transferred as part of that transaction. We will notify 
+                    you via email and/or a prominent notice on our Site of any change in 
+                    ownership.
+                </li>
+                <li>
+                    <strong>With Your Consent:</strong> We may share your information for other 
+                    purposes with your explicit consent.
+                </li>
+            </ul>
+            <p>
+                <strong>We do not sell your personal information.</strong>
+            </p>
+
+            <h2>5.0 Data Security</h2>
+
+            <p>
+                We take the security of your data seriously. We use reasonable administrative, 
+                technical, and physical safeguards to protect the information we collect. 
+                However, no electronic transmission or storage of data is 100% secure, and 
+                we cannot guarantee its absolute security.
+            </p>
+
+            <h2>6.0 Data Retention</h2>
+
+            <p>
+                We retain your information for as long as is necessary for the purposes set 
+                out in this Privacy Policy, or as needed to comply with our legal obligations, 
+                resolve disputes, and enforce our agreements.
+            </p>
+
+            <h2>7.0 Your Data Rights</h2>
+
+            <p>
+                You may have certain rights regarding your personal information, depending on 
+                your location. This includes the right to access, correct, or delete your 
+                personal information. To exercise these rights, please contact us at 
+                <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>.
+            </p>
+
+            <h3>7.1 Your California Privacy Rights</h3>
+            <p>
+                If you are a California resident, you have specific rights under the 
+                California Consumer Privacy Act (CCPA). These rights include:
+            </p>
+            <ul>
+                <li>
+                    <strong>Right to Know:</strong> You have the right to request that we disclose 
+                    what personal information we collect, use, and disclose.
+                </li>
+                <li>
+                    <strong>Right to Delete:</strong> You have the right to request the deletion 
+                    of your personal information, subject to certain exceptions.
+                </li>
+                <li>
+                    <strong>Right to Opt-Out:</strong> We do not "sell" or "share" your personal 
+                    information as those terms are defined by the CCPA.
+                </li>
+                <li>
+                    <strong>Right to Non-Discrimination:</strong> We will not discriminate against 
+                    you for exercising any of your CCPA rights.
+                </li>
+            </ul>
+            <p>
+                To exercise your California privacy rights, please contact us at 
+                <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>.
+            </p>
+            <p>
+                California's "Shine the Light" law (Civil Code Section § 1798.83) permits 
+                users of our Sites that are California residents to request certain 
+                information regarding our disclosure of personal information to third parties 
+                for their direct marketing purposes. To make such a request, please 
+                contact us at <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>.
+            </p>
+
+            <h2>8.0 International Data Transfers</h2>
+
+            <p>
+                WhyUser, Inc. is based in the United States, and we process and store 
+                information in the U.S. If you are located outside the U.S., be 
+                aware that your information will be transferred to, processed, and 
+                stored in the U.S.
+            </p>
+
+            <h2>9.0 Children's Privacy</h2>
+
+            <p>
+                Our Sites are not directed to children under the age of 13 (or 16 in 
+                certain jurisdictions), and we do not knowingly collect personal 
+                information from children. If we learn we have collected such information, 
+                we will take steps to delete it.
+            </p>
+
+            <h2>10.0 Changes to This Privacy Policy</h2>
+
+            <p>
+                We may update this Privacy Policy from time to time. If we make material 
+                changes, we will notify you by posting the updated policy on this page 
+                and updating the "Last Updated" date at the top.
+            </p>
+
+            <h2>11.0 Contact Us</h2>
+
+            <p>
+                If you have any questions about this Privacy Policy, please contact us at:
+            </p>
+            <div class="address-block">
+                <strong>WhyUser, Inc.</strong><br>
+                Attn: Privacy Officer<br>
+                1468 Greene Drive<br>
+                San Jose, CA 95129<br>
+                <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1.125rem;">WhyUser</p>
+                <p style="color: var(--muted-foreground); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.7; max-width: 32rem;">
+                    A buyer simulation platform for marketing and product teams. Analyses content through real customer logic to reveal how your market interprets your story.
+                </p>
+                <p style="color: var(--muted-foreground); font-size: 0.875rem;">
+                    © 2025 WhyUser, Inc. All rights reserved.
+                </p>
+            </div>
+            <div class="footer-links">
+                <a href="/about.html">About</a>
+                <a href="#">Docs</a>
+                <a href="/legal/privacy-policy.html">Privacy Policy</a>
+                <a href="/legal/website-terms-of-use.html">Terms of Use</a>
+                <a href="/legal/">Legal Center</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

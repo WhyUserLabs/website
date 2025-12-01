@@ -15,6 +15,7 @@
         }
 
         :root {
+            --heading-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --primary-bg: #F8F9FB;
             --secondary-bg: #EEF2F6;
             --dark-text: #1A202C;
@@ -39,6 +40,9 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        h1, h2, h3, h4, .logo, .section-title, .hero-tagline, .nav-cta {
+            font-family: var(--heading-font);
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -187,6 +191,14 @@
             color: var(--dark-text);
         }
 
+        .hero-text h1 span {
+            color: var(--accent-primary);
+            /* Optional: If you prefer the gradient look like the logo, uncomment below: */
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .hero-text p {
             font-size: 18px;
             line-height: 1.7;
@@ -3200,7 +3212,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="hero-tagline">CI/CD for GTM</div>
-                    <h1>Know Why They Won't Buy. Before You Spend.</h1>
+                    <h1>Know Why They Won't Buy. <br><span>Before You Spend.</span></h1>
                     <p>Buyers form their opinion before any data appears. Committees decide before campaigns produce their first signal. Most teams learn what buyers thought only after spend is committed.</p>
                     <p>WhyUser simulates how your buyers and buying committees will interpret assets before you spend on campaigns.</p>
                     
@@ -3483,7 +3495,7 @@
                 <div class="key-diff-icon">⚡</div>
                 <div class="key-diff-content">
                     <h3>The Critical Difference</h3>
-                    <p>The old way tests in production—you spend $50K to learn what doesn't work. WhyUser tests in the lab—you spend $0 to find friction, fix it, then deploy with confidence.</p>
+                    <p>The old way tests in production where you spend $50K to learn what doesn't work. WhyUser tests in the lab where you spend $0 to find friction, fix it, then deploy with confidence.</p>
                 </div>
             </div>
         </div>
@@ -3493,7 +3505,7 @@
     <section>
         <div class="container">
             <h2 class="section-title">Three Wars Every Marketing Team Fights</h2>
-            <p class="section-subtitle">Your campaigns are tested internally. But deals die when external skeptics—CFOs, technical evaluators, security teams—never see what you approved.</p>
+            <p class="section-subtitle">Your campaigns are tested internally. But deals die when external skeptics like CFOs, technical evaluators & security teams never see what you approved.</p>
             
             <div class="wars-grid">
                 <div class="war-card">
@@ -3541,8 +3553,8 @@
                     <tbody>
                         <tr>
                             <td class="method-name">A/B Testing</td>
-                            <td class="flaw">Testing in production. Must spend $50k+ per variation to learn.</td>
-                            <td class="solution">Test in simulation. Zero spend to identify friction.</td>
+                            <td class="flaw">Testing in production. Must spend <strong>$50k+ </strong>per variation to learn.</td>
+                            <td class="solution">Test in simulation. <strong>Zero </strong>spend to identify friction.</td>
                         </tr>
                         <tr>
                             <td class="method-name">Internal Reviews</td>
@@ -3551,8 +3563,8 @@
                         </tr>
                         <tr>
                             <td class="method-name">Human Panels</td>
-                            <td class="flaw">Slow and expensive. $2-5k per test, 5-7 days.</td>
-                            <td class="solution">Results in minutes. Unlimited iterations.</td>
+                            <td class="flaw">Slow and expensive. <strong>$2-5k </strong>per test, <strong>5-7 days</strong>.</td>
+                            <td class="solution">Results in <strong>minutes</strong>. Unlimited iterations.</td>
                         </tr>
                         <tr>
                             <td class="method-name">Heatmaps</td>

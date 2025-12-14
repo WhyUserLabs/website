@@ -1,478 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - WhyUser</title>
-  <meta name="description" content="Get in touch with WhyUser. Let's talk about your buyers and how we can help you understand them better.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | WhyUser</title>
+    <meta name="description" content="Get in touch with WhyUser. Let's talk about your buyers and how we can help you understand them better.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6', // Soft Violet
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                        },
+                        slate: {
+                            850: '#1e293b', 
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style> 
+        body { font-family: 'Inter', sans-serif; }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --background: #FAF8F5;
-      --foreground: #1A1A18;
-      --card: #FFFFFF;
-      --muted: #F0EDE8;
-      --muted-foreground: #4A4A48;
-      --accent: #4e75f9; /* This was your existing --blue-accent */
-      --accent-light: #8cbded; /* A new lighter tint */
-      --accent-hover: #5A8AC6; /* A new darker shade for hover */
-      --lavender: #F5F4F9;
-      --lavender-dark: #E8E6F0;
-      --border: #E5E2DB;
-      --shadow: rgba(58, 58, 56, 0.08);
-      --shadow-hover: rgba(58, 58, 56, 0.12);
-      --purple-cta: #A89FD4;
-      --purple-accent: #8B7FC7;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--background);
-      color: var(--foreground);
-      line-height: 1.7;
-      letter-spacing: -0.01em;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      color: var(--foreground);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 3rem;
-    }
-
-    /* Navigation */
-    nav {
-      background: rgba(250, 248, 245, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav .nav-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 3rem;
-    }
-
-    nav .logo {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--foreground);
-      text-decoration: none;
-      letter-spacing: -0.03em;
-    }
-
-    nav .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    nav a {
-      color: var(--foreground);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    nav .nav-cta {
-      background: var(--accent);
-      color: white;
-      padding: 0.625rem 1.75rem;
-      border-radius: 24px;
-      font-weight: 600;
-      box-shadow: 0 2px 8px var(--shadow);
-      transition: all 0.3s ease;
-    }
-
-    nav .nav-cta:hover {
-      background: var(--accent-hover);
-      box-shadow: 0 4px 12px var(--shadow-hover);
-      transform: translateY(-1px);
-    }
-
-    /* Contact Section */
-    section {
-      padding: 6rem 0;
-    }
-
-    .section-label {
-      display: inline-block;
-      background: var(--lavender);
-      color: var(--foreground);
-      padding: 0.5rem 1.25rem;
-      border-radius: 24px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .section-title {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-
-    .section-text {
-      font-size: 1.25rem;
-      color: var(--muted-foreground);
-      line-height: 1.8;
-      max-width: 48rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-
-    .contact-form-box {
-      background: var(--card);
-      border: 3px solid var(--foreground);
-      border-radius: 24px;
-      padding: 3rem;
-      box-shadow: 0 4px 16px var(--shadow);
-      /* Add min-height to prevent layout collapse before form loads */
-      min-height: 600px;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .contact-info-card {
-      background: var(--card);
-      border: 3px solid var(--foreground);
-      border-radius: 24px;
-      padding: 2rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-      transition: all 0.3s ease;
-    }
-
-    .contact-info-card:hover {
-      box-shadow: 0 6px 20px var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-
-    .contact-info-card:last-child {
-      background: var(--lavender);
-    }
-
-    .contact-icon-box {
-      width: 3.5rem;
-      height: 3.5rem;
-      border: 2px solid var(--foreground);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: var(--card);
-    }
-
-    .contact-icon-box svg {
-      width: 1.5rem;
-      height: 1.5rem;
-      stroke: var(--foreground);
-    }
-
-    .contact-info-content h3 {
-      font-size: 1.125rem;
-      margin-bottom: 0.35rem;
-      font-weight: 600;
-    }
-
-    .contact-info-content p {
-      color: var(--muted-foreground);
-      font-size: 0.9375rem;
-      line-height: 1.6;
-    }
-
-    .contact-info-content a {
-      color: var(--foreground);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--foreground);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.875rem 1.25rem;
-      border: 3px solid var(--foreground);
-      border-radius: 12px;
-      font-size: 0.9375rem;
-      font-family: 'Inter', sans-serif;
-      background: var(--card);
-      color: var(--foreground);
-      transition: all 0.3s ease;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--muted-foreground);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--purple-cta);
-      box-shadow: 0 0 0 3px rgba(168, 159, 212, 0.1);
-    }
-
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 1rem 2rem;
-      background: var(--purple-cta);
-      color: var(--foreground);
-      border: 3px solid var(--foreground);
-      border-radius: 12px;
-      font-size: 1.125rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-    }
-
-    .submit-btn:hover {
-      background: var(--purple-accent);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px var(--shadow-hover);
-    }
-
-    .submit-btn svg {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      padding: 4rem 0;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 4rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--foreground);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1.5rem;
-      }
-
-      nav .nav-content {
-        padding: 1rem 1.5rem;
-      }
-
-      nav .nav-links {
-        gap: 1.5rem;
-      }
-
-      .section-title {
-        font-size: 2.5rem;
-      }
-
-      .section-text {
-        font-size: 1rem;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .contact-form-box {
-        padding: 2rem;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-  </style>
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+    </style>
 </head>
-<body>
-  <nav>
-    <div class="nav-content">
-      <!-- <a href="index.html" class="logo">WhyUser</a> -->
-      <a href="index.html" class="logo">Why<span style="color: var(--accent);">User</span></a>
-      <div class="nav-links">
-        <a href="index.html#how">How it works</a>
-        <a href="index.html#tech">Causal AI</a>
-        <a href="index.html#platform">Platform</a>
-        <a href="index.html#problem">Problem</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-      </div>
-    </div>
-  </nav>
+<body class="text-slate-800 bg-white antialiased overflow-x-hidden selection:bg-primary-100 selection:text-primary-900">
 
-  <section id="contact">
-    <div class="container">
-      <div class="section-label">Contact</div>
-      <h2 class="section-title">Let's Talk About Your Buyers</h2>
-      <p class="section-text">Ready to see how your market interprets your message? Get in touch and we'll help you understand your buyers better.</p>
-
-      <div class="contact-grid">
-        <div class="contact-form-box">
-          <iframe data-tally-src="https://tally.so/embed/Bz4X04?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Contact form"></iframe>
-        </div>
-
-        <div class="contact-info">
-          <a href="mailto:hello@whyuser.com" style="text-decoration: none;">
-            <div class="contact-info-card">
-                <div class="contact-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="16" rx="2"/>
-                    <path d="M3 8l9 6 9-6"/>
-                </svg>
+    <nav class="fixed w-full bg-white/90 backdrop-blur-lg z-50 border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 group cursor-pointer decoration-0">
+                    <div class="w-9 h-9 bg-gradient-to-br from-primary-600 to-indigo-700 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 group-hover:scale-105 transition-transform">W</div>
+                    <span class="font-bold text-xl text-slate-900 tracking-tight group-hover:text-primary-700 transition-colors">WhyUser</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-10">
+                    <a href="index.html#problem" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">The Problem</a>
+                    <a href="index.html#solution" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Solution</a>
+                    <a href="index.html#technology" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Technology</a>
                 </div>
-                <div class="contact-info-content">
-                <h3>Email us</h3>
-                <p>hello@whyuser.com</p>
+
+                <div>
+                    <a href="index.html#simulation-form" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-lg font-semibold transition shadow-xl shadow-slate-900/20 text-sm hover:-translate-y-0.5 active:translate-y-0">
+                        Run Simulation
+                    </a>
                 </div>
             </div>
-          </a>
+        </div>
+    </nav>
 
-          <a href="https://calendly.com/durga-whyuser/30min" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-            <div class="contact-info-card">
-                <div class="contact-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <path d="M16 2v4M8 2v4M3 10h18"/>
-                </svg>
+    <section class="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-50 min-h-screen relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none -z-10">
+            <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-200/40 rounded-full mix-blend-multiply filter blur-[100px] opacity-70 animate-blob"></div>
+            <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-indigo-200/40 rounded-full mix-blend-multiply filter blur-[100px] opacity-70 animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-primary-700 font-extrabold tracking-wider uppercase text-xs bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm mb-6 inline-block">Contact Us</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Let's Talk About Your Buyers</h1>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto font-normal">
+                    Ready to see how your market interprets your message? Get in touch and we'll help you understand your buyers better.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-start fade-in-up delay-100">
+                
+                <div class="lg:col-span-2 bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200 overflow-hidden">
+                    <div class="p-1">
+                        <iframe data-tally-src="https://tally.so/embed/Bz4X04?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Contact form"></iframe>
+                    </div>
                 </div>
-                <div class="contact-info-content">
-                <h3>Schedule a demo</h3>
-                <p>See WhyUser in action with your own content</p>
+
+                <div class="space-y-6 lg:col-span-1 fade-in-up delay-200">
+                    
+                    <a href="mailto:hello@whyuser.com" class="block group">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary-200 transition-all duration-300">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-600 border border-slate-100 group-hover:bg-primary-50 group-hover:text-primary-600 group-hover:border-primary-100 transition-colors">
+                                    <i class="fa-regular fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Email us</h3>
+                                    <p class="text-sm text-slate-500 mt-0.5 group-hover:text-primary-600 transition-colors">hello@whyuser.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://calendly.com/durga-whyuser/30min" target="_blank" rel="noopener noreferrer" class="block group">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary-200 transition-all duration-300">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-600 border border-slate-100 group-hover:bg-primary-50 group-hover:text-primary-600 group-hover:border-primary-100 transition-colors">
+                                    <i class="fa-regular fa-calendar-check text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">Schedule a demo</h3>
+                                    <p class="text-sm text-slate-500 mt-0.5">See WhyUser in action</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="bg-indigo-50/50 p-6 rounded-2xl border border-indigo-100">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-bolt text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-indigo-900 text-sm mb-1">Quick Response</h3>
+                                <p class="text-xs text-indigo-800/80 leading-relaxed">
+                                    We typically respond within 24 hours. For urgent inquiries, please mention it in your message.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-          </a>
+        </div>
+    </section>
 
-          <div class="contact-info-card">
-            <div class="contact-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 6v6l4 2"/>
-              </svg>
+    <footer class="bg-slate-950 text-white py-16 border-t border-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary-600 to-indigo-700 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-primary-500/30">W</div>
+                        <span class="font-bold text-xl tracking-tight">WhyUser</span>
+                    </div>
+                    <p class="text-slate-400 font-light leading-relaxed max-w-sm">
+                        A buyer simulation platform for marketing and product teams. Analyze content through real customer logic to reveal how your market interprets your story.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col md:items-end justify-center h-full">
+                    <div class="flex gap-8 mb-8">
+                        <a href="index.html" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Home</a>
+                        <a href="contact.html" class="text-white font-medium transition-colors text-sm border-b border-primary-500">Contact</a>
+                    </div>
+                    <div class="flex gap-8 text-sm text-slate-500">
+                        <a href="legal/privacy-policy.html" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                        <a href="legal/website-terms-of-use.html" class="hover:text-slate-300 transition-colors">Terms of Use</a>
+                    </div>
+                    <div class="mt-8 text-xs text-slate-600">
+                        © 2025 WhyUser, Inc. All rights reserved.
+                    </div>
+                </div>
             </div>
-            <div class="contact-info-content">
-              <h3>Quick response</h3>
-              <p>We typically respond within 24 hours. For urgent inquiries, mention it in your message.</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1.125rem;">WhyUser</p>
-          <p style="color: var(--muted-foreground); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.7; max-width: 32rem;">
-            A buyer simulation platform for marketing and product teams. Analyses content through real customer logic to reveal how your market interprets your story.
-          </p>
-          <p style="color: var(--muted-foreground); font-size: 0.875rem;">
-            © 2025 WhyUser, Inc. All rights reserved.
-          </p>
-        </div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="#">About</a>
-          <a href="#">Docs</a>
-          <a href="#">Privacy</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-  </script>
-  </body>
+    <script>
+        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+    </script>
+</body>
 </html>

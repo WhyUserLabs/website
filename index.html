@@ -444,7 +444,7 @@
             </div>
 
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
+                <div class="text-center mb-16">
                     <h3 class="text-3xl font-extrabold text-slate-950 tracking-tight">Why Current Methods Fail</h3>
                     <p class="text-slate-600 font-medium mt-4 text-lg">
                         You are forced to choose between 
@@ -454,56 +454,177 @@
                     </p>
                 </div>
                 
-                <div class="max-w-6xl mx-auto mt-20">
-                    <div class="grid grid-cols-1 md:grid-cols-12 px-8 py-4 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] hidden md:grid font-mono border-b border-slate-200">
-                        <div class="md:col-span-3">Method</div>
-                        <div class="md:col-span-5">The Gap</div>
-                        <div class="md:col-span-4 text-primary-700">How WhyUser Fills It</div>
-                    </div>
+                <div class="max-w-6xl mx-auto border border-slate-200 rounded-[2rem] overflow-hidden flex flex-col md:flex-row relative z-10 bg-slate-50 shadow-sm">
                     
-                    <div class="grid grid-cols-1 md:grid-cols-12 py-10 px-8 hover:bg-white/50 transition-all duration-300 gap-4 md:gap-0 border-b border-slate-200/60">
-                        <div class="md:col-span-3 font-bold text-slate-950 text-lg">Internal Reviews</div>
-                        <div class="md:col-span-5 text-slate-700 text-sm font-medium pr-12 leading-relaxed">
-                            <strong class="text-red-700 font-bold uppercase text-[10px] tracking-widest block mb-1">Echo Chamber</strong> 
-                            Your team knows the product too well. They can't simulate a cold buyer with limited context or technical fatigue.
+                    <div class="hidden md:block absolute left-1/2 top-8 bottom-8 w-px border-l border-dashed border-slate-300 z-20"></div>
+
+                    <div class="flex-1 bg-slate-100/60 p-8 md:p-12 md:pr-16 relative">
+                        <div class="text-left mb-12 ml-3">
+                            <h4 class="text-lg font-black text-slate-900 uppercase tracking-widest mb-1">Traditional Testing</h4>
+                            <div class="text-[10px] font-bold text-red-600/80 uppercase tracking-[0.2em]">The "Live Fire" Trap</div>
                         </div>
-                        <div class="md:col-span-4 text-indigo-700 text-sm font-semibold leading-relaxed">
-                            Adversarial agents that give you 10 seconds of attention, not 10 minutes of patience.
+
+                        <div class="space-y-12">
+                            
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
+                                    <i class="fa-solid fa-people-arrows text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">Internal Reviews</div>
+                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">Echo Chamber</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
+                                        Your team knows the product too well. They give you <span class="text-slate-900 font-bold">10 minutes of patience</span>, not realistic friction.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
+                                    <i class="fa-solid fa-money-bill-wave text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">A/B Testing</div>
+                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">Pay to Fail</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
+                                        Buying traffic to learn what doesn't work. Costs <span class="text-slate-900 font-bold">$10k+</span> and takes <span class="text-slate-900 font-bold">6 weeks</span> to hit significance.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
+                                    <i class="fa-solid fa-masks-theater text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">User Panels</div>
+                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">Say vs Do</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
+                                        People say what they think you want to hear. They don't act under <span class="text-slate-900 font-bold">real decision pressure</span>.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
+                                    <i class="fa-solid fa-skull-crossbones text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">Win/Loss</div>
+                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">The Autopsy</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
+                                        You learn why you lost <span class="text-slate-900 font-bold">3 months after</span> the deal died. The revenue is already gone.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
+                                    <i class="fa-solid fa-robot text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-1">
+                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">Generic AI</div>
+                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">The Black Box</span>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
+                                        Passive LLM "reading" in a vacuum for a persona. Provides <span class="text-slate-900 font-bold">plausible opinions</span>, not actual behavior.
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-12 py-10 px-8 hover:bg-white/50 transition-all duration-300 gap-4 md:gap-0 border-b border-slate-200/60">
-                        <div class="md:col-span-3 font-bold text-slate-950 text-lg">A/B Testing</div>
-                        <div class="md:col-span-5 text-slate-700 text-sm font-medium pr-12 leading-relaxed">
-                            <strong class="text-red-700 font-bold uppercase text-[10px] tracking-widest block mb-1">Pay to Fail</strong> 
-                            You buy traffic to learn what doesn't work. Costs $10k+ and takes 6 weeks to hit significance.
+                    <div class="flex-1 bg-gradient-to-br from-white via-indigo-50/20 to-white p-8 md:p-12 md:pl-16 relative">
+                        <div class="text-left mb-12 ml-3">
+                            <h4 class="text-lg font-black text-slate-900 uppercase tracking-widest mb-1">WhyUser Simulation</h4>
+                            <div class="text-[10px] font-bold text-indigo-600 uppercase tracking-[0.2em]">The Lab Approach</div>
                         </div>
-                        <div class="md:col-span-4 text-indigo-700 text-sm font-semibold leading-relaxed">
-                            500 parallel simulations in 30 minutes. Find failures for $0 in ad spend.
+
+                        <div class="space-y-12">
+                            
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-200 shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
+                                    <i class="fa-solid fa-fingerprint text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Adversarial Agents</div>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
+                                        Agents <span class="font-bold text-indigo-700">grounded in reality</span> that give you <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">10 seconds of attention</span> and act like cold buyers.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
+                                    <i class="fa-solid fa-bolt text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Parallel Simulation</div>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
+                                        Run 500 simulations in 30 minutes. Find failures for <span class="bg-green-50 text-green-700 px-1 rounded font-bold">$0 in ad spend</span>.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
+                                    <i class="fa-solid fa-brain text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Behavioral Model</div>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
+                                        Simulate <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">committee dynamics</span> and conflicts to see results in minutes, not months.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
+                                    <i class="fa-solid fa-plane-departure text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Pre-Flight Check</div>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
+                                        Identify and <span class="bg-green-50 text-green-700 px-1 rounded font-bold">resolve frictions</span> automatically before you ever hit launch.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-5 items-start group">
+                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
+                                    <i class="fa-solid fa-diagram-project text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Causal Glassbox</div>
+                                    </div>
+                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
+                                        Active simulation where buyers <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">scroll</span>, <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">hunt for value</span> and <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">model committee conflicts</span> to find specific frictions.
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-12 py-10 px-8 hover:bg-white/50 transition-all duration-300 gap-4 md:gap-0 border-b border-slate-200/60">
-                        <div class="md:col-span-3 font-bold text-slate-950 text-lg">User Panels</div>
-                        <div class="md:col-span-5 text-slate-700 text-sm font-medium pr-12 leading-relaxed">
-                            <strong class="text-red-700 font-bold uppercase text-[10px] tracking-widest block mb-1">Say vs. Do</strong> 
-                            Slow & expensive. Also people say what they think you want to hear. They don't act under real decision pressure.
-                        </div>
-                        <div class="md:col-span-4 text-indigo-700 text-sm font-semibold leading-relaxed">
-                            See results in minutes. Behavioral simulation of decision pressure and committee dynamics. 
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-12 py-10 px-8 hover:bg-white/50 transition-all duration-300 gap-4 md:gap-0">
-                        <div class="md:col-span-3 font-bold text-slate-950 text-lg">Win/Loss Analysis</div>
-                        <div class="md:col-span-5 text-slate-700 text-sm font-medium pr-12 leading-relaxed">
-                            <strong class="text-red-700 font-bold uppercase text-[10px] tracking-widest block mb-1">The Autopsy</strong> 
-                            You learn why you lost 3 months after the deal died. Revenue is already gone.
-                        </div>
-                        <div class="md:col-span-4 text-indigo-700 text-sm font-semibold leading-relaxed">
-                            Automated pre-flight check. Identify and resolve frictions before you ever hit launch.
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1238,7 +1359,7 @@
         </div>
     </section>
 
-    <section id="trust" class="py-28 bg-slate-50">
+    <!-- <section id="trust" class="py-28 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="inline-block px-5 py-2 rounded-full glass-card border border-slate-300 text-[10px] font-black text-slate-500 mb-10 uppercase tracking-[0.3em] font-mono shadow-sm">Technical Differentiation</div>
             <h2 class="text-4xl md:text-5xl font-extrabold text-slate-950 mb-8 tracking-tight">Why Can't I Just Use an <span class="text-indigo-700">LLM?</span></h2>
@@ -1330,7 +1451,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="access" class="py-32 bg-slate-50 relative overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-indigo-200/20 rounded-full blur-[140px] pointer-events-none"></div>

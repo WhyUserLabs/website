@@ -14,26 +14,13 @@
                 extend: {
                     colors: {
                         primary: {
-                            50: '#f5f3ff',
-                            100: '#ede9fe',
-                            400: '#a78bfa',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
-                            700: '#6d28d9',
-                            900: '#4c1d95',
+                            50: '#f5f3ff', 100: '#ede9fe', 400: '#a78bfa',
+                            500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9', 900: '#4c1d95',
                         },
                         slate: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            850: '#1e293b', 
-                            900: '#0f172a',
-                            950: '#020617',
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+                            850: '#1e293b', 900: '#0f172a', 950: '#020617',
                         }
                     },
                     fontFamily: {
@@ -43,8 +30,6 @@
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float': 'float 6s ease-in-out infinite',
-                        'scan': 'scan 4s linear infinite',
-                        'flow': 'flow 20s linear infinite',
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                         'spin-slow': 'spin 12s linear infinite',
                         'reverse-spin': 'reverse-spin 15s linear infinite',
@@ -53,15 +38,6 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
-                        },
-                        scan: {
-                            '0%': { transform: 'translateY(-100%)' },
-                            '100%': { transform: 'translateY(100%)' },
-                        },
-                        flow: {
-                            '0%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                            '100%': { backgroundPosition: '0% 50%' }
                         },
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -92,15 +68,7 @@
             background: rgba(248, 250, 252, 0.8);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-        }
-        .simulation-window {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
-        }
-        @keyframes dash {
-            to { stroke-dashoffset: 0; }
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
     </style>
 </head>
@@ -114,14 +82,14 @@
                     <span class="font-bold text-lg text-slate-950 tracking-tight">WhyUser</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#trap" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Problems We Solve</a>
-                    <a href="#how-it-works" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Solution</a>
+                    <a href="#trap" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">The Problem</a>
                     <a href="#capabilities" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Capabilities</a>
+                    <a href="manifesto.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Manifesto</a>
+                    <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="#login" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Sign In</a>
                     <a href="#access" class="bg-slate-900 border border-slate-800 hover:bg-slate-800 text-white px-4 py-2 rounded-md font-bold text-sm transition-all shadow-xl flex items-center gap-2">
-                        <i class="fa-solid fa-flask text-primary-300"></i> Start Simulation
+                        Request Invitation
                     </a>
                 </div>
             </div>
@@ -132,11 +100,11 @@
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none -z-10">
             <div class="absolute top-[-20%] left-[20%] w-[800px] h-[800px] bg-indigo-200/30 rounded-full blur-[120px] animate-pulse-slow"></div>
             <div class="absolute bottom-[0%] right-[10%] w-[600px] h-[600px] bg-purple-200/30 rounded-full blur-[100px]"></div>
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div class="absolute inset-0 bg-grid"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card font-mono text-xs mb-8 shadow-sm animate-fade-in-up hover:border-slate-400 transition-colors">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card font-mono text-xs mb-8 shadow-sm animate-fade-in-up">
                 <span class="text-slate-600 line-through decoration-slate-400/50">Testing in Production</span>
                 <i class="fa-solid fa-arrow-right text-slate-400"></i>
                 <span class="font-bold bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent uppercase tracking-widest">Testing in the Lab</span>
@@ -144,987 +112,152 @@
 
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-950 mb-8 leading-[1.1] max-w-5xl mx-auto drop-shadow-sm">
                 <span class="text-transparent bg-clip-text bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800">
-                    Simulate Your Launch
+                    Simulate Before You Spend.
                 </span>
-                <br />
-                <span class="text-indigo-700">Before You Spend.</span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-slate-600 mb-16 leading-relaxed max-w-5xl mx-auto font-medium tracking-tight">
-                Stop testing in production. <strong class="text-slate-950 font-bold bg-indigo-50 px-1 rounded">Discover Audiences</strong> to expand TAM, <strong class="text-slate-950 font-bold bg-indigo-50 px-1 rounded">Detect Ad Bounces</strong> to save budget, <strong class="text-slate-950 font-bold bg-indigo-50 px-1 rounded">Run Committee Simulations</strong> to catch silent vetoes, and <strong class="text-slate-950 font-bold bg-indigo-50 px-1 rounded">Find A/B Winners</strong> in 30 minutes.
+            <p class="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed max-w-4xl mx-auto font-medium tracking-tight">
+                Stop burning budget to see if your messaging works. WhyUser simulates your distracted buyers and key stakeholders so you can catch ad bounces, uncover hidden job titles, and fix silent vetoes before you launch.
             </p>
 
-            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up" style="animation-delay: 0.1s;">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl">
-                    <i class="fa-solid fa-fingerprint text-indigo-600 text-sm"></i>
-                    <span class="text-[11px] font-black font-mono text-slate-900 uppercase tracking-widest">Causal Behavior AI</span>
-                </div>
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl group">
-                    <div class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-600"></span>
-                    </div>
-                    <span class="text-[11px] font-black font-mono text-slate-900 uppercase tracking-widest">Multi-Sourced Ground Truth</span>
-                </div>
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl">
-                    <i class="fa-solid fa-check-double text-indigo-600 text-sm"></i>
-                    <span class="text-[11px] font-black font-mono text-slate-900 uppercase tracking-widest">Pre-Launch Validation</span>
-                </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-24">
-                <a href="#access" class="relative bg-indigo-700 hover:bg-indigo-600 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-[0_10px_25px_-5px_rgba(99,102,241,0.5)] hover:shadow-[0_20px_35px_-10px_rgba(99,102,241,0.6)] flex items-center gap-3 group overflow-hidden">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up" style="animation-delay: 0.1s;">
+                <a href="#access" class="relative bg-indigo-700 hover:bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-[0_10px_25px_-5px_rgba(99,102,241,0.5)] hover:shadow-[0_20px_35px_-10px_rgba(99,102,241,0.6)] flex items-center gap-3 group overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                    <i class="fa-solid fa-flask"></i> Start Simulation <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    <i class="fa-solid fa-flask"></i> Request an Invitation
+                </a>
+                
+                <a href="#product-video" class="flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm group">
+                    <i class="fa-solid fa-circle-play text-indigo-600 group-hover:scale-110 transition-transform"></i> See it in action
                 </a>
             </div>
-
-            <div class="max-w-5xl mx-auto mt-12 animate-fade-in-up" style="animation-delay: 0.2s;">
-                <div class="relative rounded-3xl border border-indigo-100/50 bg-white/20 overflow-hidden transition-all hover:border-indigo-200/50 hover:bg-white/30 group">
-                    <div class="bg-white/40 border-b border-indigo-100/50 px-6 py-4 flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-red-400/80"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400/80"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400/80"></div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="h-2 w-2 rounded-full bg-primary-500 animate-pulse"></div>
-                            <span class="text-[11px] font-black font-mono text-slate-900 uppercase tracking-widest">GTM Engine: 4 Modules Ready</span>
-                        </div>
-                        <div class="text-[11px] font-bold font-mono text-slate-500 uppercase tracking-wider">System: Idle</div>
-                    </div>
-
-                    <div class="grid md:grid-cols-[1fr_340px] h-[500px]">
-                        <div class="relative bg-slate-950/5 flex items-center justify-center p-8 overflow-hidden border-r border-indigo-100/50">
-                             <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 600 400">
-                                <path id="stalled-edge" d="M 450 140 L 150 100" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 4" fill="none" class="opacity-60">
-                                    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3s" repeatCount="indefinite" />
-                                </path>
-                                <text x="280" y="115" fill="#ef4444" font-family="monospace" font-weight="900" font-size="12" class="uppercase">Stalled</text>
-                                <path id="friction-edge" d="M 300 320 L 150 100" stroke="#f59e0b" stroke-width="2" fill="none" class="opacity-40" />
-                                <circle r="5" fill="#f59e0b" class="animate-pulse">
-                                    <animateMotion dur="4s" repeatCount="indefinite" path="M 300 320 L 150 100" />
-                                </circle>
-                                <text x="180" y="220" fill="#f59e0b" font-family="monospace" font-weight="900" font-size="12" class="uppercase">Friction</text>
-                                <path id="convinced-edge" d="M 450 140 L 300 200" stroke="#22c55e" stroke-width="3" fill="none" class="opacity-30" />
-                                <path d="M 450 140 L 300 200" stroke="#22c55e" stroke-width="3" fill="none" stroke-dasharray="10,10" class="opacity-80">
-                                    <animate attributeName="stroke-dashoffset" from="0" to="100" dur="2s" repeatCount="indefinite" />
-                                </path>
-                            </svg>
-
-                            <div class="relative z-10 w-28 h-28 glass-card rounded-full flex flex-col items-center justify-center shadow-2xl border-white/60">
-                                <div class="absolute inset-0 rounded-full bg-primary-500/10 animate-pulse"></div>
-                                <i class="fa-solid fa-fingerprint text-4xl text-slate-900 mb-2"></i>
-                                <span class="text-[10px] font-black text-slate-600 uppercase font-mono text-center leading-none">Causal<br>Analysis</span>
-                            </div>
-
-                            <div class="absolute top-[80px] left-[120px] group">
-                                <div class="w-20 h-20 rounded-full glass-card border-2 border-red-500/40 flex items-center justify-center shadow-xl">
-                                    <i class="fa-solid fa-lock text-red-700 text-2xl"></i>
-                                    <div class="absolute -top-1 -right-1 w-7 h-7 bg-red-600 rounded-full flex items-center justify-center border-2 border-white shadow-lg animate-bounce">
-                                        <i class="fa-solid fa-xmark text-white text-xs"></i>
-                                    </div>
-                                </div>
-                                <div class="mt-3 text-center">
-                                    <div class="text-xs font-black text-slate-900 uppercase font-mono">CFO (Veto)</div>
-                                    <div class="text-[10px] font-bold text-red-600 uppercase font-mono bg-red-50 px-1.5 rounded inline-block mt-1">Skeptical</div>
-                                </div>
-                            </div>
-                            <div class="absolute top-[120px] right-[120px] group">
-                                <div class="w-16 h-16 rounded-full glass-card border-2 border-green-500/40 flex items-center justify-center shadow-xl">
-                                    <i class="fa-solid fa-code text-green-700 text-xl"></i>
-                                </div>
-                                <div class="mt-3 text-center">
-                                    <div class="text-xs font-black text-slate-900 uppercase font-mono">Tech Lead</div>
-                                    <div class="text-[10px] font-bold text-green-700 uppercase font-mono bg-green-50 px-1.5 rounded inline-block mt-1">Convinced</div>
-                                </div>
-                            </div>
-                            <div class="absolute bottom-[60px] left-1/2 -translate-x-1/2 group">
-                                <div class="w-16 h-16 rounded-full glass-card border-2 border-indigo-500/40 flex items-center justify-center shadow-xl">
-                                    <i class="fa-solid fa-rocket text-indigo-700 text-xl"></i>
-                                </div>
-                                <div class="mt-3 text-center">
-                                    <div class="text-xs font-black text-slate-950 uppercase font-mono">Champion</div>
-                                    <div class="text-[10px] font-bold text-indigo-700 uppercase font-mono bg-indigo-50 px-1.5 rounded inline-block mt-1">Unarmed</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white/40 p-8 flex flex-col gap-8 text-left">
-                            <div>
-                                <div class="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-4 font-mono">Activity Log</div>
-                                <div class="space-y-5">
-                                    <div class="bg-white/70 p-4 rounded-xl border border-indigo-100/50 shadow-sm">
-                                        <div class="flex justify-between text-xs font-black mb-2">
-                                            <span class="text-slate-950 uppercase">Active Committee</span>
-                                            <span class="text-green-600">Enterprise FinTech</span>
-                                        </div>
-                                        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                                            <div class="h-full w-[100%] bg-green-500"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex-1 flex flex-col min-h-0">
-                                <div class="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-4 font-mono">Independent Modules</div>
-                                <div class="flex-1 overflow-hidden relative">
-                                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/80 pointer-events-none z-10"></div>
-                                    <div class="font-mono text-xs text-slate-700 space-y-4 leading-snug">
-                                        <div class="flex gap-2 border-l-2 border-indigo-300 pl-3">
-                                            <div class="text-[9px] font-black text-indigo-400 uppercase tracking-widest mb-1">[Discovery]</div>
-                                            <div>
-                                                <span class="font-bold">Analyzing Draft...</span><br>
-                                                <span class="text-slate-500">> Generated Committee Profile (3 Roles)</span>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-2 border-l-2 border-teal-300 pl-3">
-                                            <div class="text-[9px] font-black text-teal-600 uppercase tracking-widest mb-1">[Ad_Bounce]</div>
-                                            <div>
-                                                <span class="font-bold">Loading Committee...</span><br>
-                                                <span class="text-red-600 font-bold">> FAIL (Promise Buried)</span>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-2 border-l-2 border-blue-300 pl-3">
-                                            <div class="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-1">[Simulations]</div>
-                                            <div>
-                                                <span class="font-bold">Loading Committee...</span><br>
-                                                <span class="text-slate-950 font-bold">> CFO Veto Detected</span>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-2 border-l-2 border-yellow-300 pl-3">
-                                            <div class="text-[9px] font-black text-yellow-600 uppercase tracking-widest mb-1">[A/B_Wargame]</div>
-                                            <div>
-                                                <span class="font-bold">Loading Committee...</span><br>
-                                                <span class="text-green-700 font-black uppercase">> Winner: Variant B</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button class="w-full bg-slate-950 text-white font-black py-4 rounded-xl text-xs uppercase tracking-[0.2em] shadow-2xl border border-slate-800 hover:bg-slate-900 transition-all flex items-center justify-center gap-3">
-                                <i class="fa-solid fa-bolt text-xs text-yellow-400"></i> Run New Simulation
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <p class="mt-8 text-slate-500 font-mono text-[10px] font-black uppercase tracking-[0.3em] animate-pulse text-center">
-                    Simulating 1,200+ buying committees in real-time
-                </p>
+            
+            <p class="text-center text-[10px] font-black font-mono text-slate-400 mb-6 uppercase tracking-[0.3em] animate-fade-in-up" style="animation-delay: 0.2s;">
+                Ingesting Ground Truth From Your Stack
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-700 animate-fade-in-up" style="animation-delay: 0.3s;">
+                <div class="flex items-center gap-2 group"><i class="fa-brands fa-salesforce text-2xl group-hover:text-[#00A1E0] transition-colors"></i><span class="text-xs font-bold font-mono uppercase transition-colors group-hover:text-slate-900">Salesforce</span></div>
+                <div class="flex items-center gap-2 group"><i class="fa-solid fa-microphone-lines text-xl group-hover:text-[#8C36D6] transition-colors"></i><span class="text-xs font-bold font-mono uppercase transition-colors group-hover:text-slate-900">Gong</span></div>
+                <div class="flex items-center gap-2 group"><i class="fa-brands fa-hubspot text-xl group-hover:text-[#FF7A59] transition-colors"></i><span class="text-xs font-bold font-mono uppercase transition-colors group-hover:text-slate-900">HubSpot</span></div>
+                <div class="flex items-center gap-2 group"><i class="fa-solid fa-file-pdf text-xl group-hover:text-red-500 transition-colors"></i><span class="text-xs font-bold font-mono uppercase transition-colors group-hover:text-slate-900">PDF Drafts</span></div>
+                <div class="flex items-center gap-2 group"><i class="fa-brands fa-figma text-xl group-hover:text-black transition-colors"></i><span class="text-xs font-bold font-mono uppercase transition-colors group-hover:text-slate-900">Figma</span></div>
             </div>
         </div>
     </header>
 
-    <div class="bg-slate-50 relative z-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <p class="text-center text-xs font-black font-mono text-slate-400 mb-8 uppercase tracking-[0.3em]">
-                Ingesting Ground Truth From Your Stack
-            </p>
-            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-                <div class="flex items-center gap-3 group">
-                    <i class="fa-brands fa-salesforce text-3xl group-hover:text-[#00A1E0] transition-colors"></i>
-                    <span class="text-sm font-bold text-slate-600 group-hover:text-slate-950 transition-colors uppercase tracking-widest">Salesforce</span>
-                </div>
-                
-                <div class="flex items-center gap-3 group">
-                    <i class="fa-solid fa-microphone-lines text-2xl group-hover:text-[#8C36D6] transition-colors"></i>
-                    <span class="text-sm font-bold text-slate-600 group-hover:text-slate-950 transition-colors uppercase tracking-widest">Gong</span>
-                </div>
-
-                <div class="flex items-center gap-3 group">
-                    <i class="fa-solid fa-file-lines text-2xl group-hover:text-[#4285F4] transition-colors"></i>
-                    <span class="text-sm font-bold text-slate-600 group-hover:text-slate-950 transition-colors uppercase tracking-widest">Google Docs</span>
-                </div>
-
-                <div class="flex items-center gap-3 group">
-                    <i class="fa-brands fa-figma text-2xl group-hover:text-black transition-colors"></i>
-                    <span class="text-sm font-bold text-slate-600 group-hover:text-slate-950 transition-colors uppercase tracking-widest">Figma</span>
-                </div>
-
-                <div class="flex items-center gap-3 group">
-                    <i class="fa-brands fa-linkedin text-3xl group-hover:text-[#0077B5] transition-colors"></i>
-                    <span class="text-sm font-bold text-slate-600 group-hover:text-slate-950 transition-colors uppercase tracking-widest">LinkedIn</span>
-                </div>
-
-                <div class="flex items-center gap-3 group">
-                    <i class="fa-brands fa-hubspot text-2xl group-hover:text-[#FF7A59] transition-colors"></i>
-                    <span class="text-sm font-bold text-slate-600 group-hover:text-slate-950 transition-colors uppercase tracking-widest">HubSpot</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <section id="capabilities" class="py-28 bg-slate-50">
+    <section id="trap" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16">
-                <span class="text-primary-700 font-mono text-xs font-black tracking-[0.3em] uppercase mb-4 block">> Capabilities</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight">Validate Your Funnel at <span class="text-primary-700">Every Stage</span></h2>
-            </div>
-
-            <div class="grid lg:grid-cols-[340px_1fr] gap-16">
-                <div class="space-y-5">
-                    <button onclick="switchTab('sniper')" id="tab-sniper" class="w-full text-left p-6 rounded-2xl glass-card border border-primary-500/50 text-slate-950 shadow-xl transition-all group">
-                        <div class="flex items-center gap-4 mb-2">
-                            <i class="fa-solid fa-crosshairs text-primary-700 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-black text-base uppercase tracking-widest">1. Audience Discovery</span>
-                        </div>
-                        <p class="text-xs font-bold text-slate-500 pl-8 uppercase tracking-wider">Find the buyer before you launch.</p>
-                    </button>
-                    
-                    <button onclick="switchTab('validator')" id="tab-validator" class="w-full text-left p-6 rounded-2xl border border-slate-200/60 text-slate-500 hover:glass-card hover:text-slate-950 hover:shadow-xl transition-all group">
-                        <div class="flex items-center gap-4 mb-2">
-                            <i class="fa-solid fa-shield-halved text-teal-600 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-black text-base uppercase tracking-widest">2. Ad Bounce Detector</span>
-                        </div>
-                        <p class="text-xs font-bold text-slate-500 pl-8 uppercase tracking-wider">Catch mismatches & bounce risks.</p>
-                    </button>
-
-                    <button onclick="switchTab('buyer')" id="tab-buyer" class="w-full text-left p-6 rounded-2xl border border-slate-200/60 text-slate-500 hover:glass-card hover:text-slate-950 hover:shadow-xl transition-all group">
-                        <div class="flex items-center gap-4 mb-2">
-                            <i class="fa-solid fa-users text-blue-600 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-black text-base uppercase tracking-widest">3. Buyer Simulations</span>
-                        </div>
-                        <p class="text-xs font-bold text-slate-500 pl-8 uppercase tracking-wider">Model conflict & offline vetoes.</p>
-                    </button>
-                    
-                    <button onclick="switchTab('ab')" id="tab-ab" class="w-full text-left p-6 rounded-2xl border border-slate-200/60 text-slate-500 hover:glass-card hover:text-slate-950 hover:shadow-xl transition-all group">
-                        <div class="flex items-center gap-4 mb-2">
-                            <i class="fa-solid fa-bolt text-yellow-600 group-hover:scale-110 transition-transform"></i>
-                            <span class="font-black text-base uppercase tracking-widest">4. A/B Accelerator</span>
-                        </div>
-                        <p class="text-xs font-bold text-slate-500 pl-8 uppercase tracking-wider">Test drafts (1 hr vs 6 wks).</p>
-                        <p class="text-xs font-bold text-slate-400 pl-8 tracking-wider">You-vs-You, You-vs-Competitor</p>
-                    </button>
-                </div>
-
-                <div class="relative min-h-[550px]">
-                    <div id="content-sniper" class="absolute inset-0 animate-fade-in-up">
-                        <div class="h-full flex flex-col relative overflow-hidden">
-                            <div class="flex justify-between items-start mb-8 relative z-10">
-                                <div>
-                                    <h3 class="text-3xl font-extrabold text-slate-950 mb-3 tracking-tight">Discover Your Audience</h3>
-                                    <p class="text-slate-600 text-base font-medium max-w-lg leading-relaxed">
-                                        Stop guessing which titles to target. WhyUser reverse-engineers your content drafts to find the exact stakeholders that resonate, lowering your acquisition costs before you launch.
-                                    </p>
-                                </div>
-                                <div class="text-right hidden sm:block">
-                                    <div class="inline-flex items-center gap-2 px-4 py-1.5 glass-card border border-slate-200 rounded-full text-xs font-black font-mono text-primary-700 mb-3 shadow-sm uppercase tracking-widest">
-                                        <span class="relative flex h-2 w-2">
-                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-600"></span>
-                                        </span>
-                                        SIMULATION_COMPLETE
-                                    </div>
-                                    <div class="text-[10px] text-slate-400 font-black font-mono uppercase tracking-[0.2em]">Input: security_whitepaper_v2.pdf</div>
-                                </div>
-                            </div>
-
-                            <div class="flex-1 glass-card rounded-2xl border border-slate-300 p-0 relative z-10 flex flex-col overflow-hidden shadow-2xl">
-                                <div class="bg-slate-100/90 border-b border-slate-200/60 p-4 flex items-center justify-between text-[11px] font-black font-mono text-slate-500 uppercase tracking-widest">
-                                    <div class="flex gap-6">
-                                        <span><i class="fa-solid fa-globe mr-2"></i> Scanned: 12 Verticals</span>
-                                        <span><i class="fa-solid fa-users-viewfinder mr-2"></i> Candidates: 142</span>
-                                        <span class="text-primary-700"><i class="fa-solid fa-filter mr-2"></i> Shortlist: 5</span>
-                                    </div>
-                                    <div class="text-green-700 font-black">Time: 1.2s</div>
-                                </div>
-
-                                <div class="flex-1 overflow-y-auto p-6 space-y-5">
-                                    <div class="relative group">
-                                        <div class="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 to-primary-500/20 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                                        <div class="relative bg-white/90 border border-green-500/30 rounded-xl p-4 flex items-center gap-5 hover:border-green-500/60 transition-colors shadow-lg">
-                                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 border border-green-200 flex items-center justify-center text-green-700 font-black font-mono text-sm">#1</div>
-                                            <div class="flex-1">
-                                                <div class="flex justify-between items-center mb-1.5">
-                                                    <span class="text-base font-black text-slate-950">DevOps Manager</span>
-                                                    <span class="text-xs font-black font-mono text-green-700 uppercase tracking-widest">98% Resonance</span>
-                                                </div>
-                                                <div class="flex gap-3 text-[10px] text-slate-500 font-black font-mono mb-3 uppercase tracking-wider">
-                                                    <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Vertical: FinTech</span>
-                                                    <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Alt: Platform Lead</span>
-                                                </div>
-                                                <div class="text-sm text-slate-800 font-medium leading-relaxed border-l-4 border-primary-400 pl-4 bg-primary-50/20 py-2 rounded-r-lg">
-                                                    <span class="text-primary-800 font-black uppercase text-[10px] tracking-widest block mb-1">Why Chosen:</span> Content mentions "Automated Compliance" and "Terraform." Matches 9/10 keywords in this role's specific JD.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-white/60 border border-slate-200 rounded-xl p-4 flex items-center gap-5 hover:border-slate-300 transition-colors shadow-sm">
-                                        <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500 font-black font-mono text-xs">#2</div>
-                                        <div class="flex-1">
-                                            <div class="flex justify-between items-center mb-1">
-                                                <span class="text-sm font-black text-slate-900">Site Reliability Engineer (SRE)</span>
-                                                <span class="text-xs font-black font-mono text-primary-700 uppercase tracking-widest">85% Resonance</span>
-                                            </div>
-                                            <div class="text-xs text-slate-600 font-medium leading-relaxed">
-                                                <span class="text-slate-400 font-bold uppercase text-[9px] tracking-widest">Logic:</span> Resonates with "Uptime" focus, but high friction detected on "Sales-Led" pricing model for this title.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-slate-100/90 border-t border-slate-200/60 p-4 flex justify-between items-center">
-                                    <div class="text-xs font-black font-mono text-slate-400 uppercase tracking-widest">
-                                        <i class="fa-solid fa-list-ol mr-2"></i> Shortlist size: 5 Roles
-                                    </div>
-                                    <button class="text-xs bg-slate-950 text-white px-5 py-2.5 rounded-lg border border-slate-800 hover:bg-slate-900 transition-all font-mono font-black shadow-xl uppercase tracking-widest">
-                                        <i class="fa-brands fa-linkedin mr-2 text-primary-300"></i> Export to LinkedIn Ads
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="content-validator" class="hidden absolute inset-0 animate-fade-in-up">
-                        <div class="h-full flex flex-col relative overflow-hidden">
-                            <div class="flex justify-between items-start mb-6 relative z-10">
-                                <div>
-                                    <h3 class="text-3xl font-extrabold text-slate-950 mb-3 tracking-tight">Promise-Match Simulator</h3>
-                                    <p class="text-slate-600 text-base font-medium max-w-lg leading-relaxed">Simulates your Ad Promise against buyers. Pinpoints exactly which roles bounce and why.</p>
-                                </div>
-                                <div class="bg-teal-100 px-4 py-2 rounded-full text-xs text-teal-800 font-black font-mono border border-teal-200 shadow-sm uppercase tracking-widest">
-                                    STATUS: HUNTING
-                                </div>
-                            </div>
-
-                            <div class="flex-1 flex flex-col gap-5 relative z-10 overflow-hidden glass-card rounded-2xl border border-slate-300 p-6 shadow-2xl">
-                                <div class="bg-white/90 border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between shadow-md">
-                                    <div class="flex items-center gap-4">
-                                        <div class="text-xs text-slate-400 font-black font-mono uppercase tracking-widest">Campaign Target:</div>
-                                        <div class="flex items-center gap-2 bg-slate-100 border border-slate-300 rounded-lg px-3 py-1 text-xs font-black text-slate-800 uppercase tracking-tighter">
-                                            <i class="fa-solid fa-users text-blue-600"></i> Buying Committee
-                                        </div>
-                                    </div>
-                                    <div class="text-[10px] text-slate-400 font-black font-mono uppercase tracking-widest">Input: LinkedIn_Variant_B.png</div>
-                                </div>
-
-                                <div class="flex-1 flex gap-6 min-h-0">
-                                    <div class="w-1/3 bg-white/70 border border-slate-300 rounded-2xl p-4 flex flex-col gap-4 relative shadow-lg">
-                                        <div class="text-[10px] text-slate-400 font-black font-mono uppercase text-center tracking-widest">Ad Source</div>
-                                        <div class="flex-1 bg-slate-950/5 rounded-xl border border-slate-200 p-4 relative group">
-                                            <div class="flex items-center gap-3 mb-4">
-                                                <div class="w-8 h-8 rounded bg-blue-700 flex items-center justify-center text-white text-sm shadow-md"><i class="fa-brands fa-linkedin-in"></i></div>
-                                                <div class="h-2 w-24 bg-slate-300 rounded"></div>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div class="text-xs text-slate-950 font-black leading-snug">
-                                                    "Deploy in <span class="text-teal-700">5 minutes</span> and cut cloud spend by <span class="text-orange-700">50%</span>."
-                                                </div>
-                                                <div class="h-24 w-full bg-slate-200 rounded-lg border border-slate-300 relative overflow-hidden">
-                                                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-100/50 to-purple-100/50"></div>
-                                                </div>
-                                                <div class="h-10 w-full bg-blue-700 rounded-lg flex items-center justify-center text-xs text-white font-black shadow-lg uppercase tracking-widest">Sign Up</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex-1 flex flex-col gap-4 min-h-0">
-                                        <div class="text-[10px] text-slate-400 font-black font-mono uppercase text-center tracking-widest">Live Agent Scan</div>
-                                        
-                                        <div class="flex-1 bg-white/90 border-l-4 border-l-teal-600 border border-teal-200 rounded-xl p-4 flex gap-4 relative overflow-hidden shadow-lg">
-                                            <div class="mt-1">
-                                                <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-700 text-lg shadow-sm"><i class="fa-solid fa-code"></i></div>
-                                            </div>
-                                            <div class="flex-1 min-w-0">
-                                                <div class="flex justify-between items-center mb-2">
-                                                    <span class="text-xs font-black text-slate-950 uppercase tracking-tighter">Tech Lead</span>
-                                                    <span class="text-[10px] bg-teal-100 text-teal-800 px-2 py-0.5 rounded font-black font-mono border border-teal-200 uppercase tracking-widest">MATCH</span>
-                                                </div>
-                                                <div class="font-mono text-[11px] text-slate-800 font-bold space-y-2">
-                                                    <div class="flex gap-3"><span>> Goal:</span> <span class="text-teal-700 font-black">"5 min deploy"</span></div>
-                                                    <div class="flex gap-3"><span>> Scan:</span> Found "Quickstart" in nav.</div>
-                                                    <div class="flex gap-3"><span>> Action:</span> <span class="text-slate-950 font-black">Clicked "Docs" (2.1s)</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex-1 bg-white/90 border-l-4 border-l-red-600 border border-red-200 rounded-xl p-4 flex gap-4 relative overflow-hidden shadow-lg">
-                                            <div class="mt-1">
-                                                <div class="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center text-red-600 text-lg shadow-sm"><i class="fa-solid fa-chart-pie"></i></div>
-                                            </div>
-                                            <div class="flex-1 min-w-0">
-                                                <div class="flex justify-between items-center mb-2">
-                                                    <span class="text-xs font-black text-slate-950 uppercase tracking-tighter">Finance Lead</span>
-                                                    <span class="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded font-black font-mono border border-red-200 uppercase tracking-widest">BOUNCE</span>
-                                                </div>
-                                                <div class="font-mono text-[11px] text-slate-800 font-bold space-y-2">
-                                                    <div class="flex gap-3"><span>> Goal:</span> <span class="text-orange-700 font-black">"50% Savings"</span></div>
-                                                    <div class="flex gap-3"><span>> Scan:</span> Hero (No), H2 (No), Pricing (No).</div>
-                                                    <div class="flex gap-3"><span>> Result:</span> <span class="text-red-700 font-black">Promise Buried.</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-red-100 border border-red-200 rounded-xl p-4 flex items-center gap-5 shadow-xl">
-                                    <div class="bg-red-600 text-white text-[10px] font-black px-3 py-1.5 rounded-lg shadow-md uppercase tracking-[0.2em]">HIGH RISK</div>
-                                    <div class="text-xs text-red-900 font-bold leading-relaxed">
-                                        <span class="font-black underline decoration-red-400 uppercase tracking-tighter mr-2">Segment Mismatch:</span> Your ad converts Tech Leads but repels Finance. Add "ROI Calculator" to hero block to fix.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="content-buyer" class="hidden absolute inset-0 animate-fade-in-up">
-                        <div class="h-full flex flex-col relative overflow-hidden">
-                            <div class="flex justify-between items-start mb-6 relative z-10">
-                                <div>
-                                    <h3 class="text-3xl font-extrabold text-slate-950 mb-3 tracking-tight">Committee Simulation</h3>
-                                    <p class="text-slate-600 text-base font-medium max-w-lg leading-relaxed">Stop losing leads to "Silent Vetoes." Simulate how a risk-averse CFO or a skeptical Tech Lead evaluates your page to find the gaps that stall your pipeline.</p>
-                                </div>
-                                <div class="glass-card border border-slate-300 px-4 py-2 rounded-full text-xs text-slate-500 font-black font-mono shadow-sm uppercase tracking-widest">
-                                    Running: <span class="text-slate-950 font-black">Dark_Funnel_Sim_v2</span>
-                                </div>
-                            </div>
-
-                            <div class="flex-1 flex flex-col gap-6 relative z-10 overflow-hidden glass-card rounded-2xl border border-slate-300 p-6 shadow-2xl">
-                                <div class="flex-1 bg-white/90 border border-slate-300 rounded-2xl relative overflow-hidden flex items-center justify-center p-6 shadow-inner">
-                                    <div class="absolute top-4 left-5 text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] font-mono">Deal Physics (Force Map)</div>
-                                    <div class="absolute top-4 right-5 flex gap-5 text-[10px] font-black font-mono uppercase tracking-widest">
-                                        <span class="flex items-center gap-2 text-green-700"><div class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-md"></div> Driver</span>
-                                        <span class="flex items-center gap-2 text-red-700"><div class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-md"></div> Blocker</span>
-                                    </div>
-
-                                    <div class="relative w-full max-w-lg h-full flex items-center justify-between px-12">
-                                        <svg class="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
-                                            <path d="M 60 80 Q 180 20 300 80" stroke="#22c55e" stroke-width="3" fill="none" class="opacity-30" />
-                                            <circle cx="180" cy="50" r="4" fill="#16a34a">
-                                                <animateMotion dur="2s" repeatCount="indefinite" path="M 60 80 Q 180 20 300 80" />
-                                            </circle>
-                                            <path d="M 60 80 Q 180 140 300 80" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 6" fill="none" class="opacity-50" />
-                                            <foreignObject x="140" y="110" width="100" height="30">
-                                                <div class="bg-red-600 text-white font-black text-[10px] py-1 rounded-lg text-center shadow-2xl font-mono border border-red-700 uppercase tracking-widest">
-                                                    RISK: HIGH
-                                                </div>
-                                            </foreignObject>
-                                        </svg>
-
-                                        <div class="relative z-10 flex flex-col items-center gap-4 group">
-                                            <div class="w-16 h-16 rounded-full bg-white border-2 border-green-600 flex items-center justify-center shadow-[0_10px_30px_rgba(34,197,94,0.3)]">
-                                                <span class="font-mono text-sm font-black text-slate-950">TD</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <div class="text-[10px] font-black text-green-700 uppercase tracking-[0.2em] mb-1">Tech Lead</div>
-                                                <div class="text-[10px] text-green-800 bg-green-100 px-2 py-0.5 rounded font-black uppercase tracking-tighter">Convinced</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="relative z-10 flex flex-col items-center gap-4 group">
-                                            <div class="absolute -top-4 -right-4 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center border-2 border-white z-20 shadow-2xl animate-bounce">
-                                                <i class="fa-solid fa-xmark text-white text-sm"></i>
-                                            </div>
-                                            <div class="w-20 h-20 rounded-full bg-white border-2 border-red-600 flex items-center justify-center shadow-[0_15px_40px_rgba(239,68,68,0.4)]">
-                                                <span class="font-mono text-base font-black text-slate-950">EB</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <div class="text-[10px] font-black text-red-700 uppercase tracking-[0.2em] mb-1">Economic Buyer</div>
-                                                <div class="text-[10px] text-red-800 bg-red-100 px-2 py-0.5 rounded font-black uppercase tracking-tighter">Skeptical</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="grid grid-cols-3 gap-4">
-                                    <div class="bg-white border border-green-200 p-4 rounded-xl flex flex-col gap-2 shadow-lg">
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Technical</span>
-                                            <span class="text-[9px] bg-green-100 text-green-800 px-2 py-0.5 rounded font-black font-mono border border-green-200 uppercase tracking-tighter">HIGH MATCH</span>
-                                        </div>
-                                        <p class="text-xs text-slate-800 font-bold leading-relaxed">
-                                            "Docs were discoverable. Validated integration in &lt;3 mins."
-                                        </p>
-                                    </div>
-                                    <div class="bg-white border border-green-200 p-4 rounded-xl flex flex-col gap-2 shadow-lg">
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security</span>
-                                            <span class="text-[9px] bg-green-100 text-green-800 px-2 py-0.5 rounded font-black font-mono border border-green-200 uppercase tracking-tighter">HIGH MATCH</span>
-                                        </div>
-                                        <p class="text-xs text-slate-800 font-bold leading-relaxed">
-                                            "Trust Center matched audit workflow. No red flags found."
-                                        </p>
-                                    </div>
-                                    <div class="bg-red-50 border border-red-200 p-4 rounded-xl flex flex-col gap-2 relative overflow-hidden shadow-lg">
-                                        <div class="absolute right-0 top-0 w-10 h-10 bg-red-200/50 rounded-bl-full"></div>
-                                        <div class="flex justify-between items-center relative z-10">
-                                            <span class="text-[10px] font-black text-red-800 uppercase tracking-widest">Buyer</span>
-                                            <span class="text-[9px] bg-white text-red-700 px-2 py-0.5 rounded font-black font-mono border border-red-200 uppercase tracking-tighter">LOW MATCH</span>
-                                        </div>
-                                        <p class="text-xs text-red-950 font-black leading-relaxed relative z-10">
-                                            "Clicked out for Pricing. <span class="underline decoration-red-400">Cost cues were thin.</span>"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="content-ab" class="hidden absolute inset-0 animate-fade-in-up">
-                        <div class="h-full flex flex-col relative overflow-hidden">
-                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 relative z-10 gap-6">
-                                <div>
-                                    <h3 class="text-3xl font-extrabold text-slate-950 mb-3 tracking-tight">A/B Simulations</h3>
-                                    <p class="text-slate-600 text-base font-medium max-w-lg leading-relaxed">
-                                        Don't wait 6 weeks for market data. Get a statistical winner on <strong>Draft A vs. Draft B</strong> or <strong>your site vs. a competitor</strong> in one hour so you can ship with total confidence.
-                                </div>
-                                <div class="bg-yellow-100 border border-yellow-300 px-5 py-2 rounded-full text-xs text-yellow-800 font-black font-mono flex items-center gap-3 shadow-lg uppercase tracking-widest">
-                                    <i class="fa-solid fa-flask"></i> MATCHED_PAIR_MODE
-                                </div>
-                            </div>
-
-                            <div class="flex-1 flex flex-col relative z-10 glass-card rounded-2xl border border-slate-300 p-6 shadow-2xl">
-                                <div class="flex items-center gap-6 mb-6 px-6 py-3 bg-slate-100/90 rounded-xl border border-slate-200 shadow-inner">
-                                    <div class="text-[11px] font-black font-mono text-slate-400 uppercase tracking-[0.3em]">Audience Mix:</div>
-                                    <div class="flex-1 flex gap-3">
-                                        <div class="h-2.5 flex-1 bg-blue-600 rounded-full shadow-sm"></div>
-                                        <div class="h-2.5 flex-1 bg-purple-600 rounded-full shadow-sm"></div>
-                                        <div class="h-2.5 flex-1 bg-green-600 rounded-full shadow-sm"></div>
-                                        <div class="h-2.5 flex-1 bg-orange-600/30 rounded-full"></div>
-                                    </div>
-                                    <div class="text-[11px] font-black font-mono text-slate-800 uppercase tracking-widest">Executive Heavy</div>
-                                </div>
-
-                                <div class="flex gap-8 mb-6 items-stretch flex-1">
-                                    <div class="flex-1 bg-white/70 border border-slate-200 rounded-2xl p-4 relative flex flex-col opacity-70 hover:opacity-100 transition-all shadow-lg">
-                                        <div class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 text-center font-mono">Draft A (Feature-Led)</div>
-                                        <div class="space-y-4 mt-auto mb-4 px-3">
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-500 uppercase tracking-tighter"><span>Econ. Buyer</span> <span class="text-red-700">42/100</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[42%] h-full bg-red-500 rounded-full"></div></div>
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-500 uppercase tracking-tighter"><span>Tech Lead</span> <span class="text-green-700">88/100</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[88%] h-full bg-green-600 rounded-full"></div></div>
-                                        </div>
-                                        <div class="text-center border-t border-slate-100 pt-4 mt-auto">
-                                            <div class="text-3xl font-black text-slate-400 font-mono tracking-tighter">54.2</div>
-                                            <div class="text-[10px] font-black text-slate-400 font-mono uppercase tracking-[0.2em]">Weighted Score</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex flex-col justify-center items-center gap-4">
-                                        <div class="h-full w-px bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
-                                        <span class="text-xs font-black text-slate-300 font-mono uppercase">VS</span>
-                                        <div class="h-full w-px bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
-                                    </div>
-
-                                    <div class="flex-1 bg-white border-2 border-yellow-500 rounded-2xl p-4 relative shadow-2xl flex flex-col">
-                                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-500 text-white text-[11px] font-black px-5 py-1.5 rounded-full shadow-xl flex items-center gap-2 whitespace-nowrap font-mono border border-yellow-600 uppercase tracking-[0.2em]">
-                                            WINNER (95% CI)
-                                        </div>
-                                        <div class="text-[11px] font-black text-yellow-800 uppercase tracking-[0.2em] mb-4 text-center mt-3 font-mono">Draft B (Benefit-Led)</div>
-                                        <div class="space-y-4 mt-auto mb-4 px-3">
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-950 uppercase tracking-tighter"><span>Econ. Buyer</span> <span class="text-green-700">78/100</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[78%] h-full bg-green-600 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.4)]"></div></div>
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-500 uppercase tracking-tighter"><span>Tech Lead</span> <span class="text-slate-600">85/100</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[85%] h-full bg-slate-400 rounded-full"></div></div>
-                                        </div>
-                                        <div class="text-center border-t border-slate-100 pt-4 mt-auto">
-                                            <div class="text-5xl font-black text-slate-950 font-mono tracking-tighter">72.1</div>
-                                            <div class="text-[10px] font-black text-yellow-700 font-mono uppercase tracking-[0.2em]">Weighted Score</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white border-l-4 border-yellow-500 p-5 font-mono text-xs relative mt-auto shadow-xl rounded-r-xl">
-                                    <div class="text-[11px] text-slate-400 font-black uppercase tracking-[0.2em] mb-2">Sensitivity Analysis</div>
-                                    <div class="text-slate-800 font-bold leading-relaxed text-sm">
-                                        <span class="text-yellow-700 font-black uppercase tracking-tighter mr-2">>> Insight:</span> Draft B wins specifically because it satisfies the <strong class="text-slate-950 font-black">Economic Buyer's</strong> risk controls (CI > 95%).
-                                        <br><span class="text-slate-400 font-black italic mt-2 block">Note: If you shift audience to >60% Tech Leads, Draft A would reclaim the lead.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="content-winloss" class="hidden absolute inset-0 animate-fade-in-up">
-                        <div class="h-full flex flex-col relative overflow-hidden">
-                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 relative z-10 gap-6">
-                                <div>
-                                    <h3 class="text-3xl font-extrabold text-slate-950 mb-3 tracking-tight">Competitor Simulations</h3>
-                                    <p class="text-slate-600 text-base font-medium max-w-lg leading-relaxed">Simulates Win Probability against competitors across diverse committee mixes.</p>
-                                </div>
-                                <div class="bg-pink-100 border border-pink-300 px-5 py-2 rounded-full text-xs text-pink-800 font-black font-mono flex items-center gap-3 shadow-lg uppercase tracking-widest">
-                                    <i class="fa-solid fa-chess-rook"></i> WARGAME_MODE
-                                </div>
-                            </div>
-
-                            <div class="flex-1 flex flex-col relative z-10 glass-card rounded-2xl border border-slate-300 p-6 shadow-2xl">
-                                <div class="flex items-center gap-6 mb-6 px-6 py-3 bg-slate-100/90 rounded-xl border border-slate-200 shadow-inner">
-                                    <div class="text-[11px] font-black font-mono text-slate-400 uppercase tracking-[0.3em]">Battleground:</div>
-                                    <div class="flex-1 flex gap-3">
-                                        <div class="h-2.5 flex-1 bg-blue-600 rounded-full shadow-sm"></div>
-                                        <div class="h-2.5 flex-1 bg-purple-600/30 rounded-full"></div>
-                                        <div class="h-2.5 flex-1 bg-green-600/30 rounded-full"></div>
-                                        <div class="h-2.5 flex-1 bg-orange-600/30 rounded-full"></div>
-                                    </div>
-                                    <div class="text-[11px] font-black font-mono text-slate-800 uppercase tracking-widest">CFO-Led Process</div>
-                                </div>
-
-                                <div class="flex gap-8 mb-6 items-stretch flex-1">
-                                    <div class="flex-1 bg-white/70 border border-slate-200 rounded-2xl p-4 relative flex flex-col opacity-80 shadow-lg">
-                                        <div class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4 text-center font-mono">Our Proposal</div>
-                                        <div class="space-y-4 mt-auto mb-4 px-3">
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-600 uppercase tracking-tighter"><span>Tech Champion</span> <span class="text-green-700">WIN (88%)</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[88%] h-full bg-green-600 rounded-full"></div></div>
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-600 uppercase tracking-tighter"><span>Economic Buyer</span> <span class="text-red-700">LOSE (12%)</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[12%] h-full bg-red-500 rounded-full"></div></div>
-                                        </div>
-                                        <div class="text-center border-t border-slate-100 pt-4 mt-auto">
-                                            <div class="text-3xl font-black text-slate-400 font-mono tracking-tighter">32%</div>
-                                            <div class="text-[10px] font-black text-slate-400 font-mono uppercase tracking-[0.2em]">Total Win Rate</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex flex-col justify-center items-center">
-                                        <div class="h-full w-px bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
-                                    </div>
-
-                                    <div class="flex-1 bg-white border-2 border-pink-500 rounded-2xl p-4 relative shadow-2xl flex flex-col">
-                                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-pink-600 text-white text-[11px] font-black px-5 py-1.5 rounded-full shadow-xl flex items-center gap-2 whitespace-nowrap font-mono border border-pink-700 uppercase tracking-[0.2em]">
-                                            INCUMBENT WINNER
-                                        </div>
-                                        <div class="text-[11px] font-black text-pink-800 uppercase tracking-[0.2em] mb-4 text-center mt-3 font-mono">Competitor X</div>
-                                        <div class="space-y-4 mt-auto mb-4 px-3">
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-500 uppercase tracking-tighter"><span>Tech Champion</span> <span class="text-slate-400">LOSE (45%)</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[45%] h-full bg-slate-300 rounded-full"></div></div>
-                                            <div class="flex justify-between text-[11px] font-black font-mono text-slate-950 uppercase tracking-tighter"><span>Economic Buyer</span> <span class="text-green-700">WIN (92%)</span></div>
-                                            <div class="w-full h-2 bg-slate-200 rounded-full"><div class="w-[92%] h-full bg-green-600 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.4)]"></div></div>
-                                        </div>
-                                        <div class="text-center border-t border-slate-100 pt-4 mt-auto">
-                                            <div class="text-5xl font-black text-slate-950 font-mono tracking-tighter">68%</div>
-                                            <div class="text-[10px] font-black text-pink-700 font-mono uppercase tracking-[0.2em]">Total Win Rate</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white border-l-4 border-pink-600 p-5 font-mono text-xs relative mt-auto shadow-xl rounded-r-xl">
-                                    <div class="text-[11px] text-slate-400 font-black uppercase tracking-[0.2em] mb-2">Generated Kill Sheet</div>
-                                    <div class="text-slate-800 font-bold leading-relaxed text-sm">
-                                        <span class="text-pink-700 font-black uppercase tracking-tighter mr-2">>> Critical Gap:</span> You are losing the <strong class="text-slate-950 font-black">CFO</strong> on "Vendor Lock-in Risk."
-                                        <br><span class="text-slate-400 font-black italic mt-2 block">Fix: Competitor X explicitly promises "Data Portability" in their terms. You do not.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="trap" class="py-24 bg-slate-50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center mb-16">
                 <span class="text-primary-700 font-mono text-xs font-black tracking-widest uppercase mb-4 block">> The Problem</span>
                 <h2 class="text-4xl md:text-5xl font-extrabold text-slate-950 mb-6 tracking-tight">The High Cost of <span class="text-red-700">Learning by Launching</span></h2>
                 <p class="text-slate-600 font-medium max-w-2xl mx-auto text-lg leading-relaxed">
-                    When you test with live traffic, every mistake costs you real budget.
+                    Right now, your team validates campaigns by testing in production. You rely on friendly internal reviews, or you spend $50k on ads and wait weeks for data. You are debugging your revenue funnel with live pipeline.
                 </p>
             </div>
             
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 mb-24">
-                <div class="relative group">
-                    <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-indigo-100/50 bg-white/20 h-full transition-all hover:border-indigo-200/50 hover:bg-white/40">
-                        <div class="bg-red-100 text-red-700 border border-red-200 px-3 py-1 rounded-full text-[10px] font-black tracking-widest mb-6 shadow-sm uppercase">Inefficient</div>
-                        
-                        <div class="h-20 w-full flex items-center justify-center mb-6 relative">
-                            <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center border border-red-100 relative shadow-sm">
-                                <i class="fa-solid fa-chart-line text-red-500 text-2xl"></i>
-                                <div class="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-sm border border-red-100">
-                                    <i class="fa-solid fa-circle-exclamation text-red-600 text-xs animate-pulse"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="text-xl font-extrabold text-slate-950 mb-3">The Ad Tax</h3>
-                        <p class="text-sm font-medium text-slate-600 mb-8 px-2 leading-relaxed">Don't burn cash just to find failures that were predictable.</p>
-                        
-                        <div class="w-full bg-slate-950/5 rounded-xl p-4 text-left font-mono text-[10px] text-slate-600 border border-slate-200 space-y-2 mt-auto">
-                            <div class="flex justify-between">
-                                <span class="text-slate-500 font-bold uppercase tracking-tighter">Cost/Lead:</span> <span class="text-red-600 font-black">$420</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-500 font-bold uppercase tracking-tighter">Budget Burn:</span> <span class="text-red-600 font-black">92%</span>
-                            </div>
-                            <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                                <div class="h-full w-[92%] bg-red-600"></div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-slate-200 bg-slate-50 transition-all hover:border-red-200 hover:bg-red-50/30 shadow-sm hover:shadow-md">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 text-2xl mb-6 shadow-sm"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <h3 class="text-xl font-extrabold text-slate-950 mb-3">The Ad Tax</h3>
+                    <p class="text-sm font-medium text-slate-600 leading-relaxed">Burning paid budget just to learn a specific ad hook or landing page doesn't convert.</p>
                 </div>
-                
-                <div class="relative group">
-                    <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-indigo-100/50 bg-white/20 h-full transition-all hover:border-indigo-200/50 hover:bg-white/40">
-                        <div class="bg-yellow-100 text-yellow-800 border border-yellow-200 px-3 py-1 rounded-full text-[10px] font-black tracking-widest mb-6 shadow-sm uppercase">Signal Lost</div>
-                        
-                        <div class="h-20 w-full flex items-center justify-center mb-6 relative">
-                            <div class="flex items-center gap-4 text-slate-400">
-                                <i class="fa-solid fa-desktop text-xl"></i>
-                                <div class="w-6 h-px bg-slate-300 border-t border-dashed"></div>
-                                <i class="fa-solid fa-ghost text-yellow-600 text-3xl animate-float"></i>
-                                <div class="w-6 h-px bg-slate-300 border-t border-dashed"></div>
-                                <i class="fa-solid fa-file-invoice text-xl"></i>
-                            </div>
-                        </div>
-
-                        <h3 class="text-xl font-extrabold text-slate-950 mb-3">The Dark Funnel Veto</h3>
-                        <p class="text-sm font-medium text-slate-600 mb-8 px-2 leading-relaxed">Analytics miss the offline CFO who kills deals silently.</p>
-
-                        <div class="w-full bg-slate-950/5 rounded-xl p-4 text-left font-mono text-[10px] text-slate-700 border border-slate-200 space-y-2 mt-auto">
-                            <div class="flex gap-3">
-                                <span class="text-yellow-700 font-black">></span> <span>Trace: <span class="bg-yellow-100 text-yellow-800 px-1.5 rounded font-black uppercase">UNKNOWN</span></span>
-                            </div>
-                            <div class="flex gap-3 text-slate-500 font-bold uppercase tracking-tighter">
-                                <span>> Attribution: None Found</span>
-                            </div>
-                            <div class="flex gap-3">
-                                <span class="text-yellow-700 font-black">></span> <span class="font-black text-slate-950">Cause: Offline Veto</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-slate-200 bg-slate-50 transition-all hover:border-yellow-200 hover:bg-yellow-50/30 shadow-sm hover:shadow-md">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 text-2xl mb-6 shadow-sm"><i class="fa-solid fa-clock"></i></div>
+                    <h3 class="text-xl font-extrabold text-slate-950 mb-3">The 6-Week Wait</h3>
+                    <p class="text-sm font-medium text-slate-600 leading-relaxed">Waiting 6 weeks for standard B2B traffic to hit statistical significance on live A/B tests.</p>
                 </div>
-
-                <div class="relative group">
-                    <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-indigo-100/50 bg-white/20 h-full transition-all hover:border-indigo-200/50 hover:bg-white/40">
-                        <div class="bg-blue-100 text-blue-800 border border-blue-200 px-3 py-1 rounded-full text-[10px] font-black tracking-widest mb-6 shadow-sm uppercase">Too Slow</div>
-                        
-                        <div class="h-20 w-full flex items-center justify-center mb-6 relative">
-                            <div class="relative w-16 h-16 flex items-center justify-center">
-                                <svg class="w-full h-full -rotate-90">
-                                    <circle cx="32" cy="32" r="28" fill="none" stroke="#e2e8f0" stroke-width="4"></circle>
-                                    <circle cx="32" cy="32" r="28" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="175" stroke-dashoffset="140" stroke-linecap="round"></circle>
-                                </svg>
-                                <div class="absolute inset-0 flex items-center justify-center text-[9px] font-mono font-black text-blue-700 uppercase">
-                                    6 WKS
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="text-xl font-extrabold text-slate-950 mb-3">The Velocity Cap</h3>
-                        <p class="text-sm font-medium text-slate-600 mb-8 px-2 leading-relaxed">Live testing forces Marketing to move 10x slower.</p>
-
-                        <div class="w-full bg-slate-950/5 rounded-xl p-4 text-left font-mono text-[10px] text-slate-600 border border-slate-200 space-y-2 mt-auto">
-                            <div class="flex justify-between items-center">
-                                <span class="font-bold uppercase tracking-tighter text-slate-400">Live A/B Testing:</span> <span class="text-slate-500 font-bold">45 Days</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="font-bold uppercase tracking-tighter text-slate-950">WhyUser Simulated:</span> <span class="text-green-700 font-black">30 Mins</span>
-                            </div>
-                            <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden mt-1">
-                                <div class="h-full w-[5%] bg-blue-600"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h3 class="text-3xl font-extrabold text-slate-950 tracking-tight">Why Current Methods Fail</h3>
-                    <p class="text-slate-600 font-medium mt-4 text-lg">
-                        You are forced to choose between 
-                        <span class="text-red-700 font-bold bg-red-50 px-3 py-1 rounded-lg">Fast & Biased</span> 
-                        <span class="mx-3 text-slate-400 italic font-serif text-xl">vs.</span> 
-                        <span class="text-red-700 font-bold bg-red-50 px-3 py-1 rounded-lg">Accurate & Expensive</span>
-                    </p>
-                </div>
-                
-                <div class="max-w-6xl mx-auto border border-slate-200 rounded-[2rem] overflow-hidden flex flex-col md:flex-row relative z-10 bg-slate-50 shadow-sm">
-                    
-                    <div class="hidden md:block absolute left-1/2 top-8 bottom-8 w-px border-l border-dashed border-slate-300 z-20"></div>
-
-                    <div class="flex-1 bg-slate-100/60 p-8 md:p-12 md:pr-16 relative">
-                        <div class="text-left mb-12 ml-3">
-                            <h4 class="text-lg font-black text-slate-900 uppercase tracking-widest mb-1">Traditional Testing</h4>
-                            <div class="text-[10px] font-bold text-red-600/80 uppercase tracking-[0.2em]">The "Live Fire" Trap</div>
-                        </div>
-
-                        <div class="space-y-12">
-                            
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
-                                    <i class="fa-solid fa-people-arrows text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">Internal Reviews</div>
-                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">Echo Chamber</span>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
-                                        Your team knows the product too well. They give you <span class="text-slate-900 font-bold">10 minutes of patience</span>, not realistic friction.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
-                                    <i class="fa-solid fa-money-bill-wave text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">A/B Testing</div>
-                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">Pay to Fail</span>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
-                                        Buying traffic to learn what doesn't work. Costs <span class="text-slate-900 font-bold">$10k+</span> and takes <span class="text-slate-900 font-bold">6 weeks</span> to hit significance.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
-                                    <i class="fa-solid fa-masks-theater text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">User Panels</div>
-                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">Say vs Do</span>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
-                                        People say what they think you want to hear. They don't act under <span class="text-slate-900 font-bold">real decision pressure</span>.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
-                                    <i class="fa-solid fa-skull-crossbones text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">Win/Loss</div>
-                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">The Autopsy</span>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
-                                        You learn why you lost <span class="text-slate-900 font-bold">3 months after</span> the deal died. The revenue is already gone.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm shrink-0 grayscale group-hover:grayscale-0 transition-all mt-1">
-                                    <i class="fa-solid fa-robot text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <div class="text-sm font-black text-slate-700 uppercase tracking-widest">Generic AI</div>
-                                        <span class="bg-slate-200 text-slate-600 text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">The Black Box</span>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-500 leading-relaxed">
-                                        Passive LLM "reading" in a vacuum for a persona. Provides <span class="text-slate-900 font-bold">plausible opinions</span>, not actual behavior.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="flex-1 bg-gradient-to-br from-white via-indigo-50/20 to-white p-8 md:p-12 md:pl-16 relative">
-                        <div class="text-left mb-12 ml-3">
-                            <h4 class="text-lg font-black text-slate-900 uppercase tracking-widest mb-1">WhyUser Simulation</h4>
-                            <div class="text-[10px] font-bold text-indigo-600 uppercase tracking-[0.2em]">The Lab Approach</div>
-                        </div>
-
-                        <div class="space-y-12">
-                            
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-200 shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
-                                    <i class="fa-solid fa-fingerprint text-lg"></i>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Adversarial Buyer Sims</div>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
-                                        Replaces friendly "Internal Reviews" with <span class="font-bold text-indigo-700">skeptical agents</span> who scroll & hunt for value & frictions.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
-                                    <i class="fa-solid fa-bolt text-lg"></i>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Pre-Launch A/B Simulations</div>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
-                                        Run 500+ tests in 30 minutes for <span class="bg-green-50 text-green-700 px-1 rounded font-bold">$0 in ad spend</span> to find statistical winner before you "test in production.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
-                                    <i class="fa-solid fa-brain text-lg"></i>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Committee Modeling</div>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
-                                        Models real world <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">stakeholder conflicts</span> (e.g., CFO veto vs. Champion) to predict outcomes in <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">minutes</span>.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
-                                    <i class="fa-solid fa-plane-departure text-lg"></i>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Predictive Validation</div>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
-                                        Identify and <span class="bg-green-50 text-green-700 px-1 rounded font-bold">resolve frictions</span> before launch so you don't lose the revenue later.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-5 items-start group">
-                                <div class="w-12 h-12 rounded-xl bg-white border border-indigo-100 text-indigo-600 flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
-                                    <i class="fa-solid fa-diagram-project text-lg"></i>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <div class="text-sm font-black text-indigo-900 uppercase tracking-widest">Causal Decision Engine</div>
-                                    </div>
-                                    <div class="text-sm font-medium text-slate-600 leading-relaxed">
-                                        LLMs guess. WhyUser simulates. Provides the Causal "Why" <span class="bg-indigo-50 text-indigo-700 px-1 rounded font-bold">(Goal -> Thought -> Action)</span> grounded in your data.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
+                <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-slate-200 bg-slate-50 transition-all hover:border-indigo-200 hover:bg-indigo-50/30 shadow-sm hover:shadow-md">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 text-2xl mb-6 shadow-sm"><i class="fa-solid fa-ghost"></i></div>
+                    <h3 class="text-xl font-extrabold text-slate-950 mb-3">The Hidden Veto</h3>
+                    <p class="text-sm font-medium text-slate-600 leading-relaxed">Analytics completely miss the offline executives who evaluate your page and kill deals silently.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="py-28 bg-slate-50 relative overflow-hidden">
+    <section id="capabilities" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24">
+                <div class="text-center mb-24">
+                    <span class="text-primary-700 font-mono text-xs font-black tracking-[0.3em] uppercase mb-4 block">> The Simulation Platform</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight">Validate Your Funnel at Every Stage</h2>
+                </div>
+            </div>
+
+            <div class="space-y-32">
+                <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                    <div>
+                        <span class="text-primary-600 font-mono text-xs font-bold tracking-widest uppercase mb-4 block">1. Audience Discovery</span>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-950 mb-6 tracking-tight">Uncover Hidden Job Titles</h3>
+                        <p class="text-slate-600 text-lg font-medium leading-relaxed">
+                            Targeting generic titles burns budget. Upload a draft, and our engine reverse-engineers the content to find the exact job titles and "Hidden Champions" in adjacent verticals who actually resonate with your message. Lower your CAC before you launch.
+                        </p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] bg-white">
+                        <div class="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                        </div>
+                        <img src="images/audience_discovery.png" alt="Audience Discovery Matrix" class="w-full h-auto block border-t border-slate-100">
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-20 items-center">
+                    <div class="order-2 lg:order-1 rounded-xl overflow-hidden border border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] bg-white">
+                        <div class="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                        </div>
+                        <img src="images/campaign_simulation.png" alt="Campaign Simulation Post-Click Funnel" class="w-full h-auto block border-t border-slate-100">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <span class="text-primary-600 font-mono text-xs font-bold tracking-widest uppercase mb-4 block">2. Campaign Simulations</span>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-950 mb-6 tracking-tight">Catch Ad Bounces</h3>
+                        <p class="text-slate-600 text-lg font-medium leading-relaxed">
+                            Stop paying for clicks that bounce. Input your ad goal and upload your Figma draft. We simulate a buyer clicking your ad and "hunting" for that specific promise on your page. If they can’t find the proof in 5 seconds, they bounce in our lab and not on your dime.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                    <div>
+                        <span class="text-primary-600 font-mono text-xs font-bold tracking-widest uppercase mb-4 block">3. Page & Content Simulations</span>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-950 mb-6 tracking-tight">Fix Silent Vetoes</h3>
+                        <p class="text-slate-600 text-lg font-medium leading-relaxed">
+                            Deals die in the dark funnel when a Technical Lead's doubt triggers an Economic Buyer's veto. We simulate stakeholder conflict so you can identify and fix frictions in your drafts before they ever hit your live CRM.
+                        </p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] bg-white">
+                        <div class="bg-slate-100 px-4 py-2.5 flex items-center gap-2 border-b border-slate-200">
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                        </div>
+                        <img src="images/page_simulation.png" alt="Committee Physics Graph" class="w-full h-auto block border-t border-slate-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="staging" class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20">
-                <span class="text-primary-700 font-mono text-xs font-black tracking-[0.3em] uppercase mb-4 block">> The Solution</span>
+            <div class="text-center mb-16">
+                <span class="text-primary-700 font-mono text-xs font-black tracking-[0.3em] uppercase mb-4 block">> Where We Fit</span>
                 <h2 class="text-4xl md:text-5xl font-extrabold text-slate-950 mb-6 tracking-tight">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-purple-700">Staging Environment</span> for Your GTM
                 </h2>
-                <p class="text-slate-600 text-lg md:text-xl font-medium max-w-4xl mx-auto leading-relaxed">
-                    Reverse-engineer audiences from your drafts, detect ad bounces and silent vetoes, or run A/B wargames to find the statistical winner in minutes.
+                <p class="text-slate-600 text-lg font-medium max-w-3xl mx-auto leading-relaxed">
+                    Upload your PDFs or Figma files. The engine runs your simulated buyers to detect friction, and hands you a prioritized "Kill Sheet" to fix ad bounces and vetoes <em>before</em> you deploy.
                 </p>
             </div>
 
-            <div class="relative mb-32 max-w-6xl mx-auto">
+            <div class="relative max-w-5xl mx-auto">
                 <div class="hidden md:block absolute top-1/2 left-8 right-8 h-1 bg-slate-200 -translate-y-1/2 z-0"></div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
                     <div class="group flex flex-col items-center justify-center text-center">
-                        <div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center mb-5 text-slate-700 border border-slate-300 shadow-xl transition-transform hover:scale-110">
+                        <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-5 text-slate-500 border border-slate-300 shadow-md">
                             <i class="fa-solid fa-pen-nib text-xl"></i>
                         </div>
                         <h3 class="text-slate-950 font-black text-sm uppercase tracking-widest mb-2">1. Build</h3>
@@ -1132,8 +265,8 @@
                     </div>
 
                     <div class="group flex flex-col items-center justify-center text-center">
-                        <div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center mb-5 text-slate-700 border border-slate-300 shadow-xl transition-transform hover:scale-110">
-                            <i class="fa-solid fa-comments text-xl"></i>
+                        <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-5 text-slate-500 border border-slate-300 shadow-md">
+                            <i class="fa-solid fa-users text-xl"></i>
                         </div>
                         <h3 class="text-slate-950 font-black text-sm uppercase tracking-widest mb-2">2. Review</h3>
                         <div class="text-xs font-bold font-mono text-slate-500 uppercase">Internal Alignment</div>
@@ -1141,8 +274,7 @@
 
                     <div class="relative md:-translate-y-4">
                         <div class="flex flex-col items-center justify-center text-center relative z-10 h-full">
-                            <div class="absolute -top-4 right-0 text-[10px] font-black bg-primary-600 text-white px-3 py-1 rounded-full font-mono shadow-lg animate-bounce">NEW</div>
-                            <div class="w-24 h-24 rounded-3xl glass-card flex items-center justify-center mb-6 text-primary-700 text-4xl border-2 border-primary-400 shadow-2xl shadow-primary-500/20">
+                            <div class="w-24 h-24 rounded-3xl bg-white flex items-center justify-center mb-6 text-primary-700 text-4xl border-2 border-primary-500 shadow-2xl shadow-primary-500/30">
                                 <i class="fa-solid fa-microchip animate-pulse"></i>
                             </div>
                             <h3 class="text-slate-950 font-black text-lg uppercase tracking-widest mb-2">3. Simulate</h3>
@@ -1153,140 +285,12 @@
                     </div>
 
                     <div class="group flex flex-col items-center justify-center text-center">
-                        <div class="w-16 h-16 rounded-2xl glass-card flex items-center justify-center mb-5 text-green-700 border border-green-400 shadow-xl transition-transform hover:scale-110">
+                        <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-5 text-green-700 border border-green-400 shadow-md">
                             <i class="fa-solid fa-rocket text-xl"></i>
                         </div>
                         <h3 class="text-slate-950 font-black text-sm uppercase tracking-widest mb-2">4. Deploy</h3>
                         <div class="text-xs font-bold font-mono text-green-700 uppercase">Confident Launch</div>
                     </div>
-                </div>
-            </div>
-
-            <div class="text-center mb-16">
-                <h3 class="text-3xl font-extrabold text-slate-950 mb-3 tracking-tight">How It Works</h3>
-                <p class="text-slate-600 text-lg font-medium">From Draft to Data in 3 Steps</p>
-            </div>
-
-            <div class="relative max-w-6xl mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-                    
-                    <div class="relative group">
-                        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-indigo-100/50 bg-white/20 h-full transition-colors hover:border-indigo-200/50 shadow-sm hover:shadow-md">
-                            <div class="bg-slate-950 text-white px-6 py-2 rounded-full text-[10px] font-black tracking-[0.3em] shadow-lg mb-10 uppercase">STEP 01</div>
-                            
-                            <div class="h-28 w-full flex items-center justify-center mb-8 relative">
-                                <div class="absolute left-6 w-16 h-20 bg-white border border-slate-200 rounded-lg shadow-md flex items-center justify-center z-10 rotate-[-6deg]">
-                                    <i class="fa-solid fa-file-pdf text-red-500 text-2xl"></i>
-                                </div>
-                                <div class="absolute left-1/2 -translate-x-1/2 text-slate-300 text-xl z-0">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </div>
-                                <div class="absolute right-6 w-16 h-16 bg-indigo-100 border border-indigo-200 rounded-2xl shadow-md flex items-center justify-center z-10 rotate-[6deg] group-hover:scale-110 transition-transform">
-                                    <i class="fa-solid fa-user-astronaut text-indigo-600 text-2xl"></i>
-                                </div>
-                            </div>
-
-                            <h3 class="text-xl font-extrabold text-slate-950 mb-4">Ingest & Construct</h3>
-                            <p class="text-sm font-medium text-slate-600 mb-8 px-2 leading-relaxed">
-                                Upload PDFs, Figma files, or URLs. We build your <strong class="text-slate-950">Buying Committee</strong> based on your inputs and ground reality. You can also <strong class="text-slate-950">reverse-engineer content</strong> to discover hidden audience segments (TAM).
-                            </p>
-                            
-                            <div class="w-full bg-slate-950/5 rounded-xl p-4 text-left font-mono text-[10px] text-slate-700 border border-slate-200 space-y-2 mt-auto">
-                                <div class="flex gap-3"><span class="text-slate-400 font-bold">></span> <span class="font-bold">Ingesting Inputs...</span></div>
-                                <div class="flex gap-3"><span class="text-indigo-600 font-bold">></span> <span>Constructing: <span class="font-black">"Enterprise Committee"</span></span></div>
-                                <div class="flex gap-3 font-black text-green-700 uppercase tracking-tighter"><span class="text-green-500">></span> <span>Ready for Simulation</span></div>
-                            </div>
-                        </div>
-                        
-                        <div class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 text-indigo-200 text-2xl">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
-                    </div>
-
-                    <div class="relative group">
-                        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-indigo-100/50 bg-white/20 h-full transition-colors hover:border-indigo-200/50 shadow-sm hover:shadow-md">
-                            <div class="bg-indigo-700 text-white px-6 py-2 rounded-full text-[10px] font-black tracking-[0.3em] shadow-lg mb-10 uppercase shadow-indigo-500/20">STEP 02</div>
-                            
-                            <div class="h-28 w-full flex flex-col items-center justify-center mb-8 gap-3">
-                                <div class="w-full bg-white/60 border border-slate-200 rounded-lg p-2 flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-rectangle-ad text-slate-400 text-xs"></i>
-                                        <span class="text-[9px] font-black font-mono uppercase">Ad Bounce</span>
-                                    </div>
-                                    <span class="text-[9px] font-black text-red-600 bg-red-50 px-1.5 rounded">DETECTED</span>
-                                </div>
-                                <div class="w-full bg-white/60 border border-slate-200 rounded-lg p-2 flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-users text-slate-400 text-xs"></i>
-                                        <span class="text-[9px] font-black font-mono uppercase">CFO Veto</span>
-                                    </div>
-                                    <span class="text-[9px] font-black text-red-600 bg-red-50 px-1.5 rounded">DETECTED</span>
-                                </div>
-                                <div class="w-full bg-white/60 border border-slate-200 rounded-lg p-2 flex items-center justify-between">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-bolt text-slate-400 text-xs"></i>
-                                        <span class="text-[9px] font-black font-mono uppercase">A/B Winner</span>
-                                    </div>
-                                    <span class="text-[9px] font-black text-green-600 bg-green-50 px-1.5 rounded">FOUND</span>
-                                </div>
-                            </div>
-
-                            <h3 class="text-xl font-extrabold text-slate-950 mb-4">Simulate & Wargame</h3>
-                            <p class="text-sm font-medium text-slate-600 mb-8 px-2 leading-relaxed">
-                                The engine runs adversarial agents to detect <strong>Ad Bounces</strong>, identify <strong>Silent Vetoes</strong>, and predict the <strong>Statistical Winner</strong> (A vs B) in minutes.
-                            </p>
-                            
-                            <div class="w-full bg-slate-950/5 rounded-xl p-4 text-left font-mono text-[10px] text-slate-700 border border-slate-200 space-y-2 mt-auto">
-                                <div class="flex gap-3"><span class="text-slate-400 font-bold">></span> <span class="font-bold">Simulating Journey...</span></div>
-                                <div class="flex gap-3 text-red-700 font-bold"><span class="text-red-500">></span> <span>Ad Friction: HIGH</span></div>
-                                <div class="flex gap-3 text-slate-950 font-black"><span class="text-green-500">></span> <span>A/B Result: Var B Wins</span></div>
-                            </div>
-                        </div>
-
-                        <div class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 text-indigo-200 text-2xl">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
-                    </div>
-
-                    <div class="relative group">
-                        <div class="flex flex-col items-center text-center p-8 rounded-3xl border border-indigo-100/50 bg-white/20 h-full transition-colors hover:border-indigo-200/50 shadow-sm hover:shadow-md">
-                            <div class="bg-slate-950 text-white px-6 py-2 rounded-full text-[10px] font-black tracking-[0.3em] shadow-lg mb-10 uppercase">STEP 03</div>
-                            
-                            <div class="h-28 w-full flex items-center justify-center mb-8 relative">
-                                <div class="bg-white border border-slate-200 rounded-xl p-3 w-40 shadow-xl relative rotate-[-2deg]">
-                                    <div class="flex items-center gap-2 mb-2 border-b border-slate-50 pb-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                                        <span class="text-[8px] font-black text-red-400 uppercase tracking-widest">KILL SHEET (FIXES)</span>
-                                    </div>
-                                    <div class="space-y-2">
-                                        <div class="flex items-center gap-2">
-                                            <i class="fa-solid fa-square-check text-green-600 text-[10px]"></i>
-                                            <span class="text-[8px] font-bold text-slate-600">Add ROI Calc (Fix Veto)</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <i class="fa-solid fa-square-check text-green-600 text-[10px]"></i>
-                                            <span class="text-[8px] font-bold text-slate-600">Align Hero H1 (Fix Bounce)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="absolute -right-4 bottom-0 bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-lg shadow-lg shadow-green-500/30 rotate-[4deg] uppercase tracking-widest">
-                                    Ready
-                                </div>
-                            </div>
-
-                            <h3 class="text-xl font-extrabold text-slate-950 mb-4">Fix & Launch</h3>
-                            <p class="text-sm font-medium text-slate-600 mb-8 px-2 leading-relaxed">
-                                Receive a prioritized <strong>"Kill Sheet"</strong> to fix ad bounces and vetoes. Launch your statistical winner with 0% budget waste.
-                            </p>
-                            
-                            <div class="w-full bg-slate-950/5 rounded-xl p-4 text-left font-mono text-[10px] text-slate-700 border border-slate-200 space-y-2 mt-auto">
-                                <div class="flex gap-3"><span class="text-slate-400 font-bold">></span> <span class="font-bold">Applying Fixes...</span></div>
-                                <div class="flex gap-3"><span class="text-slate-400 font-bold">></span> <span class="font-bold">Re-Simulating...</span></div>
-                                <div class="flex gap-3 font-black text-primary-700 uppercase tracking-tighter"><span class="text-primary-500">></span> <span>LAUNCH (RISK: LOW)</span></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -1298,94 +302,76 @@
                 <span class="text-primary-700 font-mono text-xs font-black tracking-[0.3em] uppercase mb-4 block">> Ground Reality</span>
                 <h2 class="text-4xl md:text-5xl font-extrabold text-slate-950 mb-6 tracking-tight">Constructing Your <span class="text-primary-700">Ground Reality</span></h2>
                 <p class="text-lg md:text-xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-                    We don't <span class="text-red-700 underline decoration-red-300 decoration-4">imagine</span> your buyer. We reverse-engineer them from your actual data footprint.
+                    We don't imagine your buyer. We reverse-engineer them from your actual data footprint to guarantee accuracy.
                 </p>
             </div>
 
-            <div class="relative max-w-6xl mx-auto mt-24">
+            <div class="relative max-w-6xl mx-auto">
                 <svg class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 1152 600" fill="none">
-                    <path d="M 350 140 C 450 140, 450 300, 530 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
-                    <path d="M 350 140 C 450 140, 450 300, 530 300" stroke="#7c3aed" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite]" />
-                    <path d="M 350 460 C 450 460, 450 300, 530 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
-                    <path d="M 350 460 C 450 460, 450 300, 530 300" stroke="#0d9488" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite_reverse]" />
-                    <path d="M 802 140 C 702 140, 702 300, 622 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
-                    <path d="M 802 140 C 702 140, 702 300, 622 300" stroke="#2563eb" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite]" />
-                    <path d="M 802 460 C 702 460, 702 300, 622 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
-                    <path d="M 802 460 C 702 460, 702 300, 622 300" stroke="#db2777" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite_reverse]" />
+                    <defs>
+                        <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed" />
+                        </marker>
+                        <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0d9488" />
+                        </marker>
+                        <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb" />
+                        </marker>
+                        <marker id="arrow-pink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#db2777" />
+                        </marker>
+                    </defs>
+                    <path d="M 350 140 C 420 140, 420 300, 475 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
+                    <path d="M 350 140 C 420 140, 420 300, 475 300" stroke="#7c3aed" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite]" marker-end="url(#arrow-purple)" />
+                    <path d="M 350 460 C 420 460, 420 300, 475 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
+                    <path d="M 350 460 C 420 460, 420 300, 475 300" stroke="#0d9488" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite_reverse]" marker-end="url(#arrow-teal)" />
+                    <path d="M 802 140 C 732 140, 732 300, 677 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
+                    <path d="M 802 140 C 732 140, 732 300, 677 300" stroke="#2563eb" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite]" marker-end="url(#arrow-blue)" />
+                    <path d="M 802 460 C 732 460, 732 300, 677 300" stroke="#cbd5e1" stroke-width="3" fill="none" class="opacity-40" />
+                    <path d="M 802 460 C 732 460, 732 300, 677 300" stroke="#db2777" stroke-width="3" fill="none" stroke-dasharray="10,10" class="animate-[dash_3s_linear_infinite_reverse]" marker-end="url(#arrow-pink)" />
                 </svg>
 
                 <div class="grid lg:grid-cols-[1fr_300px_1fr] gap-12 items-center relative z-10">
-                    <div class="space-y-16">
-                        <div class="relative group hover:pl-4 transition-all">
-                            <div class="flex items-start gap-6">
-                                <div class="w-16 h-16 rounded-2xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 text-2xl shrink-0 group-hover:scale-110 shadow-lg transition-transform">
-                                    <i class="fa-solid fa-dna"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-slate-950 font-black text-base mb-2 uppercase tracking-widest">1. Vendor DNA</h4>
-                                    <div class="text-[10px] text-slate-400 font-black font-mono mb-3 uppercase tracking-widest">Source: Your Site & Docs</div>
-                                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
-                                        Crawls your public docs and technical guides to map structural constraints like "Sales-Led" or "Self-Hosted Only".
-                                    </p>
-                                </div>
+                    <div class="space-y-12">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-5 hover:border-indigo-300 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-dna"></i></div>
+                            <div>
+                                <h4 class="text-slate-950 font-black text-sm uppercase tracking-widest mb-1">Vendor DNA</h4>
+                                <p class="text-slate-600 text-sm font-medium leading-relaxed">We crawl your site to map structural constraints (e.g., Sales-Led vs. PLG).</p>
                             </div>
                         </div>
-
-                        <div class="relative group hover:pl-4 transition-all">
-                            <div class="flex items-start gap-6">
-                                <div class="w-16 h-16 rounded-2xl bg-teal-100 border border-teal-200 flex items-center justify-center text-teal-700 text-2xl shrink-0 group-hover:scale-110 shadow-lg transition-transform">
-                                    <i class="fa-solid fa-globe"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-slate-950 font-black text-base mb-2 uppercase tracking-widest">2. Market Intel</h4>
-                                    <div class="text-[10px] text-slate-400 font-black font-mono mb-3 uppercase tracking-widest">Source: G2, Reddit, Peers</div>
-                                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
-                                        Scrapes community sentiment and competitor gaps to ground agents in real-world B2B buying pressure.
-                                    </p>
-                                </div>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-5 hover:border-teal-300 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-globe"></i></div>
+                            <div>
+                                <h4 class="text-slate-950 font-black text-sm uppercase tracking-widest mb-1">Market Intel</h4>
+                                <p class="text-slate-600 text-sm font-medium leading-relaxed">We scrape community sentiment and competitor gaps to ground agents in real-world pressure.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="hidden lg:flex flex-col items-center justify-center h-[450px] relative">
-                        <div class="absolute w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
-                        <div class="absolute w-64 h-64 border border-slate-300/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                        <div class="absolute w-48 h-48 border border-slate-400/50 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                        <div class="relative w-48 h-48 glass-card rounded-full flex flex-col items-center justify-center shadow-2xl z-10 group border-white/60">
-                            <div class="text-4xl text-slate-950 mb-3 group-hover:scale-110 transition-transform duration-700"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="text-[11px] font-black text-slate-500 uppercase tracking-widest text-center px-6 font-mono leading-tight">Constructed<br><span class="text-slate-950">Ground Truth</span></div>
-                            <div class="absolute -top-8 bg-slate-950 border border-slate-800 px-4 py-1.5 rounded-lg text-[10px] text-green-400 font-black font-mono shadow-2xl uppercase tracking-[0.2em]">Ready</div>
+                    <div class="hidden lg:flex flex-col items-center justify-center h-[350px] relative">
+                        <div class="absolute w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
+                        <div class="absolute w-56 h-56 border border-slate-300/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                        <div class="relative w-40 h-40 bg-white border border-slate-200 rounded-full flex flex-col items-center justify-center shadow-xl z-10">
+                            <div class="text-3xl text-primary-600 mb-2"><i class="fa-solid fa-database"></i></div>
+                            <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest text-center font-mono">Ground Truth<br><span class="text-slate-950">Active</span></div>
                         </div>
                     </div>
 
-                    <div class="space-y-16">
-                        <div class="relative group hover:pr-4 transition-all text-left">
-                            <div class="flex items-start gap-6">
-                                <div class="w-16 h-16 rounded-2xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700 text-2xl shrink-0 group-hover:scale-110 shadow-lg transition-transform">
-                                    <i class="fa-solid fa-microphone-lines"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-slate-950 font-black text-base mb-2 uppercase tracking-widest">3. Customer Voice</h4>
-                                    <div class="text-[10px] text-slate-400 font-black font-mono mb-3 uppercase tracking-widest">Source: Gong / CRM Transcripts</div>
-                                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
-                                        Ingests redacted transcripts to extract the exact technical and financial rejection reasons your team hears daily.
-                                    </p>
-                                </div>
+                    <div class="space-y-12">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-5 hover:border-blue-300 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-microphone-lines"></i></div>
+                            <div>
+                                <h4 class="text-slate-950 font-black text-sm uppercase tracking-widest mb-1">Customer Voice</h4>
+                                <p class="text-slate-600 text-sm font-medium leading-relaxed">We ingest redacted Gong/CRM transcripts to extract the exact rejection reasons your sales team hears.</p>
                             </div>
                         </div>
-
-                        <div class="relative group hover:pr-4 transition-all text-left">
-                            <div class="flex items-start gap-6">
-                                <div class="w-16 h-16 rounded-2xl bg-pink-100 border border-pink-200 flex items-center justify-center text-pink-700 text-2xl shrink-0 group-hover:scale-110 shadow-lg transition-transform">
-                                    <i class="fa-solid fa-brain"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-slate-950 font-black text-base mb-2 uppercase tracking-widest">4. Context</h4>
-                                    <div class="text-[10px] text-slate-400 font-black font-mono mb-3 uppercase tracking-widest">Source: Your Hypotheses</div>
-                                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
-                                        Injects your institutional knowledge. Your specific ad promise becomes the agent's primary active search goal.
-                                    </p>
-                                </div>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-5 hover:border-pink-300 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-bullseye"></i></div>
+                            <div>
+                                <h4 class="text-slate-950 font-black text-sm uppercase tracking-widest mb-1">Campaign Context</h4>
+                                <p class="text-slate-600 text-sm font-medium leading-relaxed">We inject your specific ad promise so the simulated agent has an active, realistic search goal.</p>
                             </div>
                         </div>
                     </div>
@@ -1394,22 +380,209 @@
         </div>
     </section>
 
-    <section id="access" class="py-32 bg-slate-50 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-indigo-200/20 rounded-full blur-[140px] pointer-events-none"></div>
+    <section id="faq" class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-primary-700 font-mono text-xs font-black tracking-[0.3em] uppercase mb-3 block">> FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-950 tracking-tight">Common Questions</h2>
+            </div>
 
-        <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <div class="text-center mb-16">
+            <div class="grid md:grid-cols-2 gap-4 items-start">
+                
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-robot"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">Why not just use ChatGPT or Claude?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-indigo-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Use ChatGPT or Claude to draft campaigns faster. However, they provide a single opinion, meaning you launch faster but burn budget faster if the copy misses. WhyUser is the perfect complement. We simulate hundreds of conflicting buyers (like a CFO vs. a Tech Lead) against your AI drafts to reveal exact friction before you spend a dime.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">How is Audience Discovery different from Clay?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-emerald-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Clay is an incredible tool for building contact lists, but it assumes you already know exactly who to target. WhyUser completes the workflow. We reverse-engineer your messaging to uncover the exact hidden job titles that will actually convert. Once we give you a validated persona list, you plug it into Clay to find their emails.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-vial"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">Does this replace live A/B testing?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-blue-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Live A/B testing tools like Optimizely are excellent for optimizing a live funnel. However, they require burning actual ad budget and waiting weeks for data. WhyUser shifts your testing left. By debugging major conversion killers in our private lab first, your live A/B tests start from a much higher baseline and win faster.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-bullseye"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">How do you know what my buyers actually care about?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-amber-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Our platform automatically searches the open web to map your company voice and community sentiment. You can also easily connect your CRM or upload Gong transcripts to inject your proprietary institutional knowledge. This automated data pipeline builds buyer agents that react to your pitch exactly like your real customers do.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-network-wired"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">Can you simulate enterprise buying committees?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-purple-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Yes. B2B deals are rarely killed by the End User; they die in the dark funnel when an Economic Buyer silently vetoes the page. We map these exact node conflicts so you can add the missing ROI proof before you launch.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-bolt"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">How long does a simulation take?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-orange-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Waiting for standard B2B web traffic to reach statistical significance takes 4 to 6 weeks. A WhyUser simulation runs hundreds of buyer journeys and generates a prioritized "Kill Sheet" of friction points in minutes.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-file-import"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">What inputs do I need to run a test?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-teal-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        You can test anything from a rough Figma mockup or PDF draft to a live, published URL. Just provide the asset, select your target buyer committee, and input the core promise of your ad campaign.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-shield-halved"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">Is my pre-launch strategy secure?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-rose-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Absolutely. Your drafts, PDFs, and Figma files are strictly isolated within your staging environment.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-chart-network"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">Why should I trust the simulation results?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-slate-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        We do not ask you to trust a black box. Our engine runs hundreds of buyer journeys per test to achieve statistical significance. We then provide a transparent conflict graph showing exactly which persona vetoed your page and the exact missing proof that caused them to bounce. You see the complete cause and effect.
+                    </div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer p-4 list-none hover:bg-slate-50 transition-colors rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-code"></i></div>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-950">Do I need engineering help to set this up?</h3>
+                        </div>
+                        <span class="ml-3 flex-shrink-0 transition duration-300 group-open:-rotate-180 text-slate-400 group-hover:text-cyan-600">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <div class="px-4 pb-4 text-slate-600 font-medium leading-relaxed text-sm border-t border-slate-100 pt-3">
+                        Not at all. WhyUser is built specifically for GTM and Demand Gen leaders. There is no complex coding or IT integration required to run a test. You simply paste a URL or upload a PDF, define your target buyer committee, and the simulation engine handles the heavy lifting.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="py-32 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-10">
                 <span class="text-primary-700 font-mono text-xs font-black tracking-[0.3em] uppercase mb-6 block">> Get Started</span>
-                <h2 class="text-5xl md:text-6xl font-black text-slate-950 mb-8 tracking-tight leading-tight">
+                <h2 class="text-5xl md:text-6xl font-black text-slate-950 mb-4 tracking-tight leading-tight">
                     <span class="text-red-600 underline decoration-red-100 decoration-8">Fail</span> in the Simulator.<br>
                     <span class="text-green-700 underline decoration-green-100 decoration-8">Win</span> in the Market.
                 </h2>
-                <p class="text-xl text-slate-700 font-medium max-w-2xl mx-auto leading-relaxed">
-                    Don't wait for the post-mortem. Identify and fix your revenue leaks before you spend $50k on a broken campaign.
-                </p>
+            </div>
+            
+            <div class="py-10 mb-16 relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-100/50 to-transparent pointer-events-none"></div>
+                
+                <div class="relative z-10 text-center max-w-2xl mx-auto mb-10">
+                    <h4 class="font-black text-slate-900 mb-4 text-sm uppercase tracking-widest font-mono">The Design Partner Agreement</h4>
+                    <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                        Running high-fidelity simulations and 1:1 onboarding requires significant compute and engineering resources. We are fully funding this sprint for our early users, which means we must be highly selective.
+                    </p>
+                </div>
+
+                <div class="relative z-10 grid md:grid-cols-3 gap-8 text-left px-4">
+                    <div class="flex flex-col items-center text-center md:items-start md:text-left">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm"><i class="fa-solid fa-gift"></i></div>
+                        <h5 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-2">Our Investment</h5>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed">4 weeks of full platform access to simulate and optimize your campaigns, 100% free.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center md:items-start md:text-left">
+                        <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm"><i class="fa-solid fa-handshake"></i></div>
+                        <h5 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-2">Your Commitment</h5>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed">A 30-minute feedback call each week directly with our founder to guide product direction.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center md:items-start md:text-left">
+                        <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm"><i class="fa-solid fa-bullseye"></i></div>
+                        <h5 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-2">The Fit</h5>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed">You actively drive B2B traffic (paid or PLG) and want to fix pipeline leaks before launch.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass-card border border-slate-300 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden bg-white/80">
+            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden bg-white">
                 <iframe 
                     data-tally-src="https://tally.so/embed/xXVLNJ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
                     loading="lazy" 
@@ -1426,107 +599,18 @@
             </div>
         </div>
         
-        <footer class="bg-slate-50 border-t border-slate-200 mt-32 pt-20 pb-12 relative overflow-hidden">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
-                    <div class="col-span-2 lg:col-span-2">
-                        <div class="flex items-center gap-3 mb-8">
-                            <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-indigo-600 rounded-xl flex items-center justify-center text-white font-black font-mono text-lg shadow-xl">W</div>
-                            <span class="font-black text-2xl text-slate-950 tracking-tighter">WhyUser</span>
-                        </div>
-                        <p class="text-slate-500 text-sm font-medium leading-relaxed mb-8 max-w-sm">
-                            The GTM Staging Environment. Empowering product and marketing teams to simulate complex buying committee behavior and resolve revenue leaks before market launch.
-                        </p>
-                        <div class="flex gap-5">
-                            <a href="#" class="w-10 h-10 rounded-xl glass-card border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary-700 hover:border-primary-300 transition-all shadow-md">
-                                <i class="fa-brands fa-twitter text-lg"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/whyuserinc/" class="w-10 h-10 rounded-xl glass-card border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary-700 hover:border-primary-300 transition-all shadow-md">
-                                <i class="fa-brands fa-linkedin-in text-lg"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-xl glass-card border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary-700 hover:border-primary-300 transition-all shadow-md">
-                                <i class="fa-brands fa-github text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h4 class="text-slate-950 font-black mb-8 text-xs uppercase tracking-[0.2em] font-mono">Platform</h4>
-                        <ul class="space-y-5 text-sm font-bold text-slate-500">
-                            <li><a href="#capabilities" onclick="switchTab('sniper')" class="hover:text-primary-700 transition-colors">Audience Sniper</a></li>
-                            <li><a href="#capabilities" onclick="switchTab('validator')" class="hover:text-primary-700 transition-colors">Ad Bounce Simulations</a></li>
-                            <li><a href="#capabilities" onclick="switchTab('buyer')" class="hover:text-primary-700 transition-colors">Buyers Simulations</a></li>
-                            <li><a href="#capabilities" onclick="switchTab('ab')" class="hover:text-primary-700 transition-colors">A/B Accelerator</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="text-slate-950 font-black mb-8 text-xs uppercase tracking-[0.2em] font-mono">Methodology</h4>
-                        <ul class="space-y-5 text-sm font-bold text-slate-500">
-                            <li><a href="#trap" class="hover:text-primary-700 transition-colors">The "Live Fire" Trap</a></li>
-                            <li><a href="#trust" class="hover:text-primary-700 transition-colors">Causal AI vs LLMs</a></li>
-                            <li><a href="#gap" class="hover:text-primary-700 transition-colors">Why A/B Testing Fails</a></li>
-                            <li><a href="#" class="hover:text-primary-700 transition-colors flex items-center gap-2">Manifesto <span class="text-[9px] bg-slate-200 border border-slate-300 px-2 py-0.5 rounded-full text-slate-700 font-black font-mono">READ</span></a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="text-slate-950 font-black mb-8 text-xs uppercase tracking-[0.2em] font-mono">Company</h4>
-                        <ul class="space-y-5 text-sm font-bold text-slate-500">
-                            <li><a href="#" class="hover:text-primary-700 transition-colors">About</a></li>
-                            <li><a href="#" class="hover:text-primary-700 transition-colors">Careers</a></li>
-                            <li><a href="#" class="hover:text-primary-700 transition-colors">Security (SOC2)</a></li>
-                            <li><a href="contact.html" class="hover:text-primary-700 transition-colors">Contact</a></li>
-                        </ul>
-                    </div>
+        <footer class="mt-32 border-t border-slate-200 pt-12 pb-12 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white font-bold font-mono text-xs">W</div>
+                    <span class="font-bold text-sm text-slate-900 tracking-tight">WhyUser Inc.</span>
                 </div>
-
-                <div class="border-t border-slate-200 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-400 font-black font-mono uppercase tracking-widest">
-                    <div>&copy; 2026 WhyUser Inc. All rights reserved. San Francisco, CA.</div>
-                    <div class="flex gap-10">
-                        <a href="legal/privacy-policy.html" class="hover:text-slate-950 transition-colors">Privacy Policy</a>
-                        <a href="legal/website-terms-of-use.html" class="hover:text-slate-950 transition-colors">Terms of Service</a>
-                        <a href="#" class="hover:text-slate-950 transition-colors">Status</a>
-                    </div>
+                <div class="text-[11px] text-slate-500 font-black font-mono uppercase tracking-widest text-center md:text-left">
+                    &copy; 2026 WhyUser Inc. All rights reserved. San Francisco, CA.
                 </div>
             </div>
         </footer>
     </section>
 
-    <script>
-        window.switchTab = function(tabId) {
-            const tabs = ['sniper', 'validator', 'buyer', 'ab', 'winloss'];
-            const colors = {
-                'sniper': 'text-primary-700',
-                'validator': 'text-teal-700',
-                'buyer': 'text-blue-700',
-                'ab': 'text-yellow-700',
-                'winloss': 'text-pink-700'
-            };
-
-            tabs.forEach(id => {
-                const btn = document.getElementById(`tab-${id}`);
-                const content = document.getElementById(`content-${id}`);
-                const icon = btn ? btn.querySelector('i') : null;
-                if(btn && content){
-                    btn.className = "w-full text-left p-6 rounded-2xl border border-slate-200/60 text-slate-500 hover:glass-card hover:text-slate-950 hover:shadow-xl transition-all group";
-                    content.classList.add('hidden');
-                    if(icon) icon.className = icon.className.replace(/text-\w+-\d+/, ''); 
-                }
-            });
-
-            const activeBtn = document.getElementById(`tab-${tabId}`);
-            const activeContent = document.getElementById(`content-${tabId}`);
-            const activeIcon = activeBtn ? activeBtn.querySelector('i') : null;
-            
-            if(activeBtn && activeContent){
-                activeBtn.className = "w-full text-left p-6 rounded-2xl glass-card border border-primary-500/50 text-slate-950 shadow-xl transition-all group";
-                activeContent.classList.remove('hidden');
-                if(activeIcon) activeIcon.classList.add(colors[tabId]);
-            }
-        }
-    </script>
 </body>
 </html>

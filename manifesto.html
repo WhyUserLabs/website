@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The GTM Testing Manifesto | WhyUser</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f5f3ff', 100: '#ede9fe', 400: '#a78bfa',
+                            500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9', 900: '#4c1d95',
+                        },
+                        slate: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+                            850: '#1e293b', 900: '#0f172a', 950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::selection {
+            background: rgba(99, 102, 241, 0.2);
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body class="bg-[#FDFDFD] text-slate-800 font-sans antialiased">
+
+    <nav class="w-full z-50 bg-[#FDFDFD] border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
+                    <div class="w-7 h-7 bg-slate-950 rounded flex items-center justify-center text-white font-bold font-mono text-xs">W</div>
+                    <span class="font-bold text-base text-slate-950 tracking-tight font-mono uppercase">WhyUser</span>
+                </a>
+                <div class="flex items-center">
+                    <a href="index.html#access" class="text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-[0.2em] font-mono flex items-center gap-2">
+                        [ Access Lab ]
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-4 py-24 relative z-10">
+        
+        <header class="mb-20">
+            <div class="text-[11px] font-black text-indigo-600 font-mono uppercase tracking-[0.3em] mb-8 flex items-center gap-4">
+                <span class="w-8 h-px bg-indigo-600"></span>
+                The GTM Testing Manifesto
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-950 mb-8 leading-[1.2]">
+                Marketing shouldn't be the only department that tests in production.
+            </h1>
+
+            <p class="text-xl md:text-2xl text-slate-500 font-serif italic mb-12 leading-[1.6] border-l-4 border-slate-200 pl-6">
+                Every unvalidated campaign is a donation to LinkedIn and Google. You should not have to spend <strong>$50k</strong>$50k to find out your message will not land. You deserve the same staging environment the rest of my engineering team takes for granted.
+            </p>
+
+            <div class="flex items-center gap-4 text-xs font-mono font-bold text-slate-500 uppercase tracking-widest">
+                <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden text-slate-500 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <div class="text-slate-900">Founder, WhyUser</div>
+                    <div class="text-[10px] tracking-widest opacity-80 mt-0.5">Former B2B Startup CTO</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="space-y-12 text-lg text-slate-700 font-medium leading-[1.8]">
+            
+            <p>
+                As the CTO and Co-Founder of my previous B2B startup, my engineering team had an absolute rule: <strong class="text-slate-950 font-bold bg-slate-100 px-1.5 rounded">we never test in production.</strong> If we wanted to know how our code would perform under stress, we ran it in a staging environment.
+            </p>
+            
+            <p>
+                But our marketing leaders were forced to fly blind. Every time they built a new campaign, designed a pricing page, or pivoted positioning, they had to spend live budget just to see if it worked.
+            </p>
+
+            <h2 class="text-2xl font-black text-slate-950 mt-16 mb-8 font-mono tracking-tight uppercase">>> The Arsenal of Broken Tools</h2>
+            
+            <p class="mb-8">
+                The standard GTM validation methods aren't just inefficient. They are expensive, slow, and high-risk. For example,
+            </p>
+
+            <div class="space-y-10 pl-2 md:pl-6 border-l border-slate-200 my-12">
+                
+                <div>
+                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
+                        [01] Live A/B Testing <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Ad Tax</span>
+                    </h3>
+                    <p class="text-base font-medium">
+                        To learn what fails, you have to pay for it. You launch two variants, spend $10,000 on LinkedIn traffic, and wait 6 weeks for statistical significance only to discover your hypothesis was wrong. You are paying a massive tax just to learn.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
+                        [02] Internal Reviews <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Echo Chamber</span>
+                    </h3>
+                    <p class="text-base font-medium">
+                        You drop a Figma link in Slack. Your team says "looks great" because they know the product inside and out. They give you 10 minutes of patient reading. A real buyer gives you a 5-second ruthless skim.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
+                        [03] User Panels <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Say vs. Do Gap</span>
+                    </h3>
+                    <p class="text-base font-medium">
+                        You pay a platform to put your site in front of testers. But people tell you what they think you want to hear just to get paid. They do not navigate your site with the skepticism of a real buyer under career pressure.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
+                        [04] Generic AI <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Yes-Man</span>
+                    </h3>
+                    <p class="text-base font-medium">
+                        You ask ChatGPT or Claude to review your draft. It gives you a single, polite, plausible opinion in a vacuum. It is designed to be helpful, so it does not fight back or actively veto deals like a real enterprise committee.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
+                        [05] Win/Loss Analysis <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Autopsy</span>
+                    </h3>
+                    <p class="text-base font-medium">
+                        You finally learn exactly why the Economic Buyer killed your deal in the dark funnel. But you learn it three months after the deal died. The revenue is already gone.
+                    </p>
+                </div>
+
+            </div>
+
+            <h2 class="text-2xl font-black text-slate-950 mt-16 mb-8 font-mono tracking-tight uppercase">>> The Shift-Left Paradigm</h2>
+            
+            <p>
+                I believe marketing leaders shouldn't have to launch to learn. If my engineering team could simulate server loads before deploying code, GTM teams should be able to simulate buyer behavior before deploying budget.
+            </p>
+            <p>
+                That is exactly why I built <strong class="text-slate-950 font-bold bg-indigo-50 px-1.5 rounded">WhyUser</strong>. It is the world's first GTM Staging Environment.
+            </p>
+
+            <div class="my-12 font-mono text-sm bg-slate-50 p-8 rounded-xl border border-slate-200">
+                <div class="text-xs font-black text-indigo-600 uppercase tracking-[0.2em] mb-8">Simulation Capabilities_</div>
+                <ul class="space-y-8 text-slate-700">
+                    <li class="flex gap-4">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
+                        <div>
+                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Audience Discovery</strong>
+                            <span class="font-sans text-base">Reverse-engineer your drafts to find the exact job titles that actually resonate. Uncover "Hidden Champions" in adjacent verticals to lower your CAC before you build the list in Clay.</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
+                        <div>
+                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Predictive Velocity</strong>
+                            <span class="font-sans text-base">Compress a 6-week live A/B test into a 30-minute simulation. Find the statistical winner before spending a dime on traffic.</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
+                        <div>
+                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Skeptical Buyers</strong>
+                            <span class="font-sans text-base">Model real stakeholder conflict. Watch your Champion (CH) get sold on features while the Economic Buyer (EB) silently vetoes the page over missing ROI proof. Resolve this friction before launch.</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
+                        <div>
+                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Zero Waste</strong>
+                            <span class="font-sans text-base">Identify and fix ad bounces in a private lab. When you finally deploy to live production, you launch with a statistical baseline that wins.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <p>
+                Stop burning your budget just to validate your funnel. Let's resolve your friction in the simulator so you can win in the market.
+            </p>
+
+            <div class="pt-12 mt-16 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <a href="index.html#access" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 bg-slate-950 hover:bg-slate-800 text-white px-8 py-4 rounded font-mono font-bold text-sm uppercase tracking-widest transition-all">
+                    Request Lab Access <i class="fa-solid fa-terminal"></i>
+                </a>
+                <div class="text-sm font-mono text-slate-400 uppercase tracking-widest">
+                    // WhyUser.com
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+</body>
+</html>

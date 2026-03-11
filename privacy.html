@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | WhyUser</title>
+    <style>
+        :root {
+            --primary: #111827;
+            --secondary: #4B5563;
+            --accent: #2563EB;
+            --border: #E5E7EB;
+            --bg-light: #F9FAFB;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: -0.025em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .last-updated {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Privacy Policy</h1>
+    <div class="last-updated">Last Updated: March 10, 2026</div>
+
+    <p>WHYUSER, INC ("WhyUser," "we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (whyuser.com) or use our Go-To-Market Simulation Platform (the "Service").</p>
+
+    <p>If you are using the Service on behalf of an organization (our "Customer"), our processing of your data is also governed by our Cloud Service Agreement and Data Processing Agreement (DPA). In the event of a conflict between this Privacy Policy and the DPA, the DPA will govern.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect information that identifies, relates to, describes, or could reasonably be linked to you ("Personal Data") in the following categories:</p>
+    <ul>
+        <li><strong>Account Data:</strong> Name, email address, phone number, and professional title when you register for an account.</li>
+        <li><strong>Billing Data:</strong> Payment details and billing addresses processed securely by our third-party payment processors.</li>
+        <li><strong>Customer Content:</strong> Drafts, PDFs, URLs, and sales transcripts you upload to the Service for simulation.</li>
+        <li><strong>Usage Data:</strong> Information about your interactions with the Service, including IP addresses, log data, and performance metrics.</li>
+    </ul>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use your information for the following business purposes:</p>
+    <ul>
+        <li>To provide, operate, and maintain the Service.</li>
+        <li>To process transactions and send related information, including invoices and confirmations.</li>
+        <li>To monitor and analyze usage and trends to improve our products and services.</li>
+        <li>To communicate with you regarding support, technical notices, and security alerts.</li>
+    </ul>
+
+    <h2>3. Our "Privacy-First" Data Architecture (How We Protect Content)</h2>
+    <p>As a simulation platform processing sensitive GTM assets and sales intelligence, we employ a strict "Privacy-First" ingestion architecture:</p>
+    <ul>
+        <li><strong>Ingestion-Layer Redaction:</strong> All unstructured data (such as Gong or Chorus transcripts) is programmatically redacted for Personally Identifiable Information (PII) immediately upon receipt at the ingestion layer (in volatile memory) before simulation processing occurs.</li>
+        <li><strong>No Raw Storage:</strong> We do not store raw sales transcript audio or full text files on disk. These are processed in volatile memory and immediately purged following signal extraction.</li>
+        <li><strong>Data Minimization:</strong> Our ingestion engine surgically isolates only structural market signals (Industry, Role, Pain Points, and Objections) to calibrate our Adversarial Context Graph. Technical market signals are decoupled from individual identities.</li>
+    </ul>
+
+    <h2>4. Artificial Intelligence & Third-Party Subprocessors</h2>
+    <p>WhyUser utilizes secure third-party subprocessors to provide cloud infrastructure and foundational Large Language Model (LLM) capabilities. We strictly govern how these partners interact with your data:</p>
+    <ul>
+        <li><strong>Approved LLM Providers:</strong> We route queries through enterprise APIs provided by OpenAI, L.L.C., Google LLC (Gemini), and Anthropic PBC (Claude).</li>
+        <li><strong>Zero-Day Retention & No Base Model Training:</strong> Data processed via these third-party LLM APIs is subject to zero-day retention and is <strong>strictly prohibited</strong> from being used to train their foundational base models.</li>
+        <li><strong>Infrastructure:</strong> We utilize AWS for secure, encrypted cloud infrastructure and data storage.</li>
+    </ul>
+    <p>For a full list of our subprocessors and compliance mechanisms, please review our <a href="/dpa">Data Processing Agreement</a>.</p>
+
+    <h2>5. Data Sharing and Disclosure</h2>
+    <p>We do not sell or share your Personal Data with third parties for their direct marketing purposes. We may disclose your information only in the following situations:</p>
+    <ul>
+        <li><strong>Service Providers:</strong> To approved subprocessors who perform services on our behalf, bound by strict confidentiality obligations.</li>
+        <li><strong>Legal Obligations:</strong> If required to do so by Applicable Laws, court orders, or governmental regulations.</li>
+        <li><strong>Business Transfers:</strong> In connection with a merger, sale of company assets, financing, or acquisition of all or a portion of our business.</li>
+    </ul>
+
+    <h2>6. CCPA and GDPR Compliance</h2>
+    <p>If you are a resident of California or the European Economic Area (EEA)/United Kingdom, you have specific rights regarding your Personal Data, including the right to access, delete, or opt-out of certain processing.</p>
+    <p>When providing the Service, WhyUser acts as a "Service Provider" under the CCPA and a "Processor" under the GDPR. We process Customer Personal Data solely upon the documented instructions of our Customers (the "Controllers"). If you are an end-user of one of our Customers, please direct your privacy inquiries to them directly.</p>
+
+    <h2>7. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+    <p>
+        <strong>WHYUSER, INC</strong><br>
+        1468 Greene Dr<br>
+        San Jose, California 95129, USA<br>
+        Security Inquiries: <a href="mailto:security@whyuser.com">security@whyuser.com</a><br>
+        Legal Notices: <a href="mailto:notices@whyuser.com">notices@whyuser.com</a>
+    </p>
+
+</body>
+</html>

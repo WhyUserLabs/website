@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Policy | WhyUser</title>
+    <style>
+        :root {
+            --primary: #111827;
+            --secondary: #4B5563;
+            --accent: #2563EB;
+            --border: #E5E7EB;
+            --bg-light: #F9FAFB;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: -0.025em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .last-updated {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Security Policy</h1>
+    <div class="last-updated">Last Updated: March 10, 2026</div>
+
+    <p>At WHYUSER, INC, we understand that we are processing highly sensitive Go-To-Market assets and proprietary sales intelligence. We will use commercially reasonable efforts to secure the Cloud Service from unauthorized access, alteration, or use and other unlawful tampering.</p>
+    
+    <p>This document outlines the technical and organizational security measures we employ to protect Customer data.</p>
+
+    <h2>1. "Privacy-First" Ingestion Architecture</h2>
+    <p>WhyUser employs a 'Privacy-First' ingestion architecture. All unstructured data (e.g., Gong/Chorus transcripts) is programmatically redacted for Personally Identifiable Information (PII) at the ingestion layer (in volatile memory) before simulation processing occurs.</p>
+    
+    <ul>
+        <li><strong>No Raw Storage on Disk:</strong> We do not store raw sales transcript audio or full text files on disk; these are processed in volatile memory and immediately purged following signal extraction.</li>
+        <li><strong>Data Minimization ("Extraction-Only"):</strong> WhyUser employs an 'Extraction-Only' philosophy. Our ingestion engine surgically isolates only the specific business pain points, objections, and roles required for simulation calibration. All non-essential data, including names, contact details, and unrelated conversational filler, is programmatically discarded before the data enters our Context Graph.</li>
+    </ul>
+
+    <h2>2. Encryption Standards</h2>
+    <p>We mandate strict encryption protocols for all data traversing our systems or residing within our infrastructure:</p>
+    <ul>
+        <li><strong>Data in Transit:</strong> All data transmitted between the WhyUser Customer environment and the WhyUser platform is encrypted using industry-standard Transport Layer Security (TLS 1.2 or higher). We utilize secure API tunnels for all third-party integrations (e.g., Gong, Chorus).</li>
+        <li><strong>Data at Rest:</strong> Extracted, anonymized structural market signals are stored securely using AWS cloud infrastructure and encrypted data storage.</li>
+    </ul>
+
+    <h2>3. Subprocessor & LLM Security</h2>
+    <p>WhyUser leverages industry-leading Large Language Models (LLMs) to power our simulations. We enforce the following strict boundaries with our AI subprocessors (OpenAI, Anthropic, Google):</p>
+    <ul>
+        <li><strong>Zero-Day Retention:</strong> Data processed via foundational LLM APIs is subject to zero-day retention.</li>
+        <li><strong>No Base Model Training:</strong> Data processed via API is not used for base model training. </li>
+    </ul>
+
+    <h2>4. Audits & Compliance</h2>
+    <p>WhyUser is currently architected for SOC 2 compliance and undergoes internal security audits annually to ensure data minimization and encryption standards are maintained.</p>
+
+    <h2>5. Security Inquiries & Vulnerability Reporting</h2>
+    <p>If you have questions about our security practices, or if you believe you have discovered a vulnerability in our Service, please contact our security team immediately at <a href="mailto:security@whyuser.com">security@whyuser.com</a>.</p>
+
+</body>
+</html>

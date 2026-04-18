@@ -97,7 +97,7 @@
 <body>
 
     <h1>Data Processing Agreement</h1>
-    <div class="last-updated">Last Updated: March 10, 2026</div>
+    <div class="last-updated">Last Updated: April 18, 2026</div>
 
     <p>This Data Processing Agreement ("DPA") supplements the Cloud Service Agreement or other agreement between
         Customer and WHYUSER, INC ("Provider") governing Customer's use of the Service (the "Agreement").</p>
@@ -105,6 +105,11 @@
     <p>This DPA incorporates by reference the <a href="https://commonpaper.com/standards/data-processing-agreement/1.1/"
             target="_blank">Common Paper DPA Standard Terms Version 1.1</a> ("DPA Standard Terms"). If there is any
         inconsistency between this page and the DPA Standard Terms, the terms on this page will control.</p>
+
+    <p><em>For enterprise engagements, WhyUser also offers a custom-negotiated Data Processing Addendum in the Bonterms
+        framework (<a href="https://bonterms.com/forms/data-protection-addendum-v1/" target="_blank">Bonterms DPA v1.0</a>).
+        Where a Bonterms DPA is executed between Customer and Provider, that DPA supersedes this public baseline DPA for
+        the engagement between those parties.</em></p>
 
     <h2>1. Key Terms</h2>
     <table>
@@ -144,9 +149,9 @@
         </thead>
         <tbody>
             <tr>
-                <td><strong>AWS</strong></td>
-                <td>USA</td>
-                <td>Cloud infrastructure and secure, encrypted data storage.</td>
+                <td><strong>Amazon Web Services, Inc. (AWS)</strong></td>
+                <td>USA (us-west-2, us-east-1)</td>
+                <td>Cloud infrastructure (AWS Lightsail compute, AWS S3 storage) and encrypted data storage.</td>
             </tr>
             <tr>
                 <td><strong>OpenAI, L.L.C.</strong></td>
@@ -204,14 +209,17 @@
             <tr>
                 <th>Duration of Processing</th>
                 <td>Provider will process Customer Personal Data as long as required (i) to conduct the Processing
-                    activities instructed in Section 2.2(a)-(d) of the Standard Terms; or (ii) by Applicable Laws.</td>
+                    activities instructed in Section 2.2(a)-(d) of the Standard Terms; or (ii) by Applicable Laws.
+                    Raw customer data is processed ephemerally in volatile memory and never persisted to disk.
+                    Anonymized, extracted signals are retained for the duration of the Agreement plus up to 30 days.</td>
             </tr>
         </tbody>
     </table>
 
     <h2>4. Technical and Organizational Security Measures (Annex II)</h2>
     <p>Provider will use commercially reasonable efforts to secure the Cloud Service from unauthorized access,
-        alteration, or use and other unlawful tampering.</p>
+        alteration, or use and other unlawful tampering. A full description is published at
+        <a href="/security">whyuser.com/security</a>.</p>
 
     <h3>Pseudonymization and encryption of personal data</h3>
     <p>All Personal Data is pseudonymized via programmatic PII redaction at the edge before being processed by
@@ -219,19 +227,47 @@
         agents operate on anonymized intent vectors rather than raw personal data.</p>
 
     <h3>Protecting Customer Personal Data during transmission (in transit)</h3>
-    <p>All data transmitted between the WhyUser Customer environment and the WhyUser platform is encrypted using
-        industry-standard Transport Layer Security (TLS 1.2 or higher). We utilize secure API tunnels for all
-        third-party integrations (e.g., Gong, Chorus).</p>
+    <p>All data transmitted between the Customer environment and the WhyUser platform is encrypted using
+        industry-standard Transport Layer Security (TLS 1.2 or higher). TLS is terminated at our edge reverse proxy.
+        Secure API tunnels are used for all third-party integrations (e.g., Gong, Chorus). Outbound calls to LLM
+        subprocessors use TLS 1.2+.</p>
 
     <h3>Protecting Customer Personal Data during storage (at rest)</h3>
-    <p>We do not store raw sales transcript audio or full text files on disk; these are processed in volatile memory and
-        immediately purged following signal extraction.</p>
+    <p>Raw sales transcripts and audio are never persisted to disk; these are processed in volatile memory and
+        immediately purged following signal extraction. Anonymized, extracted signals and simulation outputs are
+        persisted to AWS S3 with Server-Side Encryption using AES-256 (SSE-S3). S3 Block Public Access is enabled at
+        the account and per-bucket level. Compute-instance block storage is encrypted.</p>
+
+    <h3>Tenant Isolation</h3>
+    <p>WhyUser's platform is multi-tenant. Each Customer is assigned a unique tenant identifier (prefix "t-"); all
+        per-Customer data resides exclusively under that Customer's dedicated S3 prefix
+        (<code>s3://bucket/t-{tenant_id}/</code>) and is never co-mingled with other Customers' data. Application-level
+        scoping and IAM policies prevent cross-tenant access.</p>
+
+    <h3>Access Control</h3>
+    <p>Least-privilege IAM is used for all application and human access to AWS resources. Multi-factor authentication is
+        required for the AWS root account and all IAM console users. Administrative SSH access to compute instances
+        requires key-based authentication; password authentication is disabled. Instance firewalls restrict inbound
+        traffic to required ports only.</p>
 
     <h3>Ensuring data minimization</h3>
     <p>WhyUser employs an 'Extraction-Only' philosophy. Our ingestion engine surgically isolates only the specific
         business pain points, objections, and roles required for simulation calibration. All non-essential data,
         including names, contact details, and unrelated conversational filler, is programmatically discarded before the
         data enters our Context Graph.</p>
+
+    <h3>Personal Data Breach Notification</h3>
+    <p>Provider will notify Customer of any confirmed Personal Data Breach affecting Customer's data without undue
+        delay, and in any event within 72 hours of confirming the breach. Notifications will be sent to Customer's
+        designated security contact and will include the nature of the breach, likely consequences, mitigation
+        measures taken, and a point of contact, to the extent known at the time. Disclosure is subject only to delays
+        specifically required by law enforcement or legal process.</p>
+
+    <h3>Vulnerability Management</h3>
+    <p>Provider uses continuous automated external vulnerability scanning (Intruder.io, integrated with Vanta) and
+        GitHub Dependabot for dependency monitoring. Remediation targets: critical findings addressed as soon as
+        practicable; high-severity findings within 30 days; medium within 90 days. An independent third-party manual
+        penetration test is planned prior to General Availability.</p>
 
 </body>
 

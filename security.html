@@ -73,43 +73,88 @@
 <body>
 
     <h1>Security Policy</h1>
-    <div class="last-updated">Last Updated: April 10, 2026</div>
+    <div class="last-updated">Last Updated: April 18, 2026</div>
 
     <p>At WHYUSER, INC, we understand that we are processing highly sensitive Go-To-Market assets and proprietary sales intelligence. We will use commercially reasonable efforts to secure the Cloud Service from unauthorized access, alteration, or use and other unlawful tampering.</p>
-    
+
     <p>This document outlines the technical and organizational security measures we employ to protect Customer data.</p>
 
     <h2>1. "Privacy-First" Ingestion Architecture</h2>
     <p>WhyUser employs a 'Privacy-First' ingestion architecture. All unstructured data (e.g., Gong/Chorus transcripts) is programmatically redacted for Personally Identifiable Information (PII) at the ingestion layer (in volatile memory) before simulation processing occurs.</p>
-    
+
     <ul>
         <li><strong>No Raw Storage on Disk:</strong> We do not store raw sales transcript audio or full text files on disk; these are processed in volatile memory and immediately purged following signal extraction.</li>
         <li><strong>Data Minimization ("Extraction-Only"):</strong> WhyUser employs an 'Extraction-Only' philosophy. Our ingestion engine surgically isolates only the specific business pain points, objections, and roles required for simulation calibration. All non-essential data, including names, contact details, and unrelated conversational filler, is programmatically discarded before the data enters our Context Graph.</li>
     </ul>
 
-    <h2>2. Encryption Standards</h2>
-    <p>We mandate strict encryption protocols for all data traversing our systems or residing within our infrastructure:</p>
+    <h2>2. Multi-Tenancy &amp; Tenant Isolation</h2>
+    <p>WhyUser's production platform is multi-tenant. Customer data is isolated at multiple layers:</p>
     <ul>
-        <li><strong>Data in Transit:</strong> All data transmitted between the WhyUser Customer environment and the WhyUser platform is encrypted using industry-standard Transport Layer Security (TLS 1.2 or higher). We utilize secure API tunnels for all third-party integrations (e.g., Gong, Chorus).</li>
-        <li><strong>Data at Rest:</strong> Extracted, anonymized structural market signals are stored securely using AWS cloud infrastructure and encrypted data storage.</li>
+        <li><strong>Storage:</strong> Each Customer is assigned a unique tenant identifier (prefix "t-"). All per-Customer data resides exclusively under that Customer's dedicated S3 prefix (e.g., <code>s3://bucket/t-{tenant_id}/</code>). Data belonging to different tenants resides under different, non-overlapping prefixes.</li>
+        <li><strong>Application:</strong> All reads, writes, and list operations are scoped by the authenticated tenant_id. No application code path supports cross-tenant reads in the ordinary course of business.</li>
+        <li><strong>Public Access:</strong> All S3 buckets have Block Public Access enabled at the account and per-bucket level. Bucket policies restrict access to authenticated service accounts only.</li>
     </ul>
 
-    <h2>3. Subprocessor & LLM Security</h2>
+    <h2>3. Encryption Standards</h2>
+    <p>We mandate strict encryption protocols for all data traversing our systems or residing within our infrastructure:</p>
+    <ul>
+        <li><strong>Data in Transit:</strong> All data transmitted between the Customer environment and the WhyUser platform is encrypted using industry-standard Transport Layer Security (TLS 1.2 or higher). We utilize secure API tunnels for all third-party integrations (e.g., Gong, Chorus). TLS is terminated at our Caddy edge reverse proxy; internal service-to-service traffic is confined to an internal Docker network.</li>
+        <li><strong>Data at Rest:</strong> Persistent data is encrypted at rest using AES-256 via AWS S3 Server-Side Encryption (SSE-S3). Compute instance block storage is encrypted.</li>
+        <li><strong>Key Management:</strong> Encryption keys are managed by AWS under WhyUser's AWS account. API keys and service credentials are stored in encrypted secrets storage and rotated on personnel change and on scheduled intervals.</li>
+    </ul>
+
+    <h2>4. Infrastructure &amp; Edge Hardening</h2>
+    <p>Our Cloud Service is hosted exclusively on Amazon Web Services (AWS) — AWS Lightsail Ubuntu compute instances and AWS S3 storage, in US-based regions only. AWS maintains SOC 2 Type II, ISO 27001, and FedRAMP certifications for its infrastructure services.</p>
+    <ul>
+        <li><strong>Network:</strong> Instance firewalls restrict inbound traffic to HTTPS/443 and administrative SSH only. Administrative SSH access requires key-based authentication; password authentication is disabled at the host level.</li>
+        <li><strong>Edge Hardening:</strong> Our edge reverse proxy applies response security headers on all responses — Strict-Transport-Security (with preload and includeSubDomains), X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, and Referrer-Policy. The reverse-proxy administrative API is disabled. The Server identity header is stripped.</li>
+        <li><strong>Service Segmentation:</strong> Only the edge reverse proxy is bound to a public network interface. Application and data-plane services are not directly reachable from outside the host.</li>
+    </ul>
+
+    <h2>5. Access Control</h2>
+    <ul>
+        <li><strong>Least Privilege:</strong> IAM policies for all application and human access to AWS resources follow a least-privilege model. Only authenticated service roles can access Customer data S3 prefixes.</li>
+        <li><strong>Multi-Factor Authentication:</strong> MFA is required for the AWS root account and all IAM console users, as well as for source control (GitHub) and identity provider consoles.</li>
+        <li><strong>Access Reviews:</strong> Access is reviewed on personnel change and on a scheduled cadence at least annually.</li>
+    </ul>
+
+    <h2>6. Subprocessor &amp; LLM Security</h2>
     <p>WhyUser leverages industry-leading Large Language Models (LLMs) to power our simulations. We enforce the following strict boundaries with our AI subprocessors (OpenAI, Anthropic, Google):</p>
     <ul>
         <li><strong>Zero-Day Retention:</strong> Data processed via foundational LLM APIs is subject to zero-day retention.</li>
-        <li><strong>No Base Model Training:</strong> Data processed via API is not used for base model training. </li>
+        <li><strong>No Base Model Training:</strong> Data processed via API is not used for base model training.</li>
+        <li><strong>Outbound-Only Egress:</strong> LLM API calls are initiated from our processing tier only; no inbound path from LLM providers into WhyUser exists.</li>
     </ul>
 
-    <h2>4. Audits & Compliance</h2>
+    <h2>7. Vulnerability Management</h2>
+    <ul>
+        <li><strong>Continuous External Scanning:</strong> WhyUser uses Intruder.io for continuous automated external vulnerability scanning, integrated with Vanta for evidence automation.</li>
+        <li><strong>Dependency Scanning:</strong> GitHub Dependabot monitors open-source dependencies for known vulnerabilities in real time.</li>
+        <li><strong>Secret Scanning:</strong> Gitleaks enforces pre-commit secret detection locally and as a CI safety net on every pull request.</li>
+        <li><strong>Remediation Targets:</strong> Critical findings are addressed as soon as practicable; high-severity findings within 30 days; medium within 90 days.</li>
+        <li><strong>Manual Penetration Testing:</strong> An independent third-party manual penetration test is planned prior to General Availability.</li>
+    </ul>
 
-    <p>WhyUser is pre-SOC 2. Our Cloud Service is hosted exclusively on Amazon Web Services (AWS) infrastructure — Lightsail/EC2 compute and S3 storage, US-based regions only — which maintains SOC 2 Type II, ISO 27001, and FedRAMP certifications.</p>
-    <p>WhyUser conducts application and infrastructure vulnerability assessments of its production environment and remediates critical findings within 72 hours of identification.</p>
-    <p>A Data Protection Addendum (DPA) based on the Bonterms framework is available upon request. WhyUser will complete your organization's standard vendor security questionnaire upon request.</p>
-    <p>For audit rights, security assessments, or to request our DPA, contact <a href="mailto:security@whyuser.com">security@whyuser.com</a> </p>
+    <h2>8. Logging &amp; Monitoring</h2>
+    <ul>
+        <li><strong>Management-Plane Events:</strong> AWS CloudTrail captures management-plane (API) events for the WhyUser AWS account.</li>
+        <li><strong>Edge Access Logs:</strong> Our edge reverse proxy emits JSON-formatted access logs captured by the container log driver.</li>
+        <li><strong>Storage Access Logs:</strong> S3 server access logging is enabled on the Customer-data bucket, with a lifecycle policy retaining logs for 12 months.</li>
+        <li><strong>Vulnerability Telemetry:</strong> Intruder.io provides continuous external scan results and alerts on newly discovered vulnerabilities.</li>
+    </ul>
 
-    <h2>5. Security Inquiries & Vulnerability Reporting</h2>
-    <p>If you have questions about our security practices, or if you believe you have discovered a vulnerability in our Service, please contact our security team immediately at <a href="mailto:security@whyuser.com">security@whyuser.com</a>.</p>
+    <h2>9. Incident Response &amp; Breach Notification</h2>
+    <p>WhyUser maintains a documented Incident Response Policy with four severity levels and a defined six-phase response flow (Detect → Triage → Contain → Eradicate → Recover → Post-Incident Review).</p>
+    <p>For any confirmed Personal Data Breach affecting a Customer, WhyUser will notify the affected Customer without undue delay, and in any event within 72 hours of confirming the breach. Disclosure is subject only to delays specifically required by law enforcement or legal process.</p>
+
+    <h2>10. Audits &amp; Compliance</h2>
+    <p>WhyUser is pre-SOC 2. Our Cloud Service is hosted exclusively on Amazon Web Services (AWS) infrastructure — Lightsail compute and S3 storage, US-based regions only — which maintains SOC 2 Type II, ISO 27001, and FedRAMP certifications. AWS's SOC 2 Type II report is available on request via AWS Artifact.</p>
+    <p>A Data Protection Addendum (DPA) is available at <a href="/dpa">whyuser.com/dpa</a>. For enterprise engagements, WhyUser offers a custom DPA in the Bonterms framework on request. WhyUser will complete your organization's standard vendor security questionnaire upon request.</p>
+    <p>Formal SOC 2 attestation will be pursued as driven by customer requirements, contractual obligations, and business stage.</p>
+    <p>For audit rights, security assessments, or to request our DPA, contact <a href="mailto:security@whyuser.com">security@whyuser.com</a>.</p>
+
+    <h2>11. Security Inquiries &amp; Vulnerability Reporting</h2>
+    <p>If you have questions about our security practices, or if you believe you have discovered a vulnerability in our Service, please contact our security team immediately at <a href="mailto:security@whyuser.com">security@whyuser.com</a>. We will acknowledge reports within 5 business days.</p>
 
 </body>
 </html>

@@ -73,7 +73,7 @@
 <body>
 
     <h1>Privacy Policy</h1>
-    <div class="last-updated">Last Updated: March 10, 2026</div>
+    <div class="last-updated">Last Updated: April 18, 2026</div>
 
     <p>WHYUSER, INC ("WhyUser," "we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website (whyuser.com) or use our Go-To-Market Simulation Platform (the "Service").</p>
 
@@ -102,19 +102,30 @@
     <ul>
         <li><strong>Ingestion-Layer Redaction:</strong> All unstructured data (such as Gong or Chorus transcripts) is programmatically redacted for Personally Identifiable Information (PII) immediately upon receipt at the ingestion layer (in volatile memory) before simulation processing occurs.</li>
         <li><strong>No Raw Storage:</strong> We do not store raw sales transcript audio or full text files on disk. These are processed in volatile memory and immediately purged following signal extraction.</li>
-        <li><strong>Data Minimization:</strong> Our ingestion engine surgically isolates only structural market signals (Industry, Role, Pain Points, and Objections) to calibrate our Adversarial Context Graph. Technical market signals are decoupled from individual identities.</li>
+        <li><strong>Data Minimization:</strong> Our ingestion engine surgically isolates only structural market signals (Industry, Role, Pain Points, and Objections) to calibrate our Context Graph. Technical market signals are decoupled from individual identities.</li>
+        <li><strong>Per-Tenant Isolation:</strong> Each Customer is assigned a unique tenant identifier; all per-Customer data resides exclusively under that Customer's dedicated storage prefix and is never co-mingled with other Customers' data.</li>
     </ul>
 
-    <h2>4. Artificial Intelligence & Third-Party Subprocessors</h2>
+    <h2>4. Artificial Intelligence &amp; Third-Party Subprocessors</h2>
     <p>WhyUser utilizes secure third-party subprocessors to provide cloud infrastructure and foundational Large Language Model (LLM) capabilities. We strictly govern how these partners interact with your data:</p>
     <ul>
         <li><strong>Approved LLM Providers:</strong> We route queries through enterprise APIs provided by OpenAI, L.L.C., Google LLC (Gemini), and Anthropic PBC (Claude).</li>
-        <li><strong>Zero-Day Retention & No Base Model Training:</strong> Data processed via these third-party LLM APIs is subject to zero-day retention and is <strong>strictly prohibited</strong> from being used to train their foundational base models.</li>
-        <li><strong>Infrastructure:</strong> We utilize AWS for secure, encrypted cloud infrastructure and data storage.</li>
+        <li><strong>Zero-Day Retention &amp; No Base Model Training:</strong> Data processed via these third-party LLM APIs is subject to zero-day retention and is <strong>strictly prohibited</strong> from being used to train their foundational base models.</li>
+        <li><strong>Infrastructure:</strong> We utilize AWS for secure, encrypted cloud infrastructure and data storage, in US regions only.</li>
     </ul>
     <p>For a full list of our subprocessors and compliance mechanisms, please review our <a href="/dpa">Data Processing Agreement</a>.</p>
 
-    <h2>5. Data Sharing and Disclosure</h2>
+    <h2>5. Data Retention</h2>
+    <p>We retain Personal Data only for as long as necessary to provide the Service and for the periods set forth in our <a href="/dpa">Data Processing Agreement</a> and internal Data Retention Policy:</p>
+    <ul>
+        <li><strong>Raw Customer Content</strong> (e.g., transcripts) is never persisted to disk; it is purged from volatile memory immediately after signal extraction.</li>
+        <li><strong>Anonymized behavioral signals and simulation outputs</strong> are retained for the duration of the customer's Agreement plus up to 30 days, after which they are deleted.</li>
+        <li><strong>Account metadata</strong> (name, email, workspace configuration) is retained for the duration of the Agreement plus 90 days, to support re-activation and contractual obligations.</li>
+        <li><strong>System logs</strong> (infrastructure and access logs) are retained for up to 12 months to support security monitoring and audit.</li>
+    </ul>
+    <p>We may retain specific records beyond these periods where required by applicable law, regulatory obligation, or valid legal process.</p>
+
+    <h2>6. Data Sharing and Disclosure</h2>
     <p>We do not sell or share your Personal Data with third parties for their direct marketing purposes. We may disclose your information only in the following situations:</p>
     <ul>
         <li><strong>Service Providers:</strong> To approved subprocessors who perform services on our behalf, bound by strict confidentiality obligations.</li>
@@ -122,15 +133,28 @@
         <li><strong>Business Transfers:</strong> In connection with a merger, sale of company assets, financing, or acquisition of all or a portion of our business.</li>
     </ul>
 
-    <h2>6. CCPA and GDPR Compliance</h2>
-    <p>If you are a resident of California or the European Economic Area (EEA)/United Kingdom, you have specific rights regarding your Personal Data, including the right to access, delete, or opt-out of certain processing.</p>
-    <p>When providing the Service, WhyUser acts as a "Service Provider" under the CCPA and a "Processor" under the GDPR. We process Customer Personal Data solely upon the documented instructions of our Customers (the "Controllers"). If you are an end-user of one of our Customers, please direct your privacy inquiries to them directly.</p>
+    <h2>7. Your Rights &amp; How to Exercise Them</h2>
+    <p>If you are a resident of California or the European Economic Area (EEA)/United Kingdom, you have specific rights regarding your Personal Data, including:</p>
+    <ul>
+        <li><strong>Access:</strong> Request a copy of the Personal Data we hold about you.</li>
+        <li><strong>Deletion:</strong> Request deletion of your Personal Data, subject to legal retention obligations.</li>
+        <li><strong>Correction:</strong> Request correction of inaccurate Personal Data.</li>
+        <li><strong>Opt-Out:</strong> Opt out of certain processing activities.</li>
+        <li><strong>Data Portability:</strong> Receive your Personal Data in a structured, machine-readable format.</li>
+    </ul>
+    <p>To exercise any of these rights, email us at <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a>. We will acknowledge your request within 5 business days and respond in full within 30 days.</p>
+    <p>When providing the Service, WhyUser acts as a "Service Provider" under the CCPA and a "Processor" under the GDPR. We process Customer Personal Data solely upon the documented instructions of our Customers (the "Controllers"). If you are an end-user of one of our Customers, please direct your privacy inquiries to them directly; we will support our Customer in responding to your request.</p>
 
-    <h2>7. Contact Us</h2>
+    <h2>8. Security</h2>
+    <p>We maintain commercially reasonable administrative, technical, and physical safeguards designed to protect Personal Data. For a detailed description of our security practices, see our <a href="/security">Security Policy</a>.</p>
+    <p>In the event of a Personal Data Breach affecting your data, we commit to notifying affected Customers without undue delay and in any event within 72 hours of confirming the breach. Our full incident-response process is documented and available on request.</p>
+
+    <h2>9. Contact Us</h2>
     <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
     <p>
         <strong>WHYUSER, INC</strong><br>
         California, USA<br>
+        Privacy Inquiries: <a href="mailto:privacy@whyuser.com">privacy@whyuser.com</a><br>
         Security Inquiries: <a href="mailto:security@whyuser.com">security@whyuser.com</a><br>
         Legal Notices: <a href="mailto:notices@whyuser.com">notices@whyuser.com</a>
     </p>

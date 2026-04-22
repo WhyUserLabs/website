@@ -904,6 +904,38 @@ select.field-input {
 }
 .source-item strong { color: var(--ink); font-weight: 500; }
 
+/* Formula explanations (Section vii) */
+.formula-list { display: flex; flex-direction: column; gap: 24px; }
+.formula-block {
+  padding: 18px 20px;
+  background: var(--paper-light);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--ink-muted);
+}
+.formula-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: baseline;
+}
+.formula-body p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 6px 0;
+}
+.formula-body p strong { color: var(--ink); font-weight: 600; }
+.formula-body p.formula-gold { border-top: 1px solid var(--line-soft); padding-top: 8px; margin-top: 10px; }
+.formula-body p.formula-silver { border-top: 1px solid var(--line-soft); padding-top: 8px; margin-top: 10px; }
+.formula-body p.formula-bronze { border-top: 1px solid var(--line-soft); padding-top: 8px; margin-top: 10px; }
+@media print {
+  .formula-block { page-break-inside: avoid; background: white; border: 1px solid #000; border-left: 3px solid #000; }
+}
+
 /* ============================================================ */
 /* FOOTER                                                       */
 /* ============================================================ */
@@ -930,6 +962,41 @@ select.field-input {
 /* ============================================================ */
 /* PRINT                                                        */
 /* ============================================================ */
+/* Print-only PAGE header — appears on page 1 of PDF (above Section i) */
+.print-page-header {
+  display: none;
+}
+.print-page-brand-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.print-page-brand-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+.print-page-meta { text-align: right; }
+.print-page-meta-row {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.print-page-meta-label {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-right: 6px;
+}
+
 /* Print-only CFO header: hidden on screen, visible in PDF export */
 .cfo-print-header {
   display: none;
@@ -970,8 +1037,10 @@ select.field-input {
   @page { margin: 0.5in; size: letter; }
   body { background: white; font-size: 11px; }
   .page { padding: 0; max-width: 100%; }
-  .masthead, .main-grid > section:not(.cfo-card-wrap),
-  .page-footer, .cfo-actions {
+  /* Hide only the interactive chrome: on-screen masthead with input fields,
+     action buttons, and page footer. Keep ALL content sections (i–vii).
+     The print-only page header above takes the masthead's place. */
+  .masthead, .page-footer, .cfo-actions {
     display: none !important;
   }
   .main-grid { display: block; }
@@ -980,11 +1049,24 @@ select.field-input {
     border: 1px solid #000;
     box-shadow: none;
     padding: 24px;
+    page-break-before: always;
     page-break-inside: avoid;
   }
   .kpi-value { color: #000 !important; }
   .cfo-card-title em { color: #000 !important; }
-  /* Show the print-only header and hide the redundant eyebrow text */
+
+  /* Show the print-only page header (page 1) */
+  .print-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #000;
+    gap: 20px;
+  }
+
+  /* Show the CFO card print header (last page) */
   .cfo-print-header {
     display: flex;
     justify-content: space-between;
@@ -995,14 +1077,39 @@ select.field-input {
     gap: 20px;
   }
   .cfo-card-eyebrow {
-    /* Eyebrow becomes redundant with the branded header; suppress */
     display: none !important;
+  }
+
+  /* Sections flow naturally across pages */
+  .section { page-break-inside: auto; }
+  .section-header { page-break-after: avoid; }
+  h2.section-title, h3.feature-section-title { page-break-after: avoid; }
+
+  /* Ensure form controls print with their values visible */
+  input[type="number"], input[type="text"], .meta-input {
+    border: none !important;
+    background: transparent !important;
+    color: #000 !important;
+    padding: 0 !important;
+    font-weight: 500;
   }
 }
 </style>
 </head>
 <body>
 <div class="page">
+
+<!-- Print-only page header: appears on Page 1 of the PDF above Section i -->
+<div class="print-page-header">
+  <div class="print-page-brand">
+    <div class="print-page-brand-name">WhyUser</div>
+    <div class="print-page-brand-tag">Annual Business Case</div>
+  </div>
+  <div class="print-page-meta">
+    <div class="print-page-meta-row"><span class="print-page-meta-label">Prepared for</span> <span id="print-page-customer">your company</span></div>
+    <div class="print-page-meta-row"><span class="print-page-meta-label">Date</span> <span id="print-page-date">—</span></div>
+  </div>
+</div>
 
 <!-- ============================================================ -->
 <!-- MASTHEAD                                                     -->
@@ -1584,6 +1691,59 @@ select.field-input {
   </div>
 </section>
 
+<!-- Section 7 · How each value stream is calculated (champion-defensible formulas) -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">vii.</div>
+    <div>
+      <h2 class="section-title">How each value stream is calculated</h2>
+      <p class="section-kicker">One paragraph per stream. Designed so you can point at any number and answer "where did this come from?" in plain English.</p>
+    </div>
+  </div>
+
+  <div class="formula-list">
+    <div class="formula-block">
+      <div class="formula-title">Operational efficiency <span class="defensibility" style="margin-left:4px;">Gold</span></div>
+      <div class="formula-body">
+        <p><strong>What it measures:</strong> labor hours reclaimed when WhyUser pre-validates content, ad variants, email copy, and audience research — replacing expensive human review cycles with simulated-committee feedback.</p>
+        <p><strong>Formula:</strong> For each active feature, we multiply the cost of one review cycle (stakeholders × hours × loaded hourly rate, plus agency fees) by the number of cycles per year. Then we subtract the simulation cost and apply a capture factor (50% conservative, 80% optimistic) to account for cycles that still require some human review.</p>
+        <p><strong>Example — Committee Simulation:</strong> 5 stakeholders × 1.5 hrs × $150 × 3 rounds × 8 assets × 4 quarters = $54K of review labor per year. Conservative capture (50%) = $27K reclaimed; optimistic (80%) = $43K. Same shape applies to the other features with their feature-specific cycle counts.</p>
+        <p class="formula-gold"><strong>Defensibility — Gold:</strong> this is clean labor arithmetic. Every input comes from your ops data (FTE, hourly rate, cycle counts). No attribution assumptions. CFO can verify every number against your HR / agency invoices.</p>
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-title">Waste prevention <span class="defensibility" style="margin-left:4px;">Silver</span></div>
+      <div class="formula-body">
+        <p><strong>What it measures:</strong> budget dollars currently at risk on campaigns, content, and email sends that fail silently. WhyUser diagnoses the failure before launch, so you don't spend behind broken creative.</p>
+        <p><strong>Formula:</strong> budget at risk × attributable share × capture rate. "Budget at risk" is the portion of spend visibly failing (ad spend × bounce rate; content budget; email pipeline impact from list-health erosion). Attributable share is the slice WhyUser can realistically diagnose (default 45%, editable). Capture rate is how much of that you actually recover by acting on the diagnosis (50% conservative, 75% optimistic).</p>
+        <p><strong>Example — Ad Campaign:</strong> $15K/mo ad spend × 65% bounce × 45% attributable × 50% capture × 12 = $26K/yr prevented waste. Committee waste uses your annual content production budget on the same multiplicative structure.</p>
+        <p class="formula-silver"><strong>Defensibility — Silver:</strong> anchored to spend data a CFO can pull from finance. The softer knob is "attributable share" — what portion of waste is actually diagnosable vs unavoidable. The slider is exposed for this exact reason: the buyer sets what they believe, not WhyUser.</p>
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-title">GTM velocity <span class="defensibility" style="margin-left:4px;">Silver</span></div>
+      <div class="formula-body">
+        <p><strong>What it measures:</strong> additional team throughput — not hours saved (that's in Operational efficiency), but the compounding effect of a team doing more campaigns / launches / experiments per quarter because fewer cycles are burned on failed iterations.</p>
+        <p><strong>Formula:</strong> computed per team (content, campaign, research). For each team: annual fully-loaded FTE cost × throughput gain × velocity capture. Throughput gain is 15% if the team uses one WhyUser feature, 20% for two features, 22% for three (diminishing returns, per v1.3 specification). Velocity capture (default 50%, editable) splits the reclaimed capacity between time savings and velocity — the other half already counts in Operational efficiency.</p>
+        <p><strong>Example:</strong> Content team 0.5 FTE × $150 × 2,080 hrs = $156K annual cost × 15% gain × 50% capture = $12K/yr. With more FTE or more active features per team, this scales.</p>
+        <p class="formula-silver"><strong>Defensibility — Silver:</strong> the throughput gain rates (15/20/22%) are benchmarks, not your data. If your CFO challenges them, the defense is the industry reference in §vi. The FTE and loaded-rate inputs are all yours.</p>
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-title">Performance lift <span class="defensibility" style="margin-left:4px;">Bronze</span></div>
+      <div class="formula-body">
+        <p><strong>What it measures:</strong> additional revenue from messaging that converts better — more MQLs from your landing pages, more replies from outbound, more clicks on nurture, more conversions on paid ads.</p>
+        <p><strong>Formula:</strong> baseline funnel throughput × relative lift × ACV × close rate × attribution × (1 − haircut). Baseline throughput is what your current dashboards report today (sessions × CVR for content; ad spend / CPC × landing CVR for ads; volume × open × click × reply for outbound email). Relative lift is your editable conservative / optimistic input. Attribution (default 40%) credits WhyUser's share of the improvement; haircut (default 40%) is an explicit CFO-satisfying conservatism factor — so the net multiplier on raw lift is 40% × 60% = 24%.</p>
+        <p><strong>Example — Committee Simulation:</strong> 10K sessions/mo × 12 × 3% baseline CVR × 15% lift × $30K ACV × 3% close × 40% × 60% = $117K conservative. Same chain applies to Ad and Email with their respective baseline funnels.</p>
+        <p class="formula-bronze"><strong>Defensibility — Bronze:</strong> this is the most-challengeable stream. Lift assumptions are benchmarks until the pilot measures actual lift. Attribution and haircut are the CFO's editable knobs for exactly this reason. The sensitivity table stresses this stream specifically (row 3: half the lift). Our deal-shape target: the floor streams alone (Gold + Silver) should cover the plan cost, so Performance lift becomes upside rather than the gate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div> <!-- end left column -->
 
 <!-- ============================================================ -->
@@ -1688,7 +1848,7 @@ select.field-input {
   </div>
 
   <div class="methodology-note">
-    WhyUser does not claim outcomes. Calculator applies benchmark ranges to your own inputs. Every benchmark has a citable source in §vi.
+    WhyUser does not claim outcomes. The calculator applies benchmark ranges to your own inputs. Performance lift is an estimate based on industry benchmarks and will be adjusted to actual measured results after the pilot. Every benchmark has a citable source in §vi.
   </div>
 </div>
 </aside>
@@ -2299,11 +2459,15 @@ function render() {
   const _date = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   document.getElementById('cfo-customer').textContent = _customer;
   document.getElementById('cfo-meta').textContent = `Plan: ${PLAN_NAMES[state.plan]} @ ${fmtCurrencyK(r.planCost)}/yr · Prepared: ${_date}`;
-  // Mirror values into the print-only header
+  // Mirror values into both print-only headers (page 1 + CFO card page)
   const _pc = document.getElementById('cfo-print-customer');
   if (_pc) _pc.textContent = _customer;
   const _pd = document.getElementById('cfo-print-date');
   if (_pd) _pd.textContent = _date;
+  const _ppc = document.getElementById('print-page-customer');
+  if (_ppc) _ppc.textContent = _customer;
+  const _ppd = document.getElementById('print-page-date');
+  if (_ppd) _ppd.textContent = _date;
 
   // Upside list — build dynamically
   const upside = [];

@@ -1094,6 +1094,116 @@ select.field-input {
     font-weight: 500;
   }
 }
+/* ============================================================ */
+/* VALUE STREAMS PRIMER                                         */
+/* ============================================================ */
+.primer .section-kicker { max-width: 720px; }
+
+.streams-primer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1.05fr;
+  gap: 12px;
+  margin-top: 12px;
+  align-items: stretch;
+}
+@media (max-width: 1100px) {
+  .streams-primer { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .streams-primer { grid-template-columns: 1fr; }
+}
+
+.stream-card {
+  background: var(--paper-light);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.stream-card.predictable {
+  border-left: 2px solid var(--emerald);
+}
+
+.stream-card.upside {
+  border: 1px dashed var(--gold);
+  background: var(--gold-tint);
+}
+
+.stream-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+.stream-card.upside .stream-tag {
+  color: var(--gold);
+}
+
+.stream-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin-top: 2px;
+}
+
+.stream-desc {
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+.stream-cfo {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 11px;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+.stream-card.upside .stream-cfo {
+  border-top-color: rgba(139, 107, 31, 0.25);
+}
+.stream-cfo strong {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.streams-divider {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 500;
+  margin: 18px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.streams-divider .divider-note {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-muted);
+  font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -1130,6 +1240,49 @@ select.field-input {
     </div>
   </div>
 </header>
+
+<!-- ============================================================ -->
+<!-- PRIMER — What the calculator models                         -->
+<!-- ============================================================ -->
+<section class="section primer">
+  <div class="section-header">
+    <div class="section-number" style="font-style: normal; font-size: 11px; font-family: var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); padding-top: 14px;">Primer</div>
+    <div>
+      <h2 class="section-title">What this calculator models</h2>
+      <p class="section-kicker">WhyUser pays back on three streams that don't depend on growth — operational efficiency, budget protected, and GTM velocity. Performance lift is upside.</p>
+    </div>
+  </div>
+
+  <div class="streams-primer">
+    <div class="stream-card predictable">
+      <div class="stream-tag">Cost reduction</div>
+      <div class="stream-name">Operational efficiency</div>
+      <div class="stream-desc">Hours and agency fees replaced by simulation runs — review cycles, content QA, research labor.</div>
+      <div class="stream-cfo"><strong>CFO read</strong>Hard cost reduction.</div>
+    </div>
+
+    <div class="stream-card predictable">
+      <div class="stream-tag">Waste prevention</div>
+      <div class="stream-name">Budget protected</div>
+      <div class="stream-desc">Ad spend at risk on bad creative or landing pages, email list damage, content QA waste.</div>
+      <div class="stream-cfo"><strong>CFO read</strong>Protects existing spend. Insurance against known failure modes.</div>
+    </div>
+
+    <div class="stream-card predictable">
+      <div class="stream-tag">Throughput</div>
+      <div class="stream-name">GTM velocity gain</div>
+      <div class="stream-desc">Marketing FTE throughput improvement — 15–22% based on number of active features.</div>
+      <div class="stream-cfo"><strong>CFO read</strong>Productivity multiplier on existing headcount.</div>
+    </div>
+
+    <div class="stream-card predictable">
+      <div class="stream-tag">Growth upside</div>
+      <div class="stream-name">Performance lift</div>
+      <div class="stream-desc">New ARR from improved CVR, reply rates, click-through, MQL volume.</div>
+      <div class="stream-cfo"><strong>CFO read</strong>From your pilot, not our forecast.</div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================ -->
 <!-- MAIN GRID                                                    -->
@@ -1643,42 +1796,38 @@ select.field-input {
 
   <div class="formula-list">
     <div class="formula-block">
-      <div class="formula-title">Operational Efficiency <span class="defensibility" style="margin-left:4px;">Gold</span></div>
+      <div class="formula-title">Operational Efficiency</div>
       <div class="formula-body">
         <p><strong>What it measures:</strong> labor hours reclaimed when WhyUser pre-validates content, ad variants, email copy, and audience research — replacing expensive human review cycles with simulated-committee feedback.</p>
         <p><strong>Formula:</strong> For each active feature, we multiply the cost of one review cycle (stakeholders × hours × loaded hourly rate, plus agency fees) by the number of cycles per year. Then we subtract the simulation cost and apply a capture factor (50% conservative, 80% optimistic) to account for cycles that still require some human review.</p>
         <p><strong>Example — Committee Simulation:</strong> 5 stakeholders × 1.5 hrs × $150 × 3 rounds × 8 assets × 4 quarters = $54K of review labor per year. Conservative capture (50%) = $27K reclaimed; optimistic (80%) = $43K. Same shape applies to the other features with their feature-specific cycle counts.</p>
-        <p class="formula-gold"><strong>Defensibility — Gold:</strong> this is clean labor arithmetic. Every input comes from your ops data (FTE, hourly rate, cycle counts). No attribution assumptions. CFO can verify every number against your HR / agency invoices.</p>
       </div>
     </div>
 
     <div class="formula-block">
-      <div class="formula-title">Budget Protected <span class="defensibility" style="margin-left:4px;">Silver</span></div>
+      <div class="formula-title">Budget Protected</div>
       <div class="formula-body">
         <p><strong>What it measures:</strong> budget dollars currently at risk on campaigns, content, and email sends that fail silently. WhyUser diagnoses the failure before launch, so you don't spend behind broken creative.</p>
         <p><strong>Formula:</strong> budget at risk × attributable share × capture rate. "Budget at risk" is the portion of spend visibly failing (ad spend × bounce rate; content budget; email pipeline impact from list-health erosion). Attributable share is the slice WhyUser can realistically diagnose (default 45%, editable). Capture rate is how much of that you actually recover by acting on the diagnosis (50% conservative, 75% optimistic).</p>
         <p><strong>Example — Ad Campaign:</strong> $15K/mo ad spend × 65% bounce × 45% attributable × 50% capture × 12 = $26K/yr prevented waste. Committee waste uses your annual content production budget on the same multiplicative structure.</p>
-        <p class="formula-silver"><strong>Defensibility — Silver:</strong> anchored to spend data a CFO can pull from finance. The softer knob is "attributable share" — what portion of waste is actually diagnosable vs unavoidable. The slider is exposed for this exact reason: the buyer sets what they believe, not WhyUser.</p>
       </div>
     </div>
 
     <div class="formula-block">
-      <div class="formula-title">GTM Velocity Gain <span class="defensibility" style="margin-left:4px;">Silver</span></div>
+      <div class="formula-title">GTM Velocity Gain</div>
       <div class="formula-body">
         <p><strong>What it measures:</strong> additional team throughput — the compounding effect of a team doing more campaigns / launches / experiments per quarter because fewer cycles are burned on failed iterations.</p>
         <p><strong>Formula:</strong> annual fully-loaded Marketing FTE cost × throughput gain. Throughput gain is 15% for one active WhyUser feature, 20% for two, 22% for three or more (diminishing returns, per v1.3 specification).</p>
         <p><strong>Example:</strong> 2 Marketing FTE × $150 × 2,080 hrs = $624K annual cost × 15% gain = ~$94K/yr. With more FTE or more active features, this scales.</p>
-        <p class="formula-silver"><strong>Defensibility — Silver:</strong> the throughput gain rates (15/20/22%) are benchmarks, not your data. If your CFO challenges them, the defense is the industry reference in §vi. The Marketing FTE and loaded-rate inputs are all yours.</p>
       </div>
     </div>
 
     <div class="formula-block">
-      <div class="formula-title">Performance Lift <span class="defensibility" style="margin-left:4px;">Bronze</span></div>
+      <div class="formula-title">Performance Lift</div>
       <div class="formula-body">
         <p><strong>What it measures:</strong> additional revenue from messaging that converts better — more MQLs from your landing pages, more replies from outbound, more clicks on nurture, more conversions on paid ads.</p>
         <p><strong>Formula:</strong> baseline funnel throughput × relative lift × ACV × close rate × attribution. Baseline throughput is what your current dashboards report today (sessions × CVR for content; ad spend / CPC × landing CVR for ads; volume × open × click × reply for outbound email). Relative lift is your editable conservative / optimistic input. Attribution (default 40%) credits WhyUser's share of the improvement — the rest goes to sales execution, product, and market conditions.</p>
         <p><strong>Example — Committee Simulation:</strong> 10K sessions/mo × 12 × 3% baseline CVR × 15% lift × $30K ACV × 3% close × 40% attribution = ~$194K conservative. Same chain applies to Ad and Email with their respective baseline funnels.</p>
-        <p class="formula-bronze"><strong>Defensibility — Bronze:</strong> this is the most-challengeable stream. Lift assumptions are benchmarks until the pilot measures actual lift. Attribution is the CFO's editable knob for exactly this reason. The sensitivity table stresses this stream specifically (row 3: half the lift). Deal-shape target: Operational Efficiency + Budget Protected + GTM Velocity Gain should cover the plan cost, so Performance Lift becomes upside rather than the gate.</p>
       </div>
     </div>
   </div>

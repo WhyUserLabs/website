@@ -200,6 +200,16 @@ a { color: var(--emerald); text-decoration: underline; text-decoration-thickness
   color: var(--ink-muted);
   line-height: 1.4;
 }
+/* Computed helper line shown directly below rate inputs — translates the
+   percentage into an absolute count so the user can sanity-check against
+   their dashboard's raw numbers (e.g. "20% open rate ≈ 200 opens/mo"). */
+.field-implied {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--emerald);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
 .field-input {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -338,6 +348,14 @@ select.field-input {
 }
 .plan-name { font-size: 13px; font-weight: 500; }
 .plan-price { font-family: var(--mono); font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+.plan-credits {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--emerald);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+.plan-card.active .plan-credits { color: var(--emerald); font-weight: 500; }
 .plan-warn {
   font-size: 11px;
   color: var(--rust);
@@ -1300,7 +1318,7 @@ select.field-input {
     <div class="section-number">i.</div>
     <div>
       <h2 class="section-title">Scope of the business case</h2>
-      <p class="section-kicker">Which WhyUser features are in pilot scope, and at what plan tier. Active features determine which sections appear below. Plan tier is validated against feature mix.</p>
+      <p class="section-kicker">Which WhyUser features are in pilot scope, and at what plan tier. Active features determine which sections appear below. All plans support all features — plans differ by monthly credit allowance.</p>
     </div>
   </div>
 
@@ -1345,9 +1363,9 @@ select.field-input {
   <div>
     <div class="meta-label" style="margin-bottom: 10px;">Candidate plan tier</div>
     <div class="plan-grid" id="plan-grid">
-      <button class="plan-card" data-plan="standard"><div class="plan-name">Standard</div><div class="plan-price">$12K / yr</div></button>
-      <button class="plan-card" data-plan="growth"><div class="plan-name">Growth</div><div class="plan-price">$24K / yr</div></button>
-      <button class="plan-card" data-plan="enterprise"><div class="plan-name">Enterprise</div><div class="plan-price">$48K+ / yr</div></button>
+      <button class="plan-card" data-plan="standard"><div class="plan-name">Standard</div><div class="plan-price">$12K / yr</div><div class="plan-credits">300 credits/mo</div></button>
+      <button class="plan-card" data-plan="growth"><div class="plan-name">Growth</div><div class="plan-price">$24K / yr</div><div class="plan-credits">600 credits/mo</div></button>
+      <button class="plan-card" data-plan="enterprise"><div class="plan-name">Enterprise</div><div class="plan-price">$48K+ / yr</div><div class="plan-credits">1,300+ credits/mo</div></button>
     </div>
     <div id="plan-warning" class="dedup-notice hidden" style="margin-top: 12px;">
       <strong>Plan validation</strong>
@@ -1409,7 +1427,7 @@ select.field-input {
           <label class="attribution-label">Performance Lift attribution</label>
           <span class="attribution-value" id="attr-perf-attr-v">40%</span>
         </div>
-        <input type="range" class="attribution-slider" id="attr-perf-attr" min="10" max="80" value="40" step="5">
+        <input type="range" class="attribution-slider" id="attr-perf-attr" min="25" max="80" value="40" step="5">
         <div class="attribution-help">Share of Performance Lift attributable to WhyUser (rest to sales, product, market). Default 40%.</div>
       </div>
       <div class="attribution-field">
@@ -1417,7 +1435,7 @@ select.field-input {
           <label class="attribution-label">Waste attributable share</label>
           <span class="attribution-value" id="attr-waste-v">45%</span>
         </div>
-        <input type="range" class="attribution-slider" id="attr-waste" min="10" max="80" value="45" step="5">
+        <input type="range" class="attribution-slider" id="attr-waste" min="25" max="80" value="45" step="5">
         <div class="attribution-help">Share of budget waste diagnosable / preventable by WhyUser. Default 45%.</div>
       </div>
     </div>
@@ -1472,12 +1490,12 @@ select.field-input {
         </div>
         <div class="field">
           <label class="field-label">Conservative CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="com-lift-con" value="15" step="1" min="0" max="200"></div>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="com-lift-con" value="10" step="1" min="0" max="200"></div>
           <div class="field-help">Relative lift on baseline CVR from committee-tested messaging. 15% = B2B SaaS messaging-driven CVR benchmark (low end).</div>
         </div>
         <div class="field">
           <label class="field-label">Optimistic CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="com-lift-opt" value="35" step="1" min="0" max="200"></div>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="com-lift-opt" value="30" step="1" min="0" max="200"></div>
           <div class="field-help">Upper-end relative lift. Override to match your pilot expectations.</div>
         </div>
         <div class="lift-preview" id="com-lift-preview">Baseline CVR <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
@@ -1502,14 +1520,14 @@ select.field-input {
           <div class="field-help">LinkedIn, Google, Reddit — protected channels.</div>
         </div>
         <div class="field">
-          <label class="field-label">Current landing page bounce rate <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-bounce" value="65" step="1" min="0" max="100"></div>
-          <div class="field-help"><strong>From your GA4.</strong> Industry average is not acceptable here.</div>
-        </div>
-        <div class="field">
           <label class="field-label">Current CPC (USD) <span class="pill pill-your">Your data</span></label>
           <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="ad-cpc" value="7" step="0.01" min="0"></div>
           <div class="field-help">Campaign average CPC. LinkedIn B2B SaaS median $6–8.</div>
+        </div>
+        <div class="field">
+          <label class="field-label">Creative CTR <span class="pill pill-your">Your data</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-ctr" value="1" step="0.1" min="0" max="100"></div>
+          <div class="field-help">Click-through rate on your ad creative — clicks ÷ impressions. LinkedIn B2B 0.4–0.6%, Google Search 3–5%, Display ~0.5–1%.</div>
         </div>
         <div class="field">
           <label class="field-label">Landing page conversion rate <span class="pill pill-your">Your data</span></label>
@@ -1522,16 +1540,29 @@ select.field-input {
           <div class="field-help">Distinct campaigns or ad variants launched per year. Drives Operational Efficiency calc (review-cycle hours saved).</div>
         </div>
         <div class="field">
-          <label class="field-label">Conservative campaign lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-lift-con" value="20" step="1" min="0" max="200"></div>
-          <div class="field-help">Relative lift on monthly landing-page conversions from pre-validated ad variants and landing pages. 20% ≈ CTR +10% × CVR +10% compounded end-to-end. Applies to whatever your conversion pixel tracks.</div>
+          <label class="field-label">Conservative CTR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-ctr-lift-con" value="10" step="1" min="0" max="200"></div>
+          <div class="field-help">Relative lift on creative click-through rate from pre-validated headlines and creative. More clicks per ad dollar.</div>
         </div>
         <div class="field">
-          <label class="field-label">Optimistic campaign lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-lift-opt" value="50" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end relative lift. Override to match your pilot expectations.</div>
+          <label class="field-label">Optimistic CTR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-ctr-lift-opt" value="30" step="1" min="0" max="200"></div>
+          <div class="field-help">Upper-end CTR lift. Override to match your pilot expectations.</div>
         </div>
-        <div class="lift-preview" id="ad-lift-preview">Baseline monthly conversions <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
+        <div class="field">
+          <label class="field-label">Conservative CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-cvr-lift-con" value="10" step="1" min="0" max="200"></div>
+          <div class="field-help">Relative lift on landing-page conversion rate from pre-validated landing pages. More conversions per click.</div>
+        </div>
+        <div class="field">
+          <label class="field-label">Optimistic CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-cvr-lift-opt" value="30" step="1" min="0" max="200"></div>
+          <div class="field-help">Upper-end CVR lift. Override to match your pilot expectations. Total conversion lift compounds CTR × CVR.</div>
+        </div>
+        <div class="lift-preview" id="ad-lift-preview">
+          <div>Baseline CTR <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
+          <div>Baseline CVR <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1547,24 +1578,6 @@ select.field-input {
     </div>
         <div class="feature-section-body">
 
-      <!-- Mode picker: outbound vs nurture/broadcast -->
-      <div class="email-mode-picker">
-        <div class="mode-label">Email type</div>
-        <div class="mode-options">
-          <label class="mode-option active" data-mode="outbound">
-            <input type="radio" name="em-mode" value="outbound" checked>
-            <span class="mode-name">Outbound</span>
-            <span class="mode-sub">SDR sequences, personalized outreach — reply-rate-driven</span>
-          </label>
-          <label class="mode-option" data-mode="nurture">
-            <input type="radio" name="em-mode" value="nurture">
-            <span class="mode-name">Nurture / broadcast</span>
-            <span class="mode-sub">Marketing campaigns driving landing-page traffic — CTR-driven</span>
-          </label>
-        </div>
-        <div class="mode-help" id="em-mode-help">Dashboard source: Outreach, Salesloft, Apollo, HubSpot Sequences. Reply rate is the primary success metric and what committee-tested messaging directly influences.</div>
-      </div>
-
       <div class="field-grid">
         <div class="field">
           <label class="field-label">Monthly email volume <span class="pill pill-your">Your data</span></label>
@@ -1572,32 +1585,44 @@ select.field-input {
           <div class="field-help">Emails sent per month across campaigns.</div>
         </div>
         <div class="field">
-          <label class="field-label">Baseline open rate (%) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-open" value="20" step="0.1" min="0" max="100"></div>
-          <div class="field-help">From your ESP (HubSpot, Marketo, Outreach, Apollo).</div>
-        </div>
-        <div class="field">
           <label class="field-label">Click metric type <span class="pill pill-your">Your data</span></label>
           <select class="field-input" id="em-click-type">
             <option value="ctor">CTOR (clicks ÷ opens)</option>
             <option value="ctr">CTR (clicks ÷ sent)</option>
           </select>
-          <div class="field-help">Must specify. Math differs by 5×.</div>
+          <div class="field-help">Outreach/Salesloft/Apollo report CTR. HubSpot/Marketo default to CTOR. Math differs by ~5×.</div>
+        </div>
+        <div class="field">
+          <label class="field-label">Baseline open rate (%) <span class="pill pill-your">Your data</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-open" value="20" step="0.1" min="0" max="100"></div>
+          <div class="field-implied" id="em-open-implied">≈ — opens/mo</div>
+          <div class="field-help">From your ESP (HubSpot, Marketo, Outreach, Apollo). Subject-line-driven.</div>
         </div>
         <div class="field">
           <label class="field-label">Baseline click rate (%) <span class="pill pill-your">Your data</span></label>
           <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click" value="47" step="0.1" min="0" max="100"></div>
-          <div class="field-help">Value of selected metric above.</div>
+          <div class="field-implied" id="em-click-implied">≈ — clicks/mo</div>
+          <div class="field-help">Value of selected click-metric type above. Body-copy-driven.</div>
         </div>
-        <div class="field em-field-outbound">
+        <div class="field">
+          <label class="field-label">Success metric <span class="pill pill-your">Your data</span></label>
+          <select class="field-input" id="em-success-metric">
+            <option value="reply">Reply rate (outbound — SDR sequences)</option>
+            <option value="cvr">Blended landing-page CVR (nurture — broadcasts)</option>
+          </select>
+          <div class="field-help">What you optimize for. Outbound = reply (Outreach, Salesloft, Apollo). Nurture = landing conversion (HubSpot, Marketo, Mailchimp).</div>
+        </div>
+        <div class="field em-field-reply">
           <label class="field-label">Reply rate (%) <span class="pill pill-your">Your data</span></label>
           <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-reply" value="10" step="0.1" min="0" max="100"></div>
-          <div class="field-help">Reply rate from your outbound tool dashboard (Outreach, Salesloft, Apollo, HubSpot Sequences). The primary success metric for outbound — directly reflects message resonance.</div>
+          <div class="field-implied" id="em-reply-implied">≈ — replies/mo</div>
+          <div class="field-help">Reply rate from your outbound dashboard. Directly reflects message resonance.</div>
         </div>
-        <div class="field em-field-nurture hidden">
-          <label class="field-label">Landing page conversion rate (%) <span class="pill pill-your">Your data</span></label>
+        <div class="field em-field-cvr hidden">
+          <label class="field-label">Blended landing-page CVR (%) <span class="pill pill-your">Your data</span></label>
           <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-landing-cvr" value="5" step="0.1" min="0" max="100"></div>
-          <div class="field-help">Conversion rate on pages your nurture emails drive to. What your conversion pixel tracks — form fills, demo requests, signups. Not MQLs.</div>
+          <div class="field-implied" id="em-cvr-implied">≈ — conversions/mo</div>
+          <div class="field-help"><strong>Average across all destinations</strong> your nurture emails link to. Different pages may have different CVRs — this is the blended rate weighted by traffic share. Form fills, demo requests, signups tracked by your conversion pixel.</div>
         </div>
         <div class="field">
           <label class="field-label">Campaigns per year <span class="pill pill-your">Your data</span></label>
@@ -1609,27 +1634,41 @@ select.field-input {
           <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="em-agency" value="800" min="0"></div>
           <div class="field-help">If outsourced. $0 if all in-house.</div>
         </div>
-        <div class="field em-field-outbound">
-          <label class="field-label">Conservative reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-lift-con" value="15" step="1" min="0" max="200"></div>
-          <div class="field-help">Relative lift on reply rate — the primary number your outbound dashboard reports. Open rate (less reliable post-MPP) and click rate are driven by sender reputation and send time, which WhyUser does not influence.</div>
+        <div class="field">
+          <label class="field-label">Conservative open-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-open-lift-con" value="5" step="1" min="0" max="200"></div>
+          <div class="field-help">Lift from pre-validated subject lines.</div>
         </div>
-        <div class="field em-field-outbound">
-          <label class="field-label">Optimistic reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-lift-opt" value="35" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end relative lift. Override to match your pilot expectations.</div>
+        <div class="field">
+          <label class="field-label">Optimistic open-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-open-lift-opt" value="15" step="1" min="0" max="200"></div>
+          <div class="field-help">Upper-end open-rate lift. Override to match your pilot.</div>
         </div>
-        <div class="field em-field-nurture hidden">
+        <div class="field">
           <label class="field-label">Conservative click-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click-lift-con" value="15" step="1" min="0" max="200"></div>
-          <div class="field-help">Relative lift on click-through rate — what committee-tested subject lines and body copy directly influence. Landing-page CVR stays fixed (that's a landing-page design concern, not email messaging).</div>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click-lift-con" value="5" step="1" min="0" max="200"></div>
+          <div class="field-help">Lift from pre-validated body copy and CTAs.</div>
         </div>
-        <div class="field em-field-nurture hidden">
+        <div class="field">
           <label class="field-label">Optimistic click-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click-lift-opt" value="35" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end relative lift. Override to match your pilot expectations.</div>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click-lift-opt" value="15" step="1" min="0" max="200"></div>
+          <div class="field-help">Upper-end click-rate lift.</div>
         </div>
-        <div class="lift-preview" id="em-lift-preview">Baseline reply rate <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
+        <div class="field">
+          <label class="field-label" id="em-success-lift-con-label">Conservative reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-lift-con" value="5" step="1" min="0" max="200"></div>
+          <div class="field-help" id="em-success-lift-con-help">Lift on reply rate from pre-validated CTAs and personalization.</div>
+        </div>
+        <div class="field">
+          <label class="field-label" id="em-success-lift-opt-label">Optimistic reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-lift-opt" value="15" step="1" min="0" max="200"></div>
+          <div class="field-help" id="em-success-lift-opt-help">Upper-end success-metric lift. Total compounds open × click × success.</div>
+        </div>
+        <div class="lift-preview" id="em-lift-preview">
+          <div>Baseline open rate <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
+          <div>Baseline click rate <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
+          <div>Baseline reply rate <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
+        </div>
       </div>
 
       <div class="dedup-notice hidden" id="dedup-em-ceiling">
@@ -1691,7 +1730,7 @@ select.field-input {
         </div>
         <div class="field">
           <label class="field-label">TAM attribution % <span class="pill pill-attribution">Attribution</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="au-tam-attr" value="30" step="1" min="0" max="100"></div>
+          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="au-tam-attr" value="40" step="1" min="0" max="100"></div>
           <div class="field-help">Share of new-vertical deals attributable to Audience Discovery (rest to sales/product). Customer-set.</div>
         </div>
       </div>
@@ -1808,8 +1847,8 @@ select.field-input {
       <div class="formula-title">Budget Protected</div>
       <div class="formula-body">
         <p><strong>What it measures:</strong> budget dollars currently at risk on campaigns, content, and email sends that fail silently. WhyUser diagnoses the failure before launch, so you don't spend behind broken creative.</p>
-        <p><strong>Formula:</strong> budget at risk × attributable share × capture rate. "Budget at risk" is the portion of spend visibly failing (ad spend × bounce rate; content budget; email pipeline impact from list-health erosion). Attributable share is the slice WhyUser can realistically diagnose (default 45%, editable). Capture rate is how much of that you actually recover by acting on the diagnosis (50% conservative, 75% optimistic).</p>
-        <p><strong>Example — Ad Campaign:</strong> $15K/mo ad spend × 65% bounce × 45% attributable × 50% capture × 12 = $26K/yr prevented waste. Committee waste uses your annual content production budget on the same multiplicative structure.</p>
+        <p><strong>Formula:</strong> budget at risk × attributable share × capture rate. "Budget at risk" is the portion of spend visibly failing (for ads: spend on clicks that didn't convert, discounted by 0.7 to acknowledge that some non-converting traffic still drives brand and retargeting value; for committee: annual content production budget; for email: pipeline impact from list-health erosion). Attributable share is the slice WhyUser can realistically diagnose (default 45%, editable). Capture rate is how much of that you actually recover by acting on the diagnosis (50% conservative, 75% optimistic).</p>
+        <p><strong>Example — Ad Campaign:</strong> $15K/mo ad spend × 97% non-converting (1 − 3% landing CVR) × 0.7 waste coefficient × 45% attributable × 50% capture × 12 = $27K/yr prevented waste. Committee waste uses your annual content production budget on the same multiplicative structure.</p>
       </div>
     </div>
 
@@ -1826,7 +1865,7 @@ select.field-input {
       <div class="formula-title">Performance Lift</div>
       <div class="formula-body">
         <p><strong>What it measures:</strong> additional revenue from messaging that converts better — more MQLs from your landing pages, more replies from outbound, more clicks on nurture, more conversions on paid ads.</p>
-        <p><strong>Formula:</strong> baseline funnel throughput × relative lift × ACV × close rate × attribution. Baseline throughput is what your current dashboards report today (sessions × CVR for content; ad spend / CPC × landing CVR for ads; volume × open × click × reply for outbound email). Relative lift is your editable conservative / optimistic input. Attribution (default 40%) credits WhyUser's share of the improvement — the rest goes to sales execution, product, and market conditions.</p>
+        <p><strong>Formula:</strong> baseline funnel throughput × relative lift × ACV × close rate × attribution. Baseline throughput is what your current dashboards report today (sessions × CVR for content; ad spend / CPC × landing CVR for ads; volume × open × click × reply-or-CVR for email). For ads, total relative lift compounds CTR × CVR end-to-end. For email, total lift compounds open × click × success-metric (reply or landing CVR). For other features, lift is your single editable conservative / optimistic input. Attribution (default 40%) credits WhyUser's share of the improvement — the rest goes to sales execution, product, and market conditions.</p>
         <p><strong>Example — Committee Simulation:</strong> 10K sessions/mo × 12 × 3% baseline CVR × 15% lift × $30K ACV × 3% close × 40% attribution = ~$194K conservative. Same chain applies to Ad and Email with their respective baseline funnels.</p>
       </div>
     </div>
@@ -1949,10 +1988,13 @@ select.field-input {
 // ============================================================
 const PLAN_COSTS = { standard: 12000, growth: 24000, enterprise: 48000 };
 const PLAN_NAMES = { standard: 'Standard', growth: 'Growth', enterprise: 'Enterprise' };
+// All plans support all features. Plans differ by monthly credit allowance,
+// not by feature access. Standard customers can run Ad/Email simulations —
+// they just consume credits faster and hit the ceiling sooner.
 const PLAN_GATES = {
-  standard:   { committee: true, audience: true, email: false, ad: false },
-  growth:     { committee: true, audience: true, email: true,  ad: true  },
-  enterprise: { committee: true, audience: true, email: true,  ad: true  },
+  standard:   { committee: true, audience: true, email: true, ad: true },
+  growth:     { committee: true, audience: true, email: true, ad: true },
+  enterprise: { committee: true, audience: true, email: true, ad: true },
 };
 const CREDIT_RATE = 3; // $/credit approximation
 
@@ -1962,9 +2004,9 @@ const state = {
   customerName: '',
   ctx: { acv: 30000, closeRate: 3, loadedRate: 150, marketingFTE: 2 },
   attr: { perfAttr: 40, wasteAttr: 45 },
-  committee: { stakeholders: 5, hoursPer: 1.5, rounds: 3, assetsQ: 8, agencyFee: 1200, contentBudget: 150000, sessions: 10000, baselineCvr: 3, liftCon: 15, liftOpt: 35 },
-  ad: { spend: 15000, bounce: 65, cpc: 7, landingCvr: 3, campaigns: 24, liftCon: 20, liftOpt: 50 },
-  email: { volume: 1000, open: 20, clickType: 'ctor', click: 47, reply: 10, campaigns: 12, agency: 800, hours: 4, replyLiftCon: 15, replyLiftOpt: 35, mode: 'outbound', landingCvr: 5, clickLiftCon: 15, clickLiftOpt: 35 },
+  committee: { stakeholders: 5, hoursPer: 1.5, rounds: 3, assetsQ: 8, agencyFee: 1200, contentBudget: 150000, sessions: 10000, baselineCvr: 3, liftCon: 10, liftOpt: 30 },
+  ad: { spend: 15000, cpc: 7, ctr: 1, landingCvr: 3, campaigns: 24, ctrLiftCon: 10, ctrLiftOpt: 30, cvrLiftCon: 10, cvrLiftOpt: 30 },
+  email: { volume: 1000, open: 20, clickType: 'ctor', click: 47, reply: 10, campaigns: 12, agency: 800, hours: 4, successMetric: 'reply', landingCvr: 5, openLiftCon: 5, openLiftOpt: 15, clickLiftCon: 5, clickLiftOpt: 15, successLiftCon: 5, successLiftOpt: 15 },
   audience: {
     researchHours: 20, agencyFee: 3000,
     activate: false, verticals: 2, deals: 4, dealSize: 40000, tamAttr: 30, tamCap: 40,
@@ -2056,21 +2098,32 @@ function computeAd(s) {
   const D_con = (a.campaigns || 0) * 4 * loadedRate * 0.5;
   const D_opt = (a.campaigns || 0) * 8 * loadedRate * 0.75;
 
-  // Budget Protected: ad spend at risk on bad landing pages / bad creative.
+  // Budget Protected: ad spend at risk on weak landing pages / off-target creative.
+  // Derived from landing CVR — no separate bounce-rate input needed. Of the
+  // spend that DIDN'T drive a conversion (1 − landingCvr%), we apply a 0.7
+  // waste coefficient because not 100% of non-converting spend is fully
+  // wasted — some drives brand, retargeting, and longer-cycle conversion.
   // Capture rate hardcoded to 50% conservative / 75% optimistic (per §vii spec).
   // The attributable-share slider (§iii) already controls the upstream haircut
   // via wasteAttr — no second recovery-capture knob here.
-  const monthlyWaste = a.spend * (a.bounce / 100) * wasteAttr;
+  const wasteCoeff = 0.7;
+  const monthlyWaste = a.spend * (1 - (a.landingCvr || 0) / 100) * wasteCoeff * wasteAttr;
   const C_con = monthlyWaste * 12 * 0.5;
   const C_opt = monthlyWaste * 12 * 0.75;
 
-  // Performance Lift: relative lift on monthly paid MQLs, user-editable.
-  // Applied as a single multiplier on baseline MQL throughput.
+  // Performance Lift: relative lift on monthly paid conversions, decomposed
+  // into CTR lift (more clicks per ad dollar) and CVR lift (more conversions
+  // per click). Compounded multiplier on baseline conversions.
+  // Total lift = (1 + ctrLift) × (1 + cvrLift) − 1
   const baselineMonthlyMqls = (a.spend / a.cpc) * (a.landingCvr / 100);
-  const liftC = (a.liftCon || 0) / 100;
-  const liftO = (a.liftOpt || 0) / 100;
-  const deltaC = baselineMonthlyMqls * liftC;
-  const deltaO = baselineMonthlyMqls * liftO;
+  const ctrLiftC = (a.ctrLiftCon || 0) / 100;
+  const ctrLiftO = (a.ctrLiftOpt || 0) / 100;
+  const cvrLiftC = (a.cvrLiftCon || 0) / 100;
+  const cvrLiftO = (a.cvrLiftOpt || 0) / 100;
+  const totalLiftC = (1 + ctrLiftC) * (1 + cvrLiftC) - 1;
+  const totalLiftO = (1 + ctrLiftO) * (1 + cvrLiftO) - 1;
+  const deltaC = baselineMonthlyMqls * totalLiftC;
+  const deltaO = baselineMonthlyMqls * totalLiftO;
   const A_con = deltaC * 12 * (closeRate / 100) * acv * perfAttrC;
   const A_opt = deltaO * 12 * (closeRate / 100) * acv * perfAttrC;
 
@@ -2091,45 +2144,29 @@ function computeEmail(s) {
   const e = s.email;
   const perfAttrC = s.attr.perfAttr / 100;
 
-  // Performance Lift branches on mode:
-  //   Outbound: lift applied to reply rate (the primary SDR-dashboard metric).
-  //   Nurture:  lift applied to click-through rate; landing-page CVR is a
-  //             downstream multiplier (landing-page design concern, not email).
-  // The "baseline goals" term represents meetings (outbound) or conversions
-  // (nurture) per month — whichever the buyer's funnel optimizes for.
+  // Performance Lift: WhyUser influences subject (open), body (click), and
+  // CTA / reply or landing copy (success). Total lift on monthly goals
+  // compounds across all three stages: (1+openL)(1+clickL)(1+successL) − 1.
+  // Goals = meetings (if successMetric=reply) or conversions (if cvr).
+  const successValuePct = e.successMetric === 'cvr' ? (e.landingCvr || 0) : (e.reply || 0);
   let baselineGoals;
-  let replyCeiling = false;
-  let deltaCon, deltaOpt;
-
-  if (e.mode === 'nurture') {
-    // Nurture: send → open → click → landing page → conversion
-    const clickLiftCon = (e.clickLiftCon || 0) / 100;
-    const clickLiftOpt = (e.clickLiftOpt || 0) / 100;
-    const landingCvr = (e.landingCvr || 0) / 100;
-    let baselineClicks;
-    if (e.clickType === 'ctor') {
-      baselineClicks = e.volume * (e.open / 100) * (e.click / 100);
-    } else {
-      baselineClicks = e.volume * (e.click / 100);
-    }
-    baselineGoals = baselineClicks * landingCvr;
-    // Additional conversions = baseline_goals × click_lift (lift on click rate
-    // flows multiplicatively through landing_cvr).
-    deltaCon = baselineGoals * clickLiftCon;
-    deltaOpt = baselineGoals * clickLiftOpt;
+  if (e.clickType === 'ctor') {
+    baselineGoals = e.volume * (e.open / 100) * (e.click / 100) * (successValuePct / 100);
   } else {
-    // Outbound: send → open → click → reply
-    const replyLiftCon = (e.replyLiftCon || 0) / 100;
-    const replyLiftOpt = (e.replyLiftOpt || 0) / 100;
-    if (e.clickType === 'ctor') {
-      baselineGoals = e.volume * (e.open / 100) * (e.click / 100) * (e.reply / 100);
-    } else {
-      baselineGoals = e.volume * (e.click / 100) * (e.reply / 100);
-    }
-    deltaCon = baselineGoals * replyLiftCon;
-    deltaOpt = baselineGoals * replyLiftOpt;
-    replyCeiling = (e.reply * (1 + replyLiftOpt)) > 30;
+    baselineGoals = e.volume * (e.click / 100) * (successValuePct / 100);
   }
+  const oL_c = (e.openLiftCon    || 0) / 100;
+  const oL_o = (e.openLiftOpt    || 0) / 100;
+  const cL_c = (e.clickLiftCon   || 0) / 100;
+  const cL_o = (e.clickLiftOpt   || 0) / 100;
+  const sL_c = (e.successLiftCon || 0) / 100;
+  const sL_o = (e.successLiftOpt || 0) / 100;
+  const totalLiftC = (1 + oL_c) * (1 + cL_c) * (1 + sL_c) - 1;
+  const totalLiftO = (1 + oL_o) * (1 + cL_o) * (1 + sL_o) - 1;
+  const deltaCon = baselineGoals * totalLiftC;
+  const deltaOpt = baselineGoals * totalLiftO;
+  // Reply-ceiling sanity check only applies when reply is the success metric.
+  const replyCeiling = e.successMetric === 'reply' && (e.reply * (1 + sL_o) > 30);
 
   const A_con = deltaCon * 12 * (closeRate / 100) * acv * perfAttrC;
   const A_opt = deltaOpt * 12 * (closeRate / 100) * acv * perfAttrC;
@@ -2141,8 +2178,6 @@ function computeEmail(s) {
 
   // Budget Protected: list health preservation. Bad sends damage domain rep
   // and trigger permanent unsubs, eroding future email-driven pipeline.
-  // Formula is the same in both modes — "baselineGoals" stands in for whatever
-  // the downstream monetizable event is (meeting or conversion).
   const wasteAttr = s.attr.wasteAttr / 100;
   const annualEmailPipeline = baselineGoals * 12 * (closeRate / 100) * acv;
   const C_con = annualEmailPipeline * 0.02 * wasteAttr;
@@ -2303,26 +2338,18 @@ function render() {
     card.classList.toggle('active', state.features[f]);
   });
 
-  // Plan grid
+  // Plan grid — only the selected plan gets visual treatment (.active).
+  // All unselected plans render identically (default white card). No
+  // feature gating — every plan supports every feature. Plans differ
+  // only by credit allowance, surfaced on the card itself.
   document.querySelectorAll('.plan-card').forEach(card => {
     const p = card.dataset.plan;
     card.classList.toggle('active', state.plan === p);
-
-    const gate = PLAN_GATES[p];
-    const needsUpgrade = (state.features.ad && !gate.ad) || (state.features.email && !gate.email);
-    card.classList.toggle('invalid', needsUpgrade);
+    card.classList.remove('invalid');
   });
 
-  // Plan warning
-  const gate = PLAN_GATES[state.plan];
-  const needsUpgrade = (state.features.ad && !gate.ad) || (state.features.email && !gate.email);
-  const warnEl = document.getElementById('plan-warning');
-  if (needsUpgrade) {
-    warnEl.classList.remove('hidden');
-    document.getElementById('plan-warning-msg').textContent = 'Ad or Email Campaign Simulation requires Growth tier or higher. Please upgrade to proceed — this prevents modeling ROI on a tier that cannot deliver the features.';
-  } else {
-    warnEl.classList.add('hidden');
-  }
+  // Plan warning — feature gating removed, so this stays hidden.
+  document.getElementById('plan-warning').classList.add('hidden');
 
   // Feature sections show/hide
   document.getElementById('fs-committee').classList.toggle('hidden', !state.features.committee);
@@ -2358,42 +2385,82 @@ function render() {
   }
   if (state.features.ad) {
     const a = state.ad;
-    const baseConv = (a.spend / (a.cpc || 1)) * ((a.landingCvr || 0) / 100);
-    const conConv = (baseConv * (1 + (a.liftCon || 0) / 100)).toFixed(1);
-    const optConv = (baseConv * (1 + (a.liftOpt || 0) / 100)).toFixed(1);
+    const baseCtr = a.ctr || 0;
+    const conCtr = (baseCtr * (1 + (a.ctrLiftCon || 0) / 100)).toFixed(2);
+    const optCtr = (baseCtr * (1 + (a.ctrLiftOpt || 0) / 100)).toFixed(2);
+    const baseCvr = a.landingCvr || 0;
+    const conCvr = (baseCvr * (1 + (a.cvrLiftCon || 0) / 100)).toFixed(2);
+    const optCvr = (baseCvr * (1 + (a.cvrLiftOpt || 0) / 100)).toFixed(2);
     document.getElementById('ad-lift-preview').innerHTML =
-      `Baseline monthly conversions <strong>${baseConv.toFixed(1)}</strong> &middot; Conservative &rarr; <strong>${conConv}</strong> &middot; Optimistic &rarr; <strong>${optConv}</strong>`;
+      `<div>Baseline CTR <strong>${baseCtr}%</strong> &middot; Conservative &rarr; <strong>${conCtr}%</strong> &middot; Optimistic &rarr; <strong>${optCtr}%</strong></div>` +
+      `<div>Baseline CVR <strong>${baseCvr}%</strong> &middot; Conservative &rarr; <strong>${conCvr}%</strong> &middot; Optimistic &rarr; <strong>${optCvr}%</strong></div>`;
   }
   if (state.features.email) {
     const e = state.email;
-    // Show/hide outbound vs nurture fields
-    document.querySelectorAll('#fs-email .em-field-outbound').forEach(el => el.classList.toggle('hidden', e.mode !== 'outbound'));
-    document.querySelectorAll('#fs-email .em-field-nurture').forEach(el => el.classList.toggle('hidden', e.mode !== 'nurture'));
-    // Mode-option visual state
-    document.querySelectorAll('#fs-email .mode-option').forEach(opt => {
-      opt.classList.toggle('active', opt.dataset.mode === e.mode);
-    });
-    // Mode-help text
-    const modeHelpEl = document.getElementById('em-mode-help');
-    if (modeHelpEl) {
-      modeHelpEl.textContent = e.mode === 'nurture'
-        ? 'Dashboard source: HubSpot Marketing, Marketo, Customer.io, Mailchimp. Click-through rate compounded with landing-page conversion is the primary value path. Committee-tested subject lines and body copy influence click rate directly.'
-        : 'Dashboard source: Outreach, Salesloft, Apollo, HubSpot Sequences. Reply rate is the primary success metric and what committee-tested messaging directly influences.';
+    // Implied counts directly under each rate field — translates the
+    // percentage to an absolute monthly count derived from email volume,
+    // using the same funnel math computeEmail() uses (so the helper
+    // matches the subtotal exactly).
+    const volume = e.volume || 0;
+    const opens = volume * (e.open || 0) / 100;
+    const clicks = e.clickType === 'ctor'
+      ? volume * (e.open || 0) / 100 * (e.click || 0) / 100
+      : volume * (e.click || 0) / 100;
+    const replies = clicks * (e.reply || 0) / 100;
+    const conversions = clicks * (e.landingCvr || 0) / 100;
+    const fmtCount = n => {
+      if (!isFinite(n) || n < 0) return '—';
+      if (n === 0) return '0';
+      if (n < 1) return n.toFixed(1);
+      return Math.round(n).toLocaleString();
+    };
+    const setImplied = (id, n, unit) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = `≈ ${fmtCount(n)} ${unit}/mo`;
+    };
+    setImplied('em-open-implied',  opens,       'opens');
+    setImplied('em-click-implied', clicks,      'clicks');
+    setImplied('em-reply-implied', replies,     'replies');
+    setImplied('em-cvr-implied',   conversions, 'conversions');
+    // Show/hide the success-metric value field based on dropdown selection.
+    const isReply = e.successMetric === 'reply';
+    document.querySelectorAll('#fs-email .em-field-reply').forEach(el => el.classList.toggle('hidden', !isReply));
+    document.querySelectorAll('#fs-email .em-field-cvr').forEach(el => el.classList.toggle('hidden', isReply));
+    // Update the success-metric lift labels and help text to match selection.
+    const liftConLabel = document.getElementById('em-success-lift-con-label');
+    const liftOptLabel = document.getElementById('em-success-lift-opt-label');
+    const liftConHelp  = document.getElementById('em-success-lift-con-help');
+    if (liftConLabel) {
+      liftConLabel.innerHTML = isReply
+        ? 'Conservative reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span>'
+        : 'Conservative landing-CVR lift (%) <span class="pill pill-benchmark">Benchmark</span>';
     }
-    // Lift preview (mode-specific)
-    if (e.mode === 'nurture') {
-      const baseClick = e.click || 0;
-      const conClick = (baseClick * (1 + (e.clickLiftCon || 0) / 100)).toFixed(2);
-      const optClick = (baseClick * (1 + (e.clickLiftOpt || 0) / 100)).toFixed(2);
-      document.getElementById('em-lift-preview').innerHTML =
-        `Baseline click rate <strong>${baseClick}%</strong> &middot; Conservative &rarr; <strong>${conClick}%</strong> &middot; Optimistic &rarr; <strong>${optClick}%</strong>`;
-    } else {
-      const baseReply = e.reply || 0;
-      const conReply = (baseReply * (1 + (e.replyLiftCon || 0) / 100)).toFixed(2);
-      const optReply = (baseReply * (1 + (e.replyLiftOpt || 0) / 100)).toFixed(2);
-      document.getElementById('em-lift-preview').innerHTML =
-        `Baseline reply rate <strong>${baseReply}%</strong> &middot; Conservative &rarr; <strong>${conReply}%</strong> &middot; Optimistic &rarr; <strong>${optReply}%</strong>`;
+    if (liftOptLabel) {
+      liftOptLabel.innerHTML = isReply
+        ? 'Optimistic reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span>'
+        : 'Optimistic landing-CVR lift (%) <span class="pill pill-benchmark">Benchmark</span>';
     }
+    if (liftConHelp) {
+      liftConHelp.textContent = isReply
+        ? 'Lift on reply rate from pre-validated CTAs and personalization.'
+        : 'Lift on blended landing-page CVR from pre-validated copy and CTAs aligned to landing pages.';
+    }
+    // Lift preview — 3 rows: open · click · success metric.
+    const baseOpen = e.open || 0;
+    const conOpen = (baseOpen * (1 + (e.openLiftCon || 0) / 100)).toFixed(2);
+    const optOpen = (baseOpen * (1 + (e.openLiftOpt || 0) / 100)).toFixed(2);
+    const baseClick = e.click || 0;
+    const conClick = (baseClick * (1 + (e.clickLiftCon || 0) / 100)).toFixed(2);
+    const optClick = (baseClick * (1 + (e.clickLiftOpt || 0) / 100)).toFixed(2);
+    const clickLabel = e.clickType === 'ctr' ? 'CTR' : 'CTOR';
+    const successLabel = isReply ? 'reply rate' : 'landing CVR';
+    const baseSuccess = isReply ? (e.reply || 0) : (e.landingCvr || 0);
+    const conSuccess = (baseSuccess * (1 + (e.successLiftCon || 0) / 100)).toFixed(2);
+    const optSuccess = (baseSuccess * (1 + (e.successLiftOpt || 0) / 100)).toFixed(2);
+    document.getElementById('em-lift-preview').innerHTML =
+      `<div>Baseline open rate <strong>${baseOpen}%</strong> &middot; Conservative &rarr; <strong>${conOpen}%</strong> &middot; Optimistic &rarr; <strong>${optOpen}%</strong></div>` +
+      `<div>Baseline ${clickLabel} <strong>${baseClick}%</strong> &middot; Conservative &rarr; <strong>${conClick}%</strong> &middot; Optimistic &rarr; <strong>${optClick}%</strong></div>` +
+      `<div>Baseline ${successLabel} <strong>${baseSuccess}%</strong> &middot; Conservative &rarr; <strong>${conSuccess}%</strong> &middot; Optimistic &rarr; <strong>${optSuccess}%</strong></div>`;
   }
 
   // Attribution display
@@ -2471,12 +2538,16 @@ function render() {
   const halfLiftState = JSON.parse(JSON.stringify(state));
   halfLiftState.committee.liftCon = (state.committee.liftCon || 0) / 2;
   halfLiftState.committee.liftOpt = (state.committee.liftOpt || 0) / 2;
-  halfLiftState.ad.liftCon       = (state.ad.liftCon || 0) / 2;
-  halfLiftState.ad.liftOpt       = (state.ad.liftOpt || 0) / 2;
-  halfLiftState.email.replyLiftCon = (state.email.replyLiftCon || 0) / 2;
-  halfLiftState.email.replyLiftOpt = (state.email.replyLiftOpt || 0) / 2;
-  halfLiftState.email.clickLiftCon = (state.email.clickLiftCon || 0) / 2;
-  halfLiftState.email.clickLiftOpt = (state.email.clickLiftOpt || 0) / 2;
+  halfLiftState.ad.ctrLiftCon    = (state.ad.ctrLiftCon || 0) / 2;
+  halfLiftState.ad.ctrLiftOpt    = (state.ad.ctrLiftOpt || 0) / 2;
+  halfLiftState.ad.cvrLiftCon    = (state.ad.cvrLiftCon || 0) / 2;
+  halfLiftState.ad.cvrLiftOpt    = (state.ad.cvrLiftOpt || 0) / 2;
+  halfLiftState.email.openLiftCon    = (state.email.openLiftCon || 0) / 2;
+  halfLiftState.email.openLiftOpt    = (state.email.openLiftOpt || 0) / 2;
+  halfLiftState.email.clickLiftCon   = (state.email.clickLiftCon || 0) / 2;
+  halfLiftState.email.clickLiftOpt   = (state.email.clickLiftOpt || 0) / 2;
+  halfLiftState.email.successLiftCon = (state.email.successLiftCon || 0) / 2;
+  halfLiftState.email.successLiftOpt = (state.email.successLiftOpt || 0) / 2;
   const rHalfLift = computeAll(halfLiftState);
   sens.push({
     label: 'If we hit only half the lift we\'re projecting',
@@ -2594,30 +2665,58 @@ function bind() {
 
   // Ad
   bindNum('ad-spend', v => state.ad.spend = v);
-  bindNum('ad-bounce', v => state.ad.bounce = v);
   bindNum('ad-cpc', v => state.ad.cpc = v);
+  bindNum('ad-ctr', v => state.ad.ctr = v);
   bindNum('ad-landing-cvr', v => state.ad.landingCvr = v);
   bindNum('ad-campaigns', v => state.ad.campaigns = v);
-  bindNum('ad-lift-con', v => state.ad.liftCon = v);
-  bindNum('ad-lift-opt', v => state.ad.liftOpt = v);
+  bindNum('ad-ctr-lift-con', v => state.ad.ctrLiftCon = v);
+  bindNum('ad-ctr-lift-opt', v => state.ad.ctrLiftOpt = v);
+  bindNum('ad-cvr-lift-con', v => state.ad.cvrLiftCon = v);
+  bindNum('ad-cvr-lift-opt', v => state.ad.cvrLiftOpt = v);
 
   // Email
   bindNum('em-volume', v => state.email.volume = v);
   bindNum('em-open', v => state.email.open = v);
-  document.getElementById('em-click-type').addEventListener('change', e => { state.email.clickType = e.target.value; render(); });
+  document.getElementById('em-click-type').addEventListener('change', e => {
+    const newType = e.target.value;
+    const oldType = state.email.clickType;
+    // Auto-convert the click value so the underlying funnel stays constant.
+    // Identity used: CTR = open% × CTOR%   ⇔   CTOR = CTR / open%
+    // If open is 0 we can't divide — leave the value alone in that case.
+    const open = state.email.open || 0;
+    const click = state.email.click || 0;
+    if (newType !== oldType && open > 0) {
+      let converted;
+      if (oldType === 'ctor' && newType === 'ctr') {
+        converted = click * (open / 100);          // CTOR → CTR
+      } else if (oldType === 'ctr' && newType === 'ctor') {
+        converted = click / (open / 100);          // CTR → CTOR
+      }
+      if (typeof converted === 'number' && isFinite(converted)) {
+        // Clamp to [0, 100] for the field, round to 1 decimal for sanity.
+        converted = Math.max(0, Math.min(100, converted));
+        converted = Math.round(converted * 10) / 10;
+        state.email.click = converted;
+        const clickInput = document.getElementById('em-click');
+        if (clickInput) clickInput.value = converted;
+      }
+    }
+    state.email.clickType = newType;
+    render();
+  });
   bindNum('em-click', v => state.email.click = v);
   bindNum('em-reply', v => state.email.reply = v);
   bindNum('em-campaigns', v => state.email.campaigns = v);
   bindNum('em-agency', v => state.email.agency = v);
-  bindNum('em-lift-con', v => state.email.replyLiftCon = v);
-  bindNum('em-lift-opt', v => state.email.replyLiftOpt = v);
   bindNum('em-landing-cvr', v => state.email.landingCvr = v);
+  bindNum('em-open-lift-con', v => state.email.openLiftCon = v);
+  bindNum('em-open-lift-opt', v => state.email.openLiftOpt = v);
   bindNum('em-click-lift-con', v => state.email.clickLiftCon = v);
   bindNum('em-click-lift-opt', v => state.email.clickLiftOpt = v);
-  // Email mode radio buttons
-  document.querySelectorAll('input[name="em-mode"]').forEach(r => {
-    r.addEventListener('change', e => { state.email.mode = e.target.value; render(); });
-  });
+  bindNum('em-lift-con', v => state.email.successLiftCon = v);
+  bindNum('em-lift-opt', v => state.email.successLiftOpt = v);
+  // Success-metric dropdown swaps which third-stage value field and lift labels are shown.
+  document.getElementById('em-success-metric').addEventListener('change', e => { state.email.successMetric = e.target.value; render(); });
 
   // Audience
   bindNum('au-research-hours', v => state.audience.researchHours = v);
@@ -2730,23 +2829,27 @@ function syncStateFromHtml() {
     ['com-lift-con',    v => state.committee.liftCon = v],
     ['com-lift-opt',    v => state.committee.liftOpt = v],
     ['ad-spend',        v => state.ad.spend = v],
-    ['ad-bounce',       v => state.ad.bounce = v],
     ['ad-cpc',          v => state.ad.cpc = v],
+    ['ad-ctr',          v => state.ad.ctr = v],
     ['ad-landing-cvr',  v => state.ad.landingCvr = v],
     ['ad-campaigns',    v => state.ad.campaigns = v],
-    ['ad-lift-con',     v => state.ad.liftCon = v],
-    ['ad-lift-opt',     v => state.ad.liftOpt = v],
+    ['ad-ctr-lift-con', v => state.ad.ctrLiftCon = v],
+    ['ad-ctr-lift-opt', v => state.ad.ctrLiftOpt = v],
+    ['ad-cvr-lift-con', v => state.ad.cvrLiftCon = v],
+    ['ad-cvr-lift-opt', v => state.ad.cvrLiftOpt = v],
     ['em-volume',       v => state.email.volume = v],
     ['em-open',         v => state.email.open = v],
     ['em-click',        v => state.email.click = v],
     ['em-reply',        v => state.email.reply = v],
     ['em-campaigns',    v => state.email.campaigns = v],
     ['em-agency',       v => state.email.agency = v],
-    ['em-lift-con',     v => state.email.replyLiftCon = v],
-    ['em-lift-opt',     v => state.email.replyLiftOpt = v],
     ['em-landing-cvr',  v => state.email.landingCvr = v],
+    ['em-open-lift-con', v => state.email.openLiftCon = v],
+    ['em-open-lift-opt', v => state.email.openLiftOpt = v],
     ['em-click-lift-con', v => state.email.clickLiftCon = v],
     ['em-click-lift-opt', v => state.email.clickLiftOpt = v],
+    ['em-lift-con',     v => state.email.successLiftCon = v],
+    ['em-lift-opt',     v => state.email.successLiftOpt = v],
     ['au-research-hours', v => state.audience.researchHours = v],
     ['au-agency-fee',   v => state.audience.agencyFee = v],
     ['au-verticals',    v => state.audience.verticals = v],
@@ -2773,8 +2876,8 @@ function syncStateFromHtml() {
   const clickTypeEl = document.getElementById('em-click-type');
   if (clickTypeEl) state.email.clickType = clickTypeEl.value;
   // Radio buttons (email mode)
-  const checkedMode = document.querySelector('input[name="em-mode"]:checked');
-  if (checkedMode) state.email.mode = checkedMode.value;
+  const successMetricEl = document.getElementById('em-success-metric');
+  if (successMetricEl) state.email.successMetric = successMetricEl.value;
   // Checkbox (audience activate verticals)
   const auActivate = document.getElementById('au-activate-verticals');
   if (auActivate) state.audience.activate = auActivate.checked;

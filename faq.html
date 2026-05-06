@@ -47,7 +47,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://tally.so/widgets/embed.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400;1,14..32,500;1,14..32,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -65,10 +65,10 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
-                        display: ['"Instrument Serif"', 'Fraunces', '"IBM Plex Sans"', 'serif'],
-                        editorial: ['Fraunces', '"Instrument Serif"', 'serif'],
+                        display: ['Inter', 'system-ui', 'sans-serif'],
+                        editorial: ['Inter', 'sans-serif'],
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -130,24 +130,25 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        /* Editorial display treatment */
+        /* Display treatment — Inter heavy with tight tracking */
         .display {
-            font-family: 'Instrument Serif', 'Fraunces', 'IBM Plex Sans', serif;
-            letter-spacing: -0.015em;
-            font-weight: 400;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.028em;
+            font-feature-settings: "cv11", "ss01";
         }
         .display-italic {
-            font-family: 'Instrument Serif', 'Fraunces', serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-style: italic;
-            font-weight: 400;
+            font-weight: 600;
+            letter-spacing: -0.025em;
         }
-        /* Fraunces for ornate italic accents that need extra character */
+        /* Italic accent for keywords inside H2s — same family, lighter weight, italic */
         .editorial-italic {
-            font-family: 'Fraunces', 'Instrument Serif', serif;
+            font-family: 'Inter', sans-serif;
             font-style: italic;
             font-weight: 500;
-            font-feature-settings: "ss01", "ss02";
-            letter-spacing: -0.025em;
+            letter-spacing: -0.022em;
         }
 
         /* Refined card — replaces glass-card */
@@ -250,8 +251,8 @@
 
         /* Number/metric display */
         .metric-display {
-            font-family: 'Instrument Serif', 'Fraunces', serif;
-            font-weight: 400;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 800;
             letter-spacing: -0.04em;
             font-variant-numeric: tabular-nums;
         }

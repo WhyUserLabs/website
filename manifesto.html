@@ -4,221 +4,850 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The GTM Testing Manifesto | WhyUser</title>
+    <meta name="description" content="Engineering has staging. Marketing tests in production. That's the bug.">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f5f3ff', 100: '#ede9fe', 400: '#a78bfa',
-                            500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9', 900: '#4c1d95',
-                        },
-                        slate: {
-                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
-                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
-                            850: '#1e293b', 900: '#0f172a', 950: '#020617',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    }
-                }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400;1,14..32,500;1,14..32,600&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---- Design tokens — locked to homepage ---- */
+        :root {
+            --ink: #0a0a0b;
+            --ink-soft: #1c1c20;
+            --paper: #fafaf7;
+            --paper-warm: #f5f4ee;
+            --rule: rgba(10, 10, 11, 0.08);
+            --rule-strong: rgba(10, 10, 11, 0.16);
+            --accent: #6d28d9;
+            --accent-warm: #b45309;
+            --accent-cool: #0f766e;
+            --signal-red: #be123c;
+            --signal-green: #047857;
+        }
+
+        html { scroll-padding-top: 5rem; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-feature-settings: "ss01", "cv11", "kern";
+        }
+
+        ::selection {
+            background: rgba(109, 40, 217, 0.18);
+            color: var(--ink);
+        }
+
+        /* ---- Typography system — matches homepage ---- */
+        .display {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.028em;
+            font-feature-settings: "cv11", "ss01";
+        }
+        .editorial-italic {
+            font-family: 'Inter', sans-serif;
+            font-style: italic;
+            font-weight: 500;
+            letter-spacing: -0.022em;
+        }
+        /* Pull-quote — Lora serif italic, matches homepage testimonials */
+        .pull-quote {
+            font-family: 'Lora', Georgia, 'Iowan Old Style', serif;
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: -0.005em;
+            color: var(--ink-soft);
+            font-feature-settings: "kern", "liga", "dlig";
+        }
+        .quote-mark {
+            font-family: 'Lora', Georgia, serif;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 0.6;
+            color: var(--accent);
+            user-select: none;
+        }
+
+        /* ---- Eyebrow rule — same as homepage ---- */
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--ink);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .eyebrow-accent {
+            color: var(--accent);
+        }
+        .eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+            display: inline-block;
+            opacity: 0.6;
+        }
+
+        /* ---- Glass nav — same as homepage ---- */
+        .glass-nav {
+            background: rgba(250, 250, 247, 0.82);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* ---- Background texture ---- */
+        .bg-grid {
+            background-size: 56px 56px;
+            background-image:
+                linear-gradient(to right, rgba(10, 10, 11, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(10, 10, 11, 0.04) 1px, transparent 1px);
+        }
+
+        /* ---- Body prose — punchy Stratton-style rhythm ---- */
+        .prose-body p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+        @media (min-width: 768px) {
+            .prose-body p {
+                font-size: 19px;
+                line-height: 1.7;
             }
         }
-    </script>
-    <style>
-        ::selection {
-            background: rgba(99, 102, 241, 0.2);
-            color: #0f172a;
+        .prose-body p strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+        .prose-body p.lead {
+            font-size: 22px;
+            line-height: 1.5;
+            color: var(--ink);
+            font-weight: 500;
+            letter-spacing: -0.012em;
+        }
+        @media (min-width: 768px) {
+            .prose-body p.lead {
+                font-size: 24px;
+            }
+        }
+
+        /* ---- Section H2 ---- */
+        .section-h2 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.875rem, 3.6vw, 2.5rem);
+            letter-spacing: -0.024em;
+            line-height: 1.08;
+            color: var(--ink);
+        }
+
+        /* ---- The numbered failure cards ---- */
+        .failure-card {
+            position: relative;
+            padding: 28px 28px 28px 28px;
+            background: #ffffff;
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+        }
+        .failure-card:hover {
+            border-color: var(--rule-strong);
+            box-shadow: 0 24px 48px -28px rgba(10, 10, 11, 0.18);
+        }
+        .failure-numeral {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--accent);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0;
+        }
+        .failure-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+        .failure-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--signal-red);
+        }
+        .failure-line {
+            font-size: 16px;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+        .failure-line strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        /* ---- The shift-left card ---- */
+        .shift-card {
+            background: var(--ink);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .shift-card { padding: 56px 48px; }
+        }
+        .shift-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+        .shift-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---- Capability list inside shift card ---- */
+        .cap-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 20px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .cap-row:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+        .cap-row:last-child { padding-bottom: 0; }
+        .cap-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c4b5fd;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        .cap-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #c4b5fd;
+            margin-bottom: 6px;
+        }
+        .cap-text {
+            font-size: 16px;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.86);
+        }
+        .cap-text strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* ---- Closing slogan ---- */
+        .closing-line {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.625rem, 3.4vw, 2.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.024em;
+            color: var(--ink);
+        }
+
+        /* ---- ICP pill ---- */
+        .icp-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px;
+            background: #ffffff;
+            border: 1px solid var(--rule);
+            border-radius: 999px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgb(51 65 85);
+        }
+        .icp-dot {
+            position: relative;
+            display: inline-flex;
+            width: 6px;
+            height: 6px;
+        }
+        .icp-dot::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #f59e0b;
+            opacity: 0.75;
+            animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        .icp-dot::after {
+            content: '';
+            position: relative;
+            display: inline-flex;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #f59e0b;
+        }
+        @keyframes ping {
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* ---- Author byline card ---- */
+        .byline {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: #ffffff;
+            border: 1px solid var(--rule);
+            border-radius: 12px;
+        }
+        .byline-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--ink);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: -0.02em;
+        }
+
+        /* ---- Wasted-X recovery cards (Promise section) ---- */
+        .wasted-card {
+            background: #ffffff;
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 24px 26px 22px 26px;
+            transition: border-color 200ms ease, box-shadow 200ms ease;
+        }
+        .wasted-card:hover {
+            border-color: var(--rule-strong);
+            box-shadow: 0 24px 48px -28px rgba(10, 10, 11, 0.18);
+        }
+        .wasted-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--signal-red);
+            margin-bottom: 10px;
+        }
+        .wasted-word {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.875rem, 3.4vw, 2.5rem);
+            letter-spacing: -0.024em;
+            line-height: 1;
+            color: var(--ink);
+            margin-bottom: 14px;
+        }
+        .wasted-strike {
+            position: relative;
+            display: inline-block;
+        }
+        .wasted-strike::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            right: -4px;
+            top: 52%;
+            height: 3px;
+            background: var(--signal-red);
+            transform: rotate(-2deg);
+            transform-origin: center;
+        }
+        .wasted-line {
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+
+        /* ---- Inline highlight (for key phrases) ---- */
+        .ink-highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(245, 158, 11, 0.28) 60%);
+            padding: 0 2px;
+        }
+
+        /* ---- List-style manifesto H1 ----
+           Three-column read: Function (ink) + has (gray) + Tool (green).
+           Only the missing fifth tool is red. */
+        .manifesto-h1 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+            line-height: 1.06;
+            font-size: clamp(2rem, 5.6vw, 3.5rem);
+        }
+        .m-line {
+            display: block;
+            white-space: nowrap;
+        }
+        .m-fn {
+            color: var(--ink);
+            font-weight: 700;
+        }
+        .m-has {
+            color: rgb(148 163 184); /* slate-400 — quiet linker */
+            font-weight: 500;
+        }
+        .m-tool {
+            color: var(--signal-green);
+            font-weight: 700;
+            letter-spacing: -0.026em;
+        }
+        /* The deliberate blank — Marketing's missing staging tool */
+        .m-line-blank {
+            position: relative;
+        }
+        .m-blank {
+            display: inline-block;
+            width: clamp(2.25rem, 6vw, 4rem);
+            border-bottom: 3px solid var(--signal-red);
+            vertical-align: 0.18em;
+            position: relative;
+        }
+        .m-blank::after {
+            content: '?';
+            position: absolute;
+            top: -0.95em;
+            left: 50%;
+            transform: translateX(-50%);
+            font-style: italic;
+            font-weight: 500;
+            color: var(--signal-red);
+            font-size: 0.95em;
+            letter-spacing: -0.02em;
+        }
+        @media (max-width: 480px) {
+            .manifesto-h1 { font-size: clamp(1.5rem, 7vw, 1.875rem); }
+        }
+
+        /* ---- Subhead — the verdict ---- */
+        .manifesto-subhead {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 500;
+            color: var(--ink-soft);
+            font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+            line-height: 1.4;
+            letter-spacing: -0.012em;
+            max-width: 36rem;
         }
     </style>
 </head>
-<body class="bg-[#FDFDFD] text-slate-800 font-sans antialiased">
+<body class="bg-[var(--paper)] text-slate-700 antialiased">
 
-    <nav class="w-full z-50 bg-[#FDFDFD] border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- ============================================
+         NAV (mirrors homepage)
+         ============================================ -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
-                    <div class="w-7 h-7 bg-slate-950 rounded flex items-center justify-center text-white font-bold font-mono text-xs">W</div>
-                    <span class="font-bold text-base text-slate-950 tracking-tight font-mono uppercase">WhyUser</span>
+                    <div class="w-8 h-8 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center text-white font-bold font-mono text-sm shadow-[0_0_15px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_25px_rgba(124,58,237,0.5)] transition-all">W</div>
+                    <span class="font-bold text-lg text-[var(--ink)] tracking-tight">WhyUser</span>
                 </a>
-                <div class="flex items-center">
-                    <a href="index.html#access" class="text-xs font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-[0.2em] font-mono flex items-center gap-2">
-                        [ Access Lab ]
+                <div class="hidden md:flex items-center space-x-7">
+                    <a href="index.html#solution" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Product</a>
+                    <a href="index.html#patterns" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Customers</a>
+                    <a href="index.html#compare" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Compare</a>
+                    <a href="manifesto.html" class="text-sm font-semibold text-[var(--accent)] transition-colors">Manifesto</a>
+                    <a href="faq.html" class="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">FAQ</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="index.html#access" class="bg-[var(--ink)] hover:bg-slate-800 text-white px-4 py-2 rounded-md font-bold text-sm transition-all shadow-xl flex items-center gap-2">
+                        Apply for Design Partner
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <article class="max-w-3xl mx-auto px-4 py-24 relative z-10">
-        
-        <header class="mb-20">
-            <div class="text-[11px] font-black text-indigo-600 font-mono uppercase tracking-[0.3em] mb-8 flex items-center gap-4">
-                <span class="w-8 h-px bg-indigo-600"></span>
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
+        <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none"></div>
+        <div class="absolute top-[10%] right-[-10%] w-[500px] h-[500px] bg-violet-200/30 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <!-- ICP self-deselect pill (per positioning doc) -->
+            <div class="icp-pill mb-8">
+                <span class="icp-dot"></span>
+                For Demand Gen Leaders Accountable for Pipeline
+            </div>
+
+            <!-- Eyebrow -->
+            <div class="eyebrow eyebrow-accent mb-8">
                 The GTM Testing Manifesto
             </div>
 
-            <div class="text-xl md:text-2xl font-bold text-indigo-700 mb-6 leading-tight">
-                Every unvalidated campaign is a donation to LinkedIn and Google.
-            </div>
-
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-950 mb-8 leading-[1.2]">
-                Marketing Shouldn't be Forced to Test in Production.
+            <!-- H1 — list-style. Function (ink) + has (slate) + tool (green).
+                 Fifth row's tool is missing — replaced with red blank. -->
+            <h1 class="manifesto-h1 mb-9">
+                <span class="m-line"><span class="m-fn">Engineering</span> <span class="m-has">has</span> <span class="m-tool">staging.</span></span>
+                <span class="m-line"><span class="m-fn">Ops</span> <span class="m-has">has</span> <span class="m-tool">dry runs.</span></span>
+                <span class="m-line"><span class="m-fn">Finance</span> <span class="m-has">has</span> <span class="m-tool">audits.</span></span>
+                <span class="m-line"><span class="m-fn">Sales</span> <span class="m-has">has</span> <span class="m-tool">role plays.</span></span>
+                <span class="m-line m-line-blank">
+                    <span class="m-fn">Marketing</span> <span class="m-has">has</span> <span class="m-blank" aria-label="nothing"></span>
+                </span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-slate-500 font-medium mb-12 leading-[1.6] border-l-4 border-slate-200 pl-6">
-                You should not have to spend $50k to find that the message will not land. Marketing deserves their own staging environment to validate messaging just like engineering.
+            <!-- Subhead — the verdict. Now a fact, not a complaint. -->
+            <p class="manifesto-subhead mb-10">
+                Marketing is the only function that <span class="editorial-italic text-[var(--accent)]">tests in production.</span>
             </p>
 
-            <div class="flex items-center gap-4 text-xs font-mono font-bold text-slate-500 uppercase tracking-widest">
-                <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden text-slate-500 flex items-center justify-center text-lg">
-                    <i class="fa-solid fa-user"></i>
-                </div>
+            <!-- Founder byline -->
+            <div class="byline">
+                <div class="byline-avatar">DG</div>
                 <div>
-                    <div class="text-slate-900">Founder, WhyUser</div>
-                    <div class="text-[10px] tracking-widest opacity-80 mt-0.5">Former B2B Startup CTO</div>
+                    <div class="text-sm font-bold text-[var(--ink)]">Durga Gokina, Founder &amp; CEO</div>
+                    <div class="text-[11px] font-mono font-bold text-slate-500 tracking-[0.18em] uppercase mt-0.5">Former B2B Startup CTO</div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <div class="space-y-12 text-lg text-slate-700 font-medium leading-[1.8]">
-            
-            <p>
-                As the CTO and Co-Founder of my previous B2B startup, my engineering team had an absolute rule: <strong class="text-slate-950 font-bold bg-slate-100 px-1.5 rounded">we never test in production.</strong> If we wanted to know how our code would perform under stress, we ran it in a staging environment.
-            </p>
-            
-            <p>
-                But our marketing leaders were forced to fly blind. Every time they built a new campaign, designed a pricing page, or pivoted positioning, they had to spend live budget just to see if it worked.
-            </p>
+    <!-- ============================================
+         BODY ARTICLE
+         ============================================ -->
+    <article class="relative pb-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose-body">
 
-            <h2 class="text-2xl font-black text-slate-950 mt-16 mb-8 font-mono tracking-tight uppercase">>> The Arsenal of Broken Tools</h2>
-            
-            <p class="mb-8">
-                The standard GTM validation methods aren't just inefficient. They are expensive, slow, and high-risk. For example,
-            </p>
-
-            <div class="space-y-10 pl-2 md:pl-6 border-l border-slate-200 my-12">
-                
-                <div>
-                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
-                        [01] Live A/B Testing <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Ad Tax</span>
-                    </h3>
-                    <p class="text-base font-medium">
-                        To learn what fails, you have to pay for it. You launch two variants, spend $10,000 on LinkedIn traffic, and wait 6 weeks for statistical significance only to discover your hypothesis was wrong. You are paying a massive tax just to learn.
-                    </p>
-                </div>
-
-                <div>
-                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
-                        [02] Internal Reviews <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Echo Chamber</span>
-                    </h3>
-                    <p class="text-base font-medium">
-                        You drop a Figma link in Slack. Your team says "looks great" because they know the product inside and out. They give you 10 minutes of patient reading. A real buyer gives you a 5-second ruthless skim.
-                    </p>
-                </div>
-
-                <div>
-                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
-                        [03] User Panels <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Say vs. Do Gap</span>
-                    </h3>
-                    <p class="text-base font-medium">
-                        You pay a platform to put your site in front of testers. But people tell you what they think you want to hear just to get paid. They do not navigate your site with the skepticism of a real buyer under career pressure.
-                    </p>
-                </div>
-
-                <div>
-                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
-                        [04] Generic AI <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Yes-Man</span>
-                    </h3>
-                    <p class="text-base font-medium">
-                        You ask ChatGPT or Claude to review your draft. It gives you a single, polite, plausible opinion in a vacuum. It is designed to be helpful, so it does not fight back or actively veto deals like a real End-Customer Buying Committee.
-                    </p>
-                </div>
-
-                <div>
-                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
-                        [05] Win/Loss Analysis <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The Autopsy</span>
-                    </h3>
-                    <p class="text-base font-medium">
-                        You finally learn exactly why the Economic Buyer killed your deal in the dark funnel. But you learn it three months after the deal died. The revenue is already gone.
-                    </p>
-                </div>
-
-                <div>
-                    <h3 class="font-mono text-base font-black text-slate-950 mb-2 uppercase tracking-wide">
-                        [06] Customer Advisory Boards <span class="text-slate-400 font-normal normal-case tracking-normal ml-2">// The CAB Trap</span>
-                    </h3>
-                    <p class="text-base font-medium">
-                        Your most engaged customers are your biggest fans. They give you a 45-minute deep dive and tell you the messaging is great. But your real buyer is not your biggest fan — they are a skeptic who has never heard of you and has three other tabs open.
-                    </p>
-                </div>
-
+            <!-- Opening salvo — picks up where the list-headline leaves off -->
+            <div class="space-y-6 mb-16">
+                <p class="lead">
+                    Look at the org chart. Every function has a safety net.
+                </p>
+                <p>
+                    Engineering runs <strong>staging</strong>. Code breaks there before it breaks the customer.
+                </p>
+                <p>
+                    Ops runs <strong>dry runs</strong>. The migration fails on a Tuesday afternoon, not at 3 a.m. on launch.
+                </p>
+                <p>
+                    Finance runs <strong>audits</strong>. Numbers get questioned before they hit the board deck.
+                </p>
+                <p>
+                    Sales runs <strong>role plays</strong>. The objection gets answered in the conference room before the customer raises it on Zoom.
+                </p>
+                <p>
+                    Marketing? <strong>Marketing runs the campaign live and reads the analytics.</strong>
+                </p>
+                <p>
+                    Spend the budget. Watch the bounce rate. Rebuild next quarter. Hope.
+                </p>
+                <p class="lead">
+                    Same company. Same stakes. <strong>Marketing is the only function that has to test in production.</strong>
+                </p>
             </div>
 
-            <h2 class="text-2xl font-black text-slate-950 mt-16 mb-8 font-mono tracking-tight uppercase">>> The Shift-Left Paradigm</h2>
-            
-            <p>
-                I believe marketing leaders shouldn't have to launch to learn. If my engineering team could simulate server loads before deploying code, GTM teams should be able to simulate buyer behavior before deploying budget.
-            </p>
-            <p>
-                That is exactly why I built <strong class="text-slate-950 font-bold bg-indigo-50 px-1.5 rounded">WhyUser</strong>. It is the world's first GTM Staging Environment.
-            </p>
-
-            <div class="my-12 font-mono text-sm bg-slate-50 p-8 rounded-xl border border-slate-200">
-                <div class="text-xs font-black text-indigo-600 uppercase tracking-[0.2em] mb-8">Simulation Capabilities_</div>
-                <ul class="space-y-8 text-slate-700">
-                    <li class="flex gap-4">
-                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Audience Discovery</strong>
-                            <span class="font-sans text-base">First confirms whether your content actually lands with your known ICP, then finds the adjacent roles and verticals where it resonates even stronger — pipeline you didn't know existed.</span>
-                        </div>
-                    </li>
-                    <li class="flex gap-4">
-                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Testing Velocity</strong>
-                            <span class="font-sans text-base">Compress a 6-week live A/B test into a 30-minute simulation. Find the statistical winner before spending a dime on traffic.</span>
-                        </div>
-                    </li>
-                    <li class="flex gap-4">
-                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Skeptical Buyers</strong>
-                            <span class="font-sans text-base">Model real End-Customer Buying Committee conflict. Watch your Champion (CH) get sold on features while the Economic Buyer (EB) silently vetoes the page over missing ROI proof. Resolve this friction before launch.</span>
-                        </div>
-                    </li>
-                    <li class="flex gap-4">
-                        <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
-                        <div>
-                            <strong class="text-slate-950 block uppercase tracking-wide mb-1">Zero Waste</strong>
-                            <span class="font-sans text-base">Identify and fix ad bounces in a private lab. When you finally deploy to live production, you launch with a statistical baseline that wins.</span>
-                        </div>
-                    </li>
-                </ul>
+            <!-- Pull quote 1 -->
+            <div class="my-16 pl-6 border-l-2 border-[var(--accent)] max-w-2xl">
+                <span aria-hidden="true" class="quote-mark block text-[64px] md:text-[80px] -mb-2 leading-none">&ldquo;</span>
+                <p class="pull-quote text-xl md:text-2xl leading-[1.4]">
+                    Every unvalidated campaign is a donation to LinkedIn and Google.
+                </p>
             </div>
 
-            <p class="text-2xl font-black text-slate-950 text-center mt-16 mb-8">
-                Fail in the Simulator. Win in the Market.
-            </p>
+            <!-- ============================================
+                 SECTION: The Six Tools You Already Tried
+                 ============================================ -->
+            <section class="mt-20 mb-16">
+                <div class="eyebrow mb-6">Section 01</div>
+                <h2 class="section-h2 mb-5" style="text-wrap: pretty;">
+                    Six tools you already tried.<br class="hidden md:inline"> <span class="editorial-italic text-[var(--accent)]">All six let you down.</span>
+                </h2>
+                <p class="text-slate-600 mb-12 max-w-xl text-[17px] leading-[1.6]">
+                    These are the alternatives. Each one is broken in a specific way. You&rsquo;ve probably used five.
+                </p>
 
-            <div class="pt-12 mt-12 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
-                <a href="index.html#access" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 bg-slate-950 hover:bg-slate-800 text-white px-8 py-4 rounded font-mono font-bold text-sm uppercase tracking-widest transition-all">
-                    Request Lab Access <i class="fa-solid fa-terminal"></i>
-                </a>
-                <div class="text-sm font-mono text-slate-400 uppercase tracking-widest">
-                    // WhyUser.com
+                <div class="space-y-4">
+                    <!-- 01 -->
+                    <div class="failure-card">
+                        <div class="flex items-baseline gap-3 mb-3">
+                            <span class="failure-numeral">01</span>
+                            <span class="failure-name">Live A/B Tests</span>
+                            <span class="failure-tag ml-auto">The Ad Tax</span>
+                        </div>
+                        <p class="failure-line">
+                            <strong>To learn what doesn&rsquo;t work, you pay for it.</strong> Spend $10K. Wait six weeks. Discover the hook was wrong. The lesson cost more than the win.
+                        </p>
+                    </div>
+
+                    <!-- 02 -->
+                    <div class="failure-card">
+                        <div class="flex items-baseline gap-3 mb-3">
+                            <span class="failure-numeral">02</span>
+                            <span class="failure-name">Internal Reviews</span>
+                            <span class="failure-tag ml-auto">The Echo Chamber</span>
+                        </div>
+                        <p class="failure-line">
+                            You drop the page in Slack. Your team says it looks great. <strong>They give it ten patient minutes.</strong> A real buyer gives it five ruthless seconds.
+                        </p>
+                    </div>
+
+                    <!-- 03 -->
+                    <div class="failure-card">
+                        <div class="flex items-baseline gap-3 mb-3">
+                            <span class="failure-numeral">03</span>
+                            <span class="failure-name">User Panels</span>
+                            <span class="failure-tag ml-auto">Say vs Do</span>
+                        </div>
+                        <p class="failure-line">
+                            You pay strangers $50 to read your page and tell you what they think. <strong>They tell you what gets them paid.</strong> A real buyer is a skeptic with a quota and three other tabs open.
+                        </p>
+                    </div>
+
+                    <!-- 04 -->
+                    <div class="failure-card">
+                        <div class="flex items-baseline gap-3 mb-3">
+                            <span class="failure-numeral">04</span>
+                            <span class="failure-name">ChatGPT or Claude</span>
+                            <span class="failure-tag ml-auto">The Yes-Man</span>
+                        </div>
+                        <p class="failure-line">
+                            You paste the draft. It hands back a polite, plausible opinion. <strong>One opinion. Helpful by design.</strong> A real buying committee has five roles, all skeptical, none aligned. ChatGPT can&rsquo;t fight back. Real buyers do.
+                        </p>
+                    </div>
+
+                    <!-- 05 -->
+                    <div class="failure-card">
+                        <div class="flex items-baseline gap-3 mb-3">
+                            <span class="failure-numeral">05</span>
+                            <span class="failure-name">Win/Loss Calls</span>
+                            <span class="failure-tag ml-auto">The Autopsy</span>
+                        </div>
+                        <p class="failure-line">
+                            <strong>Three months later</strong>, you finally hear why the Economic Buyer killed the deal. The deal is already dead. The pipeline review is next week. The findings are too late to use.
+                        </p>
+                    </div>
+
+                    <!-- 06 -->
+                    <div class="failure-card">
+                        <div class="flex items-baseline gap-3 mb-3">
+                            <span class="failure-numeral">06</span>
+                            <span class="failure-name">Customer Advisory Board</span>
+                            <span class="failure-tag ml-auto">The Fan Club</span>
+                        </div>
+                        <p class="failure-line">
+                            Your CAB is your <strong>biggest fans</strong>. They love you. They&rsquo;ll spend 45 minutes telling you the page is great. Your real buyer has never heard of you and won&rsquo;t spend five seconds.
+                        </p>
+                    </div>
                 </div>
-            </div>
+
+                <p class="mt-10 text-[17px] text-slate-600 leading-[1.6] max-w-xl">
+                    Six tools. <strong class="text-[var(--ink)]">Each one fails in a way you can&rsquo;t fix from inside the team.</strong> So you launch anyway and hope.
+                </p>
+            </section>
+
+            <!-- ============================================
+                 SECTION: Shift the test left
+                 ============================================ -->
+            <section class="mt-24 mb-16">
+                <div class="eyebrow eyebrow-accent mb-6">Section 02 &middot; The Fix</div>
+                <h2 class="section-h2 mb-5" style="text-wrap: pretty;">
+                    Shift the test <span class="editorial-italic text-[var(--accent)]">left.</span>
+                </h2>
+
+                <div class="space-y-6 mt-10">
+                    <p>
+                        Engineering figured this out twenty years ago. <strong>Catch the bug before it ships.</strong> Run the load test on staging, not on the customer.
+                    </p>
+                    <p>
+                        Marketing should get the same loop.
+                    </p>
+                    <p>
+                        Run the campaign through a buying committee that fights back. Find the silent veto before the budget is wired. <strong>Fail in the simulator. Don&rsquo;t pay LinkedIn for the lesson.</strong>
+                    </p>
+                    <p>
+                        That&rsquo;s why I built <strong class="ink-highlight">WhyUser.</strong>
+                    </p>
+                </div>
+
+                <!-- Capability card — dark panel, mirrors homepage signature card -->
+                <div class="shift-card mt-12">
+                    <div class="flex items-center gap-3 mb-8">
+                        <span class="block w-6 h-px bg-violet-300/60"></span>
+                        <span class="font-mono text-[10px] font-bold text-violet-300 tracking-[0.28em] uppercase">Four engines, one simulator</span>
+                    </div>
+
+                    <div class="space-y-0">
+                        <div class="cap-row">
+                            <div class="cap-icon"><i class="fa-solid fa-bullseye"></i></div>
+                            <div>
+                                <div class="cap-label">Ad Campaign Simulation</div>
+                                <div class="cap-text">Run the ad and the landing page through skeptical buyer agents. <strong>Catch the bounce before the budget burns.</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="cap-row">
+                            <div class="cap-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                            <div>
+                                <div class="cap-label">Email Campaign Simulation</div>
+                                <div class="cap-text">Test subject, body, CTA, and landing page on the same buyer agent before sending to 500 prospects. <strong>Get the winner per persona.</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="cap-row">
+                            <div class="cap-icon"><i class="fa-solid fa-list-ol"></i></div>
+                            <div>
+                                <div class="cap-label">Audience Discovery</div>
+                                <div class="cap-text">Upload your content. Get the roles and sub-verticals it actually lands with. <strong>Including pipeline you didn&rsquo;t know existed.</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="cap-row">
+                            <div class="cap-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                            <div>
+                                <div class="cap-label">Committee Simulation</div>
+                                <div class="cap-text">Watch the Champion get sold while the Economic Buyer silently vetoes. <strong>See the conflict before the deal stalls.</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pull quote 2 -->
+                <div class="my-16 pl-6 border-l-2 border-[var(--accent)] max-w-2xl">
+                    <span aria-hidden="true" class="quote-mark block text-[64px] md:text-[80px] -mb-2 leading-none">&ldquo;</span>
+                    <p class="pull-quote text-xl md:text-2xl leading-[1.4]">
+                        If engineering can simulate load before deploy, marketing can simulate buyers before spend.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- ============================================
+                 SECTION: The promise — wasted-X recovery
+                 ============================================ -->
+            <section class="mt-20 mb-16">
+                <div class="eyebrow mb-6">Section 03 &middot; The Promise</div>
+                <h2 class="section-h2 mb-5" style="text-wrap: pretty;">
+                    Stop wasting four things <span class="editorial-italic text-[var(--accent)]">at once.</span>
+                </h2>
+                <p class="text-slate-600 mb-12 max-w-xl text-[17px] leading-[1.6]">
+                    Testing in production isn&rsquo;t one mistake. It&rsquo;s four of them, every quarter.
+                </p>
+
+                <!-- 2x2 wasted-X grid -->
+                <div class="grid md:grid-cols-2 gap-4">
+
+                    <div class="wasted-card">
+                        <div class="wasted-eyebrow">01 &middot; Wasted</div>
+                        <div class="wasted-word"><span class="wasted-strike">Spend</span></div>
+                        <p class="wasted-line">
+                            $40K on a campaign the buyers were never going to read. The post-mortem starts after the money is already gone.
+                        </p>
+                    </div>
+
+                    <div class="wasted-card">
+                        <div class="wasted-eyebrow">02 &middot; Wasted</div>
+                        <div class="wasted-word"><span class="wasted-strike">Cycles</span></div>
+                        <p class="wasted-line">
+                            Six weeks waiting for significance. Three weeks of internal reviews. A quarter spent learning what an hour could have told you.
+                        </p>
+                    </div>
+
+                    <div class="wasted-card">
+                        <div class="wasted-eyebrow">03 &middot; Wasted</div>
+                        <div class="wasted-word"><span class="wasted-strike">Pipeline</span></div>
+                        <p class="wasted-line">
+                            The Economic Buyer vetoed silently. The Champion couldn&rsquo;t forward the deck. You found out on the win/loss call &mdash; three months too late.
+                        </p>
+                    </div>
+
+                    <div class="wasted-card">
+                        <div class="wasted-eyebrow">04 &middot; Wasted</div>
+                        <div class="wasted-word"><span class="wasted-strike">Credibility</span></div>
+                        <p class="wasted-line">
+                            You walk into the QBR with vibes and a Looker dashboard. Your CFO walks in with questions you can&rsquo;t answer. That&rsquo;s the meeting marketing keeps losing.
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="mt-12 text-[17px] text-slate-600 leading-[1.6] max-w-2xl">
+                    A staging environment fixes all four at the same time. <strong class="text-[var(--ink)]">One simulation. One hour. Spend protected, cycles compressed, pipeline diagnosed, credibility earned.</strong>
+                </p>
+            </section>
+
+            <!-- ============================================
+                 CLOSING
+                 ============================================ -->
+            <section class="mt-24 pt-16 border-t border-[var(--rule)]">
+                <p class="closing-line text-center mb-3">
+                    Stop testing in production.
+                </p>
+                <p class="closing-line text-center mb-12">
+                    Run the next campaign through <span class="editorial-italic text-[var(--accent)]">WhyUser</span> first.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+                    <a href="index.html#access" class="bg-[var(--ink)] hover:bg-slate-800 text-white px-7 py-3.5 rounded-md font-bold text-base transition-all shadow-[0_8px_24px_-8px_rgba(10,10,11,0.35)] hover:shadow-[0_12px_28px_-8px_rgba(10,10,11,0.45)] flex items-center gap-3 group justify-center">
+                        <i class="fa-solid fa-flask text-amber-300"></i>
+                        Apply for Design Partner Program
+                        <i class="fa-solid fa-arrow-right text-xs translate-x-0 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="index.html" class="flex items-center gap-3 px-7 py-3.5 rounded-md font-bold text-base text-slate-700 bg-white border border-[var(--rule-strong)] hover:border-slate-400 transition-all justify-center">
+                        See how it works
+                    </a>
+                </div>
+            </section>
 
         </div>
     </article>
+
+    <!-- ============================================
+         FOOTER MARK
+         ============================================ -->
+    <footer class="border-t border-[var(--rule)] py-8 mt-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-gradient-to-br from-violet-600 to-indigo-600 rounded flex items-center justify-center text-white font-bold font-mono text-[10px]">W</div>
+                <span class="font-mono text-[11px] font-bold text-slate-500 tracking-[0.22em] uppercase">WhyUser</span>
+            </div>
+            <span class="font-mono text-[10px] font-bold text-slate-400 tracking-[0.22em] uppercase">// Manifesto v1</span>
+        </div>
+    </footer>
 
 </body>
 </html>

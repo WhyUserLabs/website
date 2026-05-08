@@ -10,21 +10,21 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 
-    <title>WhyUser FAQ | Buying Committee Simulation Questions Answered</title>
-    <meta name="description" content="WhyUser FAQ. How buying committee simulation works, how accurate it is, how it differs from ChatGPT and A/B testing, plus setup, security, and pricing for B2B pre-launch validation.">
-    <meta name="keywords" content="buying committee simulation, B2B campaign testing, pre-launch validation, buyer agent simulation, B2B landing page testing, demand gen validation">
+    <title>WhyUser FAQ | The Go-To-Market (GTM) Staging Platform</title>
+    <meta name="description" content="WhyUser FAQ. WhyUser is the Go-To-Market (GTM) Staging Platform — the staging environment for B2B marketing. How buying committee simulation works, accuracy, comparison to ChatGPT and A/B testing, plus setup, security, and pricing.">
+    <meta name="keywords" content="Go-To-Market staging platform, GTM staging platform, GTM staging environment, buying committee simulation, B2B campaign stress test, buyer agent simulation, B2B landing page testing, pre-launch B2B campaign testing">
     <link rel="canonical" href="https://whyuser.com/faq.html">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WhyUser">
-    <meta property="og:title" content="WhyUser FAQ — How buying committee simulation works">
-    <meta property="og:description" content="Accuracy, ChatGPT comparison, A/B test comparison, setup, security, and pricing — answered for demand gen leaders evaluating WhyUser.">
+    <meta property="og:title" content="WhyUser FAQ — The Go-To-Market (GTM) Staging Platform">
+    <meta property="og:description" content="WhyUser is the Go-To-Market (GTM) Staging Platform — the staging environment for B2B marketing. Accuracy, ChatGPT comparison, A/B testing comparison, setup, security, and pricing — answered for demand gen leaders.">
     <meta property="og:url" content="https://whyuser.com/faq.html">
     <meta property="og:image" content="https://whyuser.com/images/og-faq.png">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WhyUser FAQ — Pre-launch validation answered">
-    <meta name="twitter:description" content="Buying committee simulation, accuracy, ChatGPT comparison, and pricing.">
+    <meta name="twitter:title" content="WhyUser FAQ — The Go-To-Market (GTM) Staging Platform">
+    <meta name="twitter:description" content="Buying committee simulation, accuracy, comparisons to ChatGPT and A/B testing, and pricing — answered.">
     <meta name="twitter:image" content="https://whyuser.com/images/og-faq.png">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Ctext x='50%25' y='52%25' font-family='ui-monospace,monospace' font-size='18' font-weight='800' fill='white' text-anchor='middle' dominant-baseline='middle'%3EW%3C/text%3E%3C/svg%3E">
@@ -42,7 +42,7 @@
       "name": "WhyUser",
       "legalName": "WhyUser Inc.",
       "url": "https://whyuser.com/",
-      "description": "B2B pre-launch validation platform. Demand gen teams stress test landing pages, ads, and emails against hundreds of buyer agents before launch.",
+      "description": "WhyUser is the Go-To-Market (GTM) Staging Platform — the staging environment for B2B marketing. Demand gen teams stress test landing pages, ads, and emails against hundreds of buyer agents before launch.",
       "foundingDate": "2025",
       "address": {"@type":"PostalAddress","addressLocality":"San Jose","addressRegion":"CA","addressCountry":"US"}
     }
@@ -53,6 +53,14 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is WhyUser, in one line?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WhyUser is the Go-To-Market (GTM) Staging Platform. Engineering has staging environments to catch bugs before production. WhyUser is the same thing for your campaigns \u2014 stress test landing pages, ads, and emails against your buying committee before the budget goes out. Four engines in production today: Committee Simulation, Ad Campaign Simulation, Email Campaign Simulation, and Audience Discovery."
+          }
+        },
         {
           "@type": "Question",
           "name": "What is buying committee simulation?",
@@ -2501,6 +2509,92 @@
             font-weight: 400;
             color: #fcd34d;
         }
+
+        /* ─────────────────────────────────────────────────────────────
+           HERO TOC CARD — right-side navigation aid showing 3 categories
+           ───────────────────────────────────────────────────────────── */
+        .hero-toc {
+            background: var(--paper);
+            border: 1px solid var(--rule-strong);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(9,9,11,0.04);
+        }
+        @media (min-width: 768px) {
+            .hero-toc { padding: 1.75rem; }
+        }
+        .hero-toc-head {
+            display: flex;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--rule);
+        }
+        .hero-toc-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--brand);
+        }
+        .hero-toc-meta {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--mute);
+            letter-spacing: 0.04em;
+        }
+        .hero-toc-item {
+            display: block;
+            padding: 0.875rem 0.875rem;
+            margin-bottom: 0.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .hero-toc-item:hover {
+            background: var(--paper-warm);
+            border-color: var(--rule);
+        }
+        .hero-toc-item:last-child { margin-bottom: 0; }
+        .hero-toc-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.625rem;
+            margin-bottom: 0.375rem;
+        }
+        .hero-toc-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--brand);
+            flex-shrink: 0;
+            letter-spacing: 0.04em;
+        }
+        .hero-toc-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.005em;
+        }
+        .hero-toc-count {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--mute);
+            flex-shrink: 0;
+            letter-spacing: 0.04em;
+        }
+        .hero-toc-desc {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--mute);
+            margin: 0;
+            padding-left: 1.625rem;
+        }
     </style>
 </head>
 <body class="grain">
@@ -2539,12 +2633,47 @@
                 <span style="color:var(--ink)">FAQ</span>
             </nav>
 
-            <div style="max-width: 52rem">
-                <span class="section-eyebrow">Frequently Asked Questions</span>
-                <h1 class="h1">Common questions about pre-launch validation.</h1>
-                <p class="hero-sub" style="margin-top: 1.5rem; max-width: 38rem">
-                    Answers to the questions B2B demand gen leaders ask most. Grouped by what kind of question it is. Click anything to expand.
-                </p>
+            <div class="hero-grid">
+                <!-- LEFT: H1 + category claim in sub-line -->
+                <div>
+                    <span class="section-eyebrow">Frequently Asked Questions</span>
+                    <h1 class="h1">Common questions about WhyUser.</h1>
+                    <p class="hero-sub" style="margin-top: 1.5rem; max-width: 38rem">
+                        WhyUser is the <strong style="color: var(--ink); font-weight: 600">Go-To-Market (GTM) Staging Platform</strong> — the staging environment for B2B marketing. Stress test campaigns and pages against your buying committee before launch. Below: answers to the questions B2B demand gen leaders ask most. Grouped by topic. Click anything to expand.
+                    </p>
+                </div>
+
+                <!-- RIGHT: TOC card — navigation aid showing the 3 categories -->
+                <aside class="hero-toc" aria-label="On this page">
+                    <div class="hero-toc-head">
+                        <span class="hero-toc-eyebrow">On this page</span>
+                        <span class="hero-toc-meta">16 questions · 3 topics</span>
+                    </div>
+                    <a href="#concept" class="hero-toc-item">
+                        <div class="hero-toc-row">
+                            <span class="hero-toc-num">01</span>
+                            <span class="hero-toc-title">Concept &amp; methodology</span>
+                            <span class="hero-toc-count">5 Qs</span>
+                        </div>
+                        <p class="hero-toc-desc">How WhyUser thinks about buyer behavior, accuracy, and committee modeling.</p>
+                    </a>
+                    <a href="#comparison" class="hero-toc-item">
+                        <div class="hero-toc-row">
+                            <span class="hero-toc-num">02</span>
+                            <span class="hero-toc-title">Comparison &amp; alternatives</span>
+                            <span class="hero-toc-count">6 Qs</span>
+                        </div>
+                        <p class="hero-toc-desc">Where WhyUser fits versus ChatGPT, A/B tests, CRM tools, and internal reviews.</p>
+                    </a>
+                    <a href="#setup" class="hero-toc-item">
+                        <div class="hero-toc-row">
+                            <span class="hero-toc-num">03</span>
+                            <span class="hero-toc-title">Setup, security &amp; pricing</span>
+                            <span class="hero-toc-count">5 Qs</span>
+                        </div>
+                        <p class="hero-toc-desc">Practical questions about inputs, integration, security posture, and cost.</p>
+                    </a>
+                </aside>
             </div>
         </div>
     </header>
@@ -2554,7 +2683,7 @@
          ═════════════════════════════════════════════════════════════════ -->
     <section class="section-rule" style="background: var(--paper-warm)">
         <div class="wrap">
-            <div class="faq-cat">
+            <div class="faq-cat" id="concept">
                 <div class="faq-cat-aside">
                     <div class="faq-cat-num">01 · Category</div>
                     <h2 class="faq-cat-title">Concept & methodology</h2>
@@ -2564,6 +2693,16 @@
                     <details class="faq-item">
                         <summary>
                             <span class="faq-num">01</span>
+                            <h3 class="faq-q">What is WhyUser, in one line?</h3>
+                            <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+                        </summary>
+                        <div class="faq-a">
+                            WhyUser is the Go-To-Market (GTM) Staging Platform. Engineering has staging environments to catch bugs before production. WhyUser is the same thing for your campaigns — stress test landing pages, ads, and emails against your buying committee before the budget goes out. Four engines in production today: Committee Simulation, Ad Campaign Simulation, Email Campaign Simulation, and Audience Discovery.
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span class="faq-num">02</span>
                             <h3 class="faq-q">What is buying committee simulation?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2573,7 +2712,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">02</span>
+                            <span class="faq-num">03</span>
                             <h3 class="faq-q">How accurate are buying committee simulations?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2583,7 +2722,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">03</span>
+                            <span class="faq-num">04</span>
                             <h3 class="faq-q">How do you know what my buyers actually care about?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2593,7 +2732,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">04</span>
+                            <span class="faq-num">05</span>
                             <h3 class="faq-q">Can you simulate enterprise buying committees?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2604,7 +2743,7 @@
                 </div>
             </div>
 
-            <div class="faq-cat">
+            <div class="faq-cat" id="comparison">
                 <div class="faq-cat-aside">
                     <div class="faq-cat-num">02 · Category</div>
                     <h2 class="faq-cat-title">Comparison & alternatives</h2>
@@ -2613,7 +2752,7 @@
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">05</span>
+                            <span class="faq-num">06</span>
                             <h3 class="faq-q">Why not just use ChatGPT or Claude?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2623,7 +2762,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">06</span>
+                            <span class="faq-num">07</span>
                             <h3 class="faq-q">How is WhyUser different from CRM tools like Salesforce or Gong?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2633,7 +2772,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">07</span>
+                            <span class="faq-num">08</span>
                             <h3 class="faq-q">How is Audience Discovery different from Clay?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2643,7 +2782,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">08</span>
+                            <span class="faq-num">09</span>
                             <h3 class="faq-q">Does this replace live A/B testing?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2653,7 +2792,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">09</span>
+                            <span class="faq-num">10</span>
                             <h3 class="faq-q">How does WhyUser compare to internal reviews?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2663,7 +2802,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">10</span>
+                            <span class="faq-num">11</span>
                             <h3 class="faq-q">How do I validate AI-generated marketing content before launch?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2674,7 +2813,7 @@
                 </div>
             </div>
 
-            <div class="faq-cat">
+            <div class="faq-cat" id="setup">
                 <div class="faq-cat-aside">
                     <div class="faq-cat-num">03 · Category</div>
                     <h2 class="faq-cat-title">Setup, security & pricing</h2>
@@ -2683,7 +2822,7 @@
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">11</span>
+                            <span class="faq-num">12</span>
                             <h3 class="faq-q">What inputs do I need to run a test?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2693,7 +2832,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">12</span>
+                            <span class="faq-num">13</span>
                             <h3 class="faq-q">How long does a simulation take?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2703,7 +2842,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">13</span>
+                            <span class="faq-num">14</span>
                             <h3 class="faq-q">Do I need engineering help to set this up?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2713,7 +2852,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">14</span>
+                            <span class="faq-num">15</span>
                             <h3 class="faq-q">Is my pre-launch strategy secure?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2723,7 +2862,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">15</span>
+                            <span class="faq-num">16</span>
                             <h3 class="faq-q">How much does WhyUser cost?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2761,7 +2900,7 @@
                         <span class="footer-brand-name">WhyUser Inc.</span>
                     </div>
                     <p class="footer-tagline">
-                        Stress test your B2B campaigns and pages before you launch. Catch the silent veto before the budget burns.
+                        WhyUser. The Go-To-Market (GTM) Staging Platform. Stress test B2B campaigns and pages before you launch — catch the silent veto before the budget burns.
                     </p>
                 </div>
                 <div>

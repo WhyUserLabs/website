@@ -3661,9 +3661,9 @@ body {
   <div>
     <div class="meta-label" style="margin-bottom: 10px;">Candidate plan tier</div>
     <div class="plan-grid" id="plan-grid">
-      <button class="plan-card" data-plan="standard"><div class="plan-name">Standard</div><div class="plan-price">$12K / yr</div><div class="plan-credits">300 credits/mo</div></button>
-      <button class="plan-card" data-plan="growth"><div class="plan-name">Growth</div><div class="plan-price">$24K / yr</div><div class="plan-credits">600 credits/mo</div></button>
-      <button class="plan-card" data-plan="enterprise"><div class="plan-name">Enterprise</div><div class="plan-price">$48K+ / yr</div><div class="plan-credits">1,300+ credits/mo</div></button>
+      <button class="plan-card" data-plan="standard"><div class="plan-name">Standard</div><div class="plan-price">$1k / month</div><div class="plan-credits">300 credits/mo</div></button>
+      <button class="plan-card" data-plan="growth"><div class="plan-name">Growth</div><div class="plan-price">$2k / month</div><div class="plan-credits">600 credits/mo</div></button>
+      <button class="plan-card" data-plan="enterprise"><div class="plan-name">Enterprise</div><div class="plan-price">$4k+ / month</div><div class="plan-credits">1,300+ credits/mo</div></button>
     </div>
     <div id="plan-warning" class="dedup-notice hidden" style="margin-top: 12px;">
       <strong>Plan validation</strong>
@@ -4887,7 +4887,7 @@ function render() {
   const _customer = state.customerName || 'your company';
   const _date = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   document.getElementById('cfo-customer').textContent = _customer;
-  document.getElementById('cfo-meta').textContent = `Plan: ${PLAN_NAMES[state.plan]} @ ${fmtCurrencyK(r.planCost)}/yr · Prepared: ${_date}`;
+  document.getElementById('cfo-meta').textContent = `Plan: ${PLAN_NAMES[state.plan]} @ ${fmtCurrencyK(r.planCost / 12)}/mo · Prepared: ${_date}`;
   // Mirror values into both print-only headers (page 1 + CFO card page)
   const _pc = document.getElementById('cfo-print-customer');
   if (_pc) _pc.textContent = _customer;
@@ -5058,7 +5058,7 @@ function copyCfoText(btn) {
   const r = computeAll(state);
   const lines = [
     `WhyUser ROI — ${state.customerName || 'Your company'}`,
-    `Plan: ${PLAN_NAMES[state.plan]} @ ${fmtCurrencyK(r.planCost)}/yr`,
+    `Plan: ${PLAN_NAMES[state.plan]} @ ${fmtCurrencyK(r.planCost / 12)}/mo`,
     `Prepared: ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
     ``,
     `ANNUAL VALUE STREAMS         CONSERVATIVE    OPTIMISTIC`,

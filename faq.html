@@ -79,10 +79,18 @@
         },
         {
           "@type": "Question",
+          "name": "How does WhyUser get smarter over time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two ways. The Evidence Tracker seals every finding as a claim you grade HIT or MISS against what really happened, so you can see the hit rate and whether the high-confidence calls beat the low-confidence ones. Lineage links each re-run to the run you fixed: change one element, re-run, and only that element re-simulates while the rest carries forward unchanged, so you see what Resolved, Persisted, or Regressed. The model holds weighted state about your committee, so run 10 is smarter than run 1. Personas are compiled from your real buyer data, not invented, and update only as new evidence arrives, so they do not drift."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "How do you know what my buyers actually care about?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "WhyUser searches the open web to map your company voice and community sentiment. You can also connect your CRM or upload Gong transcripts to add proprietary knowledge. The buyer agents react to your pitch the way your real customers do."
+            "text": "WhyUser reads the open web to map your company voice and what your buyers say. You can also connect your CRM or add Gong call transcripts for private context. The personas are compiled from this real data, not invented, and update only as new evidence arrives, so they stay steady instead of drifting from run to run. The buyer agents react to your pitch the way your real buyers would."
           }
         },
         {
@@ -98,7 +106,15 @@
           "name": "Why not just use ChatGPT or Claude?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "ChatGPT gives you one helpful opinion. WhyUser runs hundreds of buyer agents in parallel. The CFO vetoes what the End User approved. Use ChatGPT to draft. Use WhyUser to validate. Different tool. Different job."
+            "text": "ChatGPT gives you one helpful opinion. WhyUser runs hundreds of buyer agents at once, so the CFO can veto what the End User liked. Use ChatGPT to draft. Use WhyUser to test. Different tool, different job."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I just build this myself with Claude Code and agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Probably \u2014 the orchestration is a weekend project. The gap is what comes after. A raw agent swarm writes a new essay every run, so you cannot tell a real fix from model drift; WhyUser is deterministic at the element level, so re-runs line up. Looping one model 30 times gives you one opinion 30 ways; WhyUser runs each committee role as a separate agent across set states, so the spread means something. And the moat is not the agents \u2014 it is the per-customer model, which holds about 150 fingerprints tuned to your committee after 30 graded runs, each with provenance. You can copy the architecture in a sprint, not the calibration earned over a quarter. Build it and you own simulation infrastructure, re-tested through every model update, with one customer: you."
           }
         },
         {
@@ -2723,16 +2739,26 @@
                     <details class="faq-item">
                         <summary>
                             <span class="faq-num">04</span>
-                            <h3 class="faq-q">How do you know what my buyers actually care about?</h3>
+                            <h3 class="faq-q">How does WhyUser get smarter over time?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
                         <div class="faq-a">
-                            WhyUser searches the open web to map your company voice and community sentiment. You can also connect your CRM or upload Gong transcripts to add proprietary knowledge. The buyer agents react to your pitch the way your real customers do.
+                            Two ways. The Evidence Tracker seals every finding as a claim you grade HIT or MISS against what really happened, so you can see the hit rate and whether the high-confidence calls beat the low-confidence ones. Lineage links each re-run to the run you fixed: change one element, re-run, and only that element re-simulates while the rest carries forward unchanged — so you see what Resolved, Persisted, or Regressed. The model holds weighted state about your committee, so run 10 is smarter than run 1.
                         </div>
                     </details>
                     <details class="faq-item">
                         <summary>
                             <span class="faq-num">05</span>
+                            <h3 class="faq-q">How do you know what my buyers actually care about?</h3>
+                            <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+                        </summary>
+                        <div class="faq-a">
+                            WhyUser reads the open web to map your company voice and what your buyers say. You can also connect your CRM or add Gong call transcripts for private context. The personas are compiled from this real data, not invented — and they update only as new evidence arrives, so they stay steady instead of drifting from run to run. The buyer agents react to your pitch the way your real buyers would.
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span class="faq-num">06</span>
                             <h3 class="faq-q">Can you simulate enterprise buying committees?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2752,17 +2778,27 @@
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">06</span>
+                            <span class="faq-num">07</span>
                             <h3 class="faq-q">Why not just use ChatGPT or Claude?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
                         <div class="faq-a">
-                            ChatGPT gives you one helpful opinion. WhyUser runs hundreds of buyer agents in parallel. The CFO vetoes what the End User approved. Use ChatGPT to draft. Use WhyUser to validate. Different tool. Different job.
+                            ChatGPT gives you one helpful opinion. WhyUser runs hundreds of buyer agents at once, so the CFO can veto what the End User liked. Use ChatGPT to draft. Use WhyUser to test. Different tool, different job. If you mean building your own agent swarm, see the next question.
                         </div>
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">07</span>
+                            <span class="faq-num">08</span>
+                            <h3 class="faq-q">Can I just build this myself with Claude Code and agents?</h3>
+                            <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
+                        </summary>
+                        <div class="faq-a">
+                            Probably — the orchestration is a weekend project. The gap is what comes after. A raw agent swarm writes a new essay every run, so you can't tell a real fix from model drift; WhyUser is deterministic at the element level, so re-runs line up. Looping one model 30 times gives you one opinion 30 ways; WhyUser runs each committee role as a separate agent across set states, so the spread means something. And the moat isn't the agents — it's the per-customer model, which holds about 150 fingerprints tuned to your committee after 30 graded runs, each with provenance. You can copy the architecture in a sprint, not the calibration earned over a quarter. Build it and you own simulation infrastructure, re-tested through every model update, with one customer: you.
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span class="faq-num">09</span>
                             <h3 class="faq-q">How is WhyUser different from CRM tools like Salesforce or Gong?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2772,7 +2808,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">08</span>
+                            <span class="faq-num">10</span>
                             <h3 class="faq-q">How is Audience Discovery different from Clay?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2782,7 +2818,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">09</span>
+                            <span class="faq-num">11</span>
                             <h3 class="faq-q">Does this replace live A/B testing?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2792,7 +2828,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">10</span>
+                            <span class="faq-num">12</span>
                             <h3 class="faq-q">How does WhyUser compare to internal reviews?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2802,7 +2838,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">11</span>
+                            <span class="faq-num">13</span>
                             <h3 class="faq-q">How do I validate AI-generated marketing content before launch?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2822,7 +2858,7 @@
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">12</span>
+                            <span class="faq-num">14</span>
                             <h3 class="faq-q">What inputs do I need to run a test?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2832,7 +2868,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">13</span>
+                            <span class="faq-num">15</span>
                             <h3 class="faq-q">How long does a simulation take?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2842,7 +2878,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">14</span>
+                            <span class="faq-num">16</span>
                             <h3 class="faq-q">Do I need engineering help to set this up?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2852,7 +2888,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">15</span>
+                            <span class="faq-num">17</span>
                             <h3 class="faq-q">Is my pre-launch strategy secure?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -2862,7 +2898,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">16</span>
+                            <span class="faq-num">18</span>
                             <h3 class="faq-q">How much does WhyUser cost?</h3>
                             <span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                         </summary>

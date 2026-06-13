@@ -176,6 +176,22 @@
             },
             {
             "@type": "Question",
+            "name": "Can I just build this myself with Claude Code and agents?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Probably \u2014 the orchestration is a weekend project. The gap is what comes after. A raw agent swarm writes a new essay every run, so you cannot tell a real fix from model drift; WhyUser is deterministic at the element level, so re-runs are comparable. Looping one model 30 times gives you one opinion 30 ways; WhyUser runs each committee role as a separate agent across set states, so the spread means something. And the moat is not the orchestration \u2014 it is the per-customer model. After 30 graded runs it holds about 150 fingerprints tuned to your committee, each with provenance. You can copy the architecture in a sprint, not the calibration earned over a quarter. Build it and you own simulation infrastructure, re-tested through every model update, with one customer: you."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "How does WhyUser get smarter over time?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Two ways. The Evidence Tracker seals every finding as a claim you grade HIT or MISS against the real outcome, so you can see the hit rate and whether the high-confidence calls beat the low-confidence ones. Lineage links each re-run to the run you fixed: change one element, re-run, and only that element re-simulates while the rest carries forward unchanged, so you see what Resolved, Persisted, or Regressed. The model holds weighted state about your committee, so run 10 is smarter than run 1. Personas are compiled from your real buyer data, not invented, and update only as new evidence arrives, so they do not drift."
+            }
+            },
+            {
+            "@type": "Question",
             "name": "Will Brand and Content see this as a critique?",
             "acceptedAnswer": {
                 "@type": "Answer",
@@ -2328,7 +2344,7 @@
             </a>
             <div class="nav-links">
                 <a href="#solution">Solution</a>
-                <a href="#how">How it works</a>
+                <a href="#how">Where it fits</a>
                 <a href="#engines">Product</a>
                 <a href="manifesto.html">Manifesto</a>
                 <a href="faq.html">FAQ</a>
@@ -2691,7 +2707,6 @@
          ═════════════════════════════════════════════════════════════════ -->
     <section style="background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 5rem 0">
         <div class="wrap-narrow" style="text-align: center">
-            <span class="section-eyebrow" style="justify-content: center">Where WhyUser fits</span>
             <h2 class="h2" style="max-width: 56rem; margin: 0 auto 1rem; line-height: 1.3;">
                 AI tools <em>create</em> and <em>orchestrate</em> campaigns at scale.<br>
                 WhyUser is the <span style="color: var(--brand)">sandbox</span> that catches the <span style="color: var(--brand)">slop</span> before your buyers do.
@@ -2716,9 +2731,9 @@
     <section id="how" class="section-rule">
         <div class="wrap">
             <div class="section-head" style="max-width: 52rem">
-                <span class="section-eyebrow">How it works</span>
-                <h2 class="h2">Where WhyUser fits in your campaign flow.</h2>
-                <p>You don't change your workflow. WhyUser slots in as a one-hour pre-launch step — the gap between internal review and launch where every silent veto goes uncaught.</p>
+                <span class="section-eyebrow">Where WhyUser fits</span>
+                <h2 class="h2">One new step, right before launch.</h2>
+                <p>You don't change how you work. WhyUser adds one step between review and launch — the gap where silent vetoes slip through today.</p>
             </div>
 
             <div class="flow">
@@ -2955,9 +2970,9 @@
     <section id="pipeline" class="section-rule" style="background: var(--paper-warm)">
         <div class="wrap">
             <div class="section-head" style="max-width: 52rem">
-                <span class="section-eyebrow">Architecture</span>
-                <h2 class="h2">How we build your buyer agents.</h2>
-                <p>We do not imagine your buyer. We reverse-engineer them from your actual data footprint. Six grounded inputs feed the calibration. The output is a parameterized buyer agent — role, persona seed, Fogg behavioral state, context — that the simulation engine then runs at scale.</p>
+                <span class="section-eyebrow">Ground Reality</span>
+                <h2 class="h2">Your personas are compiled, not invented.</h2>
+                <p>We don’t imagine your buyers. We compile them from your real data — your site, customer calls, community chatter, even how AI assistants describe your category. Each persona updates as new evidence arrives, so it stays accurate instead of drifting. Then the engine runs it at scale.</p>
             </div>
 
             <div class="hub">
@@ -3050,7 +3065,7 @@
             </div>
 
             <p style="margin: 2.5rem auto 0; max-width: 46rem; text-align: center; color: var(--mute); font-size: 0.9375rem; line-height: 1.6">
-                Six grounded inputs converge into <strong style="color: var(--ink); font-weight: 600">one parameterized buyer agent</strong> — calibrated with role, behavioral state vectors, mental model, and decision heuristics. Every run instantiates 300 of these across 5 committee roles, so findings are statistically defensible.
+                Six grounded inputs become <strong style="color: var(--ink); font-weight: 600">one buyer agent</strong> — with a role, a current mood, and a way of deciding. Every run uses 300 of them across 5 committee roles, so the findings hold up.
             </p>
 
             <!-- Section-level proof point — Nichole testimonial about Ground Reality / calibration -->
@@ -3168,8 +3183,8 @@
         <div class="wrap">
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">How WhyUser compares</span>
-                <h2 class="h2">WhyUser vs ChatGPT, A/B testing, and internal reviews.</h2>
-                <p>Five common ways teams test campaigns today.</p>
+                <h2 class="h2">WhyUser vs. ChatGPT, A/B testing, internal review, and building it yourself.</h2>
+                <p>An honest look &mdash; each one is best at a different job.</p>
             </div>
 
             <div class="table-wrap">
@@ -3180,13 +3195,13 @@
                             <th>ChatGPT</th>
                             <th>A/B Test</th>
                             <th>Internal Review</th>
-                            <th>Custom GPT</th>
+                            <th>Agents / Claude Code</th>
                             <th class="col-us">WhyUser</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Pre-launch</td>
+                            <td>Works before you spend budget</td>
                             <td><i class="fa-solid fa-check check"></i></td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
                             <td><i class="fa-solid fa-check check"></i></td>
@@ -3194,11 +3209,11 @@
                             <td class="col-us"><i class="fa-solid fa-check"></i></td>
                         </tr>
                         <tr>
-                            <td>Behavior simulation</td>
+                            <td>Tests behavior, not just reads copy</td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
+                            <td><i class="fa-solid fa-check check"></i></td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
-                            <td><i class="fa-solid fa-xmark cross"></i></td>
-                            <td><i class="fa-solid fa-xmark cross"></i></td>
+                            <td><i class="fa-solid fa-circle-half-stroke" style="color: var(--signal-amber)" title="Possible - but you build and maintain it"></i></td>
                             <td class="col-us"><i class="fa-solid fa-check"></i></td>
                         </tr>
                         <tr>
@@ -3206,48 +3221,153 @@
                             <td><i class="fa-solid fa-xmark cross"></i></td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
+                            <td><i class="fa-solid fa-circle-half-stroke" style="color: var(--signal-amber)" title="Possible - but this is the hard part you would be building"></i></td>
+                            <td class="col-us"><i class="fa-solid fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Repeatable &mdash; same input, same verdict</td>
+                            <td><i class="fa-solid fa-xmark cross"></i></td>
+                            <td><i class="fa-solid fa-xmark cross"></i></td>
+                            <td><i class="fa-solid fa-xmark cross"></i></td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
                             <td class="col-us"><i class="fa-solid fa-check"></i></td>
                         </tr>
                         <tr>
-                            <td>Statistically grounded</td>
+                            <td>Proves it on live traffic</td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
                             <td><i class="fa-solid fa-check check"></i></td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
                             <td><i class="fa-solid fa-xmark cross"></i></td>
-                            <td class="col-us"><i class="fa-solid fa-check"></i></td>
+                            <td class="col-us"><i class="fa-solid fa-xmark cross"></i></td>
                         </tr>
                         <tr>
-                            <td>Catches silent vetoes</td>
-                            <td><i class="fa-solid fa-xmark cross"></i></td>
-                            <td><i class="fa-solid fa-xmark cross"></i></td>
-                            <td><i class="fa-solid fa-xmark cross"></i></td>
-                            <td><i class="fa-solid fa-xmark cross"></i></td>
-                            <td class="col-us"><i class="fa-solid fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Time to result</td>
-                            <td>minutes</td>
+                            <td>Time to first result</td>
+                            <td>instant</td>
                             <td>4–6 weeks</td>
-                            <td>2 weeks</td>
-                            <td>minutes</td>
-                            <td class="col-us">30 min</td>
+                            <td>~2 weeks</td>
+                            <td>weeks to build</td>
+                            <td class="col-us">~30 min</td>
                         </tr>
                         <tr>
-                            <td>Cost per test</td>
+                            <td>What it costs</td>
                             <td>free</td>
-                            <td>$10K+</td>
-                            <td>meeting time</td>
-                            <td>free</td>
-                            <td class="col-us">from $$</td>
+                            <td>$10K+ in traffic</td>
+                            <td>team hours</td>
+                            <td>build + upkeep</td>
+                            <td class="col-us">credit-based</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <p style="margin: 2rem auto 0; max-width: 44rem; text-align: center; color: var(--mute); font-size: 0.9375rem; line-height: 1.55">
-                ChatGPT gives you one helpful opinion. WhyUser runs 300 buyer agents in parallel. <br> <strong>Different tool. Different job.</strong>
+            <p style="margin: 1.25rem auto 0; max-width: 46rem; text-align: center; color: var(--dim); font-size: 0.8125rem; line-height: 1.5">
+                <i class="fa-solid fa-circle-half-stroke" style="color: var(--signal-amber)"></i> Agents / Claude Code can build these &mdash; but you build the determinism yourself and maintain it through every model update.
             </p>
+
+            <p style="margin: 1.5rem auto 0; max-width: 48rem; text-align: center; color: var(--mute); font-size: 0.9375rem; line-height: 1.6">
+                Different tools, different jobs. A/B testing proves it on real traffic &mdash; but only after the budget is spent. WhyUser is the cheap pre-launch check that tells you what to fix first. You <em>can</em> build the agent version yourself &mdash; then you own the determinism, re-test it through every model update, and you are its only customer.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         SCOPED STYLES for TECHNOLOGY
+         ═════════════════════════════════════════════════════════════════ -->
+    <style>
+      .tech2-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;margin-top:.5rem}
+      @media(min-width:920px){.tech2-grid{grid-template-columns:1fr 1fr;gap:3.5rem}}
+      .tech2-list{display:flex;flex-direction:column;gap:1.5rem}
+      .tech2-item{padding-bottom:1.5rem;border-bottom:1px solid var(--rule)}
+      .tech2-item:last-child{border-bottom:none;padding-bottom:0}
+      .tech2-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:.4rem}
+      .tech2-h{font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:1.0625rem;letter-spacing:-0.01em;color:var(--ink);line-height:1.22;margin:0}
+      .tech2-p{color:var(--mute);font-size:.92rem;line-height:1.55;margin:.45rem 0 0}
+      .tech2-cap{text-align:center;color:var(--mute);font-size:.875rem;line-height:1.5;margin:1.1rem auto 0;max-width:30rem}
+      .led-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.6rem .75rem;background:var(--frame-surface);border:1px solid var(--frame-rule);border-radius:7px}
+      .led-claim{font-size:11px;color:var(--frame-text);font-family:'JetBrains Mono',monospace}
+      .led-chip{font-size:9px;font-weight:700;letter-spacing:.1em;white-space:nowrap;font-family:'JetBrains Mono',monospace}
+    </style>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         TECHNOLOGY  (#technology) — two-column: concepts + Evidence Ledger
+         ═════════════════════════════════════════════════════════════════ -->
+    <section id="technology" class="section-rule" style="background: var(--paper-warm)">
+        <div class="wrap">
+            <div class="section-head" style="max-width: 54rem">
+                <span class="section-eyebrow">Technology</span>
+                <h2 class="h2">How the simulation works.</h2>
+                <p>Four things that make it a test, not one more chatbot opinion.</p>
+            </div>
+
+            <div class="tech2-grid">
+                <!-- LEFT: the four concepts -->
+                <div class="tech2-list">
+                    <div class="tech2-item">
+                        <div class="tech2-k">01 &middot; The committee</div>
+                        <h3 class="tech2-h">A committee, not a cast.</h3>
+                        <p class="tech2-p">Each buyer role is its own agent. When one balks, it changes what the others decide &mdash; miss the ROI proof and the CFO vetoes. The veto is computed, not scripted.</p>
+                    </div>
+                    <div class="tech2-item">
+                        <div class="tech2-k">02 &middot; The states</div>
+                        <h3 class="tech2-h">Many moods, not one.</h3>
+                        <p class="tech2-p">Every role runs as rushed, skeptical, distracted, and ideal, across dozens of agents. You get a pattern, not one take. Our spread is by design; a chatbot&rsquo;s is just noise.</p>
+                    </div>
+                    <div class="tech2-item">
+                        <div class="tech2-k">03 &middot; Determinism + lineage</div>
+                        <h3 class="tech2-h">Same page in, same verdict out.</h3>
+                        <p class="tech2-p">Runs are deterministic at the element level, and every re-run is tracked. Fix one part, re-run, and you learn whether that fix worked. With a chatbot, every re-run is a new essay.</p>
+                    </div>
+                    <div class="tech2-item">
+                        <div class="tech2-k">04 &middot; Self-learning</div>
+                        <h3 class="tech2-h">It learns your committee.</h3>
+                        <p class="tech2-p">The Evidence Tracker grades each finding HIT or MISS against what really happened, and the model holds weighted state &mdash; so run 10 is smarter than run 1.</p>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Evidence Ledger frame (the single visual) -->
+                <div>
+                    <div class="product-frame">
+                        <div class="frame-bar">
+                            <div class="frame-bar-left">
+                                <span class="frame-bar-pill"><span class="frame-bar-dot"></span>EVIDENCE LEDGER</span>
+                                <span style="color: var(--frame-dim)">Acme &middot; /platform</span>
+                            </div>
+                            <div class="frame-bar-right"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="frame-body">
+                            <div style="display:flex; align-items:baseline; gap:0.6rem; margin-bottom:1.1rem">
+                                <span style="font-family:'JetBrains Mono',monospace; font-size:1.9rem; font-weight:700; color:var(--signal-green-bright); letter-spacing:-0.02em">82%</span>
+                                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--frame-mute)">hit rate &middot; 41 graded calls</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1.25rem; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em">
+                                <span style="padding:3px 8px; border:1px solid var(--frame-rule-strong); border-radius:5px; color:var(--frame-mute)">v1</span>
+                                <i class="fa-solid fa-arrow-right" style="font-size:8px; color:var(--frame-dim)"></i>
+                                <span style="padding:3px 8px; border:1px solid var(--frame-rule-strong); border-radius:5px; color:var(--frame-mute)">v2</span>
+                                <i class="fa-solid fa-arrow-right" style="font-size:8px; color:var(--frame-dim)"></i>
+                                <span style="padding:3px 8px; border:1px solid rgba(16,185,129,0.4); background:rgba(16,185,129,0.12); border-radius:5px; color:var(--signal-green-bright); font-weight:600">v3 &middot; CLEAR</span>
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:0.5rem">
+                                <div class="led-row">
+                                    <span class="led-claim">Econ Buyer vetoes at ROI section</span>
+                                    <span class="led-chip" style="color:var(--signal-green-bright)"><i class="fa-solid fa-check"></i> HIT</span>
+                                </div>
+                                <div class="led-row">
+                                    <span class="led-claim">Hero clarity gap (you fixed in v3)</span>
+                                    <span class="led-chip" style="color:var(--signal-green-bright)">RESOLVED</span>
+                                </div>
+                                <div class="led-row">
+                                    <span class="led-claim">Security badge missing above fold</span>
+                                    <span class="led-chip" style="color:var(--signal-red-bright)"><i class="fa-solid fa-xmark"></i> MISS</span>
+                                </div>
+                            </div>
+                            <div style="margin-top:1rem; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.06em; color:var(--frame-dim)">
+                                ~150 calibrated fingerprints &middot; each with provenance &middot; deterministic updates
+                            </div>
+                        </div>
+                    </div>
+                    <p class="tech2-cap">Lineage and the Evidence Tracker, from one run. Each version only re-tests what you changed; the rest carries forward unchanged.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -3357,6 +3477,16 @@
                     <details class="faq-item">
                         <summary>
                             <span class="faq-num">05</span>
+                            <span class="faq-q">Can&rsquo;t I just build this myself with Claude Code and agents?</span>
+                            <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
+                        </summary>
+                        <div class="faq-a">
+                            Probably &mdash; the orchestration is a weekend project. The gap is what comes after. A raw swarm writes a new essay every run, so you can&rsquo;t tell a real fix from model drift; WhyUser is deterministic, so re-runs line up. Looping one model 30 times gives you one opinion, 30 ways; WhyUser runs each role as its own agent across set moods, so the spread means something. And the moat isn&rsquo;t the agents &mdash; it&rsquo;s the per-customer model, which holds ~150 fingerprints tuned to your committee after 30 graded runs. You can copy the code in a sprint, not the calibration earned over a quarter. Build it and you own simulation infrastructure, re-tested through every model update, with one customer: you.
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span class="faq-num">06</span>
                             <span class="faq-q">Will Brand and Content see this as a critique?</span>
                             <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -3366,7 +3496,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>
-                            <span class="faq-num">06</span>
+                            <span class="faq-num">07</span>
                             <span class="faq-q">What does it cost?</span>
                             <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
                         </summary>
@@ -3448,11 +3578,11 @@
                     <h4>Product</h4>
                     <ul>
                         <li><a href="#solution">Problem &amp; Solution</a></li>
-                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#how">Where It Fits</a></li>
                         <li><a href="#engines">Engines</a></li>
-                        <li><a href="#pipeline">Architecture</a></li>
+                        <li><a href="#pipeline">Ground Reality</a></li>
                         <li><a href="#compare">Compare</a></li>
-                        <li><a href="#compare">Compare</a></li>
+                        <li><a href="#technology">Technology</a></li>
                         <li><a href="roi.html">ROI Calculator</a></li>
                     </ul>
                 </div>

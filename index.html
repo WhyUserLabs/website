@@ -830,66 +830,6 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           STAT BAR — full-width statistical proof strip
-           ───────────────────────────────────────────────────────────── */
-        .stat-bar {
-            background: var(--ink);
-            color: white;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding: 1.75rem 0;
-            position: relative;
-        }
-        .stat-bar-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem 2rem;
-            align-items: start;
-        }
-        @media (min-width: 768px) {
-            .stat-bar-grid {
-                grid-template-columns: 0.9fr repeat(4, 1fr);
-                gap: 0;
-            }
-        }
-        .stat-prefix {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            align-self: center;
-        }
-        .stat-cell {
-            border-left: 1px solid rgba(255,255,255,0.08);
-            padding-left: 1.25rem;
-        }
-        .stat-cell:first-of-type { border-left: none; padding-left: 0; }
-        @media (min-width: 768px) {
-            .stat-cell { padding-left: 1.5rem; }
-        }
-        .stat-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.625rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            font-variant-numeric: tabular-nums;
-            color: white;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        .stat-cap {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.55);
-            line-height: 1.3;
-        }
-
-        /* ─────────────────────────────────────────────────────────────
            SECTION SCAFFOLD
            ───────────────────────────────────────────────────────────── */
         section { padding: 5rem 0; position: relative; }
@@ -2329,6 +2269,13 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* ─── Smaller screenshots & product visuals ──────────────────────────
+           Width caps (centered). Tune any single number to taste; raise to
+           make a visual bigger, lower to make it smaller. */
+        .engine-frame  { max-width: 440px; margin-left: auto; margin-right: auto; }  /* the 4 engine screenshots */
+        .product-frame { max-width: 460px; margin-left: auto; margin-right: auto; }  /* hero conflict graph + Evidence Ledger */
+        .hub           { max-width: 820px; }                                          /* Ground Reality hub diagram */
     </style>
 </head>
 <body class="grain">
@@ -2520,34 +2467,6 @@
             </div>
         </div>
     </header>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         STAT BAR — full-width statistical proof
-         Mirrors the "BASED ON 270 persona simulations" pattern that
-         appears in the actual product UI. Sets the "we are statistical,
-         not a chatbot guess" frame at the homepage level.
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="stat-bar" style="padding: 1.75rem 0">
-        <div class="wrap stat-bar-grid">
-            <div class="stat-prefix">Every finding is sourced —<br>evidence, not opinion</div>
-            <div class="stat-cell">
-                <div class="stat-num">300</div>
-                <div class="stat-cap">Persona<br>Simulations / run</div>
-            </div>
-            <div class="stat-cell">
-                <div class="stat-num">5</div>
-                <div class="stat-cap">Committee<br>Roles modeled</div>
-            </div>
-            <div class="stat-cell">
-                <div class="stat-num">6</div>
-                <div class="stat-cap">Live buyer-review<br>sources merged</div>
-            </div>
-            <div class="stat-cell">
-                <div class="stat-num">~30m</div>
-                <div class="stat-cap">From URL<br>to Conflict Graph</div>
-            </div>
-        </div>
-    </section>
 
     <!-- ═════════════════════════════════════════════════════════════════
          DEFINITION STRIP — quiet AEO featured-snippet block

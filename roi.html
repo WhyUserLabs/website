@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="WhyUser | Stress Test B2B Campaigns Before You Launch">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Ctext x='50%25' y='52%25' font-family='ui-monospace,monospace' font-size='18' font-weight='800' fill='white' text-anchor='middle' dominant-baseline='middle'%3EW%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" href="images/whyuser-favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -290,15 +290,13 @@
             letter-spacing: -0.022em;
         }
         .nav-mark {
-            width: 24px; height: 24px;
-            background: var(--ink);
-            border-radius: 6px;
-            color: white;
+            width: 30px; height: 30px;
+            background: transparent;
+            border-radius: 7px;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 13px;
+            overflow: hidden;
         }
+        .nav-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
         .nav-links {
             display: none;
             gap: 1.75rem;
@@ -2175,7 +2173,7 @@
             gap: 9px;
             margin-bottom: 0.875rem;
         }
-        .footer-brand-mark .nav-mark { background: white; color: var(--ink); }
+        .footer-brand-mark .nav-mark { background: #fff; padding: 3px; }
         .footer-brand-name { color: white; font-weight: 600; }
         .footer-tagline { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
         .footer-bottom {
@@ -3496,13 +3494,13 @@ body {
     <nav class="nav">
         <div class="wrap nav-inner">
             <a href="index.html" class="nav-brand">
-                <span class="nav-mark">W</span>
+                <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
                 <span>WhyUser</span>
             </a>
             <div class="nav-links">
                 <a href="index.html#solution">Solution</a>
-                <a href="index.html#how">How it works</a>
-                <a href="index.html#engines">Product</a>
+                <a href="index.html#how">Where it fits</a>
+                <a href="index.html#build">Why not build it</a>
                 <a href="manifesto.html">Manifesto</a>
                 <a href="faq.html">FAQ</a>
             </div>
@@ -5192,7 +5190,7 @@ render();
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand-mark">
-                        <span class="nav-mark">W</span>
+                        <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
                         <span class="footer-brand-name">WhyUser Inc.</span>
                     </div>
                     <p class="footer-tagline">
@@ -5200,16 +5198,12 @@ render();
                     </p>
                 </div>
                 <div>
-                    <h4>Product</h4>
+                    <h4>Engines</h4>
                     <ul>
-                        <li><a href="#pain">The Problem</a></li>
-                        <li><a href="#solution">The Solution</a></li>
-                        <li><a href="#how">How It Works</a></li>
-                        <li><a href="#engines">Engines</a></li>
-                        <li><a href="#pipeline">Architecture</a></li>
-                        <li><a href="#patterns">Customers</a></li>
-                        <li><a href="#compare">Compare</a></li>
-                        <li><a href="roi.html">ROI Calculator</a></li>
+                        <li><a href="committee-simulation.html">Committee Simulation</a></li>
+                        <li><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></li>
+                        <li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li>
+                        <li><a href="audience-discovery.html">Audience Discovery</a></li>
                     </ul>
                 </div>
                 <div>
@@ -5218,7 +5212,7 @@ render();
                         <li><a href="manifesto.html">Manifesto</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#access">Apply for Design Partner</a></li>
+                        <li><a href="index.html#access">Apply for Design Partner</a></li>
                     </ul>
                 </div>
                 <div>

@@ -1,118 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="light">
+<title>Manifesto &middot; WhyUser</title>
+<meta name="description" content="Why marketing should never test in production. The case for a pre-launch stress test grounded in real buyers, and why you should grade us yourself.">
+<link rel="canonical" href="https://whyuser.com/manifesto.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Manifesto &middot; WhyUser"><meta property="og:description" content="Why marketing should never test in production. The case for a pre-launch stress test grounded in real buyers, and why you should grade us yourself."><meta property="og:url" content="https://whyuser.com/manifesto.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/whyuser-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#0a0a0b">
-    <meta name="color-scheme" content="light">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="author" content="WhyUser Inc.">
-
-    <title>The Go-To-Market (GTM) Testing Manifesto | WhyUser</title>
-    <meta name="description" content="Engineering has staging. Ops has dry runs. Finance has audits. Sales has role plays. Marketing is the only function that tests in production. The case for a staging environment for Go-To-Market (GTM).">
-    <meta name="keywords" content="Go-To-Market testing manifesto, GTM testing manifesto, Go-To-Market staging platform, GTM staging platform, marketing staging environment, B2B campaign stress test, buying committee simulation">
-    <link rel="canonical" href="https://whyuser.com/manifesto.html">
-
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="WhyUser">
-    <meta property="og:title" content="The Go-To-Market (GTM) Testing Manifesto — Stop Testing in Production">
-    <meta property="og:description" content="Engineering has staging. Ops has dry runs. Finance has audits. Marketing is the only function that tests in production. The case for a Go-To-Market (GTM) staging environment.">
-    <meta property="og:url" content="https://whyuser.com/manifesto.html">
-    <meta property="og:image" content="https://whyuser.com/images/og-manifesto.png">
-    <meta property="og:locale" content="en_US">
-    <meta property="article:author" content="Durga Gokina">
-    <meta property="article:published_time" content="2026-03-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-08T00:00:00+00:00">
-    <meta property="article:section" content="Manifesto">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Go-To-Market (GTM) Testing Manifesto — WhyUser">
-    <meta name="twitter:description" content="Engineering has staging. Marketing tests in production. The case for a Go-To-Market (GTM) staging environment.">
-    <meta name="twitter:image" content="https://whyuser.com/images/og-manifesto.png">
-
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Ctext x='50%25' y='52%25' font-family='ui-monospace,monospace' font-size='18' font-weight='800' fill='white' text-anchor='middle' dominant-baseline='middle'%3EW%3C/text%3E%3C/svg%3E">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <script async src="https://tally.so/widgets/embed.js"></script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "WhyUser",
-      "legalName": "WhyUser Inc.",
-      "url": "https://whyuser.com/",
-      "description": "WhyUser is the Go-To-Market (GTM) Staging Platform — the staging environment for B2B marketing. Demand gen teams stress test landing pages, ads, and emails against hundreds of buyer agents before launch.",
-      "foundingDate": "2025",
-      "address": {"@type":"PostalAddress","addressLocality":"San Jose","addressRegion":"CA","addressCountry":"US"}
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "The Go-To-Market (GTM) Testing Manifesto",
-      "alternativeHeadline": "Marketing is the only function that tests in production",
-      "description": "Engineering has staging. Ops has dry runs. Finance has audits. Sales has role plays. Marketing is the only function that tests in production. The case for a staging environment for Go-To-Market (GTM).",
-      "url": "https://whyuser.com/manifesto.html",
-      "datePublished": "2026-03-01",
-      "dateModified": "2026-05-08",
-      "author": {
-        "@type": "Person",
-        "name": "Durga Gokina",
-        "jobTitle": "Founder & CEO, WhyUser",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "WhyUser"
-        }
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "WhyUser",
-        "url": "https://whyuser.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://whyuser.com/images/whyuser-logo.png"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://whyuser.com/manifesto.html"
-      },
-      "image": "https://whyuser.com/images/og-manifesto.png",
-      "articleSection": "Manifesto",
-      "keywords": "Go-To-Market staging platform, GTM staging platform, Go-To-Market testing, GTM testing, marketing staging environment, buying committee simulation, B2B campaign stress test",
-      "about": [
-        {"@type": "Thing", "name": "Go-To-Market (GTM) Staging Platform"},
-        {"@type": "Thing", "name": "Buying committee simulation"},
-        {"@type": "Thing", "name": "B2B demand generation"}
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://whyuser.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Manifesto", "item": "https://whyuser.com/manifesto.html"}
-      ]
-    }
-    </script>
-
-    
-    <style>
-
-        /* ─────────────────────────────────────────────────────────────
+<style>
+/* ─────────────────────────────────────────────────────────────
            DESIGN TOKENS
            Light primary surface, dark product frames.
-           Stripe / Datadog / Posthog lineage — engineering-credible
+           Stripe / Datadog / Posthog lineage, engineering-credible
            and CRO-defensible.
            ───────────────────────────────────────────────────────────── */
         :root {
@@ -147,6 +52,7 @@
             /* Brand & semantic accents */
             --brand: #6d28d9;
             --brand-soft: #ede9fe;
+            --quote-ink: #334155;
             --signal-green: #059669;
             --signal-green-bright: #10b981;
             --signal-red: #dc2626;
@@ -154,6 +60,9 @@
             --signal-amber: #d97706;
             --signal-amber-bright: #f59e0b;
             --signal-blue: #2563eb;
+
+            /* Quote body, lighter slate, distinct from ink, signals "different voice" */
+            --quote-ink: #64748b;
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -216,10 +125,10 @@
             color: var(--ink-soft);
             font-weight: 400;
         }
-        .body { font-size: 0.9375rem; line-height: 1.6; color: var(--mute); }
+        .body { font-size: 0.9375rem; line-height: 1.6; color: var(--ink-soft); }
         .body-sm { font-size: 0.875rem; line-height: 1.55; color: var(--mute); }
 
-        /* Mono signature treatment — used everywhere for technical labels */
+        /* Mono signature treatment, used everywhere for technical labels */
         .mono {
             font-family: 'JetBrains Mono', ui-monospace, monospace;
             font-feature-settings: "ss01", "ss02";
@@ -248,7 +157,7 @@
             text-transform: uppercase;
         }
 
-        /* Editorial italic — used SPARINGLY for one moment */
+        /* Editorial italic, used SPARINGLY for one moment */
         .editorial {
             font-family: 'Instrument Serif', Georgia, serif;
             font-style: italic;
@@ -268,7 +177,7 @@
             .wrap, .wrap-narrow { padding: 0 2rem; }
         }
 
-        /* Background grain — almost imperceptible, adds paper texture */
+        /* Background grain, almost imperceptible, adds paper texture */
         .grain {
             position: relative;
         }
@@ -282,7 +191,7 @@
             opacity: 0.5;
         }
 
-        /* Ultra-subtle dot grid — replaces pastel gradient backgrounds */
+        /* Ultra-subtle dot grid, replaces pastel gradient backgrounds */
         .dotgrid {
             background-image: radial-gradient(circle, rgba(9,9,11,0.06) 1px, transparent 1px);
             background-size: 24px 24px;
@@ -290,7 +199,7 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           TOP META STRIP — thin technical band above nav
+           TOP META STRIP, thin technical band above nav
            ───────────────────────────────────────────────────────────── */
         .meta-strip {
             background: var(--ink);
@@ -351,15 +260,13 @@
             letter-spacing: -0.022em;
         }
         .nav-mark {
-            width: 24px; height: 24px;
-            background: var(--ink);
-            border-radius: 6px;
-            color: white;
+            width: 30px; height: 30px;
+            background: transparent;
+            border-radius: 7px;
             display: flex; align-items: center; justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 13px;
+            overflow: hidden;
         }
+        .nav-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
         .nav-links {
             display: none;
             gap: 1.75rem;
@@ -470,8 +377,8 @@
         }
         .hero-sub {
             font-size: 1.125rem;
-            line-height: 1.55;
-            color: var(--mute);
+            line-height: 1.6;
+            color: var(--ink-soft);
             font-weight: 400;
             max-width: 32rem;
             margin: 0 0 2.25rem;
@@ -505,32 +412,18 @@
         .trust-logos {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.75rem;
             flex-wrap: wrap;
         }
-        .logo-ngrok, .logo-vectara {
-            font-weight: 700;
-            font-size: 1.375rem;
-            letter-spacing: -0.025em;
-            color: var(--ink);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .logo-ngrok::before {
-            content: '';
+        .trust-logo {
             display: inline-block;
-            width: 16px; height: 16px;
-            background: linear-gradient(135deg, #1F1E1E 0%, #1F1E1E 50%, #00D85C 50%, #00D85C 100%);
-            border-radius: 3px;
+            height: 28px;
+            width: auto;
+            vertical-align: middle;
+            opacity: 0.82;
+            transition: opacity 200ms ease;
         }
-        .logo-vectara::before {
-            content: '';
-            display: inline-block;
-            width: 14px; height: 14px;
-            background: #FF5F01;
-            border-radius: 50%;
-        }
+        .trust-logo:hover { opacity: 1; }
         .trust-divider {
             width: 1px; height: 22px;
             background: var(--rule-strong);
@@ -545,9 +438,9 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           HERO PRODUCT FRAME — the centerpiece visual
+           HERO PRODUCT FRAME, the centerpiece visual
            Real conflict graph, animated, in a dark frame.
-           This is WhyUser's "rolling cube" — the moment you remember.
+           This is WhyUser's "rolling cube", the moment you remember.
            ───────────────────────────────────────────────────────────── */
         .product-frame {
             background: var(--frame);
@@ -718,7 +611,7 @@
             margin-top: 0.375rem;
         }
 
-        /* Floating "second card" beside the graph — adds depth */
+        /* Floating "second card" beside the graph, adds depth */
         .frame-stack-card {
             position: absolute;
             background: var(--frame-elevated);
@@ -734,73 +627,13 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           STAT BAR — full-width statistical proof strip
-           ───────────────────────────────────────────────────────────── */
-        .stat-bar {
-            background: var(--ink);
-            color: white;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding: 1.75rem 0;
-            position: relative;
-        }
-        .stat-bar-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem 2rem;
-            align-items: start;
-        }
-        @media (min-width: 768px) {
-            .stat-bar-grid {
-                grid-template-columns: 0.9fr repeat(4, 1fr);
-                gap: 0;
-            }
-        }
-        .stat-prefix {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            align-self: center;
-        }
-        .stat-cell {
-            border-left: 1px solid rgba(255,255,255,0.08);
-            padding-left: 1.25rem;
-        }
-        .stat-cell:first-of-type { border-left: none; padding-left: 0; }
-        @media (min-width: 768px) {
-            .stat-cell { padding-left: 1.5rem; }
-        }
-        .stat-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.625rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            font-variant-numeric: tabular-nums;
-            color: white;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        .stat-cap {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.55);
-            line-height: 1.3;
-        }
-
-        /* ─────────────────────────────────────────────────────────────
            SECTION SCAFFOLD
            ───────────────────────────────────────────────────────────── */
         section { padding: 5rem 0; position: relative; }
         @media (min-width: 768px) {
             section { padding: 6.5rem 0; }
         }
-        .section-rule { border-top: 1px solid var(--rule); }
+        .section-rule { /* divider lines removed, sections flow with background contrast */ }
         .section-head { margin-bottom: 3rem; max-width: 48rem; }
         @media (min-width: 768px) {
             .section-head { margin-bottom: 4rem; }
@@ -828,15 +661,15 @@
             margin: 0 0 1rem;
         }
         .section-head p {
-            color: var(--mute);
+            color: var(--ink-soft);
             font-size: 1.0625rem;
-            line-height: 1.55;
+            line-height: 1.6;
             margin: 0;
             max-width: 38rem;
         }
 
         /* ─────────────────────────────────────────────────────────────
-           DEFINITION STRIP — quiet AEO featured-snippet block
+           DEFINITION STRIP, quiet AEO featured-snippet block
            ───────────────────────────────────────────────────────────── */
         .definition {
             background: var(--paper);
@@ -848,6 +681,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 1rem;
+            align-items: baseline;
         }
         @media (min-width: 768px) {
             .def-grid {
@@ -865,7 +699,7 @@
         .def-text strong { color: var(--ink); font-weight: 600; }
 
         /* ─────────────────────────────────────────────────────────────
-           PROBLEM CARDS — dense, terminal-edged
+           PROBLEM CARDS, dense, terminal-edged
            ───────────────────────────────────────────────────────────── */
         .pain-grid {
             display: grid;
@@ -932,7 +766,7 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           ENGINES — paired with real product screenshots in dark frames
+           ENGINES, paired with real product screenshots in dark frames
            ───────────────────────────────────────────────────────────── */
         .engine-group {
             display: grid;
@@ -1016,55 +850,72 @@
             letter-spacing: -0.005em;
         }
         .out-chip i { font-size: 9.5px; color: var(--brand); }
+        /* ─────────────────────────────────────────────────────────────
+           QUOTE SYSTEM, unified, legible
+           Both engine-quote (inline) and section-quote (full-row) share
+           a visual language: Geist sans for body (legible), violet
+           accents for signature, paper-warm background for inline. The
+           Instrument Serif glyph appears only as a decorative '"' mark.
+           ───────────────────────────────────────────────────────────── */
+
+        /* INLINE variant, sits within engine text column */
         .engine-quote {
-            border-left: 2px solid var(--brand);
             background: var(--paper-warm);
-            padding: 1rem 1.125rem 1rem 1.25rem;
-            margin: 1.5rem 0 0;
-            max-width: 34rem;
-            border-radius: 0 8px 8px 0;
+            border: 1px solid var(--rule);
+            border-left: 3px solid var(--brand);
+            border-radius: 0 10px 10px 0;
+            padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+            margin: 2rem 0 0;
+            max-width: 36rem;
+            position: relative;
+        }
+        .engine-quote::before {
+            /* Decorative violet open-quote glyph as visual signature */
+            content: '\201C';
+            position: absolute;
+            top: 0.75rem;
+            left: 0.875rem;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: 2.75rem;
+            line-height: 1;
+            color: var(--brand);
+            opacity: 0.28;
+            pointer-events: none;
+            user-select: none;
         }
         .engine-quote-text {
             font-family: 'Geist', system-ui, sans-serif;
             font-style: normal;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: var(--ink);
-            font-weight: 400;
-            margin: 0 0 0.875rem;
+            font-size: 1rem;
+            line-height: 1.55;
+            color: var(--quote-ink);
+            font-weight: 500;
+            margin: 0 0 1rem;
             letter-spacing: -0.005em;
-        }
-        .engine-quote-text::before {
-            content: '“';
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.5rem;
-            line-height: 0;
-            color: var(--brand);
-            margin-right: 2px;
-            vertical-align: -0.15em;
-            font-weight: 400;
-        }
-        .engine-quote-text::after {
-            content: '”';
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.5rem;
-            line-height: 0;
-            color: var(--brand);
-            margin-left: 1px;
-            vertical-align: -0.25em;
-            font-weight: 400;
+            position: relative;
+            z-index: 1;
         }
         .engine-quote-cite {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--ink-soft);
-            display: block;
+            color: var(--ink);
+        }
+        .engine-quote-cite::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 1px;
+            background: var(--brand);
         }
 
-        /* Engine product frame — dark frame with screenshot */
+        /* Engine product frame, dark frame with screenshot */
         .engine-visual {
             position: relative;
         }
@@ -1123,152 +974,174 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           SOLUTION DYAD — pairs each pain to its engine in compact cards
+           SOLUTION DYAD, pairs each pain to its engine in compact cards
            Lives between Pain and Engines. Different job than Engines:
            this is the OVERVIEW, Engines is the DETAIL.
            ───────────────────────────────────────────────────────────── */
-        .dyad-grid {
+        /* ─────────────────────────────────────────────────────────────
+           PROBLEM · SOLUTION, pain → fix flow
+           Each row pairs 2 stacked pains (left, red-ruled) with one
+           engine fix (right, violet-anchored). Animated arrow shows
+           the pain-to-fix mapping. No card boxes. Hairline rules
+           between rows. Dominant element per row is the engine name
+           on the right; pains on the left feel like quoted complaints.
+           ───────────────────────────────────────────────────────────── */
+        .ps-flow {
+            /* No border, rows flow continuously as one section */
+        }
+
+        .ps-row {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
+            padding: 1.75rem 0;
+            transition: background 200ms ease;
+            position: relative;
         }
-        @media (min-width: 768px) {
-            .dyad-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        @media (min-width: 1024px) {
+            .ps-row {
+                grid-template-columns: minmax(0, 0.85fr) 88px minmax(0, 1.1fr);
+                gap: 2.5rem;
+                padding: 2.25rem 0;
+                align-items: center;
+            }
         }
-        .dyad {
-            background: var(--surface);
-            border: 1px solid var(--rule);
-            border-radius: 12px;
-            overflow: hidden;
+        @media (min-width: 1280px) {
+            .ps-row {
+                grid-template-columns: minmax(0, 0.85fr) 110px minmax(0, 1.1fr);
+                gap: 3rem;
+            }
+        }
+        .ps-row:hover {
+            background: rgba(109, 40, 217, 0.018);
+        }
+
+        /* PAIN side, vertical red rule groups two stacked pains */
+        .ps-pains {
             display: flex;
             flex-direction: column;
-            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+            gap: 1.25rem;
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--signal-red);
         }
-        .dyad:hover {
-            border-color: var(--rule-strong);
-            box-shadow: 0 18px 36px -18px rgba(9,9,11,0.16);
-            transform: translateY(-1px);
+        .ps-pain {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
-        .dyad-pain {
-            background: var(--ink);
-            color: white;
-            padding: 1.375rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .dyad-pain-num {
-            position: absolute;
-            top: -8px;
-            right: 6px;
+        .ps-pain-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 88px;
-            line-height: 1;
-            letter-spacing: -0.06em;
-            color: rgba(255,255,255,0.05);
-            font-variant-numeric: tabular-nums;
-            user-select: none;
-            pointer-events: none;
-        }
-        .dyad-pain-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9.5px;
+            font-size: 10.5px;
             font-weight: 600;
-            letter-spacing: 0.22em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #fca5a5;
+            color: var(--signal-red);
+        }
+        .ps-pain-q {
+            font-family: 'Geist', sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.4;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.012em;
+            margin: 0;
+        }
+
+        /* ARROW connector */
+        .ps-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 1.25rem;
+        }
+        @media (min-width: 1024px) {
+            .ps-arrow { justify-content: center; padding-left: 0; }
+        }
+        .ps-arrow svg {
+            width: 100%;
+            max-width: 88px;
+            height: 24px;
+            display: block;
+        }
+        @media (min-width: 1280px) {
+            .ps-arrow svg { max-width: 110px; }
+        }
+        @media (max-width: 1023px) {
+            .ps-arrow svg { max-width: 28px; transform: rotate(90deg); }
+        }
+        @keyframes ps-arrow-flow {
+            0% { stroke-dashoffset: 24; opacity: 0.55; }
+            50% { opacity: 1; }
+            100% { stroke-dashoffset: -24; opacity: 0.55; }
+        }
+        .ps-arrow-line {
+            stroke-dasharray: 4 4;
+            animation: ps-arrow-flow 3.2s linear infinite;
+        }
+        .ps-row:hover .ps-arrow-line {
+            animation-duration: 1.6s;
+        }
+
+        /* ENGINE side, the fix */
+        .ps-engine {
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+        }
+        .ps-engine-eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.625rem;
-            position: relative;
-            z-index: 1;
-        }
-        .dyad-pain-tag::before {
-            content: '';
-            display: inline-block;
-            width: 16px; height: 1px;
-            background: rgba(252, 165, 165, 0.6);
-        }
-        .dyad-pain-q {
-            font-size: 1rem;
-            line-height: 1.3;
-            font-weight: 500;
-            letter-spacing: -0.012em;
-            color: white;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
-        .dyad-body {
-            padding: 1.25rem 1.5rem 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .dyad-engine-tag {
+            gap: 0.625rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 9.5px;
+            font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--brand);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.625rem;
+            align-self: flex-start;
         }
-        .dyad-engine-tag::before {
+        .ps-engine-eyebrow::before {
             content: '';
             display: inline-block;
-            width: 16px; height: 1px;
-            background: rgba(109, 40, 217, 0.5);
+            width: 22px;
+            height: 1px;
+            background: var(--brand);
         }
-        .dyad-engine-name {
+        .ps-engine-name {
             font-family: 'Geist', sans-serif;
-            font-size: 1.125rem;
+            font-size: clamp(1.375rem, 2.2vw, 1.75rem);
             font-weight: 600;
-            letter-spacing: -0.022em;
             color: var(--ink);
-            margin: 0 0 0.625rem;
-            line-height: 1.2;
+            letter-spacing: -0.024em;
+            line-height: 1.15;
+            margin: 0;
+            text-wrap: balance;
         }
-        .dyad-engine-desc {
-            font-size: 0.875rem;
-            line-height: 1.55;
-            color: var(--mute);
-            margin: 0 0 1rem;
-            flex: 1;
+        .ps-engine-fix {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            margin: 0;
+            max-width: 34rem;
         }
-        .dyad-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            padding-top: 0.875rem;
-            border-top: 1px solid var(--rule);
+
+        /* Summary line below all 4 rows */
+        .ps-summary {
+            margin: 2.5rem auto 0;
+            max-width: 44rem;
+            text-align: center;
+            color: var(--ink-soft);
+            font-size: 1rem;
+            line-height: 1.65;
         }
-        .dyad-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.3rem 0.55rem;
-            background: var(--paper-warm);
-            border: 1px solid var(--rule);
-            border-radius: 5px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9.5px;
-            font-weight: 500;
-            color: var(--ink);
-            letter-spacing: 0.04em;
-        }
-        .dyad-chip i { font-size: 9px; }
+        .ps-summary strong { color: var(--ink); font-weight: 600; }
 
         /* ─────────────────────────────────────────────────────────────
-           HOW IT WORKS — campaign lifecycle rail
+           HOW IT WORKS, campaign lifecycle rail
            Shows the marketer's existing campaign flow with WhyUser
            inserted as the new pre-launch step. Only ONE card-like
            element (WhyUser itself, raised above the rail). The other
-           5 stops are minimal dots + labels — breaks card monotony.
+           5 stops are minimal dots + labels, breaks card monotony.
            ───────────────────────────────────────────────────────────── */
         .flow {
             position: relative;
@@ -1281,7 +1154,7 @@
             .flow-track { padding-top: 13rem; }
         }
 
-        /* The rail line — runs through center of all dots (column 4 highlighted) */
+        /* The rail line, runs through center of all dots (column 4 highlighted) */
         .flow-track::before {
             content: '';
             position: absolute;
@@ -1378,7 +1251,7 @@
             max-width: 11rem;
         }
 
-        /* WhyUser stop — same dot size as others (so rail aligns)
+        /* WhyUser stop, same dot size as others (so rail aligns)
            but with a multi-ring glow that emphasizes it. */
         .flow-stop-whyuser .flow-stop-dot {
             background: var(--brand);
@@ -1504,9 +1377,9 @@
             margin: 3rem auto 0;
             max-width: 46rem;
             text-align: center;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: var(--mute);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--ink-soft);
         }
         .flow-tagline strong { color: var(--ink); font-weight: 600; }
         @media (min-width: 768px) {
@@ -1514,7 +1387,7 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           TALLY FORM — design partner application
+           TALLY FORM, design partner application
            ───────────────────────────────────────────────────────────── */
         .tally-wrap {
             margin-top: 2.5rem;
@@ -1534,7 +1407,7 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           ARCHITECTURE — hub & spoke
+           ARCHITECTURE, hub & spoke
            Glowing orb in the center, 6 sources flanking it (3 left,
            3 right), animated lines flowing INTO the orb. No agent card.
            Visual story: 6 grounded sources → ONE calibrated buyer agent.
@@ -1550,7 +1423,7 @@
             }
         }
 
-        /* SVG lines layer — desktop only, behind everything */
+        /* SVG lines layer, desktop only, behind everything */
         .hub-svg {
             position: absolute;
             inset: 0;
@@ -1666,7 +1539,7 @@
             .hub-core { min-height: 0; padding: 0; height: 100%; }
         }
 
-        /* Outer halo glow — soft violet aura */
+        /* Outer halo glow, soft violet aura */
         .hub-core-halo {
             position: absolute;
             width: 320px;
@@ -1711,7 +1584,7 @@
             to { transform: rotate(360deg); }
         }
 
-        /* The orb itself — radial violet gradient sphere with depth */
+        /* The orb itself, radial violet gradient sphere with depth */
         .hub-core-orb {
             position: relative;
             width: 200px;
@@ -1773,33 +1646,37 @@
            voice (vs engine-level quotes, which are inline in cards).
            Used at the end of the Architecture section.
            ───────────────────────────────────────────────────────────── */
+        /* SECTION variant, full-row, centered, larger
+           Used at end of major sections (Architecture, Differentiation).
+           No background, open page, just hairline rules + violet glyph. */
         .section-quote {
-            margin: 4.5rem auto 0;
-            max-width: 56rem;
+            margin: 5rem auto 0;
+            max-width: 52rem;
             text-align: center;
-            padding-top: 3rem;
+            padding: 2.75rem 1.5rem 0.5rem;
             border-top: 1px solid var(--rule);
             position: relative;
         }
         .section-quote-mark {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-style: normal;
+            font-style: italic;
             font-weight: 400;
-            font-size: clamp(72px, 7vw, 100px);
+            font-size: clamp(52px, 5vw, 72px);
             line-height: 0.5;
             color: var(--brand);
             display: block;
-            margin: -0.5rem auto 1rem;
+            margin: -0.25rem auto 1.25rem;
             user-select: none;
         }
         .section-quote-text {
             font-family: 'Geist', system-ui, sans-serif;
-            font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+            font-style: normal;
+            font-size: 1.18rem;
             line-height: 1.55;
-            color: var(--ink);
-            font-weight: 400;
-            letter-spacing: -0.012em;
-            margin: 0 0 1.75rem;
+            color: var(--quote-ink);
+            font-weight: 500;
+            letter-spacing: -0.005em;
+            margin: 0 0 2rem;
             text-wrap: balance;
         }
         .section-quote-cite {
@@ -1811,90 +1688,14 @@
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--ink-soft);
+            color: var(--ink);
         }
         .section-quote-cite::before {
             content: '';
             display: inline-block;
             width: 24px;
             height: 1px;
-            background: var(--rule-bold);
-        }
-
-        /* ─────────────────────────────────────────────────────────────
-           PATTERNS — three customer entry combinations
-           ───────────────────────────────────────────────────────────── */
-        .pattern-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-        @media (min-width: 768px) {
-            .pattern-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-        }
-        .pattern-card {
-            background: var(--surface);
-            border: 1px solid var(--rule);
-            border-radius: 10px;
-            padding: 1.75rem 1.625rem;
-            transition: border-color 200ms ease, box-shadow 200ms ease;
-        }
-        .pattern-card:hover {
-            border-color: var(--rule-strong);
-            box-shadow: 0 12px 28px -16px rgba(9,9,11,0.12);
-        }
-        .pattern-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--brand);
-            margin-bottom: 1.125rem;
-        }
-        .pattern-h {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.022em;
-            color: var(--ink);
-            margin: 0 0 0.375rem;
-            line-height: 1.2;
-        }
-        .pattern-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--dim);
-            margin-bottom: 1.25rem;
-        }
-        .pattern-body {
-            font-size: 0.9375rem;
-            line-height: 1.55;
-            color: var(--mute);
-            margin: 0 0 1.5rem;
-        }
-        .pattern-combo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            padding-top: 1.25rem;
-            border-top: 1px solid var(--rule);
-        }
-        .combo-chip {
-            display: inline-flex;
-            padding: 0.3rem 0.625rem;
-            background: var(--brand-soft);
-            color: var(--brand);
-            border-radius: 5px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: -0.005em;
-        }
-        .combo-plus {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--faint);
-            font-size: 14px;
+            background: var(--brand);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -2033,7 +1834,7 @@
         .compare-table .cross { color: var(--faint); }
 
         /* ─────────────────────────────────────────────────────────────
-           ANTI-ICP — dark editorial section
+           ANTI-ICP, dark editorial section
            ───────────────────────────────────────────────────────────── */
         .anti-block {
             background: var(--ink);
@@ -2236,7 +2037,7 @@
             gap: 9px;
             margin-bottom: 0.875rem;
         }
-        .footer-brand-mark .nav-mark { background: white; color: var(--ink); }
+        .footer-brand-mark .nav-mark { background: #fff; padding: 3px; }
         .footer-brand-name { color: white; font-weight: 600; }
         .footer-tagline { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
         .footer-bottom {
@@ -2265,725 +2066,181 @@
                 transition-duration: 0.01ms !important;
             }
         }
-    
 
-        /* ─────────────────────────────────────────────────────────────
-           MANIFESTO — page-specific components
-           Adapted to use homepage design tokens.
-           ───────────────────────────────────────────────────────────── */
+        /* ── Problem / Solution: compact engine fix cards ── */
+        .solfix-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media (min-width: 768px) { .solfix-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; } }
+        .solfix-card { display: flex; flex-direction: column; gap: 1rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 1.5rem 1.625rem; transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
+        .solfix-card:hover { border-color: var(--rule-strong); transform: translateY(-2px); box-shadow: 0 1px 0 0 rgba(9,9,11,0.04), 0 14px 34px -18px rgba(9,9,11,0.16); }
+        .solfix-head { display: flex; align-items: center; justify-content: space-between; }
+        .solfix-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--paper-warm); display: flex; align-items: center; justify-content: center; color: var(--brand); font-size: 15px; }
+        .solfix-pain { font-family: 'Geist', sans-serif; font-size: 0.95rem; line-height: 1.45; color: var(--signal-red); font-weight: 500; letter-spacing: -0.01em; margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+        .solfix-name { font-family: 'Geist', sans-serif; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); margin: 0 0 0.4rem; }
+        .solfix-desc { font-size: 0.9375rem; line-height: 1.55; color: var(--mute); margin: 0; }
+        .solfix-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+        .solfix-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--ink); }
+        .solfix-chip i { font-size: 9.5px; color: var(--brand); }
+        .solfix-arrow { color: var(--faint); font-size: 12px; transition: transform 200ms ease, color 200ms ease; }
+        .solfix-card:hover .solfix-arrow { color: var(--brand); transform: translateX(3px); }
 
-        /* List-style headline: Engineering has staging / Ops has dry runs / etc. */
-        .m-headline {
-            font-family: 'Geist', system-ui, sans-serif;
-            font-weight: 700;
-            color: var(--ink);
-            letter-spacing: -0.03em;
-            line-height: 1.08;
-            font-size: clamp(2rem, 5.6vw, 3.75rem);
-            margin: 0 0 1.75rem;
-        }
-        .m-line { display: block; white-space: nowrap; }
-        .m-fn { color: var(--ink); font-weight: 700; }
-        .m-has { color: var(--faint); font-weight: 500; }
-        .m-tool {
-            color: var(--signal-green);
-            font-weight: 700;
-            letter-spacing: -0.026em;
-        }
-        .m-line-blank { position: relative; }
-        .m-blank {
-            display: inline-block;
-            width: clamp(2.25rem, 6vw, 4rem);
-            border-bottom: 3px solid var(--signal-red);
-            vertical-align: 0.05em;
-            position: relative;
-        }
-        .m-blank::after {
-            content: '?';
-            position: absolute;
-            top: -0.95em;
-            left: 50%;
-            transform: translateX(-50%);
-            font-style: italic;
-            font-weight: 500;
-            color: var(--signal-red);
-            font-size: 0.95em;
-            letter-spacing: -0.02em;
-        }
-        @media (max-width: 480px) {
-            .m-headline { font-size: clamp(1.5rem, 7vw, 2rem); }
-        }
+        /* ─── Smaller screenshots & product visuals ──────────────────────────
+           Width caps (centered). Tune any single number to taste; raise to
+           make a visual bigger, lower to make it smaller. */
+        .engine-frame  { max-width: 440px; margin-left: auto; margin-right: auto; }  /* the 4 engine screenshots */
+        .product-frame { max-width: 460px; margin-left: auto; margin-right: auto; }  /* hero conflict graph + Evidence Ledger */
+        .hub           { max-width: 820px; }                                          /* Ground Reality hub diagram */
 
-        .m-subhead {
-            font-family: 'Geist', system-ui, sans-serif;
-            font-weight: 500;
-            color: var(--ink-soft);
-            font-size: clamp(1.125rem, 2.2vw, 1.5rem);
-            line-height: 1.4;
-            letter-spacing: -0.012em;
-            max-width: 40 rem;
-            margin: 0 0 2.5rem;
-        }
-        .m-subhead em {
-            font-family: 'Geist', system-ui, sans-serif;
-            font-style: italic;
-            font-weight: 400;
-            color: var(--brand);
-        }
+        /* ===== SUB-PAGES ===== */
+        .subhero{padding:4.5rem 0 4rem}
+        @media(min-width:768px){.subhero{padding:5.5rem 0 5rem}}
+        .subhero h1{margin:0 0 1.25rem;color:var(--ink)}
+        .engine-frame.subhero-frame{max-width:540px;margin:0 auto}
+        /* spec strip */
+        .specstrip{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+        @media(min-width:768px){.specstrip{grid-template-columns:repeat(3,1fr)}}
+        .specstrip-cell{background:var(--surface);padding:1.4rem 1.5rem;display:flex;align-items:flex-start;gap:1rem}
+        .specstrip-ic{width:36px;height:36px;border-radius:9px;background:var(--paper-warm);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+        .specstrip-k{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:0.25rem}
+        .specstrip-v{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.012em;line-height:1.3}
+        /* visual step flow */
+        .vflow{display:grid;grid-template-columns:1fr;gap:0}
+        @media(min-width:860px){.vflow{grid-template-columns:repeat(4,1fr)}}
+        .vstep{position:relative;padding:0 0 1.6rem}
+        @media(min-width:860px){.vstep{padding:0 1.5rem 0 0}}
+        .vstep:not(:last-child)::after{content:'';position:absolute;background:var(--rule);left:26px;top:56px;width:1px;height:calc(100% - 56px)}
+        @media(min-width:860px){.vstep:not(:last-child)::after{left:56px;top:27px;width:calc(100% - 56px);height:1px}}
+        .vstep-ic{width:54px;height:54px;border-radius:14px;background:var(--surface);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;color:var(--brand);font-size:19px;position:relative;z-index:2}
+        .vstep-n{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:0.16em;color:var(--brand);margin:0.95rem 0 0.35rem}
+        .vstep-h{font-size:1rem;font-weight:600;letter-spacing:-0.015em;color:var(--ink);margin:0 0 0.3rem;line-height:1.25}
+        .vstep-p{font-size:0.875rem;line-height:1.5;color:var(--mute);margin:0;max-width:16rem}
+        /* 3 fails */
+        .fails{display:grid;grid-template-columns:1fr;gap:1.25rem}
+        @media(min-width:900px){.fails{grid-template-columns:repeat(3,1fr)}}
+        .fail{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:0.9rem}
+        .fail-k{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--signal-red)}
+        .fail-h{font-size:1.0625rem;font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin:0;line-height:1.25}
+        .fail-p{font-size:0.875rem;line-height:1.5;color:var(--mute);margin:0}
+        .fail-fix{display:flex;gap:0.55rem;padding-top:0.9rem;border-top:1px solid var(--rule);font-size:0.875rem;line-height:1.45;color:var(--ink-soft);margin-top:auto}
+        .fail-fix i{color:var(--signal-green);font-size:12px;margin-top:3px;flex-shrink:0}
+        /* what you get: dark artifact frame + outputs */
+        .artwrap{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}
+        @media(min-width:900px){.artwrap{grid-template-columns:1.04fr 0.96fr;gap:2.5rem}}
+        .artwrap .specs{grid-template-columns:1fr}
+        .artframe{background:#08080b;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:1rem 1rem 1.3rem;box-shadow:0 30px 70px -34px rgba(0,0,0,0.55)}
+        .artframe-bar{display:flex;align-items:center;gap:7px;padding:0.3rem 0.4rem 1rem}
+        .afd{width:9px;height:9px;border-radius:50%;opacity:0.5}
+        .artframe-tag{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;color:rgba(255,255,255,0.45);text-transform:uppercase}
+        .artbody{padding:0.5rem 0.6rem 0.2rem}
+        .art-title{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1rem}
+        .m-row{display:flex;align-items:center;gap:0.7rem;padding:0.42rem 0}
+        .m-label{font-size:12.5px;color:rgba(255,255,255,0.82);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .m-bar{flex:1;height:7px;border-radius:4px;background:rgba(255,255,255,0.08);overflow:hidden;min-width:40px}
+        .m-bar>span{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#7c5cff,#a78bfa)}
+        .m-bar>span.lo{background:linear-gradient(90deg,#6b7280,#9ca3af)}
+        .m-score{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.7);width:24px;text-align:right;flex-shrink:0}
+        .m-pill{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:0.06em;padding:2px 6px;border-radius:5px;text-transform:uppercase;flex-shrink:0}
+        .m-pill.win{color:#34d399;background:rgba(16,185,129,0.15)}
+        .m-pill.lose{color:#f87171;background:rgba(248,113,113,0.15)}
+        .m-pill.warn{color:#fbbf24;background:rgba(251,191,36,0.15)}
+        .m-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+        .m-dot.red{background:#ef4444}.m-dot.amber{background:#f59e0b}.m-dot.green{background:#10b981}
+        .m-star{color:#fbbf24;font-size:9px;margin-left:4px}
+        .mk-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:9px;padding:0.55rem 0.7rem;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.82);line-height:1.55;flex:1}
+        .mk-card small{color:rgba(255,255,255,0.5);font-size:9px}
+        .mk-card.brk{border-color:rgba(248,113,113,0.45)}
+        .mk-stat{margin-top:1rem;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.08);font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.55);line-height:1.6}
+        .mk-stat b{color:#fff;font-weight:700}
+        .mtx{width:100%;border-collapse:separate;border-spacing:4px;font-family:'JetBrains Mono',monospace;font-size:9px}
+        .mtx th{color:rgba(255,255,255,0.42);font-weight:500;text-align:center;padding:2px 0}
+        .mtx td:first-child,.mtx th:first-child{text-align:left;color:rgba(255,255,255,0.72);white-space:nowrap;padding-right:6px}
+        .mtx td{text-align:center;border-radius:5px;padding:7px 3px;position:relative}
+        .mc-win{background:rgba(16,185,129,0.18);color:#34d399}
+        .mc-warn{background:rgba(245,158,11,0.16);color:#fbbf24}
+        .mc-lose{background:rgba(248,113,113,0.16);color:#f87171}
+        .mg-l{font-family:'JetBrains Mono',monospace;font-size:8.5px}
+        /* outputs list */
+        .specs{display:grid;grid-template-columns:1fr;gap:0.8rem}
+        .spec{display:grid;grid-template-columns:auto 1fr;gap:0.85rem;padding:0.95rem 1.1rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px}
+        .spec-ic{width:30px;height:30px;border-radius:7px;background:var(--paper-warm);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+        .spec-h{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.012em;margin:0 0 0.15rem}
+        .spec-p{font-size:0.8125rem;line-height:1.45;color:var(--mute);margin:0}
+        /* audience */
+        .aud-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+        @media(min-width:768px){.aud-grid{grid-template-columns:1fr 1fr;gap:1.25rem}}
+        .aud{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:1.4rem 1.5rem}
+        .aud-ic{width:36px;height:36px;border-radius:9px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:0.9rem}
+        .aud-h{font-size:1rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;margin:0 0 0.35rem}
+        .aud-p{font-size:0.875rem;line-height:1.5;color:var(--mute);margin:0}
+        /* engine stack (works with) */
+        .estack{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+        @media(min-width:860px){.estack{grid-template-columns:repeat(4,1fr)}}
+        .etile{display:flex;flex-direction:column;gap:0.65rem;padding:1.15rem 1.05rem;background:var(--surface);border:1px solid var(--rule);border-radius:12px;text-decoration:none;position:relative;transition:border-color 200ms ease,transform 200ms ease,box-shadow 200ms ease;min-height:150px}
+        .etile:hover{border-color:var(--rule-strong);transform:translateY(-2px);box-shadow:0 12px 30px -16px rgba(9,9,11,0.14)}
+        .etile.active{border-color:var(--brand);background:var(--brand-soft)}
+        .etile.active:hover{transform:none}
+        .etile-ic{width:34px;height:34px;border-radius:8px;background:var(--paper-warm);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px}
+        .etile.active .etile-ic{background:#fff}
+        .etile-n{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--dim);text-transform:uppercase}
+        .etile-name{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;line-height:1.2}
+        .etile-chip{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mute);margin-top:auto;display:flex;align-items:center;gap:0.35rem}
+        .etile-chip i{color:var(--brand);font-size:9px}
+        .etile-here{position:absolute;top:0.85rem;right:0.85rem;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase}
+        /* who it is for: ground-reality-style hub */
+        .whohub{display:flex;flex-direction:column;align-items:center;position:relative;padding-top:0.5rem}
+        .whohub-orb{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.65rem;margin-bottom:0.5rem}
+        .whohub-orb-core{width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#a78bfa,#6d28d9 72%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:25px;box-shadow:0 0 0 8px var(--brand-soft),0 16px 38px -10px rgba(109,40,217,0.55);animation:whopulse 3.6s ease-in-out infinite}
+        @keyframes whopulse{0%,100%{box-shadow:0 0 0 8px var(--brand-soft),0 16px 38px -10px rgba(109,40,217,0.45)}50%{box-shadow:0 0 0 15px var(--brand-soft),0 20px 46px -8px rgba(109,40,217,0.62)}}
+        .whohub-orb-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--brand)}
+        .whohub-links{position:absolute;top:80px;left:0;width:100%;height:120px;z-index:1;display:none}
+        .whohub-links line{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:5 6;animation:whoflow 1.5s linear infinite}
+        @keyframes whoflow{to{stroke-dashoffset:-22}}
+        @media(min-width:860px){.whohub-links{display:block}}
+        .whohub-roles{display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%;position:relative;z-index:2;margin-top:1.25rem}
+        @media(min-width:860px){.whohub-roles{grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem}}
+        .whohub-role{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:1.4rem 1.3rem;text-align:center}
+        .whohub-role-ic{width:40px;height:40px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:15px;margin:0 auto 0.9rem}
+        .whohub-role-h{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.012em;margin:0 0 0.35rem}
+        .whohub-role-p{font-size:0.8125rem;line-height:1.45;color:var(--mute);margin:0}
+        @media(prefers-reduced-motion:reduce){.whohub-orb-core,.whohub-links line{animation:none}}
+        /* faq */
+        .faqcat{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--brand);margin:2.5rem 0 0.25rem;display:flex;align-items:center;gap:0.625rem}
+        .faqcat:first-child{margin-top:0}
+        .faqcat::before{content:'';width:22px;height:1px;background:var(--brand);display:inline-block}
 
-        /* Author byline */
-        .byline {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.875rem;
-            padding: 0.625rem 0.875rem 0.625rem 0.625rem;
-            background: var(--surface);
-            border: 1px solid var(--rule);
-            border-radius: 999px;
-        }
-        .byline-avatar {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6d28d9, #4338ca);
-            display: flex; align-items: center; justify-content: center;
-            color: white;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-        }
-        .byline-name {
-            font-size: 13.5px;
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.2;
-        }
-        .byline-role {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-top: 2px;
-        }
+        .mani-hero{padding:5rem 0 3rem}
+        @media(min-width:768px){.mani-hero{padding:6.5rem 0 4rem}}
+        .mani-hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.04;letter-spacing:-0.03em;max-width:19ch;margin:0 0 1.5rem;color:var(--ink);font-weight:700}
+        .mani-hero h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--brand)}
+        .mani-lede{font-size:1.2rem;line-height:1.5;color:var(--mute);max-width:38rem;margin:0}
+        .tenets{display:flex;flex-direction:column;gap:0;max-width:46rem;margin:0 auto}
+        .tenet{padding:2.4rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem}
+        .tenet:first-child{border-top:none;padding-top:0}
+        .tenet-n{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brand);letter-spacing:0.1em;padding-top:0.55rem}
+        .tenet-h{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.18;letter-spacing:-0.022em;color:var(--ink);margin:0 0 0.7rem;font-weight:600}
+        .tenet-p{font-size:1.0625rem;line-height:1.6;color:var(--mute);margin:0}
+        .mani-close{text-align:center;max-width:40rem;margin:0 auto}
+        .mani-close-h{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;color:var(--ink);margin:0 0 2rem;font-weight:400}
+        .mani-sign{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.08em;color:var(--dim);margin-top:2.5rem;text-transform:uppercase}
 
-        /* Article body */
-        .article-body {
-            max-width: 48rem;
-            margin: 0 auto;
-            font-size: 1.0625rem;
-            line-height: 1.65;
-            color: var(--ink-soft);
-        }
-        .article-body p { margin: 0 0 1.25rem; }
-        .article-body p strong { color: var(--ink); font-weight: 600; }
-        .article-body .lead {
-            font-size: 1.25rem;
-            line-height: 1.55;
-            color: var(--ink);
-            font-weight: 500;
-            letter-spacing: -0.014em;
-        }
-        .article-body .lead strong { font-weight: 700; }
-
-        /* Pull-quote */
-        .pull-quote {
-            margin: 3rem 0;
-            padding: 0 0 0 1.5rem;
-            border-left: 2px solid var(--brand);
-            max-width: 36rem;
-        }
-        .pull-quote-mark {
-            display: block;
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(64px, 7vw, 80px);
-            line-height: 0.5;
-            color: var(--brand);
-            margin: -0.25rem 0 0.5rem;
-        }
-        .pull-quote-text {
-            font-family: 'Geist', sans-serif;
-            font-size: clamp(1.25rem, 2vw, 1.5rem);
-            line-height: 1.35;
-            color: var(--ink);
-            font-weight: 500;
-            letter-spacing: -0.018em;
-            margin: 0;
-        }
-
-        /* Inline highlight — for emphasis */
-        .ink-highlight {
-            background: linear-gradient(180deg, transparent 60%, rgba(245, 158, 11, 0.32) 60%);
-            padding: 0 2px;
-        }
-
-        /* The numbered failure cards (six tools that didn't work) */
-        .failure-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.875rem;
-            margin: 2rem 0;
-        }
-        .failure-card {
-            background: var(--surface);
-            border: 1px solid var(--rule);
-            border-radius: 12px;
-            padding: 1.5rem 1.625rem;
-            transition: border-color 200ms ease, box-shadow 200ms ease;
-        }
-        .failure-card:hover {
-            border-color: var(--rule-strong);
-            box-shadow: 0 18px 36px -22px rgba(9,9,11,0.16);
-        }
-        .failure-head {
-            display: flex;
-            align-items: baseline;
-            gap: 0.875rem;
-            margin-bottom: 0.625rem;
-        }
-        .failure-numeral {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 12px;
-            color: var(--brand);
-            font-variant-numeric: tabular-nums;
-            letter-spacing: 0.05em;
-        }
-        .failure-name {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--ink);
-        }
-        .failure-tag {
-            margin-left: auto;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--signal-red);
-        }
-        .failure-line {
-            font-size: 15.5px;
-            line-height: 1.55;
-            color: var(--ink-soft);
-            margin: 0;
-        }
-        .failure-line strong { color: var(--ink); font-weight: 600; }
-
-        /* The shift-left dark capability card */
-        .shift-card {
-            background: var(--frame);
-            color: var(--frame-text);
-            border-radius: 16px;
-            border: 1px solid var(--frame-rule-strong);
-            padding: 2.25rem 1.75rem;
-            position: relative;
-            overflow: hidden;
-            margin: 2.5rem 0;
-            box-shadow:
-                0 1px 0 0 rgba(255,255,255,0.05) inset,
-                0 24px 48px -16px rgba(9,9,11,0.32);
-        }
-        @media (min-width: 768px) {
-            .shift-card { padding: 2.75rem 2.5rem; }
-        }
-        .shift-card::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
-            background-size: 24px 24px;
-            pointer-events: none;
-        }
-        .shift-card > * { position: relative; z-index: 1; }
-        .shift-card-eyebrow {
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: #c4b5fd;
-            margin-bottom: 1.5rem;
-        }
-        .shift-card-eyebrow::before {
-            content: '';
-            display: inline-block;
-            width: 24px; height: 1px;
-            background: rgba(196,181,253,0.5);
-        }
-
-        .cap-row {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1.25rem;
-            padding: 1.25rem 0;
-            border-top: 1px solid var(--frame-rule);
-        }
-        .cap-row:first-of-type { border-top: 0; padding-top: 0; }
-        .cap-row:last-of-type { padding-bottom: 0; }
-        .cap-icon {
-            width: 30px; height: 30px;
-            display: flex; align-items: center; justify-content: center;
-            color: #c4b5fd;
-            font-size: 13px;
-            margin-top: 2px;
-            background: rgba(196,181,253,0.10);
-            border-radius: 7px;
-        }
-        .cap-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: #c4b5fd;
-            margin-bottom: 0.375rem;
-        }
-        .cap-text {
-            font-size: 15px;
-            line-height: 1.55;
-            color: rgba(255, 255, 255, 0.85);
-        }
-        .cap-text strong { color: white; font-weight: 600; }
-
-        /* 2x2 wasted-X grid */
-        .wasted-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.875rem;
-            margin: 2rem 0;
-        }
-        @media (min-width: 768px) {
-            .wasted-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-        }
-        .wasted-card {
-            background: var(--surface);
-            border: 1px solid var(--rule);
-            border-radius: 12px;
-            padding: 1.5rem 1.625rem;
-            transition: border-color 200ms ease, box-shadow 200ms ease;
-        }
-        .wasted-card:hover {
-            border-color: var(--rule-strong);
-            box-shadow: 0 18px 36px -22px rgba(9,9,11,0.16);
-        }
-        .wasted-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-bottom: 0.5rem;
-        }
-        .wasted-word {
-            font-family: 'Geist', sans-serif;
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: var(--ink);
-            letter-spacing: -0.025em;
-            line-height: 1.05;
-            margin-bottom: 0.875rem;
-        }
-        .wasted-strike {
-            position: relative;
-            display: inline-block;
-        }
-        .wasted-strike::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -3px; right: -3px;
-            height: 3px;
-            background: var(--signal-red);
-            transform: rotate(-1.5deg);
-        }
-        .wasted-line {
-            font-size: 14.5px;
-            line-height: 1.55;
-            color: var(--mute);
-            margin: 0;
-        }
-
-        /* Closing CTAs */
-        .closing-line {
-            font-family: 'Geist', sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            line-height: 1.2;
-            font-weight: 600;
-            color: var(--ink);
-            letter-spacing: -0.025em;
-            text-align: center;
-            text-wrap: balance;
-            margin: 0 0 0.75rem;
-        }
-        .closing-line em {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-style: italic;
-            font-weight: 400;
-            color: var(--brand);
-        }
-        .closing-ctas {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            justify-content: center;
-            margin-top: 2.5rem;
-        }
-        @media (min-width: 480px) {
-            .closing-ctas { flex-direction: row; }
-        }
-
-    </style>
+</style>
 </head>
 <body class="grain">
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         NAV
-         ═════════════════════════════════════════════════════════════════ -->
-    <nav class="nav">
-        <div class="wrap nav-inner">
-            <a href="index.html" class="nav-brand">
-                <span class="nav-mark">W</span>
-                <span>WhyUser</span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html#solution">Solution</a>
-                <a href="index.html#how">How it works</a>
-                <a href="index.html#engines">Product</a>
-                <a href="manifesto.html" style="color: var(--brand)">Manifesto</a>
-                <a href="faq.html">FAQ</a>
-            </div>
-            <div class="nav-cta-row">
-                <a href="roi.html" class="btn btn-ghost"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
-                <a href="index.html#access" class="btn btn-primary">Apply for Design Partner</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         HERO
-         ═════════════════════════════════════════════════════════════════ -->
-    <header class="hero dotgrid">
-        <div class="wrap">
-            <nav aria-label="Breadcrumb" style="display:flex; align-items:center; gap:0.5rem; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim); margin-bottom:2rem;">
-                <a href="index.html" style="color:var(--mute)">Home</a>
-                <span style="color:var(--rule-bold)">/</span>
-                <span style="color:var(--ink)">Manifesto</span>
-            </nav>
-
-            <div style="max-width: 52rem">
-                <span class="section-eyebrow">The Go-To-Market (GTM) Testing Manifesto</span>
-
-                <h1 class="m-headline">
-                    <span class="m-line"><span class="m-fn">Engineering</span> <span class="m-has">has</span> <span class="m-tool">staging.</span></span>
-                    <span class="m-line"><span class="m-fn">Ops</span> <span class="m-has">has</span> <span class="m-tool">dry runs.</span></span>
-                    <span class="m-line"><span class="m-fn">Finance</span> <span class="m-has">has</span> <span class="m-tool">audits.</span></span>
-                    <span class="m-line"><span class="m-fn">Sales</span> <span class="m-has">has</span> <span class="m-tool">role plays.</span></span>
-                    <span class="m-line m-line-blank">
-                        <span class="m-fn">Marketing</span> <span class="m-has">has</span> <span class="m-blank" aria-label="nothing"></span>
-                    </span>
-                </h1>
-
-                <p class="m-subhead">
-                    Marketing is the only function that <em>tests in production.</em>
-                </p>
-
-                <div class="byline">
-                    <div class="byline-avatar">DG</div>
-                    <div>
-                        <div class="byline-name">Durga Gokina, Founder &amp; CEO</div>
-                        <div class="byline-role">Former B2B Startup CTO</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         OPENING SALVO
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="section-rule">
-        <div class="wrap">
-            <div class="article-body">
-                <p class="lead">Look at the org chart. Every function has a safety net.</p>
-                <p>Engineering runs <strong>staging</strong>. Code breaks there before it breaks the customer.</p>
-                <p>Ops runs <strong>dry runs</strong>. The migration fails on a Tuesday afternoon, not at 3 a.m. on launch.</p>
-                <p>Finance runs <strong>audits</strong>. Numbers get questioned before they hit the board deck.</p>
-                <p>Sales runs <strong>role plays</strong>. The objection gets answered in the conference room before the customer raises it on Zoom.</p>
-                <p>Marketing? <strong>Marketing runs the campaign live and reads the analytics.</strong></p>
-                <p>Spend the budget. Watch the bounce rate. Rebuild next quarter. Hope.</p>
-                <p class="lead">Same company. Same stakes. <strong>Marketing is the only function that has to test in production.</strong></p>
-
-                <figure class="pull-quote">
-                    <span aria-hidden="true" class="pull-quote-mark">&ldquo;</span>
-                    <p class="pull-quote-text">Every unvalidated campaign is a donation to LinkedIn and Google.</p>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         SECTION 01 — SIX TOOLS YOU ALREADY TRIED
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="section-rule" style="background: var(--paper-warm)">
-        <div class="wrap">
-            <div class="section-head" style="max-width: 48rem; margin-left: auto; margin-right: auto">
-                <span class="section-eyebrow">Section 01</span>
-                <h2 class="h2">Six tools you already tried. All six let you down.</h2>
-                <p>These are the alternatives. Each one is broken in a specific way. You&rsquo;ve probably used five.</p>
-            </div>
-
-            <div class="article-body">
-                <div class="failure-list">
-                    <div class="failure-card">
-                        <div class="failure-head">
-                            <span class="failure-numeral">01</span>
-                            <span class="failure-name">Live A/B Tests</span>
-                            <span class="failure-tag">The Ad Tax</span>
-                        </div>
-                        <p class="failure-line"><strong>To learn what doesn&rsquo;t work, you pay for it.</strong> Spend $10K. Wait six weeks. Discover the hook was wrong. The lesson cost more than the win.</p>
-                    </div>
-
-                    <div class="failure-card">
-                        <div class="failure-head">
-                            <span class="failure-numeral">02</span>
-                            <span class="failure-name">Internal Reviews</span>
-                            <span class="failure-tag">The Echo Chamber</span>
-                        </div>
-                        <p class="failure-line">You drop the page in Slack. Your team says it looks great. <strong>They give it ten patient minutes.</strong> A real buyer gives it five ruthless seconds.</p>
-                    </div>
-
-                    <div class="failure-card">
-                        <div class="failure-head">
-                            <span class="failure-numeral">03</span>
-                            <span class="failure-name">User Panels</span>
-                            <span class="failure-tag">Say vs Do</span>
-                        </div>
-                        <p class="failure-line">You pay strangers $50 to read your page and tell you what they think. <strong>They tell you what gets them paid.</strong> A real buyer is a skeptic with a quota and three other tabs open.</p>
-                    </div>
-
-                    <div class="failure-card">
-                        <div class="failure-head">
-                            <span class="failure-numeral">04</span>
-                            <span class="failure-name">ChatGPT or Claude</span>
-                            <span class="failure-tag">The Yes-Man</span>
-                        </div>
-                        <p class="failure-line">You paste the draft. It hands back a polite, plausible opinion. <strong>One opinion. Helpful by design.</strong> A real buying committee has five roles, all skeptical, none aligned. ChatGPT can&rsquo;t fight back. Real buyers do.</p>
-                    </div>
-
-                    <div class="failure-card">
-                        <div class="failure-head">
-                            <span class="failure-numeral">05</span>
-                            <span class="failure-name">Win/Loss Calls</span>
-                            <span class="failure-tag">The Autopsy</span>
-                        </div>
-                        <p class="failure-line"><strong>Three months later</strong>, you finally hear why the Economic Buyer killed the deal. The deal is already dead. The pipeline review is next week. The findings are too late to use.</p>
-                    </div>
-
-                    <div class="failure-card">
-                        <div class="failure-head">
-                            <span class="failure-numeral">06</span>
-                            <span class="failure-name">Customer Advisory Board</span>
-                            <span class="failure-tag">The Fan Club</span>
-                        </div>
-                        <p class="failure-line">Your CAB is your <strong>biggest fans</strong>. They love you. They&rsquo;ll spend 45 minutes telling you the page is great. Your real buyer has never heard of you and won&rsquo;t spend five seconds.</p>
-                    </div>
-                </div>
-
-                <p style="margin-top: 2.5rem">
-                    <strong>Each one fails in a way you can&rsquo;t fix from inside the team.</strong> So you launch anyway and hope.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         SECTION 02 — SHIFT THE TEST LEFT
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="section-rule">
-        <div class="wrap">
-            <div class="section-head" style="max-width: 48rem; margin-left: auto; margin-right: auto">
-                <span class="section-eyebrow">Section 02 · The Fix</span>
-                <h2 class="h2">Shift the test left.</h2>
-            </div>
-
-            <div class="article-body">
-                <p>Engineering figured this out twenty years ago. <strong>Catch the bug before it ships.</strong> Run the load test on staging, not on the customer.</p>
-                <p>Marketing should get the same loop.</p>
-                <p>Run the campaign through a buying committee that fights back. Find the silent veto before the budget is wired. <strong>Fail in the simulator. Don&rsquo;t pay LinkedIn for the lesson.</strong></p>
-                <p>That&rsquo;s why I built <strong class="ink-highlight">WhyUser.</strong></p>
-
-                <div class="shift-card">
-                    <div class="shift-card-eyebrow">Four engines, one simulator</div>
-
-                    <div class="cap-row">
-                        <div class="cap-icon"><i class="fa-solid fa-bullseye"></i></div>
-                        <div>
-                            <div class="cap-label">Ad Campaign Simulation</div>
-                            <div class="cap-text">Run the ad and the landing page through skeptical buyer agents. <strong>Catch the bounce before the budget burns.</strong></div>
-                        </div>
-                    </div>
-
-                    <div class="cap-row">
-                        <div class="cap-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-                        <div>
-                            <div class="cap-label">Email Campaign Simulation</div>
-                            <div class="cap-text">Test subject, body, CTA, and landing page on the same buyer agent before sending to 500 prospects. <strong>Get the winner per persona.</strong></div>
-                        </div>
-                    </div>
-
-                    <div class="cap-row">
-                        <div class="cap-icon"><i class="fa-solid fa-list-ol"></i></div>
-                        <div>
-                            <div class="cap-label">Audience Discovery</div>
-                            <div class="cap-text">Upload your content. Get the roles and sub-verticals it actually lands with. <strong>Including pipeline you didn&rsquo;t know existed.</strong></div>
-                        </div>
-                    </div>
-
-                    <div class="cap-row">
-                        <div class="cap-icon"><i class="fa-solid fa-diagram-project"></i></div>
-                        <div>
-                            <div class="cap-label">Committee Simulation</div>
-                            <div class="cap-text">Watch the Champion get sold while the Economic Buyer silently vetoes. <strong>See the conflict before the deal stalls.</strong></div>
-                        </div>
-                    </div>
-                </div>
-
-                <figure class="pull-quote">
-                    <span aria-hidden="true" class="pull-quote-mark">&ldquo;</span>
-                    <p class="pull-quote-text">If engineering can simulate load before deploy, marketing can simulate buyers before spend.</p>
-                </figure>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         SECTION 03 — STOP WASTING FOUR THINGS AT ONCE
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="section-rule" style="background: var(--paper-warm)">
-        <div class="wrap">
-            <div class="section-head" style="max-width: 48rem; margin-left: auto; margin-right: auto">
-                <span class="section-eyebrow">Section 03 · The Promise</span>
-                <h2 class="h2">Stop wasting four things at once.</h2>
-                <p>Testing in production isn&rsquo;t one mistake. It&rsquo;s four of them, every quarter.</p>
-            </div>
-
-            <div class="article-body">
-                <div class="wasted-grid">
-                    <div class="wasted-card">
-                        <div class="wasted-eyebrow">01 · Wasted</div>
-                        <div class="wasted-word"><span class="wasted-strike">Spend</span></div>
-                        <p class="wasted-line">$40K on a campaign the buyers were never going to read. The post-mortem starts after the money is already gone.</p>
-                    </div>
-                    <div class="wasted-card">
-                        <div class="wasted-eyebrow">02 · Wasted</div>
-                        <div class="wasted-word"><span class="wasted-strike">Cycles</span></div>
-                        <p class="wasted-line">Six weeks waiting for significance. Three weeks of internal reviews. A quarter spent learning what an hour could have told you.</p>
-                    </div>
-                    <div class="wasted-card">
-                        <div class="wasted-eyebrow">03 · Wasted</div>
-                        <div class="wasted-word"><span class="wasted-strike">Pipeline</span></div>
-                        <p class="wasted-line">The Economic Buyer vetoed silently. The Champion couldn&rsquo;t forward the deck. You found out on the win/loss call &mdash; three months too late.</p>
-                    </div>
-                    <div class="wasted-card">
-                        <div class="wasted-eyebrow">04 · Wasted</div>
-                        <div class="wasted-word"><span class="wasted-strike">Credibility</span></div>
-                        <p class="wasted-line">You walk into the QBR with vibes and a Looker dashboard. Your CFO walks in with questions you can&rsquo;t answer. That&rsquo;s the meeting marketing keeps losing.</p>
-                    </div>
-                </div>
-
-                <p style="margin-top: 2rem">
-                    A staging environment fixes all four at the same time. <strong>One simulation. One hour. Spend protected, cycles compressed, pipeline diagnosed, credibility earned.</strong>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         CLOSING CTA
-         ═════════════════════════════════════════════════════════════════ -->
-    <section class="section-rule">
-        <div class="wrap">
-            <div style="max-width: 40rem; margin: 0 auto">
-                <p class="closing-line">Stop testing in production.</p>
-                <p class="closing-line">Run the next campaign through <em>WhyUser</em> first.</p>
-
-                <p style="margin-top: 2.5rem; margin-bottom: 0; font-size: 0.9375rem; line-height: 1.6; color: var(--mute); text-align: center; max-width: 32rem; margin-left: auto; margin-right: auto">
-                    WhyUser is the <strong style="color: var(--ink); font-weight: 600">Go-To-Market (GTM) Staging Platform</strong>, the staging environment for B2B marketing.
-                </p>
-
-                <div class="closing-ctas">
-                    <a href="index.html#access" class="btn btn-primary btn-lg" style="justify-content: center">
-                        <i class="fa-solid fa-flask" style="color: #fcd34d"></i>
-                        Apply for Design Partner
-                        <i class="fa-solid fa-arrow-right" style="font-size: 11px"></i>
-                    </a>
-                    <a href="index.html" class="btn btn-ghost btn-lg" style="justify-content: center">
-                        See how it works
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand-mark">
-                        <span class="nav-mark">W</span>
-                        <span class="footer-brand-name">WhyUser Inc.</span>
-                    </div>
-                    <p class="footer-tagline">
-                        WhyUser. The Go-To-Market (GTM) Staging Platform. Stress test B2B campaigns and pages before you launch — catch the silent veto before the budget burns.
-                    </p>
-                </div>
-                <div>
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#pain">The Problem</a></li>
-                        <li><a href="#solution">The Solution</a></li>
-                        <li><a href="#how">How It Works</a></li>
-                        <li><a href="#engines">Engines</a></li>
-                        <li><a href="#pipeline">Architecture</a></li>
-                        <li><a href="#patterns">Customers</a></li>
-                        <li><a href="#compare">Compare</a></li>
-                        <li><a href="roi.html">ROI Calculator</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="manifesto.html">Manifesto</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#access">Apply for Design Partner</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="security.html">Security</a></li>
-                        <li><a href="dpa.html">DPA</a></li>
-                        <li><a href="privacy.html">Privacy</a></li>
-                        <li><a href="terms.html">Terms</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 WhyUser Inc. · San Jose, CA · Last updated May 2026</span>
-                <span>Built for marketing leaders accountable for pipeline</span>
-            </div>
-        </div>
-    </footer>
-
+  <nav class="nav"><div class="wrap nav-inner">
+    <a href="index.html" class="nav-brand"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span>WhyUser</span></a>
+    <div class="nav-links"><a href="index.html#solution">Solution</a><a href="index.html#how">Where it fits</a><a href="index.html#build">Why not build it</a><a href="manifesto.html">Manifesto</a><a href="faq.html">FAQ</a></div>
+    <div class="nav-cta-row"><a href="roi.html" class="btn btn-ghost" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a><a href="index.html#access" class="btn btn-primary">Apply for Design Partner</a></div>
+  </div></nav>
+  <header class="mani-hero"><div class="wrap"><div class="hero-pill"><span class="hero-pill-dot"></span>Manifesto</div><h1>Marketing is the only discipline that tests in <em>production</em>.</h1><p class="mani-lede">Engineering gets a staging environment. Finance gets an audit. Marketing gets opening night, real budget, real buyers, no rehearsal. We built the stress test it never had.</p></div></header>
+<section class="section-rule"><div class="wrap"><div class="tenets"><div class="tenet"><div class="tenet-n">01</div><div><h2 class="tenet-h">Testing in production is malpractice.</h2><p class="tenet-p">Engineering has staging. Finance has audits. Sales runs role plays. Marketing ships straight to opening night, real budget, real buyers, no rehearsal. Every other discipline would call that reckless.</p></div></div><div class="tenet"><div class="tenet-n">02</div><div><h2 class="tenet-h">B2B is decided by a committee, not a click.</h2><p class="tenet-p">A champion loves it. A CFO vetoes it. A security lead raises one doubt and the deal stalls. The veto is silent. It never reaches your CRM. No analytics tool will tell you which seat killed the deal.</p></div></div><div class="tenet"><div class="tenet-n">03</div><div><h2 class="tenet-h">Opinion does not move budget. Evidence does.</h2><p class="tenet-p">&ldquo;I think the hero is weak&rdquo; loses every meeting. &ldquo;The economic buyer bounced at the ROI section, here is the proof&rdquo; wins it. The job is not a better opinion. It is the receipt.</p></div></div><div class="tenet"><div class="tenet-n">04</div><div><h2 class="tenet-h">AI made it worse, not better.</h2><p class="tenet-p">Infinite throughput, zero grounding. More copy, faster, none of it tested. A chatbot hands you one confident opinion. One opinion is not a test. Loop it thirty times and you get one opinion thirty ways.</p></div></div><div class="tenet"><div class="tenet-n">05</div><div><h2 class="tenet-h">A real test has four properties.</h2><p class="tenet-p">Grounded in your actual buyers, not invented personas. Adversarial, hundreds of agents across designed states. Deterministic, so a fix is a fix, not model drift. And graded, so every call is marked HIT or MISS against what really happened.</p></div></div><div class="tenet"><div class="tenet-n">06</div><div><h2 class="tenet-h">Do not trust us. Grade us.</h2><p class="tenet-p">We do not ask for faith. Run WhyUser on a campaign you already know the ending to. If it catches what actually happened, you have your answer, from your data, not our claims.</p></div></div></div></div></section><section class="section-rule" style="background:var(--paper-warm)"><div class="wrap"><div class="mani-close"><span class="section-eyebrow" style="justify-content:center">The bet</span><p class="mani-close-h">See the silent veto before a real buyer does. Fail in the test, win in the market.</p><div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Apply for Design Partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="roi.html" class="btn btn-ghost btn-lg"><i class="fas fa-calculator" style="font-size:12px;color:var(--brand)"></i> Model the ROI</a></div><div class="mani-sign">Durga Gokina &middot; Founder, WhyUser</div></div></div></section>
+  <footer class="footer"><div class="wrap">
+    <div class="footer-grid">
+      <div><div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
+        <p class="footer-tagline">WhyUser. The pre-launch stress test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p></div>
+      <div><h4>Engines</h4><ul><li><a href="committee-simulation.html">Committee Simulation</a></li><li><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></li><li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li><li><a href="audience-discovery.html">Audience Discovery</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="index.html#how">Where it fits</a></li><li><a href="index.html#build">Why not build it</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#access">Apply</a></li></ul></div>
+      <div><h4>Resources</h4><ul><li><a href="roi.html">ROI Calculator</a></li><li><a href="contact.html">Contact</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 WhyUser Inc.</span><span>Pre-launch stress test for B2B campaigns</span></div>
+  </div></footer>
 </body>
 </html>

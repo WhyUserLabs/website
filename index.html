@@ -222,10 +222,10 @@
            and CRO-defensible.
            ───────────────────────────────────────────────────────────── */
         :root {
-            /* Surface */
-            --paper: #fafaf7;
-            --paper-warm: #f5f4ee;
-            --paper-cool: #f4f5f7;
+            /* Surface: unified bright soft beige canvas */
+            --paper: #fcf9f0;
+            --paper-warm: #fcf9f0;
+            --paper-cool: #fcf9f0;
             --surface: #ffffff;
 
             /* Ink */
@@ -874,9 +874,15 @@
            ───────────────────────────────────────────────────────────── */
         .definition {
             background: var(--paper);
-            border-top: 1px solid var(--rule);
-            border-bottom: 1px solid var(--rule);
             padding: 3rem 0;
+        }
+        .def-rule {
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--rule-bold);
+            border-radius: 1px;
+            margin-bottom: 1.75rem;
         }
         .def-grid {
             display: grid;
@@ -1188,8 +1194,29 @@
            on the right; pains on the left feel like quoted complaints.
            ───────────────────────────────────────────────────────────── */
         .ps-flow {
-            /* No border, rows flow continuously as one section */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem 2.5rem;
+            margin-top: 2.25rem;
         }
+        @media (min-width: 768px) {
+            .ps-flow {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.75rem 3rem;
+            }
+        }
+        /* Compact, borderless pain-to-fix unit. The red rule is the only chrome */
+        .ps-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--signal-red);
+        }
+        .ps-item .ps-pain-q { font-size: 1rem; line-height: 1.4; }
+        .ps-item .ps-engine { margin-top: 0.625rem; gap: 0.5rem; }
+        .ps-item .ps-engine-name { font-size: 1.1875rem; }
+        .ps-item .ps-engine-fix { font-size: 0.9375rem; line-height: 1.5; }
 
         .ps-row {
             display: grid;
@@ -1336,6 +1363,45 @@
             line-height: 1.65;
         }
         .ps-summary strong { color: var(--ink); font-weight: 600; }
+
+        /* Engine name links through to its page */
+        .ps-engine-name a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 160ms ease;
+        }
+        .ps-engine-name a:hover { color: var(--brand); }
+
+        /* The tangible artifact, doubles as the click-through to the engine page */
+        .ps-engine-out {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            align-self: flex-start;
+            margin-top: 0.125rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--brand);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border: 1px solid var(--rule-strong);
+            border-radius: 999px;
+            transition: border-color 160ms ease, background 160ms ease, gap 160ms ease;
+        }
+        .ps-engine-out .out-icon { color: var(--brand); font-size: 11px; }
+        .ps-engine-out .out-arrow { font-size: 10px; transition: transform 160ms ease; }
+        .ps-engine-out:hover {
+            border-color: var(--brand);
+            background: var(--brand-soft);
+            gap: 0.7rem;
+        }
+        .ps-engine-out:hover .out-arrow { transform: translateX(2px); }
+        @media (prefers-reduced-motion: reduce) {
+            .ps-arrow-line { animation: none; }
+            .ps-engine-out, .ps-engine-out .out-arrow { transition: none; }
+        }
 
         /* ─────────────────────────────────────────────────────────────
            HOW IT WORKS, campaign lifecycle rail
@@ -2338,7 +2404,7 @@
                     </h1>
 
                     <p class="hero-sub">
-                        See how your buying committee reacts to your ad, email, or page, before you launch. Sourced to real buyers, not guesses. In 30 minutes, not six weeks.
+                        See how your buyer roles react to your ad, email, or page, before you launch. Sourced to real buyers, not guesses. In 30 minutes, not six weeks.
                     </p>
 
                     <div class="hero-ctas">
@@ -2477,11 +2543,14 @@
          DEFINITION STRIP, quiet AEO featured-snippet block
          ═════════════════════════════════════════════════════════════════ -->
     <section class="definition" style="padding: 3.25rem 0">
-        <div class="wrap def-grid">
-            <span class="mono-eyebrow">What WhyUser is</span>
-            <p class="def-text">
-                WhyUser is the pre-launch stress test for B2B campaigns. Hundreds of adversarial buyer agents read your page, ad, or email before launch. They surface the silent vetoes, the missing proof, and the bounce risk that internal reviews and AI tools miss. Every finding sourced to real buyers. Evidence, not opinion.
-            </p>
+        <div class="wrap">
+            <span class="def-rule" aria-hidden="true"></span>
+            <div class="def-grid">
+                <span class="mono-eyebrow">What WhyUser is</span>
+                <p class="def-text">
+                    WhyUser is the pre-launch stress test for B2B campaigns. Hundreds of adversarial buyer agents read your page, ad, or email before launch. They surface the silent vetoes, the missing proof, and the bounce risk that internal reviews and AI tools miss. Every finding sourced to real buyers. Evidence, not opinion.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -2498,76 +2567,72 @@
             <div class="section-head" style="max-width: 56rem">
                 <span class="section-eyebrow">Problem &middot; Solution</span>
                 <h2 class="h2">Stress test every campaign before it runs.</h2>
-                <p>Engineering has staging. Finance has audits. Sales runs role plays. B2B marketing is forced to test in production. WhyUser is the pre-launch stress test that fixes every campaign before it launches.</p>
+                <p>Engineering has staging. Finance has audits. Sales runs role plays. B2B marketing still tests in production.</p>
             </div>
 
-                        <div class="solfix-grid">
+                <div class="ps-flow">
 
-                <a class="solfix-card" href="committee-simulation.html">
-                    <div class="solfix-head">
-                        <span class="solfix-icon"><i class="fa-solid fa-users"></i></span>
-                        <span class="mono-label">Engine 01</span>
+                    <!-- 01 · Committee -->
+                    <div class="ps-item">
+                        <span class="ps-pain-tag">Silent veto</span>
+                        <p class="ps-pain-q">&ldquo;The champion loves the page. The CFO quietly vetoes. Nobody tells you.&rdquo;</p>
+                        <div class="ps-engine">
+                            <span class="ps-engine-eyebrow">Engine 01</span>
+                            <h3 class="ps-engine-name"><a href="committee-simulation.html">Committee Simulation</a></h3>
+                            <p class="ps-engine-fix">Which buyer role killed it, and the missing proof.</p>
+                            <a class="ps-engine-out" href="committee-simulation.html">
+                                <i class="out-icon fa-solid fa-diagram-project"></i> Conflict Graph
+                                <i class="out-arrow fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="solfix-pain">&ldquo;The champion loves the page. The CFO quietly vetoes. Nobody tells you.&rdquo;</p>
-                    <div>
-                        <h3 class="solfix-name">Committee Simulation</h3>
-                        <p class="solfix-desc">See which buyer role killed it, and the proof that was missing.</p>
-                    </div>
-                    <div class="solfix-foot">
-                        <span class="solfix-chip"><i class="fa-solid fa-diagram-project"></i> Conflict Graph</span>
-                        <i class="fa-solid fa-arrow-right solfix-arrow"></i>
-                    </div>
-                </a>
 
-                <a class="solfix-card" href="ad-campaign-simulation.html">
-                    <div class="solfix-head">
-                        <span class="solfix-icon"><i class="fa-solid fa-bullseye"></i></span>
-                        <span class="mono-label">Engine 02</span>
+                    <!-- 02 · Ad -->
+                    <div class="ps-item">
+                        <span class="ps-pain-tag">Wasted spend</span>
+                        <p class="ps-pain-q">&ldquo;Ad budget pours into a page that was never going to convert.&rdquo;</p>
+                        <div class="ps-engine">
+                            <span class="ps-engine-eyebrow">Engine 02</span>
+                            <h3 class="ps-engine-name"><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></h3>
+                            <p class="ps-engine-fix">The ad-to-page gap, caught before you spend.</p>
+                            <a class="ps-engine-out" href="ad-campaign-simulation.html">
+                                <i class="out-icon fa-solid fa-list-check"></i> Kill Sheet
+                                <i class="out-arrow fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="solfix-pain">&ldquo;Ad budget pours into a page that was never going to convert.&rdquo;</p>
-                    <div>
-                        <h3 class="solfix-name">Ad Campaign Simulation</h3>
-                        <p class="solfix-desc">Catch the gap between the ad&rsquo;s promise and the page before you spend.</p>
-                    </div>
-                    <div class="solfix-foot">
-                        <span class="solfix-chip"><i class="fa-solid fa-list-check"></i> Kill Sheet</span>
-                        <i class="fa-solid fa-arrow-right solfix-arrow"></i>
-                    </div>
-                </a>
 
-                <a class="solfix-card" href="email-campaign-simulation.html">
-                    <div class="solfix-head">
-                        <span class="solfix-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
-                        <span class="mono-label">Engine 03</span>
+                    <!-- 03 · Email -->
+                    <div class="ps-item">
+                        <span class="ps-pain-tag">Flat sends</span>
+                        <p class="ps-pain-q">&ldquo;One email to three roles wins for none of them.&rdquo;</p>
+                        <div class="ps-engine">
+                            <span class="ps-engine-eyebrow">Engine 03</span>
+                            <h3 class="ps-engine-name"><a href="email-campaign-simulation.html">Email Campaign Simulation</a></h3>
+                            <p class="ps-engine-fix">The subject and CTA that win for each role.</p>
+                            <a class="ps-engine-out" href="email-campaign-simulation.html">
+                                <i class="out-icon fa-solid fa-trophy"></i> Per-Persona Winner
+                                <i class="out-arrow fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="solfix-pain">&ldquo;One email to three roles wins for none of them.&rdquo;</p>
-                    <div>
-                        <h3 class="solfix-name">Email Campaign Simulation</h3>
-                        <p class="solfix-desc">Get the subject, body, and CTA that win for each persona before you send.</p>
-                    </div>
-                    <div class="solfix-foot">
-                        <span class="solfix-chip"><i class="fa-solid fa-trophy"></i> Per-Persona Winner</span>
-                        <i class="fa-solid fa-arrow-right solfix-arrow"></i>
-                    </div>
-                </a>
 
-                <a class="solfix-card" href="audience-discovery.html">
-                    <div class="solfix-head">
-                        <span class="solfix-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <span class="mono-label">Engine 04</span>
+                    <!-- 04 · Audience -->
+                    <div class="ps-item">
+                        <span class="ps-pain-tag">Stale targeting</span>
+                        <p class="ps-pain-q">&ldquo;You target last year&rsquo;s titles and bid against every competitor.&rdquo;</p>
+                        <div class="ps-engine">
+                            <span class="ps-engine-eyebrow">Engine 04</span>
+                            <h3 class="ps-engine-name"><a href="audience-discovery.html">Audience Discovery</a></h3>
+                            <p class="ps-engine-fix">The roles your content actually fits.</p>
+                            <a class="ps-engine-out" href="audience-discovery.html">
+                                <i class="out-icon fa-solid fa-crosshairs"></i> Ranked Title Pool
+                                <i class="out-arrow fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="solfix-pain">&ldquo;You target last year&rsquo;s titles and bid against every competitor.&rdquo;</p>
-                    <div>
-                        <h3 class="solfix-name">Audience Discovery</h3>
-                        <p class="solfix-desc">Find the roles your content actually fits, including lower-CPM titles you miss.</p>
-                    </div>
-                    <div class="solfix-foot">
-                        <span class="solfix-chip"><i class="fa-solid fa-crosshairs"></i> Ranked Title Pool</span>
-                        <i class="fa-solid fa-arrow-right solfix-arrow"></i>
-                    </div>
-                </a>
 
-            </div>
+                </div>
 
             <figure class="section-quote">
                 <span aria-hidden="true" class="section-quote-mark">&ldquo;</span>
@@ -2593,7 +2658,7 @@
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">Where WhyUser fits</span>
                 <h2 class="h2">One new step, right before launch.</h2>
-                <p>You don't change how you work. WhyUser adds one step between review and launch, the gap where silent vetoes slip through today. Run it in the app, or fully headless via API so it drops straight into your pipeline.</p>
+                <p>You don't change how you work. WhyUser adds one step between review and launch, the gap where silent vetoes slip through today. Run it in-app, or headless via API.</p>
             </div>
 
             <div class="flow">
@@ -2690,7 +2755,7 @@
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">Ground Reality</span>
                 <h2 class="h2">Your personas are compiled, not invented.</h2>
-                <p>We don’t imagine your buyers. We compile them from your real data, your site, customer calls, community chatter, even how AI assistants describe your category. Each persona updates as new evidence arrives, so it stays accurate instead of drifting. Then the engine runs it at scale.</p>
+                <p>We don’t imagine your buyers. We compile them from your own data: your site, customer calls, community chatter, even how AI assistants describe your category. Each persona updates as new evidence arrives, so it never drifts.</p>
             </div>
 
             <div class="hub">
@@ -2783,7 +2848,7 @@
             </div>
 
             <p style="margin: 2.5rem auto 0; max-width: 46rem; text-align: center; color: var(--mute); font-size: 0.9375rem; line-height: 1.6">
-                Six grounded inputs become <strong style="color: var(--ink); font-weight: 600">one buyer agent</strong>, with a role, a current mood, and a way of deciding. Every run uses 300 of them across 5 committee roles, so the findings hold up.
+                Six grounded inputs become <strong style="color: var(--ink); font-weight: 600">one buyer agent</strong>, with a role, a mood, and a way of deciding. Every run fields 300 of them across 5 committee roles.
             </p>
 
             <!-- Section-level proof point, Nichole testimonial about Ground Reality / calibration -->

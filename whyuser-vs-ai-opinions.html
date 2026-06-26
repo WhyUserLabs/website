@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="light">
+<title>AI Opinions vs. WhyUser Simulations</title>
+<meta name="description" content="Drop the same page into AI and into WhyUser. One returns a confident opinion. The other returns the whole buying committee, including the role that vetoes. An interactive comparison.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Lora:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/whyuser-favicon.png">
+
+<style>
+:root{
+  --paper:#fcf9f0; --surface:#ffffff;
+  --ink:#09090b; --ink-soft:#1c1c1f; --mute:#3a3a40; --dim:#4d4d55; --faint:#6e6e76; --ghost:#a8a8af;
+  --rule:rgba(9,9,11,0.07); --rule-strong:rgba(9,9,11,0.13); --rule-bold:rgba(9,9,11,0.22);
+  --brand:#6d28d9; --brand-soft:#ede9fe;
+  --green:#059669; --green-b:#10b981; --red:#dc2626; --red-b:#ef4444;
+  --amber:#d97706; --amber-b:#f59e0b; --blue:#2563eb;
+  --mock:#4f46e5; /* the sample product's accent, not WhyUser violet */
+  --r-ch:#7c3aed; --r-eb:#2563eb; --r-eu:#0d9488; --r-gk:#64748b; --r-td:#ea580c;
+}
+*{box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;}
+body{font-family:'Geist',system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:16px;
+  line-height:1.55;font-feature-settings:"ss01","cv11","kern";margin:0;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;} button{font-family:inherit;cursor:pointer;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+@media(min-width:768px){.wrap{padding:0 2rem;}}
+section{padding:3.25rem 0;}
+@media(min-width:768px){section{padding:4.25rem 0;}}
+h1,h2,h3{margin:0;}
+
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--brand);display:inline-flex;align-items:center;gap:0.7rem;}
+.eyebrow::before{content:'';width:22px;height:1px;background:currentColor;display:inline-block;opacity:0.6;}
+.editorial{font-family:Lora,Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-0.005em;}
+.mono{font-family:'JetBrains Mono',monospace;} .tab{font-variant-numeric:tabular-nums;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(252,249,240,0.82);backdrop-filter:blur(20px) saturate(1.6);
+  -webkit-backdrop-filter:blur(20px) saturate(1.6);border-bottom:1px solid var(--rule);}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;}
+.brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:16px;letter-spacing:-0.022em;}
+.mark{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  background:var(--ink);color:#fff;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;}
+.mark img{width:100%;height:100%;object-fit:contain;}
+.nav-links{display:none;gap:1.6rem;font-size:13.5px;font-weight:500;color:var(--mute);}
+.nav-links a:hover{color:var(--ink);}
+@media(min-width:1024px){.nav-links{display:flex;}}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;border-radius:8px;font-size:13.5px;
+  font-weight:600;letter-spacing:-0.005em;border:1px solid transparent;transition:all 150ms ease;white-space:nowrap;}
+.btn-primary{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 1px 2px rgba(9,9,11,0.14),0 8px 22px -12px rgba(9,9,11,0.4);}
+.btn-primary:hover{background:#18181c;}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule-bold);}
+.btn-ghost:hover{border-color:var(--ink);}
+.btn-lg{padding:0.8rem 1.3rem;font-size:14px;border-radius:9px;}
+.btn:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--brand);outline-offset:3px;}
+
+/* ── BROWSER MOCKUP (the sample page under test) ── */
+.browser{border:1px solid var(--rule-strong);border-radius:11px;overflow:hidden;background:#fff;
+  box-shadow:0 1px 2px rgba(9,9,11,0.05),0 24px 48px -20px rgba(9,9,11,0.28);}
+.bz-bar{display:flex;align-items:center;gap:0.6rem;padding:0.5rem 0.7rem;background:#f1f1f0;border-bottom:1px solid var(--rule);}
+.bz-dots{display:flex;gap:5px;}.bz-dots i{width:9px;height:9px;border-radius:50%;background:#d4d4d8;}
+.bz-url{flex:1;background:#fff;border:1px solid var(--rule);border-radius:6px;padding:3px 9px;font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;color:var(--dim);display:flex;align-items:center;gap:0.4rem;}
+.bz-url svg{width:9px;height:9px;color:var(--green);}
+/* the mock page itself */
+.mock{padding:0;}
+.mk-nav{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0.9rem;border-bottom:1px solid var(--rule);}
+.mk-logo{display:flex;align-items:center;gap:0.4rem;font-weight:700;font-size:11.5px;letter-spacing:-0.02em;color:var(--ink);}
+.mk-logo .lm{width:14px;height:14px;border-radius:4px;background:var(--mock);}
+.mk-navlinks{display:flex;gap:0.7rem;font-size:9px;color:var(--mute);}
+.mk-cta{background:var(--mock);color:#fff;font-size:9px;font-weight:600;padding:3px 8px;border-radius:5px;}
+.mk-hero{padding:1.3rem 0.9rem 1.1rem;}
+.mk-eye{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mock);}
+.mk-h{font-size:1.35rem;font-weight:700;letter-spacing:-0.03em;line-height:1.05;color:var(--ink);margin:0.5rem 0 0.4rem;}
+.mk-p{font-size:10.5px;line-height:1.45;color:var(--mute);max-width:21rem;margin:0 0 0.8rem;}
+.mk-btns{display:flex;gap:0.5rem;}
+.mk-b1{background:var(--mock);color:#fff;font-size:9.5px;font-weight:600;padding:6px 12px;border-radius:6px;}
+.mk-b2{border:1px solid var(--rule-bold);color:var(--ink);font-size:9.5px;font-weight:600;padding:6px 12px;border-radius:6px;}
+.mk-code{margin:0.9rem 0.9rem 0;background:#0f1117;border-radius:8px;padding:0.7rem 0.8rem;font-family:'JetBrains Mono',monospace;
+  font-size:9px;line-height:1.7;color:#c7d0e0;}
+.mk-code .pr{color:#5b6b86;} .mk-code .ok{color:#34d399;} .mk-code .lk{color:#818cf8;}
+.mk-logos{display:flex;align-items:center;gap:0.55rem;padding:0.9rem;font-size:8px;color:var(--faint);}
+.mk-logos b{font-family:'JetBrains Mono',monospace;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;}
+.mk-logos i{height:9px;width:34px;border-radius:3px;background:#e6e6e3;display:inline-block;}
+.mock-cap{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-soft);text-align:center;margin-top:0.8rem;}
+
+/* slim page reference strip (anchors each move to the same page) */
+.page-ref{display:inline-flex;align-items:center;gap:0.6rem;padding:0.4rem 0.7rem;border:1px solid var(--rule);
+  border-radius:7px;background:rgba(255,255,255,0.6);font-family:'JetBrains Mono',monospace;font-size:9.5px;
+  letter-spacing:0.04em;color:var(--dim);margin-bottom:2rem;}
+.page-ref .dts{display:flex;gap:3px;}.page-ref .dts i{width:6px;height:6px;border-radius:50%;background:#d4d4d8;}
+.page-ref b{color:var(--ink-soft);font-weight:600;text-transform:none;letter-spacing:0;font-family:'Geist',sans-serif;font-size:11px;}
+
+/* ── HERO ── */
+.hero{padding-top:3.5rem;padding-bottom:2.5rem;}
+@media(min-width:768px){.hero{padding-top:4.25rem;padding-bottom:3rem;}}
+.hero-pill{display:inline-flex;align-items:center;gap:0.6rem;padding:0.4rem 0.8rem;border:1px solid var(--rule-strong);
+  border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.75rem;background:rgba(255,255,255,0.5);}
+.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--amber-b);box-shadow:0 0 0 3px rgba(245,158,11,0.2);}
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);font-weight:600;letter-spacing:-0.04em;line-height:1.02;margin:0 0 1.3rem;max-width:20ch;}
+.hero h1 .b{color:var(--brand);}
+.hero-sub{font-size:1.125rem;line-height:1.55;color:var(--mute);max-width:36rem;margin:0 0 1rem;}
+
+/* the concrete hero demo: page → two reactions */
+.hero-demo{display:grid;grid-template-columns:1fr;gap:1.75rem;align-items:center;margin-top:2.75rem;}
+@media(min-width:880px){.hero-demo{grid-template-columns:minmax(0,340px) 26px minmax(0,1fr);gap:0;}}
+.hd-arrow{display:none;align-items:center;justify-content:center;color:var(--faint);}
+@media(min-width:880px){.hd-arrow{display:flex;}}
+.hd-react{display:flex;flex-direction:column;gap:1.5rem;}
+@media(min-width:880px){.hd-react{padding-left:1.75rem;}}
+.react-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:0.5rem;margin-bottom:0.7rem;}
+.react-label .d{width:7px;height:7px;border-radius:50%;flex:none;}
+.react-label.sim{color:var(--brand);}
+/* AI bubble */
+.bot-bubble{background:#f7f7f6;border:1px solid var(--rule);border-radius:12px;border-top-left-radius:3px;
+  padding:0.85rem 1rem;font-size:14px;line-height:1.55;color:var(--ink-soft);max-width:30rem;min-height:3.4em;
+  display:flex;align-items:center;transition:opacity 200ms ease;}
+.bot-bubble.fade{opacity:0.3;}
+.bot-bubble .glow{color:var(--green);font-weight:500;}
+/* committee */
+.committee{max-width:30rem;}
+.cm-row{display:flex;align-items:center;justify-content:space-between;gap:0.8rem;padding:0.42rem 0;border-top:1px solid var(--rule);}
+.cm-row:first-child{border-top:none;}
+.cm-role{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+.cm-v{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.02em;display:inline-flex;align-items:center;gap:0.35rem;}
+.cm-v.good{color:var(--green);} .cm-v.warn{color:var(--amber);} .cm-v.bad{color:var(--red);}
+.cm-row.veto{margin-top:0.15rem;padding-top:0.55rem;border-top:1px solid var(--rule-strong);}
+.cm-pinned{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);
+  margin-top:0.7rem;display:flex;align-items:center;gap:0.35rem;}
+
+/* ── shared move scaffold ── */
+.move-rule{height:1px;background:var(--rule);}
+.move-head{margin-bottom:1.5rem;}
+.move-head .eyebrow{margin-bottom:1rem;}
+.move-head h2{font-size:clamp(1.7rem,3.3vw,2.4rem);font-weight:600;letter-spacing:-0.035em;line-height:1.05;color:var(--ink);}
+.move-head p{font-size:1rem;line-height:1.5;color:var(--mute);max-width:34rem;margin:0.45rem 0 0;}
+
+/* split (AI | whyuser) */
+.split{display:grid;grid-template-columns:1fr 1fr;}
+.split>div{min-width:0;}
+.col-l{padding-right:clamp(1.25rem,4vw,3rem);}
+.col-r{padding-left:clamp(1.25rem,4vw,3rem);border-left:1px solid var(--rule-strong);}
+@media(max-width:760px){.split{grid-template-columns:1fr;}
+  .col-l{padding-right:0;padding-bottom:2.25rem;}
+  .col-r{padding-left:0;padding-top:2.25rem;border-left:none;border-top:1px solid var(--rule-strong);}}
+.col-label{display:flex;align-items:center;gap:0.55rem;font-family:'JetBrains Mono',monospace;font-size:10px;
+  font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:1.4rem;}
+.col-label .d{width:8px;height:8px;border-radius:50%;flex:none;} .col-label.is-sim{color:var(--brand);}
+
+.verdict{font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:600;letter-spacing:-0.025em;line-height:1.1;
+  display:flex;align-items:center;gap:0.6rem;min-height:1.3em;transition:color 320ms ease,opacity 200ms ease;}
+.verdict.fade{opacity:0;}
+.v-pos{color:var(--green);} .v-warn{color:var(--amber);} .v-neg{color:var(--red);} .v-neutral{color:var(--ink-soft);}
+.loop-quote{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin-top:0.75rem;max-width:30rem;min-height:3.8em;transition:opacity 180ms ease;}
+.loop-quote.fade{opacity:0.25;}
+.run-line{margin-top:0.9rem;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--ink);display:flex;align-items:center;gap:0.6rem;}
+.loop-note{margin-top:0.9rem;font-size:12px;line-height:1.5;color:var(--amber);min-height:1.3em;max-width:30rem;}
+
+.sim-verdict{font-size:clamp(1.3rem,3.2vw,1.75rem);font-weight:600;letter-spacing:-0.02em;color:var(--amber);display:flex;align-items:center;gap:0.55rem;transition:color 280ms ease;}
+.sim-verdict.is-driver{color:var(--green);}
+.sim-hyp{font-size:13px;line-height:1.55;color:var(--mute);margin:0.7rem 0 0.4rem;max-width:30rem;}
+.role{display:flex;gap:0.85rem;padding:0.6rem 0;border-top:1px solid var(--rule);align-items:flex-start;}
+.role:first-of-type{border-top:1px solid var(--rule-strong);margin-top:1rem;}
+.st{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.28rem 0.45rem;border-radius:4px;flex:none;min-width:70px;text-align:center;transition:all 240ms ease;}
+.st-block{background:rgba(220,38,38,0.1);color:var(--red);} .st-frict{background:rgba(217,119,6,0.1);color:var(--amber);}
+.st-resol{background:rgba(5,150,105,0.13);color:var(--green);} .st-likely{background:rgba(37,99,235,0.1);color:var(--blue);}
+.role-b{flex:1;min-width:0;} .role-n{font-size:13.5px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+.role-t{font-size:12.5px;line-height:1.5;color:var(--mute);margin-top:0.2rem;} .role-t .grd{color:var(--green);font-family:'JetBrains Mono',monospace;font-size:10.5px;}
+.sim-foot{margin-top:1.1rem;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:var(--ink);display:flex;align-items:center;gap:0.7rem;}
+.carried{color:var(--green);opacity:0;transition:opacity 220ms ease;} .carried.on{opacity:1;}
+
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:center;margin-top:1.75rem;}
+.controls .hint{font-size:12.5px;color:var(--mute);}
+.fix-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin:1.6rem 0 0.85rem;text-align:center;}
+.fixes{display:flex;flex-wrap:wrap;gap:0.7rem;justify-content:center;}
+.fix{display:flex;align-items:center;gap:0.6rem;padding:0.65rem 0.9rem;border:1px solid var(--rule-bold);border-radius:999px;
+  font-size:12.5px;color:var(--ink-soft);transition:all 150ms ease;background:transparent;}
+.fix:hover{border-color:var(--ink);}
+.fix.on{border-color:var(--brand);background:var(--brand-soft);color:var(--ink);}
+.fix .bx{width:15px;height:15px;border-radius:4px;border:1.5px solid var(--rule-bold);flex:none;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;transition:all 150ms ease;}
+.fix.on .bx{background:var(--brand);border-color:var(--brand);} .fix.on .bx::after{content:'✓';}
+.fix .for{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:0.1rem;}
+
+.takeaway{font-family:Lora,Georgia,serif;font-style:italic;font-size:clamp(1.25rem,2.6vw,1.55rem);line-height:1.4;
+  color:var(--ink-soft);max-width:40rem;margin:2rem auto 0;text-align:center;}
+.takeaway b{font-style:normal;font-weight:600;color:var(--ink);font-family:'Geist',sans-serif;} .takeaway .hl{color:var(--brand);}
+
+/* plots */
+.slider-wrap{max-width:34rem;margin:0 auto 3rem;text-align:center;}
+.slider-top{display:flex;align-items:baseline;justify-content:center;gap:0.7rem;margin-bottom:0.9rem;}
+.slider-top .lab{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);}
+.slider-top .val{font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;border-radius:3px;background:var(--rule-bold);outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--ink);cursor:pointer;box-shadow:0 2px 6px rgba(9,9,11,0.3);}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--ink);cursor:pointer;border:none;}
+.slider-wrap .hint{font-size:12px;color:var(--mute);margin-top:0.9rem;}
+.plot-top{display:flex;align-items:center;justify-content:space-between;gap:0.7rem;margin-bottom:0.4rem;}
+.plot-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.45rem;border-radius:4px;transition:transform 220ms ease;}
+.bg-diff{background:rgba(217,119,6,0.1);color:var(--amber);} .bg-same{background:rgba(5,150,105,0.1);color:var(--green);}
+.plot-svg{width:100%;height:auto;display:block;margin-top:0.3rem;}
+.dot-wu{cursor:pointer;} .dot-wu:hover{stroke:var(--ink);stroke-width:1.4;}
+.plot-cap{margin-top:0.7rem;font-size:11.5px;line-height:1.5;color:var(--mute);min-height:3.6em;} .plot-cap b{color:var(--ink-soft);}
+.legend{display:flex;flex-wrap:wrap;gap:0.5rem 0.9rem;margin-top:0.7rem;}
+.legend span{display:inline-flex;align-items:center;gap:0.35rem;font-size:10px;color:var(--mute);} .legend i{width:8px;height:8px;border-radius:50%;}
+
+/* directed conflict graph */
+.graph-block{margin-top:3.5rem;}
+.graph-glow{position:relative;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(109,40,217,0.06),transparent 72%);padding:1rem 0 0.5rem;}
+.graph-deal{font-size:1.0625rem;line-height:1.5;color:var(--ink);font-weight:500;max-width:38rem;margin:0 auto 0.5rem;text-align:center;}
+.graph-deal b{color:var(--red);font-weight:600;}
+.graph-svg{width:100%;height:auto;display:block;max-width:600px;margin:0.5rem auto 0;}
+.rule-line{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.8;color:var(--ink-soft);border-left:2px solid var(--brand);padding:0.3rem 0 0.3rem 1rem;max-width:30rem;margin:1.25rem auto 0;}
+.rule-line .red{color:var(--red);} .rule-line .grn{color:var(--green);}
+.graph-foot{font-size:12.5px;color:var(--mute);text-align:center;margin-top:1.25rem;line-height:1.5;} .graph-foot b{color:var(--ink);font-weight:600;}
+
+/* ledger */
+.ledger-head{display:grid;grid-template-columns:1fr auto auto;gap:1rem;padding-bottom:0.7rem;border-bottom:1px solid var(--rule-strong);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);}
+.lrow{display:grid;grid-template-columns:1fr auto auto;gap:1rem;align-items:center;padding:0.6rem 0;border-top:1px solid var(--rule);} .lrow:first-of-type{border-top:none;}
+.lclaim{font-size:13.5px;color:var(--ink);line-height:1.4;} .lconf{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mute);text-align:right;}
+.grade{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.06em;padding:0.24rem 0.5rem;border-radius:5px;}
+.g-hit{background:rgba(5,150,105,0.12);color:var(--green);} .g-miss{background:rgba(220,38,38,0.1);color:var(--red);}
+.loop-empty .q{font-size:1.0625rem;line-height:1.5;color:var(--ink-soft);margin:1.4rem 0 0;}
+.loop-empty .small{font-size:12.5px;line-height:1.55;color:var(--mute);margin:1.1rem 0 0;}
+.outlier{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--rule);}
+.outlier-top{display:flex;align-items:center;justify-content:space-between;gap:0.8rem;flex-wrap:wrap;}
+.outlier-q{font-size:13.5px;color:var(--ink);line-height:1.4;}
+.conf-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.24rem 0.5rem;border-radius:5px;transition:all 280ms ease;}
+.cb-out{background:rgba(217,119,6,0.12);color:var(--amber);} .cb-conf{background:rgba(5,150,105,0.12);color:var(--green);}
+.outlier-act{display:flex;align-items:center;justify-content:space-between;gap:0.8rem;margin-top:0.85rem;flex-wrap:wrap;}
+.outlier-note{font-size:11.5px;color:var(--mute);line-height:1.5;max-width:26rem;}
+.honesty{font-size:1.1rem;line-height:1.55;color:var(--ink-soft);max-width:42rem;margin:1.75rem auto 0;text-align:center;} .honesty b{color:var(--dim);font-weight:600;}
+
+/* close */
+.close{border-top:1px solid var(--rule);text-align:center;}
+.close .eyebrow{justify-content:center;margin-bottom:1.4rem;}
+.close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-0.04em;line-height:1.06;margin:0 0 1.3rem;}
+.close h2 .dimd{color:var(--ghost);}
+.close-line{font-size:1.0625rem;line-height:1.6;color:var(--mute);max-width:34rem;margin:0 auto 2.25rem;}
+.close-line .fail{color:var(--red);font-weight:600;} .close-line .win{color:var(--green-b);font-weight:600;}
+.close-ctas{display:flex;flex-direction:column;gap:0.75rem;align-items:center;justify-content:center;}
+@media(min-width:480px){.close-ctas{flex-direction:row;}}
+
+.footer{border-top:1px solid var(--rule);padding:2.5rem 0;}
+.footer-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;font-size:12.5px;color:var(--dim);}
+.footer-links{display:flex;flex-wrap:wrap;gap:1.25rem;} .footer-links a:hover{color:var(--ink);}
+
+.pop{position:fixed;z-index:80;background:var(--ink);color:#fff;border-radius:8px;padding:0.6rem 0.75rem;max-width:240px;font-size:11.5px;line-height:1.45;box-shadow:0 14px 34px -10px rgba(0,0,0,0.5);opacity:0;pointer-events:none;transition:opacity 120ms ease;transform:translate(-50%,-112%);}
+.pop.on{opacity:1;} .pop .ph{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#a1a1aa;display:block;margin-bottom:0.25rem;}
+
+.acc{margin:1rem 0 1.2rem;padding:0.85rem 1rem;border:1px solid var(--rule-strong);border-radius:10px;background:#f6f3fe;}
+.acc-head{display:flex;align-items:baseline;gap:0.55rem;}
+.acc-pct{font-size:1.55rem;font-weight:700;letter-spacing:-0.03em;color:var(--green);font-variant-numeric:tabular-nums;transition:all 320ms ease;}
+.acc-cap{font-size:11.5px;color:var(--mute);line-height:1.35;}
+.acc-bar{height:5px;border-radius:3px;background:rgba(9,9,11,0.08);margin:0.55rem 0 0.5rem;overflow:hidden;}
+.acc-bar span{display:block;height:100%;background:var(--green-b);border-radius:3px;transition:width 420ms ease;}
+.acc-note{font-size:11.5px;line-height:1.5;color:var(--mute);} .acc-note b{color:var(--ink);font-weight:600;}
+.learn{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--rule);}
+.learn-head{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--brand);margin-bottom:0.65rem;}
+.learn-foot{margin-top:0.65rem;font-size:11.5px;line-height:1.5;color:var(--mute);font-style:italic;}
+.close h2 .fail{color:var(--red);} .close h2 .win{color:var(--green-b);}
+@media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><span class="mark"><img src="images/whyuser-mark.png" alt="WhyUser" onerror="this.parentNode.textContent='W'"></span>WhyUser</a>
+    <div class="nav-links">
+      <a href="committee-simulation.html">Committee</a><a href="ad-campaign-simulation.html">Ad Campaign</a>
+      <a href="email-campaign-simulation.html">Email</a><a href="audience-discovery.html">Audience</a>
+    </div>
+    <a class="btn btn-primary" href="index.html#access">Apply for access</a>
+  </div>
+</nav>
+
+<!-- ───────────── HERO ───────────── -->
+<header class="hero">
+  <div class="wrap">
+    <h1>AI Opinions vs.<br><span class="b">WhyUser Simulations</span></h1>
+    <p class="hero-sub">Drop the same landing page into both. One writes a confident review. The other shows your buyers hunting, scanning, and abandoning the page, right down to the seat that vetoes.</p>
+
+    <div class="hero-demo">
+      <!-- the page under test -->
+      <div>
+        <div class="browser">
+          <div class="bz-bar"><span class="bz-dots"><i></i><i></i><i></i></span>
+            <span class="bz-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>deployflow.dev</span></div>
+          <div class="mock">
+            <div class="mk-nav"><span class="mk-logo"><span class="lm"></span>Deployflow</span>
+              <span class="mk-navlinks"><span>Features</span><span>Docs</span><span>Pricing</span></span>
+              <span class="mk-cta">Start free</span></div>
+            <div class="mk-hero">
+              <div class="mk-eye">Ship faster</div>
+              <h3 class="mk-h">Ship to production 10× faster</h3>
+              <p class="mk-p">From commit to live in seconds. One command, zero config, no YAML to babysit.</p>
+              <div class="mk-btns"><span class="mk-b1">Start free</span><span class="mk-b2">Read the docs</span></div>
+            </div>
+            <div class="mk-code"><span class="pr">$</span> deploy --prod<br><span class="ok">✓</span> build &nbsp;<span class="ok">✓</span> tests &nbsp;<span class="ok">✓</span> live → <span class="lk">app.deployflow.dev</span></div>
+            <div class="mk-logos"><b>Trusted by</b><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="mock-cap">The same page, fed to both</div>
+      </div>
+
+      <div class="hd-arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+      <!-- two reactions -->
+      <div class="hd-react">
+        <div>
+          <div class="react-label"><span class="d" style="background:var(--faint)"></span> AI opinion</div>
+          <div class="bot-bubble" id="hero-bot"><span><span class="glow" id="hero-bot-v">Looks great. Clean page, strong claim. I'd ship it.</span></span></div>
+        </div>
+        <div>
+          <div class="react-label sim"><span class="d" style="background:var(--brand)"></span> WhyUser simulation</div>
+          <div class="committee">
+            <div class="cm-row"><span class="cm-role">Champion</span><span class="cm-v good">wants in</span></div>
+            <div class="cm-row"><span class="cm-role">End User</span><span class="cm-v good">likes it</span></div>
+            <div class="cm-row"><span class="cm-role">Gatekeeper</span><span class="cm-v good">clears</span></div>
+            <div class="cm-row"><span class="cm-role">Economic Buyer</span><span class="cm-v warn">hesitates · no pricing</span></div>
+            <div class="cm-row veto"><span class="cm-role">Tech-Decider</span><span class="cm-v bad">✕ vetoes: no proof of “10×”</span></div>
+          </div>
+          <div class="cm-pinned">● same page, same verdict, every run</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:0;padding-bottom:2.25rem">
+  <div class="wrap" style="text-align:center">
+    <p class="takeaway">The AI loved a page the committee would kill. <span class="editorial" style="color:var(--faint)">Below is why its answer can't carry your budget.</span></p>
+  </div>
+</section>
+
+<div class="move-rule"></div>
+
+<!-- ───────────── MOVE 01 ───────────── -->
+<section id="m1">
+  <div class="wrap">
+    <div class="move-head">
+      <span class="eyebrow">01 · Ask again</span>
+      <h2>Ask the same question twice.</h2>
+      <p>AI writes a fresh answer every time, so you can't tell a real signal from a mood. The simulation returns the same verdict, by design.</p>
+    </div>
+
+    <div class="split">
+      <div class="col-l">
+        <div class="col-label"><span class="d" style="background:var(--faint)"></span> AI opinion</div>
+        <div class="verdict v-pos" id="m1-bot-v">Looks strong</div>
+        <div class="loop-quote" id="m1-bot-q">Strong page for a technical reader. The hero is punchy, the “10× faster” claim lands fast, and the code sample builds credibility. I'd ship it and A/B the CTA later.</div>
+        <div class="run-line"><span id="m1-bot-run">run #1</span><span>· regenerates each time</span></div>
+        <div class="loop-note" id="m1-bot-note"></div>
+      </div>
+      <div class="col-r">
+        <div class="col-label is-sim"><span class="d" style="background:var(--brand)"></span> WhyUser simulation</div>
+        <div class="sim-verdict" id="m1-sim-v">Committee: Friction</div>
+        <p class="sim-hyp">The simulation suggests the committee stalls. Three roles can't get what they need to advance.</p>
+        <div class="role" id="m1-row-td"><span class="st st-block">Blocker</span><div class="role-b"><div class="role-n">Tech-Decider</div><div class="role-t">Can't verify “10× faster”: no benchmark or methodology on the page.</div></div></div>
+        <div class="role" id="m1-row-eb"><span class="st st-frict">Friction</span><div class="role-b"><div class="role-n">Economic Buyer</div><div class="role-t">No cost or TCO framing, so can't build the budget case.</div></div></div>
+        <div class="role" id="m1-row-ch"><span class="st st-frict">Friction</span><div class="role-b"><div class="role-n">Champion</div><div class="role-t">Nothing forwardable: no one-pager to take to the CFO.</div></div></div>
+        <div class="sim-foot"><span id="m1-sim-foot">open issues: 3 · run #1</span><span class="carried" id="m1-carried">✓ carried forward</span></div>
+      </div>
+    </div>
+
+    <div class="controls"><button class="btn btn-primary btn-lg" id="m1-run">↻&nbsp; Ask again</button><span class="hint">Press it a few times.</span></div>
+
+    <div class="fix-label">Now fix one thing, a real one</div>
+    <div class="fixes">
+      <button class="fix" data-fix="bench"><span class="bx"></span><span><span class="for">Tech-Decider</span>Add a performance benchmark</span></button>
+      <button class="fix" data-fix="tco"><span class="bx"></span><span><span class="for">Economic Buyer</span>Add a year-one TCO breakdown</span></button>
+      <button class="fix" data-fix="one"><span class="bx"></span><span><span class="for">Champion</span>Add a forwardable one-pager</span></button>
+    </div>
+
+    <p class="takeaway">WhyUser moves only when <b>you</b> fix. <br>AI hands you a new opinion <span class="hl">either way</span>.</p>
+  </div>
+</section>
+
+<div class="move-rule"></div>
+
+<!-- ───────────── MOVE 02 ───────────── -->
+<section id="m2">
+  <div class="wrap">
+    <div class="move-head">
+      <span class="eyebrow">02 · One read, or many</span>
+      <h2>Now run it many times.</h2>
+      <p>One answer is an anecdote. Ask AI repeatedly and you get a cloud of noise. WhyUser runs a designed cohort of buyers.</p>
+    </div>
+
+    <div class="slider-wrap">
+      <div class="slider-top"><span class="lab">Runs</span><span class="val tab" id="m2-n">3</span></div>
+      <input type="range" id="m2-slider" min="1" max="30" value="3" aria-label="Number of runs">
+      <p class="hint">Drag toward 30. The AI's answers just pile up. The cohort resolves into a shape.</p>
+    </div>
+
+    <div class="split">
+      <div class="col-l">
+        <div class="plot-top"><div class="col-label" style="margin:0"><span class="d" style="background:var(--faint)"></span> AI opinion</div><span class="plot-badge bg-diff" id="m2-bot-badge">ask again → new cloud</span></div>
+        <svg class="plot-svg" id="m2-bot-svg" viewBox="0 0 340 170" role="img" aria-label="Shapeless cloud of AI answers"></svg>
+        <p class="plot-cap">You can't tell why two answers differ: a mood, a concern, or just different words. <b>The spread has no axis.</b></p>
+      </div>
+      <div class="col-r">
+        <div class="plot-top"><div class="col-label is-sim" style="margin:0"><span class="d" style="background:var(--brand)"></span> WhyUser simulation</div><span class="plot-badge bg-same" id="m2-wu-badge">re-run → identical</span></div>
+        <svg class="plot-svg" id="m2-wu-svg" viewBox="0 0 340 170" role="img" aria-label="Designed cohort clustered by outcome"></svg>
+        <div class="legend"><span><i style="background:var(--r-ch)"></i>Champion</span><span><i style="background:var(--r-eb)"></i>Economic Buyer</span><span><i style="background:var(--r-td)"></i>Tech-Decider</span><span><i style="background:var(--r-eu)"></i>End User</span><span><i style="background:var(--r-gk)"></i>Gatekeeper</span></div>
+        <p class="plot-cap">Each dot is one role in one state, across <b>Distracted, Ideal, Skeptic</b> (Motivation × Skill × Familiarity). Click any dot.</p>
+      </div>
+    </div>
+
+    <div class="controls"><button class="btn btn-primary btn-lg" id="m2-rerun">↻&nbsp; Run all again</button><button class="btn btn-ghost btn-lg" id="m2-graph-btn">Why did the left cluster abandon? →</button></div>
+
+    <div class="graph-block" id="m2-graph" hidden>
+      <div class="graph-glow">
+        <p class="graph-deal">The <b>Champion</b> wants to proceed but can't justify it to the <b>Tech-Decider</b> without performance evidence.</p>
+        <svg class="graph-svg" id="m2-graph-svg" viewBox="0 0 560 270" role="img" aria-label="Directed committee conflict graph"></svg>
+        <div class="rule-line">performance_evidence: <span class="red">NOT&nbsp;FOUND</span><br>&nbsp;→ tech_decider.recommends = <span class="red">false</span><br>&nbsp;→ champion.can_justify = <span class="red">false</span><br>&nbsp;→ gatekeeper.clears = <span class="grn">true</span> <span style="color:var(--mute)">(but can't carry it alone)</span></div>
+        <p class="graph-foot">The arrows are the deal. The veto falls out of the rules when the proof is missing. <b>Computed, not narrated.</b></p>
+      </div>
+    </div>
+
+    <p class="takeaway">A WhyUser cohort <b>varies by design</b> and <b>reproduces to the dot</b>. <span class="editorial" style="color:var(--mute)">AI's answers are random, never the same twice.</span></p>
+  </div>
+</section>
+
+<div class="move-rule"></div>
+
+<!-- ───────────── MOVE 03 ───────────── -->
+<section id="m3">
+  <div class="wrap">
+    <div class="move-head">
+      <span class="eyebrow">03 · Track record</span>
+      <h2>Was it ever right?</h2>
+      <p>AI has no memory of whether its read matched reality. WhyUser grades every call against what actually happened.</p>
+    </div>
+
+    <div class="split">
+      <div class="col-l loop-empty">
+        <div class="col-label"><span class="d" style="background:var(--faint)"></span> AI opinion</div>
+        <div class="verdict v-neutral" style="font-size:1.5rem">Confident</div>
+        <p class="q">“Looks launch-ready to me.”</p>
+        <p class="small">No ledger, and no accuracy to point to. Every run starts cold, with no record of whether its reads ever matched reality. Ask ten times, get the first answer ten times.</p>
+      </div>
+      <div class="col-r">
+        <div class="col-label is-sim"><span class="d" style="background:var(--brand)"></span> WhyUser · evidence tracker</div>
+        <div class="acc">
+          <div class="acc-head"><span class="acc-pct" id="acc-pct">75%</span><span class="acc-cap">of calls graded correct so far · <span id="acc-frac">3 of 4</span></span></div>
+          <div class="acc-bar"><span id="acc-fill" style="width:75%"></span></div>
+          <div class="acc-note">High-confidence calls are held to a higher bar: <b>3 of 3 correct</b>.</div>
+        </div>
+        <div class="ledger-head"><span>Claim, graded against the real outcome</span><span>conf.</span><span>grade</span></div>
+        <div class="lrow"><span class="lclaim">Tech-Decider blocks without performance proof</span><span class="lconf">high</span><span class="grade g-hit">✓ HIT</span></div>
+        <div class="lrow"><span class="lclaim">Economic Buyer won't forward without TCO</span><span class="lconf">high</span><span class="grade g-hit">✓ HIT</span></div>
+        <div class="lrow"><span class="lclaim">End User abandons on a code-first hero</span><span class="lconf">med</span><span class="grade g-miss">✕ MISS</span></div>
+        <div class="lrow"><span class="lclaim">Champion needs a one-pager to advance</span><span class="lconf">high</span><span class="grade g-hit">✓ HIT</span></div>
+        <div class="learn">
+          <div class="learn-head">↑ It learns your committee, and sharpens</div>
+          <div class="outlier-top"><span class="outlier-q">“Distracted buyers miss the below-fold pricing.”</span><span class="conf-badge cb-out" id="m3-badge">seen in 1 run · outlier</span></div>
+          <div class="outlier-act"><span class="outlier-note" id="m3-note">A loud quote stays an outlier until the cohort confirms it.</span><button class="btn btn-ghost" id="m3-more" style="font-size:12px;padding:0.45rem 0.8rem">Run more →</button></div>
+          <div class="learn-foot" id="learn-foot">Graded results re-weight the next run, so accuracy climbs with every campaign.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="honesty"><b>Run it on a campaign you already know the outcome of, and grade us yourself.</b></p>
+    <p class="takeaway">AI forgets. <b>A simulation compounds.</b></p>
+  </div>
+</section>
+
+<!-- ───────────── CLOSE ───────────── -->
+<section class="close">
+  <div class="wrap">
+    <span class="eyebrow">Before you spend</span>
+    <h2><span class="fail">Fail</span> in the lab.<br><span class="win">Win</span> in the market.</h2>
+    <p class="close-line">An AI opinion ships once and hopes. A WhyUser simulation you re-run, grade, and trust. Stress-test your next campaign on your buyers before you pay for the click.</p>
+    <div class="close-ctas"><a class="btn btn-primary btn-lg" href="index.html#access">Run it on your next campaign →</a><a class="btn btn-ghost btn-lg" href="committee-simulation.html">See how the committee works</a></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-row"><span>© 2026 WhyUser Inc. · Pre-launch stress test for B2B campaigns</span>
+    <span class="footer-links"><a href="committee-simulation.html">Committee</a><a href="index.html#build">Why not build it</a><a href="faq.html">FAQ</a><a href="index.html#access">Apply</a></span></div>
+</footer>
+
+<div class="pop" id="pop"></div>
+
+<script>
+(function(){
+  "use strict";
+  const $=s=>document.querySelector(s);
+  const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* AI tends to flatter your own page; hero cycles positive takes */
+  const heroTakes=[
+    "Looks great. Clean page, strong claim. I'd ship it.",
+    "Really solid. Punchy hero, clear value prop. Launch it.",
+    "Nice work. Reads well for a technical audience. Ship away.",
+    "Strong page. The “10× faster” line lands. I'd go live."
+  ];
+  const hb=$("#hero-bot-v"); let hi=0;
+  if(!reduce){ setInterval(()=>{ let n; do{n=Math.floor(Math.random()*heroTakes.length);}while(n===hi); hi=n;
+    $("#hero-bot").classList.add("fade");
+    setTimeout(()=>{ hb.textContent=heroTakes[n]; $("#hero-bot").classList.remove("fade"); },220);
+  },2400); }
+
+  /* Move 1: mixed verdicts show it can't even stay consistent */
+  const reactions=[
+    {v:"Looks strong",s:"v-pos",t:"Strong page for a technical reader. The hero is punchy, the “10× faster” claim lands fast, and the code sample builds credibility. I'd ship it and A/B the CTA later."},
+    {v:"I'd hold",s:"v-warn",t:"Solid bones, but I'd pause. That “10× faster” claim has no proof beside it, and a skeptical buyer could bounce. Add a benchmark before spending on traffic."},
+    {v:"Ship it",s:"v-pos",t:"This works. Clear value prop, good hierarchy, reads well for a developer audience. Proof could be tighter, but I'd call it launch-ready and iterate live."},
+    {v:"Tighten first",s:"v-neg",t:"Decent, but the economic side is thin. There's no pricing or cost framing anywhere, so for a committee purchase I'd add ROI context before launch."},
+    {v:"Looks good",s:"v-pos",t:"Nicely built. The structure guides the eye and the detail signals competence. I'd test a stronger CTA, but nothing here blocks a launch."}
+  ];
+  let m1N=1,m1i=0;
+  const m1V=$("#m1-bot-v"),m1Q=$("#m1-bot-q"),m1Run=$("#m1-bot-run"),m1Note=$("#m1-bot-note"),m1Foot=$("#m1-sim-foot"),m1Carr=$("#m1-carried");
+  function cycle(){ let n; do{n=Math.floor(Math.random()*reactions.length);}while(n===m1i); m1i=n;
+    m1Q.classList.add("fade");
+    setTimeout(()=>{ m1V.className="verdict "+reactions[n].s; m1V.textContent=reactions[n].v; m1Q.textContent=reactions[n].t; m1Q.classList.remove("fade"); },170);
+    m1Run.textContent="run #"+m1N;
+  }
+  $("#m1-run").addEventListener("click",()=>{ m1N++; cycle(); m1Foot.textContent="open issues: "+open()+" · run #"+m1N; m1Carr.classList.add("on"); setTimeout(()=>m1Carr.classList.remove("on"),1600); });
+
+  const fixes={
+    bench:{row:"#m1-row-td",on:false,res:{c:"st-resol",l:"Resolved",t:'Benchmark added: <span class="grd">p95 40ms · 2M req/day · methodology linked</span>'},base:{c:"st-block",l:"Blocker",t:'Can\'t verify “10× faster”: no benchmark or methodology on the page.'}},
+    tco:{row:"#m1-row-eb",on:false,res:{c:"st-resol",l:"Resolved",t:'Year-one cost table added: <span class="grd">setup + seats + usage, fully priced</span>'},base:{c:"st-frict",l:"Friction",t:'No cost or TCO framing, so can\'t build the budget case.'}},
+    one:{row:"#m1-row-ch",on:false,res:{c:"st-likely",l:"Likely",t:'One-pager added in a new section: <span style="color:var(--blue)">likely resolved, can\'t fully attribute (no prior anchor)</span>'},base:{c:"st-frict",l:"Friction",t:'Nothing forwardable: no one-pager to take to the CFO.'}}
+  };
+  function open(){ let n=0; if(!fixes.bench.on)n++; if(!fixes.tco.on)n++; if(!fixes.one.on)n++; return n; }
+  function applyFix(k){
+    const f=fixes[k]; f.on=!f.on;
+    const row=$(f.row),st=row.querySelector(".st"),tx=row.querySelector(".role-t"),state=f.on?f.res:f.base;
+    st.className="st "+state.c; st.textContent=state.l; tx.innerHTML=state.t;
+    const all=fixes.bench.on&&fixes.tco.on&&fixes.one.on,vd=$("#m1-sim-v");
+    if(all){vd.className="sim-verdict is-driver";vd.textContent="Committee: Driver*";}else{vd.className="sim-verdict";vd.textContent="Committee: Friction";}
+    m1N++; m1Foot.textContent="open issues: "+open()+" · run #"+m1N; cycle();
+    m1Note.textContent="You changed one thing, and the whole AI answer rewrote. You can't tell if it landed.";
+    setTimeout(()=>{m1Note.textContent="";},4200);
+  }
+  ["bench","tco","one"].forEach(k=>{const b=document.querySelector('[data-fix="'+k+'"]');b.addEventListener("click",()=>{b.classList.toggle("on");applyFix(k);});});
+
+  /* Move 2 */
+  const W=340,H=170,PAD=22,NS="http://www.w3.org/2000/svg";
+  const roles=[{key:"ch",name:"Champion",color:"#7c3aed",eng:7},{key:"eb",name:"Economic Buyer",color:"#2563eb",eng:10},{key:"eu",name:"End User",color:"#0d9488",eng:6},{key:"gk",name:"Gatekeeper",color:"#64748b",eng:10},{key:"td",name:"Tech-Decider",color:"#ea580c",eng:5}];
+  const stt=["Distracted","Ideal","Skeptic"];
+  const why={abandon:{ch:"couldn't assemble material to make the case internally",eb:"no TCO, couldn't model the spend",eu:"bounced off the dense code-first hero",gk:"flagged thin reliability proof",td:"couldn't verify the performance claim"},engage:{ch:"found enough to forward internally",eb:"cost picture was clear enough to model",eu:"got to the value fast",gk:"reliability proof cleared the bar",td:"benchmark satisfied the check"}};
+  function srand(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);}
+  let cohort=[];
+  for(let j=0;j<10;j++){roles.forEach(r=>{const o=j<r.eng?"engage":"abandon";cohort.push({role:r,outcome:o,state:stt[j%3],idx:cohort.length});});}
+  cohort.forEach((d,i)=>{const xc=d.outcome==="engage"?W*0.74:W*0.26;d.x=Math.max(PAD,Math.min(W-PAD,xc+(srand(i)-0.5)*W*0.20));d.y=PAD+6+srand(i+50)*(H-PAD*2-12);});
+  const botSvg=$("#m2-bot-svg"),wuSvg=$("#m2-wu-svg"),nLab=$("#m2-n"),slider=$("#m2-slider"); let botSeed=1;
+  const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const clr=s=>{while(s.firstChild)s.removeChild(s.firstChild);};
+  function axis(svg,labelled){const b=el("line",{x1:PAD,y1:H-12,x2:W-PAD,y2:H-12,stroke:"rgba(9,9,11,0.12)","stroke-width":1});if(!labelled)b.setAttribute("stroke-dasharray","3 4");svg.appendChild(b);
+    const f={"font-size":9,"font-family":"'JetBrains Mono',monospace","letter-spacing":"0.08em"};
+    if(labelled){const l=el("text",Object.assign({x:PAD,y:H-2,fill:"#a1a1aa"},f));l.textContent="ABANDONED";svg.appendChild(l);const r=el("text",Object.assign({x:W-PAD,y:H-2,fill:"#a1a1aa","text-anchor":"end"},f));r.textContent="ENGAGED";svg.appendChild(r);}
+    else{const c=el("text",Object.assign({x:W/2,y:H-2,fill:"#c7c7cc","text-anchor":"middle"},f));c.textContent="NO SHARED AXIS";svg.appendChild(c);}}
+  function renderBot(n){clr(botSvg);axis(botSvg,false);for(let i=0;i<n;i++){const rx=srand(i*7.7+botSeed*1000),ry=srand(i*3.3+botSeed*1000+9);botSvg.appendChild(el("circle",{cx:(PAD+rx*(W-PAD*2)).toFixed(1),cy:(PAD+ry*(H-PAD*2-10)).toFixed(1),r:4,fill:"#a1a1aa","fill-opacity":0.65}));}}
+  function renderWu(n){clr(wuSvg);axis(wuSvg,true);cohort.slice(0,n).forEach(d=>{const c=el("circle",{cx:d.x.toFixed(1),cy:d.y.toFixed(1),r:4.2,fill:d.role.color,"fill-opacity":0.85,class:"dot-wu"});c.addEventListener("click",e=>pop(e,d));c.addEventListener("mouseenter",e=>pop(e,d));c.addEventListener("mouseleave",hidePop);wuSvg.appendChild(c);});}
+  function both(){const n=parseInt(slider.value,10);nLab.textContent=n;renderBot(n);renderWu(n);}
+  const popEl=$("#pop");
+  function pop(e,d){const r=d.outcome==="engage"?why.engage[d.role.key]:why.abandon[d.role.key];popEl.innerHTML='<span class="ph">'+d.role.name+' · '+d.state+'</span><b style="text-transform:capitalize">'+(d.outcome==="engage"?"Engaged":"Abandoned")+'</b> · '+r+'.';const b=e.target.getBoundingClientRect();popEl.style.left=(b.left+b.width/2)+"px";popEl.style.top=(b.top-6)+"px";popEl.classList.add("on");}
+  function hidePop(){popEl.classList.remove("on");}
+  slider.addEventListener("input",both);
+  $("#m2-rerun").addEventListener("click",()=>{botSeed++;both();[["#m2-bot-badge"],["#m2-wu-badge"]].forEach(([s])=>{const x=$(s);x.style.transform="scale(1.12)";setTimeout(()=>x.style.transform="scale(1)",220);});});
+
+  const gBtn=$("#m2-graph-btn"),gWrap=$("#m2-graph");let drawn=false;
+  gBtn.addEventListener("click",()=>{if(!gWrap.hidden){gWrap.hidden=true;gBtn.textContent="Why did the left cluster abandon? →";return;}gWrap.hidden=false;gBtn.textContent="Hide the conflict ↑";if(!drawn){drawGraph();drawn=true;}gWrap.scrollIntoView({behavior:"smooth",block:"nearest"});});
+  function drawGraph(){
+    const svg=$("#m2-graph-svg");clr(svg);
+    const stC={driver:"#10b981",friction:"#f59e0b",blocker:"#ef4444"},eC={broken:"#ef4444",risk:"#f59e0b",healthy:"#10b981"};
+    const defs=el("defs",{});[["arr-red","#ef4444"],["arr-amber","#f59e0b"],["arr-green","#10b981"]].forEach(([id,col])=>{const m=el("marker",{id:id,viewBox:"0 0 10 10",refX:8,refY:5,markerWidth:6,markerHeight:6,orient:"auto-start-reverse"});m.appendChild(el("path",{d:"M 0 1 L 9 5 L 0 9 z",fill:col}));defs.appendChild(m);});svg.appendChild(defs);
+    const N={ch:{x:140,y:62,name:"Champion",s:"friction"},eb:{x:415,y:78,name:"Economic Buyer",s:"friction"},td:{x:215,y:205,name:"Tech-Decider",s:"blocker"},eu:{x:70,y:185,name:"End User",s:"driver"},gk:{x:500,y:200,name:"Gatekeeper",s:"driver"}};
+    const E=[{a:"td",b:"ch",l:"no evidence",t:"broken"},{a:"ch",b:"eb",l:"stalls",t:"broken"},{a:"td",b:"eb",l:"can't recommend",t:"broken"},{a:"eu",b:"td",l:"recommends",t:"healthy"},{a:"eu",b:"ch",l:"recommends",t:"healthy"},{a:"eu",b:"eb",l:"recommends",t:"healthy"},{a:"gk",b:"eb",l:"recommends",t:"healthy"}];
+    const R=13;
+    E.forEach((e,i)=>{const A=N[e.a],B=N[e.b],dx=B.x-A.x,dy=B.y-A.y,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
+      const x1=A.x+ux*R,y1=A.y+uy*R,x2=B.x-ux*(R+9),y2=B.y-uy*(R+9),mx=(x1+x2)/2-uy*16,my=(y1+y2)/2+ux*16;
+      const mk=e.t==="broken"?"arr-red":e.t==="risk"?"arr-amber":"arr-green";
+      const p=el("path",{d:`M ${x1.toFixed(1)} ${y1.toFixed(1)} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`,fill:"none",stroke:eC[e.t],"stroke-width":1.8,"stroke-opacity":0.9,"marker-end":"url(#"+mk+")"});
+      if(e.t!=="healthy")p.setAttribute("stroke-dasharray","6 4");
+      if(e.t==="healthy"){p.style.strokeDasharray="260";p.style.strokeDashoffset="260";if(p.animate)p.animate([{strokeDashoffset:260},{strokeDashoffset:0}],{duration:800,delay:i*160,fill:"forwards"});else p.style.strokeDashoffset="0";}
+      svg.appendChild(p);
+      const lx=(x1+x2)/2-uy*16,ly=(y1+y2)/2+ux*16;const lbl=el("text",{x:lx.toFixed(1),y:(ly-3).toFixed(1),fill:"#71717a","font-family":"'JetBrains Mono',monospace","font-size":9,"letter-spacing":"0.03em","text-anchor":"middle"});lbl.textContent=e.l;svg.appendChild(lbl);});
+    for(const k in N){const nd=N[k];svg.appendChild(el("circle",{cx:nd.x,cy:nd.y,r:R+5,fill:stC[nd.s],"fill-opacity":0.1}));svg.appendChild(el("circle",{cx:nd.x,cy:nd.y,r:R,fill:"#fff",stroke:stC[nd.s],"stroke-width":2.4}));const t=el("text",{x:nd.x,y:nd.y+R+15,fill:"#27272a","font-family":"'Geist',sans-serif","font-size":11,"font-weight":600,"text-anchor":"middle"});t.textContent=nd.name;svg.appendChild(t);}
+  }
+
+  /* Move 3 */
+  let promoted=false;
+  $("#m3-more").addEventListener("click",function(){if(promoted)return;const b=$("#m3-badge");b.className="conf-badge cb-conf";b.textContent="seen in 8 runs · confirmed";$("#m3-note").textContent="Confirmed, and carried as a prior for your committee.";const lf=$("#learn-foot");if(lf)lf.textContent="The model now carries this into every future run, so the next sim starts smarter.";const ap=$("#acc-pct"),af=$("#acc-frac"),afl=$("#acc-fill");if(ap){ap.textContent="83%";af.textContent="5 of 6";afl.style.width="83%";}this.textContent="Confirmed ✓";this.disabled=true;this.style.opacity=0.5;this.style.cursor="default";promoted=true;});
+
+  both();
+})();
+</script>
+</body>
+</html>

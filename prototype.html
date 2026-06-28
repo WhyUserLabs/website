@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhyUser · Signal Console — ngrok</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0c1320; --panel:#121b2a; --panel-2:#18243a; --raise:#1f2d46;
+  --line:rgba(120,140,175,.16); --line-2:rgba(120,140,175,.28);
+  --ink:#e9eef7; --ink-dim:#9eb0c8; --ink-faint:#647a96;
+  --hurt:#ff6f61; --hurt-soft:rgba(255,111,97,.13); --hurt-line:rgba(255,111,97,.5);
+  --help:#34d6b6; --help-soft:rgba(52,214,182,.13); --help-line:rgba(52,214,182,.5);
+  --rival:#8ea2f2; --rival-soft:rgba(142,162,242,.14);
+  --amber:#f4b450;
+  --disp:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:
+    radial-gradient(1200px 600px at 78% -8%, rgba(52,214,182,.06), transparent 60%),
+    radial-gradient(1000px 520px at 10% 0%, rgba(255,111,97,.05), transparent 55%),
+    var(--ground);
+  color:var(--ink); font-family:var(--body); font-size:15px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px 80px}
+
+/* ---------- masthead ---------- */
+.mast{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+  padding:30px 0 22px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--mono);
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim)}
+.brand .dot{width:9px;height:9px;border-radius:50%;
+  background:var(--help);box-shadow:0 0 0 4px rgba(52,214,182,.16);animation:pulse 3.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.mast h1{font-family:var(--disp);font-weight:600;font-size:30px;letter-spacing:-.01em;margin:12px 0 6px}
+.mast h1 b{color:var(--help);font-weight:700}
+.mast .sub{color:var(--ink-dim);max-width:54ch;font-size:14.5px}
+.mast .meta{font-family:var(--mono);font-size:12px;color:var(--ink-faint);text-align:right;line-height:1.9}
+.mast .meta .big{font-size:25px;color:var(--ink);display:block;font-weight:500}
+
+/* ---------- scrubber ---------- */
+.scrub{margin:22px 0 6px;background:linear-gradient(180deg,var(--panel),rgba(18,27,42,.6));
+  border:1px solid var(--line);border-radius:14px;padding:16px 20px;
+  display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center}
+.scrub .lab{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+.track{position:relative;height:34px;display:flex;align-items:center}
+.track input{appearance:none;-webkit-appearance:none;width:100%;height:3px;border-radius:3px;
+  background:linear-gradient(90deg,var(--hurt-line),var(--amber),var(--help-line));outline:none;cursor:pointer}
+.track input::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+  background:var(--ink);border:3px solid var(--ground);box-shadow:0 0 0 2px var(--help),0 2px 10px rgba(0,0,0,.5);cursor:grab}
+.track input::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--ink);
+  border:3px solid var(--ground);box-shadow:0 0 0 2px var(--help);cursor:grab}
+.ticks{position:absolute;left:9px;right:9px;top:30px;display:flex;justify-content:space-between;pointer-events:none}
+.ticks span{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);transform:translateX(-50%)}
+.ticks span.on{color:var(--ink)}
+.play{display:flex;align-items:center;gap:10px}
+.cur{font-family:var(--mono);font-size:13px;color:var(--ink);min-width:118px;text-align:right}
+.cur b{color:var(--amber);font-weight:500}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink);
+  background:var(--panel-2);border:1px solid var(--line-2);border-radius:9px;padding:8px 14px;cursor:pointer;transition:.15s}
+.btn:hover{background:var(--raise);border-color:var(--help-line)}
+.btn:focus-visible{outline:2px solid var(--help);outline-offset:2px}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;gap:6px;margin:20px 0 4px}
+.tab{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-dim);background:transparent;border:1px solid var(--line);
+  border-radius:9px 9px 0 0;padding:11px 18px;cursor:pointer;border-bottom:none;transition:.15s}
+.tab[aria-selected=true]{color:var(--ink);background:var(--panel);border-color:var(--line-2)}
+.tab:focus-visible{outline:2px solid var(--help);outline-offset:2px}
+.surface{background:var(--panel);border:1px solid var(--line-2);border-radius:0 14px 14px 14px;padding:8px}
+
+/* legend */
+.legend{display:flex;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;
+  color:var(--ink-faint);padding:12px 14px 4px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.legend .h{background:var(--hurt)} .legend .g{background:var(--help)} .legend .r{background:var(--rival)}
+
+/* ---------- board ---------- */
+.group{padding:14px 12px 6px}
+.group h2{font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:.04em;
+  color:var(--ink-dim);text-transform:uppercase;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+.group h2 .n{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+.row{display:grid;grid-template-columns:132px 1fr auto auto auto;gap:16px;align-items:center;
+  padding:11px 12px;border-radius:11px;cursor:pointer;border:1px solid transparent;transition:.13s}
+.row:hover{background:var(--panel-2);border-color:var(--line)}
+.row:focus-visible{outline:2px solid var(--help);outline-offset:1px}
+.row .name{font-size:14px;color:var(--ink);font-weight:500;line-height:1.35}
+.row .name .lens{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.05em;
+  color:var(--ink-faint);text-transform:uppercase;margin-top:3px}
+.val{font-family:var(--mono);font-size:19px;font-weight:500;text-align:right;min-width:46px}
+.val.hurt{color:var(--hurt)} .val.help{color:var(--help)}
+.badge{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:4px 9px;border-radius:7px;white-space:nowrap;
+  border:1px solid var(--line-2);color:var(--ink-dim);min-width:104px;text-align:center}
+.badge.up{color:var(--amber);border-color:rgba(244,180,80,.4);background:rgba(244,180,80,.08)}
+.badge.new{color:var(--help);border-color:var(--help-line);background:var(--help-soft)}
+.badge.persist{color:var(--ink);border-color:var(--line-2)}
+.badge.fade{color:var(--ink-faint)}
+.conf{display:flex;gap:3px;align-items:center}
+.conf i{width:6px;height:6px;border-radius:50%;background:var(--line-2)}
+.conf i.on{background:var(--ink-dim)}
+.row.low{opacity:.62}
+.trace{height:34px}
+
+/* ---------- map ---------- */
+.maphint{font-family:var(--mono);font-size:11px;color:var(--ink-faint);padding:12px 14px 0}
+#map{width:100%;height:720px;display:block;cursor:grab;touch-action:none}
+#map.grab{cursor:grabbing}
+.mapreset{float:right;margin-top:-3px;padding:5px 12px;font-size:11px}
+.nodeLabel{font-family:var(--mono);font-size:10.5px;fill:var(--ink-dim)}
+.hubLabel{font-family:var(--disp);font-size:14px;font-weight:600;fill:var(--ink)}
+.centerLabel{font-family:var(--disp);font-size:15px;font-weight:700;fill:var(--ground)}
+.gnode{cursor:pointer}
+.gnode:focus-visible{outline:none}
+.gnode:focus-visible circle{stroke:var(--ink);stroke-width:2}
+.edge{transition:stroke-width .45s ease, opacity .45s ease}
+.gnode circle{transition:r .45s ease, opacity .45s ease}
+@media (prefers-reduced-motion:reduce){.edge,.gnode circle{transition:none}.brand .dot{animation:none}}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(6,10,17,.55);opacity:0;pointer-events:none;transition:.2s;z-index:40}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,94vw);z-index:50;
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));border-left:1px solid var(--line-2);
+  transform:translateX(102%);transition:transform .26s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.45)}
+.drawer.open{transform:none}
+.dhead{padding:22px 22px 16px;border-bottom:1px solid var(--line)}
+.dhead .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.dhead h3{font-family:var(--disp);font-weight:600;font-size:19px;margin:8px 0 12px;line-height:1.3}
+.dhead .pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:7px;border:1px solid var(--line-2);color:var(--ink-dim)}
+.close{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:8px;cursor:pointer;
+  background:var(--panel);border:1px solid var(--line-2);color:var(--ink-dim);font-size:16px;line-height:1}
+.close:hover{color:var(--ink);border-color:var(--help-line)}
+.dbody{padding:18px 22px 30px;overflow:auto}
+.sect{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:6px 0 10px}
+.receipt{border-left:2px solid var(--line-2);padding:2px 0 2px 14px;margin:0 0 16px}
+.receipt.hurt{border-color:var(--hurt-line)} .receipt.help{border-color:var(--help-line)}
+.receipt .q{font-size:13.5px;color:var(--ink);line-height:1.5}
+.receipt .m{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:7px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sent{display:inline-flex;gap:2px}
+.sent i{width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+.sent i.on{background:var(--hurt)}
+.receipt.help .sent i.on{background:var(--help)}
+a.src{color:var(--ink-dim);text-decoration:none;border-bottom:1px dotted var(--line-2)}
+a.src:hover{color:var(--help)}
+
+/* ---------- footer ---------- */
+.foot{margin-top:26px;padding:18px 4px 0;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-faint);max-width:80ch}
+.foot b{color:var(--ink-dim);font-weight:600}
+.hidden{display:none}
+@media (max-width:720px){
+  .mast{flex-direction:column;align-items:flex-start;gap:8px}
+  .mast .meta{text-align:left}
+  .scrub{grid-template-columns:1fr}
+  .row{grid-template-columns:96px 1fr auto;gap:10px}
+  .row .badge,.row .conf{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <div class="brand"><span class="dot"></span> WhyUser · Signal Console</div>
+      <h1>How the market talks about <b id="vendor">ngrok</b></h1>
+      <p class="sub">Observed market signal, tracked week over week. Every reading traces back to a dated, verbatim quote — drag time to replay how it moved.</p>
+    </div>
+    <div class="meta">
+      <span class="big" id="mWeeks">4 weeks</span>
+      <span id="mRange">May 19 → Jun 24, 2026</span><br>
+      <span id="mCount">16 active signals</span>
+    </div>
+  </header>
+
+  <section class="scrub" aria-label="Time control">
+    <div class="lab">Time<br>cursor</div>
+    <div class="track">
+      <input id="slider" type="range" min="0" max="3" step="1" value="3" aria-label="Week">
+      <div class="ticks" id="ticks"></div>
+    </div>
+    <div class="play">
+      <span class="cur">week of <b id="curWeek">Jun 24</b></span>
+      <button class="btn" id="playBtn" aria-label="Replay weeks">▶ replay</button>
+    </div>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" id="tabBoard" role="tab" aria-selected="true">Signal board</button>
+    <button class="tab" id="tabMap" role="tab" aria-selected="false">Market map</button>
+  </div>
+
+  <div class="surface">
+    <div class="legend">
+      <span><i class="h"></i>hurts ngrok</span>
+      <span><i class="g"></i>helps ngrok</span>
+      <span><i class="r"></i>rival</span>
+      <span>● confidence &nbsp;·&nbsp; ↑ building &nbsp; ✦ new &nbsp; ● steady &nbsp; ↓ cooling</span>
+    </div>
+
+    <div id="boardView"></div>
+
+    <div id="mapView" class="hidden">
+      <div class="maphint"><button class="btn mapreset" id="resetView">recenter</button>Node size and link weight = signal strength at the cursor week. Drag the canvas to pan, scroll to zoom; drag the time bar to watch it move. Click any node for the evidence.</div>
+      <svg id="map" viewBox="0 0 1140 720" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Market relationship map"></svg>
+    </div>
+  </div>
+
+  <p class="foot"><b>How to read this.</b> These are signals from public buyer conversation, not internal metrics. Movement comes from recurring themes and firming language across weeks and sources — <b>not</b> the raw count of mentions, which swings with what gets collected. A reading is a description of what the market is saying, not a claim about cause. Built for a design-partner review.</p>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="dhead">
+    <button class="close" id="closeBtn" aria-label="Close">✕</button>
+    <div class="k" id="dLens">signal</div>
+    <h3 id="dTitle">—</h3>
+    <div class="pills" id="dPills"></div>
+  </div>
+  <div class="dbody">
+    <div class="sect">Trajectory</div>
+    <svg id="dChart" width="100%" height="120" viewBox="0 0 400 120" preserveAspectRatio="none" style="margin-bottom:22px"></svg>
+    <div class="sect">The receipts — verbatim from the source</div>
+    <div id="dReceipts"></div>
+  </div>
+</aside>
+
+<script>
+const DATA = {"vendor": "ngrok", "weeks": ["2026-05-19", "2026-06-04", "2026-06-11", "2026-06-24"], "signals": [{"signal_id": "sig-2797d33e48", "label": "The 1GB bandwidth limit on the free tier is easily exhausted during regular de…", "full": "The 1GB bandwidth limit on the free tier is easily exhausted during regular development or gaming sessions, causing immediate tunnel shutdowns.", "lens": "friction", "polarity": "hurts", "movement": "intensifying", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.66}, {"week": "2026-06-04", "intensity": 2.9}, {"week": "2026-06-11", "intensity": 5.2}, {"week": "2026-06-24", "intensity": 6.58}], "confidence": 0.9, "evidence": [{"quote": "Ngrok's free tier limits you to 1 GB bandwidth, 2-hour sessions, random URLs, and shows an interstitial page to all visitors.", "source_url": "https://agentsroom.dev/compare/ngrok", "source_domain": "agentsroom.dev", "quote_date": "2026-06-05", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "The biggest friction point I faced with ngrok was the limitation on the free plan and the occasional need to manage sessions or URLs again.", "source_url": "https://www.peerspot.com/products/ngrok-reviews", "source_domain": "peerspot.com", "quote_date": "2026-05-31", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "time-outs if there are too many requests, even with a paid plan.", "source_url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-hbrw3lqzlajzs/review/42612962-20f5-3d4c-8673-3986c4df8d2f", "source_domain": "aws.amazon.com", "quote_date": "2026-05", "sentiment": 4, "week_seen": "2026-06-04"}, {"quote": "On the free account, the link changes every time I use it.", "source_url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-hbrw3lqzlajzs?rating=5&filter=AWSMP", "source_domain": "aws.amazon.com", "quote_date": "2026-05", "sentiment": 3, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-e5063ed32d", "label": "Total lack of UDP protocol support entirely blocks the development of game ser…", "full": "Total lack of UDP protocol support entirely blocks the development of game servers, VoIP, and IoT infrastructure.", "lens": "friction", "polarity": "hurts", "movement": "intensifying", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.07}, {"week": "2026-06-04", "intensity": 2.62}, {"week": "2026-06-11", "intensity": 3.87}, {"week": "2026-06-24", "intensity": 4.98}], "confidence": 0.82, "evidence": [{"quote": "Short answer: No. As of 2026, ngrok still has zero native UDP support. It only handles HTTP, HTTPS, and TCP.", "source_url": "https://localxpose.io/blog/ngrok-udp-alternative", "source_domain": "localxpose.io", "quote_date": "2026-04-16", "sentiment": 3, "week_seen": "2026-06-24"}, {"quote": "won't work nice with raw tcp ports there is still a tls counterpart/encryption part which can make packets fail", "source_url": "https://forum.gl-inet.com/t/configuring-port-forwarding-with-cgnat/67995", "source_domain": "forum.gl-inet.com", "quote_date": "2026-04-05", "sentiment": 4, "week_seen": "2026-06-04"}, {"quote": "In 2026, this limitation still blocks entire categories of real-time applications, from game servers and VoIP to IoT devices and live streaming.", "source_url": "https://localxpose.io/blog/ngrok-udp-alternative", "source_domain": "localxpose.io", "quote_date": "2026-04", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "enrock mostly focuses on HTTP. and TCP zerrock supports both of those while also supporting UDP", "source_url": "https://www.youtube.com/watch?v=dLW0cT-iTjs", "source_domain": "youtube.com", "quote_date": "2026-04", "sentiment": 3, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-a2803e35f7", "label": "Hot-reloading local code fails because Ngrok merely forwards ports and has no …", "full": "Hot-reloading local code fails because Ngrok merely forwards ports and has no awareness of process state updates.", "lens": "friction", "polarity": "hurts", "movement": "present", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.36}, {"week": "2026-06-04", "intensity": 3.25}, {"week": "2026-06-11", "intensity": 4.63}, {"week": "2026-06-24", "intensity": 4.39}], "confidence": 0.85, "evidence": [{"quote": "It's powerful and feature-rich, but its pricing, bandwidth caps, and mandatory sign-up process have pushed many developers to look elsewhere.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-21", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "its pricing, bandwidth caps, and mandatory sign-up process have pushed many developers to look elsewhere.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-21", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "Every visitor to your ngrok tunnel sees this intimidating warning page.", "source_url": "https://ngpebble.iameshan.tech/", "source_domain": "ngpebble.iameshan.tech", "quote_date": "2026-05", "sentiment": 4, "week_seen": "2026-06-04"}, {"quote": "I think ngrok could improve its free plan session limits so I could do more", "source_url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-hbrw3lqzlajzs", "source_domain": "aws.amazon.com", "quote_date": "2026-05", "sentiment": 3, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-d1d7ac3e57", "label": "Providing reliable, professional demonstrations of locally hosted builds direc…", "full": "Providing reliable, professional demonstrations of locally hosted builds directly to external clients.", "lens": "outcome", "polarity": "helps", "movement": "intensifying", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.36}, {"week": "2026-06-04", "intensity": 2.5}, {"week": "2026-06-11", "intensity": 2.5}, {"week": "2026-06-24", "intensity": 3.57}], "confidence": 0.75, "evidence": [{"quote": "push it to the internet using ngrok, which gives me temporary URLs for that", "source_url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-hbrw3lqzlajzs", "source_domain": "aws.amazon.com", "quote_date": "2026-05", "sentiment": 2, "week_seen": "2026-06-04"}, {"quote": "share your localhost app with anyone in the world — without deploying it", "source_url": "https://www.youtube.com/watch?v=_fCdgSwwAd8", "source_domain": "youtube.com", "quote_date": "2026-04", "sentiment": 2, "week_seen": "2026-06-04"}, {"quote": "It lets me test APIs, webhooks, or share my app with others instantly without deploying it to a live server.", "source_url": "https://www.g2.com/products/ngrok/reviews", "source_domain": "g2.com", "quote_date": null, "sentiment": 2, "week_seen": "2026-06-24"}]}, {"signal_id": "sig-409ddd5e80", "label": "Support for UDP protocols, required for gaming, VoIP, and IoT use cases.", "full": "Support for UDP protocols, required for gaming, VoIP, and IoT use cases.", "lens": "criteria", "polarity": "helps", "movement": "present", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.07}, {"week": "2026-06-04", "intensity": 2.45}, {"week": "2026-06-11", "intensity": 3.86}, {"week": "2026-06-24", "intensity": 3.62}], "confidence": 0.69, "evidence": [{"quote": "It removes the exact pain point ngrok never solved - native UDP tunneling - while being faster, cheaper, and easier to use.", "source_url": "https://localxpose.io/blog/ngrok-udp-alternative", "source_domain": "localxpose.io", "quote_date": "2026-04-16", "sentiment": 4, "week_seen": "2026-06-04"}, {"quote": "If the awnser is no, go with something like tailscale especially for both udp/tcp support, I used ngrok in the past to expose a limited jenkins-ci webhook and love it but that one only supports tcp.", "source_url": "https://forum.gl-inet.com/t/configuring-port-forwarding-with-cgnat/67995", "source_domain": "forum.gl-inet.com", "quote_date": "2026-04-05", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "Thousands of developers hit the same wall every month: ngrok simply does not support UDP traffic.", "source_url": "https://localxpose.io/blog/ngrok-udp-alternative", "source_domain": "localxpose.io", "quote_date": "2026-04", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "As of 2026, ngrok still has zero native UDP support. It only handles HTTP, HTTPS, and TCP.", "source_url": "https://localxpose.io/blog/ngrok-udp-alternative", "source_domain": "localxpose.io", "quote_date": "2026-04", "sentiment": 3, "week_seen": "2026-06-11"}]}, {"signal_id": "sig-9f85bc96ce", "label": "Does Ngrok still work for people?", "full": "Does Ngrok still work for people?", "lens": "buyer_question", "polarity": "helps", "movement": "intensifying", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.66}, {"week": "2026-06-04", "intensity": 2.8}, {"week": "2026-06-11", "intensity": 4.21}, {"week": "2026-06-24", "intensity": 5.35}], "confidence": 0.9, "evidence": [{"quote": "What's the simplest alternative to ngrok for sharing one HTML file privately? Stacktree.", "source_url": "https://stacktr.ee/ngrok-alternative-for-html", "source_domain": "stacktr.ee", "quote_date": "2026-05-15", "sentiment": 2, "week_seen": "2026-06-24"}, {"quote": "Does ngrok Support UDP Traffic?", "source_url": "https://localxpose.io/blog/ngrok-udp-alternative", "source_domain": "localxpose.io", "quote_date": "2026-04-16", "sentiment": 2, "week_seen": "2026-06-24"}, {"quote": "do you need public exposure (ngrok, LocalXpose) or private device-to-device connectivity (Tailscale)?", "source_url": "https://localxpose.io/blog/ngrok-vs-tailscale", "source_domain": "localxpose.io", "quote_date": "2026-04-15", "sentiment": 2, "week_seen": "2026-06-04"}, {"quote": "The key question: do you need public exposure (ngrok, LocalXpose) or private device-to-device connectivity (Tailscale)?", "source_url": "https://localxpose.io/blog/ngrok-vs-tailscale", "source_domain": "localxpose.io", "quote_date": "2026-04-15", "sentiment": 2, "week_seen": "2026-06-24"}]}, {"signal_id": "sig-0621b9946b", "label": "Frustration with the random URL generation requiring constant manual updates i…", "full": "Frustration with the random URL generation requiring constant manual updates in third-party webhook dashboards.", "lens": "market", "polarity": "helps", "movement": "present", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.07}, {"week": "2026-06-04", "intensity": 2.18}, {"week": "2026-06-11", "intensity": 4.53}, {"week": "2026-06-24", "intensity": 4.29}], "confidence": 0.85, "evidence": [{"quote": "In early 2026 ngrok cut the free plan to 2-hour sessions, 1 GB monthly bandwidth, 3 endpoints, 20,000 HTTP requests, and random URLs", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "Tailscale's Funnel can expose services publicly, but it's beta-only, restricted to three ports, and locked to *.ts.net subdomains with no custom domain support.", "source_url": "https://localxpose.io/blog/ngrok-vs-tailscale", "source_domain": "localxpose.io", "quote_date": "2026-04-15", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "The cost shows up in the small frictions: ngrok URLs change between sessions on the free tier, so the Stripe dashboard is reconfigured every time a developer restarts.", "source_url": "https://hookdeck.com/webhooks/platforms/ngrok-and-rabbitmq-replacement-for-webhooks", "source_domain": "hookdeck.com", "quote_date": "2026-04", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "ngrok free-tier URLs change every time you restart the tunnel. Update WEBUI_URL accordingly, or use a ngrok custom domain (paid) for a stable URL.", "source_url": "https://docs.openwebui.com/reference/https/ngrok/", "source_domain": "docs.openwebui.com", "quote_date": "2026-04", "sentiment": 3, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-4b6e10784d", "label": "InstaTunnel: Positioned as the 'Modern Developer's' choice, heavily marketing …", "full": "InstaTunnel: Positioned as the 'Modern Developer's' choice, heavily marketing 50% cheaper pricing, 24-hour sessions, and free custom subdomains against Ngrok's paywalls.", "lens": "market", "polarity": "helps", "movement": "present", "competitor": null, "series": [{"week": "2026-05-19", "intensity": 1.66}, {"week": "2026-06-04", "intensity": 3.68}, {"week": "2026-06-11", "intensity": 5.59}, {"week": "2026-06-24", "intensity": 5.35}], "confidence": 0.85, "evidence": [{"quote": "Ngrok tightened its free tier in early 2026 — 2-hour sessions, 1 GB monthly bandwidth, 3 endpoints, random URLs — pushing a wave of users toward alternatives.", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06-06", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "I prefer the tunnel-plus-Access path because it adds identity enforcement before the request even arrives.", "source_url": "https://adamblackington.blog/secure-dokploy-cloud-single-node-cloudflare-tunnels/", "source_domain": "adamblackington.blog", "quote_date": "2026-06-01", "sentiment": 4, "week_seen": "2026-06-04"}, {"quote": "If the goal is “my app, online, all the time, on my own domain,” the answer is hosting, not tunneling.", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06", "sentiment": 2, "week_seen": "2026-06-11"}, {"quote": "Ngrok has long been the default choice for developers... but its pricing, bandwidth caps, and mandatory sign-up process have pushed many developers to look elsewhere.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-22", "sentiment": 4, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-383f51b9a3", "label": "How natively does Cloudflare Tunnel integrate with our existing Identity Provi…", "full": "How natively does Cloudflare Tunnel integrate with our existing Identity Providers and Web Application Firewall to secure exposed internal apps?", "lens": "buyer_question", "polarity": "helps", "movement": "present", "competitor": "cloudflare", "series": [{"week": "2026-05-19", "intensity": 1.66}, {"week": "2026-06-04", "intensity": 2.63}, {"week": "2026-06-11", "intensity": 4.22}, {"week": "2026-06-24", "intensity": 3.98}], "confidence": 0.77, "evidence": [{"quote": "What is the best free ngrok alternative? Cloudflare Tunnel, by a wide margin — free with unlimited bandwidth", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06", "sentiment": 2, "week_seen": "2026-06-11"}, {"quote": "Am I doing something wrong or are cloudflare tunnels just unreliable?", "source_url": "https://www.reddit.com/r/homelab/comments/1sja0xr/am_i_doing_something_wrong_or_are_cloudflare/", "source_domain": "reddit.com", "quote_date": "2026-04-12", "sentiment": 3, "week_seen": "2026-06-04"}, {"quote": "Not Cloudflare? I think it has limits similar to ngrok, right?", "source_url": "https://www.reddit.com/r/n8n/comments/1si6g70/free_ngrok_alternative_for_n8n_in_docker_without/", "source_domain": "reddit.com", "quote_date": "2026-04-11", "sentiment": 2, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-e5fa7861b9", "label": "Routine daemon updates can disrupt infrastructure; Cloudflare releases frequen…", "full": "Routine daemon updates can disrupt infrastructure; Cloudflare releases frequent updates to the cloudflared agent, which temporarily takes down tunnels and disrupts service connectivity.", "lens": "rival_context", "polarity": "helps", "movement": "present", "competitor": "cloudflare", "series": [{"week": "2026-05-19", "intensity": 1.07}, {"week": "2026-06-04", "intensity": 3.07}, {"week": "2026-06-11", "intensity": 4.85}, {"week": "2026-06-24", "intensity": 4.61}], "confidence": 0.85, "evidence": [{"quote": "Pricing changes. Product strategies change. Free tiers get retired. That's normal business. The more dependent I am on one company's ecosystem, the more difficult those transitions will become.", "source_url": "https://www.xda-developers.com/cloudflare-is-by-far-the-best-service-for-home-labbers-and-the-wider-internet-and-that-should-make-you-nervous/", "source_domain": "xda-developers.com", "quote_date": "2026-06-01", "sentiment": 3, "week_seen": "2026-06-04"}, {"quote": "Setup is real work: your domain must be on Cloudflare DNS, you install and configure cloudflared, and the first run takes a chunk of an afternoon if you've never done it.", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "Tying your application to Cloudflare's ecosystem might limit flexibility.", "source_url": "https://pinggy.io/blog/best_cloudflare_tunnel_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-22", "sentiment": 2, "week_seen": "2026-06-04"}, {"quote": "Requires a Cloudflare account and configuration.", "source_url": "https://pinggy.io/blog/best_cloudflare_tunnel_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-22", "sentiment": 2, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-f371abdd56", "label": "The public exposure functionality provided by Tailscale Funnel is heavily rest…", "full": "The public exposure functionality provided by Tailscale Funnel is heavily restricted by its inability to support customized top-level domains and its hard limitation to only three specific TCP ports, preventing flexible deployment.", "lens": "rival_weakness", "polarity": "helps", "movement": "intensifying", "competitor": "tailscale", "series": [{"week": "2026-06-04", "intensity": 1.62}, {"week": "2026-06-11", "intensity": 3.71}, {"week": "2026-06-24", "intensity": 5.72}], "confidence": 0.85, "evidence": [{"quote": "It is hard to trust Tailscale because many times, this kind of service means you're just handing the keys to your PC to a third party.", "source_url": "https://www.howtogeek.com/the-simple-trick-that-makes-your-home-network-accessible-from-anywhere-without-breaking-security/", "source_domain": "howtogeek.com", "quote_date": "2026-06-09", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "Funnel (the public-exposure part) is the newest piece and carries limitations; the mental model — install on every device, think in networks — is heavier than 'run one command.'", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06-06", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "Tailscale Funnel feature is less mature than dedicated tunneling tools... Funnel can listen on limited public ports 443, 8443, and 10000. No TCP or UDP tunnels.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-21", "sentiment": 3, "week_seen": "2026-06-24"}, {"quote": "Requires installation on all devices that need to connect.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-21", "sentiment": 2, "week_seen": "2026-06-24"}]}, {"signal_id": "sig-1d63b10b11", "label": "The platform abstracts highly complex WireGuard configurations by fully automa…", "full": "The platform abstracts highly complex WireGuard configurations by fully automating cryptographic key exchange, resulting in a drastically simplified peer-to-peer setup that eliminates the need for centralized VPN servers.", "lens": "rival_strength", "polarity": "hurts", "movement": "intensifying", "competitor": "tailscale", "series": [{"week": "2026-06-04", "intensity": 2.19}, {"week": "2026-06-11", "intensity": 4.46}, {"week": "2026-06-24", "intensity": 5.84}], "confidence": 0.67, "evidence": [{"quote": "My remote machine and my home PC talk to each other as if they're on the same desk. I just signed in, and I have an encrypted private network ready to go.", "source_url": "https://www.howtogeek.com/the-simple-trick-that-makes-your-home-network-accessible-from-anywhere-without-breaking-security/", "source_domain": "howtogeek.com", "quote_date": "2026-06-09", "sentiment": 5, "week_seen": "2026-06-11"}, {"quote": "It runs as a decentralized, peer-to-peer network that lets your devices talk directly to each other. So you don't need to poke holes in your firewall. You get lower latency, better throughput, and a much simpler way to reach your files from anywhere.", "source_url": "https://www.howtogeek.com/the-simple-trick-that-makes-your-home-network-accessible-from-anywhere-without-breaking-security/", "source_domain": "howtogeek.com", "quote_date": "2026-06-09", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "Your connections between devices are peer-to-peer wherever possible, meaning traffic does not pass through a central VPN server.", "source_url": "https://reviews.thewindowsclub.com/tailscale-review-zero-trust-vpn-alternative/", "source_domain": "reviews.thewindowsclub.com", "quote_date": "2026-05-23", "sentiment": 5, "week_seen": "2026-06-04"}, {"quote": "Traffic flows directly between devices without passing through a central server, which results in lower latency, higher throughput, and better reliability.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-21", "sentiment": 4, "week_seen": "2026-06-24"}]}, {"signal_id": "sig-01e0d27092", "label": "The Serve feature allows developers to instantly share internal web applicatio…", "full": "The Serve feature allows developers to instantly share internal web applications across distributed workforces using encrypted tunnels and stable DNS, entirely avoiding the security risks associated with public IP exposure.", "lens": "rival_strength", "polarity": "hurts", "movement": "intensifying", "competitor": "tailscale", "series": [{"week": "2026-06-04", "intensity": 1.81}, {"week": "2026-06-11", "intensity": 3.87}, {"week": "2026-06-24", "intensity": 5.82}], "confidence": 0.59, "evidence": [{"quote": "Tailscale's core product builds a private network between your devices — sharing an app with teammates or your other machines is effortless and secure.", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06-06", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "Tailscale is designed around identity-provider integrations and streamlined device authorization.", "source_url": "https://startupik.com/headscale-vs-tailscale-which-one-should-you-choose/", "source_domain": "startupik.com", "quote_date": "2026-04-06", "sentiment": 4, "week_seen": "2026-06-04"}, {"quote": "Tailscale Serve exposes a local dev server to your tailnet with automatic HTTPS, stable hostnames, and zero open ports.", "source_url": "https://blog.openreplay.com/secure-local-web-apps-tailscale/", "source_domain": "blog.openreplay.com", "quote_date": "2026-04-03", "sentiment": 5, "week_seen": "2026-06-04"}, {"quote": "Your dev server stays bound to localhost and is never reachable from the public internet.", "source_url": "https://blog.openreplay.com/secure-local-web-apps-tailscale/", "source_domain": "blog.openreplay.com", "quote_date": "2026-04-03", "sentiment": 5, "week_seen": "2026-06-24"}]}, {"signal_id": "sig-aae30a1130", "label": "Cloudflare Tunnel does not currently support UDP tunnels natively, blocking us…", "full": "Cloudflare Tunnel does not currently support UDP tunnels natively, blocking use cases for real-time applications like VoIP and gaming servers.", "lens": "rival_weakness", "polarity": "helps", "movement": "present", "competitor": "cloudflare", "series": [{"week": "2026-06-04", "intensity": 1.65}, {"week": "2026-06-11", "intensity": 3.33}, {"week": "2026-06-24", "intensity": 3.09}], "confidence": 0.64, "evidence": [{"quote": "Does not support TCP or UDP tunnels.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-22", "sentiment": 3, "week_seen": "2026-06-04"}, {"quote": "Unlike error 1033, which indicates the tunnel is not connected to Cloudflare, a 502 error indicates the problem is between cloudflared and your local service. To identify the specific cause, review your Tunnel logs for error -level messages.", "source_url": "https://developers.cloudflare.com/tunnel/troubleshooting/", "source_domain": "developers.cloudflare.com", "quote_date": "2026-05-05", "sentiment": 2, "week_seen": "2026-06-04"}, {"quote": "I'm having an issue with remote access to Home Assistant via Cloudflare Tunnel. It stopped working about a week ago after I tried to configure the LetsEncrypt add-on", "source_url": "https://community.home-assistant.io/t/cloudflare-tunnel-websocket-connection-fails-after-letsencrypt-add-on-uninstall/1009799", "source_domain": "community.home-assistant.io", "quote_date": "2026-05", "sentiment": 4, "week_seen": "2026-06-11"}]}, {"signal_id": "sig-c38a925960", "label": "Cloudflare Tunnel offers a highly permissive free tier that does not impose th…", "full": "Cloudflare Tunnel offers a highly permissive free tier that does not impose the strict bandwidth limits or timeouts that disrupt workflows on competing tools.", "lens": "rival_strength", "polarity": "hurts", "movement": "present", "competitor": "cloudflare", "series": [{"week": "2026-06-04", "intensity": 2.13}, {"week": "2026-06-11", "intensity": 4.3}, {"week": "2026-06-24", "intensity": 4.06}], "confidence": 0.7, "evidence": [{"quote": "Both my ISPs were behind CGNAT, which made building a home lab a nightmare, but Cloudflare took care of it... When I was looking for a way around CGNAT, Cloudflare Tunnel solved it.", "source_url": "https://www.xda-developers.com/cloudflare-is-by-far-the-best-service-for-home-labbers-and-the-wider-internet-and-that-should-make-you-nervous/", "source_domain": "xda-developers.com", "quote_date": "2026-06-01", "sentiment": 5, "week_seen": "2026-06-04"}, {"quote": "I prefer the tunnel-plus-Access path because it adds identity enforcement before the request even arrives.", "source_url": "https://adamblackington.blog/secure-dokploy-cloud-single-node-cloudflare-tunnels/", "source_domain": "adamblackington.blog", "quote_date": "2026-06-01", "sentiment": 4, "week_seen": "2026-06-04"}, {"quote": "Free for HTTP traffic, unlimited bandwidth — the single biggest advantage over ngrok's 1 GB cap.", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "Cloudflare Tunnel is completely free with no usage limits, and no credit card is required.", "source_url": "https://medium.com/@instatunnel/saas-on-a-laptop-monetizing-local-ai-models-with-token-gated-tunnels-f1ee05c2e004", "source_domain": "medium.com", "quote_date": "2026-05-11", "sentiment": 4, "week_seen": "2026-06-04"}]}, {"signal_id": "sig-57932e062b", "label": "Ngrok fundamentally exposes local infrastructure to the open web, whereas Tail…", "full": "Ngrok fundamentally exposes local infrastructure to the open web, whereas Tailscale inherently restricts access to authenticated, trusted devices on the private mesh.", "lens": "deal_blocker", "polarity": "hurts", "movement": "emerging", "competitor": "tailscale", "series": [{"week": "2026-06-11", "intensity": 2.1}, {"week": "2026-06-24", "intensity": 4.24}], "confidence": 0.8, "evidence": [{"quote": "Ain't no way bro used ngrok to access his private cloud.", "source_url": "https://www.reddit.com/r/NextCloud/comments/1u2ywza/ngrok_alternatives/", "source_domain": "reddit.com", "quote_date": "2026-06-11", "sentiment": 4, "week_seen": "2026-06-24"}, {"quote": "For temporarily sharing a local app: Cloudflare Tunnel... Tailscale Funnel (free for personal use, great for private sharing), LocalTunnel... or newer services like Pinggy and LocalXpose.", "source_url": "https://livemy.app/blog/ngrok-alternatives", "source_domain": "livemy.app", "quote_date": "2026-06-06", "sentiment": 3, "week_seen": "2026-06-11"}, {"quote": "Traffic flows directly between devices without passing through a central server, which results in lower latency, higher throughput, and better reliability.", "source_url": "https://pinggy.io/blog/best_ngrok_alternatives/", "source_domain": "pinggy.io", "quote_date": "2026-05-21", "sentiment": 4, "week_seen": "2026-06-11"}, {"quote": "Tailscale creates a private mesh network between your devices using WireGuard. It's designed for secure internal access... without exposing services to the public internet.", "source_url": "https://localxpose.io/blog/ngrok-vs-tailscale", "source_domain": "localxpose.io", "quote_date": "2026-04-15", "sentiment": 4, "week_seen": "2026-06-11"}]}], "edges": [{"from": "ngrok", "to": "cloudflare", "type": "related", "label": "How natively does Cloudflare Tunnel integrate with our existing Identity Provi…", "weight_series": [{"week": "2026-05-19", "w": 0.17}, {"week": "2026-06-04", "w": 0.26}, {"week": "2026-06-11", "w": 0.42}, {"week": "2026-06-24", "w": 0.4}]}, {"from": "ngrok", "to": "cloudflare", "type": "related", "label": "Routine daemon updates can disrupt infrastructure; Cloudflare releases frequen…", "weight_series": [{"week": "2026-05-19", "w": 0.11}, {"week": "2026-06-04", "w": 0.31}, {"week": "2026-06-11", "w": 0.48}, {"week": "2026-06-24", "w": 0.46}]}, {"from": "ngrok", "to": "tailscale", "type": "rival_weak", "label": "The public exposure functionality provided by Tailscale Funnel is heavily rest…", "weight_series": [{"week": "2026-06-04", "w": 0.16}, {"week": "2026-06-11", "w": 0.37}, {"week": "2026-06-24", "w": 0.57}]}, {"from": "ngrok", "to": "tailscale", "type": "rival_strong", "label": "The platform abstracts highly complex WireGuard configurations by fully automa…", "weight_series": [{"week": "2026-06-04", "w": 0.22}, {"week": "2026-06-11", "w": 0.45}, {"week": "2026-06-24", "w": 0.58}]}, {"from": "ngrok", "to": "tailscale", "type": "rival_strong", "label": "The Serve feature allows developers to instantly share internal web applicatio…", "weight_series": [{"week": "2026-06-04", "w": 0.18}, {"week": "2026-06-11", "w": 0.39}, {"week": "2026-06-24", "w": 0.58}]}, {"from": "ngrok", "to": "cloudflare", "type": "rival_weak", "label": "Cloudflare Tunnel does not currently support UDP tunnels natively, blocking us…", "weight_series": [{"week": "2026-06-04", "w": 0.16}, {"week": "2026-06-11", "w": 0.33}, {"week": "2026-06-24", "w": 0.31}]}, {"from": "ngrok", "to": "cloudflare", "type": "rival_strong", "label": "Cloudflare Tunnel offers a highly permissive free tier that does not impose th…", "weight_series": [{"week": "2026-06-04", "w": 0.21}, {"week": "2026-06-11", "w": 0.43}, {"week": "2026-06-24", "w": 0.41}]}, {"from": "ngrok", "to": "tailscale", "type": "blocked_on", "label": "Ngrok fundamentally exposes local infrastructure to the open web, whereas Tail…", "weight_series": [{"week": "2026-06-11", "w": 0.21}, {"week": "2026-06-24", "w": 0.42}]}]};
+const WEEKS = DATA.weeks;
+const shortW = w => { const d=new Date(w+'T00:00'); return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}); };
+let cursor = WEEKS.length-1, playing=null;
+
+/* ---- lens grouping ---- */
+const GROUPS = [
+  {title:'Where users leak',           lenses:['leak','churn_driver','switching']},
+  {title:'Your offense — rival weak spots', lenses:['rival_weakness']},
+  {title:'Deal blockers & friction',   lenses:['deal_blocker','friction','pricing']},
+  {title:'Rival strengths — watch',    lenses:['rival_strength','rival_context']},
+  {title:'Buyer questions & reputation', lenses:['buyer_question','reputation','substitute','criteria','outcome','market']},
+];
+const LENS_LABEL = {leak:'losing to rival',churn_driver:'churn driver',switching:'switching',rival_weakness:'rival weak spot',
+  deal_blocker:'deal blocker',friction:'product friction',pricing:'pricing',rival_strength:'rival strength',
+  rival_context:'rival context',buyer_question:'buyer question',reputation:'reputation',substitute:'substitute',
+  criteria:'evaluation',outcome:'desired outcome',market:'market signal'};
+
+const valueAt = (series,i)=>{ const e=series.find(p=>p.week===WEEKS[i]); return e?e.intensity:null; };
+const lastValue = s => { for(let i=cursor;i>=0;i--){const v=valueAt(s.series,i); if(v!=null)return v;} return null; };
+const weightAt = (ws,i)=>{ const e=ws.find(p=>p.week===WEEKS[i]); return e?e.w:null; };
+
+function badgeFor(m){
+  if(m==='intensifying')return ['↑ building','up'];
+  if(m==='emerging')return ['✦ new','new'];
+  if(m==='persistent')return ['● steady','persist'];
+  if(m==='fading')return ['↓ cooling','fade'];
+  return ['· active',''];
+}
+function sparkline(s,color){
+  const W=120,H=34,pad=4, max=10;
+  const xs=WEEKS.map((w,i)=>pad + i*(W-2*pad)/(WEEKS.length-1));
+  const pts=WEEKS.map((w,i)=>{const v=valueAt(s.series,i); return v==null?null:[xs[i], H-pad-(v/max)*(H-2*pad)];});
+  // full faint line
+  const seg=[]; let cur=[];
+  pts.forEach(p=>{ if(p){cur.push(p)} else {if(cur.length){seg.push(cur);cur=[]}} }); if(cur.length)seg.push(cur);
+  const faint=seg.map(g=>'M'+g.map(p=>p.join(',')).join(' L')).join(' ');
+  // solid up to cursor
+  const upto=pts.slice(0,cursor+1).filter(Boolean);
+  const solid=upto.length>1?'M'+upto.map(p=>p.join(',')).join(' L'):'';
+  const cv=valueAt(s.series,cursor), cx=xs[cursor], cy=cv==null?null:H-pad-(cv/max)*(H-2*pad);
+  return `<svg class="trace" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+    <path d="${faint}" fill="none" stroke="${color}" stroke-opacity=".28" stroke-width="1.5"/>
+    <path d="${solid}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    ${cy!=null?`<circle cx="${cx}" cy="${cy}" r="3.4" fill="${color}"/>`:''}
+  </svg>`;
+}
+
+function renderBoard(){
+  const host=document.getElementById('boardView'); host.innerHTML='';
+  GROUPS.forEach(g=>{
+    const sigs=DATA.signals.filter(s=>g.lenses.includes(s.lens))
+      .sort((a,b)=>(lastValue(b)||0)-(lastValue(a)||0));
+    if(!sigs.length)return;
+    const wrap=document.createElement('div'); wrap.className='group';
+    wrap.innerHTML=`<h2>${g.title} <span class="n">${sigs.length}</span></h2>`;
+    sigs.forEach(s=>{
+      const pol=s.polarity==='helps'?'help':'hurt';
+      const color=s.polarity==='helps'?getCSS('--help'):getCSS('--hurt');
+      const v=lastValue(s); const [btxt,bcls]=badgeFor(s.movement);
+      const conf=Math.round((s.confidence||0)*4);
+      const row=document.createElement('div'); row.className='row'+(s.confidence<0.5?' low':'');
+      row.tabIndex=0; row.setAttribute('role','button');
+      row.innerHTML=`
+        ${sparkline(s,color)}
+        <div class="name">${esc(s.full||s.label)}<span class="lens">${LENS_LABEL[s.lens]||s.lens}${s.competitor?(' · '+s.competitor):''}</span></div>
+        <div class="val ${pol}">${v==null?'—':v.toFixed(1)}</div>
+        <div class="badge ${bcls}">${btxt}</div>
+        <div class="conf" title="confidence">${[0,1,2,3].map(i=>`<i class="${i<conf?'on':''}"></i>`).join('')}</div>`;
+      row.onclick=()=>openDrawer(s);
+      row.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openDrawer(s)}};
+      wrap.appendChild(row);
+    });
+    host.appendChild(wrap);
+  });
+}
+
+/* ---------- MAP ---------- */
+let mapNodes=[], mapEdges=[];
+function buildMap(){
+  const CX=570, CY=285;
+  const rivals=[...new Set(DATA.signals.filter(s=>s.competitor).map(s=>s.competitor))];
+  mapNodes=[{id:'__v',label:DATA.vendor,kind:'vendor',x:CX,y:CY}];
+  mapEdges=[];
+  // rival hubs on the right arc
+  const rAng=rivals.length>1?[-32,32]:[0];
+  rivals.forEach((rv,ri)=>{
+    const a=(rAng[ri]||0)*Math.PI/180, R=235;
+    const hx=CX+Math.cos(a)*R, hy=CY+Math.sin(a)*R;
+    const hub={id:'hub_'+rv,label:rv,kind:'hub',x:hx,y:hy};
+    mapNodes.push(hub);
+    mapEdges.push({a:'__v',b:hub.id,kind:'rel',series:null,rival:rv});
+    const rs=DATA.signals.filter(s=>s.competitor===rv);
+    rs.slice(0,4).forEach((s,i)=>{
+      const spread=(i-(Math.min(rs.length,4)-1)/2)*26*Math.PI/180;
+      const aa=a+spread, RR=R+125;
+      mapNodes.push({id:s.signal_id,label:s.label,kind:'sig',pol:s.polarity,x:CX+Math.cos(aa)*RR,y:CY+Math.sin(aa)*RR,sig:s});
+      mapEdges.push({a:hub.id,b:s.signal_id,kind:'sig',series:s.series});
+    });
+  });
+  // vendor's own themes on the left arc
+  const themes=DATA.signals.filter(s=>!s.competitor).sort((a,b)=>(Math.max(...b.series.map(p=>p.intensity)))-(Math.max(...a.series.map(p=>p.intensity)))).slice(0,7);
+  themes.forEach((s,i)=>{
+    const a=(145 + i*(142/(Math.max(themes.length-1,1))))*Math.PI/180;
+    const R=168+ (i%2)*82;
+    mapNodes.push({id:s.signal_id,label:s.label,kind:'sig',pol:s.polarity,x:CX+Math.cos(a)*R,y:CY+Math.sin(a)*R,sig:s});
+    mapEdges.push({a:'__v',b:s.signal_id,kind:'sig',series:s.series});
+  });
+  drawMap();
+}
+function nodeById(id){return mapNodes.find(n=>n.id===id)}
+function rivalValueAt(rv,i){const ss=DATA.signals.filter(s=>s.competitor===rv).map(s=>valueAt(s.series,i)||0);return ss.length?Math.max(...ss):0}
+function drawMap(){
+  const svg=document.getElementById('map'); const NS='http://www.w3.org/2000/svg'; svg.innerHTML='';
+  const vp=document.createElementNS(NS,'g'); vp.setAttribute('id','vp');
+  const gE=document.createElementNS(NS,'g'), gN=document.createElementNS(NS,'g');
+  mapEdges.forEach(e=>{
+    const A=nodeById(e.a),B=nodeById(e.b);
+    const ln=document.createElementNS(NS,'line');
+    ln.setAttribute('x1',A.x);ln.setAttribute('y1',A.y);ln.setAttribute('x2',B.x);ln.setAttribute('y2',B.y);
+    ln.setAttribute('class','edge'); ln.dataset.k=e.kind; if(e.rival)ln.dataset.rival=e.rival;
+    if(e.series)ln.dataset.series='1', ln.dataset.id=e.b;
+    ln.setAttribute('stroke', e.kind==='rel'?getCSS('--rival'):getCSS(B.pol==='helps'?'--help':'--hurt'));
+    gE.appendChild(ln);
+  });
+  mapNodes.forEach(n=>{
+    const g=document.createElementNS(NS,'g'); g.setAttribute('class','gnode'); g.dataset.id=n.id;
+    if(n.kind==='sig'){g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',n.label)}
+    const ttl=document.createElementNS(NS,'title'); ttl.textContent=n.sig?(n.sig.full||n.label):n.label; g.appendChild(ttl);
+    const c=document.createElementNS(NS,'circle');
+    c.setAttribute('cx',n.x);c.setAttribute('cy',n.y);
+    let fill=getCSS('--ink'),stroke='none';
+    if(n.kind==='vendor'){fill=getCSS('--ink')}
+    else if(n.kind==='hub'){fill=getCSS('--rival')}
+    else{fill=getCSS(n.pol==='helps'?'--help':'--hurt')}
+    c.setAttribute('fill',fill);
+    if(n.kind==='vendor'){c.setAttribute('stroke',getCSS('--help'));c.setAttribute('stroke-width','2')}
+    g.appendChild(c);
+    const t=document.createElementNS(NS,'text');
+    t.setAttribute('x',n.x);t.setAttribute('y',n.y+(n.kind==='sig'?-14:5));
+    t.setAttribute('text-anchor','middle');
+    if(n.kind==='vendor'){t.setAttribute('class','centerLabel');t.setAttribute('y',n.y+6);t.textContent=n.label}
+    else if(n.kind==='hub'){t.setAttribute('class','hubLabel');t.setAttribute('y',n.y+5);t.textContent=n.label}
+    else{t.setAttribute('class','nodeLabel');t.textContent=trunc(n.label,26)}
+    g.appendChild(t);
+    if(n.sig){g.onclick=()=>{if(dragMoved){dragMoved=false;return}openDrawer(n.sig)};g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openDrawer(n.sig)}}}
+    gN.appendChild(g);
+  });
+  vp.appendChild(gE);vp.appendChild(gN);svg.appendChild(vp);
+  fitView();
+  updateMap();
+}
+let view={tx:0,ty:0,k:1}, dragMoved=false;
+function applyView(){const vp=document.getElementById('vp');if(vp)vp.setAttribute('transform',`translate(${view.tx.toFixed(1)},${view.ty.toFixed(1)}) scale(${view.k.toFixed(3)})`)}
+function fitView(){
+  if(!mapNodes.length)return;
+  const xs=mapNodes.map(n=>n.x),ys=mapNodes.map(n=>n.y),pad=95;
+  const minX=Math.min(...xs)-pad,maxX=Math.max(...xs)+pad,minY=Math.min(...ys)-pad,maxY=Math.max(...ys)+pad;
+  const bw=maxX-minX,bh=maxY-minY,VW=1140,VH=720,k=Math.min(VW/bw,VH/bh,1.4);
+  view.k=k; view.tx=(VW-bw*k)/2-minX*k; view.ty=(VH-bh*k)/2-minY*k; applyView();
+}
+function initMapInteractions(){
+  const svg=document.getElementById('map'); let panning=false,sx=0,sy=0;
+  const rect=()=>svg.getBoundingClientRect();
+  svg.addEventListener('pointerdown',e=>{panning=true;dragMoved=false;sx=e.clientX;sy=e.clientY;svg.classList.add('grab')});
+  svg.addEventListener('pointermove',e=>{if(!panning)return;if(e.buttons===0){panning=false;svg.classList.remove('grab');return}const r=rect();const dx=(e.clientX-sx)*(1140/r.width),dy=(e.clientY-sy)*(720/r.height);if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>3)dragMoved=true;view.tx+=dx;view.ty+=dy;sx=e.clientX;sy=e.clientY;applyView()});
+  const end=()=>{panning=false;svg.classList.remove('grab')};
+  svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);svg.addEventListener('pointerleave',end);
+  svg.addEventListener('wheel',e=>{e.preventDefault();const r=rect();const px=(e.clientX-r.left)*(1140/r.width),py=(e.clientY-r.top)*(720/r.height);const f=e.deltaY<0?1.12:0.89;const nk=Math.max(.3,Math.min(3.5,view.k*f));const wx=(px-view.tx)/view.k,wy=(py-view.ty)/view.k;view.tx=px-wx*nk;view.ty=py-wy*nk;view.k=nk;applyView()},{passive:false});
+}
+function updateMap(){
+  document.querySelectorAll('#map .gnode').forEach(g=>{
+    const n=nodeById(g.dataset.id); const c=g.querySelector('circle'); const t=g.querySelector('text');
+    let v=null;
+    if(n.kind==='sig')v=valueAt(n.sig.series,cursor);
+    else if(n.kind==='hub')v=rivalValueAt(n.label,cursor);
+    else v=8; // vendor anchor constant
+    const present = v!=null;
+    const val = v==null?0:v;
+    const r = n.kind==='vendor'?17 : 6 + (val/10)*16;
+    c.setAttribute('r', r.toFixed(1));
+    const op = present? (0.35+0.65*(val/10)) : 0.13;
+    c.setAttribute('opacity', n.kind==='vendor'?1:op.toFixed(2));
+    if(t) t.setAttribute('opacity', present? (n.kind==='sig'?Math.max(.3,op):1) : .2);
+  });
+  document.querySelectorAll('#map .edge').forEach(ln=>{
+    let v=0;
+    if(ln.dataset.rival)v=rivalValueAt(ln.dataset.rival,cursor);
+    else if(ln.dataset.series){const s=DATA.signals.find(x=>x.signal_id===ln.dataset.id);v=valueAt(s.series,cursor)||0}
+    const w=1+(v/10)*5, op=v>0?(0.18+0.55*(v/10)):0.06;
+    ln.setAttribute('stroke-width',w.toFixed(2));ln.setAttribute('opacity',op.toFixed(2));
+  });
+}
+
+/* ---------- drawer ---------- */
+function openDrawer(s){
+  document.getElementById('dLens').textContent=(LENS_LABEL[s.lens]||s.lens)+(s.competitor?(' · vs '+s.competitor):'');
+  document.getElementById('dTitle').textContent=s.full||s.label;
+  const [btxt]=badgeFor(s.movement);
+  const v=lastValue(s);
+  document.getElementById('dPills').innerHTML=
+    `<span class="pill" style="color:${s.polarity==='helps'?getCSS('--help'):getCSS('--hurt')}">${s.polarity==='helps'?'helps you':'hurts you'}</span>`+
+    `<span class="pill">${btxt}</span>`+
+    `<span class="pill">strength ${v==null?'—':v.toFixed(1)}/10</span>`+
+    `<span class="pill">confidence ${(Math.round((s.confidence||0)*100))}%</span>`;
+  drawTrajectory(s);
+  const host=document.getElementById('dReceipts'); host.innerHTML='';
+  (s.evidence||[]).forEach(e=>{
+    const pol=s.polarity==='helps'?'help':'hurt';
+    const sent=e.sentiment||0;
+    const d=document.createElement('div'); d.className='receipt '+pol;
+    d.innerHTML=`<div class="q">“${esc(e.quote)}”</div>
+      <div class="m">
+        ${e.source_url?`<a class="src" href="${escAttr(e.source_url)}" target="_blank" rel="noopener">${esc(e.source_domain||'source')}</a>`:`<span>${esc(e.source_domain||'source')}</span>`}
+        <span>${e.quote_date||'—'}</span>
+        ${sent?`<span class="sent" title="intensity ${sent}/5">${[0,1,2,3,4].map(i=>`<i class="${i<sent?'on':''}"></i>`).join('')}</span>`:''}
+      </div>`;
+    host.appendChild(d);
+  });
+  if(!(s.evidence||[]).length)host.innerHTML='<p style="color:var(--ink-faint);font-size:13px">No evidence carried for this signal.</p>';
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer').setAttribute('aria-hidden','false');
+  document.getElementById('scrim').classList.add('open');
+}
+function drawTrajectory(s){
+  const W=400,H=120,pad=22,max=10;
+  const xs=WEEKS.map((w,i)=>pad+i*(W-2*pad)/(WEEKS.length-1));
+  const pts=WEEKS.map((w,i)=>{const v=valueAt(s.series,i);return v==null?null:[xs[i],H-pad-(v/max)*(H-2*pad)]});
+  const color=s.polarity==='helps'?getCSS('--help'):getCSS('--hurt');
+  let g=''; const valid=pts.filter(Boolean);
+  if(valid.length>1)g='M'+valid.map(p=>p.join(',')).join(' L');
+  let gridded='';[0,5,10].forEach(v=>{const y=H-pad-(v/max)*(H-2*pad);gridded+=`<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="${getCSS('--line')}" stroke-width="1"/><text x="4" y="${y+3}" font-size="9" fill="${getCSS('--ink-faint')}" font-family="monospace">${v}</text>`});
+  let dots=pts.map((p,i)=>p?`<circle cx="${p[0]}" cy="${p[1]}" r="${i===cursor?4.5:3}" fill="${color}" ${i===cursor?'stroke="'+getCSS('--ink')+'" stroke-width="1.5"':''}/>`:'').join('');
+  let labels=WEEKS.map((w,i)=>`<text x="${xs[i]}" y="${H-6}" text-anchor="middle" font-size="9" fill="${getCSS('--ink-faint')}" font-family="monospace">${shortW(w)}</text>`).join('');
+  document.getElementById('dChart').innerHTML=`${gridded}<path d="${g}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linecap="round"/>${dots}${labels}`;
+}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawer').setAttribute('aria-hidden','true');document.getElementById('scrim').classList.remove('open')}
+
+/* ---------- helpers ---------- */
+function getCSS(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function escAttr(s){return (s||'').replace(/"/g,'&quot;')}
+function trunc(s,n){return s.length>n?s.slice(0,n-1)+'…':s}
+
+/* ---------- wire up ---------- */
+function setCursor(i){
+  cursor=+i; document.getElementById('slider').value=i;
+  document.getElementById('curWeek').textContent=shortW(WEEKS[i]);
+  document.querySelectorAll('#ticks span').forEach((t,k)=>t.classList.toggle('on',k===i));
+  renderBoard(); if(!document.getElementById('mapView').classList.contains('hidden'))updateMap();
+}
+function initTicks(){
+  const t=document.getElementById('ticks'); t.innerHTML='';
+  WEEKS.forEach((w,i)=>{const s=document.createElement('span');s.textContent=shortW(w);if(i===cursor)s.className='on';t.appendChild(s)});
+}
+document.getElementById('slider').addEventListener('input',e=>{stopPlay();setCursor(e.target.value)});
+document.getElementById('playBtn').addEventListener('click',()=>{
+  if(playing){stopPlay();return}
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){setCursor(WEEKS.length-1);return}
+  document.getElementById('playBtn').textContent='❚❚ pause';
+  let i=0; setCursor(0);
+  playing=setInterval(()=>{ i++; if(i>=WEEKS.length){stopPlay();return} setCursor(i); },900);
+});
+function stopPlay(){if(playing){clearInterval(playing);playing=null;document.getElementById('playBtn').textContent='▶ replay'}}
+document.getElementById('tabBoard').onclick=()=>switchTab('board');
+document.getElementById('tabMap').onclick=()=>switchTab('map');
+function switchTab(v){
+  const board=v==='board';
+  document.getElementById('tabBoard').setAttribute('aria-selected',board);
+  document.getElementById('tabMap').setAttribute('aria-selected',!board);
+  document.getElementById('boardView').classList.toggle('hidden',!board);
+  document.getElementById('mapView').classList.toggle('hidden',board);
+  if(!board)updateMap();
+}
+document.getElementById('closeBtn').onclick=closeDrawer;
+document.getElementById('scrim').onclick=closeDrawer;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+
+/* ---------- boot ---------- */
+document.getElementById('vendor').textContent=DATA.vendor;
+document.getElementById('mWeeks').textContent=WEEKS.length+' weeks';
+document.getElementById('mRange').textContent=shortW(WEEKS[0])+' → '+shortW(WEEKS[WEEKS.length-1])+', '+WEEKS[WEEKS.length-1].slice(0,4);
+document.getElementById('mCount').textContent=DATA.signals.length+' active signals';
+document.getElementById('slider').max=WEEKS.length-1;
+document.getElementById('slider').value=cursor;
+initTicks(); renderBoard(); buildMap(); initMapInteractions();
+document.getElementById('resetView').onclick=fitView;
+</script>
+</body>
+</html>

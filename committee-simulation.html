@@ -102,8 +102,10 @@
             font-family: 'Geist', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 0.98;
-            letter-spacing: -0.045em;
+            /* Was 0.98. At three or four lines that put descenders ~6px from
+               the next line's cap height, which reads as cramped. */
+            line-height: 1.08;
+            letter-spacing: -0.04em;
             text-wrap: balance;
         }
         .h2 {
@@ -2344,7 +2346,7 @@
 
         .mani-hero{padding:5rem 0 3rem}
         @media(min-width:768px){.mani-hero{padding:6.5rem 0 4rem}}
-        .mani-hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.04;letter-spacing:-0.03em;max-width:19ch;margin:0 0 1.5rem;color:var(--ink);font-weight:700}
+        .mani-hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.08;letter-spacing:-0.03em;max-width:19ch;margin:0 0 1.5rem;color:var(--ink);font-weight:700}
         .mani-hero h1 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--brand)}
         .mani-lede{font-size:1.2rem;line-height:1.5;color:var(--mute);max-width:38rem;margin:0}
         .tenets{display:flex;flex-direction:column;gap:0;max-width:46rem;margin:0 auto}

@@ -9,14 +9,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 
-    <title>WhyUser | Stress Test Your B2B Campaigns and Pages Before You Spend Budget</title>
+    <title>WhyUser | Stress Test B2B Campaigns and Pages Before You Spend Budget</title>
     <meta name="description" content="WhyUser is the pre-launch stress test for B2B campaigns. Stress test landing pages, ads, and emails against an End-Customer Buying Committee before launch. Catch silent vetoes, bounce risks, and ad-to-page mismatches before you spend budget. Trusted by ngrok and Vectara.">
     <meta name="keywords" content="B2B campaign stress testing, pre-launch stress test, End-Customer Buying Committee simulation, pre-flight campaign testing, demand gen staging, GTM staging environment, ad and landing page testing">
     <link rel="canonical" href="https://whyuser.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WhyUser">
-    <meta property="og:title" content="WhyUser | Stress Test Your B2B Campaigns Before You Spend Budget">
+    <meta property="og:title" content="WhyUser | Stress Test B2B Campaigns and Pages Before You Spend Budget">
     <meta property="og:description" content="WhyUser is the pre-launch stress test for B2B campaigns. Stress test landing pages, ads, and emails against an End-Customer Buying Committee before launch. Catch silent vetoes, bounce risks, and ad-to-page mismatches before you spend budget. Trusted by ngrok and Vectara.">
     <meta property="og:url" content="https://whyuser.com/">
     <meta property="og:locale" content="en_US">
@@ -25,7 +25,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="WhyUser, Pre-Launch Stress Test. End-Customer Buying Committee Simulation showing Conflict Graph: Champion and Technical Decision-maker advocate, Economic Buyer hesitates, Security Guardian vetoes.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WhyUser | Stress Test Your B2B Campaigns Before You Spend Budget">
+    <meta name="twitter:title" content="WhyUser | Stress Test B2B Campaigns and Pages Before You Spend Budget">
     <meta name="twitter:description" content="WhyUser is the pre-launch stress test for B2B campaigns. Stress test campaigns against an End-Customer Buying Committee before you spend budget. Trusted by ngrok and Vectara.">
     <meta name="twitter:image" content="https://whyuser.com/og-image.png">
     <meta name="twitter:image:alt" content="WhyUser, Pre-Launch Stress Test">
@@ -124,7 +124,7 @@
         "@type": "WebPage",
         "@id": "https://whyuser.com/#webpage",
         "url": "https://whyuser.com/",
-        "name": "WhyUser | Stress Test Your B2B Campaigns Before You Spend Budget",
+        "name": "WhyUser | Stress Test B2B Campaigns and Pages Before You Spend Budget",
         "isPartOf": {
             "@id": "https://whyuser.com/#website"
         },
@@ -223,10 +223,10 @@
            ───────────────────────────────────────────────────────────── */
         :root {
             /* Surface: unified bright soft beige canvas */
-            --paper: #fcf9f0;
-            --paper-warm: #fcf9f0;
-            --paper-cool: #fcf9f0;
-            --surface: #ffffff;
+            --paper: #fbfbf9;        /* page base, soft white */
+            --paper-warm: #f5f5f2;   /* alternating section band */
+            --paper-cool: #f8f8f6;
+            --surface: #ffffff;      /* cards sit above the page */
 
             /* Ink */
             --ink: #09090b;
@@ -236,8 +236,8 @@
             --faint: #a1a1aa;
 
             /* Hairlines */
-            --rule: rgba(9, 9, 11, 0.07);
-            --rule-strong: rgba(9, 9, 11, 0.14);
+            --rule: rgba(9, 9, 11, 0.09);
+            --rule-strong: rgba(9, 9, 11, 0.15);
             --rule-bold: rgba(9, 9, 11, 0.24);
 
             /* Dark product frame */
@@ -389,12 +389,12 @@
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
             mix-blend-mode: multiply;
-            opacity: 0.5;
+            opacity: 0.32;
         }
 
         /* Ultra-subtle dot grid, replaces pastel gradient backgrounds */
         .dotgrid {
-            background-image: radial-gradient(circle, rgba(9,9,11,0.06) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(9,9,11,0.05) 1px, transparent 1px);
             background-size: 24px 24px;
             background-position: 0 0;
         }
@@ -441,7 +441,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(250, 250, 247, 0.84);
+            background: rgba(251, 251, 249, 0.82);
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);
@@ -708,7 +708,9 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-            margin-bottom: 3rem;
+            /* Trust logos moved to their own strip, so this is now the last
+               element in the column and needs no trailing space. */
+            margin-bottom: 0;
         }
         @media (min-width: 480px) {
             .hero-ctas { flex-direction: row; }
@@ -718,6 +720,23 @@
             display: flex;
             flex-direction: column;
             gap: 0.875rem;
+        }
+        /* Full-width strip under the hero grid. Keeps the left column from
+           towering over the product frame, and gives the logos more room. */
+        .trust-strip {
+            margin-top: 3.25rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .trust-strip {
+                flex-direction: row;
+                align-items: center;
+                gap: 2.5rem;
+            }
         }
         .trust-label {
             font-family: 'JetBrains Mono', monospace;
@@ -2472,7 +2491,16 @@
            make a visual bigger, lower to make it smaller. */
         .engine-frame  { max-width: 440px; margin-left: auto; margin-right: auto; }  /* the 4 engine screenshots */
         .product-frame { max-width: 460px; margin-left: auto; margin-right: auto; }  /* hero conflict graph + Evidence Ledger */
-        .hub           { max-width: 820px; }                                          /* Ground Reality hub diagram */
+        .hub           { max-width: 820px; }
+
+        /* White cards used to separate by fill against cream. On soft white the
+           hairline plus a whisper of shadow does that job instead. */
+        .cta-card,
+        .table-wrap,
+        .hub-source,
+        .solfix-card {
+            box-shadow: 0 1px 2px rgba(9, 9, 11, 0.035), 0 1px 1px rgba(9, 9, 11, 0.02);
+        }                                          /* Ground Reality hub diagram */
     </style>
 </head>
 <body class="grain">
@@ -2632,16 +2660,6 @@
                         </a>
                     </div>
 
-                    <div class="trust-row">
-                        <span class="trust-label">Trusted by demand gen teams at</span>
-                        <div class="trust-logos">
-                            <img src="images/ngrok-logo.svg" alt="ngrok" class="trust-logo">
-                            <span class="trust-divider"></span>
-                            <img src="images/vectara-logo.svg" alt="Vectara" class="trust-logo">
-                            <span class="trust-divider"></span>
-                            <span class="trust-aux">+ NDA design partners</span>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- RIGHT: animated Conflict Graph product frame -->
@@ -2750,6 +2768,18 @@
                 </div>
 
             </div>
+
+            <div class="trust-strip">
+                <span class="trust-label">Trusted by demand gen teams at</span>
+                <div class="trust-logos">
+                    <img src="images/ngrok-logo.svg" alt="ngrok" class="trust-logo">
+                    <span class="trust-divider"></span>
+                    <img src="images/vectara-logo.svg" alt="Vectara" class="trust-logo">
+                    <span class="trust-divider"></span>
+                    <span class="trust-aux">+ NDA design partners</span>
+                </div>
+            </div>
+
         </div>
     </header>
 

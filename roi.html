@@ -56,10 +56,13 @@
            ───────────────────────────────────────────────────────────── */
         :root {
             /* Surface */
-            --paper: #fafaf7;
-            --paper-warm: #f5f4ee;
-            --paper-cool: #f4f5f7;
-            --surface: #ffffff;
+            /* One flat page colour. Sections are separated by spacing and
+               typography, never by a change of background. */
+            --paper: #fbfbf9;        /* the whole page, soft white */
+            --paper-warm: #f3f3f0;   /* NOT a section colour. Tint for chips,
+                                        icons, hover states, highlighted cells. */
+            --paper-cool: #f8f8f6;
+            --surface: #ffffff;      /* cards sit above the page */
 
             /* Ink */
             --ink: #09090b;
@@ -69,8 +72,8 @@
             --faint: #a1a1aa;
 
             /* Hairlines */
-            --rule: rgba(9, 9, 11, 0.07);
-            --rule-strong: rgba(9, 9, 11, 0.14);
+            --rule: rgba(9, 9, 11, 0.09);
+            --rule-strong: rgba(9, 9, 11, 0.15);
             --rule-bold: rgba(9, 9, 11, 0.24);
 
             /* Dark product frame */
@@ -218,12 +221,12 @@
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
             mix-blend-mode: multiply;
-            opacity: 0.5;
+            opacity: 0.32;
         }
 
         /* Ultra-subtle dot grid — replaces pastel gradient backgrounds */
         .dotgrid {
-            background-image: radial-gradient(circle, rgba(9,9,11,0.06) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(9,9,11,0.05) 1px, transparent 1px);
             background-size: 24px 24px;
             background-position: 0 0;
         }
@@ -270,7 +273,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(250, 250, 247, 0.84);
+            background: rgba(251, 251, 249, 0.82);
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);
@@ -297,19 +300,151 @@
             overflow: hidden;
         }
         .nav-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        /* Desktop link row. Shows from 1000px, hamburger covers everything below. */
         .nav-links {
             display: none;
-            gap: 1.75rem;
+            align-items: center;
+            gap: 1.5rem;
             font-size: 13.5px;
             font-weight: 500;
             color: var(--mute);
         }
-        .nav-links a:hover { color: var(--ink); }
-        @media (min-width: 1024px) {
+        .nav-links > a { color: var(--mute); transition: color 140ms ease; }
+        .nav-links > a:hover { color: var(--ink); }
+        @media (min-width: 1000px) {
             .nav-links { display: flex; }
         }
+
+        /* Product dropdown */
+        .nav-dd { position: relative; }
+        .nav-dd::after {
+            content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 16px;
+        }
+        .nav-dd-trigger {
+            display: inline-flex; align-items: center; gap: 0.375rem;
+            background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+            font-family: inherit; font-size: 13.5px; font-weight: 500;
+            color: var(--mute); line-height: inherit;
+            transition: color 140ms ease;
+        }
+        .nav-dd-trigger:hover,
+        .nav-dd.open .nav-dd-trigger { color: var(--ink); }
+        .nav-dd-caret { font-size: 8px; opacity: 0.65; transition: transform 180ms ease; }
+        .nav-dd.open .nav-dd-caret { transform: rotate(180deg); }
+        .nav-dd-panel {
+            position: absolute; top: calc(100% + 15px); left: -0.875rem;
+            width: 392px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(9,9,11,0.05), 0 20px 48px -16px rgba(9,9,11,0.26);
+            padding: 0.6rem;
+            opacity: 0; visibility: hidden; transform: translateY(-6px);
+            transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+            z-index: 60;
+        }
+        .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dd-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.4rem 0.625rem 0.5rem;
+        }
+        .nav-dd-item {
+            display: flex; align-items: flex-start; gap: 0.7rem;
+            padding: 0.55rem 0.625rem;
+            border-radius: 8px;
+            transition: background 140ms ease;
+        }
+        .nav-dd-item:hover { background: var(--paper-warm); }
+        .nav-dd-ico {
+            flex: 0 0 auto;
+            width: 27px; height: 27px; border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--brand-soft); color: var(--brand);
+            font-size: 11px; margin-top: 1px;
+        }
+        .nav-dd-name {
+            display: block; font-size: 13.5px; font-weight: 600;
+            color: var(--ink); letter-spacing: -0.012em;
+        }
+        .nav-dd-desc {
+            display: block; font-size: 11.75px; color: var(--dim);
+            line-height: 1.42; margin-top: 2px;
+        }
+        .nav-dd-sep { display: block; height: 1px; background: var(--rule); margin: 0.5rem 0.625rem; }
+
         .nav-cta-row {
             display: flex; align-items: center; gap: 0.625rem;
+        }
+
+        /* Hamburger, everything under 1000px */
+        .nav-burger {
+            display: inline-flex; flex-direction: column; justify-content: center;
+            gap: 4px;
+            width: 38px; height: 34px; padding: 0 8px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        .nav-burger span {
+            display: block; width: 100%; height: 1.5px;
+            background: var(--ink); border-radius: 2px;
+            transition: transform 180ms ease, opacity 130ms ease;
+        }
+        .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+        .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+        @media (min-width: 1000px) { .nav-burger { display: none; } }
+
+        /* Mobile / tablet panel */
+        .nav-mobile {
+            max-height: 0; overflow: hidden;
+            background: var(--surface);
+            border-top: 1px solid transparent;
+            transition: max-height 280ms ease, border-color 280ms ease;
+        }
+        .nav-mobile.open { max-height: 80vh; overflow-y: auto; border-top-color: var(--rule); }
+        @media (min-width: 1000px) { .nav-mobile { display: none; } }
+        .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
+        .nav-m-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.25rem 0 0.6rem;
+        }
+        .nav-m-label + .nav-m-link { border-top: 0; }
+        .nav-m-eng { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.5rem 0; }
+        .nav-m-link {
+            display: block; padding: 0.7rem 0;
+            font-size: 15px; font-weight: 500; color: var(--ink-soft);
+            border-top: 1px solid var(--rule);
+        }
+        .nav-m-group { margin-top: 1.1rem; }
+        .nav-m-ctas { display: flex; gap: 0.625rem; margin-top: 1.25rem; }
+        .nav-m-ctas .btn { flex: 1; justify-content: center; }
+
+        /* Specificity has to beat the later .btn rule, hence the parent selector. */
+        @media (max-width: 560px) {
+            .nav-cta-row .nav-roi { display: none; }
+            .nav-cta-row .btn-primary { padding: 0.6rem 0.8rem; font-size: 13px; }
+            .nav-inner { gap: 0.5rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .nav-dd-panel, .nav-mobile, .nav-burger span, .nav-dd-caret { transition: none; }
+        }
+
+        /* White cards used to separate by fill against cream. On soft white the
+           hairline plus a whisper of shadow does that job instead. */
+        .cta-card,
+        .table-wrap,
+        .hub-source,
+        .solfix-card {
+            box-shadow: 0 1px 2px rgba(9, 9, 11, 0.035), 0 1px 1px rgba(9, 9, 11, 0.02);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -2219,13 +2354,13 @@
      the original ROI tokens to bring this page in line with the
      rest of the site while preserving all variable names so the
      existing component CSS still works. */
-  --paper: #fafaf7;
+  --paper: #fbfbf9;
   --paper-light: #ffffff;
   --card: #ffffff;
   --ink: #09090b;
   --ink-muted: #27272a;  /* darker for legibility */
   --ink-faint: #71717a;
-  --line: rgba(9, 9, 11, 0.07);
+  --line: rgba(9, 9, 11, 0.09);
   --line-soft: rgba(9, 9, 11, 0.05);
   /* Semantic accents — repurposed: emerald → green-success,
      rust → red-warning, gold → amber-upside */
@@ -3491,22 +3626,122 @@ body {
     <!-- ═════════════════════════════════════════════════════════════════
          NAV
          ═════════════════════════════════════════════════════════════════ -->
-    <nav class="nav">
+        <nav class="nav" id="site-nav">
         <div class="wrap nav-inner">
             <a href="index.html" class="nav-brand">
                 <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
                 <span>WhyUser</span>
             </a>
+
             <div class="nav-links">
-                <a href="index.html#solution">Solution</a>
-                <a href="index.html#how">Where it fits</a>
+                <div class="nav-dd" id="nav-dd-product">
+                    <button type="button" class="nav-dd-trigger" id="nav-dd-trigger"
+                            aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true">
+                        Product
+                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-dd-panel" id="nav-dd-panel" role="menu" aria-labelledby="nav-dd-trigger">
+                        <span class="nav-dd-label">The four engines</span>
+                        <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Committee Simulation</span>
+                                <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                            </span>
+                        </a>
+                        <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Ad Campaign Simulation</span>
+                                <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                            </span>
+                        </a>
+                        <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Email Campaign Simulation</span>
+                                <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                            </span>
+                        </a>
+                        <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Audience Discovery</span>
+                                <span class="nav-dd-desc">The roles your content actually fits.</span>
+                            </span>
+                        </a>
+                        <span class="nav-dd-sep" aria-hidden="true"></span>
+                        <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">AI opinions vs. simulations</span>
+                                <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#how">How it works</a>
                 <a href="index.html#build">Why not build it</a>
                 <a href="manifesto.html">Manifesto</a>
                 <a href="faq.html">FAQ</a>
             </div>
+
             <div class="nav-cta-row">
-                <a href="roi.html" class="btn btn-ghost" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
-                <a href="index.html#access" class="btn btn-primary">Apply for Design Partner</a>
+                <a href="roi.html" class="btn btn-ghost nav-roi" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
+                <a href="index.html#access" class="btn btn-primary">Request Access</a>
+                <button type="button" class="nav-burger" id="nav-burger"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile / tablet menu -->
+        <div class="nav-mobile" id="nav-mobile">
+            <div class="nav-mobile-inner">
+                <span class="nav-m-label">The four engines</span>
+                <a href="committee-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Committee Simulation</span>
+                        <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                    </span>
+                </a>
+                <a href="ad-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Ad Campaign Simulation</span>
+                        <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                    </span>
+                </a>
+                <a href="email-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Email Campaign Simulation</span>
+                        <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                    </span>
+                </a>
+                <a href="audience-discovery.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Audience Discovery</span>
+                        <span class="nav-dd-desc">The roles your content actually fits.</span>
+                    </span>
+                </a>
+
+                <div class="nav-m-group">
+                    <span class="nav-m-label">Company</span>
+                    <a href="index.html#how" class="nav-m-link">How it works</a>
+                    <a href="index.html#build" class="nav-m-link">Why not build it</a>
+                    <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+                    <a href="faq.html" class="nav-m-link">FAQ</a>
+                    <a href="roi.html" class="nav-m-link">ROI calculator</a>
+                </div>
+
+                <div class="nav-m-ctas">
+                    <a href="index.html#access" class="btn btn-primary btn-lg">Request Access</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -5212,7 +5447,7 @@ render();
                         <li><a href="manifesto.html">Manifesto</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="index.html#access">Apply for Design Partner</a></li>
+                        <li><a href="index.html#access">Request Access</a></li>
                     </ul>
                 </div>
                 <div>
@@ -5231,6 +5466,68 @@ render();
             </div>
         </div>
     </footer>
+
+    <!-- Nav behaviour: Product dropdown + mobile menu -->
+    <script>
+    (function () {
+        var burger  = document.getElementById('nav-burger');
+        var mobile  = document.getElementById('nav-mobile');
+        var dd      = document.getElementById('nav-dd-product');
+        var trigger = document.getElementById('nav-dd-trigger');
+        var desktop = window.matchMedia('(min-width: 1000px)');
+        var hoverTimer;
+        var lastPointerOpen = 0;
+
+        function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
+        function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+        function closeMobile() {
+            if (!mobile) return;
+            mobile.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Open menu');
+        }
+
+        if (burger && mobile) {
+            burger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = mobile.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            mobile.addEventListener('click', function (e) {
+                if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+            });
+        }
+
+        if (dd && trigger) {
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (Date.now() - lastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+            });
+            dd.addEventListener('mouseenter', function () {
+                if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+            });
+            dd.addEventListener('mouseleave', function () {
+                if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+            });
+            dd.addEventListener('focusout', function (e) {
+                if (!dd.contains(e.relatedTarget)) closeDd();
+            });
+        }
+
+        document.addEventListener('click', function (e) {
+            if (dd && !dd.contains(e.target)) closeDd();
+            if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') { closeDd(); closeMobile(); }
+        });
+        window.addEventListener('resize', function () {
+            if (desktop.matches) closeMobile();
+        });
+    })();
+    </script>
 
 </body>
 </html>

@@ -22,10 +22,13 @@
            ───────────────────────────────────────────────────────────── */
         :root {
             /* Surface */
-            --paper: #fafaf7;
-            --paper-warm: #f5f4ee;
-            --paper-cool: #f4f5f7;
-            --surface: #ffffff;
+            /* One flat page colour. Sections are separated by spacing and
+               typography, never by a change of background. */
+            --paper: #fbfbf9;        /* the whole page, soft white */
+            --paper-warm: #f3f3f0;   /* NOT a section colour. Tint for chips,
+                                        icons, hover states, highlighted cells. */
+            --paper-cool: #f8f8f6;
+            --surface: #ffffff;      /* cards sit above the page */
 
             /* Ink */
             --ink: #09090b;
@@ -35,8 +38,8 @@
             --faint: #a1a1aa;
 
             /* Hairlines */
-            --rule: rgba(9, 9, 11, 0.07);
-            --rule-strong: rgba(9, 9, 11, 0.14);
+            --rule: rgba(9, 9, 11, 0.09);
+            --rule-strong: rgba(9, 9, 11, 0.15);
             --rule-bold: rgba(9, 9, 11, 0.24);
 
             /* Dark product frame */
@@ -188,12 +191,12 @@
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
             mix-blend-mode: multiply;
-            opacity: 0.5;
+            opacity: 0.32;
         }
 
         /* Ultra-subtle dot grid, replaces pastel gradient backgrounds */
         .dotgrid {
-            background-image: radial-gradient(circle, rgba(9,9,11,0.06) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(9,9,11,0.05) 1px, transparent 1px);
             background-size: 24px 24px;
             background-position: 0 0;
         }
@@ -240,7 +243,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(250, 250, 247, 0.84);
+            background: rgba(251, 251, 249, 0.82);
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);
@@ -267,19 +270,151 @@
             overflow: hidden;
         }
         .nav-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        /* Desktop link row. Shows from 1000px, hamburger covers everything below. */
         .nav-links {
             display: none;
-            gap: 1.75rem;
+            align-items: center;
+            gap: 1.5rem;
             font-size: 13.5px;
             font-weight: 500;
             color: var(--mute);
         }
-        .nav-links a:hover { color: var(--ink); }
-        @media (min-width: 1024px) {
+        .nav-links > a { color: var(--mute); transition: color 140ms ease; }
+        .nav-links > a:hover { color: var(--ink); }
+        @media (min-width: 1000px) {
             .nav-links { display: flex; }
         }
+
+        /* Product dropdown */
+        .nav-dd { position: relative; }
+        .nav-dd::after {
+            content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 16px;
+        }
+        .nav-dd-trigger {
+            display: inline-flex; align-items: center; gap: 0.375rem;
+            background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+            font-family: inherit; font-size: 13.5px; font-weight: 500;
+            color: var(--mute); line-height: inherit;
+            transition: color 140ms ease;
+        }
+        .nav-dd-trigger:hover,
+        .nav-dd.open .nav-dd-trigger { color: var(--ink); }
+        .nav-dd-caret { font-size: 8px; opacity: 0.65; transition: transform 180ms ease; }
+        .nav-dd.open .nav-dd-caret { transform: rotate(180deg); }
+        .nav-dd-panel {
+            position: absolute; top: calc(100% + 15px); left: -0.875rem;
+            width: 392px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(9,9,11,0.05), 0 20px 48px -16px rgba(9,9,11,0.26);
+            padding: 0.6rem;
+            opacity: 0; visibility: hidden; transform: translateY(-6px);
+            transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+            z-index: 60;
+        }
+        .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dd-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.4rem 0.625rem 0.5rem;
+        }
+        .nav-dd-item {
+            display: flex; align-items: flex-start; gap: 0.7rem;
+            padding: 0.55rem 0.625rem;
+            border-radius: 8px;
+            transition: background 140ms ease;
+        }
+        .nav-dd-item:hover { background: var(--paper-warm); }
+        .nav-dd-ico {
+            flex: 0 0 auto;
+            width: 27px; height: 27px; border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--brand-soft); color: var(--brand);
+            font-size: 11px; margin-top: 1px;
+        }
+        .nav-dd-name {
+            display: block; font-size: 13.5px; font-weight: 600;
+            color: var(--ink); letter-spacing: -0.012em;
+        }
+        .nav-dd-desc {
+            display: block; font-size: 11.75px; color: var(--dim);
+            line-height: 1.42; margin-top: 2px;
+        }
+        .nav-dd-sep { display: block; height: 1px; background: var(--rule); margin: 0.5rem 0.625rem; }
+
         .nav-cta-row {
             display: flex; align-items: center; gap: 0.625rem;
+        }
+
+        /* Hamburger, everything under 1000px */
+        .nav-burger {
+            display: inline-flex; flex-direction: column; justify-content: center;
+            gap: 4px;
+            width: 38px; height: 34px; padding: 0 8px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        .nav-burger span {
+            display: block; width: 100%; height: 1.5px;
+            background: var(--ink); border-radius: 2px;
+            transition: transform 180ms ease, opacity 130ms ease;
+        }
+        .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+        .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+        @media (min-width: 1000px) { .nav-burger { display: none; } }
+
+        /* Mobile / tablet panel */
+        .nav-mobile {
+            max-height: 0; overflow: hidden;
+            background: var(--surface);
+            border-top: 1px solid transparent;
+            transition: max-height 280ms ease, border-color 280ms ease;
+        }
+        .nav-mobile.open { max-height: 80vh; overflow-y: auto; border-top-color: var(--rule); }
+        @media (min-width: 1000px) { .nav-mobile { display: none; } }
+        .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
+        .nav-m-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.25rem 0 0.6rem;
+        }
+        .nav-m-label + .nav-m-link { border-top: 0; }
+        .nav-m-eng { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.5rem 0; }
+        .nav-m-link {
+            display: block; padding: 0.7rem 0;
+            font-size: 15px; font-weight: 500; color: var(--ink-soft);
+            border-top: 1px solid var(--rule);
+        }
+        .nav-m-group { margin-top: 1.1rem; }
+        .nav-m-ctas { display: flex; gap: 0.625rem; margin-top: 1.25rem; }
+        .nav-m-ctas .btn { flex: 1; justify-content: center; }
+
+        /* Specificity has to beat the later .btn rule, hence the parent selector. */
+        @media (max-width: 560px) {
+            .nav-cta-row .nav-roi { display: none; }
+            .nav-cta-row .btn-primary { padding: 0.6rem 0.8rem; font-size: 13px; }
+            .nav-inner { gap: 0.5rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .nav-dd-panel, .nav-mobile, .nav-burger span, .nav-dd-caret { transition: none; }
+        }
+
+        /* White cards used to separate by fill against cream. On soft white the
+           hairline plus a whisper of shadow does that job instead. */
+        .cta-card,
+        .table-wrap,
+        .hub-source,
+        .solfix-card {
+            box-shadow: 0 1px 2px rgba(9, 9, 11, 0.035), 0 1px 1px rgba(9, 9, 11, 0.02);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -2225,41 +2360,217 @@
 </style>
 </head>
 <body class="grain">
-  <nav class="nav"><div class="wrap nav-inner">
-    <a href="index.html" class="nav-brand"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span>WhyUser</span></a>
-    <div class="nav-links"><a href="index.html#solution">Solution</a><a href="index.html#how">Where it fits</a><a href="index.html#build">Why not build it</a><a href="manifesto.html">Manifesto</a><a href="faq.html">FAQ</a></div>
-    <div class="nav-cta-row"><a href="roi.html" class="btn btn-ghost" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a><a href="index.html#access" class="btn btn-primary">Apply for Design Partner</a></div>
-  </div></nav>
+      <nav class="nav" id="site-nav">
+        <div class="wrap nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
+                <span>WhyUser</span>
+            </a>
+
+            <div class="nav-links">
+                <div class="nav-dd" id="nav-dd-product">
+                    <button type="button" class="nav-dd-trigger" id="nav-dd-trigger"
+                            aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true">
+                        Product
+                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-dd-panel" id="nav-dd-panel" role="menu" aria-labelledby="nav-dd-trigger">
+                        <span class="nav-dd-label">The four engines</span>
+                        <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Committee Simulation</span>
+                                <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                            </span>
+                        </a>
+                        <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Ad Campaign Simulation</span>
+                                <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                            </span>
+                        </a>
+                        <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Email Campaign Simulation</span>
+                                <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                            </span>
+                        </a>
+                        <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Audience Discovery</span>
+                                <span class="nav-dd-desc">The roles your content actually fits.</span>
+                            </span>
+                        </a>
+                        <span class="nav-dd-sep" aria-hidden="true"></span>
+                        <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">AI opinions vs. simulations</span>
+                                <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#how">How it works</a>
+                <a href="index.html#build">Why not build it</a>
+                <a href="manifesto.html">Manifesto</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+
+            <div class="nav-cta-row">
+                <a href="roi.html" class="btn btn-ghost nav-roi" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
+                <a href="index.html#access" class="btn btn-primary">Request Access</a>
+                <button type="button" class="nav-burger" id="nav-burger"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile / tablet menu -->
+        <div class="nav-mobile" id="nav-mobile">
+            <div class="nav-mobile-inner">
+                <span class="nav-m-label">The four engines</span>
+                <a href="committee-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Committee Simulation</span>
+                        <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                    </span>
+                </a>
+                <a href="ad-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Ad Campaign Simulation</span>
+                        <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                    </span>
+                </a>
+                <a href="email-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Email Campaign Simulation</span>
+                        <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                    </span>
+                </a>
+                <a href="audience-discovery.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Audience Discovery</span>
+                        <span class="nav-dd-desc">The roles your content actually fits.</span>
+                    </span>
+                </a>
+
+                <div class="nav-m-group">
+                    <span class="nav-m-label">Company</span>
+                    <a href="index.html#how" class="nav-m-link">How it works</a>
+                    <a href="index.html#build" class="nav-m-link">Why not build it</a>
+                    <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+                    <a href="faq.html" class="nav-m-link">FAQ</a>
+                    <a href="roi.html" class="nav-m-link">ROI calculator</a>
+                </div>
+
+                <div class="nav-m-ctas">
+                    <a href="index.html#access" class="btn btn-primary btn-lg">Request Access</a>
+                </div>
+            </div>
+        </div>
+    </nav>
   <header class="hero subhero dotgrid"><div class="wrap"><div class="hero-grid">
       <div>
         <div class="hero-pill"><span class="hero-pill-dot"></span>Engine 04 &middot; Targeting &amp; ICP</div>
         <h1 class="h1">Find exactly who will care. Before you spend.</h1>
         <p class="hero-sub">A job title is a guess, not a list. Audience Discovery reads your content, finds where it actually resonates, and hands you the exact titles to target, hidden champions included.</p>
-        <div class="hero-ctas"><a href="index.html#access" class="btn btn-primary btn-lg">Apply for Design Partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="#how" class="btn btn-ghost btn-lg">See how it works</a></div>
+        <div class="hero-ctas"><a href="index.html#access" class="btn btn-primary btn-lg">Request Access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="#how" class="btn btn-ghost btn-lg">See how it works</a></div>
         <div class="trust-row"><span class="trust-aux">Sourced to real buyer reviews &middot; set up in minutes, not weeks</span></div>
       </div>
       <div class="engine-visual"><div class="engine-frame subhero-frame"><div class="engine-frame-bar"><span class="engine-frame-tag">AUDIENCE &middot; /targeting</span><span class="engine-frame-pill">Live</span></div><img class="engine-frame-img" src="https://whyuser.com/images/audience_discovery.png" alt="Audience Discovery interface"></div></div>
     </div></div></header>
-<section class="section-rule" style="padding:0"><div class="wrap" style="padding-top:0;padding-bottom:0;margin-top:-2.5rem;position:relative;z-index:3"><div class="specstrip"><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-file-lines"></i></span><div><div class="specstrip-k">Runs against</div><div class="specstrip-v">Any URL, PDF, or copy</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-magnifying-glass-chart"></i></span><div><div class="specstrip-k">Finds</div><div class="specstrip-v">Sub-markets that fit</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-ranking-star"></i></span><div><div class="specstrip-k">You get</div><div class="specstrip-v">A ranked title pool</div></div></div></div></div></section><section id="how" class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">The process</span><h2 class="h2">How it works.</h2><p>A five-stage pipeline. From a content asset to a validated list.</p></div><div class="vflow"><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-file-lines"></i></span><div class="vstep-n">01</div><h3 class="vstep-h">Extract capability</h3><p class="vstep-p">Reads your content. Keeps the signal, drops the fluff.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-magnifying-glass-chart"></i></span><div class="vstep-n">02</div><h3 class="vstep-h">Scan sub-markets</h3><p class="vstep-p">Finds where real fit exists. Not where titles match.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-user-plus"></i></span><div class="vstep-n">03</div><h3 class="vstep-h">Generate buyers</h3><p class="vstep-p">Specific roles, like &ldquo;Quant Developer.&rdquo; Not generic.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-ranking-star"></i></span><div class="vstep-n">04</div><h3 class="vstep-h">Verify and rank</h3><p class="vstep-p">An adversarial buyer reads it. The pool gets ranked.</p></div></div></div></section><section class="section-rule" style="background: var(--paper-warm)"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Why it breaks</span><h2 class="h2">Three ways it fails. Three fixes.</h2><p>Each one is invisible until after launch. WhyUser catches all three before the spend.</p></div><div class="fails"><div class="fail"><span class="fail-k">Failure 01</span><h3 class="fail-h">The generic-title trap</h3><p class="fail-p">&ldquo;Head of Security&rdquo; at a bank and a FinTech share a title and nothing else. CAC climbs.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Specific, industry-intersected titles with resonance scores.</span></div></div><div class="fail"><span class="fail-k">Failure 02</span><h3 class="fail-h">The dark-funnel blind spot</h3><p class="fail-p">Buyers decide on G2, Reddit, and Slack before they click. You cannot see it.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Our agents carry that intel. Verification reflects informed buyers.</span></div></div><div class="fail"><span class="fail-k">Failure 03</span><h3 class="fail-h">Hidden champions, missed</h3><p class="fail-p">The sub-markets that love your content surface after months of spend, if ever.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Adjacent discovery finds them first. Often at lower CPMs.</span></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">What you get</span><h2 class="h2">The Ranked Title Pool, and everything around it.</h2><p>Weeks of manual ICP research. Replaced by a validated list.</p></div><div class="artwrap"><div><div class="artframe"><div class="artframe-bar"><span class="afd" style="background:#ef4444"></span><span class="afd" style="background:#f59e0b"></span><span class="afd" style="background:#10b981"></span><span class="artframe-tag">targeting export</span></div><div class="artbody"><div class="art-title">Ranked title pool</div>
+<section class="section-rule" style="padding:0"><div class="wrap" style="padding-top:0;padding-bottom:0;margin-top:-2.5rem;position:relative;z-index:3"><div class="specstrip"><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-file-lines"></i></span><div><div class="specstrip-k">Runs against</div><div class="specstrip-v">Any URL, PDF, or copy</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-magnifying-glass-chart"></i></span><div><div class="specstrip-k">Finds</div><div class="specstrip-v">Sub-markets that fit</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-ranking-star"></i></span><div><div class="specstrip-k">You get</div><div class="specstrip-v">A ranked title pool</div></div></div></div></div></section><section id="how" class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">The process</span><h2 class="h2">How it works.</h2><p>A five-stage pipeline. From a content asset to a validated list.</p></div><div class="vflow"><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-file-lines"></i></span><div class="vstep-n">01</div><h3 class="vstep-h">Extract capability</h3><p class="vstep-p">Reads your content. Keeps the signal, drops the fluff.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-magnifying-glass-chart"></i></span><div class="vstep-n">02</div><h3 class="vstep-h">Scan sub-markets</h3><p class="vstep-p">Finds where real fit exists. Not where titles match.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-user-plus"></i></span><div class="vstep-n">03</div><h3 class="vstep-h">Generate buyers</h3><p class="vstep-p">Specific roles, like &ldquo;Quant Developer.&rdquo; Not generic.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-ranking-star"></i></span><div class="vstep-n">04</div><h3 class="vstep-h">Verify and rank</h3><p class="vstep-p">An adversarial buyer reads it. The pool gets ranked.</p></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Why it breaks</span><h2 class="h2">Three ways it fails. Three fixes.</h2><p>Each one is invisible until after launch. WhyUser catches all three before the spend.</p></div><div class="fails"><div class="fail"><span class="fail-k">Failure 01</span><h3 class="fail-h">The generic-title trap</h3><p class="fail-p">&ldquo;Head of Security&rdquo; at a bank and a FinTech share a title and nothing else. CAC climbs.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Specific, industry-intersected titles with resonance scores.</span></div></div><div class="fail"><span class="fail-k">Failure 02</span><h3 class="fail-h">The dark-funnel blind spot</h3><p class="fail-p">Buyers decide on G2, Reddit, and Slack before they click. You cannot see it.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Our agents carry that intel. Verification reflects informed buyers.</span></div></div><div class="fail"><span class="fail-k">Failure 03</span><h3 class="fail-h">Hidden champions, missed</h3><p class="fail-p">The sub-markets that love your content surface after months of spend, if ever.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Adjacent discovery finds them first. Often at lower CPMs.</span></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">What you get</span><h2 class="h2">The Ranked Title Pool, and everything around it.</h2><p>Weeks of manual ICP research. Replaced by a validated list.</p></div><div class="artwrap"><div><div class="artframe"><div class="artframe-bar"><span class="afd" style="background:#ef4444"></span><span class="afd" style="background:#f59e0b"></span><span class="afd" style="background:#10b981"></span><span class="artframe-tag">targeting export</span></div><div class="artbody"><div class="art-title">Ranked title pool</div>
 <div class="m-row"><span class="m-label" style="width:140px">PACS Administrator</span><span class="m-bar"><span style="width:92%"></span></span><span class="m-score">92</span></div>
 <div class="m-row"><span class="m-label" style="width:140px">Imaging IT Lead</span><span class="m-bar"><span style="width:84%"></span></span><span class="m-score">84</span></div>
 <div class="m-row"><span class="m-label" style="width:140px">Quant Developer <i class="fa-solid fa-star m-star"></i></span><span class="m-bar"><span style="width:79%"></span></span><span class="m-score">79</span></div>
 <div class="m-row"><span class="m-label" style="width:140px">VP Engineering</span><span class="m-bar"><span class="lo" style="width:48%"></span></span><span class="m-score">48</span></div>
-<div class="mk-stat"><i class="fa-solid fa-star" style="color:#fbbf24"></i> <b>Quant Developer</b> = hidden champion. High fit, lower CPM, off your current list.</div></div></div></div><div><div class="specs"><div class="spec"><span class="spec-ic"><i class="fa-solid fa-ranking-star"></i></span><div><h3 class="spec-h">Ranked Title Pool</h3><p class="spec-p">Specific titles with resonance scores.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-crosshairs"></i></span><div><h3 class="spec-h">LinkedIn hooks</h3><p class="spec-p">The language that lands, per title.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-user-secret"></i></span><div><h3 class="spec-h">Hidden champions</h3><p class="spec-p">Sub-markets that out-resonate your ICP.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-ban"></i></span><div><h3 class="spec-h">Negative keywords</h3><p class="spec-p">SEM exclusions to cut low-intent traffic.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-clipboard-check"></i></span><div><h3 class="spec-h">Signal Quality Gate</h3><p class="spec-p">A coaching report when content is too thin.</p></div></div></div></div></div></div></section><section class="section-rule" style="background: var(--paper-warm)"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Who it is for</span><h2 class="h2">Built for the people who own the number.</h2></div><div class="whohub"><div class="whohub-orb"><div class="whohub-orb-core"><i class="fa-solid fa-magnifying-glass"></i></div><span class="whohub-orb-tag">Audience Discovery</span></div><svg class="whohub-links" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><line x1="500" y1="2" x2="125" y2="118"/><line x1="500" y1="2" x2="375" y2="118"/><line x1="500" y1="2" x2="625" y2="118"/><line x1="500" y1="2" x2="875" y2="118"/></svg><div class="whohub-roles"><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-chart-line"></i></span><h3 class="whohub-role-h">Demand gen</h3><p class="whohub-role-p">Know which titles to target before turning on spend.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullseye"></i></span><h3 class="whohub-role-h">Heads of paid</h3><p class="whohub-role-p">Justify expansion with data. Cut CAC.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullhorn"></i></span><h3 class="whohub-role-h">Product marketing</h3><p class="whohub-role-p">Confirm the asset matches who responds.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-compass"></i></span><h3 class="whohub-role-h">GTM leaders</h3><p class="whohub-role-p">Cross-vertical evidence before a TAM bet.</p></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Works with</span><h2 class="h2">One engine, then the next.</h2><p>Start with Committee Simulation, then add the engine for the next channel you ship. All four run on the same Ground Reality foundation.</p></div><div class="estack"><a class="etile" href="committee-simulation.html"><span class="etile-ic"><i class="fa-solid fa-users"></i></span><div class="etile-n">Engine 01</div><div class="etile-name">Committee Simulation</div><div class="etile-chip"><i class="fa-solid fa-diagram-project"></i>Conflict Graph</div></a><a class="etile" href="ad-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-bullseye"></i></span><div class="etile-n">Engine 02</div><div class="etile-name">Ad Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-list-check"></i>Kill Sheet</div></a><a class="etile" href="email-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-envelope-open-text"></i></span><div class="etile-n">Engine 03</div><div class="etile-name">Email Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-trophy"></i>Per-Persona Winner</div></a><div class="etile active"><span class="etile-here">You are here</span><span class="etile-ic"><i class="fa-solid fa-magnifying-glass"></i></span><div class="etile-n">Engine 04</div><div class="etile-name">Audience Discovery</div><div class="etile-chip"><i class="fa-solid fa-crosshairs"></i>Ranked Title Pool</div></div></div></div></section>  <section class="cta-section"><div class="wrap"><div class="cta-card"><div style="text-align:center;max-width:42rem;margin:0 auto">
+<div class="mk-stat"><i class="fa-solid fa-star" style="color:#fbbf24"></i> <b>Quant Developer</b> = hidden champion. High fit, lower CPM, off your current list.</div></div></div></div><div><div class="specs"><div class="spec"><span class="spec-ic"><i class="fa-solid fa-ranking-star"></i></span><div><h3 class="spec-h">Ranked Title Pool</h3><p class="spec-p">Specific titles with resonance scores.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-crosshairs"></i></span><div><h3 class="spec-h">LinkedIn hooks</h3><p class="spec-p">The language that lands, per title.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-user-secret"></i></span><div><h3 class="spec-h">Hidden champions</h3><p class="spec-p">Sub-markets that out-resonate your ICP.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-ban"></i></span><div><h3 class="spec-h">Negative keywords</h3><p class="spec-p">SEM exclusions to cut low-intent traffic.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-clipboard-check"></i></span><div><h3 class="spec-h">Signal Quality Gate</h3><p class="spec-p">A coaching report when content is too thin.</p></div></div></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Who it is for</span><h2 class="h2">Built for the people who own the number.</h2></div><div class="whohub"><div class="whohub-orb"><div class="whohub-orb-core"><i class="fa-solid fa-magnifying-glass"></i></div><span class="whohub-orb-tag">Audience Discovery</span></div><svg class="whohub-links" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><line x1="500" y1="2" x2="125" y2="118"/><line x1="500" y1="2" x2="375" y2="118"/><line x1="500" y1="2" x2="625" y2="118"/><line x1="500" y1="2" x2="875" y2="118"/></svg><div class="whohub-roles"><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-chart-line"></i></span><h3 class="whohub-role-h">Demand gen</h3><p class="whohub-role-p">Know which titles to target before turning on spend.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullseye"></i></span><h3 class="whohub-role-h">Heads of paid</h3><p class="whohub-role-p">Justify expansion with data. Cut CAC.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullhorn"></i></span><h3 class="whohub-role-h">Product marketing</h3><p class="whohub-role-p">Confirm the asset matches who responds.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-compass"></i></span><h3 class="whohub-role-h">GTM leaders</h3><p class="whohub-role-p">Cross-vertical evidence before a TAM bet.</p></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Works with</span><h2 class="h2">One engine, then the next.</h2><p>Start with Committee Simulation, then add the engine for the next channel you ship. All four run on the same Ground Reality foundation.</p></div><div class="estack"><a class="etile" href="committee-simulation.html"><span class="etile-ic"><i class="fa-solid fa-users"></i></span><div class="etile-n">Engine 01</div><div class="etile-name">Committee Simulation</div><div class="etile-chip"><i class="fa-solid fa-diagram-project"></i>Conflict Graph</div></a><a class="etile" href="ad-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-bullseye"></i></span><div class="etile-n">Engine 02</div><div class="etile-name">Ad Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-list-check"></i>Kill Sheet</div></a><a class="etile" href="email-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-envelope-open-text"></i></span><div class="etile-n">Engine 03</div><div class="etile-name">Email Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-trophy"></i>Per-Persona Winner</div></a><div class="etile active"><span class="etile-here">You are here</span><span class="etile-ic"><i class="fa-solid fa-magnifying-glass"></i></span><div class="etile-n">Engine 04</div><div class="etile-name">Audience Discovery</div><div class="etile-chip"><i class="fa-solid fa-crosshairs"></i>Ranked Title Pool</div></div></div></div></section>  <section class="cta-section"><div class="wrap"><div class="cta-card"><div style="text-align:center;max-width:42rem;margin:0 auto">
       <span class="section-eyebrow" style="justify-content:center">Get started</span>
       <h2 class="cta-h" style="margin-bottom:1.25rem">What would the right targeting list save you next quarter?</h2>
       <p style="color:var(--mute);font-size:1.0625rem;line-height:1.5;margin:0 0 2rem">Apply for the design partner program. Run it on a campaign you already know. Grade us yourself.</p>
-      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Apply for Design Partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="index.html#build" class="btn btn-ghost btn-lg">Why not build it</a></div>
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Request Access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="index.html#build" class="btn btn-ghost btn-lg">Why not build it</a></div>
     </div></div></div></section>
   <footer class="footer"><div class="wrap">
     <div class="footer-grid">
       <div><div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
         <p class="footer-tagline">WhyUser. The pre-launch stress test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p></div>
       <div><h4>Engines</h4><ul><li><a href="committee-simulation.html">Committee Simulation</a></li><li><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></li><li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li><li><a href="audience-discovery.html">Audience Discovery</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="index.html#how">Where it fits</a></li><li><a href="index.html#build">Why not build it</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#access">Apply</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="index.html#how">Where it fits</a></li><li><a href="index.html#build">Why not build it</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#access">Request access</a></li></ul></div>
       <div><h4>Resources</h4><ul><li><a href="roi.html">ROI Calculator</a></li><li><a href="contact.html">Contact</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 WhyUser Inc.</span><span>Pre-launch stress test for B2B campaigns</span></div>
   </div></footer>
+    <!-- Nav behaviour: Product dropdown + mobile menu -->
+    <script>
+    (function () {
+        var burger  = document.getElementById('nav-burger');
+        var mobile  = document.getElementById('nav-mobile');
+        var dd      = document.getElementById('nav-dd-product');
+        var trigger = document.getElementById('nav-dd-trigger');
+        var desktop = window.matchMedia('(min-width: 1000px)');
+        var hoverTimer;
+        var lastPointerOpen = 0;
+
+        function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
+        function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+        function closeMobile() {
+            if (!mobile) return;
+            mobile.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Open menu');
+        }
+
+        if (burger && mobile) {
+            burger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = mobile.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            mobile.addEventListener('click', function (e) {
+                if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+            });
+        }
+
+        if (dd && trigger) {
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (Date.now() - lastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+            });
+            dd.addEventListener('mouseenter', function () {
+                if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+            });
+            dd.addEventListener('mouseleave', function () {
+                if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+            });
+            dd.addEventListener('focusout', function (e) {
+                if (!dd.contains(e.relatedTarget)) closeDd();
+            });
+        }
+
+        document.addEventListener('click', function (e) {
+            if (dd && !dd.contains(e.target)) closeDd();
+            if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') { closeDd(); closeMobile(); }
+        });
+        window.addEventListener('resize', function () {
+            if (desktop.matches) closeMobile();
+        });
+    })();
+    </script>
+
 </body>
 </html>

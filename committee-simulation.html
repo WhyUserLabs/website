@@ -22,10 +22,13 @@
            ───────────────────────────────────────────────────────────── */
         :root {
             /* Surface */
-            --paper: #fafaf7;
-            --paper-warm: #f5f4ee;
-            --paper-cool: #f4f5f7;
-            --surface: #ffffff;
+            /* One flat page colour. Sections are separated by spacing and
+               typography, never by a change of background. */
+            --paper: #fbfbf9;        /* the whole page, soft white */
+            --paper-warm: #f3f3f0;   /* NOT a section colour. Tint for chips,
+                                        icons, hover states, highlighted cells. */
+            --paper-cool: #f8f8f6;
+            --surface: #ffffff;      /* cards sit above the page */
 
             /* Ink */
             --ink: #09090b;
@@ -35,8 +38,8 @@
             --faint: #a1a1aa;
 
             /* Hairlines */
-            --rule: rgba(9, 9, 11, 0.07);
-            --rule-strong: rgba(9, 9, 11, 0.14);
+            --rule: rgba(9, 9, 11, 0.09);
+            --rule-strong: rgba(9, 9, 11, 0.15);
             --rule-bold: rgba(9, 9, 11, 0.24);
 
             /* Dark product frame */
@@ -188,12 +191,12 @@
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
             mix-blend-mode: multiply;
-            opacity: 0.5;
+            opacity: 0.32;
         }
 
         /* Ultra-subtle dot grid, replaces pastel gradient backgrounds */
         .dotgrid {
-            background-image: radial-gradient(circle, rgba(9,9,11,0.06) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(9,9,11,0.05) 1px, transparent 1px);
             background-size: 24px 24px;
             background-position: 0 0;
         }
@@ -240,7 +243,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(250, 250, 247, 0.84);
+            background: rgba(251, 251, 249, 0.82);
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);
@@ -267,19 +270,151 @@
             overflow: hidden;
         }
         .nav-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        /* Desktop link row. Shows from 1000px, hamburger covers everything below. */
         .nav-links {
             display: none;
-            gap: 1.75rem;
+            align-items: center;
+            gap: 1.5rem;
             font-size: 13.5px;
             font-weight: 500;
             color: var(--mute);
         }
-        .nav-links a:hover { color: var(--ink); }
-        @media (min-width: 1024px) {
+        .nav-links > a { color: var(--mute); transition: color 140ms ease; }
+        .nav-links > a:hover { color: var(--ink); }
+        @media (min-width: 1000px) {
             .nav-links { display: flex; }
         }
+
+        /* Product dropdown */
+        .nav-dd { position: relative; }
+        .nav-dd::after {
+            content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 16px;
+        }
+        .nav-dd-trigger {
+            display: inline-flex; align-items: center; gap: 0.375rem;
+            background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+            font-family: inherit; font-size: 13.5px; font-weight: 500;
+            color: var(--mute); line-height: inherit;
+            transition: color 140ms ease;
+        }
+        .nav-dd-trigger:hover,
+        .nav-dd.open .nav-dd-trigger { color: var(--ink); }
+        .nav-dd-caret { font-size: 8px; opacity: 0.65; transition: transform 180ms ease; }
+        .nav-dd.open .nav-dd-caret { transform: rotate(180deg); }
+        .nav-dd-panel {
+            position: absolute; top: calc(100% + 15px); left: -0.875rem;
+            width: 392px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(9,9,11,0.05), 0 20px 48px -16px rgba(9,9,11,0.26);
+            padding: 0.6rem;
+            opacity: 0; visibility: hidden; transform: translateY(-6px);
+            transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+            z-index: 60;
+        }
+        .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dd-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.4rem 0.625rem 0.5rem;
+        }
+        .nav-dd-item {
+            display: flex; align-items: flex-start; gap: 0.7rem;
+            padding: 0.55rem 0.625rem;
+            border-radius: 8px;
+            transition: background 140ms ease;
+        }
+        .nav-dd-item:hover { background: var(--paper-warm); }
+        .nav-dd-ico {
+            flex: 0 0 auto;
+            width: 27px; height: 27px; border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--brand-soft); color: var(--brand);
+            font-size: 11px; margin-top: 1px;
+        }
+        .nav-dd-name {
+            display: block; font-size: 13.5px; font-weight: 600;
+            color: var(--ink); letter-spacing: -0.012em;
+        }
+        .nav-dd-desc {
+            display: block; font-size: 11.75px; color: var(--dim);
+            line-height: 1.42; margin-top: 2px;
+        }
+        .nav-dd-sep { display: block; height: 1px; background: var(--rule); margin: 0.5rem 0.625rem; }
+
         .nav-cta-row {
             display: flex; align-items: center; gap: 0.625rem;
+        }
+
+        /* Hamburger, everything under 1000px */
+        .nav-burger {
+            display: inline-flex; flex-direction: column; justify-content: center;
+            gap: 4px;
+            width: 38px; height: 34px; padding: 0 8px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        .nav-burger span {
+            display: block; width: 100%; height: 1.5px;
+            background: var(--ink); border-radius: 2px;
+            transition: transform 180ms ease, opacity 130ms ease;
+        }
+        .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+        .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+        @media (min-width: 1000px) { .nav-burger { display: none; } }
+
+        /* Mobile / tablet panel */
+        .nav-mobile {
+            max-height: 0; overflow: hidden;
+            background: var(--surface);
+            border-top: 1px solid transparent;
+            transition: max-height 280ms ease, border-color 280ms ease;
+        }
+        .nav-mobile.open { max-height: 80vh; overflow-y: auto; border-top-color: var(--rule); }
+        @media (min-width: 1000px) { .nav-mobile { display: none; } }
+        .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
+        .nav-m-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.25rem 0 0.6rem;
+        }
+        .nav-m-label + .nav-m-link { border-top: 0; }
+        .nav-m-eng { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.5rem 0; }
+        .nav-m-link {
+            display: block; padding: 0.7rem 0;
+            font-size: 15px; font-weight: 500; color: var(--ink-soft);
+            border-top: 1px solid var(--rule);
+        }
+        .nav-m-group { margin-top: 1.1rem; }
+        .nav-m-ctas { display: flex; gap: 0.625rem; margin-top: 1.25rem; }
+        .nav-m-ctas .btn { flex: 1; justify-content: center; }
+
+        /* Specificity has to beat the later .btn rule, hence the parent selector. */
+        @media (max-width: 560px) {
+            .nav-cta-row .nav-roi { display: none; }
+            .nav-cta-row .btn-primary { padding: 0.6rem 0.8rem; font-size: 13px; }
+            .nav-inner { gap: 0.5rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .nav-dd-panel, .nav-mobile, .nav-burger span, .nav-dd-caret { transition: none; }
+        }
+
+        /* White cards used to separate by fill against cream. On soft white the
+           hairline plus a whisper of shadow does that job instead. */
+        .cta-card,
+        .table-wrap,
+        .hub-source,
+        .solfix-card {
+            box-shadow: 0 1px 2px rgba(9, 9, 11, 0.035), 0 1px 1px rgba(9, 9, 11, 0.02);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -2225,22 +2360,136 @@
 </style>
 </head>
 <body class="grain">
-  <nav class="nav"><div class="wrap nav-inner">
-    <a href="index.html" class="nav-brand"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span>WhyUser</span></a>
-    <div class="nav-links"><a href="index.html#solution">Solution</a><a href="index.html#how">Where it fits</a><a href="index.html#build">Why not build it</a><a href="manifesto.html">Manifesto</a><a href="faq.html">FAQ</a></div>
-    <div class="nav-cta-row"><a href="roi.html" class="btn btn-ghost" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a><a href="index.html#access" class="btn btn-primary">Apply for Design Partner</a></div>
-  </div></nav>
+      <nav class="nav" id="site-nav">
+        <div class="wrap nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
+                <span>WhyUser</span>
+            </a>
+
+            <div class="nav-links">
+                <div class="nav-dd" id="nav-dd-product">
+                    <button type="button" class="nav-dd-trigger" id="nav-dd-trigger"
+                            aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true">
+                        Product
+                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-dd-panel" id="nav-dd-panel" role="menu" aria-labelledby="nav-dd-trigger">
+                        <span class="nav-dd-label">The four engines</span>
+                        <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Committee Simulation</span>
+                                <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                            </span>
+                        </a>
+                        <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Ad Campaign Simulation</span>
+                                <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                            </span>
+                        </a>
+                        <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Email Campaign Simulation</span>
+                                <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                            </span>
+                        </a>
+                        <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Audience Discovery</span>
+                                <span class="nav-dd-desc">The roles your content actually fits.</span>
+                            </span>
+                        </a>
+                        <span class="nav-dd-sep" aria-hidden="true"></span>
+                        <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">AI opinions vs. simulations</span>
+                                <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#how">How it works</a>
+                <a href="index.html#build">Why not build it</a>
+                <a href="manifesto.html">Manifesto</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+
+            <div class="nav-cta-row">
+                <a href="roi.html" class="btn btn-ghost nav-roi" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
+                <a href="index.html#access" class="btn btn-primary">Request Access</a>
+                <button type="button" class="nav-burger" id="nav-burger"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile / tablet menu -->
+        <div class="nav-mobile" id="nav-mobile">
+            <div class="nav-mobile-inner">
+                <span class="nav-m-label">The four engines</span>
+                <a href="committee-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Committee Simulation</span>
+                        <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                    </span>
+                </a>
+                <a href="ad-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Ad Campaign Simulation</span>
+                        <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                    </span>
+                </a>
+                <a href="email-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Email Campaign Simulation</span>
+                        <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                    </span>
+                </a>
+                <a href="audience-discovery.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Audience Discovery</span>
+                        <span class="nav-dd-desc">The roles your content actually fits.</span>
+                    </span>
+                </a>
+
+                <div class="nav-m-group">
+                    <span class="nav-m-label">Company</span>
+                    <a href="index.html#how" class="nav-m-link">How it works</a>
+                    <a href="index.html#build" class="nav-m-link">Why not build it</a>
+                    <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+                    <a href="faq.html" class="nav-m-link">FAQ</a>
+                    <a href="roi.html" class="nav-m-link">ROI calculator</a>
+                </div>
+
+                <div class="nav-m-ctas">
+                    <a href="index.html#access" class="btn btn-primary btn-lg">Request Access</a>
+                </div>
+            </div>
+        </div>
+    </nav>
   <header class="hero subhero dotgrid"><div class="wrap"><div class="hero-grid">
       <div>
         <div class="hero-pill"><span class="hero-pill-dot"></span>Engine 01 &middot; Landing pages &amp; content</div>
         <h1 class="h1">See the silent veto before it kills the deal.</h1>
         <p class="hero-sub">B2B deals die in silence. Committee Simulation runs your whole buying committee against the page and names the role that killed it, and the proof that was missing.</p>
-        <div class="hero-ctas"><a href="index.html#access" class="btn btn-primary btn-lg">Apply for Design Partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="#how" class="btn btn-ghost btn-lg">See how it works</a></div>
+        <div class="hero-ctas"><a href="index.html#access" class="btn btn-primary btn-lg">Request Access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="#how" class="btn btn-ghost btn-lg">See how it works</a></div>
         <div class="trust-row"><span class="trust-aux">Sourced to real buyer reviews &middot; set up in minutes, not weeks</span></div>
       </div>
       <div class="engine-visual"><div class="engine-frame subhero-frame"><div class="engine-frame-bar"><span class="engine-frame-tag">COMMITTEE &middot; /platform</span><span class="engine-frame-pill">Live</span></div><img class="engine-frame-img" src="https://whyuser.com/images/page_simulation.png" alt="Committee Simulation interface"></div></div>
     </div></div></header>
-<section class="section-rule" style="padding:0"><div class="wrap" style="padding-top:0;padding-bottom:0;margin-top:-2.5rem;position:relative;z-index:3"><div class="specstrip"><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-link"></i></span><div><div class="specstrip-k">Runs against</div><div class="specstrip-v">Any URL or PDF</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-users"></i></span><div><div class="specstrip-k">Simulates</div><div class="specstrip-v">Every role, at once</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-diagram-project"></i></span><div><div class="specstrip-k">You get</div><div class="specstrip-v">A Conflict Graph</div></div></div></div></div></section><section id="how" class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">The process</span><h2 class="h2">How it works.</h2><p>Compiled from your real buyers. Run as a committee against the live asset.</p></div><div class="vflow"><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-database"></i></span><div class="vstep-n">01</div><h3 class="vstep-h">Compile the committee</h3><p class="vstep-p">From your real reviews, calls, and community. Not invented.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-users"></i></span><div class="vstep-n">02</div><h3 class="vstep-h">Run every role</h3><p class="vstep-p">Each role is its own agent, at the stage you pick.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-eye"></i></span><div class="vstep-n">03</div><h3 class="vstep-h">Watch the behavior</h3><p class="vstep-p">They scan, hunt for proof, click or bounce. With a reason.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-diagram-project"></i></span><div class="vstep-n">04</div><h3 class="vstep-h">Read the verdict</h3><p class="vstep-p">Per-role decisions, the cascade, a ranked fix list.</p></div></div></div></section><section class="section-rule" style="background: var(--paper-warm)"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Why it breaks</span><h2 class="h2">Three ways it fails. Three fixes.</h2><p>Each one is invisible until after launch. WhyUser catches all three before the spend.</p></div><div class="fails"><div class="fail"><span class="fail-k">Failure 01</span><h3 class="fail-h">The invisible stakeholder</h3><p class="fail-p">A 3% conversion rate hides which stakeholder caused the 97% bounce. Analytics cannot tell them apart.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Per-role verdicts: who converts, who bounces, and the element that did it.</span></div></div><div class="fail"><span class="fail-k">Failure 02</span><h3 class="fail-h">The deal death chain</h3><p class="fail-p">The end user loves it. Security finds no SOC 2 and kills it. The CFO never found the ROI.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>The Conflict Graph maps the cascade. Fix the trigger, not the symptom.</span></div></div><div class="fail"><span class="fail-k">Failure 03</span><h3 class="fail-h">The psychology gap</h3><p class="fail-p">A distracted CISO scans only the nav. A rushed engineer clicks the first CTA. Same page, different page.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Every role runs in its real state and stage. Findings tied to buyers.</span></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">What you get</span><h2 class="h2">The Conflict Graph, and everything around it.</h2><p>More diagnostic depth than months of analytics. In a single run.</p></div><div class="artwrap"><div><div class="artframe"><div class="artframe-bar"><span class="afd" style="background:#ef4444"></span><span class="afd" style="background:#f59e0b"></span><span class="afd" style="background:#10b981"></span><span class="artframe-tag">committee synthesis</span></div><div class="artbody"><div class="art-title">Conflict Graph &middot; committee</div>
+<section class="section-rule" style="padding:0"><div class="wrap" style="padding-top:0;padding-bottom:0;margin-top:-2.5rem;position:relative;z-index:3"><div class="specstrip"><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-link"></i></span><div><div class="specstrip-k">Runs against</div><div class="specstrip-v">Any URL or PDF</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-users"></i></span><div><div class="specstrip-k">Simulates</div><div class="specstrip-v">Every role, at once</div></div></div><div class="specstrip-cell"><span class="specstrip-ic"><i class="fa-solid fa-diagram-project"></i></span><div><div class="specstrip-k">You get</div><div class="specstrip-v">A Conflict Graph</div></div></div></div></div></section><section id="how" class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">The process</span><h2 class="h2">How it works.</h2><p>Compiled from your real buyers. Run as a committee against the live asset.</p></div><div class="vflow"><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-database"></i></span><div class="vstep-n">01</div><h3 class="vstep-h">Compile the committee</h3><p class="vstep-p">From your real reviews, calls, and community. Not invented.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-users"></i></span><div class="vstep-n">02</div><h3 class="vstep-h">Run every role</h3><p class="vstep-p">Each role is its own agent, at the stage you pick.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-eye"></i></span><div class="vstep-n">03</div><h3 class="vstep-h">Watch the behavior</h3><p class="vstep-p">They scan, hunt for proof, click or bounce. With a reason.</p></div><div class="vstep"><span class="vstep-ic"><i class="fa-solid fa-diagram-project"></i></span><div class="vstep-n">04</div><h3 class="vstep-h">Read the verdict</h3><p class="vstep-p">Per-role decisions, the cascade, a ranked fix list.</p></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Why it breaks</span><h2 class="h2">Three ways it fails. Three fixes.</h2><p>Each one is invisible until after launch. WhyUser catches all three before the spend.</p></div><div class="fails"><div class="fail"><span class="fail-k">Failure 01</span><h3 class="fail-h">The invisible stakeholder</h3><p class="fail-p">A 3% conversion rate hides which stakeholder caused the 97% bounce. Analytics cannot tell them apart.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Per-role verdicts: who converts, who bounces, and the element that did it.</span></div></div><div class="fail"><span class="fail-k">Failure 02</span><h3 class="fail-h">The deal death chain</h3><p class="fail-p">The end user loves it. Security finds no SOC 2 and kills it. The CFO never found the ROI.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>The Conflict Graph maps the cascade. Fix the trigger, not the symptom.</span></div></div><div class="fail"><span class="fail-k">Failure 03</span><h3 class="fail-h">The psychology gap</h3><p class="fail-p">A distracted CISO scans only the nav. A rushed engineer clicks the first CTA. Same page, different page.</p><div class="fail-fix"><i class="fa-solid fa-check"></i><span>Every role runs in its real state and stage. Findings tied to buyers.</span></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">What you get</span><h2 class="h2">The Conflict Graph, and everything around it.</h2><p>More diagnostic depth than months of analytics. In a single run.</p></div><div class="artwrap"><div><div class="artframe"><div class="artframe-bar"><span class="afd" style="background:#ef4444"></span><span class="afd" style="background:#f59e0b"></span><span class="afd" style="background:#10b981"></span><span class="artframe-tag">committee synthesis</span></div><div class="artbody"><div class="art-title">Conflict Graph &middot; committee</div>
 <svg viewBox="0 0 340 188" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
   <line x1="62" y1="50" x2="160" y2="64" stroke="rgba(255,255,255,0.16)" stroke-width="1.5"/>
   <line x1="62" y1="138" x2="160" y2="74" stroke="rgba(255,255,255,0.16)" stroke-width="1.5"/>
@@ -2253,21 +2502,83 @@
   <circle cx="160" cy="158" r="6" fill="#a78bfa"/><text x="160" y="178" class="mg-l" fill="#34d399" text-anchor="middle">Security &#10003;</text>
   <circle cx="278" cy="102" r="10" fill="#ef4444"/><text x="278" y="84" class="mg-l" fill="#f87171" text-anchor="middle" font-weight="700">CFO &#10007; VETO</text>
 </svg>
-<div class="mk-stat">Cascade: <b>Technical doubt &rarr; CFO veto.</b> Missing proof: ROI calculator above the fold.</div></div></div></div><div><div class="specs"><div class="spec"><span class="spec-ic"><i class="fa-solid fa-diagram-project"></i></span><div><h3 class="spec-h">Conflict Graph</h3><p class="spec-p">Which role vetoed, and how it cascaded.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-list-check"></i></span><div><h3 class="spec-h">Fix-It Playbook</h3><p class="spec-p">Ranked changes, effort estimates, exact element.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-gauge"></i></span><div><h3 class="spec-h">Per-role conversion</h3><p class="spec-p">Convert or abandon, per committee seat.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-comment-dots"></i></span><div><h3 class="spec-h">Inner monologues</h3><p class="spec-p">What each persona looked for, and where it stuck.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-id-card"></i></span><div><h3 class="spec-h">Sales Battlecard</h3><p class="spec-p">Objections and handling, per persona.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-file-pen"></i></span><div><h3 class="spec-h">Editorial Verdict</h3><p class="spec-p">For content: publish, polish, or rewrite.</p></div></div></div></div></div></div></section><section class="section-rule" style="background: var(--paper-warm)"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Who it is for</span><h2 class="h2">Built for the people who own the number.</h2></div><div class="whohub"><div class="whohub-orb"><div class="whohub-orb-core"><i class="fa-solid fa-users"></i></div><span class="whohub-orb-tag">Committee Simulation</span></div><svg class="whohub-links" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><line x1="500" y1="2" x2="125" y2="118"/><line x1="500" y1="2" x2="375" y2="118"/><line x1="500" y1="2" x2="625" y2="118"/><line x1="500" y1="2" x2="875" y2="118"/></svg><div class="whohub-roles"><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullhorn"></i></span><h3 class="whohub-role-h">Product marketing</h3><p class="whohub-role-p">Convert the CFO without losing the engineer.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-pen-ruler"></i></span><h3 class="whohub-role-h">Web and UX</h3><p class="whohub-role-p">Behavioral proof a redesign works, per role.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-chart-line"></i></span><h3 class="whohub-role-h">Demand gen</h3><p class="whohub-role-p">Confirm the page converts a vertical&rsquo;s committee.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-handshake"></i></span><h3 class="whohub-role-h">Sales enablement</h3><p class="whohub-role-p">Know what the buyer and security will object to.</p></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Works with</span><h2 class="h2">One engine, then the next.</h2><p>Start with Committee Simulation, then add the engine for the next channel you ship. All four run on the same Ground Reality foundation.</p></div><div class="estack"><div class="etile active"><span class="etile-here">You are here</span><span class="etile-ic"><i class="fa-solid fa-users"></i></span><div class="etile-n">Engine 01</div><div class="etile-name">Committee Simulation</div><div class="etile-chip"><i class="fa-solid fa-diagram-project"></i>Conflict Graph</div></div><a class="etile" href="ad-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-bullseye"></i></span><div class="etile-n">Engine 02</div><div class="etile-name">Ad Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-list-check"></i>Kill Sheet</div></a><a class="etile" href="email-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-envelope-open-text"></i></span><div class="etile-n">Engine 03</div><div class="etile-name">Email Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-trophy"></i>Per-Persona Winner</div></a><a class="etile" href="audience-discovery.html"><span class="etile-ic"><i class="fa-solid fa-magnifying-glass"></i></span><div class="etile-n">Engine 04</div><div class="etile-name">Audience Discovery</div><div class="etile-chip"><i class="fa-solid fa-crosshairs"></i>Ranked Title Pool</div></a></div></div></section>  <section class="cta-section"><div class="wrap"><div class="cta-card"><div style="text-align:center;max-width:42rem;margin:0 auto">
+<div class="mk-stat">Cascade: <b>Technical doubt &rarr; CFO veto.</b> Missing proof: ROI calculator above the fold.</div></div></div></div><div><div class="specs"><div class="spec"><span class="spec-ic"><i class="fa-solid fa-diagram-project"></i></span><div><h3 class="spec-h">Conflict Graph</h3><p class="spec-p">Which role vetoed, and how it cascaded.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-list-check"></i></span><div><h3 class="spec-h">Fix-It Playbook</h3><p class="spec-p">Ranked changes, effort estimates, exact element.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-gauge"></i></span><div><h3 class="spec-h">Per-role conversion</h3><p class="spec-p">Convert or abandon, per committee seat.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-comment-dots"></i></span><div><h3 class="spec-h">Inner monologues</h3><p class="spec-p">What each persona looked for, and where it stuck.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-id-card"></i></span><div><h3 class="spec-h">Sales Battlecard</h3><p class="spec-p">Objections and handling, per persona.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-file-pen"></i></span><div><h3 class="spec-h">Editorial Verdict</h3><p class="spec-p">For content: publish, polish, or rewrite.</p></div></div></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Who it is for</span><h2 class="h2">Built for the people who own the number.</h2></div><div class="whohub"><div class="whohub-orb"><div class="whohub-orb-core"><i class="fa-solid fa-users"></i></div><span class="whohub-orb-tag">Committee Simulation</span></div><svg class="whohub-links" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><line x1="500" y1="2" x2="125" y2="118"/><line x1="500" y1="2" x2="375" y2="118"/><line x1="500" y1="2" x2="625" y2="118"/><line x1="500" y1="2" x2="875" y2="118"/></svg><div class="whohub-roles"><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullhorn"></i></span><h3 class="whohub-role-h">Product marketing</h3><p class="whohub-role-p">Convert the CFO without losing the engineer.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-pen-ruler"></i></span><h3 class="whohub-role-h">Web and UX</h3><p class="whohub-role-p">Behavioral proof a redesign works, per role.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-chart-line"></i></span><h3 class="whohub-role-h">Demand gen</h3><p class="whohub-role-p">Confirm the page converts a vertical&rsquo;s committee.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-handshake"></i></span><h3 class="whohub-role-h">Sales enablement</h3><p class="whohub-role-p">Know what the buyer and security will object to.</p></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Works with</span><h2 class="h2">One engine, then the next.</h2><p>Start with Committee Simulation, then add the engine for the next channel you ship. All four run on the same Ground Reality foundation.</p></div><div class="estack"><div class="etile active"><span class="etile-here">You are here</span><span class="etile-ic"><i class="fa-solid fa-users"></i></span><div class="etile-n">Engine 01</div><div class="etile-name">Committee Simulation</div><div class="etile-chip"><i class="fa-solid fa-diagram-project"></i>Conflict Graph</div></div><a class="etile" href="ad-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-bullseye"></i></span><div class="etile-n">Engine 02</div><div class="etile-name">Ad Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-list-check"></i>Kill Sheet</div></a><a class="etile" href="email-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-envelope-open-text"></i></span><div class="etile-n">Engine 03</div><div class="etile-name">Email Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-trophy"></i>Per-Persona Winner</div></a><a class="etile" href="audience-discovery.html"><span class="etile-ic"><i class="fa-solid fa-magnifying-glass"></i></span><div class="etile-n">Engine 04</div><div class="etile-name">Audience Discovery</div><div class="etile-chip"><i class="fa-solid fa-crosshairs"></i>Ranked Title Pool</div></a></div></div></section>  <section class="cta-section"><div class="wrap"><div class="cta-card"><div style="text-align:center;max-width:42rem;margin:0 auto">
       <span class="section-eyebrow" style="justify-content:center">Get started</span>
       <h2 class="cta-h" style="margin-bottom:1.25rem">What would it cost to learn the page was broken after the budget burned?</h2>
       <p style="color:var(--mute);font-size:1.0625rem;line-height:1.5;margin:0 0 2rem">Apply for the design partner program. Run it on a campaign you already know. Grade us yourself.</p>
-      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Apply for Design Partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="index.html#build" class="btn btn-ghost btn-lg">Why not build it</a></div>
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Request Access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="index.html#build" class="btn btn-ghost btn-lg">Why not build it</a></div>
     </div></div></div></section>
   <footer class="footer"><div class="wrap">
     <div class="footer-grid">
       <div><div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
         <p class="footer-tagline">WhyUser. The pre-launch stress test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p></div>
       <div><h4>Engines</h4><ul><li><a href="committee-simulation.html">Committee Simulation</a></li><li><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></li><li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li><li><a href="audience-discovery.html">Audience Discovery</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="index.html#how">Where it fits</a></li><li><a href="index.html#build">Why not build it</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#access">Apply</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="index.html#how">Where it fits</a></li><li><a href="index.html#build">Why not build it</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#access">Request access</a></li></ul></div>
       <div><h4>Resources</h4><ul><li><a href="roi.html">ROI Calculator</a></li><li><a href="contact.html">Contact</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 WhyUser Inc.</span><span>Pre-launch stress test for B2B campaigns</span></div>
   </div></footer>
+    <!-- Nav behaviour: Product dropdown + mobile menu -->
+    <script>
+    (function () {
+        var burger  = document.getElementById('nav-burger');
+        var mobile  = document.getElementById('nav-mobile');
+        var dd      = document.getElementById('nav-dd-product');
+        var trigger = document.getElementById('nav-dd-trigger');
+        var desktop = window.matchMedia('(min-width: 1000px)');
+        var hoverTimer;
+        var lastPointerOpen = 0;
+
+        function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
+        function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+        function closeMobile() {
+            if (!mobile) return;
+            mobile.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Open menu');
+        }
+
+        if (burger && mobile) {
+            burger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = mobile.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            mobile.addEventListener('click', function (e) {
+                if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+            });
+        }
+
+        if (dd && trigger) {
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (Date.now() - lastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+            });
+            dd.addEventListener('mouseenter', function () {
+                if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+            });
+            dd.addEventListener('mouseleave', function () {
+                if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+            });
+            dd.addEventListener('focusout', function (e) {
+                if (!dd.contains(e.relatedTarget)) closeDd();
+            });
+        }
+
+        document.addEventListener('click', function (e) {
+            if (dd && !dd.contains(e.target)) closeDd();
+            if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') { closeDd(); closeMobile(); }
+        });
+        window.addEventListener('resize', function () {
+            if (desktop.matches) closeMobile();
+        });
+    })();
+    </script>
+
 </body>
 </html>

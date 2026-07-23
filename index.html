@@ -225,10 +225,10 @@
             /* Surface: unified bright soft beige canvas */
             /* One flat page colour. Sections are separated by spacing and
                typography, never by a change of background. */
-            --paper: #fbfbf9;        /* the whole page, soft white */
-            --paper-warm: #f3f3f0;   /* NOT a section colour. Tint for chips,
+            --paper: #fdfdfd;        /* the whole page, soft white */
+            --paper-warm: #f2f2f2;   /* NOT a section colour. Tint for chips,
                                         icons, hover states, highlighted cells. */
-            --paper-cool: #f8f8f6;
+            --paper-cool: #f8f8f8;
             --surface: #ffffff;      /* cards sit above the page */
 
             /* Ink */
@@ -394,7 +394,7 @@
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
             mix-blend-mode: multiply;
-            opacity: 0.32;
+            opacity: 0;
         }
 
         /* Ultra-subtle dot grid, replaces pastel gradient backgrounds */
@@ -446,7 +446,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(251, 251, 249, 0.82);
+            background: rgba(253, 253, 253, 0.82);
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);

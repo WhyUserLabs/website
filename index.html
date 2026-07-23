@@ -223,8 +223,11 @@
            ───────────────────────────────────────────────────────────── */
         :root {
             /* Surface: unified bright soft beige canvas */
-            --paper: #fbfbf9;        /* page base, soft white */
-            --paper-warm: #f5f5f2;   /* alternating section band */
+            /* One flat page colour. Sections are separated by spacing and
+               typography, never by a change of background. */
+            --paper: #fbfbf9;        /* the whole page, soft white */
+            --paper-warm: #f3f3f0;   /* NOT a section colour. Tint for chips,
+                                        icons, hover states, highlighted cells. */
             --paper-cool: #f8f8f6;
             --surface: #ffffff;      /* cards sit above the page */
 
@@ -526,7 +529,7 @@
             border-radius: 8px;
             transition: background 140ms ease;
         }
-        .nav-dd-item:hover { background: var(--paper); }
+        .nav-dd-item:hover { background: var(--paper-warm); }
         .nav-dd-ico {
             flex: 0 0 auto;
             width: 27px; height: 27px; border-radius: 7px;
@@ -2806,7 +2809,7 @@
          bold name, 1-2 sentence description). Veronica anchors the
          section at the bottom.
          ═════════════════════════════════════════════════════════════════ -->
-    <section id="solution" class="section-rule" style="background: var(--paper-warm)">
+    <section id="solution" class="section-rule">
         <div class="wrap">
             <div class="section-head" style="max-width: 56rem">
                 <span class="section-eyebrow">Problem &middot; Solution</span>
@@ -2994,7 +2997,7 @@
          engine then runs hundreds of these agents, but the architecture
          section is about the *single agent calibration*, not the run.
          ═════════════════════════════════════════════════════════════════ -->
-    <section id="pipeline" class="section-rule" style="background: var(--paper-warm)">
+    <section id="pipeline" class="section-rule">
         <div class="wrap">
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">Ground Reality</span>
@@ -3231,7 +3234,7 @@
     <!-- ═════════════════════════════════════════════════════════════════
          TECHNOLOGY  (#technology), two-column: concepts + Evidence Ledger
          ═════════════════════════════════════════════════════════════════ -->
-    <section id="build" class="section-rule" style="background: var(--paper-warm)">
+    <section id="build" class="section-rule">
         <div class="wrap">
             <div class="section-head" style="max-width: 54rem">
                 <span class="section-eyebrow">Can't I build this myself?</span>

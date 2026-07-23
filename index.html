@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 
-    <title>WhyUser | Stress Test Your B2B Campaigns Before You Spend Budget</title>
+    <title>WhyUser | Stress Test Your B2B Campaigns and Pages Before You Spend Budget</title>
     <meta name="description" content="WhyUser is the pre-launch stress test for B2B campaigns. Stress test landing pages, ads, and emails against an End-Customer Buying Committee before launch. Catch silent vetoes, bounce risks, and ad-to-page mismatches before you spend budget. Trusted by ngrok and Vectara.">
     <meta name="keywords" content="B2B campaign stress testing, pre-launch stress test, End-Customer Buying Committee simulation, pre-flight campaign testing, demand gen staging, GTM staging environment, ad and landing page testing">
     <link rel="canonical" href="https://whyuser.com/">
@@ -299,7 +299,7 @@
         .h1 {
             font-family: 'Geist', system-ui, sans-serif;
             font-weight: 600;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             line-height: 0.98;
             letter-spacing: -0.045em;
             text-wrap: balance;
@@ -468,19 +468,143 @@
             overflow: hidden;
         }
         .nav-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        /* Desktop link row. Shows from 1000px, hamburger covers everything below. */
         .nav-links {
             display: none;
-            gap: 1.75rem;
+            align-items: center;
+            gap: 1.5rem;
             font-size: 13.5px;
             font-weight: 500;
             color: var(--mute);
         }
-        .nav-links a:hover { color: var(--ink); }
-        @media (min-width: 1024px) {
+        .nav-links > a { color: var(--mute); transition: color 140ms ease; }
+        .nav-links > a:hover { color: var(--ink); }
+        @media (min-width: 1000px) {
             .nav-links { display: flex; }
         }
+
+        /* Product dropdown */
+        .nav-dd { position: relative; }
+        .nav-dd::after {
+            /* invisible bridge so the pointer can travel down into the panel */
+            content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 16px;
+        }
+        .nav-dd-trigger {
+            display: inline-flex; align-items: center; gap: 0.375rem;
+            background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+            font-family: inherit; font-size: 13.5px; font-weight: 500;
+            color: var(--mute); line-height: inherit;
+            transition: color 140ms ease;
+        }
+        .nav-dd-trigger:hover,
+        .nav-dd.open .nav-dd-trigger { color: var(--ink); }
+        .nav-dd-caret { font-size: 8px; opacity: 0.65; transition: transform 180ms ease; }
+        .nav-dd.open .nav-dd-caret { transform: rotate(180deg); }
+        .nav-dd-panel {
+            position: absolute; top: calc(100% + 15px); left: -0.875rem;
+            width: 392px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(9,9,11,0.05), 0 20px 48px -16px rgba(9,9,11,0.26);
+            padding: 0.6rem;
+            opacity: 0; visibility: hidden; transform: translateY(-6px);
+            transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
+            z-index: 60;
+        }
+        .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dd-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.4rem 0.625rem 0.5rem;
+        }
+        .nav-dd-item {
+            display: flex; align-items: flex-start; gap: 0.7rem;
+            padding: 0.55rem 0.625rem;
+            border-radius: 8px;
+            transition: background 140ms ease;
+        }
+        .nav-dd-item:hover { background: var(--paper); }
+        .nav-dd-ico {
+            flex: 0 0 auto;
+            width: 27px; height: 27px; border-radius: 7px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--brand-soft); color: var(--brand);
+            font-size: 11px; margin-top: 1px;
+        }
+        .nav-dd-name {
+            display: block; font-size: 13.5px; font-weight: 600;
+            color: var(--ink); letter-spacing: -0.012em;
+        }
+        .nav-dd-desc {
+            display: block; font-size: 11.75px; color: var(--dim);
+            line-height: 1.42; margin-top: 2px;
+        }
+        .nav-dd-sep { display: block; height: 1px; background: var(--rule); margin: 0.5rem 0.625rem; }
+
         .nav-cta-row {
             display: flex; align-items: center; gap: 0.625rem;
+        }
+
+        /* Hamburger, everything under 1000px */
+        .nav-burger {
+            display: inline-flex; flex-direction: column; justify-content: center;
+            gap: 4px;
+            width: 38px; height: 34px; padding: 0 8px;
+            background: var(--surface);
+            border: 1px solid var(--rule-strong);
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        .nav-burger span {
+            display: block; width: 100%; height: 1.5px;
+            background: var(--ink); border-radius: 2px;
+            transition: transform 180ms ease, opacity 130ms ease;
+        }
+        .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+        .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+        @media (min-width: 1000px) { .nav-burger { display: none; } }
+
+        /* Mobile / tablet panel */
+        .nav-mobile {
+            max-height: 0; overflow: hidden;
+            background: var(--surface);
+            border-top: 1px solid transparent;
+            transition: max-height 280ms ease, border-color 280ms ease;
+        }
+        .nav-mobile.open { max-height: 80vh; overflow-y: auto; border-top-color: var(--rule); }
+        @media (min-width: 1000px) { .nav-mobile { display: none; } }
+        .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
+        .nav-m-label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--faint);
+            padding: 0.25rem 0 0.6rem;
+        }
+        .nav-m-label + .nav-m-link { border-top: 0; }
+        .nav-m-eng { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.5rem 0; }
+        .nav-m-link {
+            display: block; padding: 0.7rem 0;
+            font-size: 15px; font-weight: 500; color: var(--ink-soft);
+            border-top: 1px solid var(--rule);
+        }
+        .nav-m-group { margin-top: 1.1rem; }
+        .nav-m-ctas { display: flex; gap: 0.625rem; margin-top: 1.25rem; }
+        .nav-m-ctas .btn { flex: 1; justify-content: center; }
+
+        /* Specificity has to beat the later .btn rule, hence the parent selector. */
+        @media (max-width: 560px) {
+            .nav-cta-row .nav-roi { display: none; }
+            .nav-cta-row .btn-primary { padding: 0.6rem 0.8rem; font-size: 13px; }
+            .nav-inner { gap: 0.5rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .nav-dd-panel, .nav-mobile, .nav-burger span, .nav-dd-caret { transition: none; }
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -530,7 +654,7 @@
             overflow: hidden;
         }
         @media (min-width: 768px) {
-            .hero { padding: 6.5rem 0 7rem; }
+            .hero { padding: 5.5rem 0 6.5rem; }
         }
         .hero-grid {
             display: grid;
@@ -548,28 +672,20 @@
             .hero-grid { gap: 4.5rem; }
         }
 
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.625rem;
-            padding: 0.4rem 0.75rem 0.4rem 0.625rem;
-            background: var(--surface);
-            border: 1px solid var(--rule-strong);
-            border-radius: 999px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: 0.16em;
+        /* Hero kicker. Plain grey mono, no pill: the qualifier is long enough
+           that a pill reads as a banner, and the H1 should own the top of the page. */
+        .hero-eyebrow {
+            display: block;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 2px rgba(9,9,11,0.04);
+            color: var(--dim);
+            margin-bottom: 1.5rem;
         }
-        .hero-pill-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--signal-amber-bright);
-            box-shadow: 0 0 0 3px rgba(245,158,11,0.22);
+        @media (max-width: 520px) {
+            .hero-eyebrow { font-size: 10px; letter-spacing: 0.14em; line-height: 1.7; margin-bottom: 1.25rem; }
         }
 
         .hero h1 {
@@ -577,15 +693,16 @@
             color: var(--ink);
         }
         .hero-sub {
-            font-size: 1.125rem;
-            line-height: 1.6;
+            font-size: 1.0625rem;
+            line-height: 1.62;
             color: var(--ink-soft);
             font-weight: 400;
-            max-width: 32rem;
-            margin: 0 0 2.25rem;
+            max-width: 34.5rem;
+            margin: 0 0 1.9rem;
         }
+        .hero-sub strong { font-weight: 600; color: var(--ink); }
         @media (min-width: 768px) {
-            .hero-sub { font-size: 1.1875rem; }
+            .hero-sub { font-size: 1.125rem; }
         }
         .hero-ctas {
             display: flex;
@@ -2363,22 +2480,122 @@
     <!-- ═════════════════════════════════════════════════════════════════
          NAV
          ═════════════════════════════════════════════════════════════════ -->
-    <nav class="nav">
+    <nav class="nav" id="site-nav">
         <div class="wrap nav-inner">
-            <a href="#" class="nav-brand">
+            <a href="index.html" class="nav-brand">
                 <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
                 <span>WhyUser</span>
             </a>
+
             <div class="nav-links">
-                <a href="#solution">Solution</a>
-                <a href="#how">Where it fits</a>
+                <div class="nav-dd" id="nav-dd-product">
+                    <button type="button" class="nav-dd-trigger" id="nav-dd-trigger"
+                            aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true">
+                        Product
+                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-dd-panel" id="nav-dd-panel" role="menu" aria-labelledby="nav-dd-trigger">
+                        <span class="nav-dd-label">The four engines</span>
+                        <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Committee Simulation</span>
+                                <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                            </span>
+                        </a>
+                        <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Ad Campaign Simulation</span>
+                                <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                            </span>
+                        </a>
+                        <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Email Campaign Simulation</span>
+                                <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                            </span>
+                        </a>
+                        <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Audience Discovery</span>
+                                <span class="nav-dd-desc">The roles your content actually fits.</span>
+                            </span>
+                        </a>
+                        <span class="nav-dd-sep" aria-hidden="true"></span>
+                        <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">AI opinions vs. simulations</span>
+                                <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <a href="#how">How it works</a>
                 <a href="#build">Why not build it</a>
                 <a href="manifesto.html">Manifesto</a>
                 <a href="faq.html">FAQ</a>
             </div>
+
             <div class="nav-cta-row">
-                <a href="roi.html" class="btn btn-ghost" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
-                <a href="#access" class="btn btn-primary">Apply for Design Partner</a>
+                <a href="roi.html" class="btn btn-ghost nav-roi" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
+                <a href="#access" class="btn btn-primary">Request Access</a>
+                <button type="button" class="nav-burger" id="nav-burger"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile / tablet menu -->
+        <div class="nav-mobile" id="nav-mobile">
+            <div class="nav-mobile-inner">
+                <span class="nav-m-label">The four engines</span>
+                <a href="committee-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Committee Simulation</span>
+                        <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
+                    </span>
+                </a>
+                <a href="ad-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Ad Campaign Simulation</span>
+                        <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
+                    </span>
+                </a>
+                <a href="email-campaign-simulation.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Email Campaign Simulation</span>
+                        <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                    </span>
+                </a>
+                <a href="audience-discovery.html" class="nav-m-eng">
+                    <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="nav-dd-name">Audience Discovery</span>
+                        <span class="nav-dd-desc">The roles your content actually fits.</span>
+                    </span>
+                </a>
+
+                <div class="nav-m-group">
+                    <span class="nav-m-label">Company</span>
+                    <a href="#how" class="nav-m-link">How it works</a>
+                    <a href="#build" class="nav-m-link">Why not build it</a>
+                    <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+                    <a href="faq.html" class="nav-m-link">FAQ</a>
+                    <a href="roi.html" class="nav-m-link">ROI calculator</a>
+                </div>
+
+                <div class="nav-m-ctas">
+                    <a href="#access" class="btn btn-primary btn-lg">Request Access</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -2394,22 +2611,19 @@
 
                 <!-- LEFT: copy -->
                 <div>
-                    <div class="hero-pill">
-                        <span class="hero-pill-dot"></span>
-                        For marketing leaders
-                    </div>
+                    <span class="hero-eyebrow">For demand gen and marketing ops leaders at B2B SaaS</span>
 
                     <h1 class="h1">
-                        Stress Test Your B2B Campaigns <span style="color: var(--brand)">Before You Spend Budget.</span>
+                        Stress Test Your Campaigns and Pages <span style="color: var(--brand)">Before You Spend Budget.</span>
                     </h1>
 
                     <p class="hero-sub">
-                        See how your buyer roles react to your ad, email, or page, before you launch. Sourced to real buyers, not guesses. In 30 minutes, not six weeks.
+                        Run your ad, email, or landing page past a simulated buying committee built from what your buyers actually say in reviews, calls, and community threads. <strong>You get the role that kills it, the proof that is missing, and the fix.</strong> Evidence you can forward, in 30 minutes, not weeks of review rounds.
                     </p>
 
                     <div class="hero-ctas">
                         <a href="#access" class="btn btn-primary btn-lg">
-                            Apply for Design Partner Program
+                            Request Access
                             <i class="fa-solid fa-arrow-right" style="font-size:11px"></i>
                         </a>
                         <a href="#product-video" class="btn btn-ghost btn-lg">
@@ -2548,7 +2762,7 @@
             <div class="def-grid">
                 <span class="mono-eyebrow">What WhyUser is</span>
                 <p class="def-text">
-                    WhyUser is the pre-launch stress test for B2B campaigns. Hundreds of adversarial buyer agents read your page, ad, or email before launch. They surface the silent vetoes, the missing proof, and the bounce risk that internal reviews and AI tools miss. Every finding sourced to real buyers. Evidence, not opinion.
+                    WhyUser is the pre-launch stress test for B2B campaigns. Hundreds of adversarial buyer agents, one for every seat on the buying committee, read your page, ad, or email before launch. Each agent is built from what your buyers actually say in reviews, calls, and community threads. They surface the silent vetoes, the missing proof, and the bounce risk that internal reviews and AI tools miss. Every finding cites the buyer evidence behind it, so what you get is evidence you can forward, not an opinion you have to defend.
                 </p>
             </div>
         </div>
@@ -3163,7 +3377,7 @@
                         frameborder="0"
                         marginheight="0"
                         marginwidth="0"
-                        title="Design Partner Application"></iframe>
+                        title="Request access"></iframe>
                     <script>
                         var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
                     </script>
@@ -3181,12 +3395,82 @@
             <div><div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
                 <p class="footer-tagline">WhyUser. The pre-launch stress test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p></div>
             <div><h4>Engines</h4><ul><li><a href="committee-simulation.html">Committee Simulation</a></li><li><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></li><li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li><li><a href="audience-discovery.html">Audience Discovery</a></li></ul></div>
-            <div><h4>Company</h4><ul><li><a href="index.html#how">Where it fits</a></li><li><a href="index.html#build">Why not build it</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#access">Apply</a></li></ul></div>
+            <div><h4>Company</h4><ul><li><a href="index.html#how">Where it fits</a></li><li><a href="index.html#build">Why not build it</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#access">Request access</a></li></ul></div>
             <div><h4>Resources</h4><ul><li><a href="roi.html">ROI Calculator</a></li><li><a href="contact.html">Contact</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
             </div>
             <div class="footer-bottom"><span>&copy; 2026 WhyUser Inc.</span><span>Pre-launch stress test for B2B campaigns</span></div>
         </div>
     </footer>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         NAV BEHAVIOUR
+         Product dropdown (hover on desktop, tap on touch, keyboard safe)
+         plus the mobile / tablet menu panel.
+         ═════════════════════════════════════════════════════════════════ -->
+    <script>
+    (function () {
+        var burger  = document.getElementById('nav-burger');
+        var mobile  = document.getElementById('nav-mobile');
+        var dd      = document.getElementById('nav-dd-product');
+        var trigger = document.getElementById('nav-dd-trigger');
+        var desktop = window.matchMedia('(min-width: 1000px)');
+        var hoverTimer;
+        var lastPointerOpen = 0;
+
+        function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
+        function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+        function closeMobile() {
+            if (!mobile) return;
+            mobile.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Open menu');
+        }
+
+        if (burger && mobile) {
+            burger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = mobile.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            mobile.addEventListener('click', function (e) {
+                if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+            });
+        }
+
+        if (dd && trigger) {
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // A hover or a touch-tap already opened it a moment ago, so a click
+                // here would close it immediately and read as broken. Leave it open.
+                if (Date.now() - lastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+            });
+            dd.addEventListener('mouseenter', function () {
+                if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+            });
+            dd.addEventListener('mouseleave', function () {
+                if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+            });
+            dd.addEventListener('focusout', function (e) {
+                if (!dd.contains(e.relatedTarget)) closeDd();
+            });
+        }
+
+        document.addEventListener('click', function (e) {
+            if (dd && !dd.contains(e.target)) closeDd();
+            if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') { closeDd(); closeMobile(); }
+        });
+
+        window.addEventListener('resize', function () {
+            if (desktop.matches) closeMobile();
+        });
+    })();
+    </script>
 
 </body>
 </html>

@@ -2463,9 +2463,75 @@
         .sec-lead { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); max-width: 42rem; margin-bottom: 1.75rem; }
         .sec-lead strong { color: var(--ink); font-weight: 600; }
 
+        
+        /* ─────────────────────────────────────────────────────────────
+           REFERENCE-DOC RHYTHM
+           This page is a spec, not a pitch. Tighter than the marketing
+           sections so the eye keeps moving down the argument.
+           ───────────────────────────────────────────────────────────── */
+        body.doc section { padding: 3.25rem 0; }
+        @media (min-width: 768px) { body.doc section { padding: 4.25rem 0; } }
+        body.doc .subhero { padding: 3.5rem 0 2.75rem; }
+        @media (min-width: 768px) { body.doc .subhero { padding: 4.5rem 0 3.25rem; } }
+        body.doc .h2 { margin-bottom: 0.75rem; }
+        body.doc .sec-lead { margin-bottom: 1.5rem; }
+
+        /* hero splits so the right side is not a void */
+        .doc-hero { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
+        @media (min-width: 1000px) {
+            .doc-hero { grid-template-columns: minmax(0, 1fr) 26.5rem; gap: 3.5rem; }
+            /* optical: drop the text so the pill sits level with the frame's
+               title bar rather than with its outer border */
+            .doc-hero > div:first-child { padding-top: 0.375rem; }
+        }
+        .doc-hero h1 { max-width: 22rem; }
+        .doc-hero .hero-sub { max-width: 33rem; margin-bottom: 0; }
+
+        /* life of one claim, the argument as an object */
+        .life { padding: 1.125rem 1.25rem 1.125rem; }
+        .life-step { position: relative; padding-left: 1.4rem; padding-bottom: 1rem; }
+        .life-step:last-child { padding-bottom: 0; }
+        .life-step::before {
+            content: ''; position: absolute; left: 0; top: 4px;
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--frame-dim);
+        }
+        .life-step.on::before {
+            background: var(--signal-green-bright);
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.16);
+        }
+        .life-step:not(:last-child)::after {
+            content: ''; position: absolute; left: 3px; top: 15px; bottom: 0;
+            width: 1px; background: var(--frame-rule-strong);
+        }
+        .life-when {
+            display: block; margin-bottom: 0.2rem;
+            font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--frame-dim);
+        }
+        .life-what { font-size: 0.8125rem; line-height: 1.45; color: var(--frame-mute); }
+        .life-what strong { color: var(--frame-text); font-weight: 600; }
+        .life-seal {
+            margin-top: 0.5rem; display: flex; gap: 0.5rem; align-items: flex-start;
+            padding: 0.5rem 0.625rem; border-radius: 7px;
+            background: var(--frame-surface); border: 1px solid var(--frame-rule-strong);
+        }
+        .life-seal i { color: var(--signal-green-bright); font-size: 10px; padding-top: 3px; }
+        .life-seal b { display: block; color: var(--frame-text); font-weight: 600; font-size: 0.75rem; margin-bottom: 0.1rem; }
+        .life-seal span { font-size: 0.71875rem; line-height: 1.45; color: var(--frame-mute); }
+        .life-chips { display: flex; gap: 0.375rem; margin-top: 0.4rem; }
+        .life-chip {
+            font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 700;
+            letter-spacing: 0.12em; padding: 0.22rem 0.45rem; border-radius: 4px;
+        }
+        .life-chip.h { color: var(--signal-green-bright); background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.26); }
+        .life-chip.m { color: var(--signal-red-bright);   background: rgba(239,68,68,0.10);  border: 1px solid rgba(239,68,68,0.24); }
+        .life-chip.s { color: #c4b5fd; background: rgba(109,40,217,0.20); border: 1px solid rgba(196,181,253,0.30); }
+        .life-step.learn::before { background: #c4b5fd; box-shadow: 0 0 0 3px rgba(196,181,253,0.14); }
+
         </style>
 </head>
-<body class="grain">
+<body class="grain doc">
       <nav class="nav" id="site-nav">
         <div class="wrap nav-inner">
             <a href="index.html" class="nav-brand">
@@ -2585,17 +2651,69 @@
             </div>
         </div>
     </nav>
-  <header class="hero subhero dotgrid" style="padding-bottom:2.5rem"><div class="wrap">
-      <div class="hero-pill"><span class="hero-pill-dot"></span>Track record</div>
-      <h1 class="h1" style="max-width:26rem">How we measure accuracy.</h1>
-      <p class="hero-sub" style="max-width:38rem">Most vendors publish a number and ask you to trust it. This page shows our number, how it is made, and where we fall short. Every figure here comes from claims our customers graded against what actually happened.</p>
-    </div></header>
+  <header class="hero subhero dotgrid"><div class="wrap">
+    <div class="doc-hero">
+
+      <div>
+        <div class="hero-pill"><span class="hero-pill-dot"></span>Track record</div>
+        <h1 class="h1">How we measure accuracy.</h1>
+        <p class="hero-sub">Most vendors publish a number and ask you to trust it. This page shows our number, how it is made, and where we fall short. Every figure here comes from claims our customers and design partners graded against what actually happened.</p>
+      </div>
+
+      <div class="engine-frame">
+        <div class="engine-frame-bar">
+          <span class="engine-frame-tag">One claim, end to end</span>
+          <span class="engine-frame-pill" style="margin-left:auto">Immutable</span>
+        </div>
+        <div class="life">
+
+          <div class="life-step on">
+            <span class="life-when">Day 0</span>
+            <p class="life-what">The run finishes. Every finding is written down as <strong>one specific claim</strong>, with a date.</p>
+            <div class="life-seal">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              <span><b>Sealed here</b>The file cannot be edited. Nothing can be added later.</span>
+            </div>
+          </div>
+
+          <div class="life-step">
+            <span class="life-when">Day 1&ndash;30</span>
+            <p class="life-what">The campaign runs. <strong>The outcome happens</strong>, and we have no say in it.</p>
+          </div>
+
+          <div class="life-step">
+            <span class="life-when">Grading</span>
+            <p class="life-what">Your team marks the claim against your own data. <strong>We have no vote.</strong></p>
+            <div class="life-chips">
+              <span class="life-chip h">Hit</span>
+              <span class="life-chip m">Miss</span>
+            </div>
+          </div>
+
+          <div class="life-step">
+            <span class="life-when">After</span>
+            <p class="life-what">It stays on the ledger. <strong>Hit or miss, we do not remove it.</strong></p>
+          </div>
+
+          <div class="life-step learn">
+            <span class="life-when">Next run</span>
+            <p class="life-what">The grade feeds back into your model. <strong>Hits confirm a pattern. Misses correct one.</strong></p>
+            <div class="life-chips">
+              <span class="life-chip s">+1 learning signal</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div></header>
 
   <!-- THE NUMBERS -->
   <section class="section-rule"><div class="wrap">
     <span class="section-eyebrow">The numbers</span>
     <h2 class="h2" style="margin-bottom:1rem">Where we stand today</h2>
-    <p class="sec-lead">These are live accounts, all time. Nothing is a pilot study and nothing is a lab test.</p>
+    <p class="sec-lead">These are from live accounts. Nothing is a pilot study or lab test.</p>
 
     <div class="acc-grid">
       <div class="acc-cell">
@@ -2614,6 +2732,8 @@
         <p class="acc-note">Every claim that has been graded is in the number above. None removed.</p>
       </div>
     </div>
+
+    <p class="tnote" style="margin-top:1.75rem;max-width:46rem"><strong style="color:var(--ink-soft);font-weight:500">The numbers are not fixed. Every graded claim feeds back into the model for that account. Hits confirm a pattern, misses correct one, and the committee that reads your page in three months has learned from every call your team graded in between.</strong> </p>
   </div></section>
 
   <!-- THE FOUR RULES -->
@@ -2639,7 +2759,7 @@
       <div class="rule-row">
         <div class="rule-num">03</div>
         <div class="rule-name">The bar is set before grading starts</div>
-        <div class="rule-body">Each claim type has a target we publish in advance. Objections and blockers are held to 80 percent. Fixes to 70. Root cause to 75. <strong>The bar is ours, not an industry standard</strong>, and we say so plainly. Setting it first is what stops us from moving it later to make a result look good.</div>
+        <div class="rule-body">Each claim type has a target we publish in advance. Objections and blockers are held to 80 percent. Fixes to 70. Root cause to 75. The bar is ours, not an industry standard.</div>
       </div>
 
       <div class="rule-row">
@@ -2672,7 +2792,7 @@
       </div>
       <div class="gdef">
         <span class="gdef-tag nocall">No call &middot; on the record</span>
-        <p>The evidence was too thin, so the system declined to make a claim at all. We log these too. Five so far. A tool that always has an answer is a tool that is guessing.</p>
+        <p>The evidence was too thin, so the system declined to make a claim at all. We log these too. <strong>A tool that always has an answer is a tool that is guessing.</strong></p>
       </div>
     </div>
   </div></section>
@@ -2694,7 +2814,7 @@
         <tr class="below"><td>Why it broke, the root cause</td><td class="num">67.5%</td><td class="num bar">75%</td></tr>
       </tbody>
     </table>
-    <p class="tnote">Root cause sits below our bar. We would rather show you that than hide it inside an average. Two notes on reading this table. We band anything above 95 percent, because a published 100 percent almost always means a sample too small to mean anything. And most of the blocker and objection calls come from one account, so that figure will move as the second account grades its share. We will publish it when it does.</p>
+    <p class="tnote">Root cause sits below our bar. We would rather show you that than hide it inside an average.</p>
 
     <table class="gt" style="margin-top:2.75rem">
       <thead>
@@ -2707,7 +2827,7 @@
         <tr><td>Ad campaigns</td><td class="num">78%</td><td class="num bar">75%</td></tr>
       </tbody>
     </table>
-    <p class="tnote">Email is below its bar, on one account. Content is strong, also on one account. We say which is which rather than calling both &ldquo;across accounts.&rdquo;</p>
+    <p class="tnote">Email sits below our bar. We would rather show you than calling both &ldquo;across accounts.&rdquo;</p>
   </div></section>
 
   <!-- WHAT WE DO NOT CLAIM -->
@@ -2720,7 +2840,7 @@
       <div class="not-row"><i class="fa-solid fa-xmark" aria-hidden="true"></i><span>We do not predict your conversion rate or bounce rate as a number.</span></div>
       <div class="not-row"><i class="fa-solid fa-xmark" aria-hidden="true"></i><span>We do not replace a live A/B test. We tell you which variant deserves the traffic.</span></div>
       <div class="not-row"><i class="fa-solid fa-xmark" aria-hidden="true"></i><span>We cannot see your paid targeting, so we diagnose the message, not the audience.</span></div>
-      <div class="not-row"><i class="fa-solid fa-xmark" aria-hidden="true"></i><span>The agents are simulated. They are not real people and we will never imply they are.</span></div>
+      <div class="not-row"><i class="fa-solid fa-xmark" aria-hidden="true"></i><span>The agents are simulated. We will never imply they are real people.</span></div>
     </div>
   </div></section>
 

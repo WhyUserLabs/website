@@ -1070,7 +1070,10 @@
             .acc-cell:first-child { padding-left: 0; }
             .acc-cell:last-child  { padding-right: 0; border-right: 0; }
         }
-        .acc-cell .mono-label { display: block; margin-bottom: 0.7rem; }
+        .acc-cell .mono-label {
+            display: block; margin-bottom: 0.7rem;
+            color: var(--ink-soft); font-weight: 600;
+        }
         .acc-value {
             font-family: 'JetBrains Mono', ui-monospace, monospace;
             font-variant-numeric: tabular-nums;
@@ -1082,7 +1085,7 @@
             margin-bottom: 0.7rem;
         }
         .acc-note {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             line-height: 1.5;
             color: var(--mute);
             max-width: 17rem;
@@ -2843,9 +2846,9 @@
                 <div class="acc-grid">
 
                     <div class="acc-cell">
-                        <span class="mono-label">Hit rate</span>
+                        <span class="mono-label">Accuracy</span>
                         <div class="acc-value">75&ndash;85%</div>
-                        <p class="acc-note">Across live accounts, all time.</p>
+                        <p class="acc-note">Across live accounts.</p>
                     </div>
 
                     <div class="acc-cell">

@@ -2383,14 +2383,17 @@
             .acc-cell:first-child { padding-left: 0; }
             .acc-cell:last-child  { padding-right: 0; border-right: 0; }
         }
-        .acc-cell .mono-label { display: block; margin-bottom: 0.7rem; }
+        .acc-cell .mono-label {
+            display: block; margin-bottom: 0.7rem;
+            color: var(--ink-soft); font-weight: 600;
+        }
         .acc-value {
             font-family: 'JetBrains Mono', ui-monospace, monospace;
             font-variant-numeric: tabular-nums;
             font-size: 1.875rem; font-weight: 700; line-height: 1;
             letter-spacing: -0.035em; color: var(--ink); margin-bottom: 0.7rem;
         }
-        .acc-note { font-size: 0.875rem; line-height: 1.55; color: var(--mute); max-width: 19rem; }
+        .acc-note { font-size: 0.9rem; line-height: 1.55; color: var(--mute); max-width: 19rem; }
 
         /* numbered rules */
         .rules { border-top: 1px solid var(--rule); }
@@ -2413,7 +2416,7 @@
         .gt { width: 100%; border-collapse: collapse; margin-top: 0.25rem; }
         .gt th {
             font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
-            letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute);
             text-align: left; padding: 0 0.75rem 0.75rem 0; border-bottom: 1px solid var(--rule-strong);
             white-space: nowrap;
         }
@@ -2432,7 +2435,7 @@
         }
         .gt tr.below td.num { color: var(--signal-amber); }
         .gt tr.none td.num  { color: var(--faint); font-weight: 500; }
-        .tnote { font-size: 0.8125rem; line-height: 1.6; color: var(--dim); margin-top: 1rem; max-width: 44rem; }
+        .tnote { font-size: 0.85rem; line-height: 1.6; color: var(--dim); margin-top: 1rem; max-width: 44rem; }
 
         /* grade definition cards */
         .gdefs { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--rule); }
@@ -2717,9 +2720,9 @@
 
     <div class="acc-grid">
       <div class="acc-cell">
-        <span class="mono-label">Hit rate</span>
+        <span class="mono-label">Accuracy</span>
         <div class="acc-value">75&ndash;85%</div>
-        <p class="acc-note">The range across our live accounts. The low end is a newer account. The high end is our longest-running one.</p>
+        <p class="acc-note">The range across our live accounts - customers & design partners.</p>
       </div>
       <div class="acc-cell">
         <span class="mono-label">Graded by you</span>
@@ -2747,7 +2750,7 @@
       <div class="rule-row">
         <div class="rule-num">01</div>
         <div class="rule-name">The claim is sealed before launch</div>
-        <div class="rule-body">When a run finishes, every finding is written down as a specific claim with a date. The file is immutable. We cannot edit the wording later, and we cannot add a claim after the outcome is known. <strong>The claim exists before the result does.</strong> This is the same idea as pre-registering a trial before you run it.</div>
+        <div class="rule-body">When a run finishes, every finding is written down as a specific claim with a date. The file is immutable. We cannot edit the wording later, and we cannot add a claim after the outcome is known. <strong>The claim exists before the result does.</strong> This is the same idea as pre-registering a trial before you run it. <strong>A tool that answers differently every time cannot do this</strong>, because there is no single claim to lock.</div>
       </div>
 
       <div class="rule-row">
@@ -2805,7 +2808,7 @@
 
     <table class="gt">
       <thead>
-        <tr><th>By claim type</th><th class="num">Hit rate</th><th class="num">Our bar</th></tr>
+        <tr><th>By claim type</th><th class="num">Accuracy</th><th class="num">Our bar</th></tr>
       </thead>
       <tbody>
         <tr><td>Does this role block? Does this objection land?</td><td class="num">96.6%</td><td class="num bar">80%</td></tr>
@@ -2818,7 +2821,7 @@
 
     <table class="gt" style="margin-top:2.75rem">
       <thead>
-        <tr><th>By engine</th><th class="num">Hit rate</th><th class="num">Our bar</th></tr>
+        <tr><th>By engine</th><th class="num">Accuracy</th><th class="num">Our bar</th></tr>
       </thead>
       <tbody>
         <tr><td>Content pages</td><td class="num">94%</td><td class="num bar">78%</td></tr>

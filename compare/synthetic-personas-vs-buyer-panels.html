@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="light">
+<meta name="author" content="WhyUser Inc.">
+
+<title>Synthetic personas vs. real buyer panels: which do you need? | WhyUser</title>
+<meta name="description" content="A neutral comparison of synthetic personas and real buyer panels for B2B message testing: what each method is structurally good at, the failure mode of each, and how to sequence them so the expensive method is spent on the right question.">
+<link rel="canonical" href="https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WhyUser">
+<meta property="og:title" content="Synthetic personas vs. real buyer panels: which do you need? | WhyUser">
+<meta property="og:description" content="A neutral comparison of synthetic personas and real buyer panels for B2B message testing: what each method is structurally good at, the failure mode of each, and how to sequence them so the expensive method is spent on the right question.">
+<meta property="og:url" content="https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html">
+<meta property="og:image" content="https://whyuser.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Synthetic personas vs. real buyer panels: which do you need? | WhyUser">
+<meta name="twitter:description" content="A neutral comparison of synthetic personas and real buyer panels for B2B message testing: what each method is structurally good at, the failure mode of each, and how to sequence them so the expensive method is spent on the right question.">
+<meta name="twitter:image" content="https://whyuser.com/og-image.png">
+
+<link rel="icon" type="image/png" href="../images/whyuser-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/whyuser-pages.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html#article",
+      "headline": "Synthetic personas vs. real buyer panels: which do you need?",
+      "description": "A neutral comparison of synthetic personas and real buyer panels for B2B message testing: what each method is structurally good at, the failure mode of each, and how to sequence them so the expensive method is spent on the right question.",
+      "url": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html",
+      "author": {
+        "@type": "Organization",
+        "name": "WhyUser"
+      },
+      "publisher": {
+        "@id": "https://whyuser.com/#organization"
+      },
+      "isPartOf": {
+        "@type": "CollectionPage",
+        "@id": "https://whyuser.com/compare/#hub"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are synthetic personas better than real buyer panels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Neither is better. They fail in opposite directions: a panel measures stated preference, which diverges from behaviour, while a simulation compiled from thin evidence produces a confident answer about nothing. The useful question is which error you can afford this week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I ask a synthetic persona vendor before buying?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "What the personas are compiled from, specifically; whether the system is deterministic so the same input returns the same verdict; what the published hit rate is, whether predictions were sealed before the outcome existed, and whether misses stayed in the denominator; and what the vendor refuses to claim."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can synthetic personas replace customer interviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. They are compiled from customer evidence, so they sit downstream of it. If the underlying evidence is thin, the simulation is fluent and empty, and nothing in the output signals that."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In what order should I run simulation, panel, and A/B testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simulate first to kill structural failures cheaply across many versions, panel second on the survivor for the resonance question humans answer best, and A/B last because it is the only method that measures what actually happened."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://whyuser.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compare",
+          "item": "https://whyuser.com/compare/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Synthetic personas vs. real buyer panels",
+          "item": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://whyuser.com/#organization",
+      "name": "WhyUser",
+      "url": "https://whyuser.com/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="nav" id="site-nav">
+    <div class="wrap nav-inner">
+        <a href="../index.html" class="nav-brand">
+            <span class="nav-mark"><img src="../images/whyuser-mark.png" alt=""></span>
+            <span>WhyUser</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-dd" id="nav-dd-product">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true">
+                    Product <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-panel" role="menu" aria-labelledby="nav-dd-trigger">
+                    <span class="nav-dd-label">The four engines</span>
+                    <a href="../committee-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Committee Simulation</span><span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span></span>
+                    </a>
+                    <a href="../ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Ad Campaign Simulation</span><span class="nav-dd-desc">The ad to page gap, caught before you spend.</span></span>
+                    </a>
+                    <a href="../email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Email Campaign Simulation</span><span class="nav-dd-desc">The subject and CTA that win for each role.</span></span>
+                    </a>
+                    <a href="../audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Audience Discovery</span><span class="nav-dd-desc">The roles your content actually fits.</span></span>
+                    </a>
+                    <span class="nav-dd-sep" aria-hidden="true"></span>
+                    <a href="../whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">AI opinions vs. simulations</span><span class="nav-dd-desc">One landing page, judged two ways. No login.</span></span>
+                    </a>
+                    <a href="../accuracy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Accuracy &amp; track record</span><span class="nav-dd-desc">373 sealed claims. 75&ndash;85% hit rate. Graded by the customer.</span></span>
+                    </a>
+                    <a href="index.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Compare</span><span class="nav-dd-desc">WhyUser next to panels, usability tests, and A/B.</span></span>
+                    </a>
+                </div>
+            </div>
+            <a href="../index.html#how">How it works</a>
+            <a href="../index.html#build">Why not build it</a>
+            <a href="../glossary/index.html">Glossary</a>
+            <a href="../manifesto.html">Manifesto</a>
+            <a href="../faq.html">FAQ</a>
+        </div>
+        <div class="nav-cta-row">
+            <a href="../roi.html" class="btn btn-ghost nav-roi" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)" aria-hidden="true"></i>ROI</a>
+            <a href="../index.html#access" class="btn btn-primary">Request Access</a>
+            <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-inner">
+            <span class="nav-m-label">The four engines</span>
+            <a href="../committee-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Committee Simulation</span><span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span></span>
+            </a>
+            <a href="../ad-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Ad Campaign Simulation</span><span class="nav-dd-desc">The ad to page gap, caught before you spend.</span></span>
+            </a>
+            <a href="../email-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Email Campaign Simulation</span><span class="nav-dd-desc">The subject and CTA that win for each role.</span></span>
+            </a>
+            <a href="../audience-discovery.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Audience Discovery</span><span class="nav-dd-desc">The roles your content actually fits.</span></span>
+            </a>
+            <div class="nav-m-group">
+                <span class="nav-m-label">Company</span>
+                <a href="../index.html#how" class="nav-m-link">How it works</a>
+                <a href="../index.html#build" class="nav-m-link">Why not build it</a>
+                <a href="../whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="../accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
+                <a href="index.html" class="nav-m-link">Compare</a>
+                <a href="../glossary/index.html" class="nav-m-link">Glossary</a>
+                <a href="../manifesto.html" class="nav-m-link">Manifesto</a>
+                <a href="../faq.html" class="nav-m-link">FAQ</a>
+                <a href="../roi.html" class="nav-m-link">ROI calculator</a>
+            </div>
+            <div class="nav-m-ctas">
+                <a href="../index.html#access" class="btn btn-primary btn-lg">Request Access</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">WhyUser</a> <span aria-hidden="true">/</span>
+      <a href="index.html">Compare</a> <span aria-hidden="true">/</span>
+      <span>Synthetic personas vs. real buyer panels</span>
+    </nav>
+    <h1 class="h1">Synthetic personas vs. real buyer panels</h1>
+    <p class="standfirst">The argument is usually framed as real versus fake. That framing is wrong and it costs teams money. <strong>The useful question is which kind of error you can afford this week.</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="prose">
+      
+    <h2>The framing that wastes money</h2>
+    <p>&ldquo;Real buyers or synthetic ones&rdquo; sounds like a question about truth. It is actually a question about <strong>which error you can afford</strong>, and the two methods fail in opposite directions.</p>
+    <ul>
+      <li><strong>A panel&rsquo;s failure mode is stated preference.</strong> People are reliable reporters of what confuses them and unreliable predictors of what they will do. They say they prefer headline A and click headline B.</li>
+      <li><strong>A simulation&rsquo;s failure mode is confident emptiness.</strong> Compiled from thin evidence, it produces a fluent, well-structured answer about nothing, and there is no visible signal that this has happened.</li>
+    </ul>
+    <p>Both errors are survivable. Neither is survivable if you do not know which one you are exposed to.</p>
+    </div>
+    <div style="max-width:60rem">
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th></th><th>Real buyer panel</th><th class="col-us">Synthetic persona</th></tr></thead>
+        <tbody>
+          <tr><th>What it measures</th><td>What people say when asked</td><td class="col-us">What a modelled role would do when reading</td></tr>
+          <tr><th>Cost per iteration</th><td>High enough to ration — you will not run eight versions</td><td class="col-us">Low enough to iterate freely</td></tr>
+          <tr><th>Turnaround</th><td>Hours to weeks depending on audience</td><td class="col-us">Minutes</td></tr>
+          <tr><th>Handles committee dynamics</th><td>Not natively — respondents answer alone and are segmented afterwards</td><td class="col-us">Natively — that is the unit of analysis</td></tr>
+          <tr><th>Repeatable</th><td>No — new people, new variance every time</td><td class="col-us">Yes, if the system is deterministic. Many are not. Ask.</td></tr>
+          <tr><th>Produces quotable verbatims</th><td>Yes — the single strongest artefact for an internal argument</td><td class="col-us">No — findings are sourced to evidence, not spoken by a person</td></tr>
+          <tr><th>Can surprise you</th><td>Yes — a real person brings context no corpus contains</td><td class="col-us">Only within the evidence it was compiled from</td></tr>
+          <tr><th>Main risk</th><td>Stated preference diverges from real behaviour</td><td class="col-us">Thin or biased evidence produces a confident answer about nothing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="prose">
+      
+    <h2>Four questions to ask any synthetic persona vendor</h2>
+    <p>Most of the difference between a useful synthetic persona and an expensive random-answer generator sits in these four answers. Ask them of us too.</p>
+    <ol>
+      <li><strong>What is it compiled from, specifically?</strong> &ldquo;Trained on B2B data&rdquo; is not an answer. Reviews, call transcripts, community threads, competitor comparisons &mdash; name the sources, and show the source on each finding.</li>
+      <li><strong>Is it deterministic?</strong> Ask them to run the same page twice. If the verdict changes, you cannot use it to test an edit, because you can never tell your change from the model&rsquo;s mood.</li>
+      <li><strong>What is the published hit rate, and where are the misses?</strong> Any vendor can quote an accuracy number. Ask whether the predictions were sealed before the outcome existed, who graded them, and whether misses stayed in the denominator. See <a href="../glossary/evidence-ledger.html">evidence ledger</a>.</li>
+      <li><strong>What does it refuse to claim?</strong> A vendor who will not name a limitation has not found one yet, which tells you how much they have tested.</li>
+    </ol>
+
+    <h2>Three questions to ask a panel vendor</h2>
+    <ol>
+      <li><strong>How are respondents verified?</strong> B2B targeting is only as good as the vetting behind it. &ldquo;Works in IT&rdquo; is not a buying committee role.</li>
+      <li><strong>Can I reach the roles that actually block deals?</strong> Security reviewers and economic buyers are the hardest profiles to recruit and the ones most likely to kill your deal.</li>
+      <li><strong>What happens to my sample size when I segment by role?</strong> A 50-person panel across five roles is ten people per role, and ten is not many when the roles disagree.</li>
+    </ol>
+
+    <h2>What a simulation genuinely cannot do</h2>
+    <p>Worth being blunt, since we sell one.</p>
+    <ul>
+      <li><strong>It cannot replace talking to customers.</strong> It is compiled from customer evidence, so it sits downstream of it. Thin evidence in, confident nothing out.</li>
+      <li><strong>It cannot give you absolute numbers.</strong> Rank and direction are defensible. A precise conversion-rate prediction is not, and one wrong magnitude destroys the credibility of every correct finding next to it.</li>
+      <li><strong>It inherits the bias of its corpus.</strong> Public reviews skew toward the delighted and the furious; the quiet middle is under-represented. A good system says so instead of smoothing it over.</li>
+      <li><strong>It cannot surprise you from outside its evidence.</strong> A real person occasionally says the thing nobody modelled. That is worth paying for.</li>
+    </ul>
+
+    <h2>The sequence</h2>
+    <p>If you can run both, the order is not arbitrary. Run the cheap, repeatable, committee-aware method first, on many versions. Run the expensive, human, surprising method second, on the survivor. Then let live traffic settle it.</p>
+    <ol>
+      <li><strong>Simulate</strong> &mdash; kill the structural failures. Missing proof for a role, no baseline number, a broken <a href="../glossary/scent-trail.html">scent trail</a> between ad and page. Iterate freely; it costs almost nothing.</li>
+      <li><strong>Panel</strong> &mdash; spend real money on the question humans answer best: does this land, in these words, with this person.</li>
+      <li><strong>A/B</strong> &mdash; the only method that measures what actually happened.</li>
+    </ol>
+    <p>Teams who invert steps one and two spend panel budget discovering that the page has no security signal. That is a finding you should never pay a human to give you.</p>
+
+    <div class="related"><strong>Related:</strong> <a href="whyuser-vs-wynter.html">WhyUser vs. Wynter</a> &middot; <a href="whyuser-vs-usertesting.html">WhyUser vs. UserTesting</a> &middot; <a href="../glossary/synthetic-persona.html">What is a synthetic persona?</a></div>
+      <h2>Common questions</h2>
+      <h3>Are synthetic personas better than real buyer panels?</h3>
+<p>Neither is better. They fail in opposite directions: a panel measures stated preference, which diverges from behaviour, while a simulation compiled from thin evidence produces a confident answer about nothing. The useful question is which error you can afford this week.</p>
+<h3>What should I ask a synthetic persona vendor before buying?</h3>
+<p>What the personas are compiled from, specifically; whether the system is deterministic so the same input returns the same verdict; what the published hit rate is, whether predictions were sealed before the outcome existed, and whether misses stayed in the denominator; and what the vendor refuses to claim.</p>
+<h3>Can synthetic personas replace customer interviews?</h3>
+<p>No. They are compiled from customer evidence, so they sit downstream of it. If the underlying evidence is thin, the simulation is fluent and empty, and nothing in the output signals that.</p>
+<h3>In what order should I run simulation, panel, and A/B testing?</h3>
+<p>Simulate first to kill structural failures cheaply across many versions, panel second on the survivor for the resonance question humans answer best, and A/B last because it is the only method that measures what actually happened.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="page-cta">
+    <div class="wrap">
+        <h2>Run it on the campaign you are about to launch.</h2>
+        <p>Send us the next ad, email, or landing page going live. We run it past the committee and send back the role that vetoes, the proof that is missing, and the fix. We respond within 48 hours.</p>
+        <div class="cta-row">
+            <a href="../index.html#access" class="btn btn-primary btn-lg">Request Access</a>
+            <a href="../whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-mark"><span class="nav-mark"><img src="../images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
+                    <p class="footer-tagline">WhyUser. The pre-launch stress test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
+                </div>
+                <div><h4>Engines</h4><ul>
+                    <li><a href="../committee-simulation.html">Committee Simulation</a></li>
+                    <li><a href="../ad-campaign-simulation.html">Ad Campaign Simulation</a></li>
+                    <li><a href="../email-campaign-simulation.html">Email Campaign Simulation</a></li>
+                    <li><a href="../audience-discovery.html">Audience Discovery</a></li>
+                </ul></div>
+                <div><h4>Evidence</h4><ul>
+                    <li><a href="../accuracy.html">Accuracy &amp; track record</a></li>
+                    <li><a href="../whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                    <li><a href="../compare/index.html">Compare WhyUser</a></li>
+                    <li><a href="../glossary/index.html">Glossary</a></li>
+                    <li><a href="../roi.html">ROI calculator</a></li>
+                </ul></div>
+                <div><h4>Company</h4><ul>
+                    <li><a href="../index.html#how">How it works</a></li>
+                    <li><a href="../index.html#build">Why not build it</a></li>
+                    <li><a href="../manifesto.html">Manifesto</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../index.html#access">Request access</a></li>
+                </ul></div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
+                <span class="footer-legal"><a href="../security.html">Security</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a> &middot; <a href="../dpa.html">DPA</a></span>
+                <span><a href="../accuracy.html">373 claims graded, 75&ndash;85% accurate</a></span>
+            </div>
+        </div>
+    </footer>
+
+<script>
+(function () {
+    var burger  = document.getElementById('nav-burger');
+    var mobile  = document.getElementById('nav-mobile');
+    var dd      = document.getElementById('nav-dd-product');
+    var trigger = document.getElementById('nav-dd-trigger');
+    var desktop = window.matchMedia('(min-width: 1000px)');
+    var hoverTimer, lastPointerOpen = 0;
+
+    function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
+    function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+    function closeMobile() {
+        if (!mobile) return;
+        mobile.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+    }
+    if (burger && mobile) {
+        burger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var open = mobile.classList.toggle('open');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        mobile.addEventListener('click', function (e) {
+            if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+        });
+    }
+    if (dd && trigger) {
+        trigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (Date.now() - lastPointerOpen < 400) return;
+            if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+        });
+        dd.addEventListener('mouseenter', function () {
+            if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+        });
+        dd.addEventListener('mouseleave', function () {
+            if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+        });
+        dd.addEventListener('focusout', function (e) {
+            if (!dd.contains(e.relatedTarget)) closeDd();
+        });
+    }
+    document.addEventListener('click', function (e) {
+        if (dd && !dd.contains(e.target)) closeDd();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { closeDd(); closeMobile(); }
+    });
+})();
+</script>
+</body>
+</html>

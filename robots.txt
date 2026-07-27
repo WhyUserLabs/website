@@ -1,0 +1,106 @@
+# https://whyuser.com/robots.txt
+# WhyUser Inc. — pre-launch stress test for B2B campaigns.
+#
+# These are the real user-agent tokens. The <meta name="GPTBot"> style tags
+# that used to sit in the page head were decorative: no crawler reads a
+# meta tag by that name. Access is declared here or it is not declared.
+
+# ─────────────────────────────────────────────────────────────────────
+# Default: everything is open.
+# ─────────────────────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+
+# ─────────────────────────────────────────────────────────────────────
+# Answer engines and AI assistants.
+# We want to be read, quoted and cited by these. Explicit Allow so the
+# posture is unambiguous rather than inherited from the wildcard.
+# ─────────────────────────────────────────────────────────────────────
+
+# OpenAI — ChatGPT search / browsing (the one that drives referrals)
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI — user-triggered fetch when someone asks ChatGPT about a URL
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI — training crawler
+User-agent: GPTBot
+Allow: /
+
+# Anthropic — Claude search and browsing
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — Gemini apps, Vertex grounding, AI Overviews training signal.
+# Note: Google AI Overviews itself is served from the regular Googlebot
+# index, so blocking Google-Extended would NOT remove you from AI
+# Overviews. It only controls Gemini / Vertex use.
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot / Bing generative
+User-agent: Bingbot
+Allow: /
+
+# Meta
+User-agent: meta-externalagent
+Allow: /
+
+# Common Crawl — feeds many downstream models
+User-agent: CCBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Bytespider
+User-agent: Bytespider
+Allow: /
+
+# Diffbot / Timpi / You.com
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# AEO monitoring tools — these check whether you are cited. Let them in.
+User-agent: ProfoundBot
+Allow: /
+
+User-agent: Awario
+Allow: /
+
+# ─────────────────────────────────────────────────────────────────────
+# Sitemaps
+# ─────────────────────────────────────────────────────────────────────
+Sitemap: https://whyuser.com/sitemap.xml

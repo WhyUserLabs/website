@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fdfdfd"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#6d28d9"/>
+
+  <!-- brand -->
+  <g>
+    <rect x="64" y="52" width="30" height="30" rx="8" fill="#09090b"/>
+    <text x="79" y="73" text-anchor="middle" font-family="DejaVu Sans, sans-serif"
+          font-size="17" font-weight="700" fill="#fdfdfd">W</text>
+    <text x="106" y="74" font-family="DejaVu Sans, sans-serif" font-size="21"
+          font-weight="700" letter-spacing="-0.4" fill="#09090b">WhyUser</text>
+  </g>
+  <text x="1136" y="72" text-anchor="end" font-family="DejaVu Sans Mono, monospace"
+        font-size="12" font-weight="700" letter-spacing="2.2" fill="#6d28d9">PRE-LAUNCH STRESS TEST</text>
+
+  <!-- headline -->
+  <text x="64" y="163" font-family="DejaVu Sans, sans-serif" font-size="47"
+        font-weight="700" letter-spacing="-1.5" fill="#09090b">Your champion loves the page.</text>
+  <text x="64" y="219" font-family="DejaVu Sans, sans-serif" font-size="47"
+        font-weight="700" letter-spacing="-1.5" fill="#09090b">The CFO quietly vetoes.</text>
+  <text x="64" y="262" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#52525b">Stress test the ad, email or landing page against the buying committee &#8212; before you spend the budget.</text>
+
+  <!-- conflict graph panel -->
+  <rect x="64" y="296" width="1072" height="196" rx="16" fill="#ffffff" stroke="#e6e6e8" stroke-width="1.5"/>
+  <text x="88" y="326" font-family="DejaVu Sans Mono, monospace" font-size="11.5"
+        font-weight="700" letter-spacing="2" fill="#71717a">CONFLICT GRAPH</text>
+  <text x="1112" y="326" text-anchor="end" font-family="DejaVu Sans Mono, monospace"
+        font-size="11.5" font-weight="700" letter-spacing="2" fill="#a1a1aa">300 AGENTS &#183; 5 ROLES &#183; ~30 MIN</text>
+  <line x1="220" y1="372" x2="339" y2="372" stroke="#e6e6e8" stroke-width="1.6" /><path d="M 338 367 L 346 372 L 338 377" fill="none" stroke="#e6e6e8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="408" y1="372" x2="527" y2="372" stroke="#e6e6e8" stroke-width="1.6" /><path d="M 526 367 L 534 372 L 526 377" fill="none" stroke="#e6e6e8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="596" y1="372" x2="715" y2="372" stroke="#e6e6e8" stroke-width="1.6" /><path d="M 714 367 L 722 372 L 714 377" fill="none" stroke="#e6e6e8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="784" y1="372" x2="903" y2="372" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="5 5"/><path d="M 902 367 L 910 372 L 902 377" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+    
+    <circle cx="190" cy="372" r="30" fill="#ffffff" stroke="#059669" stroke-width="1.6"/>
+    <path d="M 180 372 L 187 379 L 200 364" fill="none" stroke="#059669" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="190" y="434" text-anchor="middle" font-family="DejaVu Sans Mono, monospace"
+          font-size="12.5" font-weight="700" letter-spacing="1.1" fill="#09090b">END USER</text>
+    <text x="190" y="453" text-anchor="middle" font-family="DejaVu Sans, sans-serif"
+          font-size="13" fill="#059669" font-weight="400">advocates</text>
+    
+    <circle cx="378" cy="372" r="30" fill="#ffffff" stroke="#059669" stroke-width="1.6"/>
+    <path d="M 368 372 L 375 379 L 388 364" fill="none" stroke="#059669" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="378" y="434" text-anchor="middle" font-family="DejaVu Sans Mono, monospace"
+          font-size="12.5" font-weight="700" letter-spacing="1.1" fill="#09090b">CHAMPION</text>
+    <text x="378" y="453" text-anchor="middle" font-family="DejaVu Sans, sans-serif"
+          font-size="13" fill="#059669" font-weight="400">advocates</text>
+    
+    <circle cx="566" cy="372" r="30" fill="#ffffff" stroke="#059669" stroke-width="1.6"/>
+    <path d="M 556 372 L 563 379 L 576 364" fill="none" stroke="#059669" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="566" y="434" text-anchor="middle" font-family="DejaVu Sans Mono, monospace"
+          font-size="12.5" font-weight="700" letter-spacing="1.1" fill="#09090b">TECH OWNER</text>
+    <text x="566" y="453" text-anchor="middle" font-family="DejaVu Sans, sans-serif"
+          font-size="13" fill="#059669" font-weight="400">advocates</text>
+    
+    <circle cx="754" cy="372" r="30" fill="#ffffff" stroke="#d97706" stroke-width="1.6"/>
+    <path d="M 745 372 L 763 372" stroke="#d97706" stroke-width="3.2" stroke-linecap="round"/>
+    <text x="754" y="434" text-anchor="middle" font-family="DejaVu Sans Mono, monospace"
+          font-size="12.5" font-weight="700" letter-spacing="1.1" fill="#09090b">ECON BUYER</text>
+    <text x="754" y="453" text-anchor="middle" font-family="DejaVu Sans, sans-serif"
+          font-size="13" fill="#d97706" font-weight="400">hesitates</text>
+    <circle cx="942" cy="372" r="37" fill="none" stroke="#dc2626" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="942" cy="372" r="30" fill="#ffffff" stroke="#dc2626" stroke-width="2.4"/>
+    <path d="M 933 363 L 951 381 M 951 363 L 933 381" stroke="#dc2626" stroke-width="3.2" stroke-linecap="round"/>
+    <text x="942" y="434" text-anchor="middle" font-family="DejaVu Sans Mono, monospace"
+          font-size="12.5" font-weight="700" letter-spacing="1.1" fill="#09090b">GUARDIAN</text>
+    <text x="942" y="453" text-anchor="middle" font-family="DejaVu Sans, sans-serif"
+          font-size="13" fill="#dc2626" font-weight="700">VETOES</text>
+
+  <!-- proof strip -->
+  <g font-family="DejaVu Sans, sans-serif">
+    <text x="64" y="554" font-size="30" font-weight="700" fill="#09090b">373</text>
+    <text x="64" y="578" font-size="13.5" fill="#52525b">claims graded</text>
+
+    <line x1="196" y1="530" x2="196" y2="582" stroke="#e6e6e8" stroke-width="1.5"/>
+
+    <text x="228" y="554" font-size="30" font-weight="700" fill="#09090b">75&#8211;85%</text>
+    <text x="228" y="578" font-size="13.5" fill="#52525b">accuracy, live accounts</text>
+
+    <line x1="452" y1="530" x2="452" y2="582" stroke="#e6e6e8" stroke-width="1.5"/>
+
+    <text x="484" y="554" font-size="30" font-weight="700" fill="#09090b">100%</text>
+    <text x="484" y="578" font-size="13.5" fill="#52525b">graded by the customer, not by us</text>
+  </g>
+
+  <text x="1136" y="570" text-anchor="end" font-family="DejaVu Sans, sans-serif"
+        font-size="16" font-weight="700" fill="#6d28d9">whyuser.com</text>
+</svg>

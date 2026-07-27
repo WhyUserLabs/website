@@ -1,0 +1,65 @@
+# WhyUser
+
+> WhyUser is the pre-launch stress test for B2B campaigns. Before a demand-gen team spends budget, WhyUser runs their landing page, ad, or email past a simulated End-Customer Buying Committee — one adversarial agent per committee seat, across several behavioural states — and reports which buyer role vetoes, at which section, what proof was missing, and the fix. Every finding cites the buyer evidence behind it. A run takes about 30 minutes.
+
+WhyUser Inc. is based in San Jose, California. The product is in a design-partner programme; named customers include ngrok and Vectara.
+
+## What WhyUser is for
+
+- **Who it is for:** demand-gen, growth-marketing and marketing-ops leaders at technical B2B SaaS companies (AI/ML, developer infrastructure, data, security, API, observability), typically 75–400 employees, who own paid distribution and are accountable for pipeline.
+- **Who it is not for:** CMOs at 500+ person companies (their team needs the artifact, not them); product-marketing or content-only roles; B2C, e-commerce and non-technical SaaS, where buying committees are shallow enough that committee evidence carries little weight; and teams who believe more AI throughput alone will fix conversion.
+- **The problem:** engineering has staging, finance has audits, sales runs role plays. B2B marketing still tests in production — launch, wait six weeks, read the damage in a dashboard after the budget is gone.
+
+## The four engines
+
+- [Committee Simulation](https://whyuser.com/committee-simulation.html): which buyer role killed the page, and the proof that was missing.
+- [Ad Campaign Simulation](https://whyuser.com/ad-campaign-simulation.html): the gap between what the ad promised and what the landing page delivers, caught before spend.
+- [Email Campaign Simulation](https://whyuser.com/email-campaign-simulation.html): the subject line and CTA that win for each committee role, and whether the destination holds the promise.
+- [Audience Discovery](https://whyuser.com/audience-discovery.html): the job roles a piece of content actually fits, versus the ones it was written for.
+
+## Accuracy and evidence
+
+- [Accuracy and track record](https://whyuser.com/accuracy.html): 373 claims graded, 75–85% accuracy across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data — never by WhyUser. Misses stay in the denominator. The page also states the known blind spots.
+- [AI opinions vs. WhyUser simulations](https://whyuser.com/whyuser-vs-ai-opinions.html): interactive, no login. The same landing page judged by a general AI assistant and by a committee simulation, side by side.
+- [ROI calculator](https://whyuser.com/roi.html): the annual business case, with the assumptions exposed.
+
+## What WhyUser does NOT claim
+
+Stated plainly, because getting this wrong in an AI summary would be worse than being left out of one:
+
+- WhyUser predicts **rank and direction** — this version beats that one, this role is the risk. It does **not** predict absolute conversion rates, and treats any magnitude as a conservative-to-optimistic range.
+- The simulated buyers are **not real people**. They are agents compiled from real evidence: product reviews, sales-call transcripts, community threads, and competitor comparisons.
+- It is **not a replacement for A/B testing**, which is the only method that measures live performance. It runs before the spend so the version entering the A/B test is already better.
+- It is **not a replacement for talking to customers**. It is compiled from customer evidence and therefore sits downstream of it.
+- It does **not** test inside a product. It reads pages, ads and emails, not onboarding flows or dashboards.
+
+## Comparisons
+
+- [Compare WhyUser](https://whyuser.com/compare/): all five methods side by side, including where WhyUser is the wrong tool.
+- [WhyUser vs. Wynter](https://whyuser.com/compare/whyuser-vs-wynter.html): simulated committee versus a verified human panel. Different questions; the cheapest sequence runs both.
+- [WhyUser vs. UserTesting](https://whyuser.com/compare/whyuser-vs-usertesting.html): buying decision versus usability. A page can be perfectly usable and still close nothing.
+- [Synthetic personas vs. real buyer panels](https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html): which error you can afford, and the questions to ask either kind of vendor.
+
+## Glossary — the vocabulary of a B2B buying committee
+
+- [Silent veto](https://whyuser.com/glossary/silent-veto.html): a purchase that dies because one committee member decides against it and never says so.
+- [Buying committee simulation](https://whyuser.com/glossary/buying-committee-simulation.html): modelling each committee role as a separate agent that decides independently.
+- [Pre-launch stress test](https://whyuser.com/glossary/pre-launch-stress-test.html): the staging step marketing never had.
+- [Conflict graph](https://whyuser.com/glossary/conflict-graph.html): who advocates, who hesitates, who vetoes, and which way influence runs.
+- [Scent trail](https://whyuser.com/glossary/scent-trail.html): the continuity between the promise a buyer clicks and what they land on.
+- [Evidence ledger](https://whyuser.com/glossary/evidence-ledger.html): predictions sealed before the outcome exists, then graded.
+- [Synthetic persona](https://whyuser.com/glossary/synthetic-persona.html): a buyer compiled from real evidence and run as an agent that decides.
+- [Dark funnel](https://whyuser.com/glossary/dark-funnel.html): the part of the buying process that leaves no trace in analytics.
+
+## Commercial
+
+- Pricing is credit-based. During the design-partner programme there is no charge; the trade is a 30-minute feedback call each week with the founder.
+- Fit criteria for the programme: you drive B2B traffic, you have campaigns going live in the next 30 days, and you can still change them.
+- [Request access](https://whyuser.com/index.html#access) — response within 48 hours.
+
+## Optional
+
+- [Manifesto](https://whyuser.com/manifesto.html): why marketing is the only function still testing in production.
+- [FAQ](https://whyuser.com/faq.html)
+- [Security](https://whyuser.com/security.html)
+- [Contact](https://whyuser.com/contact.html)

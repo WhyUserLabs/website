@@ -1,5 +1,5 @@
 # https://whyuser.com/robots.txt
-# WhyUser Inc. — pre-launch stress test for B2B campaigns.
+# WhyUser Inc.. pre-launch stress test for B2B campaigns.
 #
 # These are the real user-agent tokens. The <meta name="GPTBot"> style tags
 # that used to sit in the page head were decorative: no crawler reads a
@@ -17,19 +17,19 @@ Allow: /
 # posture is unambiguous rather than inherited from the wildcard.
 # ─────────────────────────────────────────────────────────────────────
 
-# OpenAI — ChatGPT search / browsing (the one that drives referrals)
+# OpenAI. ChatGPT search / browsing (the one that drives referrals)
 User-agent: OAI-SearchBot
 Allow: /
 
-# OpenAI — user-triggered fetch when someone asks ChatGPT about a URL
+# OpenAI. user-triggered fetch when someone asks ChatGPT about a URL
 User-agent: ChatGPT-User
 Allow: /
 
-# OpenAI — training crawler
+# OpenAI. training crawler
 User-agent: GPTBot
 Allow: /
 
-# Anthropic — Claude search and browsing
+# Anthropic. Claude search and browsing
 User-agent: ClaudeBot
 Allow: /
 
@@ -52,7 +52,7 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
-# Google — Gemini apps, Vertex grounding, AI Overviews training signal.
+# Google. Gemini apps, Vertex grounding, AI Overviews training signal.
 # Note: Google AI Overviews itself is served from the regular Googlebot
 # index, so blocking Google-Extended would NOT remove you from AI
 # Overviews. It only controls Gemini / Vertex use.
@@ -67,7 +67,7 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
-# Common Crawl — feeds many downstream models
+# Common Crawl. feeds many downstream models
 User-agent: CCBot
 Allow: /
 
@@ -93,7 +93,7 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
-# AEO monitoring tools — these check whether you are cited. Let them in.
+# AEO monitoring tools. these check whether you are cited. Let them in.
 User-agent: ProfoundBot
 Allow: /
 

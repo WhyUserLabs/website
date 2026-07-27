@@ -8,19 +8,19 @@
 <meta name="color-scheme" content="light">
 <meta name="author" content="WhyUser Inc.">
 
-<title>Synthetic personas vs. real buyer panels: which do you need? | WhyUser</title>
-<meta name="description" content="A neutral comparison of synthetic personas and real buyer panels for B2B message testing. What each method is good at, how each one fails, and the order to run them in so the expensive method is spent on the right question.">
-<link rel="canonical" href="https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html">
+<title>Should you build a buying committee simulation with Claude Code? | WhyUser</title>
+<meta name="description" content="An honest look at building a buying committee simulation in-house with Claude Code or agents. What you will have working in a weekend, what breaks in month two, what cannot be built at all, and when building it yourself is genuinely the right call.">
+<link rel="canonical" href="https://whyuser.com/compare/whyuser-vs-building-it-yourself.html">
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="WhyUser">
-<meta property="og:title" content="Synthetic personas vs. real buyer panels: which do you need? | WhyUser">
-<meta property="og:description" content="A neutral comparison of synthetic personas and real buyer panels for B2B message testing. What each method is good at, how each one fails, and the order to run them in so the expensive method is spent on the right question.">
-<meta property="og:url" content="https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html">
+<meta property="og:title" content="Should you build a buying committee simulation with Claude Code? | WhyUser">
+<meta property="og:description" content="An honest look at building a buying committee simulation in-house with Claude Code or agents. What you will have working in a weekend, what breaks in month two, what cannot be built at all, and when building it yourself is genuinely the right call.">
+<meta property="og:url" content="https://whyuser.com/compare/whyuser-vs-building-it-yourself.html">
 <meta property="og:image" content="https://whyuser.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Synthetic personas vs. real buyer panels: which do you need? | WhyUser">
-<meta name="twitter:description" content="A neutral comparison of synthetic personas and real buyer panels for B2B message testing. What each method is good at, how each one fails, and the order to run them in so the expensive method is spent on the right question.">
+<meta name="twitter:title" content="Should you build a buying committee simulation with Claude Code? | WhyUser">
+<meta name="twitter:description" content="An honest look at building a buying committee simulation in-house with Claude Code or agents. What you will have working in a weekend, what breaks in month two, what cannot be built at all, and when building it yourself is genuinely the right call.">
 <meta name="twitter:image" content="https://whyuser.com/og-image.png">
 
 <link rel="icon" type="image/png" href="../images/whyuser-favicon.png">
@@ -36,10 +36,10 @@
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html#article",
-      "headline": "Synthetic personas vs. real buyer panels: which do you need?",
-      "description": "A neutral comparison of synthetic personas and real buyer panels for B2B message testing. What each method is good at, how each one fails, and the order to run them in so the expensive method is spent on the right question.",
-      "url": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html",
+      "@id": "https://whyuser.com/compare/whyuser-vs-building-it-yourself.html#article",
+      "headline": "Should you build a buying committee simulation with Claude Code?",
+      "description": "An honest look at building a buying committee simulation in-house with Claude Code or agents. What you will have working in a weekend, what breaks in month two, what cannot be built at all, and when building it yourself is genuinely the right call.",
+      "url": "https://whyuser.com/compare/whyuser-vs-building-it-yourself.html",
       "author": {
         "@type": "Organization",
         "name": "WhyUser"
@@ -54,38 +54,46 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html#faq",
+      "@id": "https://whyuser.com/compare/whyuser-vs-building-it-yourself.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Are synthetic personas better than real buyer panels?",
+          "name": "Can I build a buying committee simulation with Claude Code?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Neither is better. They fail in opposite directions. A panel measures stated preference, which drifts from behaviour. A simulation built on thin evidence returns confident nonsense. The useful question is which error you can afford this week."
+            "text": "The orchestration is roughly a weekend and it will demo well. What takes longer is determinism, calibrating the behavioural mix against real channel benchmarks, modelling the handoffs between roles, and accumulating a graded track record."
           }
         },
         {
           "@type": "Question",
-          "name": "What should I ask a synthetic persona vendor before buying?",
+          "name": "Why is temperature zero not enough for a repeatable verdict?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "What it is built from, specifically. Whether it is deterministic, so the same input returns the same verdict. What the published hit rate is, whether predictions were sealed before the outcome existed, and whether misses stayed in the denominator. And what the vendor refuses to claim."
+            "text": "Attention behaviour and batching mean the same prompt can still return different text. The architectural fix is to stop letting the model decide: count runs in code, compute the verdict algebraically, and let the model write only the narrative on top of a number it did not choose."
           }
         },
         {
           "@type": "Question",
-          "name": "Can synthetic personas replace customer interviews?",
+          "name": "What do in-house simulations usually get wrong first?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. They are built from customer evidence, so they sit downstream of it. If that evidence is thin the simulation is fluent and empty, and nothing in the output signals it."
+            "text": "The behavioural mix. Splitting mindsets evenly over-represents the actively shopping buyer by more than tenfold on cold social, so simulated click rates come back around 20 to 30% when real cold LinkedIn is under 1%. The output is confident and wrong with no warning."
           }
         },
         {
           "@type": "Question",
-          "name": "In what order should I run simulation, panel and A/B testing?",
+          "name": "What can an in-house build never replicate?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Simulate first to kill structural failures cheaply across many versions. Panel second, on the survivor, for the resonance question humans answer best. A/B last, because it is the only method that measures what actually happened."
+            "text": "A record of predictions sealed before outcomes existed. It accumulates at the speed of real campaigns and cannot be backdated, so a team starting today has none, and that is exactly what gets asked for the first time the simulation contradicts a senior opinion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is building it yourself the right call?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When simulation is your product, when you already have a research function that owns methodology and calibration, when your use case sits outside B2B buying committees, or when you need something the vendor does not do."
           }
         }
       ]
@@ -108,8 +116,8 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Synthetic personas vs. real buyer panels",
-          "item": "https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html"
+          "name": "Building it yourself vs. WhyUser",
+          "item": "https://whyuser.com/compare/whyuser-vs-building-it-yourself.html"
         }
       ]
     },
@@ -227,10 +235,10 @@
     <nav class="crumb" aria-label="Breadcrumb">
       <a href="../index.html">WhyUser</a> <span aria-hidden="true">/</span>
       <a href="index.html">Compare</a> <span aria-hidden="true">/</span>
-      <span>Synthetic personas vs. real buyer panels</span>
+      <span>Building it yourself vs. WhyUser</span>
     </nav>
-    <h1 class="h1">Synthetic personas vs. real buyer panels</h1>
-    <p class="standfirst">The argument gets framed as real versus fake. That framing is wrong and it costs teams money. <strong>The useful question is which error you can afford this week.</strong></p>
+    <h1 class="h1">Building it yourself vs. WhyUser</h1>
+    <p class="standfirst">You can. The orchestration really is a weekend, and anyone telling you otherwise is selling. <strong>This page is about the other fifty-one weekends</strong>, and about the one thing that cannot be built at any budget.</p>
   </div>
 </section>
 
@@ -238,78 +246,92 @@
   <div class="wrap">
     <div class="prose">
       
-    <h2>Two methods, opposite failure modes</h2>
-    <ul>
-      <li><strong>A panel fails on stated preference.</strong> People report what confuses them accurately. They predict their own behaviour badly. They say they prefer headline A and click headline B.</li>
-      <li><strong>A simulation fails on thin evidence.</strong> Compiled from too little, it returns a fluent, well-structured answer about nothing, and nothing in the output warns you.</li>
-    </ul>
-    <p>Both are survivable. Neither is survivable if you do not know which one you are exposed to.</p>
+    <h2>The weekend estimate is correct</h2>
+    <p>Someone on your team has said this. They are right, and they are usually the most capable engineer in the room.</p>
+    <p>In a weekend you can have agents that read a landing page, personas that hold different briefs, structured JSON coming back, and a report that reads well. It will demo beautifully.</p>
+    <p>The estimate is honest. It is just an estimate of version one, and version one is not the part that costs.</p>
     </div>
     <div style="max-width:62rem">
     <div class="cmp-wrap">
       <table class="cmp">
-        <thead><tr><th></th><th>Real buyer panel</th><th class="col-us">Synthetic persona</th></tr></thead>
+        <thead><tr><th></th><th>Build it yourself</th><th class="col-us">WhyUser</th></tr></thead>
         <tbody>
-          <tr class="cmp-sec"><th></th><th>WHAT YOU LEARN</th><td class="col-us">WHAT YOU LEARN</td></tr>
-          <tr><th>What it measures</th><td>What people say when asked</td><td class="col-us">What a modelled role does when reading</td></tr>
-          <tr><th>Unit of analysis</th><td>The individual, segmented afterwards</td><td class="col-us">The persona, then the committee graph on top</td></tr>
-          <tr><th>Committee handoffs</th><td>Not covered. Respondents answer alone</td><td class="col-us">Seven chains, scored healthy, at risk or broken</td></tr>
-          <tr><th>Quotable verbatims</th><td>Yes. The strongest artefact for an internal argument</td><td class="col-us">No. Findings cite evidence rather than a speaker</td></tr>
-          <tr><th>Can surprise you</th><td>Yes. A real person brings context no corpus holds</td><td class="col-us">Only within the evidence it was built from</td></tr>
-          <tr class="cmp-sec"><th></th><th>HOW IT RUNS</th><td class="col-us">HOW IT RUNS</td></tr>
-          <tr><th>Cost per iteration</th><td>High enough to ration. You will not run eight versions</td><td class="col-us">Low enough to iterate freely</td></tr>
-          <tr><th>Turnaround</th><td>Hours to weeks, depending on audience</td><td class="col-us">Minutes</td></tr>
-          <tr><th>Repeatable</th><td>No. New people, new variance each time</td><td class="col-us">Yes, if the system is deterministic. Many are not. Ask</td></tr>
-          <tr><th>Main risk</th><td>Stated preference drifts from real behaviour</td><td class="col-us">Thin or biased evidence produces confident nonsense</td></tr>
+          <tr class="cmp-sec"><th></th><th>WEEKEND ONE</th><td class="col-us">WEEKEND ONE</td></tr>
+          <tr><th>Agents that read a page</th><td>A weekend</td><td class="col-us">Included</td></tr>
+          <tr><th>Personas holding different briefs</th><td>A weekend</td><td class="col-us">Included</td></tr>
+          <tr><th>A report that reads well</th><td>A weekend</td><td class="col-us">Included</td></tr>
+          <tr class="cmp-sec"><th></th><th>MONTH TWO</th><td class="col-us">MONTH TWO</td></tr>
+          <tr><th>Same page in, same verdict out</th><td>Hard. Temperature zero is not determinism</td><td class="col-us">The verdict is computed in Python. The model only writes the narrative</td></tr>
+          <tr><th>Behavioural mix</th><td>You will guess. An even split gives 20 to 30% simulated CTR, which is fiction</td><td class="col-us">Weights derived from published channel benchmarks and the 95:5 rule</td></tr>
+          <tr><th>Committee handoffs</th><td>Rarely built. Most in-house versions stop at per-role output</td><td class="col-us">Seven chains scored healthy, at risk or broken</td></tr>
+          <tr><th>Rare dealbreakers</th><td>Averaged away unless you count runs rather than summarise them</td><td class="col-us">Flagged even when only one run hits them</td></tr>
+          <tr class="cmp-sec"><th></th><th>YEAR ONE</th><td class="col-us">YEAR ONE</td></tr>
+          <tr><th>Every model update</th><td>Re-baseline and re-validate. Yours to own, forever</td><td class="col-us">Ours</td></tr>
+          <tr><th>A track record</th><td>Starts at zero today. Cannot be backdated</td><td class="col-us">373 claims sealed before outcomes existed, graded by customers</td></tr>
+          <tr><th>Who is accountable when it is wrong</th><td>The person who built it, in front of the CMO</td><td class="col-us">Us. That is what you are paying for</td></tr>
         </tbody>
       </table>
     </div>
     </div>
     <div class="prose">
       
-    <h2>Four questions for any synthetic persona vendor</h2>
-    <p>Most of the gap between a useful simulation and an expensive random-answer generator sits in these four. Ask us too.</p>
-    <ol>
-      <li><strong>What is it built from, specifically?</strong> "Trained on B2B data" is not an answer. Name the sources, and show the source on each finding.</li>
-      <li><strong>Is it deterministic?</strong> Ask them to run the same page twice. If the verdict moves, you cannot test an edit, because you can never separate your change from the model.</li>
-      <li><strong>What is the published hit rate, and where are the misses?</strong> Ask whether predictions were sealed before the outcome existed, who graded them, and whether misses stayed in the denominator. See <a href="../glossary/evidence-ledger.html">evidence ledger</a>.</li>
-      <li><strong>What does it refuse to claim?</strong> A vendor who cannot name a limitation has not found one yet.</li>
-    </ol>
+    <h2>1. What breaks in month two</h2>
+    <p>Three things, in the order teams hit them.</p>
+    <p><strong>Determinism.</strong> The obvious fix is temperature zero. It is not enough. Attention behaviour and batching mean the same prompt can still return different text, so your verdict moves when your page did not, and you can never tell your edit from the model. The fix is architectural: stop letting the model decide. Count the runs in code, compute the verdict algebraically, and let the model write only the narrative on top of a number it did not choose. That is a rebuild, not a patch.</p>
+    <p><strong>Calibration.</strong> You will run each persona in a few mindsets and split them evenly, because that is the obvious choice. Even splits over-represent the buyer who is actively shopping by more than tenfold on cold social, and simulated click rates come back in the 20 to 30% range. Real cold LinkedIn is under 1%. The output is confident and wrong, and nothing in it warns you. Getting this right means deriving weights from published benchmarks per channel, then re-deriving them when a partner measures something different. See <a href="../glossary/behavioral-state.html">behavioural state</a>.</p>
+    <p><strong>The committee layer.</strong> Almost every in-house build stops at per-role output: five verdicts, blended into a score. That misses the failure that matters, because it lives between roles rather than inside one. See section 3.</p>
 
-    <h2>Three questions for a panel vendor</h2>
-    <ol>
-      <li><strong>How are respondents verified?</strong> "Works in IT" is not a buying committee role.</li>
-      <li><strong>Can I reach the roles that block deals?</strong> Security reviewers and economic buyers are the hardest to recruit and the most likely to kill your deal.</li>
-      <li><strong>What is my sample once I segment by role?</strong> Fifty people across five roles is ten per role. Ten is not many when roles disagree.</li>
-    </ol>
+    <h2>2. What cannot be built at all</h2>
+    <p>Everything above is engineering. Hard, but yours if you want it.</p>
+    <p>This one is not. <strong>A record of predictions sealed before the outcome existed accumulates at the speed of real campaigns and no other speed.</strong> A team starting today has zero. In twelve months they have twelve months. There is no way to buy back time, and no amount of talent shortens it.</p>
+    <p>That matters for one practical reason. The first time your in-house simulation says the hero is broken and a VP disagrees, someone will ask how often it has been right. "We built it in-house and it feels solid" is not an answer that survives that room. See <a href="../glossary/evidence-ledger.html">evidence ledger</a>.</p>
 
-    <h2>What a simulation cannot do</h2>
-    <p>Worth being blunt, since we sell one.</p>
+    <h2>3. The failure an in-house build almost never catches</h2>
+    <p>Five roles read the page. Five roles approve. The blended score looks healthy, and the build works exactly as designed.</p>
+    <div class="eg">
+      <span class="eg-label">Convinced, and still dead</span>
+      <p>The champion picked up nothing that answers what the economic buyer needs.</p>
+      <p>Every path into that buyer is stalled. The deal cannot move, and no per-role output shows it, because no individual role failed.</p>
+      <p><strong>Verdict: cannot recommend.</strong></p>
+    </div>
+    <p>Catching this means modelling the handoff as a graph and scoring the edges: does the evidence one role collected intersect what the next role vetoes on? That is a different piece of software from the one your weekend produced. See <a href="../glossary/conflict-graph.html">conflict graph</a>.</p>
+
+    <h2>4. About the person proposing it</h2>
+    <p>Usually your best engineer, and their instinct is sound. Worth noticing two things anyway.</p>
+    <p>The estimate is for the demo, not the instrument. Nobody scopes calibration drift, determinism, or a graded record, because those problems are invisible until you are inside them.</p>
+    <p>And in your own deal, that person is the technical decision maker. If they say "we could build this," the deal stalls and no objection is ever recorded. That is a <a href="../glossary/silent-veto.html">silent veto</a>, cast inside your own company. Worth surfacing rather than routing around.</p>
+
+    <h2>When you genuinely should build it</h2>
+    <p>Four cases, and they are real.</p>
     <ul>
-      <li><strong>It cannot replace talking to customers.</strong> It is built from customer evidence, so it sits downstream of it.</li>
-      <li><strong>It cannot give absolute numbers.</strong> Rank and direction are defensible. A precise conversion rate is not, and one wrong magnitude sinks every correct finding beside it.</li>
-      <li><strong>It inherits the bias of its corpus.</strong> Public reviews skew to the delighted and the furious. The quiet middle is under-represented.</li>
-      <li><strong>It cannot surprise you from outside its evidence.</strong> A real person sometimes says the thing nobody modelled. Worth paying for.</li>
+      <li><strong>Simulation is your product.</strong> Then this is core and you should own every line.</li>
+      <li><strong>You have a research function.</strong> A team that already owns methodology and calibration is not starting from zero.</li>
+      <li><strong>Your use case is far from B2B committees.</strong> Consumer, in-product, non-committee. Our evidence base does not help you.</li>
+      <li><strong>You need something we do not do.</strong> We read pages, ads and emails. Not onboarding flows or dashboards.</li>
     </ul>
 
-    <h2>The order that costs least</h2>
-    <ol>
-      <li><strong>Simulate.</strong> Kill the structural failures across many versions. Missing proof for a role, no baseline number, a broken <a href="../glossary/scent-trail.html">scent trail</a>. Iterating costs almost nothing.</li>
-      <li><strong>Panel.</strong> Spend real money on the question humans answer best: does this land, in these words, with this person.</li>
-      <li><strong>A/B.</strong> The only method that measures what actually happened.</li>
-    </ol>
-    <p>Teams who swap the first two spend panel budget discovering the page has no security signal. Never pay a human for that finding.</p>
+    <h2>The bill nobody quotes</h2>
+    <ul>
+      <li>Model updates, each one a re-baseline.</li>
+      <li>Calibration against real campaign outcomes, ongoing.</li>
+      <li>Prompt and schema drift as providers change formats.</li>
+      <li>Evidence collection: reviews, community threads, competitor coverage, refreshed.</li>
+      <li>The engineer who owns it, and what happens when they leave.</li>
+    </ul>
+    <p>None of this is a reason not to build. It is the reason to price the build honestly against about 30 minutes a run.</p>
 
-    <div class="related"><strong>Related:</strong> <a href="whyuser-vs-chatgpt-and-claude.html">ChatGPT and Claude vs. WhyUser</a> &middot; <a href="whyuser-vs-internal-review.html">Internal review vs. WhyUser</a> &middot; <a href="../glossary/synthetic-persona.html">What is a synthetic persona?</a></div>
+    <div class="related"><strong>Related:</strong> <a href="whyuser-vs-chatgpt-and-claude.html">ChatGPT and Claude vs. WhyUser</a> &middot; <a href="../glossary/conflict-graph.html">Conflict graph</a> &middot; <a href="../glossary/evidence-ledger.html">Evidence ledger</a></div>
       <h2>Common questions</h2>
-      <h3>Are synthetic personas better than real buyer panels?</h3>
-<p>Neither is better. They fail in opposite directions. A panel measures stated preference, which drifts from behaviour. A simulation built on thin evidence returns confident nonsense. The useful question is which error you can afford this week.</p>
-<h3>What should I ask a synthetic persona vendor before buying?</h3>
-<p>What it is built from, specifically. Whether it is deterministic, so the same input returns the same verdict. What the published hit rate is, whether predictions were sealed before the outcome existed, and whether misses stayed in the denominator. And what the vendor refuses to claim.</p>
-<h3>Can synthetic personas replace customer interviews?</h3>
-<p>No. They are built from customer evidence, so they sit downstream of it. If that evidence is thin the simulation is fluent and empty, and nothing in the output signals it.</p>
-<h3>In what order should I run simulation, panel and A/B testing?</h3>
-<p>Simulate first to kill structural failures cheaply across many versions. Panel second, on the survivor, for the resonance question humans answer best. A/B last, because it is the only method that measures what actually happened.</p>
+      <h3>Can I build a buying committee simulation with Claude Code?</h3>
+<p>The orchestration is roughly a weekend and it will demo well. What takes longer is determinism, calibrating the behavioural mix against real channel benchmarks, modelling the handoffs between roles, and accumulating a graded track record.</p>
+<h3>Why is temperature zero not enough for a repeatable verdict?</h3>
+<p>Attention behaviour and batching mean the same prompt can still return different text. The architectural fix is to stop letting the model decide: count runs in code, compute the verdict algebraically, and let the model write only the narrative on top of a number it did not choose.</p>
+<h3>What do in-house simulations usually get wrong first?</h3>
+<p>The behavioural mix. Splitting mindsets evenly over-represents the actively shopping buyer by more than tenfold on cold social, so simulated click rates come back around 20 to 30% when real cold LinkedIn is under 1%. The output is confident and wrong with no warning.</p>
+<h3>What can an in-house build never replicate?</h3>
+<p>A record of predictions sealed before outcomes existed. It accumulates at the speed of real campaigns and cannot be backdated, so a team starting today has none, and that is exactly what gets asked for the first time the simulation contradicts a senior opinion.</p>
+<h3>When is building it yourself the right call?</h3>
+<p>When simulation is your product, when you already have a research function that owns methodology and calibration, when your use case sits outside B2B buying committees, or when you need something the vendor does not do.</p>
     </div>
   </div>
 </section>

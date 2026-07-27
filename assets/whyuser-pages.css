@@ -2348,7 +2348,7 @@
         }                                          /* Ground Reality hub diagram */
     
         /* ─────────────────────────────────────────────────────────────
-           SR-ONLY  —  visible to screen readers and to text-extracting
+           SR-ONLY .  visible to screen readers and to text-extracting
            crawlers (ChatGPT, Claude, Perplexity, Google AI Mode), not to
            sighted users. Used to give icon-only table cells a real value.
            This is not hidden keyword text: it is the accessible name of
@@ -2367,7 +2367,7 @@
     
 
 /* ═══════════════════════════════════════════════════════════════════════
-   PAGES ADD-ON  —  glossary + comparison templates.
+   PAGES ADD-ON .  glossary + comparison templates.
    Everything above is lifted verbatim from the homepage so these pages
    cannot drift visually from the rest of the site.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -2561,3 +2561,19 @@
 .footer-bottom a { color: rgba(255,255,255,0.55); transition: color 140ms ease; }
 .footer-bottom a:hover { color: rgba(255,255,255,0.92); }
 .footer-legal { display: inline-flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+/* Comparison table: grouped section rows (persona level / committee level) */
+.cmp tbody tr.cmp-sec th,
+.cmp tbody tr.cmp-sec td {
+    background: var(--paper-warm);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dim);
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--rule-strong);
+}
+.cmp tbody tr.cmp-sec td.col-us { background: var(--brand-soft); color: var(--brand); }

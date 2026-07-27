@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="light">
+<meta name="author" content="WhyUser Inc.">
+
+<title>Silent veto — definition and how to test for it | WhyUser</title>
+<meta name="description" content="A silent veto is a B2B purchase that dies because one member of the buying committee decides against it and never says so out loud. The champion stays enthusiastic, the deal quietly stops progressing, and because no objection is ever spoken or logged, the marketing team never learns which piece of m">
+<link rel="canonical" href="https://whyuser.com/glossary/silent-veto.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WhyUser">
+<meta property="og:title" content="Silent veto — definition and how to test for it | WhyUser">
+<meta property="og:description" content="A silent veto is a B2B purchase that dies because one member of the buying committee decides against it and never says so out loud. The champion stays enthusiastic, the deal quietly stops progressing, and because no objection is ever spoken or logged, the marketing team never learns which piece of m">
+<meta property="og:url" content="https://whyuser.com/glossary/silent-veto.html">
+<meta property="og:image" content="https://whyuser.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Silent veto — definition and how to test for it | WhyUser">
+<meta name="twitter:description" content="A silent veto is a B2B purchase that dies because one member of the buying committee decides against it and never says so out loud. The champion stays enthusiastic, the deal quietly stops progressing, and because no objection is ever spoken or logged, the marketing team never learns which piece of m">
+<meta name="twitter:image" content="https://whyuser.com/og-image.png">
+
+<link rel="icon" type="image/png" href="../images/whyuser-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/whyuser-pages.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://whyuser.com/glossary/silent-veto.html#term",
+      "name": "Silent veto",
+      "alternateName": [
+        "quiet no",
+        "unspoken objection",
+        "committee veto"
+      ],
+      "description": "A silent veto is a B2B purchase that dies because one member of the buying committee decides against it and never says so out loud. The champion stays enthusiastic, the deal quietly stops progressing, and because no objection is ever spoken or logged, the marketing team never learns which piece of missing proof killed it.",
+      "url": "https://whyuser.com/glossary/silent-veto.html",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "@id": "https://whyuser.com/glossary/#set",
+        "name": "WhyUser B2B Buying Committee Glossary",
+        "url": "https://whyuser.com/glossary/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://whyuser.com/glossary/silent-veto.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a silent veto in B2B sales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A silent veto is when one member of the buying committee decides against a purchase and never voices the objection. The deal stalls without an explanation, so the vendor never learns which missing proof point caused it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who usually casts the silent veto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most often the economic buyer or the security reviewer. Both evaluate late, evaluate alone, and have no relationship with the vendor to protect, so declining to engage costs them nothing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does a silent veto not show up in analytics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the person who casts it usually never touches a tracked surface. They read a forwarded link with no campaign parameters, or a summary someone pasted into Slack. From the analytics view, nothing went wrong."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you test for a silent veto before launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, by simulating each committee role separately against the asset before it ships. A buying committee simulation reports which role abandons and what evidence was missing, at a point where changing the page is still free."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://whyuser.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Glossary",
+          "item": "https://whyuser.com/glossary/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Silent veto",
+          "item": "https://whyuser.com/glossary/silent-veto.html"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://whyuser.com/#organization",
+      "name": "WhyUser",
+      "url": "https://whyuser.com/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="nav" id="site-nav">
+    <div class="wrap nav-inner">
+        <a href="../index.html" class="nav-brand">
+            <span class="nav-mark"><img src="../images/whyuser-mark.png" alt=""></span>
+            <span>WhyUser</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-dd" id="nav-dd-product">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true">
+                    Product <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-panel" role="menu" aria-labelledby="nav-dd-trigger">
+                    <span class="nav-dd-label">The four engines</span>
+                    <a href="../committee-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Committee Simulation</span><span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span></span>
+                    </a>
+                    <a href="../ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Ad Campaign Simulation</span><span class="nav-dd-desc">The ad to page gap, caught before you spend.</span></span>
+                    </a>
+                    <a href="../email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Email Campaign Simulation</span><span class="nav-dd-desc">The subject and CTA that win for each role.</span></span>
+                    </a>
+                    <a href="../audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Audience Discovery</span><span class="nav-dd-desc">The roles your content actually fits.</span></span>
+                    </a>
+                    <span class="nav-dd-sep" aria-hidden="true"></span>
+                    <a href="../whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">AI opinions vs. simulations</span><span class="nav-dd-desc">One landing page, judged two ways. No login.</span></span>
+                    </a>
+                    <a href="../accuracy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Accuracy &amp; track record</span><span class="nav-dd-desc">373 sealed claims. 75&ndash;85% hit rate. Graded by the customer.</span></span>
+                    </a>
+                    <a href="../compare/index.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+                        <span><span class="nav-dd-name">Compare</span><span class="nav-dd-desc">WhyUser next to panels, usability tests, and A/B.</span></span>
+                    </a>
+                </div>
+            </div>
+            <a href="../index.html#how">How it works</a>
+            <a href="../index.html#build">Why not build it</a>
+            <a href="index.html">Glossary</a>
+            <a href="../manifesto.html">Manifesto</a>
+            <a href="../faq.html">FAQ</a>
+        </div>
+        <div class="nav-cta-row">
+            <a href="../roi.html" class="btn btn-ghost nav-roi" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)" aria-hidden="true"></i>ROI</a>
+            <a href="../index.html#access" class="btn btn-primary">Request Access</a>
+            <button type="button" class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-inner">
+            <span class="nav-m-label">The four engines</span>
+            <a href="../committee-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Committee Simulation</span><span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span></span>
+            </a>
+            <a href="../ad-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Ad Campaign Simulation</span><span class="nav-dd-desc">The ad to page gap, caught before you spend.</span></span>
+            </a>
+            <a href="../email-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Email Campaign Simulation</span><span class="nav-dd-desc">The subject and CTA that win for each role.</span></span>
+            </a>
+            <a href="../audience-discovery.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                <span><span class="nav-dd-name">Audience Discovery</span><span class="nav-dd-desc">The roles your content actually fits.</span></span>
+            </a>
+            <div class="nav-m-group">
+                <span class="nav-m-label">Company</span>
+                <a href="../index.html#how" class="nav-m-link">How it works</a>
+                <a href="../index.html#build" class="nav-m-link">Why not build it</a>
+                <a href="../whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="../accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
+                <a href="../compare/index.html" class="nav-m-link">Compare</a>
+                <a href="index.html" class="nav-m-link">Glossary</a>
+                <a href="../manifesto.html" class="nav-m-link">Manifesto</a>
+                <a href="../faq.html" class="nav-m-link">FAQ</a>
+                <a href="../roi.html" class="nav-m-link">ROI calculator</a>
+            </div>
+            <div class="nav-m-ctas">
+                <a href="../index.html#access" class="btn btn-primary btn-lg">Request Access</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../index.html">WhyUser</a> <span aria-hidden="true">/</span>
+      <a href="index.html">Glossary</a> <span aria-hidden="true">/</span>
+      <span>Silent veto</span>
+    </nav>
+    <h1 class="h1">Silent veto</h1>
+    <p class="standfirst">Also called: quiet no, unspoken objection, committee veto.</p>
+    <div class="defn">
+      <span class="defn-label">Definition</span>
+      <p>A <strong>silent veto</strong> is a B2B purchase that dies because one member of the buying committee decides against it and never says so out loud. The champion stays enthusiastic. The deal quietly stops progressing. Because no objection is ever spoken or logged, the marketing team never learns which piece of missing proof killed it, and the same gap stays on the page for the next campaign.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="prose">
+      <h2>Why silent vetoes happen</h2>
+    <p>Enterprise software is bought by a committee and killed by an individual. The person who clicked your ad is rarely the person who has to sign, secure, or operate the thing. Three structural facts make the veto silent:</p>
+    <ul>
+      <li><strong>The veto holder never met you.</strong> They evaluate from a forwarded link, alone, in four minutes, with no context and no relationship to protect.</li>
+      <li><strong>Saying nothing is cheaper than saying no.</strong> Raising an objection means owning it. Letting the thread go quiet costs nothing and carries no risk.</li>
+      <li><strong>Your page was written for the champion.</strong> It answers enthusiasm. It does not answer &ldquo;what happens when this fails in production&rdquo; or &ldquo;where does the data live.&rdquo;</li>
+    </ul>
+<h2>How to spot one after the fact</h2>
+    <p>A silent veto leaves a distinctive residue. Look for:</p>
+    <ul>
+      <li>A strong first call, then a stall with no stated reason.</li>
+      <li>&ldquo;We&rsquo;re going to revisit this next quarter&rdquo; arriving without a single objection on record.</li>
+      <li>Healthy engagement metrics next to a conversion rate that will not move.</li>
+      <li>The champion going quiet after saying they would &ldquo;socialise it internally.&rdquo;</li>
+    </ul>
+    <p>The single most useful question to ask a champion is not <em>what do you think</em>. It is <strong>&ldquo;who else has seen this, and what did they say?&rdquo;</strong> The answer is usually a name and a shrug. That shrug is the veto.</p>
+<h2>Why analytics cannot see it</h2>
+    <p>This is the expensive part. A silent veto does not appear in any funnel report, because from the analytics point of view nothing went wrong. Bounce rate is normal. Time on page is normal. The visitor who clicked was satisfied. The person who killed the deal either never visited a tracked surface or arrived through a forwarded link that carries no campaign parameters &mdash; the <a href="dark-funnel.html">dark funnel</a>.</p>
+    <p>So the loss is real and the record is empty. That is why teams keep re-running campaigns with the same structural gap in them, quarter after quarter.</p>
+<h2>How to test for one before launch</h2>
+    <p>You cannot A/B test a silent veto. An A/B test measures the visitor who clicked, and the veto holder is not that person. You need to put the asset in front of every seat on the committee before spending the budget.</p>
+    <p>That is what a <a href="buying-committee-simulation.html">buying committee simulation</a> does. WhyUser runs one agent per committee role &mdash; champion, economic buyer, technical decision-maker, end user, security guardian &mdash; across several behavioural states, and reports which role abandons, at which section, and which specific piece of evidence was missing when they did. Every finding is sourced to something a real buyer in that role actually said in a review, a call, or a community thread.</p>
+    <div class="eg">
+      <span class="eg-label">What this looks like in a report</span>
+      <p><strong>Economic Buyer &mdash; ABANDON at the pricing section.</strong> No stated cost of the current alternative, so no baseline to compare against. Blocking evidence missing: a before-and-after number tied to a named workload.</p>
+      <p><strong>Security Guardian &mdash; ABANDON above the fold.</strong> No SOC 2 signal, no data-residency statement anywhere on the page. Left before reading the value proposition.</p>
+    </div>
+      <h2>Questions people ask about silent veto</h2>
+      <h3>What is a silent veto in B2B sales?</h3>
+<p>A silent veto is when one member of the buying committee decides against a purchase and never voices the objection. The deal stalls without an explanation, so the vendor never learns which missing proof point caused it.</p>
+<h3>Who usually casts the silent veto?</h3>
+<p>Most often the economic buyer or the security reviewer. Both evaluate late, evaluate alone, and have no relationship with the vendor to protect, so declining to engage costs them nothing.</p>
+<h3>Why does a silent veto not show up in analytics?</h3>
+<p>Because the person who casts it usually never touches a tracked surface. They read a forwarded link with no campaign parameters, or a summary someone pasted into Slack. From the analytics view, nothing went wrong.</p>
+<h3>Can you test for a silent veto before launch?</h3>
+<p>Yes, by simulating each committee role separately against the asset before it ships. A buying committee simulation reports which role abandons and what evidence was missing, at a point where changing the page is still free.</p>
+      <div class="related"><strong>Related terms:</strong> <a href="conflict-graph.html">Conflict graph</a> &middot; <a href="buying-committee-simulation.html">Buying committee simulation</a> &middot; <a href="dark-funnel.html">Dark funnel</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="page-cta">
+    <div class="wrap">
+        <h2>See this on your own page.</h2>
+        <p>Send us the next campaign you have going live. We run it past the committee and send back the role that vetoes, the proof that is missing, and the fix. We respond within 48 hours.</p>
+        <div class="cta-row">
+            <a href="../index.html#access" class="btn btn-primary btn-lg">Request Access</a>
+            <a href="../whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-mark"><span class="nav-mark"><img src="../images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
+                    <p class="footer-tagline">WhyUser. The pre-launch stress test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
+                </div>
+                <div><h4>Engines</h4><ul>
+                    <li><a href="../committee-simulation.html">Committee Simulation</a></li>
+                    <li><a href="../ad-campaign-simulation.html">Ad Campaign Simulation</a></li>
+                    <li><a href="../email-campaign-simulation.html">Email Campaign Simulation</a></li>
+                    <li><a href="../audience-discovery.html">Audience Discovery</a></li>
+                </ul></div>
+                <div><h4>Evidence</h4><ul>
+                    <li><a href="../accuracy.html">Accuracy &amp; track record</a></li>
+                    <li><a href="../whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                    <li><a href="../compare/index.html">Compare WhyUser</a></li>
+                    <li><a href="../glossary/index.html">Glossary</a></li>
+                    <li><a href="../roi.html">ROI calculator</a></li>
+                </ul></div>
+                <div><h4>Company</h4><ul>
+                    <li><a href="../index.html#how">How it works</a></li>
+                    <li><a href="../index.html#build">Why not build it</a></li>
+                    <li><a href="../manifesto.html">Manifesto</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../index.html#access">Request access</a></li>
+                </ul></div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
+                <span class="footer-legal"><a href="../security.html">Security</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a> &middot; <a href="../dpa.html">DPA</a></span>
+                <span><a href="../accuracy.html">373 claims graded, 75&ndash;85% accurate</a></span>
+            </div>
+        </div>
+    </footer>
+
+<script>
+(function () {
+    var burger  = document.getElementById('nav-burger');
+    var mobile  = document.getElementById('nav-mobile');
+    var dd      = document.getElementById('nav-dd-product');
+    var trigger = document.getElementById('nav-dd-trigger');
+    var desktop = window.matchMedia('(min-width: 1000px)');
+    var hoverTimer, lastPointerOpen = 0;
+
+    function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
+    function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+    function closeMobile() {
+        if (!mobile) return;
+        mobile.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+    }
+    if (burger && mobile) {
+        burger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var open = mobile.classList.toggle('open');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        mobile.addEventListener('click', function (e) {
+            if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+        });
+    }
+    if (dd && trigger) {
+        trigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (Date.now() - lastPointerOpen < 400) return;
+            if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+        });
+        dd.addEventListener('mouseenter', function () {
+            if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+        });
+        dd.addEventListener('mouseleave', function () {
+            if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+        });
+        dd.addEventListener('focusout', function (e) {
+            if (!dd.contains(e.relatedTarget)) closeDd();
+        });
+    }
+    document.addEventListener('click', function (e) {
+        if (dd && !dd.contains(e.target)) closeDd();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { closeDd(); closeMobile(); }
+    });
+})();
+</script>
+</body>
+</html>

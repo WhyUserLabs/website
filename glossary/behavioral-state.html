@@ -8,19 +8,19 @@
 <meta name="color-scheme" content="light">
 <meta name="author" content="WhyUser Inc.">
 
-<title>Buying committee simulation. definition and how to test for it | WhyUser</title>
-<meta name="description" content="Buying committee simulation is a pre-launch testing method in which each role on a B2B buying committee is modelled as a separate agent that reads a page, ad, or email and decides independently whether to continue or abandon. Instead of one aggregate conversion score, it returns a verdict per role, ">
-<link rel="canonical" href="https://whyuser.com/glossary/buying-committee-simulation.html">
+<title>Behavioural state. definition and how to test for it | WhyUser</title>
+<meta name="description" content="Behavioural state is the headspace a buyer is in when they encounter your page: distracted, sceptical, or actively shopping. It comes from the Fogg Behaviour Model, which holds that an action occurs only when motivation, ability and a prompt converge. The same person reaching the same page reaches a">
+<link rel="canonical" href="https://whyuser.com/glossary/behavioral-state.html">
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="WhyUser">
-<meta property="og:title" content="Buying committee simulation. definition and how to test for it | WhyUser">
-<meta property="og:description" content="Buying committee simulation is a pre-launch testing method in which each role on a B2B buying committee is modelled as a separate agent that reads a page, ad, or email and decides independently whether to continue or abandon. Instead of one aggregate conversion score, it returns a verdict per role, ">
-<meta property="og:url" content="https://whyuser.com/glossary/buying-committee-simulation.html">
+<meta property="og:title" content="Behavioural state. definition and how to test for it | WhyUser">
+<meta property="og:description" content="Behavioural state is the headspace a buyer is in when they encounter your page: distracted, sceptical, or actively shopping. It comes from the Fogg Behaviour Model, which holds that an action occurs only when motivation, ability and a prompt converge. The same person reaching the same page reaches a">
+<meta property="og:url" content="https://whyuser.com/glossary/behavioral-state.html">
 <meta property="og:image" content="https://whyuser.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Buying committee simulation. definition and how to test for it | WhyUser">
-<meta name="twitter:description" content="Buying committee simulation is a pre-launch testing method in which each role on a B2B buying committee is modelled as a separate agent that reads a page, ad, or email and decides independently whether to continue or abandon. Instead of one aggregate conversion score, it returns a verdict per role, ">
+<meta name="twitter:title" content="Behavioural state. definition and how to test for it | WhyUser">
+<meta name="twitter:description" content="Behavioural state is the headspace a buyer is in when they encounter your page: distracted, sceptical, or actively shopping. It comes from the Fogg Behaviour Model, which holds that an action occurs only when motivation, ability and a prompt converge. The same person reaching the same page reaches a">
 <meta name="twitter:image" content="https://whyuser.com/og-image.png">
 
 <link rel="icon" type="image/png" href="../images/whyuser-favicon.png">
@@ -36,14 +36,15 @@
   "@graph": [
     {
       "@type": "DefinedTerm",
-      "@id": "https://whyuser.com/glossary/buying-committee-simulation.html#term",
-      "name": "Buying committee simulation",
+      "@id": "https://whyuser.com/glossary/behavioral-state.html#term",
+      "name": "Behavioural state",
       "alternateName": [
-        "committee simulation",
-        "multi-persona simulation"
+        "Fogg state",
+        "audience mindset",
+        "buyer mindset"
       ],
-      "description": "Buying committee simulation is a pre-launch testing method in which each role on a B2B buying committee is modelled as a separate agent that reads a page, ad, or email and decides independently whether to continue or abandon. Instead of one aggregate conversion score, it returns a verdict per role, the section where each role dropped, and the specific evidence that role needed and did not find.",
-      "url": "https://whyuser.com/glossary/buying-committee-simulation.html",
+      "description": "Behavioural state is the headspace a buyer is in when they encounter your page: distracted, sceptical, or actively shopping. It comes from the Fogg Behaviour Model, which holds that an action occurs only when motivation, ability and a prompt converge. The same person reaching the same page reaches a different verdict in each state.",
+      "url": "https://whyuser.com/glossary/behavioral-state.html",
       "inDefinedTermSet": {
         "@type": "DefinedTermSet",
         "@id": "https://whyuser.com/glossary/#set",
@@ -53,38 +54,46 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://whyuser.com/glossary/buying-committee-simulation.html#faq",
+      "@id": "https://whyuser.com/glossary/behavioral-state.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is a buying committee simulation?",
+          "name": "What is a behavioural state in marketing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It is a pre-launch test in which each role on a B2B buying committee is modelled as a separate agent that reads the asset and decides independently. The output is a verdict per role, not one blended score."
+            "text": "It is the headspace a buyer is in when they meet your page: distracted, sceptical, or actively shopping. It comes from the Fogg Behaviour Model, and the same person reaches a different verdict about the same page in each state."
           }
         },
         {
           "@type": "Question",
-          "name": "How is it different from asking ChatGPT to review my landing page?",
+          "name": "What share of B2B traffic is actively in-market?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A general assistant returns one confident opinion, and returns a different one each time you ask. A committee simulation runs each role as its own agent across several behavioural states and many seeds, so disagreement between roles becomes visible and the same input returns the same verdict."
+            "text": "Roughly 5% at any moment, per the Ehrenberg-Bass 95:5 rule. On cold LinkedIn or display it is nearer 3%; on retargeted search it can reach 65%. That single share is the most predictive variable for how a page will perform."
           }
         },
         {
           "@type": "Question",
-          "name": "Are the simulated buyers real people?",
+          "name": "Why do internal reviewers not represent real buyers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. They are agents compiled from real evidence: customer reviews, sales-call transcripts, community threads, and competitor comparisons. The evidence is real; the buyer is simulated."
+            "text": "Because they sit at maximum motivation, maximum familiarity and maximum attention, which is the ideal behavioural state. On cold social traffic roughly 3% of the audience is in that state, so the review samples the 3% and the campaign ships to the 97%."
           }
         },
         {
           "@type": "Question",
-          "name": "How long does a run take?",
+          "name": "How much harder is a distracted buyer to convert?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "About 30 minutes for a landing page, ad, or email, compared with roughly two weeks for an internal review round and four to six weeks for a live A/B test."
+            "text": "Roughly twice as hard. In WhyUser\u2019s engine a distracted persona gains 0.7 times on anything that resonates while friction penalties are amplified by the same factor, so above-the-fold content has to close on its own."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I test my page against every behavioural state equally?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Weighting the three states evenly over-represents the shopping buyer by more than tenfold on cold social and produces unrealistic conversion estimates. The distribution should match the channel you are buying."
           }
         }
       ]
@@ -107,8 +116,8 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Buying committee simulation",
-          "item": "https://whyuser.com/glossary/buying-committee-simulation.html"
+          "name": "Behavioural state",
+          "item": "https://whyuser.com/glossary/behavioral-state.html"
         }
       ]
     },
@@ -226,13 +235,13 @@
     <nav class="crumb" aria-label="Breadcrumb">
       <a href="../index.html">WhyUser</a> <span aria-hidden="true">/</span>
       <a href="index.html">Glossary</a> <span aria-hidden="true">/</span>
-      <span>Buying committee simulation</span>
+      <span>Behavioural state</span>
     </nav>
-    <h1 class="h1">Buying committee simulation</h1>
-    <p class="standfirst">Also called: committee simulation, multi-persona simulation.</p>
+    <h1 class="h1">Behavioural state</h1>
+    <p class="standfirst">Also called: Fogg state, audience mindset, buyer mindset.</p>
     <div class="defn">
       <span class="defn-label">Definition</span>
-      <p><strong>Buying committee simulation</strong> is a pre-launch testing method in which each role on a B2B buying committee is modelled as a separate agent that reads a page, ad, or email and decides independently whether to continue or abandon. Instead of one aggregate &ldquo;does this convert&rdquo; score, it returns a verdict per role, the section where each role dropped, and the specific evidence that role needed and did not find.</p>
+      <p><strong>Behavioural state</strong> is the headspace a buyer is in at the moment they encounter your page. distracted, sceptical, or actively shopping. It comes from the Fogg Behaviour Model, which holds that an action occurs only when motivation, ability and a prompt converge. The same person, reading the same page, reaches a different verdict in each state, so testing with only one state tells you almost nothing about how the page will actually perform.</p>
     </div>
   </div>
 </section>
@@ -240,44 +249,56 @@
 <section>
   <div class="wrap">
     <div class="prose">
-      <h2>The five seats</h2>
-    <p>A committee simulation is only as useful as the seats it models. The standard set for technical B2B software:</p>
+      <h2>The three states</h2>
     <ul>
-      <li><strong>Champion</strong>. wants the change, has to sell it internally, needs ammunition more than information.</li>
-      <li><strong>Economic buyer</strong>. signs. Needs a baseline, a number, and a defensible comparison.</li>
-      <li><strong>Technical decision-maker</strong>. owns the integration. Needs architecture, limits, and failure behaviour.</li>
-      <li><strong>End user</strong>. lives with it daily. Needs to see the actual workflow, not the value proposition.</li>
-      <li><strong>Security guardian</strong>. can stop the deal alone and gains nothing by approving it. Needs certifications, data handling, and residency stated plainly.</li>
+      <li><strong>Distracted.</strong> Multitasking, scrolling, low attention. Reads headlines only and will not scroll to find what they need. Everything below the fold is close to invisible.</li>
+      <li><strong>Sceptical.</strong> Interested, but burned by vendors before. Wants numbers, named customers, and mechanism. Discounts adjectives entirely.</li>
+      <li><strong>Ideal-Desperate.</strong> Actively shopping for a solution to this exact problem right now. Reads properly, forgives a weak hook, converts on a relevant page.</li>
     </ul>
-    <p>You pick the subset that matches your real deals. A three-seat committee is common at Series A; five is common at 500 employees.</p>
-<h2>Why one agent per role, not one agent playing five parts</h2>
-    <p>Asking a general AI assistant to &ldquo;review this page as a CFO, a CISO and an engineer&rdquo; produces one voice wearing three hats. The answers correlate, because they come from one pass of one model holding all three briefs at once. Real committees do not correlate. The champion&rsquo;s enthusiasm is exactly what makes the security reviewer&rsquo;s silence invisible.</p>
-    <p>Running one agent per role, with no knowledge of the other roles&rsquo; verdicts, is what makes disagreement possible, and disagreement is the finding. When the champion advocates and the economic buyer abandons at the same section, you have located the deal risk. That structure is drawn as a <a href="conflict-graph.html">conflict graph</a>.</p>
-<h2>What a run produces</h2>
+    <p>Everyone recognises the third one because it is who we picture when we write. It is also the rarest.</p>
+<h2>Why the mix matters more than the states</h2>
+    <p>The states are only useful with a population share attached, and that share is a property of the channel, not of your product. Derived from published CTR benchmarks and the Ehrenberg-Bass 95:5 rule, which caps buyers who are actively in-market at any moment at roughly 5%. The distribution looks approximately like this:</p>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th>Traffic source</th><th>Distracted</th><th>Sceptical</th><th class="col-us">Actively shopping</th></tr></thead>
+        <tbody>
+          <tr><th>Google Search, retargeted</th><td>15%</td><td>20%</td><td class="col-us">65%</td></tr>
+          <tr><th>Google Search, cold</th><td>30%</td><td>25%</td><td class="col-us">45%</td></tr>
+          <tr><th>LinkedIn lead-gen form, warm</th><td>45%</td><td>20%</td><td class="col-us">35%</td></tr>
+          <tr><th>Email, warm list</th><td>40%</td><td>25%</td><td class="col-us">35%</td></tr>
+          <tr><th>Email, cold</th><td>78%</td><td>17%</td><td class="col-us">5%</td></tr>
+          <tr><th>LinkedIn sponsored, cold</th><td>82%</td><td>15%</td><td class="col-us">3%</td></tr>
+          <tr><th>Display, cold</th><td>85%</td><td>12%</td><td class="col-us">3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The right-hand column is the single most predictive variable for how a page performs, and it swings by more than twenty-fold across channels. A page that converts search traffic can fail completely on cold social without a single word changing.</p>
+<h2>The reviewer problem</h2>
+    <p>Now sort the people who approve your page. Motivation: maximal, their name is on it. Familiarity: maximal, they know the category and the roadmap. Attention: maximal, it is a calendar event with the page on a screen.</p>
+    <p>Every reviewer is in the Ideal state. On cold social, roughly 3% of the audience is. <strong>Internal review tests with the 3% and ships to the 97%</strong>, which is a coverage problem rather than a competence one and cannot be fixed by reviewing more carefully.</p>
+    <p>The same applies to a general AI assistant. Paste a page into ChatGPT and it reads carefully, patiently, all the way down, cooperatively. The most attentive reader available. Useful for drafting. Not representative of anyone you are buying traffic from.</p>
+<h2>Distraction is not a small penalty</h2>
+    <p>It is tempting to treat a distracted reader as an ideal reader with less patience. The arithmetic is harsher. In WhyUser’s engine, a Distracted persona gains only 0.7&times; on anything that resonates, while friction penalties are amplified by dividing by the same factor. Roughly twice as hard to convince and twice as easy to lose.</p>
+    <p>Two consequences follow, and both change what you build:</p>
     <ul>
-      <li>A per-role decision at each scan zone: scroll, click, submit, or abandon.</li>
-      <li>The role that vetoed, and the section where it happened.</li>
-      <li>The specific missing evidence, sourced to something a real buyer said.</li>
-      <li>A ranked fix list, ordered by how many roles each fix unblocks.</li>
+      <li><strong>Above the fold has to close on its own.</strong> Not tease, not set up. close. For 82% of cold social traffic the fold is the entire page.</li>
+      <li><strong>Proof beats polish.</strong> A sceptical reader discounts adjectives to zero. A number, a named customer, or a mechanism survives the discount.</li>
     </ul>
-    <p>Every role is run across multiple behavioural states. rushed, sceptical, ideal, and many seeds, so what comes back is a distribution rather than one opinion. WhyUser fields around 300 agents across five roles per run.</p>
-<h2>What it does not replace</h2>
-    <p>Being straight about the limits is what makes the rest credible.</p>
-    <ul>
-      <li><strong>It does not replace talking to customers.</strong> A simulation compiled from buyer evidence is downstream of that evidence. If the evidence is thin, so is the simulation.</li>
-      <li><strong>It does not produce absolute conversion rates.</strong> The defensible output is rank and direction: this version beats that one, this role is the risk. Treat any magnitude as a range.</li>
-      <li><strong>It does not replace live testing.</strong> It runs before the spend so that live testing starts from a better asset.</li>
-    </ul>
-      <h2>Questions people ask about buying committee simulation</h2>
-      <h3>What is a buying committee simulation?</h3>
-<p>It is a pre-launch test in which each role on a B2B buying committee is modelled as a separate agent that reads the asset and decides independently. The output is a verdict per role, not one blended score.</p>
-<h3>How is it different from asking ChatGPT to review my landing page?</h3>
-<p>A general assistant returns one confident opinion, and returns a different one each time you ask. A committee simulation runs each role as its own agent across several behavioural states and many seeds, so disagreement between roles becomes visible and the same input returns the same verdict.</p>
-<h3>Are the simulated buyers real people?</h3>
-<p>No. They are agents compiled from real evidence: customer reviews, sales-call transcripts, community threads, and competitor comparisons. The evidence is real; the buyer is simulated.</p>
-<h3>How long does a run take?</h3>
-<p>About 30 minutes for a landing page, ad, or email, compared with roughly two weeks for an internal review round and four to six weeks for a live A/B test.</p>
-      <div class="related"><strong>Related terms:</strong> <a href="silent-veto.html">Silent veto</a> &middot; <a href="conflict-graph.html">Conflict graph</a> &middot; <a href="synthetic-persona.html">Synthetic persona</a></div>
+<h2>How WhyUser uses it</h2>
+    <p>Every committee role is run across all three states, and the seeds are allocated by the measured distribution for the channel you are actually buying, not evenly. Running the three states one-third each would over-represent the shopping buyer by more than tenfold on cold social and produce simulated click rates in the 20&ndash;30% range, which is fiction.</p>
+    <p>Weighting to the real mix brings simulated rates into the range published benchmarks actually show. The distribution used is stamped onto every run, so you can check which one produced your result, and you can override it with your own measured numbers once you have them.</p>
+      <h2>Questions people ask about behavioural state</h2>
+      <h3>What is a behavioural state in marketing?</h3>
+<p>It is the headspace a buyer is in when they meet your page: distracted, sceptical, or actively shopping. It comes from the Fogg Behaviour Model, and the same person reaches a different verdict about the same page in each state.</p>
+<h3>What share of B2B traffic is actively in-market?</h3>
+<p>Roughly 5% at any moment, per the Ehrenberg-Bass 95:5 rule. On cold LinkedIn or display it is nearer 3%; on retargeted search it can reach 65%. That single share is the most predictive variable for how a page will perform.</p>
+<h3>Why do internal reviewers not represent real buyers?</h3>
+<p>Because they sit at maximum motivation, maximum familiarity and maximum attention, which is the ideal behavioural state. On cold social traffic roughly 3% of the audience is in that state, so the review samples the 3% and the campaign ships to the 97%.</p>
+<h3>How much harder is a distracted buyer to convert?</h3>
+<p>Roughly twice as hard. In WhyUser’s engine a distracted persona gains 0.7 times on anything that resonates while friction penalties are amplified by the same factor, so above-the-fold content has to close on its own.</p>
+<h3>Should I test my page against every behavioural state equally?</h3>
+<p>No. Weighting the three states evenly over-represents the shopping buyer by more than tenfold on cold social and produces unrealistic conversion estimates. The distribution should match the channel you are buying.</p>
+      <div class="related"><strong>Related terms:</strong> <a href="pre-launch-stress-test.html">Pre-launch stress test</a> &middot; <a href="buying-committee-simulation.html">Buying committee simulation</a> &middot; <a href="silent-veto.html">Silent veto</a></div>
     </div>
   </div>
 </section>

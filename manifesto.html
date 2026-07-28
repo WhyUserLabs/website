@@ -2430,7 +2430,20 @@
                                 <span class="nav-dd-desc">The roles your content actually fits.</span>
                             </span>
                         </a>
-                        <span class="nav-dd-sep" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <a href="index.html#how">How it works</a>
+
+                <!-- PROOF dropdown, the diligence assets a skeptical buyer wants -->
+                <div class="nav-dd" id="nav-dd-proof">
+                    <button type="button" class="nav-dd-trigger" id="nav-dd-proof-trigger"
+                            aria-expanded="false" aria-controls="nav-dd-proof-panel" aria-haspopup="true">
+                        Proof
+                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-dd-panel" id="nav-dd-proof-panel" role="menu" aria-labelledby="nav-dd-proof-trigger">
+                        <span class="nav-dd-label">Evidence, not opinion</span>
                         <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
                             <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                             <span>
@@ -2438,7 +2451,6 @@
                                 <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
                             </span>
                         </a>
-                        <span class="nav-dd-sep" aria-hidden="true"></span>
                         <a href="accuracy.html" class="nav-dd-item" role="menuitem">
                             <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
                             <span>
@@ -2453,11 +2465,16 @@
                                 <span class="nav-dd-desc">WhyUser next to panels, usability tests, and A/B.</span>
                             </span>
                         </a>
+                        <a href="index.html#build" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-hammer" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Why not build it</span>
+                                <span class="nav-dd-desc">The orchestration is a weekend. The trust is not.</span>
+                            </span>
+                        </a>
                     </div>
                 </div>
-                <a href="index.html#how">How it works</a>
-                <a href="index.html#build">Why not build it</a>
-                <a href="glossary/index.html">Glossary</a>
+
                 <a href="manifesto.html">Manifesto</a>
                 <a href="faq.html">FAQ</a>
             </div>
@@ -2506,14 +2523,18 @@
                 </a>
 
                 <div class="nav-m-group">
-                    <span class="nav-m-label">Company</span>
-                    <a href="index.html#how" class="nav-m-link">How it works</a>
-                    <a href="index.html#build" class="nav-m-link">Why not build it</a>
+                    <span class="nav-m-label">Proof</span>
                     <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
-                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
-                    <a href="faq.html" class="nav-m-link">FAQ</a>
                     <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
                     <a href="compare/index.html" class="nav-m-link">Compare</a>
+                    <a href="index.html#build" class="nav-m-link">Why not build it</a>
+                </div>
+
+                <div class="nav-m-group">
+                    <span class="nav-m-label">Company</span>
+                    <a href="index.html#how" class="nav-m-link">How it works</a>
+                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+                    <a href="faq.html" class="nav-m-link">FAQ</a>
                     <a href="glossary/index.html" class="nav-m-link">Glossary</a>
                     <a href="roi.html" class="nav-m-link">ROI calculator</a>
                 </div>
@@ -2531,7 +2552,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
-                    <p class="footer-tagline">WhyUser. The pre-launch stress test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
+                    <p class="footer-tagline">WhyUser. The pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
                 </div>
                 <div><h4>Engines</h4><ul>
                     <li><a href="committee-simulation.html">Committee Simulation</a></li>
@@ -2539,16 +2560,16 @@
                     <li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li>
                     <li><a href="audience-discovery.html">Audience Discovery</a></li>
                 </ul></div>
-                <div><h4>Evidence</h4><ul>
+                <div><h4>Proof</h4><ul>
                     <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
                     <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
                     <li><a href="compare/index.html">Compare WhyUser</a></li>
+                    <li><a href="index.html#build">Why not build it</a></li>
                     <li><a href="glossary/index.html">Glossary</a></li>
                     <li><a href="roi.html">ROI calculator</a></li>
                 </ul></div>
                 <div><h4>Company</h4><ul>
                     <li><a href="index.html#how">How it works</a></li>
-                    <li><a href="index.html#build">Why not build it</a></li>
                     <li><a href="manifesto.html">Manifesto</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="index.html#access">Request access</a></li>
@@ -2566,14 +2587,21 @@
     (function () {
         var burger  = document.getElementById('nav-burger');
         var mobile  = document.getElementById('nav-mobile');
-        var dd      = document.getElementById('nav-dd-product');
-        var trigger = document.getElementById('nav-dd-trigger');
+        var dds     = [];
         var desktop = window.matchMedia('(min-width: 1000px)');
-        var hoverTimer;
-        var lastPointerOpen = 0;
 
-        function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
-        function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+        function closeDd(dd) {
+            dd.classList.remove('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'false');
+        }
+        function closeAllDd(except) {
+            for (var i = 0; i < dds.length; i++) { if (dds[i] !== except) closeDd(dds[i]); }
+        }
+        function openDd(dd) {
+            closeAllDd(dd);
+            dd.classList.add('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'true');
+        }
         function closeMobile() {
             if (!mobile) return;
             mobile.classList.remove('open');
@@ -2593,30 +2621,49 @@
             });
         }
 
-        if (dd && trigger) {
+        Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd) {
+            var trigger = dd.querySelector('.nav-dd-trigger');
+            if (!trigger) return;
+            dd.ddTrigger = trigger;
+            dd.ddHoverTimer = null;
+            dd.ddLastPointerOpen = 0;
+            dds.push(dd);
+
             trigger.addEventListener('click', function (e) {
                 e.stopPropagation();
-                if (Date.now() - lastPointerOpen < 400) return;
-                if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+                // A hover or a touch-tap already opened it a moment ago, so a click
+                // here would close it immediately and read as broken. Leave it open.
+                if (Date.now() - dd.ddLastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(dd); } else { openDd(dd); }
             });
             dd.addEventListener('mouseenter', function () {
-                if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+                if (desktop.matches) {
+                    clearTimeout(dd.ddHoverTimer);
+                    dd.ddLastPointerOpen = Date.now();
+                    openDd(dd);
+                }
             });
             dd.addEventListener('mouseleave', function () {
-                if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+                if (desktop.matches) {
+                    dd.ddHoverTimer = setTimeout(function () { closeDd(dd); }, 160);
+                }
             });
             dd.addEventListener('focusout', function (e) {
-                if (!dd.contains(e.relatedTarget)) closeDd();
+                if (!dd.contains(e.relatedTarget)) closeDd(dd);
             });
-        }
+        });
 
         document.addEventListener('click', function (e) {
-            if (dd && !dd.contains(e.target)) closeDd();
+            for (var i = 0; i < dds.length; i++) {
+                if (!dds[i].contains(e.target)) closeDd(dds[i]);
+            }
             if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
         });
+
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' || e.key === 'Esc') { closeDd(); closeMobile(); }
+            if (e.key === 'Escape' || e.key === 'Esc') { closeAllDd(); closeMobile(); }
         });
+
         window.addEventListener('resize', function () {
             if (desktop.matches) closeMobile();
         });

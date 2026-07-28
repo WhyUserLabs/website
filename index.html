@@ -233,6 +233,10 @@
             --dim: #71717a;
             --faint: #a1a1aa;
 
+            /* Vertical rhythm, single place to tune section spacing */
+            --section-y: 3.5rem;      /* section top/bottom padding, mobile  */
+            --section-y-lg: 4.25rem;  /* section top/bottom padding, >=768px */
+
             /* Hairlines */
             --rule: rgba(9, 9, 11, 0.09);
             --rule-strong: rgba(9, 9, 11, 0.15);
@@ -483,7 +487,7 @@
             .nav-links { display: flex; }
         }
 
-        /* Product dropdown */
+        /* Nav dropdowns (Product, Proof) */
         .nav-dd { position: relative; }
         .nav-dd::after {
             /* invisible bridge so the pointer can travel down into the panel */
@@ -650,11 +654,11 @@
            ───────────────────────────────────────────────────────────── */
         .hero {
             position: relative;
-            padding: 5rem 0 5.5rem;
+            padding: 5rem 0 4rem;
             overflow: hidden;
         }
         @media (min-width: 768px) {
-            .hero { padding: 5.5rem 0 6.5rem; }
+            .hero { padding: 5.5rem 0 4.5rem; }
         }
         .hero-grid {
             display: grid;
@@ -724,9 +728,8 @@
         /* Full-width strip under the hero grid. Keeps the left column from
            towering over the product frame, and gives the logos more room. */
         .trust-strip {
-            margin-top: 3.25rem;
-            padding-top: 1.75rem;
-            border-top: 1px solid var(--rule);
+            margin-top: 4rem;
+            padding-top: 0;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -966,14 +969,14 @@
         /* ─────────────────────────────────────────────────────────────
            SECTION SCAFFOLD
            ───────────────────────────────────────────────────────────── */
-        section { padding: 5rem 0; position: relative; }
+        section { padding: var(--section-y) 0; position: relative; }
         @media (min-width: 768px) {
-            section { padding: 6.5rem 0; }
+            section { padding: var(--section-y-lg) 0; }
         }
         .section-rule { /* divider lines removed, sections flow with background contrast */ }
-        .section-head { margin-bottom: 3rem; max-width: 48rem; }
+        .section-head { margin-bottom: 2.25rem; max-width: 48rem; }
         @media (min-width: 768px) {
-            .section-head { margin-bottom: 4rem; }
+            .section-head { margin-bottom: 3rem; }
         }
         .section-eyebrow {
             display: inline-flex;
@@ -1010,7 +1013,7 @@
            ───────────────────────────────────────────────────────────── */
         .definition {
             background: var(--paper);
-            padding: 3rem 0;
+            padding: 2.25rem 0;
         }
         .def-rule {
             display: block;
@@ -1045,20 +1048,20 @@
            ACCURACY STRIP, the evidence beat after the definition.
            Label → figure → note, borrowed from the Evidence Ledger UI.
            ───────────────────────────────────────────────────────────── */
-        .acc { margin-top: 2.25rem; }
+        .acc { margin-top: 3rem; }
         .acc-grid {
             display: grid;
             grid-template-columns: 1fr;
             border-top: 1px solid var(--rule);
         }
         .acc-cell {
-            padding: 1.5rem 0;
+            padding: 1.25rem 0;
             border-bottom: 1px solid var(--rule);
         }
         @media (min-width: 900px) {
             .acc-grid { grid-template-columns: repeat(3, 1fr); }
             .acc-cell {
-                padding: 1.75rem;
+                padding: 1.5rem 1.75rem 1.25rem;
                 border-bottom: 0;
                 border-right: 1px solid var(--rule);
             }
@@ -1085,7 +1088,7 @@
             color: var(--mute);
             max-width: 17rem;
         }
-        .acc-foot { padding-top: 1.75rem; }
+        .acc-foot { padding-top: 1rem; }
         .acc-link {
             display: inline-flex;
             align-items: center;
@@ -1095,7 +1098,7 @@
             color: var(--brand);
         }
         .acc-link i { font-size: 10px; }
-        @media (min-width: 900px) { .acc-foot { padding-top: 2rem; } }
+        @media (min-width: 900px) { .acc-foot { padding-top: 1.125rem; } }
 
         /* ─────────────────────────────────────────────────────────────
            PROBLEM CARDS, dense, terminal-edged
@@ -2467,7 +2470,7 @@
         .footer {
             background: var(--ink);
             color: rgba(255,255,255,0.7);
-            padding: 4rem 0 2.5rem;
+            padding: 3rem 0 2.5rem;
             border-top: 1px solid var(--rule);
         }
         .footer-grid {
@@ -2632,7 +2635,20 @@
                                 <span class="nav-dd-desc">The roles your content actually fits.</span>
                             </span>
                         </a>
-                        <span class="nav-dd-sep" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <a href="#how">How it works</a>
+
+                <!-- PROOF dropdown, the diligence assets a skeptical buyer wants -->
+                <div class="nav-dd" id="nav-dd-proof">
+                    <button type="button" class="nav-dd-trigger" id="nav-dd-proof-trigger"
+                            aria-expanded="false" aria-controls="nav-dd-proof-panel" aria-haspopup="true">
+                        Proof
+                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                    </button>
+                    <div class="nav-dd-panel" id="nav-dd-proof-panel" role="menu" aria-labelledby="nav-dd-proof-trigger">
+                        <span class="nav-dd-label">Evidence, not opinion</span>
                         <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
                             <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                             <span>
@@ -2640,7 +2656,6 @@
                                 <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
                             </span>
                         </a>
-                        <span class="nav-dd-sep" aria-hidden="true"></span>
                         <a href="accuracy.html" class="nav-dd-item" role="menuitem">
                             <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
                             <span>
@@ -2655,11 +2670,16 @@
                                 <span class="nav-dd-desc">WhyUser next to panels, usability tests, and A/B.</span>
                             </span>
                         </a>
+                        <a href="#build" class="nav-dd-item" role="menuitem">
+                            <span class="nav-dd-ico"><i class="fa-solid fa-hammer" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="nav-dd-name">Why not build it</span>
+                                <span class="nav-dd-desc">The orchestration is a weekend. The trust is not.</span>
+                            </span>
+                        </a>
                     </div>
                 </div>
-                <a href="#how">How it works</a>
-                <a href="#build">Why not build it</a>
-                <a href="glossary/index.html">Glossary</a>
+
                 <a href="manifesto.html">Manifesto</a>
                 <a href="faq.html">FAQ</a>
             </div>
@@ -2708,14 +2728,18 @@
                 </a>
 
                 <div class="nav-m-group">
-                    <span class="nav-m-label">Company</span>
-                    <a href="#how" class="nav-m-link">How it works</a>
-                    <a href="#build" class="nav-m-link">Why not build it</a>
+                    <span class="nav-m-label">Proof</span>
                     <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
-                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
-                    <a href="faq.html" class="nav-m-link">FAQ</a>
                     <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
                     <a href="compare/index.html" class="nav-m-link">Compare</a>
+                    <a href="#build" class="nav-m-link">Why not build it</a>
+                </div>
+
+                <div class="nav-m-group">
+                    <span class="nav-m-label">Company</span>
+                    <a href="#how" class="nav-m-link">How it works</a>
+                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+                    <a href="faq.html" class="nav-m-link">FAQ</a>
                     <a href="glossary/index.html" class="nav-m-link">Glossary</a>
                     <a href="roi.html" class="nav-m-link">ROI calculator</a>
                 </div>
@@ -2918,7 +2942,7 @@
     <!-- ═════════════════════════════════════════════════════════════════
          DEFINITION STRIP, quiet AEO featured-snippet block
          ═════════════════════════════════════════════════════════════════ -->
-    <section class="definition" style="padding: 3.25rem 0">
+    <section class="definition" style="padding: 2.25rem 0">
         <div class="wrap">
             <span class="def-rule" aria-hidden="true"></span>
             <div class="def-grid">
@@ -3587,16 +3611,16 @@
                     <li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li>
                     <li><a href="audience-discovery.html">Audience Discovery</a></li>
                 </ul></div>
-                <div><h4>Evidence</h4><ul>
+                <div><h4>Proof</h4><ul>
                     <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
                     <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
                     <li><a href="compare/index.html">Compare WhyUser</a></li>
+                    <li><a href="index.html#build">Why not build it</a></li>
                     <li><a href="glossary/index.html">Glossary</a></li>
                     <li><a href="roi.html">ROI calculator</a></li>
                 </ul></div>
                 <div><h4>Company</h4><ul>
                     <li><a href="index.html#how">How it works</a></li>
-                    <li><a href="index.html#build">Why not build it</a></li>
                     <li><a href="manifesto.html">Manifesto</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="index.html#access">Request access</a></li>
@@ -3612,21 +3636,29 @@
 
     <!-- ═════════════════════════════════════════════════════════════════
          NAV BEHAVIOUR
-         Product dropdown (hover on desktop, tap on touch, keyboard safe)
-         plus the mobile / tablet menu panel.
+         Every .nav-dd dropdown (hover on desktop, tap on touch, keyboard
+         safe) plus the mobile / tablet menu panel. Opening one closes the
+         others, so two panels can never overlap.
          ═════════════════════════════════════════════════════════════════ -->
     <script>
     (function () {
         var burger  = document.getElementById('nav-burger');
         var mobile  = document.getElementById('nav-mobile');
-        var dd      = document.getElementById('nav-dd-product');
-        var trigger = document.getElementById('nav-dd-trigger');
+        var dds     = [];
         var desktop = window.matchMedia('(min-width: 1000px)');
-        var hoverTimer;
-        var lastPointerOpen = 0;
 
-        function openDd()  { if (dd) { dd.classList.add('open');    trigger.setAttribute('aria-expanded', 'true');  } }
-        function closeDd() { if (dd) { dd.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); } }
+        function closeDd(dd) {
+            dd.classList.remove('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'false');
+        }
+        function closeAllDd(except) {
+            for (var i = 0; i < dds.length; i++) { if (dds[i] !== except) closeDd(dds[i]); }
+        }
+        function openDd(dd) {
+            closeAllDd(dd);
+            dd.classList.add('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'true');
+        }
         function closeMobile() {
             if (!mobile) return;
             mobile.classList.remove('open');
@@ -3646,32 +3678,47 @@
             });
         }
 
-        if (dd && trigger) {
+        Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd) {
+            var trigger = dd.querySelector('.nav-dd-trigger');
+            if (!trigger) return;
+            dd.ddTrigger = trigger;
+            dd.ddHoverTimer = null;
+            dd.ddLastPointerOpen = 0;
+            dds.push(dd);
+
             trigger.addEventListener('click', function (e) {
                 e.stopPropagation();
                 // A hover or a touch-tap already opened it a moment ago, so a click
                 // here would close it immediately and read as broken. Leave it open.
-                if (Date.now() - lastPointerOpen < 400) return;
-                if (dd.classList.contains('open')) { closeDd(); } else { openDd(); }
+                if (Date.now() - dd.ddLastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(dd); } else { openDd(dd); }
             });
             dd.addEventListener('mouseenter', function () {
-                if (desktop.matches) { clearTimeout(hoverTimer); lastPointerOpen = Date.now(); openDd(); }
+                if (desktop.matches) {
+                    clearTimeout(dd.ddHoverTimer);
+                    dd.ddLastPointerOpen = Date.now();
+                    openDd(dd);
+                }
             });
             dd.addEventListener('mouseleave', function () {
-                if (desktop.matches) { hoverTimer = setTimeout(closeDd, 160); }
+                if (desktop.matches) {
+                    dd.ddHoverTimer = setTimeout(function () { closeDd(dd); }, 160);
+                }
             });
             dd.addEventListener('focusout', function (e) {
-                if (!dd.contains(e.relatedTarget)) closeDd();
+                if (!dd.contains(e.relatedTarget)) closeDd(dd);
             });
-        }
+        });
 
         document.addEventListener('click', function (e) {
-            if (dd && !dd.contains(e.target)) closeDd();
+            for (var i = 0; i < dds.length; i++) {
+                if (!dds[i].contains(e.target)) closeDd(dds[i]);
+            }
             if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
         });
 
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' || e.key === 'Esc') { closeDd(); closeMobile(); }
+            if (e.key === 'Escape' || e.key === 'Esc') { closeAllDd(); closeMobile(); }
         });
 
         window.addEventListener('resize', function () {

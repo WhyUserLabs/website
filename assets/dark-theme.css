@@ -1,0 +1,337 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   WHYUSER DARK THEME
+   ---------------------------------------------------------------------
+   One override layer for the whole site. Link it LAST in <head>, after
+   every other stylesheet and after any inline <style> block, so it wins
+   on source order. Delete the <link> tag to return any page to light.
+
+   Nothing in your existing CSS is edited. This file only re-declares
+   design tokens and patches the handful of components that hardcode a
+   colour and therefore cannot follow a token flip.
+
+   CORE PRINCIPLE
+   In light mode the product frames contrast by being DARK. On a dark
+   canvas that reads as a hole in the page, so the relationship inverts:
+   the canvas is near-black and the frames sit LIGHTER, lifted by border
+   and shadow. Every token below follows from that.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+html { color-scheme: dark; }
+
+/* ───────────────────────────────────────────────────────────────────────
+   1. CORE TOKENS
+   Used by: index, accuracy, faq, manifesto, roi, audience-discovery,
+   whyuser-vs-ai-opinions, and the four simulation pages.
+   ─────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Canvas. Near-black with a faint blue cast, never pure #000: pure
+     black clips shadows and makes hairline borders look painted on. */
+  --paper:        #08080b;
+  --paper-warm:   #1a1a20;   /* chips, hover states, highlighted cells */
+  --paper-cool:   #121216;
+  --surface:      #101014;   /* cards sit ABOVE the page */
+
+  /* Ink, inverted. --dim is deliberately lifted: the light value
+     #71717a is unreadable on black and it carries every mono eyebrow. */
+  --ink:          #fafafa;
+  --ink-soft:     #e4e4e7;
+  --mute:         #a1a1aa;
+  --dim:          #8e8e99;
+  --faint:        #6b6b75;
+
+  /* Hairlines */
+  --rule:         rgba(255, 255, 255, 0.09);
+  --rule-strong:  rgba(255, 255, 255, 0.17);
+  --rule-bold:    rgba(255, 255, 255, 0.30);
+
+  /* Product frames LIFT off the canvas instead of sinking into it */
+  --frame:              #131318;
+  --frame-surface:      #1c1c23;
+  --frame-elevated:     #26262f;
+  --frame-rule:         rgba(255, 255, 255, 0.10);
+  --frame-rule-strong:  rgba(255, 255, 255, 0.20);
+  --frame-text:         #fafafa;
+  --frame-mute:         #a8a8b3;
+  --frame-dim:          #7d7d88;
+
+  /* Brand. #6d28d9 fails contrast on black, so it lifts two stops. */
+  --brand:        #a78bfa;
+  --brand-soft:   rgba(167, 139, 250, 0.14);
+
+  /* Semantic signals, brightened one stop for a dark canvas */
+  --signal-green:         #10b981;
+  --signal-green-bright:  #34d399;
+  --signal-red:           #f87171;
+  --signal-red-bright:    #fca5a5;
+  --signal-amber:         #f59e0b;
+  --signal-amber-bright:  #fbbf24;
+  --signal-blue:          #60a5fa;
+  --quote-ink:            #a1a1aa;
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   2. ROI CALCULATOR TOKENS  (roi.html declares its own set)
+   ─────────────────────────────────────────────────────────────────────── */
+:root {
+  --paper-light:  #101014;
+  --card:         #131318;
+  --ink-muted:    #d4d4d8;
+  --ink-faint:    #8e8e99;
+  --line:         rgba(255, 255, 255, 0.10);
+  --line-soft:    rgba(255, 255, 255, 0.06);
+
+  --emerald:      #34d399;
+  --emerald-tint: rgba(52, 211, 153, 0.15);
+  --rust:         #f87171;
+  --rust-tint:    rgba(248, 113, 113, 0.15);
+  --gold:         #fbbf24;
+  --gold-tint:    rgba(251, 191, 36, 0.15);
+  --silver-tint:  rgba(255, 255, 255, 0.07);
+  --bronze-tint:  rgba(251, 191, 36, 0.12);
+  --highlight:    rgba(251, 191, 36, 0.30);
+
+  --shadow-soft:  0 1px 2px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-card:  0 2px 4px rgba(0,0,0,0.5), 0 18px 36px -22px rgba(0,0,0,0.9);
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   3. LEGAL PAGE TOKENS
+   privacy.html, terms.html, security.html, dpa.html
+   ─────────────────────────────────────────────────────────────────────── */
+:root {
+  --primary:    #fafafa;
+  --secondary:  #a1a1aa;
+  --accent:     #a78bfa;
+  --border:     rgba(255, 255, 255, 0.10);
+  --bg-light:   #101014;
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   4. BETA AGREEMENT TOKENS
+   ─────────────────────────────────────────────────────────────────────── */
+:root {
+  --background:        #08080b;
+  --foreground:        #fafafa;
+  --muted:             #1a1a20;
+  --muted-foreground:  #a1a1aa;
+  --accent-light:      #c4b5fd;
+  --accent-hover:      #c4b5fd;
+  --lavender:          #16161c;
+  --shadow:            rgba(0, 0, 0, 0.6);
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+   5. PROTOTYPE PAGE TOKENS  (its own green/clay palette)
+   ─────────────────────────────────────────────────────────────────────── */
+:root {
+  --ink2:      #c3d2ce;
+  --ink3:      #a6b8b4;
+  --rule2:     rgba(255, 255, 255, 0.07);
+  --driver:    #34d399;
+  --friction:  #fbbf24;
+  --blocker:   #f87171;
+  --struct:    #93b4ff;
+  --sand:      #e6c99a;
+  --track:     rgba(255, 255, 255, 0.08);
+  --onink:     #eff3f1;
+  --onink2:    #c3d2ce;
+  --onink3:    #a6b8b4;
+  --inkrule:   rgba(255, 255, 255, 0.14);
+  --mock:      #1c1c23;
+  --ghost:     #6b6b75;
+  --green:     #10b981;
+  --green-b:   #34d399;
+  --red:       #f87171;
+  --red-b:     #fca5a5;
+  --amber:     #f59e0b;
+  --amber-b:   #fbbf24;
+  --blue:      #60a5fa;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   6. COMPONENT PATCHES
+   These hardcode a colour, so a token flip alone leaves them broken.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Page canvas. The two radial washes are the single decorative flourish;
+   delete this rule for a flat black page. */
+body {
+  background:
+    radial-gradient(900px 520px at 72% -8%, rgba(167,139,250,0.10), transparent 62%),
+    radial-gradient(700px 420px at 8% 2%,  rgba(96,165,250,0.05),  transparent 60%),
+    var(--paper);
+  background-attachment: fixed;
+  color: var(--ink);
+}
+::selection { background: rgba(167,139,250,0.30); color: #fff; }
+
+/* Sticky nav glass was rgba(253,253,253,0.82) */
+.nav, .masthead { background: rgba(8, 8, 11, 0.72) !important; }
+.nav-dd-panel, .nav-mobile { background: var(--surface); }
+
+/* Dot grid: dark dots are invisible on a dark canvas */
+.dotgrid { background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px); }
+
+/* Primary button was background:var(--ink) + color:white.
+   With --ink now near-white that becomes white-on-white. */
+.btn-primary {
+  background: #fafafa;
+  color: #09090b;
+  border-color: #fafafa;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5), 0 8px 24px -10px rgba(0,0,0,0.7);
+}
+.btn-primary:hover { background: #ffffff; border-color: #ffffff; color: #09090b; }
+.btn-ghost  { background: rgba(255,255,255,0.04); color: var(--ink); }
+.btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+/* Frames need a deeper shadow to separate from a dark canvas */
+.product-frame, .engine-frame, .cta-card, .cfo-card {
+  box-shadow: 0 1px 0 0 rgba(255,255,255,0.06) inset,
+              0 28px 60px -20px rgba(0,0,0,0.85);
+}
+.engine-frame-img { background: var(--frame); }
+
+/* Blocks that were dark-on-light must not invert into light slabs */
+.anti-block, .footer, .diff-side {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+.footer { border-left: none; border-right: none; border-bottom: none; }
+.flow-card { background: var(--frame-surface); }
+
+/* The anti-ICP block loses its editorial punch when everything is dark,
+   so it earns its weight back with a brand-tinted edge and glow. */
+.anti-block {
+  background: linear-gradient(180deg, rgba(167,139,250,0.07), rgba(167,139,250,0.02)), var(--surface);
+  border: 1px solid rgba(167,139,250,0.22);
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,0.85), 0 0 0 1px rgba(167,139,250,0.05);
+}
+
+/* Comparison tables: keep the WhyUser column legible */
+.compare-table td.col-us, .cmp td.col-us, td.col-us { background: rgba(167,139,250,0.10); }
+.compare-table .cross, .cmp .cross { color: #5c5c66; }
+
+/* Logos and the wordmark ship dark-on-light */
+.trust-logo, .nav-mark, .footer-brand-mark, .footer-mark { filter: brightness(0) invert(1); }
+.nav-mark, .footer-brand-mark, .footer-mark { opacity: 0.92; }
+.trust-logo { opacity: 0.68; }
+.trust-logo:hover { opacity: 1; }
+img[src$="whyusermark.png"], img[src$="whyuser-mark.png"] { filter: brightness(0) invert(1); }
+
+/* Screenshot PNGs are captures of the light product UI. Left raw they
+   glare against the page. This softens them without washing them out;
+   the real fix is recapturing them from a dark build. */
+img[src$="_simulation.png"], img[src$="_discovery.png"], img[src$="ab_simulation.png"] {
+  filter: brightness(0.94) contrast(1.03);
+  border-radius: 8px;
+}
+
+/* Tally is a cross-origin iframe, so page CSS cannot reach inside it and
+   the form keeps its own light theme. Until it is themed in the Tally
+   designer, hold it on a deliberate light card so it stays readable
+   rather than dark-text-on-dark. */
+.tally-wrap {
+  background: #f7f7f8;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,0.85);
+}
+
+/* Form controls (ROI calculator inputs) */
+input, select, textarea {
+  background: var(--frame-surface);
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+input::placeholder, textarea::placeholder { color: var(--faint); }
+
+/* ───────────────────────────────────────────────────────────────────────
+   7. TAILWIND UTILITY PATCHES
+   contact.html and success.html render from the Tailwind CDN, so their
+   colours are utility classes rather than tokens.
+   ─────────────────────────────────────────────────────────────────────── */
+.bg-white      { background-color: #101014 !important; }
+.bg-slate-50,
+.bg-slate-100,
+.bg-gray-50,
+.bg-gray-100   { background-color: #131318 !important; }
+.text-slate-950,
+.text-slate-800,
+.text-slate-900,
+.text-gray-800,
+.text-gray-900 { color: #fafafa !important; }
+.text-slate-700,
+.text-gray-700 { color: #e4e4e7 !important; }
+.text-slate-600,
+.text-slate-500,
+.text-gray-600,
+.text-gray-500 { color: #a1a1aa !important; }
+.border-slate-200,
+.border-slate-100,
+.border-gray-200,
+.border-gray-100 { border-color: rgba(255,255,255,0.10) !important; }
+.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
+  box-shadow: 0 18px 40px -20px rgba(0,0,0,0.85) !important;
+}
+
+/* contact.html defines its own violet + indigo scales in the Tailwind
+   config. The 600/700/800/900 steps are all too dark for this canvas. */
+.text-primary-600,
+.text-primary-700,
+.text-primary-800,
+.text-primary-900 { color: #a78bfa !important; }
+.text-indigo-800,
+.text-indigo-900 { color: #c7d2fe !important; }
+[class*="text-indigo-800/"] { color: rgba(199,210,254,0.85) !important; }
+.bg-indigo-50, .bg-primary-50, .bg-violet-50 { background-color: rgba(167,139,250,0.10) !important; }
+.bg-primary-100, .bg-primary-500 { background-color: rgba(167,139,250,0.16) !important; }
+.border-indigo-100, .border-primary-100 { border-color: rgba(167,139,250,0.22) !important; }
+
+/* Alpha-suffixed backgrounds (bg-white/80, bg-slate-50/60 ...) are not
+   matched by the plain class selectors above, so target them by prefix. */
+[class*="bg-white/"]    { background-color: rgba(16,16,20,0.80) !important; }
+[class*="bg-slate-50/"],
+[class*="bg-slate-100/"] { background-color: rgba(19,19,24,0.80) !important; }
+
+/* ───────────────────────────────────────────────────────────────────────
+   7b. ROI CALCULATOR
+   roi.html sets several inks with `!important`, so they need the same
+   weight here to be overridden.
+   ─────────────────────────────────────────────────────────────────────── */
+.section-kicker,
+.feature-desc,
+.stream-desc,
+.stream-cfo,
+.field-help,
+.results-label,
+.kpi-label      { color: var(--mute) !important; }
+.stream-name,
+.field-label,
+.kpi-value,
+.feature-team   { color: var(--ink) !important; }
+.feature-team   { color: var(--brand) !important; }
+.field-input, select, option { background: var(--frame-surface) !important; color: var(--ink) !important; }
+.action-btn.primary { background: #fafafa !important; color: #09090b !important; }
+.roi-card strong, .main-grid strong { color: var(--ink); }
+.stream-cfo strong { color: var(--dim) !important; }
+
+/* ───────────────────────────────────────────────────────────────────────
+   8. SCROLLBAR
+   ─────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: #08080b; }
+::-webkit-scrollbar-thumb { background: #2a2a33; border-radius: 6px; border: 3px solid #08080b; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a45; }
+
+/* ───────────────────────────────────────────────────────────────────────
+   9. PRINT
+   The ROI calculator is designed to be printed to PDF for a CFO. Force
+   it back to black-on-white so it does not print as a black rectangle.
+   ─────────────────────────────────────────────────────────────────────── */
+@media print {
+  html { color-scheme: light; }
+  body { background: #fff !important; color: #000 !important; }
+  .anti-block, .footer, .diff-side, .cta-card, .cfo-card, .tally-wrap {
+    background: #fff !important; color: #000 !important; border-color: #000 !important;
+  }
+  .trust-logo, .nav-mark, .footer-brand-mark, .footer-mark { filter: none !important; }
+}

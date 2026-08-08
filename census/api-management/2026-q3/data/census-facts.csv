@@ -1,0 +1,94 @@
+id,statement,count,denominator,unit,pct,basis,section,captured,edition
+break.top,"In API management and secure connectivity, the Champion could not make the case to the Economic Buyer.",31,36,companies,86,simulated,the recurring break,2026-08-07,2026-Q3
+break.any,At least one internal handoff failed on the page.,36,36,companies,100,simulated,the recurring break,2026-08-07,2026-Q3
+signature.trust_complete_value_absent,"Trust case complete, value case absent.",23,36,companies,64,counted,named failure modes,2026-08-07,2026-Q3
+signature.audience_single_voice,"Written in one voice, with a role left out.",13,36,companies,36,counted,named failure modes,2026-08-07,2026-Q3
+signature.category_claim_only,"Says what it is, never what it does.",10,36,companies,28,counted,named failure modes,2026-08-07,2026-Q3
+signature.no_enterprise_signal,No enterprise-readiness signal anywhere.,7,36,companies,19,counted,named failure modes,2026-08-07,2026-Q3
+signature.nobody_self_identifies,Never says whose job this is.,7,36,companies,19,counted,named failure modes,2026-08-07,2026-Q3
+signature.sales_gate_only_no_numbers,"Only path is a human, and no numbers to justify it.",6,36,companies,17,counted,named failure modes,2026-08-07,2026-Q3
+signature.replacement_named_no_problem,"Names what it replaces, never what is wrong with it.",5,29,companies,17,counted,named failure modes,2026-08-07,2026-Q3
+signature.villain_vacuum_vitamin,Names no enemy and frames a nice-to-have.,4,36,companies,11,counted,named failure modes,2026-08-07,2026-Q3
+signature.proof_floor_zero,No proof of any kind.,3,36,companies,8,counted,named failure modes,2026-08-07,2026-Q3
+signature.claim_parity_no_alternative,Parity claims and argues against nothing.,1,36,companies,3,counted,named failure modes,2026-08-07,2026-Q3
+signature.pricing_opaque_plg,Self-serve motion with no public price.,1,36,companies,3,counted,named failure modes,2026-08-07,2026-Q3
+signature.quantified_claim_unproven,A number in the hero with no proof beside it.,1,36,companies,3,counted,named failure modes,2026-08-07,2026-Q3
+tagged.champion_armed_cannot_justify,Champion armed cannot justify.,30,36,companies,83,simulated,named failure modes,2026-08-07,2026-Q3
+tagged.distracted_never_reaches_proof,Distracted never reaches proof.,26,36,companies,72,simulated,named failure modes,2026-08-07,2026-Q3
+tagged.td_advances_on_faith,Td advances on faith.,23,36,companies,64,simulated,named failure modes,2026-08-07,2026-Q3
+tagged.guardian_nowhere_to_verify,Guardian nowhere to verify.,14,36,companies,39,simulated,named failure modes,2026-08-07,2026-Q3
+tagged.hero_promises_body_silent,Hero promises body silent.,7,36,companies,19,simulated,named failure modes,2026-08-07,2026-Q3
+tagged.eb_never_addressed,Eb never addressed.,4,36,companies,11,simulated,named failure modes,2026-08-07,2026-Q3
+tagged.eu_converts_committee_never_forms,Eu converts committee never forms.,3,36,companies,8,simulated,named failure modes,2026-08-07,2026-Q3
+tagged.role_mismatch_page_vs_buyer,Role mismatch page vs buyer.,3,36,companies,8,simulated,named failure modes,2026-08-07,2026-Q3
+friction.FRICTION_ROI_UNCLEAR,"The page carried the friction ""roi unclear"".",32,36,companies,89,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_TECHNICAL_PROOF_MISSING,"The page carried the friction ""technical proof missing"".",30,36,companies,83,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_DIFFERENTIATION_WEAK,"The page carried the friction ""differentiation weak"".",23,36,companies,64,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_CTA_UNCLEAR,"The page carried the friction ""cta unclear"".",16,36,companies,44,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_TRUST_GAP,"The page carried the friction ""trust gap"".",16,36,companies,44,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_SECURITY_GAP,"The page carried the friction ""security gap"".",15,36,companies,42,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_SOCIAL_PROOF_THIN,"The page carried the friction ""social proof thin"".",12,36,companies,33,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_PRICING_OPACITY,"The page carried the friction ""pricing opacity"".",12,36,companies,33,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_NAV_CONFUSION,"The page carried the friction ""nav confusion"".",10,36,companies,28,simulated,the friction inventory,2026-08-07,2026-Q3
+friction.FRICTION_COPY_DENSE,"The page carried the friction ""copy dense"".",2,36,companies,6,simulated,the friction inventory,2026-08-07,2026-Q3
+strength.RESONANCE_TRUST_SIGNAL,The page already does this: trust signal.,27,36,companies,75,simulated,what already works,2026-08-07,2026-Q3
+strength.RESONANCE_SECURITY_CONFIDENCE,The page already does this: security confidence.,22,36,companies,61,simulated,what already works,2026-08-07,2026-Q3
+strength.RESONANCE_TECHNICAL_CLARITY,The page already does this: technical clarity.,21,36,companies,58,simulated,what already works,2026-08-07,2026-Q3
+strength.RESONANCE_ONBOARDING_CLARITY,The page already does this: onboarding clarity.,18,36,companies,50,simulated,what already works,2026-08-07,2026-Q3
+strength.RESONANCE_PRICING_CLARITY,The page already does this: pricing clarity.,18,36,companies,50,simulated,what already works,2026-08-07,2026-Q3
+strength.RESONANCE_COMPETITIVE_EDGE,The page already does this: competitive edge.,14,36,companies,39,simulated,what already works,2026-08-07,2026-Q3
+strength.RESONANCE_QUANTIFIED_OUTCOME,The page already does this: quantified outcome.,8,36,companies,22,simulated,what already works,2026-08-07,2026-Q3
+strength.RESONANCE_CLEAR_VALUE_PROP,The page already does this: clear value prop.,8,36,companies,22,simulated,what already works,2026-08-07,2026-Q3
+role.economic_buyer.stopped,The Economic Buyer stopped the decision outright.,6,36,companies,17,simulated,the five readers,2026-08-07,2026-Q3
+role.economic_buyer.title,The Economic Buyer in API management and secure connectivity is most often a VP of Engineering.,13,36,companies,36,counted,the five readers,2026-08-07,2026-Q3
+role.technical_decision_maker.advanced,The Technical Decision Maker advanced.,11,36,companies,31,simulated,the five readers,2026-08-07,2026-Q3
+role.technical_decision_maker.stopped,The Technical Decision Maker stopped the decision outright.,1,36,companies,3,simulated,the five readers,2026-08-07,2026-Q3
+role.technical_decision_maker.title,The Technical Decision Maker in API management and secure connectivity is most often a Principal Platform Engineer.,21,36,companies,58,counted,the five readers,2026-08-07,2026-Q3
+role.champion.advanced,The Champion advanced.,16,36,companies,44,simulated,the five readers,2026-08-07,2026-Q3
+role.champion.stopped,The Champion stopped the decision outright.,1,36,companies,3,simulated,the five readers,2026-08-07,2026-Q3
+role.champion.title,The Champion in API management and secure connectivity is most often a Engineering Manager.,8,36,companies,22,counted,the five readers,2026-08-07,2026-Q3
+role.security_governance_guardian.advanced,The Security Guardian advanced.,19,36,companies,53,simulated,the five readers,2026-08-07,2026-Q3
+role.security_governance_guardian.stopped,The Security Guardian stopped the decision outright.,6,36,companies,17,simulated,the five readers,2026-08-07,2026-Q3
+role.security_governance_guardian.title,The Security Guardian in API management and secure connectivity is most often a Security Engineer.,15,36,companies,42,counted,the five readers,2026-08-07,2026-Q3
+role.end_user.advanced,The End User advanced.,27,36,companies,75,simulated,the five readers,2026-08-07,2026-Q3
+role.end_user.stopped,The End User stopped the decision outright.,2,36,companies,6,simulated,the five readers,2026-08-07,2026-Q3
+role.end_user.title,The End User in API management and secure connectivity is most often a Backend Engineer.,12,36,companies,33,counted,the five readers,2026-08-07,2026-Q3
+counted.positioning.competitive_alternative_named,"Names a competitive alternative: most often ""True"".",29,36,companies,81,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.posture,"Positioning posture: most often ""challenger"".",23,36,companies,64,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.differentiated_value_present,"Has a differentiated value claim: most often ""True"".",35,36,companies,97,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.table_stakes_value_dominant,"Leads with table-stakes claims: most often ""True"".",30,36,companies,83,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.alternative_type,"What the page says it replaces: most often ""point_tools"".",14,36,companies,39,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.fletch.category_stated,"Names the category it sits in: most often ""True"".",36,36,companies,100,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.fletch.use_case_stated,"Names what you do with it: most often ""True"".",36,36,companies,100,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.fletch.company_type_stated,"Names the kind of company: most often ""True"".",21,36,companies,58,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.fletch.department_stated,"Names the team that would own it: most often ""True"".",22,36,companies,61,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.fletch.alternative_problem_stated,"Names what is wrong with the alternative: most often ""True"".",24,36,companies,67,counted,counted page facts,2026-08-07,2026-Q3
+counted.positioning.fletch.differentiation_tied_to_alternative,"Ties its difference to that problem: most often ""True"".",20,36,companies,56,counted,counted page facts,2026-08-07,2026-Q3
+counted.conversion.paid_traffic_observed,"Buying traffic to this page today: most often ""True"".",6,9,companies,67,counted,counted page facts,2026-08-07,2026-Q3
+counted.claim.claim_type,"Hero claim type: most often ""capability"".",12,36,companies,33,counted,counted page facts,2026-08-07,2026-Q3
+counted.conversion.motion,"Gtm motion: most often ""hybrid"".",15,36,companies,42,counted,counted page facts,2026-08-07,2026-Q3
+counted.conversion.pricing_transparency,"Pricing transparency: most often ""shown"".",20,36,companies,56,counted,counted page facts,2026-08-07,2026-Q3
+counted.conversion.primary_cta_specificity,"Primary cta specificity: most often ""generic"".",30,36,companies,83,counted,counted page facts,2026-08-07,2026-Q3
+counted.conversion.gate_friction,"Gate friction: most often ""none"".",26,36,companies,72,counted,counted page facts,2026-08-07,2026-Q3
+counted.audience.apparent_target_role,"Apparent target role: most often ""technical_decision_maker"".",17,36,companies,47,counted,counted page facts,2026-08-07,2026-Q3
+counted.audience.target_seniority,"Target seniority: most often ""mixed"".",19,36,companies,53,counted,counted page facts,2026-08-07,2026-Q3
+counted.audience.target_orientation,"Target orientation: most often ""technical"".",21,36,companies,58,counted,counted page facts,2026-08-07,2026-Q3
+counted.audience.target_explicit,"Names who it is for: most often ""True"".",29,36,companies,81,counted,counted page facts,2026-08-07,2026-Q3
+counted.narrative.villain_named,"Names a villain / enemy: most often ""True"".",32,36,companies,89,counted,counted page facts,2026-08-07,2026-Q3
+counted.narrative.painkiller_vs_vitamin,"Painkiller vs vitamin: most often ""painkiller"".",23,36,companies,64,counted,counted page facts,2026-08-07,2026-Q3
+counted.narrative.tone,"Narrative tone: most often ""rational"".",20,36,companies,56,counted,counted page facts,2026-08-07,2026-Q3
+fix.low_effort,The recommended fix was low effort.,77,108,fixes,71,simulated,the convergent fix,2026-08-07,2026-Q3
+fix.top_role,The fix unblocked the Economic Buyer.,79,215,role unblocks,37,simulated,the convergent fix,2026-08-07,2026-Q3
+check.trust_complete_value_absent,"Our page carries at least one quantified business outcome, not only trust proof.",13,36,companies,36,counted,score your own page,2026-08-07,2026-Q3
+check.audience_single_voice,Our page speaks to more than one member of the buying committee.,23,36,companies,64,counted,score your own page,2026-08-07,2026-Q3
+check.category_claim_only,"Our page says what we do, not only what category we are in.",26,36,companies,72,counted,score your own page,2026-08-07,2026-Q3
+check.no_enterprise_signal,A security reviewer can find at least one enterprise-readiness signal.,29,36,companies,81,counted,score your own page,2026-08-07,2026-Q3
+check.nobody_self_identifies,Our page names the team this is for and the kind of company they work at.,29,36,companies,81,counted,score your own page,2026-08-07,2026-Q3
+check.sales_gate_only_no_numbers,"If the only path forward is a conversation, the page earns it with numbers first.",30,36,companies,83,counted,score your own page,2026-08-07,2026-Q3
+check.replacement_named_no_problem,"Where our page names what a buyer does today, it also names what is wrong with it.",24,29,companies,83,counted,score your own page,2026-08-07,2026-Q3
+check.villain_vacuum_vitamin,Our page names an enemy and frames a pain someone is already paying for.,32,36,companies,89,counted,score your own page,2026-08-07,2026-Q3
+check.proof_floor_zero,"Our page shows proof of some kind: logos, a named quote, a certification, a case.",33,36,companies,92,counted,score your own page,2026-08-07,2026-Q3
+check.claim_parity_no_alternative,Our page names what a buyer does today instead of buying from us.,35,36,companies,97,counted,score your own page,2026-08-07,2026-Q3
+check.pricing_opaque_plg,"If we sell self-serve, a buyer can see real prices without talking to us.",35,36,companies,97,counted,score your own page,2026-08-07,2026-Q3
+check.quantified_claim_unproven,Every number in our hero has proof sitting next to it.,35,36,companies,97,counted,score your own page,2026-08-07,2026-Q3
+insight.headline,"Where five or more named customer logos, no role stopped outright.",25,27,companies,93,simulated,what goes with what,2026-08-07,2026-Q3

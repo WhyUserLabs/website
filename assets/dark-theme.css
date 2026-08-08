@@ -211,12 +211,24 @@ body {
 .compare-table td.col-us, .cmp td.col-us, td.col-us { background: rgba(167,139,250,0.10); }
 .compare-table .cross, .cmp .cross { color: #5c5c66; }
 
-/* Logos and the wordmark ship dark-on-light */
-.trust-logo, .nav-mark, .footer-brand-mark, .footer-mark { filter: brightness(0) invert(1); }
-.nav-mark, .footer-brand-mark, .footer-mark { opacity: 0.92; }
-.trust-logo { opacity: 0.68; }
+/* Brand mark.
+   The mark ships as a transparent PNG with light artwork, so it needs NO
+   filter. Do not add `brightness(0) invert(1)` here: that trick only works
+   on images that already have an alpha channel. Applied to a PNG with an
+   opaque white background it turns every pixel black, then white, and the
+   logo renders as a solid white box. */
+.nav-mark, .footer-brand-mark, .footer-mark { filter: none; }
+.nav-mark img, .footer-brand-mark img, .footer-mark img { filter: none; }
+
+/* The footer used to sit the dark mark on a white tile
+   (`.footer-brand-mark .nav-mark { background:#fff }`). The footer and the
+   mark are both light now, so that tile becomes a white box. */
+.footer-brand-mark .nav-mark { background: transparent; padding: 0; }
+
+/* Third-party logos in the trust strip are SVGs with transparent
+   backgrounds, so flattening them to white silhouettes is correct here. */
+.trust-logo { filter: brightness(0) invert(1); opacity: 0.68; }
 .trust-logo:hover { opacity: 1; }
-img[src$="whyusermark.png"], img[src$="whyuser-mark.png"] { filter: brightness(0) invert(1); }
 
 /* Screenshot PNGs are captures of the light product UI. Left raw they
    glare against the page. This softens them without washing them out;
@@ -333,5 +345,9 @@ input::placeholder, textarea::placeholder { color: var(--faint); }
   .anti-block, .footer, .diff-side, .cta-card, .cfo-card, .tally-wrap {
     background: #fff !important; color: #000 !important; border-color: #000 !important;
   }
-  .trust-logo, .nav-mark, .footer-brand-mark, .footer-mark { filter: none !important; }
+  .trust-logo { filter: brightness(0) !important; }
+  /* The light mark is invisible on white paper. Swap in the dark variant. */
+  .nav-mark img, .footer-brand-mark img, .footer-mark img {
+    content: url("../images/whyuser-mark-dark.png");
+  }
 }

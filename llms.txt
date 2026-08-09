@@ -35,7 +35,7 @@ Stated plainly, because getting this wrong in an AI summary would be worse than 
 
 ## Comparisons
 
-- [Compare WhyUser](https://whyuser.com/compare/): all five methods side by side, including where WhyUser is the wrong tool.
+- [Compare WhyUser](https://whyuser.com/compare.html): all five methods side by side, including where WhyUser is the wrong tool.
 - [ChatGPT and Claude vs. WhyUser](https://whyuser.com/compare/whyuser-vs-chatgpt-and-claude.html): a general assistant is an excellent writing partner and a poor instrument. Every competitor has the same one, so it cannot be a source of differentiation; it reads as the most attentive reader alive when 82% of cold traffic is distracted; and it returns a menu you then filter through your own bias.
 - [Internal review vs. WhyUser](https://whyuser.com/compare/whyuser-vs-internal-review.html): reviewers sit at maximum motivation, familiarity and attention. The ideal behavioural state, which is roughly 3% of cold traffic. You test with the 3% and ship to the 97%.
 - [Building it yourself vs. WhyUser](https://whyuser.com/compare/whyuser-vs-building-it-yourself.html): the orchestration is a weekend. Determinism, behavioural calibration, the committee handoff layer and a graded track record are not. The track record cannot be backdated at any budget.

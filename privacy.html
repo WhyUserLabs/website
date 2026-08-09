@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08080b">
+    <meta name="color-scheme" content="dark">
     <title>Privacy Policy | WhyUser</title>
     <style>
         :root {
-            --primary: #111827;
-            --secondary: #4B5563;
-            --accent: #2563EB;
-            --border: #E5E7EB;
-            --bg-light: #F9FAFB;
+            /* Dark values. This page has its own token names and never loads
+               whyuser-pages.css, so dark-theme.css cannot reach it. Matched by
+               eye to --ink / --mute / --brand / --rule / --paper-cool. */
+            --primary:   #fafafa;
+            --secondary: #a1a1aa;
+            --accent:    #a78bfa;
+            --border:    rgba(255, 255, 255, 0.12);
+            --bg-light:  #101014;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -19,7 +24,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            background-color: #ffffff;
+            background-color: #08080b;
         }
         h1, h2, h3, h4 {
             color: var(--primary);

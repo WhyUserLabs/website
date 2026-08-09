@@ -19,7 +19,7 @@ WhyUser Inc. is based in San Jose, California. The product is in a design-partne
 
 ## Accuracy and evidence
 
-- [Accuracy and track record](https://whyuser.com/accuracy.html): 373 claims graded, 75–85% accuracy across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data. never by WhyUser. Misses stay in the denominator. The page also states the known blind spots.
+- [Accuracy and track record](https://whyuser.com/accuracy.html): 473 claims graded, 84% accuracy across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data. never by WhyUser. Misses stay in the denominator. The page also states the known blind spots.
 - [AI opinions vs. WhyUser simulations](https://whyuser.com/whyuser-vs-ai-opinions.html): interactive, no login. The same landing page judged by a general AI assistant and by a committee simulation, side by side.
 - [ROI calculator](https://whyuser.com/roi.html): the annual business case, with the assumptions exposed.
 

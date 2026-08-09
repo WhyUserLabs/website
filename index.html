@@ -9,15 +9,15 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 
-    <title>WhyUser | See How Real Buyers Read Your Page Before You Pay For Traffic</title>
-    <meta name="description" content="Your reviewers already understand your page. Your buyers won't. WhyUser simulates hundreds of skeptical, distracted buyers across the buying committee, compiled from your own sales calls and reviews, and returns what worked, what caused friction, and the fix in 30 minutes. Trusted by ngrok and Vectara.">
+    <title>WhyUser | Buying Committee Simulation for B2B Campaigns</title>
+    <meta name="description" content="See your campaigns and pages the way your buyers will, before you launch. Your champion loves the page; the one who quietly vetoes never tells you. WhyUser simulates hundreds of buyers, one agent for every seat on the buying committee, and returns what works, what caused friction, and the fix in 30 minutes. Trusted by ngrok and Vectara.">
     <meta name="keywords" content="B2B campaign testing, pre-launch test, End-Customer Buying Committee simulation, pre-flight campaign testing, demand gen staging, GTM staging environment, ad and landing page testing">
     <link rel="canonical" href="https://whyuser.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WhyUser">
-    <meta property="og:title" content="WhyUser | See How Real Buyers Read Your Page Before You Pay For Traffic">
-    <meta property="og:description" content="Your reviewers already understand your page. Your buyers won't. WhyUser simulates hundreds of skeptical, distracted buyers across the buying committee, compiled from your own sales calls and reviews, and returns what worked, what caused friction, and the fix in 30 minutes. Trusted by ngrok and Vectara.">
+    <meta property="og:title" content="WhyUser | Buying Committee Simulation for B2B Campaigns">
+    <meta property="og:description" content="See your campaigns and pages the way your buyers will, before you launch. Your champion loves the page; the one who quietly vetoes never tells you. WhyUser simulates hundreds of buyers, one agent for every seat on the buying committee, and returns what works, what caused friction, and the fix in 30 minutes. Trusted by ngrok and Vectara.">
     <meta property="og:url" content="https://whyuser.com/">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://whyuser.com/og-image.png">
@@ -25,8 +25,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="WhyUser, Pre-Launch Test. End-Customer Buying Committee Simulation showing Conflict Graph: Champion and Technical Decision-maker advocate, Economic Buyer hesitates, Security Guardian vetoes.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WhyUser | See How Real Buyers Read Your Page Before You Pay For Traffic">
-    <meta name="twitter:description" content="Your reviewers already understand your page. Your buyers won't. WhyUser simulates the skeptical, distracted buyers on the committee and returns the friction and the fix in 30 minutes.">
+    <meta name="twitter:title" content="WhyUser | Buying Committee Simulation for B2B Campaigns">
+    <meta name="twitter:description" content="See your campaigns and pages the way your buyers will, before you launch. WhyUser simulates every seat on the buying committee and returns the friction and the fix in 30 minutes.">
     <meta name="twitter:image" content="https://whyuser.com/og-image.png">
     <meta name="twitter:image:alt" content="WhyUser, Pre-Launch Test">
 
@@ -79,7 +79,7 @@
         "@id": "https://whyuser.com/#website",
         "url": "https://whyuser.com/",
         "name": "WhyUser",
-        "description": "Your reviewers already understand your page. Your buyers won't. See how your End-Customer Buying Committee reacts to an ad, email, or landing page before you pay for the traffic.",
+        "description": "See your campaigns and pages the way your buyers will, before you launch. See how your End-Customer Buying Committee reacts to an ad, email, or landing page before you pay for the traffic.",
         "publisher": {
             "@id": "https://whyuser.com/#organization"
         },
@@ -119,7 +119,7 @@
         "@type": "WebPage",
         "@id": "https://whyuser.com/#webpage",
         "url": "https://whyuser.com/",
-        "name": "WhyUser | See How Real Buyers Read Your Page Before You Pay For Traffic",
+        "name": "WhyUser | Buying Committee Simulation for B2B Campaigns",
         "isPartOf": {
             "@id": "https://whyuser.com/#website"
         },
@@ -668,7 +668,7 @@
         }
         @media (min-width: 1024px) {
             .hero-grid {
-                grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+                grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
                 gap: 3.5rem;
             }
         }
@@ -695,6 +695,11 @@
         .hero h1 {
             margin: 0 0 1.5rem;
             color: var(--ink);
+            /* This headline runs longer than the display scale was tuned for.
+               Scoped down so the hero stays one screen. */
+            font-size: clamp(2.125rem, 3.5vw, 3.125rem);
+            letter-spacing: -0.035em;
+            line-height: 1.1;
         }
         .hero-sub {
             font-size: 1.0625rem;
@@ -1045,6 +1050,201 @@
         .def-text strong { color: var(--ink); font-weight: 600; }
 
         /* ─────────────────────────────────────────────────────────────
+           COMMITTEE FLOW, the hero figure.
+           Deliberately NOT a card. No frame, no fill, no shadow, no
+           radius. Two hairlines (caption rail, stat rail) hold it to the
+           page the way a figure sits in a printed report, and the graph
+           draws straight onto the paper.
+
+           Semantics carry the colour, nothing else does:
+             green  = advocacy   crimson = resistance
+             blue   = structural gate   violet = the decision point
+           Edge WIDTH is volume. Edge DASH is a stall. The one halo on the
+           page marks the handoff that breaks. That is the whole story.
+           ───────────────────────────────────────────────────────────── */
+        .cflow {
+            margin: 0;
+            /* Every colour in the figure is a token so the dark theme can
+               override it in one block. Nothing here is a bare hex, and no
+               colour is set as an SVG presentation attribute, because those
+               cannot be reached by a stylesheet loaded later. */
+            --cf-pos:       #047857;   /* advocacy   */
+            --cf-neg:       #be123c;   /* resistance */
+            --cf-struct:    #2563eb;   /* structural gate */
+            --cf-quiet:     #64748b;   /* no stated position */
+            --cf-decide:    #6d28d9;   /* the decision point */
+            --cf-pos-ring:  rgba(4,120,87,0.28);
+            --cf-neg-ring:  rgba(190,18,60,0.26);
+            --cf-veto-ring: rgba(190,18,60,0.45);
+            --cf-veto-fill: #fff1f3;
+        }
+        .cflow-cap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.875rem;
+            flex-wrap: wrap;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--rule);
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        .cflow-cap-run {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: var(--signal-green);
+            white-space: nowrap;
+        }
+        .cflow-dot {
+            width: 5px; height: 5px; border-radius: 50%;
+            background: var(--signal-green);
+            animation: pulse-soft 1.8s ease-in-out infinite;
+        }
+        .cflow-cap-title {
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: none;
+            font-weight: 500;
+            font-size: 10.5px;
+        }
+
+        .cflow-svg { width: 100%; height: auto; display: block; margin: 0.5rem 0 0; overflow: visible; }
+        .cflow-narrow { display: block; }
+        .cflow-wide   { display: none; }
+        @media (min-width: 720px) {
+            .cflow-narrow { display: none; }
+            .cflow-wide   { display: block; }
+        }
+
+        /* Nodes: typography, not containers. The backing rect is paper
+           coloured so edges pass cleanly underneath the words. */
+        .cf-bg   { fill: var(--paper); }
+        .cf-name {
+            font-family: 'Geist', sans-serif;
+            font-size: 20px; font-weight: 600;
+            letter-spacing: -0.018em;
+            fill: var(--ink);
+        }
+        .cf-name-end { fill: var(--brand); }
+        .cf-code {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 11.5px; font-weight: 600;
+            letter-spacing: 0.16em;
+            fill: var(--faint);
+        }
+        .cf-code-veto { fill: var(--cf-neg); opacity: 0.85; }
+
+        /* Node accent underlines. Classes, not fill attributes, so the dark
+           theme can lift them; a presentation attribute could not be reached. */
+        .cf-rule-quiet  { fill: var(--cf-quiet); }
+        .cf-rule-pos    { fill: var(--cf-pos); }
+        .cf-rule-struct { fill: var(--cf-struct); }
+        .cf-rule-neg    { fill: var(--cf-neg); }
+        .cf-rule-decide { fill: var(--cf-decide); }
+        .cf-glow        { stroke: var(--cf-neg); opacity: 0.11; }
+
+        /* Edges. --w is volume, --d is when it enters. */
+        .cf-e {
+            stroke-width: var(--w, 2);
+            stroke-linecap: round;
+            fill: none;
+        }
+        .cf-pos  { stroke: var(--cf-pos); opacity: 0.85; }
+        .cf-neg  { stroke: var(--cf-neg); opacity: 0.85; }
+        .cf-dash { stroke-dasharray: 1 9; stroke-linecap: round; }
+        .cf-min  { stroke-width: 1; opacity: 0.28; }
+        .cf-veto { opacity: 1; }
+
+        /* Labels: pill on paper, so a label never fights an edge. */
+        .cf-lab rect { fill: var(--paper); stroke-width: 1; }
+        .cf-lab text {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 0.01em;
+            text-anchor: middle;
+        }
+        .cflow-narrow .cf-name { font-size: 13px; }
+        .cflow-narrow .cf-lab text { font-size: 9.5px; }
+        .cflow-narrow .cf-lab-veto text { font-size: 10px; }
+        .cf-lab-pos rect { stroke: var(--cf-pos-ring); }
+        .cf-lab-pos text { fill: var(--cf-pos); }
+        .cf-lab-neg rect { stroke: var(--cf-neg-ring); }
+        .cf-lab-neg text { fill: var(--cf-neg); }
+        /* the single loud element on the page */
+        .cf-lab-veto rect { fill: var(--cf-veto-fill); stroke: var(--cf-veto-ring); }
+        .cf-lab-veto text { fill: var(--cf-neg); font-weight: 700; font-size: 15.5px; }
+
+        /* Motion: one orchestrated entrance, ending on the veto. */
+        @keyframes cf-draw { from { stroke-dashoffset: 620; } to { stroke-dashoffset: 0; } }
+        @keyframes cf-in   { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+        @keyframes cf-breathe { 0%,100% { opacity: 0.92; } 50% { opacity: 1; } }
+        @keyframes cf-glow-pulse { 0%,100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+        .cf-e:not(.cf-dash) {
+            stroke-dasharray: 620;
+            stroke-dashoffset: 620;
+            animation: cf-draw 1s cubic-bezier(.22,.61,.36,1) var(--d, 0s) forwards;
+        }
+        .cf-e.cf-dash { opacity: 0; animation: cf-in .6s ease-out var(--d, 0s) forwards; }
+        .cf-veto { animation: cf-draw 1.1s cubic-bezier(.22,.61,.36,1) var(--d, 0s) forwards,
+                              cf-breathe 3.2s ease-in-out 2.6s infinite; }
+        .cf-glow { animation: cf-glow-pulse 3.2s ease-in-out 2.4s infinite; }
+        .cf-lab, .cf-n {
+            opacity: 0;
+            animation: cf-in .55s ease-out var(--d, 0s) forwards;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        /* Stat rail: same hairline language as the caption rail. */
+        .cflow-rail {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--rule);
+            margin-top: 0.75rem;
+            padding-top: 0.875rem;
+            gap: 0.5rem;
+        }
+        .cflow-stat { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+        .cflow-stat + .cflow-stat { border-left: 1px solid var(--rule); padding-left: 0.875rem; }
+        .cflow-stat-v {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 1.0625rem; font-weight: 600;
+            letter-spacing: -0.02em;
+            font-variant-numeric: tabular-nums;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+        .cflow-stat-veto { color: var(--cf-neg); }
+        .cflow-stat-ok   { color: var(--signal-green); }
+        .cflow-stat-l {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 9px; font-weight: 500;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--dim);
+            line-height: 1.35;
+        }
+        @media (max-width: 520px) {
+            .cflow-stat-v { font-size: 0.9375rem; }
+            .cflow-stat-l { font-size: 8px; letter-spacing: 0.1em; }
+            .cflow-stat + .cflow-stat { padding-left: 0.625rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cf-e, .cf-veto, .cf-lab, .cf-n, .cf-glow, .cflow-dot {
+                animation: none !important;
+                opacity: 1;
+                stroke-dashoffset: 0;
+                stroke-dasharray: none;
+            }
+            .cf-e.cf-dash { stroke-dasharray: 1 9; }
+            .cf-min { opacity: 0.28; }
+        }
+
+        /* ─────────────────────────────────────────────────────────────
            ACCURACY STRIP, the evidence beat after the definition.
            Label → figure → note, borrowed from the Evidence Ledger UI.
            ───────────────────────────────────────────────────────────── */
@@ -1388,30 +1588,118 @@
            between rows. Dominant element per row is the engine name
            on the right; pains on the left feel like quoted complaints.
            ───────────────────────────────────────────────────────────── */
+        /* ─────────────────────────────────────────────────────────────
+           THE FOUR ENGINES, compact pain-to-fix cards.
+           One idea carries the whole treatment: the left rule is crimson
+           at rest and a violet wipe runs down it on hover. Pain becomes
+           fix. Nothing else in the card is decorated, so that one move
+           is the thing you notice.
+           ───────────────────────────────────────────────────────────── */
         .ps-flow {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem 2.5rem;
+            gap: 0.875rem;
             margin-top: 2.25rem;
         }
-        @media (min-width: 768px) {
-            .ps-flow {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.75rem 3rem;
-            }
+        @media (min-width: 640px) {
+            .ps-flow { grid-template-columns: 1fr 1fr; gap: 1rem; }
         }
-        /* Compact, borderless pain-to-fix unit. The red rule is the only chrome */
+        @media (min-width: 1140px) {
+            .ps-flow { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        }
+
         .ps-item {
+            position: relative;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            padding-left: 1.25rem;
-            border-left: 2px solid var(--signal-red);
+            align-items: flex-start;
+            gap: 0.4rem;
+            padding: 1.125rem 1.125rem 1.125rem 1.25rem;
+            background: var(--surface);
+            border: 1px solid var(--rule);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+            transition: border-color 180ms ease, box-shadow 220ms ease, transform 220ms ease;
         }
-        .ps-item .ps-pain-q { font-size: 1rem; line-height: 1.4; }
-        .ps-item .ps-engine { margin-top: 0.625rem; gap: 0.5rem; }
-        .ps-item .ps-engine-name { font-size: 1.1875rem; }
-        .ps-item .ps-engine-fix { font-size: 0.9375rem; line-height: 1.5; }
+        /* the rule: crimson at rest */
+        .ps-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--signal-red);
+        }
+        /* the wipe: violet, runs top to bottom on hover */
+        .ps-item::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 2px; height: 100%;
+            background: var(--brand);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 320ms cubic-bezier(.22,.61,.36,1);
+        }
+        .ps-item:hover,
+        .ps-item:focus-visible {
+            border-color: var(--rule-strong);
+            box-shadow: 0 10px 28px -18px rgba(9,9,11,0.30);
+            transform: translateY(-2px);
+        }
+        .ps-item:hover::after,
+        .ps-item:focus-visible::after { transform: scaleY(1); }
+
+        .ps-idx {
+            position: absolute;
+            top: 1rem; right: 1.125rem;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            color: var(--faint);
+        }
+        .ps-item .ps-pain-tag { font-size: 9.5px; letter-spacing: 0.2em; }
+        .ps-item .ps-pain-q {
+            font-size: 0.9375rem;
+            line-height: 1.42;
+            font-weight: 500;
+            color: var(--quote-ink);
+            padding-right: 1.5rem;
+        }
+        /* Hold the quote to a fixed height on the 4-across layout so the
+           engine names sit on one baseline across the row. */
+        @media (min-width: 1140px) {
+            .ps-item .ps-pain-q { min-height: 4rem; }
+        }
+        .ps-hr {
+            display: block;
+            width: 26px; height: 1px;
+            background: var(--rule-strong);
+            margin: 0.5rem 0 0.375rem;
+        }
+        .ps-item .ps-engine-name {
+            font-family: 'Geist', sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            letter-spacing: -0.022em;
+            line-height: 1.2;
+            color: var(--ink);
+            margin: 0;
+            transition: color 160ms ease;
+        }
+        .ps-item:hover .ps-engine-name { color: var(--brand); }
+        .ps-item .ps-engine-fix {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--mute);
+            margin: 0 0 0.5rem;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .ps-item, .ps-item::after, .ps-item .ps-engine-name { transition: none; }
+            .ps-item:hover { transform: none; }
+        }
 
         .ps-row {
             display: grid;
@@ -1587,12 +1875,17 @@
         }
         .ps-engine-out .out-icon { color: var(--brand); font-size: 11px; }
         .ps-engine-out .out-arrow { font-size: 10px; transition: transform 160ms ease; }
-        .ps-engine-out:hover {
+        /* the pill is no longer its own link: the whole card is. It pins to
+           the bottom so a row of cards lines up regardless of quote length. */
+        .ps-item .ps-engine-out { margin-top: auto; padding: 0.34rem 0.68rem; font-size: 10.5px; }
+        .ps-item:hover .ps-engine-out,
+        .ps-item:focus-visible .ps-engine-out {
             border-color: var(--brand);
             background: var(--brand-soft);
             gap: 0.7rem;
         }
-        .ps-engine-out:hover .out-arrow { transform: translateX(2px); }
+        .ps-item:hover .ps-engine-out .out-arrow,
+        .ps-item:focus-visible .ps-engine-out .out-arrow { transform: translateX(2px); }
         @media (prefers-reduced-motion: reduce) {
             .ps-arrow-line { animation: none; }
             .ps-engine-out, .ps-engine-out .out-arrow { transition: none; }
@@ -2662,7 +2955,7 @@
                             <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
                             <span>
                                 <span class="nav-dd-name">Accuracy &amp; track record</span>
-                                <span class="nav-dd-desc">373 sealed claims. 75&ndash;85% hit rate. Graded by the customer.</span>
+                                <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by the customer.</span>
                             </span>
                         </a>
                         <a href="compare/index.html" class="nav-dd-item" role="menuitem">
@@ -2775,11 +3068,11 @@
                     <span class="hero-eyebrow">For demand gen and marketing ops leaders at B2B SaaS</span>
 
                     <h1 class="h1">
-                        Your reviewers already understand your page. <span style="color: var(--brand)">Your buyers won't.</span>
+                        See your campaigns and pages the way your buyers will. <span style="color: var(--brand)">Before you launch.</span>
                     </h1>
 
                     <p class="hero-sub">
-                        WhyUser runs your ad, email, or landing page past hundreds of simulated buyers: distracted, skeptical, and compiled from your own sales calls, reviews, and community threads. <strong>In 30 minutes you get what worked, what caused friction, and the fix.</strong> Evidence you can forward, not another opinion to argue about.
+                        Your champion loves the page. The one who quietly vetoes never tells you. WhyUser simulates hundreds of buyers, one agent for every seat on the buying committee, each compiled from your own sales calls, reviews, and community threads. <strong>In 30 minutes you get what works, what caused friction, and the fix.</strong> No panel to recruit. No six-week wait. No opinion to argue about.
                     </p>
 
                     <div class="hero-ctas">
@@ -2788,118 +3081,201 @@
                             <i class="fa-solid fa-arrow-right" style="font-size:11px"></i>
                         </a>
 
-                        <a href="whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">
-                            <i class="fa-solid fa-bolt" style="font-size:13px;color:var(--brand)"></i>
-                            AI Opinions vs WhyUser Simulations
+                        <!-- TODO: point this at the real product video URL -->
+                        <a href="#video" class="btn btn-ghost btn-lg">
+                            <i class="fa-solid fa-circle-play" style="font-size:13px;color:var(--brand)"></i>
+                            Product Video
                         </a>
                     </div>
 
                 </div>
 
-                <!-- RIGHT: animated Conflict Graph product frame -->
-                <div class="engine-visual">
-                    <div class="product-frame">
-                        <div class="frame-bar">
-                            <div class="frame-bar-left">
-                                <span class="frame-bar-pill">
-                                    <span class="frame-bar-dot"></span>RUN-2847 · LIVE
-                                </span>
-                                
-                            </div>
-                            <div class="frame-bar-right">
-                                <span></span><span></span><span></span>
-                            </div>
+                <!-- ═══════════════════════════════════════════════════════
+                     RIGHT: COMMITTEE FLOW
+                     Inline, not a card. No frame, no fill, no shadow. The
+                     diagram is typeset into the page like a figure in a
+                     report: hairline caption rail above, hairline stat rail
+                     below, and the graph sitting directly on the paper.
+
+                     Signature: the Champion -> Economic Buyer handoff. It is
+                     the thickest edge, it is the only one with a halo, and it
+                     draws last. Everything else is quiet so that one edge is
+                     the thing you remember.
+                     ═══════════════════════════════════════════════════════ -->
+                <figure class="cflow">
+
+                    <figcaption class="cflow-cap">
+                        <span class="cflow-cap-run"><span class="cflow-dot"></span>RUN-2847</span>
+                        <span class="cflow-cap-title">Committee flow &middot; who carries the deal, who quietly stops it</span>
+                    </figcaption>
+
+                    <!-- Desktop / tablet: horizontal flow -->
+                    <svg class="cflow-svg cflow-wide" viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg"
+                         role="img"
+                         aria-label="Committee flow diagram. The End User recommends to the Champion in 35 of 60 runs. The Technical decision maker stalls at the Economic Buyer in 33 of 60. The Champion cannot recommend to the Economic Buyer in 52 of 60 runs, the dominant edge. The Security Guardian recommends in 18 of 60 and stalls in 15 of 60.">
+                        <defs>
+                            <filter id="cfSoft" x="-30%" y="-30%" width="160%" height="160%">
+                                <feGaussianBlur stdDeviation="9"/>
+                            </filter>
+                        </defs>
+
+                        <!-- veto glow, under everything, same path as the veto edge -->
+                        <path class="cf-glow" d="M448 66 C 580 76, 666 128, 754 182" fill="none" stroke-width="24" stroke-opacity="1"
+                              stroke-linecap="round" filter="url(#cfSoft)"/>
+
+                        <!-- minor edges: hairlines, unlabelled. Texture, not noise. -->
+                        <path class="cf-e cf-min cf-neg" style="--d:.18s" d="M96 66 C 180 70, 240 72, 300 70" fill="none"/>
+                        <path class="cf-e cf-min cf-neg" style="--d:.22s" d="M96 74 C 180 80, 240 82, 300 78" fill="none"/>
+                        <path class="cf-e cf-min cf-neg" style="--d:.95s" d="M510 370 C 646 364, 722 312, 782 240" fill="none"/>
+
+                        <!-- End User to Champion -->
+                        <path class="cf-e cf-pos" style="--d:.25s;--w:6" d="M96 56 C 170 56, 240 58, 300 60" fill="none"/>
+                        <!-- Technical DM to Champion -->
+                        <path class="cf-e cf-pos" style="--d:.45s;--w:2.5" d="M338 194 C 328 160, 328 130, 336 98" fill="none"/>
+                        <!-- Technical DM to Economic Buyer -->
+                        <path class="cf-e cf-neg cf-dash" style="--d:.60s;--w:5.5" d="M456 218 C 570 218, 680 214, 782 210" fill="none"/>
+                        <!-- Security Guardian to Economic Buyer -->
+                        <path class="cf-e cf-pos" style="--d:.78s;--w:5" d="M510 344 C 620 338, 700 288, 782 226" fill="none"/>
+                        <path class="cf-e cf-neg cf-dash" style="--d:.86s;--w:4.5" d="M510 358 C 632 352, 712 300, 782 234" fill="none"/>
+                        <!-- Champion to Economic Buyer -->
+                        <path class="cf-e cf-pos" style="--d:1.05s;--w:2.5" d="M418 78 C 590 96, 686 150, 782 204" fill="none"/>
+                        <!-- the signature edge -->
+                        <path class="cf-e cf-neg cf-veto" style="--d:1.25s;--w:10" d="M418 62 C 580 70, 680 130, 782 194" fill="none"/>
+
+                        <!-- labels -->
+                        <g class="cf-lab cf-lab-pos" style="--d:.62s">
+                            <rect x="104" y="20" width="196" height="26" rx="13"/>
+                            <text x="202" y="37">recommends &#183; 35 of 60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-pos" style="--d:.80s">
+                            <rect x="142" y="124" width="186" height="26" rx="13"/>
+                            <text x="235" y="141">recommends &#183; 5 of 60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-neg" style="--d:.98s">
+                            <rect x="520" y="172" width="160" height="26" rx="13"/>
+                            <text x="600" y="189">stalls &#183; 33 of 60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-pos" style="--d:1.12s">
+                            <rect x="558" y="280" width="196" height="26" rx="13"/>
+                            <text x="656" y="297">recommends &#183; 18 of 60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-neg" style="--d:1.18s">
+                            <rect x="585" y="316" width="160" height="26" rx="13"/>
+                            <text x="665" y="333">stalls &#183; 15 of 60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-pos" style="--d:1.34s">
+                            <rect x="535" y="126" width="186" height="26" rx="13"/>
+                            <text x="628" y="143">recommends &#183; 7 of 60</text>
+                        </g>
+                        <!-- the one element allowed to shout -->
+                        <g class="cf-lab cf-lab-veto" style="--d:1.62s">
+                            <rect x="498" y="84" width="250" height="32" rx="16"/>
+                            <text x="623" y="105">cannot recommend &#183; 52 of 60</text>
+                        </g>
+
+                        <!-- nodes: no boxes, paper backing plus an accent underline -->
+                        <g class="cf-n" style="--d:0s">
+                            <rect class="cf-bg" x="-8" y="44" width="106" height="54" rx="7"/>
+                            <text class="cf-name" x="0" y="64">End User</text>
+                            <text class="cf-code" x="0" y="82">EU</text>
+                            <rect class="cf-rule cf-rule-quiet" x="0" y="89" width="48" height="2.5" rx="1.25"/>
+                        </g>
+                        <g class="cf-n" style="--d:.09s">
+                            <rect class="cf-bg" x="308" y="44" width="116" height="54" rx="7"/>
+                            <text class="cf-name" x="316" y="64">Champion</text>
+                            <text class="cf-code" x="316" y="82">CH</text>
+                            <rect class="cf-rule cf-rule-pos" x="316" y="89" width="48" height="2.5" rx="1.25"/>
+                        </g>
+                        <g class="cf-n" style="--d:.18s">
+                            <rect class="cf-bg" x="308" y="196" width="150" height="54" rx="7"/>
+                            <text class="cf-name" x="316" y="216">Technical DM</text>
+                            <text class="cf-code" x="316" y="234">TDM</text>
+                            <rect class="cf-rule cf-rule-struct" x="316" y="241" width="48" height="2.5" rx="1.25"/>
+                        </g>
+                        <g class="cf-n" style="--d:.27s">
+                            <rect class="cf-bg" x="308" y="330" width="205" height="54" rx="7"/>
+                            <text class="cf-name" x="316" y="350">Security Guardian</text>
+                            <text class="cf-code cf-code-veto" x="316" y="368">HOLDS A VETO</text>
+                            <rect class="cf-rule cf-rule-neg" x="316" y="375" width="48" height="2.5" rx="1.25"/>
+                        </g>
+                        <g class="cf-n cf-n-end" style="--d:.36s">
+                            <rect class="cf-bg" x="782" y="180" width="176" height="62" rx="7"/>
+                            <text class="cf-name cf-name-end" x="792" y="206">Economic Buyer</text>
+                            <text class="cf-code" x="792" y="224">EB &#183; DECIDES</text>
+                            <rect class="cf-rule cf-rule-decide" x="792" y="231" width="48" height="2.5" rx="1.25"/>
+                        </g>
+                    </svg>
+
+                    <!-- Mobile: same story as a vertical funnel. A wide flow
+                         is unreadable at 380px, so the three sources drop into
+                         the Economic Buyer instead of running across. -->
+                    <svg class="cflow-svg cflow-narrow" viewBox="0 0 360 356" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path class="cf-glow" d="M298 52 C 328 110, 330 224, 300 300" fill="none" stroke-width="16" stroke-opacity="1"
+                              stroke-linecap="round" filter="url(#cfSoft)"/>
+
+                        <path class="cf-e cf-pos" style="--d:.22s;--w:5" d="M72 13 C 140 13, 200 14, 244 14" fill="none"/>
+                        <path class="cf-e cf-neg cf-dash" style="--d:.62s;--w:4" d="M100 146 C 180 152, 240 240, 276 312" fill="none"/>
+                        <path class="cf-e cf-pos" style="--d:.80s;--w:4" d="M132 244 C 190 250, 232 280, 262 310" fill="none"/>
+                        <path class="cf-e cf-neg cf-veto" style="--d:1.1s;--w:6" d="M280 32 C 324 100, 330 230, 296 314" fill="none"/>
+
+                        <g class="cf-lab cf-lab-pos" style="--d:.5s">
+                            <rect x="86" y="26" width="146" height="21" rx="10.5"/>
+                            <text x="159" y="40.5">recommends &#183; 35/60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-veto" style="--d:1.4s">
+                            <rect x="150" y="54" width="196" height="26" rx="13"/>
+                            <text x="248" y="71.5">cannot recommend &#183; 52/60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-neg" style="--d:.9s">
+                            <rect x="112" y="192" width="120" height="21" rx="10.5"/>
+                            <text x="172" y="206.5">stalls &#183; 33/60</text>
+                        </g>
+                        <g class="cf-lab cf-lab-pos" style="--d:1.0s">
+                            <rect x="136" y="258" width="146" height="21" rx="10.5"/>
+                            <text x="209" y="272.5">recommends &#183; 18/60</text>
+                        </g>
+
+                        <g class="cf-n" style="--d:0s">
+                            <rect class="cf-bg" x="-6" y="0" width="80" height="28" rx="6"/>
+                            <text class="cf-name" x="0" y="18">End User</text>
+                        </g>
+                        <g class="cf-n" style="--d:.08s">
+                            <rect class="cf-bg" x="244" y="0" width="116" height="32" rx="6"/>
+                            <text class="cf-name" x="250" y="18">Champion</text>
+                            <rect class="cf-rule cf-rule-pos" x="250" y="24" width="34" height="2.5" rx="1.25"/>
+                        </g>
+                        <g class="cf-n" style="--d:.16s">
+                            <rect class="cf-bg" x="-6" y="132" width="110" height="32" rx="6"/>
+                            <text class="cf-name" x="0" y="150">Technical DM</text>
+                            <rect class="cf-rule cf-rule-struct" x="0" y="156" width="34" height="2.5" rx="1.25"/>
+                        </g>
+                        <g class="cf-n" style="--d:.24s">
+                            <rect class="cf-bg" x="-6" y="230" width="138" height="32" rx="6"/>
+                            <text class="cf-name" x="0" y="248">Security Guardian</text>
+                            <rect class="cf-rule cf-rule-neg" x="0" y="254" width="34" height="2.5" rx="1.25"/>
+                        </g>
+                        <g class="cf-n cf-n-end" style="--d:.32s">
+                            <rect class="cf-bg" x="196" y="318" width="164" height="34" rx="6"/>
+                            <text class="cf-name cf-name-end" x="204" y="336">Economic Buyer</text>
+                            <rect class="cf-rule cf-rule-decide" x="204" y="342" width="34" height="2.5" rx="1.25"/>
+                        </g>
+                    </svg>
+
+                    <div class="cflow-rail">
+                        <div class="cflow-stat">
+                            <span class="cflow-stat-v tabular">300</span>
+                            <span class="cflow-stat-l">agents &middot; n=60/role</span>
                         </div>
-
-                        <div class="frame-body">
-                            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; gap:0.875rem; flex-wrap:wrap">
-                                <div>
-                                    <div class="frame-h">Committee Physics: Influence &amp; Conflict</div>
-                                    
-                                </div>
-                                
-                            </div>
-
-                            <div class="graph-wrap">
-                                <svg class="graph-svg" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg" aria-label="Conflict graph, Champion and End User recommend, Technical Owner stalls, Economic Buyer cannot recommend">
-                                    <defs>
-                                        <radialGradient id="vetoHalo" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" stop-color="#dc2626" stop-opacity="0.42"/>
-                                            <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
-                                        </radialGradient>
-                                        <radialGradient id="okHalo" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
-                                            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-                                        </radialGradient>
-                                        <radialGradient id="warnHalo" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.30"/>
-                                            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
-                                        </radialGradient>
-                                    </defs>
-
-                                    <!-- Edges: Recommends (green solid), Stalls (amber dashed), Cannot Recommend (red dashed) -->
-                                    <!-- End User → Champion: Recommends -->
-                                    <line x1="335" y1="56" x2="148" y2="98" stroke="#10b981" stroke-width="1.5" class="edge-active" style="animation-delay: 0.2s" opacity="0.92"/>
-                                    
-                                    <!-- Tech Owner → Economic Buyer: Stalls -->
-                                    <line x1="120" y1="172" x2="220" y2="200" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 5" class="edge" style="animation-delay: 0.8s" opacity="0.85"/>
-                                    <!-- Champion → Economic Buyer: Recommends -->
-                                    <line x1="148" y1="98" x2="220" y2="200" stroke="#10b981" stroke-width="1.5" class="edge-active" style="animation-delay: 1.1s" opacity="0.85"/>
-                                    <!-- End User → Economic Buyer: Cannot Recommend -->
-                                    <line x1="335" y1="56" x2="220" y2="200" stroke="#dc2626" stroke-width="1.75" stroke-dasharray="3 4" class="edge-active" style="animation-delay: 1.4s" opacity="0.95"/>
-                                    <!-- Guardian → Economic Buyer: Stalls -->
-                                    <line x1="368" y1="160" x2="220" y2="200" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 5" class="edge" style="animation-delay: 1.7s" opacity="0.85"/>
-                                    
-
-                                    <!-- Halos -->
-                                    <circle cx="220" cy="200" r="36" fill="url(#vetoHalo)" class="veto-halo"/>
-                                    <circle cx="148" cy="98" r="22" fill="url(#okHalo)"/>
-                                    <circle cx="335" cy="56" r="22" fill="url(#okHalo)"/>
-                                    <circle cx="120" cy="172" r="20" fill="url(#warnHalo)"/>
-
-                                    <!-- Nodes -->
-                                    <g>
-                                        <circle cx="335" cy="56" r="6" fill="#10b981" stroke="#022c22" stroke-width="2" style="--r: 6" class="node-pulse"/>
-                                        <text x="335" y="38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#fafafa" letter-spacing="1.2">END USER</text>
-                                    </g>
-                                    <g>
-                                        <circle cx="148" cy="98" r="6" fill="#10b981" stroke="#022c22" stroke-width="2" style="--r: 6" class="node-pulse"/>
-                                        <text x="148" y="80" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#fafafa" letter-spacing="1.2">CHAMPION</text>
-                                    </g>
-                                    <g>
-                                        <circle cx="120" cy="172" r="5.5" fill="#f59e0b" stroke="#451a03" stroke-width="2" style="--r: 5.5" class="node-pulse"/>
-                                        <text x="120" y="194" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#fafafa" letter-spacing="1.2">TECH OWNER</text>
-                                    </g>
-                                    <g>
-                                        <circle cx="220" cy="200" r="7.5" fill="#dc2626" stroke="#450a0a" stroke-width="2" style="--r: 7.5" class="node-pulse"/>
-                                        <text x="220" y="223" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#fca5a5" letter-spacing="1.2">ECON BUYER · VETOED</text>
-                                    </g>
-                                    <g>
-                                        <circle cx="368" cy="160" r="5" fill="#f59e0b" stroke="#451a03" stroke-width="2" style="--r: 5" class="node-pulse"/>
-                                        <text x="368" y="180" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="#fafafa" letter-spacing="1.2">GUARDIAN</text>
-                                    </g>
-
-                                    
-                                </svg>
-                            </div>
-
-                            <div class="frame-metrics">
-                                <div class="frame-metric">
-                                    <div class="metric-value tabular">300</div>
-                                    <div class="metric-label">agents · n=60/role</div>
-                                </div>
-                                <div class="frame-metric">
-                                    <div class="metric-value metric-value-veto">HIGH</div>
-                                    <div class="metric-label">Econ Buyer veto risk</div>
-                                </div>
-                                <div class="frame-metric">
-                                    <div class="metric-value metric-value-ok">SOURCED</div>
-                                    <div class="metric-label">to real reviews</div>
-                                </div>
-                            </div>
+                        <div class="cflow-stat">
+                            <span class="cflow-stat-v cflow-stat-veto">52 of 60</span>
+                            <span class="cflow-stat-l">champion cannot carry it</span>
+                        </div>
+                        <div class="cflow-stat">
+                            <span class="cflow-stat-v cflow-stat-ok">SOURCED</span>
+                            <span class="cflow-stat-l">to real buyer evidence</span>
                         </div>
                     </div>
-                </div>
+                </figure>
 
             </div>
 
@@ -2920,7 +3296,7 @@
 
                     <div class="acc-cell">
                         <span class="mono-label">Accuracy</span>
-                        <div class="acc-value">75&ndash;85%</div>
+                        <div class="acc-value">84%</div>
                         <p class="acc-note">Across live accounts.</p>
                     </div>
 
@@ -2932,7 +3308,7 @@
 
                     <div class="acc-cell">
                         <span class="mono-label">Claims graded</span>
-                        <div class="acc-value">373</div>
+                        <div class="acc-value">473</div>
                         <p class="acc-note">Each sealed before launch, before the outcome existed. None removed.</p>
                     </div>
 
@@ -2977,70 +3353,73 @@
             <div class="section-head" style="max-width: 56rem">
                 <span class="section-eyebrow">Problem &middot; Solution</span>
                 <h2 class="h2">Marketing is the only team that opens without a rehearsal.</h2>
-                <p>Engineering has staging. Ops runs dry runs. Sales rehearses the pitch. Marketing goes straight to opening night, then buys traffic to find out whether the messaging worked. WhyUser is the rehearsal. It runs your ad, email or landing page past the four or five people who have to say yes, then returns who walked away, what proof was missing, and the fix.</p>
+                <p><strong>Your reviewers already understand your page. Your buyers won&rsquo;t.</strong> Engineering has staging. Ops runs dry runs. Sales rehearses the pitch. Marketing goes straight to opening night, then buys traffic to find out whether the messaging worked. WhyUser is the rehearsal. It runs your ad, email or landing page past the four or five people who have to say yes, then returns who walked away, what proof was missing, and the fix.</p>
             </div>
 
+                <!-- ═══════════════════════════════════════════════════
+                     THE FOUR ENGINES
+                     Each card is one pain-to-fix unit. The left rule is
+                     crimson at rest (the pain) and wipes to violet on
+                     hover (the fix). That wipe is the only decoration
+                     here, and it encodes what the section is about.
+                     ═══════════════════════════════════════════════════ -->
                 <div class="ps-flow">
 
                     <!-- 01 · Committee -->
-                    <div class="ps-item">
+                    <a class="ps-item" href="committee-simulation.html">
+                        <span class="ps-idx">01</span>
                         <span class="ps-pain-tag">Silent veto</span>
-                        <p class="ps-pain-q">&ldquo;The champion loves the page. The CFO quietly vetoes. Nobody tells you.&rdquo;</p>
-                        <div class="ps-engine">
-                            <span class="ps-engine-eyebrow">Engine 01</span>
-                            <h3 class="ps-engine-name"><a href="committee-simulation.html">Committee Simulation</a></h3>
-                            <p class="ps-engine-fix">Which buyer role killed it, and the missing proof.</p>
-                            <a class="ps-engine-out" href="committee-simulation.html">
-                                <i class="out-icon fa-solid fa-diagram-project"></i> Conflict Graph
-                                <i class="out-arrow fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                        <p class="ps-pain-q">&ldquo;Every role approved. The deal still stalled. Nobody says why.&rdquo;</p>
+                        <span class="ps-hr" aria-hidden="true"></span>
+                        <h3 class="ps-engine-name">Committee Simulation</h3>
+                        <p class="ps-engine-fix">Which buyer role killed it, and the missing proof.</p>
+                        <span class="ps-engine-out">
+                            <i class="out-icon fa-solid fa-diagram-project"></i> Conflict Graph
+                            <i class="out-arrow fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
 
                     <!-- 02 · Ad -->
-                    <div class="ps-item">
+                    <a class="ps-item" href="ad-campaign-simulation.html">
+                        <span class="ps-idx">02</span>
                         <span class="ps-pain-tag">Wasted spend</span>
                         <p class="ps-pain-q">&ldquo;Ad budget pours into a page that was never going to convert.&rdquo;</p>
-                        <div class="ps-engine">
-                            <span class="ps-engine-eyebrow">Engine 02</span>
-                            <h3 class="ps-engine-name"><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></h3>
-                            <p class="ps-engine-fix">The ad-to-page gap, caught before you spend.</p>
-                            <a class="ps-engine-out" href="ad-campaign-simulation.html">
-                                <i class="out-icon fa-solid fa-list-check"></i> Kill Sheet
-                                <i class="out-arrow fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                        <span class="ps-hr" aria-hidden="true"></span>
+                        <h3 class="ps-engine-name">Ad Campaign Simulation</h3>
+                        <p class="ps-engine-fix">The ad-to-page gap, caught before you spend.</p>
+                        <span class="ps-engine-out">
+                            <i class="out-icon fa-solid fa-list-check"></i> Kill Sheet
+                            <i class="out-arrow fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
 
                     <!-- 03 · Email -->
-                    <div class="ps-item">
+                    <a class="ps-item" href="email-campaign-simulation.html">
+                        <span class="ps-idx">03</span>
                         <span class="ps-pain-tag">Flat sends</span>
                         <p class="ps-pain-q">&ldquo;One email to three roles wins for none of them.&rdquo;</p>
-                        <div class="ps-engine">
-                            <span class="ps-engine-eyebrow">Engine 03</span>
-                            <h3 class="ps-engine-name"><a href="email-campaign-simulation.html">Email Campaign Simulation</a></h3>
-                            <p class="ps-engine-fix">The subject and CTA that win for each role.</p>
-                            <a class="ps-engine-out" href="email-campaign-simulation.html">
-                                <i class="out-icon fa-solid fa-trophy"></i> Per-Persona Winner
-                                <i class="out-arrow fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                        <span class="ps-hr" aria-hidden="true"></span>
+                        <h3 class="ps-engine-name">Email Campaign Simulation</h3>
+                        <p class="ps-engine-fix">The subject and CTA that win for each role.</p>
+                        <span class="ps-engine-out">
+                            <i class="out-icon fa-solid fa-trophy"></i> Per-Persona Winner
+                            <i class="out-arrow fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
 
                     <!-- 04 · Audience -->
-                    <div class="ps-item">
+                    <a class="ps-item" href="audience-discovery.html">
+                        <span class="ps-idx">04</span>
                         <span class="ps-pain-tag">Stale targeting</span>
                         <p class="ps-pain-q">&ldquo;You target last year&rsquo;s titles and bid against every competitor.&rdquo;</p>
-                        <div class="ps-engine">
-                            <span class="ps-engine-eyebrow">Engine 04</span>
-                            <h3 class="ps-engine-name"><a href="audience-discovery.html">Audience Discovery</a></h3>
-                            <p class="ps-engine-fix">The roles your content actually fits.</p>
-                            <a class="ps-engine-out" href="audience-discovery.html">
-                                <i class="out-icon fa-solid fa-crosshairs"></i> Ranked Title Pool
-                                <i class="out-arrow fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                        <span class="ps-hr" aria-hidden="true"></span>
+                        <h3 class="ps-engine-name">Audience Discovery</h3>
+                        <p class="ps-engine-fix">The roles your content actually fits.</p>
+                        <span class="ps-engine-out">
+                            <i class="out-icon fa-solid fa-crosshairs"></i> Ranked Title Pool
+                            <i class="out-arrow fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
 
                 </div>
 
@@ -3614,7 +3993,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
-                    <p class="footer-tagline">WhyUser. Your reviewers already understand your page. Your buyers won't. See how the skeptical, distracted buyers on the committee read your ad, email, or landing page before you pay for the traffic. Every finding is sourced to real buyer evidence.</p>
+                    <p class="footer-tagline">WhyUser. See your campaigns and pages the way your buyers will, before you launch. Every seat on the buying committee reads your ad, email, or landing page before you pay for the traffic. Every finding is sourced to real buyer evidence.</p>
                 </div>
                 <div><h4>Engines</h4><ul>
                     <li><a href="committee-simulation.html">Committee Simulation</a></li>
@@ -3641,7 +4020,7 @@
             <div class="footer-bottom">
                 <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
                 <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
-                <span><a href="accuracy.html">373 claims graded, 75&ndash;85% accurate</a></span>
+                <span><a href="accuracy.html">473 claims graded, 84% accurate</a></span>
             </div>
         </div>
     </footer>

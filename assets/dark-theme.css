@@ -374,6 +374,72 @@ input::placeholder, textarea::placeholder { color: var(--faint); }
 }
 
 /* ───────────────────────────────────────────────────────────────────────
+   7d. AI OPINIONS PAGE  (whyuser-vs-ai-opinions.html)
+
+   This page has two kinds of light surface and they need opposite fixes.
+
+   A. THE BROWSER MOCKUP is a depiction of somebody else's landing page. It
+      is hardcoded #fff on purpose and must STAY white — a dark mockup would
+      stop reading as "a page under test". But its text was written against
+      --ink / --mute / --dim / --faint, which this theme inverts, so the
+      headline "Ship to production 10x faster" rendered white-on-white and
+      the whole mock went blank.
+
+      Fix: re-declare the light palette scoped to .browser. The mock becomes
+      self-contained and immune to the theme, rather than half-following it.
+      Scoped, so --mock and friends keep their dark values everywhere else.
+
+   B. EVERYTHING ELSE that was hardcoded light is chrome belonging to THIS
+      page — the assistant's reply bubble, the page-reference strip, the hero
+      pill, the accuracy card. Those should follow the theme and go dark.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* A. the mockup keeps its own light world */
+.browser {
+  --ink:         #09090b;
+  --ink-soft:    #1c1c1f;
+  --mute:        #3a3a40;
+  --dim:         #4d4d55;
+  --faint:       #6e6e76;
+  --ghost:       #a8a8af;
+  --rule:        rgba(9, 9, 11, 0.09);
+  --rule-strong: rgba(9, 9, 11, 0.15);
+  --rule-bold:   rgba(9, 9, 11, 0.24);
+  --green:       #059669;
+  --mock:        #4f46e5;   /* the sample product's indigo, not WhyUser violet */
+  border-color: rgba(255, 255, 255, 0.16);
+  /* On white paper the mock lifted off the page with a soft drop shadow.
+     On black there is nothing to cast onto, so a rim does the separating. */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06),
+              0 30px 60px -28px rgba(0, 0, 0, 0.9);
+}
+
+/* B. this page's own chrome follows the theme */
+.bot-bubble {
+  background: var(--paper-warm);
+  border-color: var(--rule);
+}
+.page-ref,
+.hero-pill {
+  background: rgba(255, 255, 255, 0.04);
+}
+.page-ref .dts i {
+  background: rgba(255, 255, 255, 0.22);
+}
+.acc {
+  background: rgba(167, 139, 250, 0.08);
+  border-color: rgba(167, 139, 250, 0.20);
+}
+.acc-bar {
+  background: rgba(255, 255, 255, 0.10);
+}
+/* White chip behind the footer mark: correct on white paper, a bright square
+   on black. The mark already carries its own contrast here. */
+.footer-brand-mark .nav-mark {
+  background: transparent;
+}
+
+/* ───────────────────────────────────────────────────────────────────────
    8. SCROLLBAR
    ─────────────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 12px; height: 12px; }

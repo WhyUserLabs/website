@@ -327,6 +327,53 @@ input::placeholder, textarea::placeholder { color: var(--faint); }
 .stream-cfo strong { color: var(--dim) !important; }
 
 /* ───────────────────────────────────────────────────────────────────────
+   7b. HERO COMMITTEE FLOW  (.cflow)
+   The hero figure is inline on the canvas rather than inside a frame, so
+   its signal colours sit directly on #08080b and every one of them needed
+   lifting. The figure declares each colour as a token, so this is a single
+   override block, not a set of per-element patches.
+
+   Two non-obvious ones:
+   - The veto label is the loudest element in the figure. In light mode it
+     is a near-white pill (#fff1f3). On black that reads as a hole punched
+     in the page, so it becomes a translucent crimson wash instead. It stays
+     the loudest element; it just stops being a white slab.
+   - Violet #6d28d9 marks the decision point and fails contrast on black,
+     the same reason --brand is lifted in section 1. Matched to #a78bfa.
+   ─────────────────────────────────────────────────────────────────────── */
+.cflow {
+  --cf-pos:       #34d399;
+  --cf-neg:       #fb7185;
+  --cf-struct:    #60a5fa;
+  --cf-quiet:     #94a3b8;
+  --cf-decide:    #a78bfa;
+  --cf-pos-ring:  rgba(52, 211, 153, 0.38);
+  --cf-neg-ring:  rgba(251, 113, 133, 0.34);
+  --cf-veto-ring: rgba(251, 113, 133, 0.62);
+  /* Opaque, not translucent: the glow sits under this pill and a see-through
+     fill let it bleed through and wash out the label text. */
+  --cf-veto-fill: #33131d;
+}
+/* Hairline edges carried 0.28 opacity for light paper. Too faint on black. */
+.cflow .cf-min { opacity: 0.4; }
+/* The glow read as a soft blush on white and needs a little more presence on
+   black, but not much: it sits directly behind the veto label. */
+.cflow .cf-glow { opacity: 0.14; }
+
+/* ───────────────────────────────────────────────────────────────────────
+   7c. ENGINE CARDS  (.ps-item)
+   The cards themselves tokenise cleanly. The one thing that does not
+   survive is the hover shadow: a black shadow on a black page is invisible,
+   so lift separates the card instead of depth.
+   ─────────────────────────────────────────────────────────────────────── */
+.ps-item:hover,
+.ps-item:focus-visible {
+  border-color: rgba(167, 139, 250, 0.34);
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.9),
+              0 0 0 1px rgba(167, 139, 250, 0.10);
+}
+
+/* ───────────────────────────────────────────────────────────────────────
    8. SCROLLBAR
    ─────────────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 12px; height: 12px; }

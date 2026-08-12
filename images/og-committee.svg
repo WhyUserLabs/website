@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Geist, system-ui, sans-serif">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0b10"/><stop offset="1" stop-color="#08080b"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#g)"/>
+<circle cx="97" cy="76" r="17" fill="#a78bfa"/><text x="97" y="83" text-anchor="middle" font-size="17" font-weight="700" fill="#08080b">W</text>
+<text x="126" y="83" font-size="23" font-weight="600" fill="#fafafa" letter-spacing="-.5">WhyUser</text>
+<text x="80" y="182" font-size="44" font-weight="600" fill="#fafafa" letter-spacing="-1.6">Test your landing page on</text>
+<text x="80" y="234" font-size="44" font-weight="600" fill="#fafafa" letter-spacing="-1.6">the whole buying committee.</text>
+<text x="80" y="286" font-size="19" fill="#a1a1aa">See which role blocks the deal and what proof was missing.</text>
+<rect x="80" y="360" width="150" height="86" rx="10" fill="#101014" stroke="#f87171"/>
+<text x="96" y="388" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#a78bfa">EU</text>
+<rect x="96" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="108" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="120" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="132" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="144" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="156" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="168" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="180" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="192" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="204" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<text x="96" y="434" font-family="JetBrains Mono, monospace" font-size="10" fill="#8e8e99">intent 7/10</text>
+<path d="M230,403 H270" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="270" y="360" width="150" height="86" rx="10" fill="#101014" stroke="#f87171"/>
+<text x="286" y="388" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#a78bfa">CH</text>
+<rect x="286" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="298" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="310" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="322" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="334" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="346" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="358" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="370" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="382" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="394" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<text x="286" y="434" font-family="JetBrains Mono, monospace" font-size="10" fill="#8e8e99">intent 7/10</text>
+<path d="M420,403 H460" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="460" y="360" width="150" height="86" rx="10" fill="#101014" stroke="rgba(255,255,255,.16)"/>
+<text x="476" y="388" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#a78bfa">TD</text>
+<rect x="476" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="488" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="500" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="512" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="524" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="536" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="548" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="560" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="572" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="584" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<text x="476" y="434" font-family="JetBrains Mono, monospace" font-size="10" fill="#8e8e99">intent 7/10</text>
+<path d="M610,403 H650" stroke="#2f6f8f" stroke-width="2"/>
+<rect x="650" y="360" width="150" height="86" rx="10" fill="#101014" stroke="rgba(255,255,255,.16)"/>
+<text x="666" y="388" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#a78bfa">GR</text>
+<rect x="666" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="678" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="690" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="702" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="714" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="726" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="738" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="750" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="762" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="774" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<text x="666" y="434" font-family="JetBrains Mono, monospace" font-size="10" fill="#8e8e99">intent 7/10</text>
+<path d="M800,403 H840" stroke="#2f6f8f" stroke-width="2"/>
+<rect x="840" y="360" width="150" height="86" rx="10" fill="#101014" stroke="rgba(255,255,255,.16)"/>
+<text x="856" y="388" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#a78bfa">EB</text>
+<rect x="856" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="868" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="880" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="892" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="904" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="916" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="928" y="404" width="8" height="8" rx="1.5" fill="#a78bfa"/>
+<rect x="940" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="952" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<rect x="964" y="404" width="8" height="8" rx="1.5" fill="rgba(255,255,255,.12)"/>
+<text x="856" y="434" font-family="JetBrains Mono, monospace" font-size="10" fill="#8e8e99">intent 7/10</text>
+<text x="80" y="502" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" letter-spacing="1.6" fill="#f87171">EVERY ROLE APPROVED &#183; 2 OF 7 HANDOFFS SNAPPED &#183; 0 CONVERTED</text>
+<text x="80" y="556" font-size="15" fill="#8e8e99">84% accuracy &#183; 50&#8211;300 agents per run &#183; 30 minutes, from a URL</text>
+<text x="80" y="592" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" letter-spacing="2" fill="#a78bfa">WHYUSER.COM</text>
+</svg>

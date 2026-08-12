@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 924" width="1440" height="924" role="img" aria-labelledby="amT amD" font-family="Geist, system-ui, -apple-system, sans-serif">
+<title id="amT">Audience Discovery: verified job titles by subvertical and committee role</title>
+<desc id="amD">A targeting matrix placing every verified candidate title by subvertical and committee role, tinted by verification score. Blocked cells scoring six out of ten are almost all economic buyers and guardians, the two roles that stop deals.</desc>
+<rect width="1440" height="924" fill="#08080b"/>
+<style>
+ .h{font-size:12px;font-weight:600;fill:#fafafa;letter-spacing:-.005em}
+ .hs{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;fill:#8e8e99}
+ .sv{font-size:13px;fill:#e4e4e7}
+ .idx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;fill:#6b6b75}
+ .cellt{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;font-weight:700}
+ .lg{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.1em;fill:#8e8e99}
+ .tot{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:600;fill:#fafafa}
+ .kbig{font-size:30px;font-weight:600;fill:#fafafa;letter-spacing:-.03em}
+ .klab{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;fill:#a78bfa}
+ .knote{font-size:12px;fill:#8e8e99}
+</style>
+<text x="64" y="52" class="lg">SCORE GUIDE</text>
+<rect x="174" y="40" width="16" height="16" rx="3" fill="#3b82a6"/>
+<text x="198" y="52" class="lg" fill="#a1a1aa">9/10</text>
+<rect x="282" y="40" width="16" height="16" rx="3" fill="#7fb8d4"/>
+<text x="306" y="52" class="lg" fill="#a1a1aa">8/10</text>
+<rect x="390" y="40" width="16" height="16" rx="3" fill="#bcdcec"/>
+<text x="414" y="52" class="lg" fill="#a1a1aa">7/10</text>
+<rect x="498" y="40" width="16" height="16" rx="3" fill="#5c1f26"/>
+<text x="522" y="52" class="lg" fill="#a1a1aa">6/10 BLOCKED</text>
+<rect x="486.0" y="118" width="38" height="20" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="505.0" y="132" text-anchor="middle" class="cellt" fill="#e4e4e7">EB</text>
+<text x="505.0" y="156" text-anchor="middle" class="hs">ECONOMIC BUYER</text>
+<rect x="636.0" y="118" width="38" height="20" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="655.0" y="132" text-anchor="middle" class="cellt" fill="#e4e4e7">TD</text>
+<text x="655.0" y="156" text-anchor="middle" class="hs">TECHNICAL DM</text>
+<rect x="786.0" y="118" width="38" height="20" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="805.0" y="132" text-anchor="middle" class="cellt" fill="#e4e4e7">CH</text>
+<text x="805.0" y="156" text-anchor="middle" class="hs">CHAMPION</text>
+<rect x="936.0" y="118" width="38" height="20" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="955.0" y="132" text-anchor="middle" class="cellt" fill="#e4e4e7">EU</text>
+<text x="955.0" y="156" text-anchor="middle" class="hs">END USER</text>
+<rect x="1086.0" y="118" width="38" height="20" rx="4" fill="rgba(255,255,255,.07)"/>
+<text x="1105.0" y="132" text-anchor="middle" class="cellt" fill="#e4e4e7">GR</text>
+<text x="1105.0" y="156" text-anchor="middle" class="hs">GUARDIAN</text>
+<text x="64" y="156" class="hs">SUBVERTICAL</text>
+<text x="1220" y="156" text-anchor="middle" class="hs">ALL</text>
+<line x1="64" y1="172" x2="1260" y2="172" stroke="rgba(255,255,255,.18)"/>
+<text x="64" y="214" class="idx">01</text>
+<text x="92" y="215" class="sv">Web Development</text>
+<rect x="436" y="198" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="215" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="198" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="198" width="138" height="30" rx="5" fill="#bcdcec"/>
+<text x="805.0" y="215" text-anchor="middle" class="cellt" fill="#08080b">7/10</text>
+<rect x="886" y="198" width="138" height="30" rx="5" fill="#7fb8d4"/>
+<text x="955.0" y="215" text-anchor="middle" class="cellt" fill="#08080b">8/10</text>
+<rect x="1036" y="198" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="215" text-anchor="middle" class="tot">3</text>
+<text x="64" y="252" class="idx">02</text>
+<text x="92" y="253" class="sv">Blockchain Services</text>
+<rect x="436" y="236" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="253" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="236" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="236" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="236" width="138" height="30" rx="5" fill="#bcdcec"/>
+<text x="955.0" y="253" text-anchor="middle" class="cellt" fill="#08080b">7/10</text>
+<rect x="1036" y="236" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="253" text-anchor="middle" class="tot">2</text>
+<text x="64" y="290" class="idx">03</text>
+<text x="92" y="291" class="sv">Computer Networking</text>
+<rect x="436" y="274" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="291" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="274" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="274" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="274" width="138" height="30" rx="5" fill="#bcdcec"/>
+<text x="955.0" y="291" text-anchor="middle" class="cellt" fill="#08080b">7/10</text>
+<rect x="1036" y="274" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="291" text-anchor="middle" class="tot">2</text>
+<text x="64" y="328" class="idx">04</text>
+<text x="92" y="329" class="sv">Cybersecurity</text>
+<rect x="436" y="312" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="329" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="312" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="312" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="312" width="138" height="30" rx="5" fill="#7fb8d4"/>
+<text x="955.0" y="329" text-anchor="middle" class="cellt" fill="#08080b">8/10</text>
+<rect x="1036" y="312" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="329" text-anchor="middle" class="tot">2</text>
+<text x="64" y="366" class="idx">05</text>
+<text x="92" y="367" class="sv">Internet of Things</text>
+<rect x="436" y="350" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="367" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="350" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="350" width="138" height="30" rx="5" fill="#bcdcec"/>
+<text x="805.0" y="367" text-anchor="middle" class="cellt" fill="#08080b">7/10</text>
+<rect x="886" y="350" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="350" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="367" text-anchor="middle" class="tot">2</text>
+<text x="64" y="404" class="idx">06</text>
+<text x="92" y="405" class="sv">Software Development</text>
+<rect x="436" y="388" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="405" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="388" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="388" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="388" width="138" height="30" rx="5" fill="#bcdcec"/>
+<text x="955.0" y="405" text-anchor="middle" class="cellt" fill="#08080b">7/10</text>
+<rect x="1036" y="388" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="405" text-anchor="middle" class="tot">2</text>
+<text x="64" y="442" class="idx">07</text>
+<text x="92" y="443" class="sv">Virtual &amp; Augmented</text>
+<rect x="436" y="426" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="443" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="426" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="426" width="138" height="30" rx="5" fill="#bcdcec"/>
+<text x="805.0" y="443" text-anchor="middle" class="cellt" fill="#08080b">7/10</text>
+<rect x="886" y="426" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="426" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="443" text-anchor="middle" class="tot">2</text>
+<text x="64" y="480" class="idx">08</text>
+<text x="92" y="481" class="sv">Artificial Intelligence</text>
+<rect x="436" y="464" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="481" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="464" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="464" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="464" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="464" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="481" text-anchor="middle" class="tot">1</text>
+<text x="64" y="518" class="idx">09</text>
+<text x="92" y="519" class="sv">Computer Software</text>
+<rect x="436" y="502" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="586" y="502" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="502" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="502" width="138" height="30" rx="5" fill="#bcdcec"/>
+<text x="955.0" y="519" text-anchor="middle" class="cellt" fill="#08080b">7/10</text>
+<rect x="1036" y="502" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="519" text-anchor="middle" class="tot">1</text>
+<text x="64" y="556" class="idx">10</text>
+<text x="92" y="557" class="sv">Data Infrastructure</text>
+<rect x="436" y="540" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="586" y="540" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="540" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="540" width="138" height="30" rx="5" fill="#7fb8d4"/>
+<text x="955.0" y="557" text-anchor="middle" class="cellt" fill="#08080b">8/10</text>
+<rect x="1036" y="540" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="557" text-anchor="middle" class="tot">1</text>
+<text x="64" y="594" class="idx">11</text>
+<text x="92" y="595" class="sv">Data Science</text>
+<rect x="436" y="578" width="138" height="30" rx="5" fill="#7fb8d4"/>
+<text x="505.0" y="595" text-anchor="middle" class="cellt" fill="#08080b">8/10</text>
+<rect x="586" y="578" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="578" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="578" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="578" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="595" text-anchor="middle" class="tot">1</text>
+<text x="64" y="632" class="idx">12</text>
+<text x="92" y="633" class="sv">Digital Identity</text>
+<rect x="436" y="616" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="586" y="616" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="616" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="616" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="616" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="1105.0" y="633" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<text x="1220" y="633" text-anchor="middle" class="tot">1</text>
+<text x="64" y="670" class="idx">13</text>
+<text x="92" y="671" class="sv">Machine Learning</text>
+<rect x="436" y="654" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="671" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="654" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="654" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="654" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="654" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="671" text-anchor="middle" class="tot">1</text>
+<text x="64" y="708" class="idx">14</text>
+<text x="92" y="709" class="sv">Managed Service Prov.</text>
+<rect x="436" y="692" width="138" height="30" rx="5" fill="#7fb8d4"/>
+<text x="505.0" y="709" text-anchor="middle" class="cellt" fill="#08080b">8/10</text>
+<rect x="586" y="692" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="692" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="692" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="692" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="709" text-anchor="middle" class="tot">1</text>
+<text x="64" y="746" class="idx">15</text>
+<text x="92" y="747" class="sv">SaaS</text>
+<rect x="436" y="730" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="586" y="730" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="730" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="730" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="730" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="1105.0" y="747" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<text x="1220" y="747" text-anchor="middle" class="tot">1</text>
+<text x="64" y="784" class="idx">16</text>
+<text x="92" y="785" class="sv">Semiconductors</text>
+<rect x="436" y="768" width="138" height="30" rx="5" fill="#5c1f26"/>
+<text x="505.0" y="785" text-anchor="middle" class="cellt" fill="#fca5a5">6/10</text>
+<rect x="586" y="768" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="736" y="768" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="886" y="768" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<rect x="1036" y="768" width="138" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.07)"/>
+<text x="1220" y="785" text-anchor="middle" class="tot">1</text>
+<line x1="64" y1="810" x2="1260" y2="810" stroke="rgba(255,255,255,.18)"/>
+<text x="64" y="834" class="hs">ALL</text>
+<text x="505.0" y="835" text-anchor="middle" class="tot">17</text>
+<text x="655.0" y="835" text-anchor="middle" class="tot">0</text>
+<text x="805.0" y="835" text-anchor="middle" class="tot">3</text>
+<text x="955.0" y="835" text-anchor="middle" class="tot">8</text>
+<text x="1105.0" y="835" text-anchor="middle" class="tot">2</text>
+<text x="1220" y="835" text-anchor="middle" class="tot">30</text>
+<text x="64" y="872" class="knote">17 of the 30 verified titles are economic buyers and 2 are guardians &#8212; and every blocked cell sits in those two columns.</text>
+<text x="64" y="894" class="knote">The page speaks to end users and champions. It does not speak to the people who sign.</text>
+</svg>

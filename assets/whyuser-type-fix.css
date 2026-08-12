@@ -1,0 +1,260 @@
+/* ═══════════════════════════════════════════════════════════════════
+   whyuser-type-fix.css
+   Load AFTER the page's own styles. Corrects one measurable problem.
+
+   ── WHAT THE AUDIT FOUND ─────────────────────────────────────────
+   The homepage loads four font families and uses three:
+
+       JetBrains Mono   54 declarations   ← dominant typeface
+       Geist            18 declarations
+       Instrument Serif  3 declarations
+       Geist Mono        0 declarations   ← loaded, never used
+
+   Of the mono declarations, 37 rules set a size of 10.5px or smaller.
+   Fifteen sit at 10px, nine at 9.5px, five at 9px, two at 8px. Many of
+   those also carry letter-spacing between 0.16em and 0.22em, in
+   uppercase.
+
+   Wide-tracked uppercase monospace at 10px is the slowest possible
+   configuration for scanning. Uppercase removes ascender and descender
+   cues; monospace removes width cues; heavy tracking breaks words into
+   loose letter clusters. Each is individually defensible as an accent.
+   Stacked together and applied to 54 places, they turn labels into
+   texture.
+
+   ── WHY IT MATTERS HERE, SPECIFICALLY ────────────────────────────
+   This is not a taste note. It is the mechanical cause of the finding
+   your own committee simulation returned:
+
+     "I saw lots of nav labels, but I didn't get quick scanability;
+      it reads like paragraphs, not a menu."     — End User
+     "the nav read like a concatenated wall of text"  — Economic Buyer
+     "I saw heavy evidence language, but I didn't get skimmable
+      artifacts; long paragraphs increased my verification time."
+                                                 — Security Guardian
+
+   Four of five roles reported the same thing. Finding B2 is partly a
+   nav-structure problem, which partials/nav.html fixes, and partly a
+   type-setting problem, which this file fixes.
+
+   ── WHAT THIS FILE CHANGES ───────────────────────────────────────
+   Only labels a buyer has to READ: nav labels, trust captions, table
+   headers, footer headings, quote attributions, section keys.
+
+   ── WHAT IT DELIBERATELY LEAVES ALONE ────────────────────────────
+   Micro-type inside the dark product frames — .engine-frame-tag,
+   .cflow-stat-l, .hub-core-orb-meta, .led-chip and friends. Those are
+   meant to read as instrument chrome, and tiny tracked mono is exactly
+   right there. The conflict-graph visual is the best thing on the page
+   and this file does not touch it.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Section keys and eyebrows ────────────────────────────────────
+   10.5px/0.16em → 11.5px/0.10em. Still unmistakably a label, now
+   legible at arm's length on a laptop. */
+.mono-label,
+.tech2-k,
+.ps-pain-tag,
+.pain-num,
+.engine-tag {
+  font-size: 11.5px !important;
+  letter-spacing: 0.10em !important;
+}
+
+/* ── Navigation labels ────────────────────────────────────────────
+   9.5px was the smallest text in the primary navigation. These are
+   the words that tell a buyer which bucket to open. */
+.nav-dd-label,
+.nav-m-label {
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Dropdown descriptions are sentence-case prose, not labels. They
+   should be set as prose: no tracking, sentence case, readable size. */
+.nav-dd-desc {
+  font-size: 12.5px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  line-height: 1.45 !important;
+}
+
+/* ── Trust strip ──────────────────────────────────────────────────
+   0.22em tracking on 10px uppercase is the widest setting on the
+   page, applied to the line introducing your customer logos — the
+   single element the committee flagged as weakest (finding B1). */
+.trust-label {
+  font-size: 11.5px !important;
+  letter-spacing: 0.10em !important;
+}
+.trust-aux {
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* ── Comparison table headers ─────────────────────────────────────
+   These carry competitor names. A reader comparing five columns is
+   moving their eye horizontally across headers repeatedly. */
+.compare-table th,
+.diff-col-h,
+.diff-side-tag {
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* ── Quote attributions ───────────────────────────────────────────
+   "Nichole Larue · Head of Marketing Operations · ngrok" is proof.
+   Set at 10.5px with 0.18em tracking it reads as a caption. Named
+   customers are too hard-won to set as decoration. */
+.section-quote-cite,
+.engine-quote-cite {
+  font-size: 12.5px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────
+   Column headings at 10px/0.22em and the legal row at 10.5px. The
+   footer is where your Economic Buyer and Security Guardian found
+   Security and DPA — one of only four things the run marked WORKING.
+   Do not make the one working path hard to read. */
+.footer h4 {
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
+}
+.footer-bottom,
+.footer-bottom a {
+  font-size: 12px !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* ── CTA block ────────────────────────────────────────────────────
+   The Cost / The Trade / The Fit headings sit above the only
+   conversion point on the page. */
+.cta-pill-h {
+  font-size: 11.5px !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* ── Minimum floor ────────────────────────────────────────────────
+   Nothing outside a dark product frame drops below 11px. Two rules on
+   the page were setting 8px. */
+.solfix-chip,
+.out-chip,
+.faq-num {
+  font-size: 11.5px !important;
+}
+
+/* ── Body copy comfort ────────────────────────────────────────────
+   Long-form prose blocks were running to a full container width on
+   large screens. Capping the measure near 70 characters is the
+   cheapest readability win available and needs no copy changes. */
+.def-text,
+.section-head p,
+.hero-sub {
+  max-width: 46rem;
+}
+
+/* Quotes are 47 and 67 words. Nobody reads 67 words set at full
+   width. Narrow the measure and they get read. */
+.section-quote blockquote {
+  max-width: 42rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER GRID — 5 columns
+   The footer grid is declared as `1.4fr repeat(3, 1fr)`, i.e. a brand
+   column plus THREE link columns. The rebuilt footer adds a fourth
+   (Developers), so Company wrapped onto a second row on its own and
+   left a large hole beside it.
+   Widened to four link columns, with a two-column step at tablet so
+   the brand blurb never gets squeezed to a ribbon.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 2.5rem 2rem !important; }
+}
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.7fr repeat(4, 1fr) !important;
+    gap: 2.5rem !important;
+    align-items: start;
+  }
+}
+/* The brand blurb is the widest thing in the row; cap its measure so the
+   link columns keep their share. */
+.footer-tagline { max-width: 24rem; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   ACCURACY / SPEC STRIP — no panel fill
+   The strip was reading as a raised card against the dark canvas, which
+   competed with the hero above it. Rules only, no fill.
+   ═══════════════════════════════════════════════════════════════════ */
+.acc,
+.acc-grid,
+.acc-cell,
+.acc-foot {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.acc { border: none !important; }
+.acc-grid { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   HEADLINES THAT WRAPPED ONE WORD
+   Two headings broke to a second line for a single orphaned word. Both
+   are set in clamp(), so trimming the upper bound fixes them without
+   touching anything at narrow widths.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-persona-h { max-width: 62rem; font-size: clamp(1.375rem, 2.1vw, 1.625rem) !important; }
+.cta-h { font-size: clamp(1.625rem, 3vw, 2.375rem) !important; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   COMPARE / GLOSSARY PAGE RHYTHM
+   These pages stack a .page-head (padding-bottom) directly on a bare
+   <section> (padding-top), which produced a dead band of roughly 200px
+   between the standfirst and the first heading. Tighten the join.
+   ═══════════════════════════════════════════════════════════════════ */
+.page-head + section > .wrap { padding-top: 2.5rem; }
+@media (min-width: 768px) { .page-head + section > .wrap { padding-top: 3rem; } }
+
+/* Second group label inside a dropdown panel (see whyuser-core.css).
+   Repeated here because pages on whyuser-pages.css load core before it. */
+.nav-dd-label-2 {
+  display: block;
+  margin-top: 0.75rem !important;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* Four comparison cards in a three-column grid leave one orphaned on
+   its own row. 2x2 reads as a complete set. */
+@media (min-width: 900px) {
+  .term-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   OUTPUT FIGURE — committee simulation and audience discovery
+   These pages described what comes back without ever showing it. The
+   figure is the artifact; the surrounding copy only frames it.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-figure { max-width: 74rem; }
+.wu-figure-tag {
+  display: inline-block; font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--brand); margin-bottom: .6rem;
+}
+.wu-figure-h {
+  font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: -.03em;
+  line-height: 1.12; margin: 0 0 .75rem; color: var(--ink);
+}
+.wu-figure-p { color: var(--mute); font-size: 1rem; line-height: 1.65; margin: 0; max-width: 46rem; }
+.wu-figure-p strong { color: var(--ink); }
+.wu-figure-fig {
+  margin: 1.75rem 0 0; background: var(--surface); border: 1px solid var(--rule);
+  border-radius: 12px; padding: .75rem; overflow: hidden;
+}
+.wu-figure-fig img { display: block; width: 100%; height: auto; border-radius: 7px; }
+.wu-figure-fig figcaption {
+  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px;
+  letter-spacing: .04em; color: var(--dim); padding: .75rem .25rem 0; line-height: 1.5;
+}

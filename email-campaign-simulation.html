@@ -12,14 +12,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta name="theme-color" content="#08080b">
 <meta name="color-scheme" content="dark">
-<title>Email Campaign Simulation: know who opens before you send | WhyUser</title>
-<meta name="description" content="Run every subject and body variant through the full inbox-to-page chain, per buying-committee role. Per-role winners and drafted subject lines, before your first send.">
+<title>B2B Email Testing: subject, body and CTA per buyer role | WhyUser</title>
+<meta name="description" content="Test subject lines, body copy and CTAs against every seat on the buying committee before you send. See who opens, clicks, replies or deletes, and which variant wins for each role.">
 <link rel="canonical" href="https://whyuser.com/email-campaign-simulation.html">
-<meta property="og:type" content="website"><meta property="og:title" content="Email Campaign Simulation: know who opens before you send | WhyUser"><meta property="og:description" content="Run every subject and body variant through the full inbox-to-page chain, per buying-committee role. Per-role winners and drafted subject lines, before your first send."><meta property="og:url" content="https://whyuser.com/email-campaign-simulation.html">
+<meta property="og:type" content="website"><meta property="og:title" content="B2B Email Testing: subject, body and CTA per buyer role | WhyUser"><meta property="og:description" content="Test subject lines, body copy and CTAs against every seat on the buying committee before you send. See who opens, clicks, replies or deletes, and which variant wins for each role."><meta property="og:url" content="https://whyuser.com/email-campaign-simulation.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="images/whyuser-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Email Campaign Simulation: know who opens before you send | WhyUser", "description": "Run every subject and body variant through the full inbox-to-page chain, per buying-committee role. Per-role winners and drafted subject lines, before your first send.", "url": "https://whyuser.com/email-campaign-simulation.html", "isPartOf": {"@type": "WebSite", "name": "WhyUser", "url": "https://whyuser.com/"}, "about": {"@type": "SoftwareApplication", "name": "WhyUser", "applicationCategory": "BusinessApplication"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "B2B Email Testing: subject, body and CTA per buyer role | WhyUser", "description": "Test subject lines, body copy and CTAs against every seat on the buying committee before you send. See who opens, clicks, replies or deletes, and which variant wins for each role.", "url": "https://whyuser.com/email-campaign-simulation.html", "isPartOf": {"@type": "WebSite", "name": "WhyUser", "url": "https://whyuser.com/"}, "about": {"@type": "SoftwareApplication", "name": "WhyUser", "applicationCategory": "BusinessApplication"}}</script>
 <style>
 /* ─────────────────────────────────────────────────────────────
            DESIGN TOKENS
@@ -2393,177 +2393,320 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
 
 <link rel="stylesheet" href="assets/dark-theme.css">
+  <link rel="stylesheet" href="assets/whyuser-type-fix.css">
+  <link rel="stylesheet" href="assets/whyuser-readability.css">
 </head>
 <body class="grain">
       <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
-      <nav class="nav" id="site-nav">
-        <div class="wrap nav-inner">
-            <a href="index.html" class="nav-brand">
-                <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
-                <span>WhyUser</span>
+      <!-- WHYUSER:NAV:START -->
+<!-- ═══════════════════════════════════════════════════════════════════
+     WHYUSER GLOBAL NAV  ·  v2
+     Replaces the old site-nav block (nav.nav#site-nav) on
+     EVERY page. Paste directly after the opening body tag, before the
+     first header or main element.
+
+     WHY THIS SHAPE
+     Your own committee simulation of whyuser.com (EXP AN-90670518)
+     returned five ranked fixes. Three of them are nav fixes:
+       fix 2 — add a first-class technical/Docs entry     (closes B3, B2)
+       fix 4 — collapse to 4–6 scannable buckets          (closes B2)
+       fix 5 — surface Security and Pricing in the nav    (closes B5, B2)
+     This block closes all three. It is 5 buckets, down from the old
+     ~15 top-level links, and every label is a noun a buyer scans for.
+
+     COMPATIBILITY
+     Uses the exact class names already in your stylesheet
+     (.nav / .nav-dd / .nav-dd-trigger / .nav-dd-panel / .nav-dd-item /
+      .nav-dd-name / .nav-dd-desc / .nav-mobile / .nav-m-*).
+     Your existing nav script iterates every `.nav-dd` and reads the
+     `.nav-dd-trigger` inside it, so five dropdowns work with ZERO
+     JavaScript changes.
+
+     PATHS
+     Written for pages at the site ROOT. For pages one level down
+     (glossary/*, compare/*) prefix every href with ../ — apply-fixes.py
+     does this automatically.
+
+     OPTIONAL
+     • The "Log in" link assumes app.whyuser.com. Delete the <a> if the
+       app is not public yet — but keep the slot, because the committee
+       read repeated "Request Access" as a dead end (finding B4).
+     ═══════════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="site-nav">
+    <div class="wrap nav-inner">
+        <a href="index.html" class="nav-brand">
+            <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
+            <span>WhyUser</span>
+        </a>
+
+        <div class="nav-links">
+
+            <!-- 1 · PRODUCT ─────────────────────────────────────────
+                 Labels lead with the job people search for. The engine
+                 name moves into the description so you keep the brand
+                 vocabulary without charging admission for it. -->
+            <div class="nav-dd" id="nav-dd-product">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-product-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-product-panel" aria-haspopup="true">
+                    Product
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
+                    <span class="nav-dd-label">Test before you spend</span>
+                    <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Landing Page Testing</span>
+                            <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
+                        </span>
+                    </a>
+                    <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Ad Campaign Testing</span>
+                            <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
+                        </span>
+                    </a>
+                    <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Email Testing</span>
+                            <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                        </span>
+                    </a>
+                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Audience Research</span>
+                            <span class="nav-dd-desc">The job titles your content actually fits.</span>
+                        </span>
+                    </a>
+                    <a href="sample-report.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">See a sample report</span>
+                            <span class="nav-dd-desc">A real run, unedited. No login.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2 · PRICING ──────────────────────────────────────────
+                 First-class, per fix 5. Was previously nowhere on the
+                 site: the Economic Buyer looked for it and did not
+                 find a model. -->
+            <a href="pricing.html">Pricing</a>
+
+            <!-- 3 · WHY WHYUSER ─────────────────────────────────────
+                 Was "Proof", which is a defensive label nobody scans
+                 for. Now also carries the technical material.
+
+                 WHY THERE IS NO "DEVELOPERS" BUCKET
+                 Your own run flagged B3 at HIGH severity: the Technical
+                 Decision Maker could not find a Developers or Docs link
+                 and the End User → TDM handoff snapped. The obvious fix
+                 was a top-level Developers item.
+
+                 But the TDM is not who you sell to. The ICP is demand
+                 gen, growth marketing and heads of marketing, and a
+                 marketer scanning a five-item nav reads "Developers" as
+                 "this is a dev tool, not for me" — which costs more at
+                 the top of the funnel than it recovers deeper in.
+
+                 So the material stays, one click from the same place,
+                 under a label written for the champion who has to
+                 forward it rather than the engineer who reads it. The
+                 champion is the one doing the finding; the TDM only
+                 needs to receive the link. -->
+            <div class="nav-dd" id="nav-dd-why">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-why-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-why-panel" aria-haspopup="true">
+                    Why WhyUser
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-why-panel" role="menu" aria-labelledby="nav-dd-why-trigger">
+                    <span class="nav-dd-label">Evidence, not opinion</span>
+                    <a href="accuracy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Accuracy &amp; track record</span>
+                            <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by you.</span>
+                        </span>
+                    </a>
+                    <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">AI opinions vs. simulations</span>
+                            <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                        </span>
+                    </a>
+                    <a href="compare.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Compare</span>
+                            <span class="nav-dd-desc">Next to panels, chatbots, internal review, A/B.</span>
+                        </span>
+                    </a>
+
+                    <span class="nav-dd-label nav-dd-label-2">To forward to security or IT</span>
+                    <a href="developers.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Architecture &amp; data flow</span>
+                            <span class="nav-dd-desc">What we read, what we never touch, where it goes.</span>
+                        </span>
+                    </a>
+                    <a href="security.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Security &amp; DPA</span>
+                            <span class="nav-dd-desc">Encryption, retention, sub-processors, terms.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4 · RESOURCES ───────────────────────────────────────
+                 The old "Company" junk drawer, renamed to what it
+                 actually holds. Manifesto and Glossary keep their SEO
+                 value without taxing the main scan path. -->
+            <div class="nav-dd" id="nav-dd-res">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-res-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-res-panel" aria-haspopup="true">
+                    Resources
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
+                    <span class="nav-dd-label">Read before you buy</span>
+                    <a href="index.html#how" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-next" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">How it works</span>
+                            <span class="nav-dd-desc">URL in, committee verdict out, in 30 minutes.</span>
+                        </span>
+                    </a>
+                    <a href="faq.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">FAQ</span>
+                            <span class="nav-dd-desc">Accuracy, data, pricing, and what we will not do.</span>
+                        </span>
+                    </a>
+                    <a href="glossary/index.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Glossary</span>
+                            <span class="nav-dd-desc">Silent veto, conflict graph, scent trail.</span>
+                        </span>
+                    </a>
+                    <a href="manifesto.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Manifesto</span>
+                            <span class="nav-dd-desc">Why marketing is the last function testing live.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA ROW ─────────────────────────────────────────────────
+             Fix 1: one primary, one secondary. The old bar had "ROI"
+             and "Request Access" and the page repeated "Request Access"
+             a further four times. The committee clicked 45 of 50 times
+             and submitted zero. They did not need another ask; they
+             needed something to look at. -->
+        <div class="nav-cta-row">
+            <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
+            <a href="index.html#access" class="btn btn-primary">Request access</a>
+            <button type="button" class="nav-burger" id="nav-burger"
+                    aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MOBILE / TABLET ───────────────────────────────────────────── -->
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-inner">
+            <span class="nav-m-label">Product</span>
+            <a href="committee-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Landing Page Testing</span>
+                    <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
+                </span>
+            </a>
+            <a href="ad-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Ad Campaign Testing</span>
+                    <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
+                </span>
+            </a>
+            <a href="email-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Email Testing</span>
+                    <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                </span>
+            </a>
+            <a href="audience-discovery.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Audience Research</span>
+                    <span class="nav-dd-desc">The job titles your content actually fits.</span>
+                </span>
+            </a>
+            <a href="sample-report.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">See a sample report</span>
+                    <span class="nav-dd-desc">A real run, unedited. No login.</span>
+                </span>
             </a>
 
-            <div class="nav-links">
-                <div class="nav-dd" id="nav-dd-product">
-                    <button type="button" class="nav-dd-trigger" id="nav-dd-trigger"
-                            aria-expanded="false" aria-controls="nav-dd-panel" aria-haspopup="true">
-                        Product
-                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
-                    </button>
-                    <div class="nav-dd-panel" id="nav-dd-panel" role="menu" aria-labelledby="nav-dd-trigger">
-                        <span class="nav-dd-label">The four engines</span>
-                        <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">Committee Simulation</span>
-                                <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
-                            </span>
-                        </a>
-                        <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">Ad Campaign Simulation</span>
-                                <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
-                            </span>
-                        </a>
-                        <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">Email Campaign Simulation</span>
-                                <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
-                            </span>
-                        </a>
-                        <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">Audience Discovery</span>
-                                <span class="nav-dd-desc">The roles your content actually fits.</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <a href="index.html#how">How it works</a>
-
-                <!-- PROOF dropdown, the diligence assets a skeptical buyer wants -->
-                <div class="nav-dd" id="nav-dd-proof">
-                    <button type="button" class="nav-dd-trigger" id="nav-dd-proof-trigger"
-                            aria-expanded="false" aria-controls="nav-dd-proof-panel" aria-haspopup="true">
-                        Proof
-                        <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
-                    </button>
-                    <div class="nav-dd-panel" id="nav-dd-proof-panel" role="menu" aria-labelledby="nav-dd-proof-trigger">
-                        <span class="nav-dd-label">Evidence, not opinion</span>
-                        <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">AI opinions vs. simulations</span>
-                                <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
-                            </span>
-                        </a>
-                        <a href="accuracy.html" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">Accuracy &amp; track record</span>
-                                <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by the customer.</span>
-                            </span>
-                        </a>
-                        <a href="compare.html" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">Compare</span>
-                                <span class="nav-dd-desc">WhyUser next to panels, usability tests, and A/B.</span>
-                            </span>
-                        </a>
-                        <a href="index.html#build" class="nav-dd-item" role="menuitem">
-                            <span class="nav-dd-ico"><i class="fa-solid fa-hammer" aria-hidden="true"></i></span>
-                            <span>
-                                <span class="nav-dd-name">Why not build it</span>
-                                <span class="nav-dd-desc">The orchestration is a weekend. The trust is not.</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <a href="manifesto.html">Manifesto</a>
-                <a href="faq.html">FAQ</a>
+            <div class="nav-m-group">
+                <span class="nav-m-label">Pricing</span>
+                <a href="pricing.html" class="nav-m-link">Plans &amp; credits</a>
             </div>
 
-            <div class="nav-cta-row">
-                <a href="roi.html" class="btn btn-ghost nav-roi" style="color: var(--brand)"><i class="fas fa-calculator" style="font-size:11px;color:var(--brand)"></i>ROI</a>
-                <a href="index.html#access" class="btn btn-primary">Request Access</a>
-                <button type="button" class="nav-burger" id="nav-burger"
-                        aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
-                    <span></span><span></span><span></span>
-                </button>
+            <div class="nav-m-group">
+                <span class="nav-m-label">Why WhyUser</span>
+                <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
+                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="compare.html" class="nav-m-link">Compare</a>
+                <a href="developers.html" class="nav-m-link">Architecture &amp; data flow</a>
+                <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
+            </div>
+
+            <div class="nav-m-group">
+                <span class="nav-m-label">Resources</span>
+                <a href="index.html#how" class="nav-m-link">How it works</a>
+                <a href="faq.html" class="nav-m-link">FAQ</a>
+                <a href="glossary/index.html" class="nav-m-link">Glossary</a>
+                <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+            </div>
+
+            <div class="nav-m-ctas">
+                <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="reports/email-simulations-whyuser-sample.html" class="btn btn-ghost btn-lg">See a real email report</a>
             </div>
         </div>
+    </div>
+</nav>
 
-        <!-- Mobile / tablet menu -->
-        <div class="nav-mobile" id="nav-mobile">
-            <div class="nav-mobile-inner">
-                <span class="nav-m-label">The four engines</span>
-                <a href="committee-simulation.html" class="nav-m-eng">
-                    <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
-                    <span>
-                        <span class="nav-dd-name">Committee Simulation</span>
-                        <span class="nav-dd-desc">Which buyer role killed it, and the missing proof.</span>
-                    </span>
-                </a>
-                <a href="ad-campaign-simulation.html" class="nav-m-eng">
-                    <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
-                    <span>
-                        <span class="nav-dd-name">Ad Campaign Simulation</span>
-                        <span class="nav-dd-desc">The ad to page gap, caught before you spend.</span>
-                    </span>
-                </a>
-                <a href="email-campaign-simulation.html" class="nav-m-eng">
-                    <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-                    <span>
-                        <span class="nav-dd-name">Email Campaign Simulation</span>
-                        <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
-                    </span>
-                </a>
-                <a href="audience-discovery.html" class="nav-m-eng">
-                    <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                    <span>
-                        <span class="nav-dd-name">Audience Discovery</span>
-                        <span class="nav-dd-desc">The roles your content actually fits.</span>
-                    </span>
-                </a>
-
-                <div class="nav-m-group">
-                    <span class="nav-m-label">Proof</span>
-                    <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
-                    <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                    <a href="compare.html" class="nav-m-link">Compare</a>
-                    <a href="index.html#build" class="nav-m-link">Why not build it</a>
-                </div>
-
-                <div class="nav-m-group">
-                    <span class="nav-m-label">Company</span>
-                    <a href="index.html#how" class="nav-m-link">How it works</a>
-                    <a href="manifesto.html" class="nav-m-link">Manifesto</a>
-                    <a href="faq.html" class="nav-m-link">FAQ</a>
-                    <a href="glossary/index.html" class="nav-m-link">Glossary</a>
-                    <a href="roi.html" class="nav-m-link">ROI calculator</a>
-                </div>
-
-                <div class="nav-m-ctas">
-                    <a href="index.html#access" class="btn btn-primary btn-lg">Request Access</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<!-- WHYUSER:NAV:END -->
+<main id="main">
   <header class="hero subhero dotgrid"><div class="wrap"><div class="hero-grid">
       <div>
         <div class="hero-pill"><span class="hero-pill-dot"></span>Engine 03 &middot; Email &amp; sequences</div>
         <h1 class="h1">Know who opens, clicks, or deletes. Before you send.</h1>
         <p class="hero-sub">One email, three roles, three readers. Email Campaign Simulation runs every variant through the full inbox-to-page chain, so you know who opens, clicks, replies, or deletes, before you send.</p>
-        <div class="hero-ctas"><a href="index.html#access" class="btn btn-primary btn-lg">Request Access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="#how" class="btn btn-ghost btn-lg">See how it works</a></div>
+        <div class="hero-ctas"><a href="index.html#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="sample-report.html" class="btn btn-ghost btn-lg">See a sample report</a></div>
         <div class="trust-row"><span class="trust-aux">Sourced to real buyer reviews &middot; set up in minutes, not weeks</span></div>
       </div>
       <div class="engine-visual"><div class="engine-frame subhero-frame"><div class="engine-frame-bar"><span class="engine-frame-tag">EMAIL &middot; /inbox</span><span class="engine-frame-pill">Live</span></div><img class="engine-frame-img" src="https://whyuser.com/images/email_campaign_simulation.png" alt="Email Campaign Simulation interface"></div></div>
@@ -2574,47 +2717,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <tr><td>B &middot; &ldquo;Reduce TCO&rdquo;</td><td class="mc-warn">weak</td><td class="mc-win">win</td><td class="mc-warn">weak</td></tr>
 <tr><td>C &middot; &ldquo;Quick question&rdquo;</td><td class="mc-lose">miss</td><td class="mc-lose">miss</td><td class="mc-lose">miss</td></tr>
 </tbody></table>
-<div class="mk-stat"><i class="fa-solid fa-trophy" style="color:#fbbf24"></i> Winner: <b>A for Eng, B for CFO.</b> Split the send, drop C.</div></div></div></div><div><div class="specs"><div class="spec"><span class="spec-ic"><i class="fa-solid fa-trophy"></i></span><div><h3 class="spec-h">Per-Persona Winner</h3><p class="spec-p">The subject, body, and CTA that win per role.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-table-cells"></i></span><div><h3 class="spec-h">Variant matrix</h3><p class="spec-p">Ranked performance across every combination.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-fire-flame-curved"></i></span><div><h3 class="spec-h">Link heatmap</h3><p class="spec-p">Which CTA each role clicked.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-reply"></i></span><div><h3 class="spec-h">Objection replies</h3><p class="spec-p">The likely pushback, so SDRs can prep.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-wand-magic-sparkles"></i></span><div><h3 class="spec-h">Drafted subjects</h3><p class="spec-p">Replacements when a variant is below baseline.</p></div></div></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Who it is for</span><h2 class="h2">Built for the people who own the number.</h2></div><div class="whohub"><div class="whohub-orb"><div class="whohub-orb-core"><i class="fa-solid fa-envelope-open-text"></i></div><span class="whohub-orb-tag">Email Campaign Simulation</span></div><svg class="whohub-links" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><line x1="500" y1="2" x2="125" y2="118"/><line x1="500" y1="2" x2="375" y2="118"/><line x1="500" y1="2" x2="625" y2="118"/><line x1="500" y1="2" x2="875" y2="118"/></svg><div class="whohub-roles"><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-chart-line"></i></span><h3 class="whohub-role-h">Demand gen</h3><p class="whohub-role-p">Know which subject earns opens before the full send.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-envelope"></i></span><h3 class="whohub-role-h">Email managers</h3><p class="whohub-role-p">Pick the winning body without a live A/B test.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-user-tie"></i></span><h3 class="whohub-role-h">SDR leaders</h3><p class="whohub-role-p">Make the first cold email land. Prep the objections.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullhorn"></i></span><h3 class="whohub-role-h">Product marketing</h3><p class="whohub-role-p">Validate a launch email for practitioner and buyer.</p></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Works with</span><h2 class="h2">One engine, then the next.</h2><p>Start with Committee Simulation, then add the engine for the next channel you ship. All four run on the same Ground Reality foundation.</p></div><div class="estack"><a class="etile" href="committee-simulation.html"><span class="etile-ic"><i class="fa-solid fa-users"></i></span><div class="etile-n">Engine 01</div><div class="etile-name">Committee Simulation</div><div class="etile-chip"><i class="fa-solid fa-diagram-project"></i>Conflict Graph</div></a><a class="etile" href="ad-campaign-simulation.html"><span class="etile-ic"><i class="fa-solid fa-bullseye"></i></span><div class="etile-n">Engine 02</div><div class="etile-name">Ad Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-list-check"></i>Kill Sheet</div></a><div class="etile active"><span class="etile-here">You are here</span><span class="etile-ic"><i class="fa-solid fa-envelope-open-text"></i></span><div class="etile-n">Engine 03</div><div class="etile-name">Email Campaign Simulation</div><div class="etile-chip"><i class="fa-solid fa-trophy"></i>Per-Persona Winner</div></div><a class="etile" href="audience-discovery.html"><span class="etile-ic"><i class="fa-solid fa-magnifying-glass"></i></span><div class="etile-n">Engine 04</div><div class="etile-name">Audience Discovery</div><div class="etile-chip"><i class="fa-solid fa-crosshairs"></i>Ranked Title Pool</div></a></div></div></section>  <section class="cta-section"><div class="wrap"><div class="cta-card"><div style="text-align:center;max-width:42rem;margin:0 auto">
+<div class="mk-stat"><i class="fa-solid fa-trophy" style="color:#fbbf24"></i> Winner: <b>A for Eng, B for CFO.</b> Split the send, drop C.</div></div></div></div><div><div class="specs"><div class="spec"><span class="spec-ic"><i class="fa-solid fa-trophy"></i></span><div><h3 class="spec-h">Per-Persona Winner</h3><p class="spec-p">The subject, body, and CTA that win per role.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-table-cells"></i></span><div><h3 class="spec-h">Variant matrix</h3><p class="spec-p">Ranked performance across every combination.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-fire-flame-curved"></i></span><div><h3 class="spec-h">Link heatmap</h3><p class="spec-p">Which CTA each role clicked.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-reply"></i></span><div><h3 class="spec-h">Objection replies</h3><p class="spec-p">The likely pushback, so SDRs can prep.</p></div></div><div class="spec"><span class="spec-ic"><i class="fa-solid fa-wand-magic-sparkles"></i></span><div><h3 class="spec-h">Drafted subjects</h3><p class="spec-p">Replacements when a variant is below baseline.</p></div></div></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="section-head"><span class="section-eyebrow">Who it is for</span><h2 class="h2">Built for the people who own the number.</h2></div><div class="whohub"><div class="whohub-orb"><div class="whohub-orb-core"><i class="fa-solid fa-envelope-open-text"></i></div><span class="whohub-orb-tag">Email Campaign Simulation</span></div><svg class="whohub-links" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><line x1="500" y1="2" x2="125" y2="118"/><line x1="500" y1="2" x2="375" y2="118"/><line x1="500" y1="2" x2="625" y2="118"/><line x1="500" y1="2" x2="875" y2="118"/></svg><div class="whohub-roles"><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-chart-line"></i></span><h3 class="whohub-role-h">Demand gen</h3><p class="whohub-role-p">Know which subject earns opens before the full send.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-envelope"></i></span><h3 class="whohub-role-h">Email managers</h3><p class="whohub-role-p">Pick the winning body without a live A/B test.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-user-tie"></i></span><h3 class="whohub-role-h">SDR leaders</h3><p class="whohub-role-p">Make the first cold email land. Prep the objections.</p></div><div class="whohub-role"><span class="whohub-role-ic"><i class="fa-solid fa-bullhorn"></i></span><h3 class="whohub-role-h">Product marketing</h3><p class="whohub-role-p">Validate a launch email for practitioner and buyer.</p></div></div></div></div></section>  <section class="cta-section"><div class="wrap"><div class="cta-card"><div style="text-align:center;max-width:42rem;margin:0 auto">
       <span class="section-eyebrow" style="justify-content:center">Get started</span>
-      <h2 class="cta-h" style="margin-bottom:1.25rem">What would it be worth to know the winner before your first send?</h2>
+      <h2 class="cta-h" style="margin-bottom:1.25rem">Test the next send before it goes out.</h2>
       <p style="color:var(--mute);font-size:1.0625rem;line-height:1.5;margin:0 0 2rem">Apply for the design partner program. Run it on a campaign you already know. Grade us yourself.</p>
-      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Request Access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="index.html#build" class="btn btn-ghost btn-lg">Why not build it</a></div>
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a><a href="index.html#build" class="btn btn-ghost btn-lg">Why not build it</a></div>
     </div></div></div></section>
-  <footer class="footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
-                    <p class="footer-tagline">WhyUser. The pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
+  </main>
+<!-- WHYUSER:FOOTER:START -->
+<!-- ═══════════════════════════════════════════════════════════════════
+     WHYUSER GLOBAL FOOTER  ·  v2
+     Replaces the old site footer block (footer.footer) on every page.
+
+     WHAT CHANGED AND WHY
+     1. Numbers reconciled. The old site shipped TWO different headline
+        proof numbers: "473 claims graded, 84% accurate" on the root
+        pages and "473 claims graded, 84% accurate" in the glossary
+        footer. Two numbers for the same claim reads worse than no
+        number. Everything is now 473 / 84%.
+     2. "Engines" → "Product", with plain-language labels first.
+     3. "Proof" → "Why WhyUser". Same reason as the nav.
+     4. New Pricing and Developers columns. Your Economic Buyer and
+        Security Guardian both reached the footer looking for exactly
+        these; Security and DPA in the footer was one of only four
+        things the run marked as WORKING (finding W3). Keep it, and
+        give it company.
+     5. Sample report added. It is the artifact the committee said it
+        needed to forward internally (finding B1).
+     ═══════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-mark">
+                    <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
+                    <span class="footer-brand-name">WhyUser Inc.</span>
                 </div>
-                <div><h4>Engines</h4><ul>
-                    <li><a href="committee-simulation.html">Committee Simulation</a></li>
-                    <li><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></li>
-                    <li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li>
-                    <li><a href="audience-discovery.html">Audience Discovery</a></li>
-                </ul></div>
-                <div><h4>Proof</h4><ul>
-                    <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
-                    <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
-                    <li><a href="compare.html">Compare WhyUser</a></li>
-                    <li><a href="index.html#build">Why not build it</a></li>
-                    <li><a href="glossary/index.html">Glossary</a></li>
-                    <li><a href="roi.html">ROI calculator</a></li>
-                </ul></div>
-                <div><h4>Company</h4><ul>
-                    <li><a href="index.html#how">How it works</a></li>
-                    <li><a href="manifesto.html">Manifesto</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="index.html#access">Request access</a></li>
-                </ul></div>
+                <p class="footer-tagline">WhyUser is the pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
-                <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
-                <span><a href="accuracy.html">473 claims graded, 84% accurate</a></span>
-            </div>
+
+            <div><h4>Product</h4><ul>
+                <li><a href="committee-simulation.html">Landing Page Testing</a></li>
+                <li><a href="ad-campaign-simulation.html">Ad Campaign Testing</a></li>
+                <li><a href="email-campaign-simulation.html">Email Testing</a></li>
+                <li><a href="audience-discovery.html">Audience Research</a></li>
+                <li><a href="sample-report.html">See a sample report</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+            </ul></div>
+
+            <div><h4>Why WhyUser</h4><ul>
+                <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
+                <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                <li><a href="compare.html">Compare WhyUser</a></li>
+                <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
+                <li><a href="glossary/index.html">Glossary</a></li>
+            </ul></div>
+
+            <div><h4>For technical review</h4><ul>
+                <li><a href="developers.html">Architecture &amp; data flow</a></li>
+                <li><a href="developers.html#api">API &amp; output schema</a></li>
+                <li><a href="developers.html#determinism">Determinism &amp; replay</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="dpa.html">DPA</a></li>
+            </ul></div>
+
+            <div><h4>Company</h4><ul>
+                <li><a href="index.html#how">How it works</a></li>
+                <li><a href="manifesto.html">Manifesto</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#access">Request access</a></li>
+            </ul></div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
+            <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
+            <span><a href="accuracy.html">473 claims graded, 84% accurate</a></span>
+        </div>
+    </div>
+</footer>
+
+<!-- WHYUSER:FOOTER:END -->
     <!-- Nav behaviour: Product dropdown + mobile menu -->
     <script>
     (function () {

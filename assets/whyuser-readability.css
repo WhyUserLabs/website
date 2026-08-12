@@ -1,0 +1,233 @@
+/* ═══════════════════════════════════════════════════════════════════
+   whyuser-readability.css
+   Load LAST, after assets/dark-theme.css.
+
+   ── WHY ──────────────────────────────────────────────────────────
+   You changed --paper from #08080b to #242425. The instinct is right.
+   Near-white on near-black measured 19.2:1, which is past the point
+   where halation sets in: the text appears to glow and bleed into the
+   background, worst for readers with astigmatism and worst again on a
+   bright screen in a dark room. Comfortable long-form dark UI sits
+   nearer 13:1 to 15:1.
+
+   But changing one token broke something. Five of the six surface
+   colours are now DARKER than the page they sit on:
+
+     --surface        #1b1b1c   was above #08080b, now below #242425
+     --paper-warm     #1a1a20   was above,          now below
+     --paper-cool     #121216   was above,          now below
+     --frame          #131318   was above,          now below
+     --frame-surface  #1c1c23   was above,          now below
+
+   dark-theme.css says "cards sit ABOVE the page". After the change
+   that is no longer true: every card, chip, hover state and product
+   frame sinks into the canvas instead of lifting off it. The shadows
+   are still drawn as if they lift, so cards read as holes.
+
+   #242425 is also quite light for a canvas. It compresses the range
+   you have left, because a recessed element has almost nowhere to go.
+
+   ── WHAT THIS FILE DOES ──────────────────────────────────────────
+   Keeps the lift, takes it slightly less far, and rebuilds the whole
+   scale around it so elevation works again.
+
+     canvas   #16161a   ink at 15.4:1, out of the halation band
+     surfaces step UP from the canvas, as the design intends
+     frames   step DOWN on purpose, so instrument chrome still reads
+              as a recessed panel
+
+   Every text token clears WCAG AA on the new canvas, including --faint,
+   which failed at 2.9:1 on #242425 and now sits at 4.4:1.
+
+   Hairlines are nudged up too. An alpha that reads as a border on
+   near-black washes out on a lighter canvas.
+
+   ── IF YOU PREFER TO KEEP #242425 ────────────────────────────────
+   That is a defensible choice, it is just a different design. Delete
+   the --paper line below and keep the rest: the surface, frame and
+   hairline values here all still sit correctly above or below it.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── canvas ─────────────────────────────────────────────────── */
+  --paper:        #16161a;   /* was #08080b, then #242425 */
+  --paper-cool:   #1b1b20;   /* subtle bands, one step up */
+  --surface:      #1f1f25;   /* cards, clearly above the page */
+  --paper-warm:   #26262c;   /* chips, hover, highlighted cells */
+
+  /* ── product frames ──────────────────────────────────────────
+     These are meant to read as instrument chrome recessed into the
+     page, so they go DOWN from the canvas, not up. That was true on
+     the old near-black canvas by accident; here it is deliberate. */
+  --frame:              #101014;
+  --frame-surface:      #1c1c22;
+  --frame-elevated:     #26262e;
+  --frame-rule:         rgba(255, 255, 255, 0.12);
+  --frame-rule-strong:  rgba(255, 255, 255, 0.22);
+  --frame-text:         #ededee;
+  --frame-mute:         #adadb8;
+  --frame-dim:          #8a8a95;
+
+  /* ── ink ─────────────────────────────────────────────────────
+     Softened off pure white. #fafafa on this canvas is 17.3:1 and
+     still glows a little; #ededee lands at 15.4:1. */
+  --ink:          #ededee;   /* 15.4:1  AA */
+  --ink-soft:     #d6d6da;   /* 12.5:1  AA */
+  --mute:         #a8a8b2;   /*  7.7:1  AA */
+  --dim:          #93939e;   /*  5.9:1  AA */
+  --faint:        #7c7c87;   /*  4.4:1  AA large. Was 2.9:1 and failing. */
+
+  /* ── hairlines ───────────────────────────────────────────────
+     Raised roughly one third. The old alphas were tuned against
+     near-black; on a lighter canvas they disappear. */
+  --rule:         rgba(255, 255, 255, 0.11);
+  --rule-strong:  rgba(255, 255, 255, 0.20);
+  --rule-bold:    rgba(255, 255, 255, 0.34);
+  --line:         rgba(255, 255, 255, 0.12);
+  --line-soft:    rgba(255, 255, 255, 0.08);
+
+  /* ── brand and signals ───────────────────────────────────────
+     Each lifted a touch, because a lighter canvas eats saturation. */
+  --brand:        #b49dfb;   /*  7.9:1  AA */
+  --brand-soft:   rgba(180, 157, 251, 0.16);
+  --signal-green:         #34d399;   /*  9.4:1 */
+  --signal-green-bright:  #6ee7b7;
+  --signal-red:           #f87171;   /*  6.5:1 */
+  --signal-red-bright:    #fca5a5;
+  --signal-amber:         #fbbf24;   /* 10.8:1 */
+  --signal-blue:          #7cb5fb;
+  --quote-ink:            #a8a8b2;
+
+  /* ── aliases used by the older pages ─────────────────────────── */
+  --paper-light:  #1b1b20;
+  --card:         #1f1f25;
+  --ink-muted:    #d6d6da;
+  --ink-faint:    #93939e;
+  --primary:      #ededee;
+  --secondary:    #a8a8b2;
+  --accent:       #b49dfb;
+  --border:       rgba(255, 255, 255, 0.12);
+  --bg-light:     #1b1b20;
+  --background:   #16161a;
+  --foreground:   #ededee;
+  --muted:        #26262c;
+  --muted-foreground: #a8a8b2;
+  --lavender:     #202027;
+
+  /* Shadows were tuned for near-black. On a lighter canvas a pure
+     black shadow reads as a smudge, so soften and tighten them. */
+  --shadow-soft:  0 1px 2px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.28);
+  --shadow-card:  0 2px 4px rgba(0,0,0,0.32), 0 18px 36px -22px rgba(0,0,0,0.6);
+}
+
+/* The body gradient was built for a near-black page and now sits too
+   hot. Same shape, lower opacity. */
+body {
+  background:
+    radial-gradient(900px 520px at 72% -8%, rgba(180,157,251,0.07), transparent 62%),
+    radial-gradient(700px 420px at 8% 2%,  rgba(124,181,251,0.035), transparent 60%),
+    var(--paper);
+  background-attachment: fixed;
+  color: var(--ink);
+}
+
+/* Scrollbar was hardcoded to the old canvas. */
+::-webkit-scrollbar-track { background: #16161a; }
+::-webkit-scrollbar-thumb { background: #3a3a44; border: 3px solid #16161a; }
+::-webkit-scrollbar-thumb:hover { background: #4a4a56; }
+
+/* ── long-form comfort ─────────────────────────────────────────
+   Two changes that do more for reading speed than colour does.   */
+.legal p, .legal li,
+.prose p, .prose li,
+.faq-a, .wu-faq-a {
+  line-height: 1.72;          /* was 1.6 to 1.65 */
+}
+.legal, .prose { max-width: 44rem; }   /* around 72 characters */
+
+/* ═══════════════════════════════════════════════════════════════════
+   SELF-SUFFICIENCY LAYER
+
+   ── THE BUG THIS FIXES ───────────────────────────────────────────
+   Several components in the page's own inline CSS use an INK token as
+   a background:
+
+     .anti-block  { background: var(--ink); color: white; }
+     .btn-primary { background: var(--ink); color: white; }
+     .diff-side   { background: var(--ink); color: white; }
+     .nav         { background: rgba(253,253,253,0.82); }
+
+   That is correct in light mode, where --ink is near-black. It is
+   catastrophic in dark mode, where --ink is near-white: you get white
+   text on a white card.
+
+   dark-theme.css normally repoints all of these. But if dark-theme.css
+   fails to load, the token block in THIS file still turns the page
+   dark, while those component rules stay light. Result: a dark page
+   with a light nav, a white "who this is not for" card, and a white
+   "Request access" button with white text.
+
+   Reproduced exactly by renaming dark-theme.css and reloading.
+
+   ── SO: FIND OUT WHY dark-theme.css IS NOT LOADING ───────────────
+   This block stops the site looking broken. It does not fix the cause.
+   Open the page, look at the Network tab, and check for a 404 on
+   assets/dark-theme.css. The same deployment gap almost certainly
+   explains assets/whyuser-pages.css on compare.html.
+
+   Nothing here uses a colour that is wrong when dark-theme.css IS
+   present, so it is safe either way.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Never let an ink token become a background. */
+.anti-block {
+  background: linear-gradient(180deg, rgba(180,157,251,0.07), rgba(180,157,251,0.02)), var(--surface) !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(180,157,251,0.22);
+}
+.diff-side,
+.cfo-card,
+.tally-card {
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+}
+.footer {
+  background: var(--surface) !important;
+  color: var(--mute) !important;
+}
+.cta-card {
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+}
+
+/* The primary button is white-on-dark in this theme, so its label must
+   be dark. Left as light it disappears into its own background. */
+.btn-primary {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  border-color: var(--ink) !important;
+}
+.btn-primary:hover { background: #ffffff !important; color: var(--paper) !important; }
+
+/* Sticky header. The inline rule is a near-white translucent panel. */
+.nav {
+  background: rgba(22, 22, 26, 0.82) !important;
+  border-bottom: 1px solid var(--rule);
+}
+.nav-mobile { background: var(--paper) !important; }
+.nav-dd-panel { background: var(--surface) !important; }
+.nav-burger span { background: var(--ink) !important; }
+
+/* Brand-filled controls. #b49dfb with white text measured 2.29:1, which
+   fails AA. Dark text on the same violet is about 7:1. */
+.btn-brand,
+.plan-flag,
+.wu-selfrun-tag.solid {
+  color: #16161a !important;
+}
+.btn-brand:hover { background: #c4b5fd !important; color: #16161a !important; }
+
+/* The Tally embed is deliberately held on a light card, because the
+   form itself renders dark text. Keep the card light, but make sure any
+   stray text inside it is dark rather than inheriting page ink. */
+.tally-wrap { color: #16161a; }

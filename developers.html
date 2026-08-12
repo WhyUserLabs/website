@@ -10,17 +10,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T6Q5V2WZ');</script>
 <!-- End Google Tag Manager -->
-<meta name="theme-color" content="#08080b">
-<meta name="color-scheme" content="dark">
-<title>Security Policy | WhyUser</title>
-<meta name="description" content="How WhyUser protects your GTM assets: privacy-first ingestion, PII redaction in volatile memory, tenant isolation, encryption and access control.">
-<link rel="canonical" href="https://whyuser.com/security.html">
+<meta name="theme-color" content="#fdfdfd">
+<meta name="color-scheme" content="light">
+<title>Architecture, data flow and API | WhyUser for technical evaluators</title>
+<meta name="description" content="What WhyUser reads, what it never touches, where data goes, how determinism works, and the schema every run returns. Written for the technical reviewer and the security lead, before any call.">
+<link rel="canonical" href="https://whyuser.com/developers.html">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WhyUser">
-<meta property="og:title" content="Security Policy | WhyUser">
-<meta property="og:description" content="How WhyUser protects your GTM assets: privacy-first ingestion, PII redaction in volatile memory, tenant isolation, encryption and access control.">
-<meta property="og:url" content="https://whyuser.com/security.html">
+<meta property="og:title" content="Architecture, data flow and API | WhyUser">
+<meta property="og:description" content="What WhyUser reads, what it never touches, where data goes, and the schema every run returns. For technical and security review, before any call.">
+<meta property="og:url" content="https://whyuser.com/developers.html">
 <meta property="og:image" content="https://whyuser.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,28 +28,69 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:image" content="https://whyuser.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="images/whyuser-favicon.png">
-<meta name="author" content="WhyUser Inc.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<!-- Load order matters: shell layout, then components, then the dark
-     theme LAST so its token overrides win. -->
+<!-- Load order matters: shell layout, then new components, then the
+     dark theme LAST so its token overrides win. -->
 <link rel="stylesheet" href="assets/whyuser-shell.css">
 <link rel="stylesheet" href="assets/whyuser-core.css">
 <link rel="stylesheet" href="assets/dark-theme.css">
-<link rel="stylesheet" href="assets/whyuser-type-fix.css">
 <link rel="stylesheet" href="assets/whyuser-readability.css">
+<style>
+  pre.code {
+    background: var(--frame); color: var(--frame-text);
+    border: 1px solid var(--frame-rule); border-radius: 10px;
+    padding: 1.25rem; overflow-x: auto;
+    font-family: var(--mono); font-size: 12.5px; line-height: 1.65;
+    margin: 0;
+  }
+  pre.code .c { color: #71717a; }
+  pre.code .s { color: #86efac; }
+  pre.code .k { color: #c4b5fd; }
+  .flow { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 2rem; }
+  @media (min-width: 900px) { .flow { grid-template-columns: repeat(4, 1fr); } }
+  .flow-step { position: relative; padding: 0 0 1.75rem; }
+  @media (min-width: 900px) { .flow-step { padding: 0 1.5rem 0 0; } }
+  .flow-step:not(:last-child)::after {
+    content: ''; position: absolute; background: var(--rule);
+    left: 24px; top: 54px; width: 1px; height: calc(100% - 54px);
+  }
+  @media (min-width: 900px) {
+    .flow-step:not(:last-child)::after { left: 54px; top: 25px; width: calc(100% - 54px); height: 1px; }
+  }
+  .flow-ic {
+    width: 50px; height: 50px; border-radius: 13px;
+    background: var(--surface); border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--brand); font-size: 18px; position: relative; z-index: 2;
+  }
+  .flow-n { font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: 0.16em; color: var(--brand); margin: 0.9rem 0 0.35rem; }
+  .flow-h { font-size: 1rem; font-weight: 600; letter-spacing: -0.012em; margin: 0 0 0.35rem; }
+  .flow-p { color: var(--mute); font-size: 0.9rem; line-height: 1.5; margin: 0; }
+  .yn { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 780px) { .yn { grid-template-columns: 1fr 1fr; } }
+  .yn ul { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .yn li { position: relative; padding-left: 1.6rem; font-size: 0.9375rem; line-height: 1.5; color: var(--ink-soft); }
+  .yn li::before { position: absolute; left: 0; top: 1px; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 11px; }
+  .yn-yes li::before { content: '\f00c'; color: var(--signal-green); }
+  .yn-no li::before { content: '\f00d'; color: var(--signal-red); }
+</style>
+
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"WebPage","@id":"https://whyuser.com/security.html#webpage","url":"https://whyuser.com/security.html","name":"Security Policy &#124; WhyUser","description":"How WhyUser protects your GTM assets: privacy-first ingestion, PII redaction in volatile memory, tenant isolation, encryption and access control.","inLanguage":"en","isPartOf":{"@id":"https://whyuser.com/#website"},"publisher":{"@id":"https://whyuser.com/#org"},"dateModified":"2026-08-12"},
-{"@type":"WebSite","@id":"https://whyuser.com/#website","url":"https://whyuser.com/","name":"WhyUser","publisher":{"@id":"https://whyuser.com/#org"}},
-{"@type":"Organization","@id":"https://whyuser.com/#org","name":"WhyUser Inc.","url":"https://whyuser.com/","logo":"https://whyuser.com/images/whyuser-mark.png","address":{"@type":"PostalAddress","addressLocality":"San Jose","addressRegion":"CA","addressCountry":"US"}},
-{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://whyuser.com/"},{"@type":"ListItem","position":2,"name":"Security Policy","item":"https://whyuser.com/security.html"}]}
-]}
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "WhyUser architecture, data flow and API",
+  "description": "What WhyUser reads, what it never touches, where data goes, how determinism works, and the schema every run returns.",
+  "url": "https://whyuser.com/developers.html",
+  "isPartOf": { "@type": "WebSite", "name": "WhyUser", "url": "https://whyuser.com/" }
+}
 </script>
+  <link rel="stylesheet" href="assets/whyuser-type-fix.css">
 </head>
-<body>
+<body class="grain">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -354,100 +395,343 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- WHYUSER:NAV:END -->
 
 <main>
+
+<!-- ═════════════════════════════════════════════════════════════════
+     WHY THIS PAGE EXISTS
+     Finding B3 from experiment AN-90670518, severity HIGH, and the
+     only finding that snapped a handoff on its own:
+
+       "I can't find a 'Developers' or 'Docs' link in the header nav to
+        validate integrations or API docs."
+          Technical Decision Maker, Head of Revenue Operations
+
+       "I saw an Evidence Tracker/Lineage concept, but I didn't get an
+        obvious Architecture/Docs route for data-flow review."
+          Security Guardian, Director of Security
+
+     Deal breaker recorded by the run: "End User wants to proceed but
+     cannot justify it to Technical Decision Maker without Docs
+     evidence." Interest was never the issue. Verifiability was.
+     ═════════════════════════════════════════════════════════════════ -->
 <section class="page-head">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb">
-      <a href="index.html">WhyUser</a> <span aria-hidden="true">/</span> <span>Security Policy</span>
+      <a href="index.html">WhyUser</a> <span aria-hidden="true">/</span> <span>Developers</span>
     </nav>
-    <span class="section-eyebrow">Trust</span>
-    <h1 class="h1">Security Policy</h1>
-    <p class="standfirst">We process sensitive go-to-market assets and proprietary sales intelligence. This is what we do to protect them, in the detail your security reviewer will ask for.</p>
-    <div class="last-updated">Last Updated: April 18, 2026</div>
-  </div>
-</section>
-
-<section class="section-rule">
-  <div class="wrap">
-    <div class="legal">
-      <p>At WHYUSER, INC, we understand that we are processing highly sensitive Go-To-Market assets and proprietary sales intelligence. We will use commercially reasonable efforts to secure the Cloud Service from unauthorized access, alteration, or use and other unlawful tampering.</p>
-      <p>This document outlines the technical and organizational security measures we employ to protect Customer data.</p>
-      <h2>1. "Privacy-First" Ingestion Architecture</h2>
-      <p>WhyUser employs a 'Privacy-First' ingestion architecture. All unstructured data (e.g., Gong/Chorus transcripts) is programmatically redacted for Personally Identifiable Information (PII) at the ingestion layer (in volatile memory) before simulation processing occurs.</p>
-      <ul>
-      <li><strong>No Raw Storage on Disk:</strong> We do not store raw sales transcript audio or full text files on disk; these are processed in volatile memory and immediately purged following signal extraction.</li>
-      <li><strong>Data Minimization ("Extraction-Only"):</strong> WhyUser employs an 'Extraction-Only' philosophy. Our ingestion engine surgically isolates only the specific business pain points, objections, and roles required for simulation calibration. All non-essential data, including names, contact details, and unrelated conversational filler, is programmatically discarded before the data enters our Context Graph.</li>
-      </ul>
-      <h2>2. Multi-Tenancy &amp; Tenant Isolation</h2>
-      <p>WhyUser's production platform is multi-tenant. Customer data is isolated at multiple layers:</p>
-      <ul>
-      <li><strong>Storage:</strong> Each Customer is assigned a unique tenant identifier (prefix "t-"). All per-Customer data resides exclusively under that Customer's dedicated S3 prefix (e.g., <code>s3://bucket/t-{tenant_id}/</code>). Data belonging to different tenants resides under different, non-overlapping prefixes.</li>
-      <li><strong>Application:</strong> All reads, writes, and list operations are scoped by the authenticated tenant_id. No application code path supports cross-tenant reads in the ordinary course of business.</li>
-      <li><strong>Public Access:</strong> All S3 buckets have Block Public Access enabled at the account and per-bucket level. Bucket policies restrict access to authenticated service accounts only.</li>
-      </ul>
-      <h2>3. Encryption Standards</h2>
-      <p>We mandate strict encryption protocols for all data traversing our systems or residing within our infrastructure:</p>
-      <ul>
-      <li><strong>Data in Transit:</strong> All data transmitted between the Customer environment and the WhyUser platform is encrypted using industry-standard Transport Layer Security (TLS 1.2 or higher). We utilize secure API tunnels for all third-party integrations (e.g., Gong, Chorus). TLS is terminated at our Caddy edge reverse proxy; internal service-to-service traffic is confined to an internal Docker network.</li>
-      <li><strong>Data at Rest:</strong> Persistent data is encrypted at rest using AES-256 via AWS S3 Server-Side Encryption (SSE-S3). Compute instance block storage is encrypted.</li>
-      <li><strong>Key Management:</strong> Encryption keys are managed by AWS under WhyUser's AWS account. API keys and service credentials are stored in encrypted secrets storage and rotated on personnel change and on scheduled intervals.</li>
-      </ul>
-      <h2>4. Infrastructure &amp; Edge Hardening</h2>
-      <p>Our Cloud Service is hosted exclusively on Amazon Web Services (AWS) — AWS Lightsail Ubuntu compute instances and AWS S3 storage, in US-based regions only. AWS maintains SOC 2 Type II, ISO 27001, and FedRAMP certifications for its infrastructure services.</p>
-      <ul>
-      <li><strong>Network:</strong> Instance firewalls restrict inbound traffic to HTTPS/443 and administrative SSH only. Administrative SSH access requires key-based authentication; password authentication is disabled at the host level.</li>
-      <li><strong>Edge Hardening:</strong> Our edge reverse proxy applies response security headers on all responses — Strict-Transport-Security (with preload and includeSubDomains), X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, and Referrer-Policy. The reverse-proxy administrative API is disabled. The Server identity header is stripped.</li>
-      <li><strong>Service Segmentation:</strong> Only the edge reverse proxy is bound to a public network interface. Application and data-plane services are not directly reachable from outside the host.</li>
-      </ul>
-      <h2>5. Access Control</h2>
-      <ul>
-      <li><strong>Least Privilege:</strong> IAM policies for all application and human access to AWS resources follow a least-privilege model. Only authenticated service roles can access Customer data S3 prefixes.</li>
-      <li><strong>Multi-Factor Authentication:</strong> MFA is required for the AWS root account and all IAM console users, as well as for source control (GitHub) and identity provider consoles.</li>
-      <li><strong>Access Reviews:</strong> Access is reviewed on personnel change and on a scheduled cadence at least annually.</li>
-      </ul>
-      <h2>6. Subprocessor &amp; LLM Security</h2>
-      <p>WhyUser leverages industry-leading Large Language Models (LLMs) to power our simulations. We enforce the following strict boundaries with our AI subprocessors (OpenAI, Anthropic, Google):</p>
-      <ul>
-      <li><strong>Zero-Day Retention:</strong> Data processed via foundational LLM APIs is subject to zero-day retention.</li>
-      <li><strong>No Base Model Training:</strong> Data processed via API is not used for base model training.</li>
-      <li><strong>Outbound-Only Egress:</strong> LLM API calls are initiated from our processing tier only; no inbound path from LLM providers into WhyUser exists.</li>
-      </ul>
-      <h2>7. Vulnerability Management</h2>
-      <ul>
-      <li><strong>Continuous External Scanning:</strong> WhyUser uses Intruder.io for continuous automated external vulnerability scanning, integrated with Vanta for evidence automation.</li>
-      <li><strong>Dependency Scanning:</strong> GitHub Dependabot monitors open-source dependencies for known vulnerabilities in real time.</li>
-      <li><strong>Secret Scanning:</strong> Gitleaks enforces pre-commit secret detection locally and as a CI safety net on every pull request.</li>
-      <li><strong>Remediation Targets:</strong> Critical findings are addressed as soon as practicable; high-severity findings within 30 days; medium within 90 days.</li>
-      <li><strong>Manual Penetration Testing:</strong> An independent third-party manual penetration test is planned prior to General Availability.</li>
-      </ul>
-      <h2>8. Logging &amp; Monitoring</h2>
-      <ul>
-      <li><strong>Management-Plane Events:</strong> AWS CloudTrail captures management-plane (API) events for the WhyUser AWS account.</li>
-      <li><strong>Edge Access Logs:</strong> Our edge reverse proxy emits JSON-formatted access logs captured by the container log driver.</li>
-      <li><strong>Storage Access Logs:</strong> S3 server access logging is enabled on the Customer-data bucket, with a lifecycle policy retaining logs for 12 months.</li>
-      <li><strong>Vulnerability Telemetry:</strong> Intruder.io provides continuous external scan results and alerts on newly discovered vulnerabilities.</li>
-      </ul>
-      <h2>9. Incident Response &amp; Breach Notification</h2>
-      <p>WhyUser maintains a documented Incident Response Policy with four severity levels and a defined six-phase response flow (Detect → Triage → Contain → Eradicate → Recover → Post-Incident Review).</p>
-      <p>For any confirmed Personal Data Breach affecting a Customer, WhyUser will notify the affected Customer without undue delay, and in any event within 72 hours of confirming the breach. Disclosure is subject only to delays specifically required by law enforcement or legal process.</p>
-      <h2>10. Audits &amp; Compliance</h2>
-      <p>WhyUser is pre-SOC 2. Our Cloud Service is hosted exclusively on Amazon Web Services (AWS) infrastructure — Lightsail compute and S3 storage, US-based regions only — which maintains SOC 2 Type II, ISO 27001, and FedRAMP certifications. AWS's SOC 2 Type II report is available on request via AWS Artifact.</p>
-      <p>A Data Protection Addendum (DPA) is available at <a href="/dpa">whyuser.com/dpa</a>. For enterprise engagements, WhyUser offers a custom DPA in the Bonterms framework on request. WhyUser will complete your organization's standard vendor security questionnaire upon request.</p>
-      <p>Formal SOC 2 attestation will be pursued as driven by customer requirements, contractual obligations, and business stage.</p>
-      <p>For audit rights, security assessments, or to request our DPA, contact <a href="mailto:security@whyuser.com">security@whyuser.com</a>.</p>
-      <h2>11. Security Inquiries &amp; Vulnerability Reporting</h2>
-      <p>If you have questions about our security practices, or if you believe you have discovered a vulnerability in our Service, please contact our security team immediately at <a href="mailto:security@whyuser.com">security@whyuser.com</a>. We will acknowledge reports within 5 business days.</p>
+    <span class="section-eyebrow">For technical and security review</span>
+    <h1 class="h1">What we read, what we never touch, and where it goes.</h1>
+    <p class="standfirst">Written for the person your champion has to convince. <strong>You can answer all of it before you talk to us:</strong> the data flow, how long we keep things, what determinism guarantees, and the schema every run returns.</p>
+    <div class="cta-row" style="justify-content:flex-start;margin-top:1.75rem">
+      <a href="#dataflow" class="btn btn-primary btn-lg">Data flow</a>
+      <a href="#schema" class="btn btn-ghost btn-lg">Output schema</a>
+      <a href="security.html" class="btn btn-ghost btn-lg">Security &amp; DPA</a>
     </div>
   </div>
 </section>
 
+<!-- ═════ THE SHORT ANSWER ═════ -->
+<section class="section-rule">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">The short answer</span>
+      <h2 class="h2">A URL is enough. Nothing has to be installed.</h2>
+      <p>No SDK. No tag. No script on your site. No agent in your network. WhyUser reads public assets the way a browser does.</p>
+    </div>
+
+    <div class="yn">
+      <div class="card">
+        <div class="mono-label" style="color:var(--signal-green)">What WhyUser reads</div>
+        <ul class="yn-yes">
+          <li>The public URL you submit, rendered as a browser sees it</li>
+          <li>Ad creatives, subject lines and email bodies you paste in</li>
+          <li>Public buyer evidence: product reviews, community threads, competitor comparisons</li>
+          <li>Optional and opt-in, after you are a customer: call transcripts you choose to upload</li>
+          <li>Optional and opt-in: analytics access, used only to grade past predictions</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="mono-label" style="color:var(--signal-red)">What it never touches</div>
+        <ul class="yn-no">
+          <li>Anything behind your authentication</li>
+          <li>Your CRM, unless you explicitly connect it later</li>
+          <li>Your production systems, in any direction</li>
+          <li>Live visitor traffic. Nothing runs on your page</li>
+          <li>Personal data of your customers. We work from public voice, not identities</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note note-green" style="margin-top:1.75rem">
+      <strong>What this means for your review.</strong> A first run needs no integration, no data processing agreement in place, and no access grant. Your security review can run alongside the evaluation instead of blocking it. The <a href="dpa.html" style="color:var(--brand);font-weight:600">DPA</a> is readable before you send anything at all. </div>
+  </div>
+</section>
+
+<!-- ═════ DATA FLOW ═════ -->
+<section id="dataflow" class="section-rule">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Data flow</span>
+      <h2 class="h2">Four stages, in order.</h2>
+      <p>Everything crosses the boundary once, at stage one. After that the run happens inside WhyUser.</p>
+    </div>
+
+    <div class="flow">
+      <div class="flow-step">
+        <span class="flow-ic"><i class="fa-solid fa-link"></i></span>
+        <div class="flow-n">01</div>
+        <h3 class="flow-h">Ingest</h3>
+        <p class="flow-p">You submit a URL or paste an asset. We fetch it over TLS, as an anonymous visitor would. No credentials are used or stored.</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-ic"><i class="fa-solid fa-database"></i></span>
+        <div class="flow-n">02</div>
+        <h3 class="flow-h">Compile</h3>
+        <p class="flow-p">Ground Reality builds your committee from public buyer evidence. Each trait carries a fingerprint and a compile date, so you can see it predates the asset.</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-ic"><i class="fa-solid fa-users-gear"></i></span>
+        <div class="flow-n">03</div>
+        <h3 class="flow-h">Run</h3>
+        <p class="flow-p">Agents read the asset in separate passes across three declared moods. Seeds are fixed, so a run can be replayed rather than re-rolled.</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-ic"><i class="fa-solid fa-file-export"></i></span>
+        <div class="flow-n">04</div>
+        <h3 class="flow-h">Return</h3>
+        <p class="flow-p">Findings, conflict graph, ranked fixes and the full audit trail. In the app, as a standalone HTML report, or over the API.</p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:2.5rem">
+      <div class="card">
+        <div class="card-ic"><i class="fa-solid fa-earth-americas"></i></div>
+        <h3 class="h3">Where it is processed</h3>
+        <p>See the <a href="security.html" style="color:var(--brand);font-weight:600">security page</a> for regions, sub-processors and the current certification status.</p>
+        <!-- TODO · FILL IN: hosting region(s), cloud provider, and the
+             exact sub-processor list. The Security Guardian in the run
+             asked for encryption, tenant isolation, logging, vuln
+             management and incident response by name. -->
+      </div>
+      <div class="card">
+        <div class="card-ic"><i class="fa-solid fa-clock-rotate-left"></i></div>
+        <h3 class="h3">How long it is kept</h3>
+        <p>Runs are retained so the evidence ledger can grade them later. Retention windows and deletion on request are covered in the <a href="dpa.html" style="color:var(--brand);font-weight:600">DPA</a>.</p>
+        <!-- TODO · FILL IN: the actual retention window in days, and
+             whether deletion is self-serve or by request. -->
+      </div>
+      <div class="card">
+        <div class="card-ic"><i class="fa-solid fa-building-lock"></i></div>
+        <h3 class="h3">Tenant isolation</h3>
+        <p>Your compiled committee and your runs are scoped to your workspace. Enterprise supports multiple workspaces separated by business unit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ DETERMINISM ═════ -->
+<section id="determinism" class="section-rule">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Determinism</span>
+      <h2 class="h2">Same fingerprints, same buyers. Replayed, not re-generated.</h2>
+      <p>This is what separates an instrument from an opinion generator, and it is the thing your technical reviewer should press hardest on.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <p class="body" style="font-size:1.0625rem;margin-bottom:1rem">Ask a general assistant the same question twice and you get two answers. That is fine for drafting and useless for measuring. You can never tell whether a score moved because of your fix or because of the model.</p>
+        <p class="body" style="font-size:1.0625rem;margin-bottom:1rem">WhyUser fixes the seeds. A committee built on a given date carries a fingerprint. Run the same asset against the same fingerprint and the same buyers read it the same way. Change one section and only that section can move.</p>
+        <p class="body" style="font-size:1.0625rem">That is what makes a version to version comparison mean something. It is also what lets us seal a prediction before the outcome exists and grade it honestly afterwards.</p>
+      </div>
+      <div class="frame">
+        <div class="frame-bar">
+          <span class="frame-tag">Run header &middot; example</span>
+          <span class="frame-pill">Replayable</span>
+        </div>
+        <div class="frame-body">
+          <div class="frame-row"><span>experiment_id</span><span style="color:#c4b5fd">AN-90670518</span></div>
+          <div class="frame-row"><span>committee_fingerprint</span><span style="color:#c4b5fd">6f744b870006001f</span></div>
+          <div class="frame-row"><span>compiled_at</span><span style="color:#c4b5fd">2026-08-12</span></div>
+          <div class="frame-row"><span>seeds_per_role</span><span style="color:#c4b5fd">10</span></div>
+          <div class="frame-row"><span>behavioural_profiles</span><span style="color:#c4b5fd">3</span></div>
+          <div class="frame-row" style="margin-bottom:0"><span>replay</span><span class="chip-green">DETERMINISTIC</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1.75rem">
+      <strong>A test to run on us.</strong> Submit the same asset twice under the same fingerprint. The findings should match. Then submit it under a fingerprint built a month later. They should differ only where the buyer evidence changed. Any vendor claiming determinism should survive both. </div>
+  </div>
+</section>
+
+<!-- ═════ OUTPUT SCHEMA ═════ -->
+<section id="schema" class="section-rule">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Output schema</span>
+      <h2 class="h2">Every field a run returns.</h2>
+      <p>The shape below is what the interactive report renders. Nothing in the UI is computed from a summary. The report is a view over this record.</p>
+    </div>
+
+    <pre class="code"><span class="c">// A run record, abbreviated. Every finding traces to a compiled trait
+// and a verbatim line, and every fix traces to the findings it closes.</span>
+{
+  <span class="k">"experiment_id"</span>: <span class="s">"AN-90670518"</span>,
+  <span class="k">"asset"</span>: { <span class="k">"type"</span>: <span class="s">"landing_page"</span>, <span class="k">"url"</span>: <span class="s">"https://example.com/lp"</span> },
+  <span class="k">"committee"</span>: {
+    <span class="k">"fingerprint"</span>: <span class="s">"6f744b870006001f"</span>,
+    <span class="k">"compiled_at"</span>: <span class="s">"2026-08-12"</span>,
+    <span class="k">"roles"</span>: [<span class="s">"CH"</span>, <span class="s">"TD"</span>, <span class="s">"EB"</span>, <span class="s">"EU"</span>, <span class="s">"GR"</span>],
+    <span class="k">"seeds_per_role"</span>: 10,
+    <span class="k">"behavioural_profiles"</span>: [<span class="s">"distracted"</span>, <span class="s">"skeptic"</span>, <span class="s">"ideal"</span>]
+  },
+  <span class="k">"verdict"</span>: {
+    <span class="k">"driver"</span>: <span class="s">"goal_approached"</span>,
+    <span class="k">"converted"</span>: 45, <span class="k">"abandoned"</span>: 5, <span class="k">"submitted"</span>: 0
+  },
+  <span class="k">"findings"</span>: [{
+    <span class="k">"id"</span>: <span class="s">"B3"</span>,
+    <span class="k">"state"</span>: <span class="s">"broken"</span>,
+    <span class="k">"zone"</span>: <span class="s">"nav"</span>,
+    <span class="k">"severity"</span>: <span class="s">"high"</span>,
+    <span class="k">"confidence"</span>: 0.20,
+    <span class="k">"sample"</span>: 50,
+    <span class="k">"roles_reacted"</span>: [<span class="s">"GR"</span>, <span class="s">"TD"</span>],
+    <span class="k">"summary"</span>: <span class="s">"Technical validation path unclear"</span>,
+    <span class="k">"verbatim"</span>: <span class="s">"I can't find a 'Developers' or 'Docs' link..."</span>,
+    <span class="k">"compiled_trait"</span>: {
+      <span class="k">"kind"</span>: <span class="s">"evidence_need"</span>,
+      <span class="k">"fingerprint"</span>: <span class="s">"6f744b870006001f"</span>,
+      <span class="k">"predates_asset"</span>: <span class="k">true</span>
+    },
+    <span class="k">"repaired_by"</span>: [2]
+  }],
+  <span class="k">"conflict_graph"</span>: {
+    <span class="k">"edges"</span>: [
+      { <span class="k">"from"</span>: <span class="s">"EU"</span>, <span class="k">"to"</span>: <span class="s">"TD"</span>, <span class="k">"weight"</span>: 0.9,
+        <span class="k">"state"</span>: <span class="s">"snaps"</span>, <span class="k">"reason"</span>: <span class="s">"no docs evidence"</span> },
+      { <span class="k">"from"</span>: <span class="s">"CH"</span>, <span class="k">"to"</span>: <span class="s">"EB"</span>, <span class="k">"weight"</span>: 0.9,
+        <span class="k">"state"</span>: <span class="s">"snaps"</span>, <span class="k">"reason"</span>: <span class="s">"no proof evidence"</span> }
+    ],
+    <span class="k">"snapped"</span>: 2, <span class="k">"total"</span>: 7
+  },
+  <span class="k">"fixes"</span>: [{
+    <span class="k">"rank"</span>: 2,
+    <span class="k">"kind"</span>: <span class="s">"signposting"</span>,
+    <span class="k">"zone"</span>: <span class="s">"nav"</span>,
+    <span class="k">"closes"</span>: [<span class="s">"B3"</span>, <span class="s">"B2"</span>],
+    <span class="k">"unblocks"</span>: [<span class="s">"CH"</span>, <span class="s">"EB"</span>, <span class="s">"EU"</span>, <span class="s">"GR"</span>, <span class="s">"TD"</span>],
+    <span class="k">"spec"</span>: { <span class="k">"component_type"</span>: <span class="s">"nav_item_with_dropdown"</span> }
+  }]
+}</pre>
+
+    <div class="grid-3" style="margin-top:2rem">
+      <div class="card">
+        <div class="card-ic"><i class="fa-solid fa-link-slash"></i></div>
+        <h3 class="h3">No orphan claims</h3>
+        <p>Every finding carries <span style="font-family:var(--mono);font-size:12px">confidence</span> and <span style="font-family:var(--mono);font-size:12px">sample</span>. Low confidence findings come back marked low confidence, not quietly dropped.</p>
+      </div>
+      <div class="card">
+        <div class="card-ic"><i class="fa-solid fa-clock"></i></div>
+        <h3 class="h3">Traits predate the asset</h3>
+        <p><span style="font-family:var(--mono);font-size:12px">predates_asset</span> shows the trait was built before the page was opened. That is what stops a finding being reverse engineered from the page.</p>
+      </div>
+      <div class="card">
+        <div class="card-ic"><i class="fa-solid fa-arrows-turn-to-dots"></i></div>
+        <h3 class="h3">Fixes map to edges</h3>
+        <p>A fix is ranked by which snapped handoff it reconnects, not by page order. That is why the queue can be ordered at all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ API ═════ -->
+<section id="api" class="section-rule">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">API</span>
+      <h2 class="h2">Headless runs.</h2>
+      <p>Included on Scale and Enterprise. Start a run from CI, from a CMS publish hook, or from whatever owns your launch checklist.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TODO · REPLACE BEFORE PUBLISHING
+         The block below is a SCAFFOLD, not documentation. It shows the
+         shape a technical evaluator expects to see. Swap in your real
+         base URL, auth scheme, endpoint names and response codes. Do not ship this page with a placeholder endpoint. A wrong
+         endpoint is worse than the missing page we started with: it
+         converts "I couldn't find docs" into "their docs are fake",
+         which is a harder objection to recover from. Minimum viable version if the API is not ready: delete this
+         section, keep every other section on the page, and put an
+         honest one-liner here   "The API is in private preview. Ask us
+         for the spec." Technical evaluators respect a dated roadmap. They do not respect a dead link.
+         ══════════════════════════════════════════════════════════════ -->
+    <pre class="code"><span class="c"># Start a landing page run. SCAFFOLD: replace with the real endpoint</span>
+curl -X POST https://api.whyuser.com/v1/runs \
+  -H <span class="s">"Authorization: Bearer $WHYUSER_API_KEY"</span> \
+  -H <span class="s">"Content-Type: application/json"</span> \
+  -d <span class="s">'{
+    "type": "committee_simulation",
+    "asset": { "url": "https://example.com/pricing" },
+    "committee_fingerprint": "6f744b870006001f"
+  }'</span>
+
+<span class="c"># → 202 Accepted, returns experiment_id. Poll or receive a webhook.</span>
+curl https://api.whyuser.com/v1/runs/AN-90670518 \
+  -H <span class="s">"Authorization: Bearer $WHYUSER_API_KEY"</span></pre>
+
+    <div class="note note-amber" style="margin-top:1.75rem">
+      <strong>Two things to tell your reviewer up front.</strong> A run is asynchronous and takes about thirty minutes, so this belongs in a publish hook, not a blocking CI gate. And an API run costs the same credits as an in-app one: 10 for a page, 30 per ad creative. <a href="pricing.html" style="color:var(--brand);font-weight:600">Full rates are on the pricing page.</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ QUESTIONS ═════ -->
+<section class="section-rule">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Technical review</span>
+      <h2 class="h2">The questions we get asked in security review.</h2>
+    </div>
+    <div style="max-width:48rem">
+      <details class="faq-item">
+        <summary><span class="faq-num">01</span><span class="faq-q">Do we have to install anything on our site?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="faq-a"><p>No. No tag, no script, no SDK. WhyUser fetches the public URL over TLS the way an anonymous visitor would. Nothing runs on your infrastructure and nothing touches live traffic.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">02</span><span class="faq-q">Does our customer data go into a model?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="faq-a"><p>A first run needs no customer data. A public URL is enough. Call transcripts and analytics access are optional, opt-in, and come after you are a customer. Both are covered by the <a href="dpa.html" style="color:var(--brand);font-weight:600">DPA</a>, which you can read before sending us anything.</p>
+        <!-- TODO · FILL IN: state plainly whether customer content is
+             ever used for model training. This is the single most
+             common blocker in enterprise security review and the
+             answer needs to be one unambiguous sentence. --></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">03</span><span class="faq-q">Can we test a page that is not public yet?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="faq-a"><p>Yes, and that is the normal case, since the whole point is testing before launch. Staging URLs behind basic auth work. So does a pasted HTML export or a screenshot. What we cannot read is anything behind your product login.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">04</span><span class="faq-q">How do we verify the simulated buyers are not just made up?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="faq-a"><p>They are simulated and we will never claim otherwise. What you can check is the sourcing. Every finding traces to a trait with a fingerprint and a compile date that predates the asset, plus the line the agent was reading. For a harder test, run WhyUser on a campaign whose outcome you already know and grade it yourself. The <a href="accuracy.html" style="color:var(--brand);font-weight:600">accuracy page</a> shows how we score ourselves, misses included.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">05</span><span class="faq-q">What does a WhyUser outage cost us?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary>
+        <div class="faq-a"><p>Nothing in production. WhyUser sits entirely before launch and has no runtime link to your site. If we are down, your campaigns still ship. You just ship them untested, which is where you were before.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ CTA ═════ -->
 <section class="cta-section">
-  <div class="wrap" style="padding-top:4rem;padding-bottom:4rem">
+  <div class="wrap" style="padding-top:4.5rem;padding-bottom:4.5rem">
     <div class="cta-card">
-      <h2 class="cta-h">Questions your reviewer still has?</h2>
-      <p class="body" style="max-width:38rem;margin:0 auto;font-size:1.0625rem">The architecture page covers what we read, what we never touch, and where data goes. Everything is answerable before you talk to us.</p>
+      <span class="section-eyebrow" style="justify-content:center">Next</span>
+      <h2 class="cta-h">Read a real run before you talk to anyone.</h2>
+      <p class="body" style="max-width:38rem;margin:0 auto;font-size:1.0625rem">We published four full reports, including the one our own simulation produced about our own homepage. Findings, conflict graph, audit trail, and the five things it told us to fix.</p>
       <div class="cta-row">
-        <a href="developers.html" class="btn btn-primary btn-lg">Architecture &amp; data flow</a>
-        <a href="contact.html" class="btn btn-ghost btn-lg">Contact us</a>
+        <a href="sample-report.html" class="btn btn-primary btn-lg">Read the sample report</a>
+        <a href="index.html#access" class="btn btn-ghost btn-lg">Request access</a>
       </div>
     </div>
   </div>
@@ -531,7 +815,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- WHYUSER:FOOTER:END -->
 
-<!-- Nav behaviour, identical to the rest of the site. -->
+<!-- Nav behaviour, identical to the rest of the site. Without this the
+     dropdowns never open and the mobile panel renders inline as a
+     second copy of every link. -->
 <script>
     (function () {
         var burger  = document.getElementById('nav-burger');
@@ -618,6 +904,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     })();
     </script>
-
 </body>
 </html>

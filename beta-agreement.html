@@ -1,487 +1,788 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T6Q5V2WZ');</script>
-    <!-- End Google Tag Manager -->
-    <title>Beta User Agreement - WhyUser</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --background: #FAF8F5;
-            --foreground: #1A1A18;
-            --card: #FFFFFF;
-            --muted: #F0EDE8;
-            --muted-foreground: #4A4A48;
-            --accent: #4e75f9;
-            --accent-light: #8cbded;
-            --accent-hover: #5A8AC6;
-            --lavender: #F5F4F9;
-            --border: #E5E2DB;
-            --shadow: rgba(58, 58, 56, 0.08);
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--background);
-            color: var(--foreground);
-            line-height: 1.7;
-            letter-spacing: -0.01em;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(250, 248, 245, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--foreground);
-            text-decoration: none;
-            letter-spacing: -0.03em;
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--foreground);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            line-height: 1.3;
-            color: var(--foreground);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        h2 {
-            font-size: 1.75rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        p, li {
-            font-size: 1.0625rem;
-            margin-bottom: 1rem;
-            color: var(--muted-foreground);
-        }
-
-        ul {
-            padding-left: 1.5rem;
-            list-style-type: disc;
-            margin-bottom: 1.5rem;
-        }
-
-        ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-hover);
-        }
-
-        strong {
-            font-weight: 600;
-            color: var(--foreground);
-        }
-
-        .last-updated {
-            font-style: italic;
-            color: var(--muted-foreground);
-            font-size: 0.9375rem;
-            margin-bottom: 2rem;
-        }
-
-        .address-block {
-            padding: 1.25rem;
-            background: var(--muted);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            margin-top: 1.5rem;
-        }
-
-        .address-block strong {
-            color: var(--foreground);
-        }
-
-        .all-caps {
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: 1.5em;
-            margin-bottom: 1.5em;
-            color: var(--foreground);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--card);
-            border-top: 1px solid var(--border);
-            padding: 4rem 0;
-            margin-top: 5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-        }
-
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem 1rem;
-        }
-
-        .footer-links a {
-            color: var(--foreground);
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6Q5V2WZ');</script>
+<!-- End Google Tag Manager -->
+<meta name="theme-color" content="#08080b">
 <meta name="color-scheme" content="dark">
+<title>Beta User Agreement | WhyUser</title>
+<meta name="description" content="The agreement covering participation in the WhyUser design partner and beta programme.">
+<link rel="canonical" href="https://whyuser.com/beta-agreement.html">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WhyUser">
+<meta property="og:title" content="Beta User Agreement | WhyUser">
+<meta property="og:description" content="The agreement covering participation in the WhyUser design partner and beta programme.">
+<meta property="og:url" content="https://whyuser.com/beta-agreement.html">
+<meta property="og:image" content="https://whyuser.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="WhyUser: every role approved, the deal still died. Test your campaign on the whole buying committee before you spend.">
+<meta name="twitter:image" content="https://whyuser.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/whyuser-favicon.png">
+<meta name="author" content="WhyUser Inc.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<!-- Load order matters: shell layout, then components, then the dark
+     theme LAST so its token overrides win. -->
+<link rel="stylesheet" href="assets/whyuser-shell.css">
+<link rel="stylesheet" href="assets/whyuser-core.css">
 <link rel="stylesheet" href="assets/dark-theme.css">
+<link rel="stylesheet" href="assets/whyuser-type-fix.css">
+<link rel="stylesheet" href="assets/whyuser-readability.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","@id":"https://whyuser.com/beta-agreement.html#webpage","url":"https://whyuser.com/beta-agreement.html","name":"Beta User Agreement &#124; WhyUser","description":"The agreement covering participation in the WhyUser design partner and beta programme.","inLanguage":"en","isPartOf":{"@id":"https://whyuser.com/#website"},"publisher":{"@id":"https://whyuser.com/#org"},"dateModified":"2026-08-12"},
+{"@type":"WebSite","@id":"https://whyuser.com/#website","url":"https://whyuser.com/","name":"WhyUser","publisher":{"@id":"https://whyuser.com/#org"}},
+{"@type":"Organization","@id":"https://whyuser.com/#org","name":"WhyUser Inc.","url":"https://whyuser.com/","logo":"https://whyuser.com/images/whyuser-mark.png","address":{"@type":"PostalAddress","addressLocality":"San Jose","addressRegion":"CA","addressCountry":"US"}},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://whyuser.com/"},{"@type":"ListItem","position":2,"name":"Beta User Agreement","item":"https://whyuser.com/beta-agreement.html"}]}
+]}
+</script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <nav>
-        <div class="nav-content">
-            <a href="/" class="logo">WhyUser</a>
-            <div class="nav-links">
-                <a href="/#platform">Platform</a>
-                <a href="/#problem">Problem</a>
-                <a href="/legal/">Legal</a>
+<!-- WHYUSER:NAV:START -->
+<!-- ═══════════════════════════════════════════════════════════════════
+     WHYUSER GLOBAL NAV  ·  v2
+     Replaces the old site-nav block (nav.nav#site-nav) on
+     EVERY page. Paste directly after the opening body tag, before the
+     first header or main element.
+
+     WHY THIS SHAPE
+     Your own committee simulation of whyuser.com (EXP AN-90670518)
+     returned five ranked fixes. Three of them are nav fixes:
+       fix 2 — add a first-class technical/Docs entry     (closes B3, B2)
+       fix 4 — collapse to 4–6 scannable buckets          (closes B2)
+       fix 5 — surface Security and Pricing in the nav    (closes B5, B2)
+     This block closes all three. It is 5 buckets, down from the old
+     ~15 top-level links, and every label is a noun a buyer scans for.
+
+     COMPATIBILITY
+     Uses the exact class names already in your stylesheet
+     (.nav / .nav-dd / .nav-dd-trigger / .nav-dd-panel / .nav-dd-item /
+      .nav-dd-name / .nav-dd-desc / .nav-mobile / .nav-m-*).
+     Your existing nav script iterates every `.nav-dd` and reads the
+     `.nav-dd-trigger` inside it, so five dropdowns work with ZERO
+     JavaScript changes.
+
+     PATHS
+     Written for pages at the site ROOT. For pages one level down
+     (glossary/*, compare/*) prefix every href with ../ — apply-fixes.py
+     does this automatically.
+
+     OPTIONAL
+     • The "Log in" link assumes app.whyuser.com. Delete the <a> if the
+       app is not public yet — but keep the slot, because the committee
+       read repeated "Request Access" as a dead end (finding B4).
+     ═══════════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="site-nav">
+    <div class="wrap nav-inner">
+        <a href="index.html" class="nav-brand">
+            <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
+            <span>WhyUser</span>
+        </a>
+
+        <div class="nav-links">
+
+            <!-- 1 · PRODUCT ─────────────────────────────────────────
+                 Labels lead with the job people search for. The engine
+                 name moves into the description so you keep the brand
+                 vocabulary without charging admission for it. -->
+            <div class="nav-dd" id="nav-dd-product">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-product-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-product-panel" aria-haspopup="true">
+                    Product
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
+                    <span class="nav-dd-label">Test before you spend</span>
+                    <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Landing Page Testing</span>
+                            <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
+                        </span>
+                    </a>
+                    <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Ad Campaign Testing</span>
+                            <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
+                        </span>
+                    </a>
+                    <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Email Testing</span>
+                            <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                        </span>
+                    </a>
+                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Audience Research</span>
+                            <span class="nav-dd-desc">The job titles your content actually fits.</span>
+                        </span>
+                    </a>
+                    <a href="sample-report.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">See a sample report</span>
+                            <span class="nav-dd-desc">A real run, unedited. No login.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2 · PRICING ──────────────────────────────────────────
+                 First-class, per fix 5. Was previously nowhere on the
+                 site: the Economic Buyer looked for it and did not
+                 find a model. -->
+            <a href="pricing.html">Pricing</a>
+
+            <!-- 3 · WHY WHYUSER ─────────────────────────────────────
+                 Was "Proof", which is a defensive label nobody scans
+                 for. Now also carries the technical material.
+
+                 WHY THERE IS NO "DEVELOPERS" BUCKET
+                 Your own run flagged B3 at HIGH severity: the Technical
+                 Decision Maker could not find a Developers or Docs link
+                 and the End User → TDM handoff snapped. The obvious fix
+                 was a top-level Developers item.
+
+                 But the TDM is not who you sell to. The ICP is demand
+                 gen, growth marketing and heads of marketing, and a
+                 marketer scanning a five-item nav reads "Developers" as
+                 "this is a dev tool, not for me" — which costs more at
+                 the top of the funnel than it recovers deeper in.
+
+                 So the material stays, one click from the same place,
+                 under a label written for the champion who has to
+                 forward it rather than the engineer who reads it. The
+                 champion is the one doing the finding; the TDM only
+                 needs to receive the link. -->
+            <div class="nav-dd" id="nav-dd-why">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-why-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-why-panel" aria-haspopup="true">
+                    Why WhyUser
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-why-panel" role="menu" aria-labelledby="nav-dd-why-trigger">
+                    <span class="nav-dd-label">Evidence, not opinion</span>
+                    <a href="accuracy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Accuracy &amp; track record</span>
+                            <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by you.</span>
+                        </span>
+                    </a>
+                    <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">AI opinions vs. simulations</span>
+                            <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                        </span>
+                    </a>
+                    <a href="compare.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Compare</span>
+                            <span class="nav-dd-desc">Next to panels, chatbots, internal review, A/B.</span>
+                        </span>
+                    </a>
+
+                    <span class="nav-dd-label nav-dd-label-2">To forward to security or IT</span>
+                    <a href="developers.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Architecture &amp; data flow</span>
+                            <span class="nav-dd-desc">What we read, what we never touch, where it goes.</span>
+                        </span>
+                    </a>
+                    <a href="security.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Security &amp; DPA</span>
+                            <span class="nav-dd-desc">Encryption, retention, sub-processors, terms.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4 · RESOURCES ───────────────────────────────────────
+                 The old "Company" junk drawer, renamed to what it
+                 actually holds. Manifesto and Glossary keep their SEO
+                 value without taxing the main scan path. -->
+            <div class="nav-dd" id="nav-dd-res">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-res-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-res-panel" aria-haspopup="true">
+                    Resources
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
+                    <span class="nav-dd-label">Read before you buy</span>
+                    <a href="index.html#how" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-next" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">How it works</span>
+                            <span class="nav-dd-desc">URL in, committee verdict out, in 30 minutes.</span>
+                        </span>
+                    </a>
+                    <a href="faq.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">FAQ</span>
+                            <span class="nav-dd-desc">Accuracy, data, pricing, and what we will not do.</span>
+                        </span>
+                    </a>
+                    <a href="glossary/index.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Glossary</span>
+                            <span class="nav-dd-desc">Silent veto, conflict graph, scent trail.</span>
+                        </span>
+                    </a>
+                    <a href="manifesto.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Manifesto</span>
+                            <span class="nav-dd-desc">Why marketing is the last function testing live.</span>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <div class="container">
-        <div class="legal-doc">
-            <h1>WhyUser Beta User Agreement</h1>
-            <p class="last-updated">
-                <strong>Last Updated:</strong> November 14, 2025
-            </p>
-
-            <p>
-                This Beta User Agreement ("<strong>Agreement</strong>") is a binding legal agreement 
-                between you (the "<strong>Customer</strong>" or "<strong>You</strong>") and 
-                <strong>WhyUser, Inc.</strong> ("<strong>WhyUser</strong>," "<strong>we</strong>," 
-                "<strong>us</strong>," or "<strong>our</strong>").
-            </p>
-            <p>
-                By clicking "I Agree" or by accessing or using the Service (defined below), 
-                you agree to be bound by this Agreement. If you are entering into this 
-                Agreement on behalf of a company or other legal entity, you represent 
-                that you have the authority to bind such entity to this Agreement.
-            </p>
-            <p>
-                This Agreement governs your access to and use of our beta-stage B2B 
-                go-to-market simulation platform (the "<strong>Service</strong>"). This 
-                Agreement is separate from our public 
-                <a href="/legal/website-terms-of-use.html">Website Terms of Use</a>, which only 
-                governs our public-facing website.
-            </p>
-
-            <h2>1.0 The Service & Beta Access</h2>
-            <p>
-                WhyUser grants you a limited, non-exclusive, non-transferable, revocable 
-                license to access and use the Service for the sole purpose of internal 
-                business evaluation and to provide feedback to WhyUser (the "<strong>Purpose</strong>").
-            </p>
-            <p>
-                You acknowledge that the Service is a beta version and is provided 
-                on an "AS IS" and "AS AVAILABLE" basis. The Service may contain bugs, 
-                errors, and other defects. WhyUser is under no obligation to provide 
-                any technical support, or to correct any bugs or errors.
-            </p>
-
-            <h2>2.0 Your Responsibilities</h2>
-            <p>You agree that you will not:</p>
-            <ul>
-                <li>Reverse engineer, decompile, or otherwise attempt to discover the 
-                    source code or underlying ideas or algorithms of the Service.</li>
-                <li>Use the Service for any purpose other than the limited Purpose 
-                    described herein.</li>
-                <li>Share your access credentials or permit any third party to access 
-                    the Service.</li>
-                <li>Use the Service to store or transmit any material in violation of 
-                    third-party privacy or intellectual property rights.</li>
-                <li>Use the Service to build a competitive product or service.</li>
-            </ul>
-
-            <h2>3.0 Customer Data</h2>
-            
-            <h3>3.1 Your Ownership of Customer Data</h3>
-            <p>
-                As between you and WhyUser, you retain all right, title, and 
-                interest in and to all data, information, sales call transcripts, 
-                CRM data, or other materials you upload to or provide to the 
-                Service ("<strong>Customer Data</strong>").
-            </p>
-
-            <h3>3.2 Our Limited License to Your Data</h3>
-            <p>
-                You grant WhyUser a limited, non-exclusive, royalty-free, worldwide 
-                license to use, copy, store, transmit, and display your Customer Data 
-                <strong>solely to the extent necessary to provide, maintain, and 
-                improve the Service</strong> and to monitor and improve the 
-                Service's performance. We will not use your Customer Data for any 
-                other purpose without your express consent.
-            </p>
-
-            <h3>3.3 Your Responsibility for Customer Data</h3>
-            <p>
-                You represent and warrant that you have obtained all necessary rights, 
-                consents, and permissions to provide your Customer Data to WhyUser 
-                and to grant the license in Section 3.2. You are solely responsible 
-                for the accuracy, legality, and content of your Customer Data.
-            </p>
-
-            <h2>4.0 Confidentiality</h2>
-
-            <h3>4.1 WhyUser's Confidential Information</h3>
-            <p>
-                You acknowledge that the Service (including its "look and feel," 
-                features, and functionality) and any simulation reports, playbooks, 
-                or analyses generated by the Service (collectively, "<strong>Reports</strong>") 
-                are the confidential and proprietary information of WhyUser 
-                ("<strong>WhyUser Confidential Information</strong>"). You agree to hold 
-                WhyUser Confidential Information in strict confidence and not to 
-                disclose it to any third party or use it for any purpose other 
-                than the Purpose of this Agreement.
-            </p>
-
-            <h3>4.2 Customer's Confidential Information</h3>
-            <p>
-                WhyUser agrees that your Customer Data (such as your sales transcripts) 
-                is your confidential information ("<strong>Customer Confidential 
-                Information</strong>"). WhyUser will use the same degree of care that 
-                it uses to protect its own confidential information (but not less 
-                than reasonable care) to prevent any unauthorized use or disclosure 
-                of your Customer Data.
-            </p>
-            
-            <h3>4.3 Exceptions</h3>
-            <p>
-                Confidential Information does not include information that (i) is 
-                or becomes publicly known through no fault of the receiving party; 
-                (ii) was rightfully known by the receiving party prior to disclosure; 
-                or (iii) is independently developed by the receiving party without 
-                use of the disclosing party's Confidential Information.
-            </p>
-
-            <h2>5.0 Feedback</h2>
-            <p>
-                In consideration for access to the Service, you agree to provide 
-                WhyUser with feedback, suggestions, and reports on the performance 
-                and usability of the Service ("<strong>Feedback</strong>").
-            </p>
-            <p>
-                You hereby grant WhyUser a perpetual, irrevocable, worldwide, 
-                royalty-free, fully paid-up license to use, modify, and incorporate 
-                such Feedback into its products and services without any obligation 
-                of attribution or compensation to you.
-            </p>
-
-            <h2>6.0 Term and Termination</h2>
-
-            <h3>6.1 Term</h3>
-            <p>
-                This Agreement begins on the date you first accept it and continues 
-                until terminated by either party.
-            </p>
-
-            <h3>6.2 Termination</h3>
-            <p>
-                <strong>Either party may terminate this Agreement at any time, for any 
-                reason or no reason, upon written notice (email sufficient) to 
-                the other party.</strong> WhyUser may also immediately suspend or 
-                terminate your access to the Service at any time, in its sole 
-                discretion.
-            </p>
-
-            <h3>6.3 Effect of Termination</h3>
-            <p>
-                Upon termination, your license to access the Service will be 
-                immediately revoked. You must cease all use of the Service. 
-                WhyUser will have no obligation to retain or provide you with 
-                access to your Customer Data and may delete it, unless prohibited 
-                by law. Sections 3.1, 4, 5, 7, 8, and 9 shall survive termination.
-            </p>
-
-            <h2>7.0 Disclaimer of Warranties</h2>
-            <p class="all-caps">
-                THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT 
-                WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. WHYUSER 
-                DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
-                IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-                PURPOSE, AND NON-INFRINGEMENT. WHYUSER DOES NOT WARRANT THAT 
-                THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.
-            </p>
-
-            <h2>8.0 Limitation of Liability</h2>
-            <p class="all-caps">
-                TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL WHYUSER 
-                OR ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO 
-                YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR 
-                PUNITIVE DAMAGES (INCLUDING DAMAGES FOR LOST PROFITS, LOST DATA, 
-                OR GOODWILL) ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT 
-                OR YOUR USE OF THE SERVICE, WHETHER BASED ON WARRANTY, CONTRACT, 
-                TORT, OR ANY OTHER LEGAL THEORY.
-            </p>
-            <p class="all-caps">
-                IN NO EVENT SHALL WHYUSER'S TOTAL CUMULATIVE LIABILITY TO YOU 
-                FOR ANY AND ALL CLAIMS ARISING FROM THIS AGREEMENT EXCEED 
-                ONE HUNDRED DOLLARS ($100.00).
-            </p>
-
-            <h2>9.0 Governing Law and Jurisdiction</h2>
-            <p>
-                This Agreement shall be governed by and construed in accordance 
-                with the internal laws of the State of California, without regard 
-                to its conflict of law provisions.
-            </p>
-            <p>
-                Any legal suit, action, or proceeding arising out of, or related 
-                to, this Agreement or the Service shall be instituted exclusively 
-                in the federal courts of the United States or the courts of the 
-                State of California, in each case located in the County of 
-                Santa Clara.
-            </p>
-
-            <h2>10.0 General</h2>
-            
-            <h3>10.1 Entire Agreement</h3>
-            <p>
-                This Agreement, together with our 
-                <a href="/legal/privacy-policy.html">Privacy Policy</a>, constitutes the 
-                entire agreement between you and WhyUser regarding the Service 
-                and supersedes all prior agreements.
-            </p>
-            
-            <h3>10.2 Changes to this Agreement</h3>
-            <p>
-                WhyUser reserves the right to modify this Agreement at any time. 
-                If we make material changes, we will provide you with notice 
-                (e.g., by email or through the Service). Your continued use of 
-                the Service after such notice constitutes your acceptance of 
-                the changes.
-            </p>
-            
-            <h3>10.3 Contact Us</h3>
-            <p>
-                If you have any questions about this Agreement, please contact us at:
-            </p>
-            <div class="address-block">
-                <strong>WhyUser, Inc.</strong><br>
-                1468 Greene Drive<br>
-                San Jose, CA 95129<br>
-                <a href="mailto:hello@whyuser.com">hello@whyuser.com</a>
-            </div>
+        <!-- CTA ROW ─────────────────────────────────────────────────
+             Fix 1: one primary, one secondary. The old bar had "ROI"
+             and "Request Access" and the page repeated "Request Access"
+             a further four times. The committee clicked 45 of 50 times
+             and submitted zero. They did not need another ask; they
+             needed something to look at. -->
+        <div class="nav-cta-row">
+            <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
+            <a href="index.html#access" class="btn btn-primary">Request access</a>
+            <button type="button" class="nav-burger" id="nav-burger"
+                    aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <div>
-                <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1.125rem;">WhyUser</p>
-                <p style="color: var(--muted-foreground); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.7; max-width: 32rem;">
-                    A buyer simulation platform for marketing and product teams. Analyses content through real customer logic to reveal how your market interprets your story.
-                </p>
-                <p style="color: var(--muted-foreground); font-size: 0.875rem;">
-                    © 2025 WhyUser, Inc. All rights reserved.
-                </p>
+    <!-- MOBILE / TABLET ───────────────────────────────────────────── -->
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-inner">
+            <span class="nav-m-label">Product</span>
+            <a href="committee-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Landing Page Testing</span>
+                    <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
+                </span>
+            </a>
+            <a href="ad-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Ad Campaign Testing</span>
+                    <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
+                </span>
+            </a>
+            <a href="email-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Email Testing</span>
+                    <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                </span>
+            </a>
+            <a href="audience-discovery.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Audience Research</span>
+                    <span class="nav-dd-desc">The job titles your content actually fits.</span>
+                </span>
+            </a>
+            <a href="sample-report.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">See a sample report</span>
+                    <span class="nav-dd-desc">A real run, unedited. No login.</span>
+                </span>
+            </a>
+
+            <div class="nav-m-group">
+                <span class="nav-m-label">Pricing</span>
+                <a href="pricing.html" class="nav-m-link">Plans &amp; credits</a>
             </div>
-            <div class="footer-links">
-                <a href="/about.html">About</a>
-                <a href="#">Docs</a>
-                <a href="/legal/privacy-policy.html">Privacy Policy</a>
-                <a href="/legal/website-terms-of-use.html">Terms of Use</a>
-                <a href="/legal/">Legal Center</a>
-                <a href="/contact.html">Contact</a>
+
+            <div class="nav-m-group">
+                <span class="nav-m-label">Why WhyUser</span>
+                <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
+                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="compare.html" class="nav-m-link">Compare</a>
+                <a href="developers.html" class="nav-m-link">Architecture &amp; data flow</a>
+                <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
+            </div>
+
+            <div class="nav-m-group">
+                <span class="nav-m-label">Resources</span>
+                <a href="index.html#how" class="nav-m-link">How it works</a>
+                <a href="faq.html" class="nav-m-link">FAQ</a>
+                <a href="glossary/index.html" class="nav-m-link">Glossary</a>
+                <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+            </div>
+
+            <div class="nav-m-ctas">
+                <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="sample-report.html" class="btn btn-ghost btn-lg">See a sample report</a>
             </div>
         </div>
-    </footer>
+    </div>
+</nav>
+
+<!-- WHYUSER:NAV:END -->
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="index.html">WhyUser</a> <span aria-hidden="true">/</span> <span>Beta User Agreement</span>
+    </nav>
+    <span class="section-eyebrow">Legal</span>
+    <h1 class="h1">Beta User Agreement</h1>
+    <p class="standfirst">The agreement covering participation in the design partner programme.</p>
+    
+  </div>
+</section>
+
+<section class="section-rule">
+  <div class="wrap">
+    <div class="legal">
+      <nav>
+      <div class="nav-content">
+      <a href="/" class="logo">WhyUser</a>
+      <div class="nav-links">
+      <a href="/#platform">Platform</a>
+      <a href="/#problem">Problem</a>
+      <a href="/legal/">Legal</a>
+      </div>
+      </div>
+      </nav>
+      <div class="container">
+      <div class="legal-doc">
+      <p class="last-updated">
+      <strong>Last Updated:</strong> November 14, 2025
+      </p>
+      <p>
+      This Beta User Agreement ("<strong>Agreement</strong>") is a binding legal agreement
+      between you (the "<strong>Customer</strong>" or "<strong>You</strong>") and
+      <strong>WhyUser, Inc.</strong> ("<strong>WhyUser</strong>," "<strong>we</strong>,"
+      "<strong>us</strong>," or "<strong>our</strong>").
+      </p>
+      <p>
+      By clicking "I Agree" or by accessing or using the Service (defined below),
+      you agree to be bound by this Agreement. If you are entering into this
+      Agreement on behalf of a company or other legal entity, you represent
+      that you have the authority to bind such entity to this Agreement.
+      </p>
+      <p>
+      This Agreement governs your access to and use of our beta-stage B2B
+      go-to-market simulation platform (the "<strong>Service</strong>"). This
+      Agreement is separate from our public
+      <a href="/legal/website-terms-of-use.html">Website Terms of Use</a>, which only
+      governs our public-facing website.
+      </p>
+      <h2>1.0 The Service & Beta Access</h2>
+      <p>
+      WhyUser grants you a limited, non-exclusive, non-transferable, revocable
+      license to access and use the Service for the sole purpose of internal
+      business evaluation and to provide feedback to WhyUser (the "<strong>Purpose</strong>").
+      </p>
+      <p>
+      You acknowledge that the Service is a beta version and is provided
+      on an "AS IS" and "AS AVAILABLE" basis. The Service may contain bugs,
+      errors, and other defects. WhyUser is under no obligation to provide
+      any technical support, or to correct any bugs or errors.
+      </p>
+      <h2>2.0 Your Responsibilities</h2>
+      <p>You agree that you will not:</p>
+      <ul>
+      <li>Reverse engineer, decompile, or otherwise attempt to discover the
+      source code or underlying ideas or algorithms of the Service.</li>
+      <li>Use the Service for any purpose other than the limited Purpose
+      described herein.</li>
+      <li>Share your access credentials or permit any third party to access
+      the Service.</li>
+      <li>Use the Service to store or transmit any material in violation of
+      third-party privacy or intellectual property rights.</li>
+      <li>Use the Service to build a competitive product or service.</li>
+      </ul>
+      <h2>3.0 Customer Data</h2>
+      <h3>3.1 Your Ownership of Customer Data</h3>
+      <p>
+      As between you and WhyUser, you retain all right, title, and
+      interest in and to all data, information, sales call transcripts,
+      CRM data, or other materials you upload to or provide to the
+      Service ("<strong>Customer Data</strong>").
+      </p>
+      <h3>3.2 Our Limited License to Your Data</h3>
+      <p>
+      You grant WhyUser a limited, non-exclusive, royalty-free, worldwide
+      license to use, copy, store, transmit, and display your Customer Data
+      <strong>solely to the extent necessary to provide, maintain, and
+      improve the Service</strong> and to monitor and improve the
+      Service's performance. We will not use your Customer Data for any
+      other purpose without your express consent.
+      </p>
+      <h3>3.3 Your Responsibility for Customer Data</h3>
+      <p>
+      You represent and warrant that you have obtained all necessary rights,
+      consents, and permissions to provide your Customer Data to WhyUser
+      and to grant the license in Section 3.2. You are solely responsible
+      for the accuracy, legality, and content of your Customer Data.
+      </p>
+      <h2>4.0 Confidentiality</h2>
+      <h3>4.1 WhyUser's Confidential Information</h3>
+      <p>
+      You acknowledge that the Service (including its "look and feel,"
+      features, and functionality) and any simulation reports, playbooks,
+      or analyses generated by the Service (collectively, "<strong>Reports</strong>")
+      are the confidential and proprietary information of WhyUser
+      ("<strong>WhyUser Confidential Information</strong>"). You agree to hold
+      WhyUser Confidential Information in strict confidence and not to
+      disclose it to any third party or use it for any purpose other
+      than the Purpose of this Agreement.
+      </p>
+      <h3>4.2 Customer's Confidential Information</h3>
+      <p>
+      WhyUser agrees that your Customer Data (such as your sales transcripts)
+      is your confidential information ("<strong>Customer Confidential
+      Information</strong>"). WhyUser will use the same degree of care that
+      it uses to protect its own confidential information (but not less
+      than reasonable care) to prevent any unauthorized use or disclosure
+      of your Customer Data.
+      </p>
+      <h3>4.3 Exceptions</h3>
+      <p>
+      Confidential Information does not include information that (i) is
+      or becomes publicly known through no fault of the receiving party;
+      (ii) was rightfully known by the receiving party prior to disclosure;
+      or (iii) is independently developed by the receiving party without
+      use of the disclosing party's Confidential Information.
+      </p>
+      <h2>5.0 Feedback</h2>
+      <p>
+      In consideration for access to the Service, you agree to provide
+      WhyUser with feedback, suggestions, and reports on the performance
+      and usability of the Service ("<strong>Feedback</strong>").
+      </p>
+      <p>
+      You hereby grant WhyUser a perpetual, irrevocable, worldwide,
+      royalty-free, fully paid-up license to use, modify, and incorporate
+      such Feedback into its products and services without any obligation
+      of attribution or compensation to you.
+      </p>
+      <h2>6.0 Term and Termination</h2>
+      <h3>6.1 Term</h3>
+      <p>
+      This Agreement begins on the date you first accept it and continues
+      until terminated by either party.
+      </p>
+      <h3>6.2 Termination</h3>
+      <p>
+      <strong>Either party may terminate this Agreement at any time, for any
+      reason or no reason, upon written notice (email sufficient) to
+      the other party.</strong> WhyUser may also immediately suspend or
+      terminate your access to the Service at any time, in its sole
+      discretion.
+      </p>
+      <h3>6.3 Effect of Termination</h3>
+      <p>
+      Upon termination, your license to access the Service will be
+      immediately revoked. You must cease all use of the Service.
+      WhyUser will have no obligation to retain or provide you with
+      access to your Customer Data and may delete it, unless prohibited
+      by law. Sections 3.1, 4, 5, 7, 8, and 9 shall survive termination.
+      </p>
+      <h2>7.0 Disclaimer of Warranties</h2>
+      <p class="all-caps">
+      THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT
+      WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. WHYUSER
+      DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+      IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+      PURPOSE, AND NON-INFRINGEMENT. WHYUSER DOES NOT WARRANT THAT
+      THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE.
+      </p>
+      <h2>8.0 Limitation of Liability</h2>
+      <p class="all-caps">
+      TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL WHYUSER
+      OR ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO
+      YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
+      PUNITIVE DAMAGES (INCLUDING DAMAGES FOR LOST PROFITS, LOST DATA,
+      OR GOODWILL) ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT
+      OR YOUR USE OF THE SERVICE, WHETHER BASED ON WARRANTY, CONTRACT,
+      TORT, OR ANY OTHER LEGAL THEORY.
+      </p>
+      <p class="all-caps">
+      IN NO EVENT SHALL WHYUSER'S TOTAL CUMULATIVE LIABILITY TO YOU
+      FOR ANY AND ALL CLAIMS ARISING FROM THIS AGREEMENT EXCEED
+      ONE HUNDRED DOLLARS ($100.00).
+      </p>
+      <h2>9.0 Governing Law and Jurisdiction</h2>
+      <p>
+      This Agreement shall be governed by and construed in accordance
+      with the internal laws of the State of California, without regard
+      to its conflict of law provisions.
+      </p>
+      <p>
+      Any legal suit, action, or proceeding arising out of, or related
+      to, this Agreement or the Service shall be instituted exclusively
+      in the federal courts of the United States or the courts of the
+      State of California, in each case located in the County of
+      Santa Clara.
+      </p>
+      <h2>10.0 General</h2>
+      <h3>10.1 Entire Agreement</h3>
+      <p>
+      This Agreement, together with our
+      <a href="/legal/privacy-policy.html">Privacy Policy</a>, constitutes the
+      entire agreement between you and WhyUser regarding the Service
+      and supersedes all prior agreements.
+      </p>
+      <h3>10.2 Changes to this Agreement</h3>
+      <p>
+      WhyUser reserves the right to modify this Agreement at any time.
+      If we make material changes, we will provide you with notice
+      (e.g., by email or through the Service). Your continued use of
+      the Service after such notice constitutes your acceptance of
+      the changes.
+      </p>
+      <h3>10.3 Contact Us</h3>
+      <p>
+      If you have any questions about this Agreement, please contact us at:
+      </p>
+      <div class="address-block">
+      <strong>WhyUser, Inc.</strong><br>
+      1468 Greene Drive<br>
+      San Jose, CA 95129<br>
+      <a href="mailto:hello@whyuser.com">hello@whyuser.com</a>
+      </div>
+      </div>
+      </div>
+      <footer>
+      <div class="footer-content">
+      <div>
+      <p style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1.125rem;">WhyUser</p>
+      <p style="color: var(--muted-foreground); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.7; max-width: 32rem;">
+      A buyer simulation platform for marketing and product teams. Analyses content through real customer logic to reveal how your market interprets your story.
+      </p>
+      <p style="color: var(--muted-foreground); font-size: 0.875rem;">
+      © 2025 WhyUser, Inc. All rights reserved.
+      </p>
+      </div>
+      <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="#">Docs</a>
+      <a href="/legal/privacy-policy.html">Privacy Policy</a>
+      <a href="/legal/website-terms-of-use.html">Terms of Use</a>
+      <a href="/legal/">Legal Center</a>
+      <a href="/contact.html">Contact</a>
+      </div>
+      </div>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap" style="padding-top:4rem;padding-bottom:4rem">
+    <div class="cta-card">
+      <h2 class="cta-h">Questions your reviewer still has?</h2>
+      <p class="body" style="max-width:38rem;margin:0 auto;font-size:1.0625rem">The architecture page covers what we read, what we never touch, and where data goes. Everything is answerable before you talk to us.</p>
+      <div class="cta-row">
+        <a href="developers.html" class="btn btn-primary btn-lg">Architecture &amp; data flow</a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">Contact us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- WHYUSER:FOOTER:START -->
+<!-- ═══════════════════════════════════════════════════════════════════
+     WHYUSER GLOBAL FOOTER  ·  v2
+     Replaces the old site footer block (footer.footer) on every page.
+
+     WHAT CHANGED AND WHY
+     1. Numbers reconciled. The old site shipped TWO different headline
+        proof numbers: "473 claims graded, 84% accurate" on the root
+        pages and "473 claims graded, 84% accurate" in the glossary
+        footer. Two numbers for the same claim reads worse than no
+        number. Everything is now 473 / 84%.
+     2. "Engines" → "Product", with plain-language labels first.
+     3. "Proof" → "Why WhyUser". Same reason as the nav.
+     4. New Pricing and Developers columns. Your Economic Buyer and
+        Security Guardian both reached the footer looking for exactly
+        these; Security and DPA in the footer was one of only four
+        things the run marked as WORKING (finding W3). Keep it, and
+        give it company.
+     5. Sample report added. It is the artifact the committee said it
+        needed to forward internally (finding B1).
+     ═══════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-mark">
+                    <span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span>
+                    <span class="footer-brand-name">WhyUser Inc.</span>
+                </div>
+                <p class="footer-tagline">WhyUser is the pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
+            </div>
+
+            <div><h4>Product</h4><ul>
+                <li><a href="committee-simulation.html">Landing Page Testing</a></li>
+                <li><a href="ad-campaign-simulation.html">Ad Campaign Testing</a></li>
+                <li><a href="email-campaign-simulation.html">Email Testing</a></li>
+                <li><a href="audience-discovery.html">Audience Research</a></li>
+                <li><a href="sample-report.html">See a sample report</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+            </ul></div>
+
+            <div><h4>Why WhyUser</h4><ul>
+                <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
+                <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                <li><a href="compare.html">Compare WhyUser</a></li>
+                <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
+                <li><a href="glossary/index.html">Glossary</a></li>
+            </ul></div>
+
+            <div><h4>For technical review</h4><ul>
+                <li><a href="developers.html">Architecture &amp; data flow</a></li>
+                <li><a href="developers.html#api">API &amp; output schema</a></li>
+                <li><a href="developers.html#determinism">Determinism &amp; replay</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="dpa.html">DPA</a></li>
+            </ul></div>
+
+            <div><h4>Company</h4><ul>
+                <li><a href="index.html#how">How it works</a></li>
+                <li><a href="manifesto.html">Manifesto</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#access">Request access</a></li>
+            </ul></div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
+            <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
+            <span><a href="accuracy.html">473 claims graded, 84% accurate</a></span>
+        </div>
+    </div>
+</footer>
+
+<!-- WHYUSER:FOOTER:END -->
+
+<!-- Nav behaviour, identical to the rest of the site. -->
+<script>
+    (function () {
+        var burger  = document.getElementById('nav-burger');
+        var mobile  = document.getElementById('nav-mobile');
+        var dds     = [];
+        var desktop = window.matchMedia('(min-width: 1000px)');
+
+        function closeDd(dd) {
+            dd.classList.remove('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'false');
+        }
+        function closeAllDd(except) {
+            for (var i = 0; i < dds.length; i++) { if (dds[i] !== except) closeDd(dds[i]); }
+        }
+        function openDd(dd) {
+            closeAllDd(dd);
+            dd.classList.add('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'true');
+        }
+        function closeMobile() {
+            if (!mobile) return;
+            mobile.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Open menu');
+        }
+
+        if (burger && mobile) {
+            burger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = mobile.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            mobile.addEventListener('click', function (e) {
+                if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+            });
+        }
+
+        Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd) {
+            var trigger = dd.querySelector('.nav-dd-trigger');
+            if (!trigger) return;
+            dd.ddTrigger = trigger;
+            dd.ddHoverTimer = null;
+            dd.ddLastPointerOpen = 0;
+            dds.push(dd);
+
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // A hover or a touch-tap already opened it a moment ago, so a click
+                // here would close it immediately and read as broken. Leave it open.
+                if (Date.now() - dd.ddLastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(dd); } else { openDd(dd); }
+            });
+            dd.addEventListener('mouseenter', function () {
+                if (desktop.matches) {
+                    clearTimeout(dd.ddHoverTimer);
+                    dd.ddLastPointerOpen = Date.now();
+                    openDd(dd);
+                }
+            });
+            dd.addEventListener('mouseleave', function () {
+                if (desktop.matches) {
+                    dd.ddHoverTimer = setTimeout(function () { closeDd(dd); }, 160);
+                }
+            });
+            dd.addEventListener('focusout', function (e) {
+                if (!dd.contains(e.relatedTarget)) closeDd(dd);
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            for (var i = 0; i < dds.length; i++) {
+                if (!dds[i].contains(e.target)) closeDd(dds[i]);
+            }
+            if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') { closeAllDd(); closeMobile(); }
+        });
+
+        window.addEventListener('resize', function () {
+            if (desktop.matches) closeMobile();
+        });
+    })();
+    </script>
 
 </body>
 </html>

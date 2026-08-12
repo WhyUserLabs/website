@@ -104,3 +104,10 @@ Allow: /
 # Sitemaps
 # ─────────────────────────────────────────────────────────────────────
 Sitemap: https://whyuser.com/sitemap.xml
+
+# ─────────────────────────────────────────────────────────────────────
+# Plain-language index for answer engines.
+# Not a standard directive, so nothing depends on it being honoured —
+# it is a signpost, and it costs one line.
+# ─────────────────────────────────────────────────────────────────────
+# LLM-Index: https://whyuser.com/llms.txt

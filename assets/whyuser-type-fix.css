@@ -80,12 +80,15 @@
 }
 
 /* ── Trust strip ──────────────────────────────────────────────────
-   0.22em tracking on 10px uppercase is the widest setting on the
-   page, applied to the line introducing your customer logos — the
-   single element the committee flagged as weakest (finding B1). */
+   The label is now a short two-word heading ("Trusted By") centred
+   above the logos, not a long introductory line. A short heading
+   carries wider tracking comfortably, so it goes back up. */
 .trust-label {
+  margin: 0 !important;
   font-size: 11.5px !important;
-  letter-spacing: 0.10em !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-align: center !important;
 }
 .trust-aux {
   font-size: 12px !important;
@@ -185,9 +188,17 @@
 .footer-tagline { max-width: 24rem; }
 
 /* ═══════════════════════════════════════════════════════════════════
-   ACCURACY / SPEC STRIP — no panel fill
+   ACCURACY / SPEC STRIP — no panel fill, no fencing rules
+
    The strip was reading as a raised card against the dark canvas, which
-   competed with the hero above it. Rules only, no fill.
+   competed with the hero above it. Fill removed.
+
+   This file used to ADD a top and bottom rule back onto .acc-grid.
+   That line is gone. It loads after the page's own <style> block, so
+   it was overriding the removal there and the fences stayed visible.
+   The bracketing marks now live on the logo strip below instead.
+
+   The vertical dividers between the three columns are untouched.
    ═══════════════════════════════════════════════════════════════════ */
 .acc,
 .acc-grid,
@@ -197,7 +208,55 @@
   box-shadow: none !important;
 }
 .acc { border: none !important; }
-.acc-grid { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+/* Horizontal fences off. border-right is left alone on purpose, so the
+   desktop column dividers survive. */
+.acc-grid {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+.acc-cell {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LOGO STRIP — two short marks
+
+   The rules removed from the accuracy strip reappear here, shortened,
+   bracketing the customer logos. Drawn as pseudo-elements so no markup
+   changes are needed, and positioned absolutely so they never join the
+   flex row as items.
+
+   Width is the dial: 3.5rem now, the page's eyebrow dash is 24px.
+
+   Both the marks and the strip's contents sit on the page's centre
+   line. This file loads after the page's inline styles, so the
+   centring is repeated here to stay authoritative.
+   ═══════════════════════════════════════════════════════════════════ */
+.trust-strip {
+  position: relative;
+  padding: 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.trust-logos {
+  justify-content: center;
+}
+.trust-strip::before,
+.trust-strip::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3.5rem;
+  height: 1px;
+  background: var(--rule-strong);
+}
+.trust-strip::before { top: 0; }
+.trust-strip::after  { bottom: 0; }
 
 /* ═══════════════════════════════════════════════════════════════════
    HEADLINES THAT WRAPPED ONE WORD

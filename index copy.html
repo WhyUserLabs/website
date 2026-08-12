@@ -665,7 +665,7 @@
             overflow: hidden;
         }
         @media (min-width: 768px) {
-            .hero { padding: 4.5rem 0 4.5rem; }
+            .hero { padding: 5.5rem 0 4.5rem; }
         }
         .hero-grid {
             display: grid;
@@ -740,56 +740,30 @@
         /* Full-width strip under the hero grid. Keeps the left column from
            towering over the product frame, and gives the logos more room. */
         .trust-strip {
-            /* Sits below the accuracy strip. Bracketed by two short marks,
-               drawn as pseudo-elements so no extra markup is needed. They
-               are absolutely positioned, so they never join the flex row. */
-            position: relative;
-            margin-top: 2rem;
-            padding: 1.75rem 0;
+            margin-top: 4rem;
+            padding-top: 0;
             display: flex;
             flex-direction: column;
-            /* Centered on the page: the label and the logos sit on the
-               page's centre line, not flush left. */
-            align-items: center;
-            justify-content: center;
-            text-align: center;
             gap: 1rem;
         }
-        .trust-strip::before,
-        .trust-strip::after {
-            content: '';
-            position: absolute;
-            /* The two short marks are centred too, so they bracket the
-               logos instead of hanging off the left edge. */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3.5rem;
-            height: 1px;
-            background: var(--rule-strong);
-        }
-        .trust-strip::before { top: 0; }
-        .trust-strip::after  { bottom: 0; }
         @media (min-width: 768px) {
             .trust-strip {
-                /* Stays a centred column at every width. The heading sits
-                   above the logos rather than beside them. */
-                gap: 1.125rem;
-                margin-top: 2.25rem;
+                flex-direction: row;
+                align-items: center;
+                gap: 2.5rem;
             }
         }
         .trust-label {
-            margin: 0;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.24em;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--dim);
         }
         .trust-logos {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 1.75rem;
             flex-wrap: wrap;
         }
@@ -1281,39 +1255,21 @@
            ACCURACY STRIP, the evidence beat after the definition.
            Label → figure → note, borrowed from the Evidence Ledger UI.
            ───────────────────────────────────────────────────────────── */
-        /* First element after the hero grid. On mobile a plain gap; on
-           desktop the gap grows to fill whatever height is left, so the
-           three numbers land just above the fold and the notes fall below.
-           47rem ≈ the height above the numbers (CTA stack + strip chrome).
-           Floor 3.25rem so short viewports never crowd the buttons,
-           ceiling 8rem so tall monitors don't open a canyon. */
-        .acc { margin-top: 3.25rem; }
-        @media (min-width: 768px) {
-            .acc { margin-top: clamp(3.25rem, calc(100vh - 47rem), 8rem); }
-            .acc { margin-top: clamp(3.25rem, calc(100svh - 47rem), 8rem); }
-        }
-        /* Short laptop viewports (~770-800px tall) have no slack left. Trim
-           the rhythm above the numbers rather than let them get clipped. */
-        @media (min-width: 768px) and (max-height: 800px) {
-            .hero h1 { margin-bottom: 1.05rem; }
-            .hero-sub { margin-bottom: 1rem; }
-            .acc-cell { padding-top: 0.7rem; }
-            .acc-cell .mono-label { margin-bottom: 0.45rem; }
-        }
+        .acc { margin-top: 3rem; }
         .acc-grid {
             display: grid;
             grid-template-columns: 1fr;
-            /* No fencing rules. The strip is held by whitespace now; the
-               only rules in this zone are the short marks on the logo strip. */
+            border-top: 1px solid var(--rule);
         }
         .acc-cell {
             padding: 1.25rem 0;
+            border-bottom: 1px solid var(--rule);
         }
         @media (min-width: 900px) {
             .acc-grid { grid-template-columns: repeat(3, 1fr); }
             .acc-cell {
                 padding: 1.5rem 1.75rem 1.25rem;
-                /* Column dividers kept. Delete the next line to lose them. */
+                border-bottom: 0;
                 border-right: 1px solid var(--rule);
             }
             .acc-cell:first-child { padding-left: 0; }
@@ -2937,7 +2893,7 @@
 <style>
 /* ── micro-row under the spec strip ─────────────────────────────── */
 .wu-microrow{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.25rem;
-  font-size:.8125rem;color:var(--mute);margin-top:2rem;line-height:1.5}
+  font-size:.8125rem;color:var(--mute);margin-top:1.25rem;line-height:1.5}
 .wu-microrow i{font-size:11px;color:var(--dim)}
 .wu-microrow a{color:var(--ink);font-weight:600;border-bottom:1px solid rgba(9,9,11,.24)}
 .wu-microrow a:hover{color:var(--brand);border-color:var(--brand)}
@@ -3547,8 +3503,18 @@
 
             </div>
 
-            <!-- ACCURACY STRIP, the proof beat. Sits directly under the hero
-                 CTAs so the three numbers land above the fold. -->
+            <div class="trust-strip">
+                <span class="trust-label">Trusted by demand gen teams at</span>
+                <div class="trust-logos">
+                    <img src="images/ngrok-logo.svg" alt="ngrok" class="trust-logo">
+                    <span class="trust-divider"></span>
+                    <img src="images/vectara-logo.svg" alt="Vectara" class="trust-logo">
+                    <span class="trust-divider"></span>
+                    <span class="trust-aux">+ NDA design partners</span>
+                </div>
+            </div>
+
+            <!-- ACCURACY STRIP, proof beat directly under the logos -->
             <div class="acc">
                 <div class="acc-grid">
 
@@ -3567,7 +3533,7 @@
                     <div class="acc-cell">
                         <span class="mono-label">Cost per test</span>
                         <div class="acc-value">$50</div>
-                        <p class="acc-note">Per study, vs $5,000&ndash;$30,000 at a traditional firm. <a href="pricing.html" style="color:var(--brand);font-weight:600">See plans and credits &rarr;</a></p>
+                        <p class="acc-note">A landing page run is 10 credits. Annual plans from $12k. <a href="pricing.html" style="color:var(--brand);font-weight:600">See plans and credits &rarr;</a></p>
                     </div>
 
                 </div>
@@ -3579,17 +3545,20 @@
                     </a>
                 </div>
             </div>
-            <!-- TRUST LOGOS, now below the accuracy strip and below the fold -->
-            <div class="trust-strip">
-                <h2 class="trust-label">Trusted By</h2>
-                <div class="trust-logos">
-                    <img src="images/ngrok-logo.svg" alt="ngrok" class="trust-logo">
-                    <span class="trust-divider"></span>
-                    <img src="images/vectara-logo.svg" alt="Vectara" class="trust-logo">
-                    <span class="trust-divider"></span>
-                    <span class="trust-aux">+ NDA design partners</span>
-                </div>
+
+            <!-- Security + pricing micro-row · closes finding B5.
+                 Security Guardian: "Hero states what the product does...
+                 but says nothing about SOC 2, logs, or DPA up front."
+                 Economic Buyer: "I didn't get a clear pricing model or
+                 guardrails on this page." Both are one line from closed. -->
+            <div class="wu-microrow">
+                <span><i class="fa-solid fa-lock"></i> Encrypted in transit and at rest &middot; <a href="security.html">Security &amp; data handling</a></span>
+                <span class="wu-sep">&middot;</span>
+                <span><a href="dpa.html">DPA</a> available before you send a URL</span>
+                <span class="wu-sep">&middot;</span>
+                <span>No integration. A public URL is enough &middot; <a href="developers.html">architecture</a></span>
             </div>
+
         </div>
     </header>
 

@@ -420,206 +420,356 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
 </nav>
 
-<!-- WHYUSER:NAV:END --><main>
-<section class="page-head">
+<!-- WHYUSER:NAV:END --><main class="lp">
+<style>
+/* ── Evaluation checklist: landing-page layout. Scoped under .lp, with
+      colour fallbacks so it does not depend on whyuser-pages.css. ── */
+.lp{--lp-rule:var(--rule,rgba(255,255,255,.12));--lp-bold:var(--rule-bold,rgba(255,255,255,.2));
+    --lp-mute:var(--mute,#a1a1aa);--lp-brand:var(--brand,#8b7cf6);--lp-surface:var(--surface,rgba(255,255,255,.03))}
+.lp .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+.lp-hero{text-align:center;padding:3.5rem 0 2.75rem}
+.lp-crumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
+.lp-crumb a{color:inherit;text-decoration:none}
+.lp-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.04;margin:0 0 1.1rem}
+.lp-sub{font-size:1.125rem;line-height:1.55;color:var(--lp-mute);max-width:40rem;margin:0 auto 2rem}
+.lp-ctas{display:flex;flex-direction:column;gap:.7rem;align-items:center;justify-content:center}
+@media(min-width:480px){.lp-ctas{flex-direction:row}}
+
+.lp-strip{display:grid;grid-template-columns:1fr;border-top:1px solid var(--lp-rule);border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-strip{grid-template-columns:repeat(3,1fr)}}
+.lp-cell{padding:1.75rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-cell{border-bottom:0;border-right:1px solid var(--lp-rule)}.lp-cell:last-child{border-right:0}}
+.lp-cell:last-child{border-bottom:0}
+.lp-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
+.lp-v{font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:.5rem}
+.lp-cell p{margin:0;font-size:.875rem;line-height:1.5;color:var(--lp-mute)}
+
+.lp-sec{padding:3.25rem 0}
+.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
+.lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
+.lp-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin:0 0 .7rem}
+.lp-lead{font-size:1.0625rem;line-height:1.55;color:var(--lp-mute);max-width:44rem;margin:0}
+
+.lp-cards{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:700px){.lp-cards{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.lp-cards.c4{grid-template-columns:repeat(4,1fr)}.lp-cards.c3{grid-template-columns:repeat(3,1fr)}}
+.lp-card{border:1px solid var(--lp-rule);border-radius:14px;padding:1.5rem 1.6rem}
+.lp-card-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
+.lp-card h3{font-size:1.0625rem;font-weight:650;margin:0 0 .4rem;line-height:1.35}
+.lp-card p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+
+/* ── the checklist ── */
+.ck-bar{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;justify-content:space-between;
+  padding:.9rem 1.25rem;margin-bottom:1.75rem;border:1px solid var(--lp-bold);border-radius:12px;
+  background:var(--card,#141418);backdrop-filter:blur(8px)}
+.ck-count{font-family:'JetBrains Mono',monospace;font-size:.875rem;font-weight:600}
+.ck-count b{font-size:1.25rem;color:var(--lp-brand)}
+.ck-track{flex:1 1 12rem;height:5px;border-radius:99px;background:var(--lp-rule);overflow:hidden;min-width:8rem}
+.ck-fill{height:100%;width:0;background:var(--lp-brand);border-radius:99px;transition:width .25s ease}
+.ck-tools{display:flex;gap:.5rem}
+.ck-btn{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:.5rem .85rem;border-radius:8px;border:1px solid var(--lp-bold);background:transparent;color:inherit;cursor:pointer}
+.ck-btn:hover{border-color:var(--lp-brand);color:var(--lp-brand)}
+
+.ck-group{margin-bottom:2.25rem;border:1px solid var(--lp-rule);border-radius:14px;overflow:hidden}
+.ck-head{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline;padding:1.15rem 1.5rem;border-bottom:1px solid var(--lp-rule);background:var(--lp-surface)}
+.ck-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--lp-brand)}
+.ck-head h3{font-size:1.125rem;font-weight:650;margin:0}
+.ck-head p{margin:0;flex:1 1 100%;font-size:.9375rem;color:var(--lp-mute)}
+
+.ck-item{display:flex;gap:1rem;padding:1.25rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
+.ck-item:last-child{border-bottom:0}
+.ck-item input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:22px;height:22px;margin-top:2px;cursor:pointer;
+  border:1px solid var(--lp-bold);border-radius:6px;background:transparent;position:relative;transition:all .15s ease}
+.ck-item input:hover{border-color:var(--lp-brand)}
+.ck-item input:checked{background:var(--lp-brand);border-color:var(--lp-brand)}
+.ck-item input:checked::after{content:"";position:absolute;left:7px;top:3px;width:5px;height:10px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ck-item input:focus-visible{outline:2px solid var(--lp-brand);outline-offset:2px}
+.ck-body{flex:1}
+.ck-q{font-size:1rem;font-weight:600;margin:0 0 .5rem;line-height:1.4;cursor:pointer}
+.ck-q span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--lp-brand);margin-right:.5rem}
+.ck-a{margin:0;font-size:.9375rem;line-height:1.55;color:var(--lp-mute)}
+.ck-a b{color:var(--ink,#fff);font-weight:600}
+.ck-us{margin:.45rem 0 0;font-size:.875rem;line-height:1.55;color:var(--lp-mute)}
+.ck-us b{color:var(--lp-brand);font-weight:600}
+.ck-item.done .ck-q{opacity:.55}
+
+.lp-test{border:1px solid var(--lp-bold);border-radius:14px;padding:1.9rem 2rem;margin-top:2rem;background:var(--lp-surface)}
+.lp-test-row{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:760px){.lp-test-row{grid-template-columns:1fr 1fr;gap:2.5rem}}
+.lp-test h3{font-size:1rem;font-weight:650;margin:0 0 .4rem}
+.lp-test p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+
+.lp-faq{margin-top:1.75rem;border-top:1px solid var(--lp-rule)}
+.lp-q{border-bottom:1px solid var(--lp-rule);padding:1.35rem 0}
+.lp-q h3{font-size:1rem;font-weight:650;margin:0 0 .45rem}
+.lp-q p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute);max-width:48rem}
+
+.lp-more{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;padding:1.6rem 0 0;border-top:1px solid var(--lp-rule);margin-top:2.5rem}
+.lp-more span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
+.lp-more a{font-size:.9375rem;font-weight:600;color:var(--lp-brand);text-decoration:none}
+
+.wu-close{text-align:center;padding:4.5rem 0 5rem}
+.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:1.4rem}
+.wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
+.wu-close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.06;margin:0 0 1.3rem}
+.wu-close h2 .fail{color:var(--red,#f87171)} .wu-close h2 .win{color:var(--green-b,#34d399)}
+.wu-close-line{font-size:1.0625rem;line-height:1.6;color:var(--lp-mute);max-width:34rem;margin:0 auto 2.25rem}
+.wu-close-ctas{display:flex;flex-direction:column;gap:.75rem;align-items:center;justify-content:center}
+@media(min-width:480px){.wu-close-ctas{flex-direction:row}}
+
+/* ── print: the checklist, on paper, and nothing else ── */
+@media print{
+  .nav,.nav-mobile,.footer,.lp-hero .lp-ctas,.ck-bar,.wu-close,.lp-more,.no-print{display:none !important}
+  body{background:#fff !important;color:#000 !important}
+  .lp,.lp *{background:transparent !important;color:#000 !important;box-shadow:none !important}
+  .lp .wrap{max-width:none;padding:0}
+  .lp-sec{padding:.75rem 0;break-inside:auto}
+  .ck-group{break-inside:avoid;border:1px solid #999;margin-bottom:.9rem}
+  .ck-head{border-bottom:1px solid #999}
+  .ck-item{border-bottom:1px solid #ddd;padding:.6rem 1rem;break-inside:avoid}
+  .ck-item input{-webkit-appearance:checkbox;appearance:checkbox;border:1px solid #000}
+  .ck-item input:checked::after{display:none}
+  .lp-strip,.lp-cards,.lp-test,.lp-faq{display:none !important}
+  .lp-h1{font-size:22pt}
+  .ck-us{display:none}
+  a[href]::after{content:""}
+}
+</style>
+
+<section class="lp-hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="index.html">WhyUser</a> <span aria-hidden="true">/</span>
-      <span>How to evaluate a pre-launch testing method</span>
+    <nav class="lp-crumb" aria-label="Breadcrumb">
+      <a href="index.html">WhyUser</a> / How to evaluate a method
     </nav>
-    <h1 class="h1">How to evaluate a pre-launch testing method</h1>
-    <p class="standfirst">Four things a measurement has to do. Twelve questions that test them. <strong>Ask any tool, including us.</strong> Our answers are below, and we lose three rows.</p>
+    <h1 class="lp-h1">How to evaluate a<br>pre-launch testing method.</h1>
+    <p class="lp-sub">Twelve questions to ask any vendor, including us. Tick them off as you go, or print the list and take it into the call.</p>
+    <div class="lp-ctas">
+      <a href="#checklist" class="btn btn-primary btn-lg">Start the checklist</a>
+      <button type="button" class="btn btn-ghost btn-lg" id="ck-print-top">Print it</button>
+    </div>
   </div>
 </section>
 
-<section>
+<div class="wrap"><div class="lp-strip">
+  <div class="lp-cell"><span class="lp-k">Things to check</span><div class="lp-v">4</div><p>A measurement has to do four things. Anything less is an opinion with a number on it.</p></div>
+  <div class="lp-cell"><span class="lp-k">Questions to ask</span><div class="lp-v">12</div><p>Three per property. Ask them of every vendor on your list.</p></div>
+  <div class="lp-cell"><span class="lp-k">Rows we lose</span><div class="lp-v">3</div><p>Speed, writing and magnitude. Our answers are on the list too.</p></div>
+</div></div>
+
+<section class="lp-sec">
   <div class="wrap">
-    <div class="prose">
-
-    <h2>The four</h2>
-    <p>Every method on your list claims to measure something. A measurement has to do four things. Otherwise it is an opinion with a number on it.</p>
+    <span class="lp-eyebrow">The four</span>
+    <h2 class="lp-h2">Four things a measurement has to do.</h2>
+    <p class="lp-lead">Fail the first one and you cannot check the other three, because you have nothing stable to check against.</p>
+    <div class="lp-cards c4">
+      <div class="lp-card"><div class="lp-card-k">01</div><h3>Repeats</h3><p>Same page in, same answer out.</p></div>
+      <div class="lp-card"><div class="lp-card-k">02</div><h3>Shows its source</h3><p>Every quote traced to a real page.</p></div>
+      <div class="lp-card"><div class="lp-card-k">03</div><h3>Reads like your buyer</h3><p>Scans, hunts, abandons. Never patient.</p></div>
+      <div class="lp-card"><div class="lp-card-k">04</div><h3>Remembers</h3><p>Week 4 knows what week 1 did not.</p></div>
     </div>
+  </div>
+</section>
 
-    <div style="max-width:62rem">
-      <div class="eg">
-        <span class="eg-label">The four properties</span>
-        <p><strong>Repeats.</strong> Same page in, same answer out.</p>
-        <p><strong>Shows its source.</strong> Every quote traced to a real page.</p>
-        <p><strong>Reads like your buyer.</strong> Scans, hunts, abandons. Never patient.</p>
-        <p><strong>Remembers.</strong> Week 4 knows what week 1 did not.</p>
+<section class="lp-sec" id="checklist">
+  <div class="wrap">
+    <span class="lp-eyebrow">The checklist</span>
+    <h2 class="lp-h2">Twelve questions. Ask any tool, including us.</h2>
+    <p class="lp-lead">Tick each one when a vendor answers it properly. Our own answers sit underneath in purple.</p>
+
+    <div class="ck-bar no-print" role="status" aria-live="polite">
+      <div class="ck-count"><b id="ck-n">0</b> of 12 answered</div>
+      <div class="ck-track"><div class="ck-fill" id="ck-fill"></div></div>
+      <div class="ck-tools">
+        <button type="button" class="ck-btn" id="ck-print">Print</button>
+        <button type="button" class="ck-btn" id="ck-reset">Reset</button>
       </div>
     </div>
 
-    <div class="prose">
-    <p>That order matters. Fail the first one and you cannot check the other three, because you have nothing stable to check against.</p>
+    <div class="ck-group">
+      <div class="ck-head"><span class="ck-num">01</span><h3>Does it repeat?</h3>
+        <p>This decides everything, and it is the cheapest to answer.</p></div>
 
-    <h2>1. Does it repeat?</h2>
-    <p>This is the question that decides everything. It is also the cheapest to answer.</p>
+      <div class="ck-item"><input type="checkbox" id="q1" aria-labelledby="q1l"><div class="ck-body">
+        <label class="ck-q" id="q1l" for="q1"><span>Q1</span>Run the same asset twice in two fresh sessions. Do the verdicts agree?</label>
+        <p class="ck-a"><b>Good answer:</b> yes, and they will show you.</p>
+        <p class="ck-us"><b>Ours:</b> yes. A re-run replays sealed findings instead of recomputing them.</p></div></div>
 
-    <div class="eg">
-      <span class="eg-label">The four-minute test. Run it on every tool, including ours.</span>
-      <p>Open two fresh sessions with no shared history. Paste the same page into both. Ask the same question. Compare.</p>
-      <p>If they disagree about what is broken, you have an opinion generator. That is a fine thing to own. It is not a thing you can spend budget against.</p>
+      <div class="ck-item"><input type="checkbox" id="q2" aria-labelledby="q2l"><div class="ck-body">
+        <label class="ck-q" id="q2l" for="q2"><span>Q2</span>Fix one section and re-run. Does it tell you whether that fix worked?</label>
+        <p class="ck-a"><b>Good answer:</b> only the part you edited moves.</p>
+        <p class="ck-us"><b>Ours:</b> untouched findings come back identical, so the change is attributable.</p></div></div>
+
+      <div class="ck-item"><input type="checkbox" id="q3" aria-labelledby="q3l"><div class="ck-body">
+        <label class="ck-q" id="q3l" for="q3"><span>Q3</span>When the vendor upgrades their model, does last month's verdict change?</label>
+        <p class="ck-a"><b>Good answer:</b> no. Verdicts are frozen under the version that made them.</p>
+        <p class="ck-us"><b>Ours:</b> if our environment drifts we say so and hide the comparison.</p></div></div>
     </div>
 
-    <p><strong>Ask:</strong></p>
-    <ul>
-      <li><strong>Q1.</strong> Run the same asset twice in two fresh sessions. Do the verdicts agree?</li>
-      <li><strong>Q2.</strong> Fix one section and re-run. Does it tell you whether <em>that fix</em> worked? Or does it review the whole page again and hand you a new list?</li>
-      <li><strong>Q3.</strong> When the vendor upgrades their model, does last month's verdict change?</li>
-    </ul>
+    <div class="ck-group">
+      <div class="ck-head"><span class="ck-num">02</span><h3>Does it show its source?</h3>
+        <p>A made-up quote and a real quote look the same on screen.</p></div>
 
-    <p>Q2 is the one people skip. It matters most. If the tool returns a fresh read every time, you cannot separate your change from its variation. You are guessing again, which is what you were trying to stop doing.</p>
+      <div class="ck-item"><input type="checkbox" id="q4" aria-labelledby="q4l"><div class="ck-body">
+        <label class="ck-q" id="q4l" for="q4"><span>Q4</span>Can it trace any quote to a string that exists in a named document?</label>
+        <p class="ck-a"><b>Good answer:</b> on demand, for any quote you pick.</p>
+        <p class="ck-us"><b>Ours:</b> quotes are checked against the fetched page, not taken on trust.</p></div></div>
 
-    <p>Q3 catches something quieter. If a verdict is not frozen under the model that produced it, a deploy on the vendor's side can rewrite a decision you already made and defended.</p>
+      <div class="ck-item"><input type="checkbox" id="q5" aria-labelledby="q5l"><div class="ck-body">
+        <label class="ck-q" id="q5l" for="q5"><span>Q5</span>Does it tell you who wrote the evidence? A buyer, or a rival's page?</label>
+        <p class="ck-a"><b>Good answer:</b> every source carries an author class.</p>
+        <p class="ck-us"><b>Ours:</b> we learned this the hard way, then built the classifier.</p></div></div>
 
-    <div class="eg">
-      <span class="eg-label">Our answer</span>
-      <p>Yes to all three. A re-run replays sealed findings instead of recomputing them. Untouched parts of the page come back identical. Only what you edited can move. If our environment drifts, we say so on the report and hide the comparison rather than quietly serving you a different answer. <a href="developers.html#determinism">Determinism and replay &rarr;</a></p>
+      <div class="ck-item"><input type="checkbox" id="q6" aria-labelledby="q6l"><div class="ck-body">
+        <label class="ck-q" id="q6l" for="q6"><span>Q6</span>Does it flag a finding that rests on one source?</label>
+        <p class="ck-a"><b>Good answer:</b> yes, marked as such rather than quietly dropped.</p>
+        <p class="ck-us"><b>Ours:</b> low confidence comes back labelled low confidence.</p></div></div>
     </div>
 
-    <h2>2. Does it show its source?</h2>
-    <p>A made-up quote and a real quote look the same on screen. The only difference is whether anyone checked.</p>
+    <div class="ck-group">
+      <div class="ck-head"><span class="ck-num">03</span><h3>Does it read like your buyer?</h3>
+        <p>A general AI assistant is the most patient reader alive, and none of your buyers are.</p></div>
 
-    <p><strong>Ask:</strong></p>
-    <ul>
-      <li><strong>Q4.</strong> Can it trace any quote to a string that exists in a named document?</li>
-      <li><strong>Q5.</strong> Does it tell you <em>who wrote</em> the evidence? A buyer, or a rival's comparison page?</li>
-      <li><strong>Q6.</strong> Does it flag a finding that rests on one source?</li>
-    </ul>
+      <div class="ck-item"><input type="checkbox" id="q7" aria-labelledby="q7l"><div class="ck-body">
+        <label class="ck-q" id="q7l" for="q7"><span>Q7</span>What reader does it assume? One patient reader, or your channel's real mix?</label>
+        <p class="ck-a"><b>Good answer:</b> a mix, weighted to the channel you buy.</p>
+        <p class="ck-us"><b>Ours:</b> cold LinkedIn runs 82% distracted, 15% skeptical, 3% shopping.</p></div></div>
 
-    <p>Q5 is the one nobody asks. Point any research agent at a B2B category and much of what it finds was written by companies that sell against you. Comparison pages are built to be found. That is their job.</p>
+      <div class="ck-item"><input type="checkbox" id="q8" aria-labelledby="q8l"><div class="ck-body">
+        <label class="ck-q" id="q8l" for="q8"><span>Q8</span>Does it model scanning, hunting and abandoning? Or only careful reading?</label>
+        <p class="ck-a"><b>Good answer:</b> readers leave, and it can say where.</p>
+        <p class="ck-us"><b>Ours:</b> every agent scans, hunts or abandons instead of reading to the end.</p></div></div>
 
-    <p>A tool with no sense of authorship reads a competitor's landing page and a buyer review the same way. To it, both are text. So it reasons about your rival's positioning as if a customer said it.</p>
-
-    <p>You will not see an error. You will see a confident finding, well written, with a link.</p>
-
-    <div class="eg">
-      <span class="eg-label">Our answer</span>
-      <p>Yes to all three. We learned Q5 the hard way. When we first built our collection pipeline, about a quarter of the findings in our own corpus had been written by competing vendors, and the system had no way to say so. One brief was entirely competitor-authored and still carried a "community voice" label. So we built author classification. Every source now carries who wrote it, all the way into the simulation. We keep competitor pages, because your buyers read them too. We never promote them to fact. Quotes are checked against the fetched document, not taken on trust. <a href="accuracy.html">How we measure accuracy, and where we miss &rarr;</a></p>
+      <div class="ck-item"><input type="checkbox" id="q9" aria-labelledby="q9l"><div class="ck-body">
+        <label class="ck-q" id="q9l" for="q9"><span>Q9</span>Does one blocking role sink the verdict, or is everything averaged?</label>
+        <p class="ck-a"><b>Good answer:</b> committees do not average. One veto ends it.</p>
+        <p class="ck-us"><b>Ours:</b> roles combine by veto rules in code, not by blending scores.</p></div></div>
     </div>
 
-    <h2>3. Does it read like your buyer?</h2>
-    <p>A general AI assistant is the most patient reader alive, and none of your buyers are.</p>
+    <div class="ck-group">
+      <div class="ck-head"><span class="ck-num">04</span><h3>Does it remember?</h3>
+        <p>This separates a tool you use once from something you run a programme on.</p></div>
 
-    <p>It starts at the top. It reads to the bottom. It does not get bored at the fold. It does not open three competitor tabs halfway down. It does not leave because the pricing link went to a form.</p>
+      <div class="ck-item"><input type="checkbox" id="q10" aria-labelledby="q10l"><div class="ck-body">
+        <label class="ck-q" id="q10l" for="q10"><span>Q10</span>If an objection shows up this week, can it tell you it also showed up three weeks ago?</label>
+        <p class="ck-a"><b>Good answer:</b> yes, matched by meaning rather than wording.</p>
+        <p class="ck-us"><b>Ours:</b> on four weeks of real evidence, zero findings carried over until we fixed it.</p></div></div>
 
-    <p>It is the best possible reader of your page. That is the problem.</p>
+      <div class="ck-item"><input type="checkbox" id="q11" aria-labelledby="q11l"><div class="ck-body">
+        <label class="ck-q" id="q11l" for="q11"><span>Q11</span>Is there a published hit rate, and are the misses still in the denominator?</label>
+        <p class="ck-a"><b>Good answer:</b> a number you can find without asking.</p>
+        <p class="ck-us"><b>Ours:</b> 473 claims graded, 84% accurate, misses left in.</p></div></div>
 
-    <p><strong>Ask:</strong></p>
-    <ul>
-      <li><strong>Q7.</strong> What reader does it assume? One patient reader, or the mix your channel actually sends?</li>
-      <li><strong>Q8.</strong> Does it model scanning, hunting and abandoning? Or only careful reading?</li>
-      <li><strong>Q9.</strong> Does one blocking role sink the verdict, or is everything averaged?</li>
-    </ul>
-
-    <div class="eg">
-      <span class="eg-label">Cold LinkedIn traffic, by state</span>
-      <p><strong>82% distracted.</strong> Headlines only. Will not scroll.</p>
-      <p><strong>15% skeptical.</strong> Burned before. Wants proof, not adjectives.</p>
-      <p><strong>3% actively shopping.</strong> Reads properly. Forgives a weak hook.</p>
+      <div class="ck-item"><input type="checkbox" id="q12" aria-labelledby="q12l"><div class="ck-body">
+        <label class="ck-q" id="q12l" for="q12"><span>Q12</span>Are claims sealed before the outcome exists?</label>
+        <p class="ck-a"><b>Good answer:</b> yes. Grading after you know the result is not grading.</p>
+        <p class="ck-us"><b>Ours:</b> sealed before launch, then graded by your team against your own data.</p></div></div>
     </div>
-
-    <p>Those come from published benchmarks, not a hunch. They move by channel. Cold Google Search almost inverts, because someone who typed your category into a search box has already told you they are in market.</p>
-
-    <p>A tool that assumes one patient reader is measuring a group that barely exists in your paid traffic.</p>
-
-    <p>Q9 matters because averaging hides the expensive failure. Committees do not average. One role with a veto sinks a deal four other roles liked.</p>
-
-    <div class="eg">
-      <span class="eg-label">Our answer</span>
-      <p>Every role runs across all three states, weighted to the channel you are buying. Each agent scans, hunts or abandons instead of reading dutifully to the end. Roles combine by veto rules in code, not by blending scores. <a href="glossary/behavioral-state.html">Behavioural state &rarr;</a></p>
-    </div>
-
-    <h2>4. Does it remember?</h2>
-    <p>This is what separates a tool you use once from something you can run a programme on.</p>
-
-    <p><strong>Ask:</strong></p>
-    <ul>
-      <li><strong>Q10.</strong> Does week 4 know anything week 1 did not?</li>
-      <li><strong>Q11.</strong> Is there a published hit rate? Are the misses still in the denominator?</li>
-      <li><strong>Q12.</strong> Are claims sealed <em>before</em> the outcome exists?</li>
-    </ul>
-
-    <p>There is a version of Q10 that catches almost everything. Ask the vendor this:</p>
-
-    <div class="eg">
-      <span class="eg-label">The question to ask</span>
-      <p>"If a pricing objection shows up in your buyer evidence this week, can you tell me it is the same objection that showed up three weeks ago?"</p>
-    </div>
-
-    <p>Most methods cannot. The reason is structural, not careless. A language model produces text with no identity. The same idea comes back worded differently every time, from a different source, with no way to know it is the same idea.</p>
-
-    <p>We tested this on four weeks of real buyer evidence for one customer. <strong>Zero findings carried over between weeks.</strong> Not few. Zero. Yet the themes were there in nearly every week, wearing different words from different sites.</p>
-
-    <p>So a tool pointed at fresh evidence every Monday reports a different market every Monday. It is not wrong. It has no way to know it is looking at the same thing.</p>
-
-    <p>Q12 is the difference between a track record and a claim. Grading a prediction after you know the result is not grading.</p>
-
-    <div class="eg">
-      <span class="eg-label">Our answer</span>
-      <p>Findings are matched by meaning, not wording, so a signal keeps its identity across weeks even when every quote behind it is new. Buyers are not files. They are feeds. Each one re-compiles from live evidence on every run, so when your market moves they move. Claims are sealed before the campaign runs, then graded HIT or MISS by your team against your own data. Never by us. Misses stay in the denominator. <a href="accuracy.html">473 claims graded, 84% accurate &rarr;</a></p>
-    </div>
-
-    <h2>Where we lose</h2>
-    <p>A guide whose author wins every row is a brochure. Here are three we do not win.</p>
-
-    <ul>
-      <li><strong>Speed.</strong> A general AI assistant answers in seconds. We take about thirty minutes. For a gut check before lunch, use the assistant.</li>
-      <li><strong>Writing.</strong> We do not write copy and are not trying to. Drafting, cutting, twenty headline variants: that is what an assistant is genuinely great at.</li>
-      <li><strong>Magnitude.</strong> We tell you whether a call was right. We do not yet tell you by how much. A live A/B test beats us on that.</li>
-    </ul>
-
-    <h2>How to run this</h2>
-    <p>You do not need a bake-off. It is an afternoon.</p>
-
-    <ul>
-      <li><strong>Q1 costs four minutes.</strong> Two sessions, same page, compare. Do it before any vendor call.</li>
-      <li><strong>Q4 and Q5 cost one email.</strong> Ask each vendor to trace one quote and name who wrote it. The answers will not resemble each other.</li>
-      <li><strong>Q11 costs one search.</strong> Either the number is published with its misses, or it is not.</li>
-      <li><strong>For us:</strong> pick three campaigns you already ran and know the results of. Do not tell us which won. We predict the ranking. You check it.</li>
-    </ul>
-
-    <h2>Common questions</h2>
-
-    <h3>Can I use a general AI assistant to test a landing page before launch?</h3>
-    <p>For drafting and variants, yes. For a spend decision, it fails Q1. Ask it the same page twice in two fresh sessions and you get two different answers. You cannot tell whether your change worked or the model just sampled differently. It is also the most patient reader alive, which is the opposite of your traffic.</p>
-
-    <h3>What if we connect the assistant to our own data?</h3>
-    <p>You can, and it helps. Attaching evidence is the easy part now. What follows is not.</p>
-    <p>A model reads your evidence well. It cannot tell you it read the same thing last week. It cannot tell a buyer's words from a rival's marketing. And it cannot reach the evidence that decides most deals, which sits in competitor reviews and community threads. Your CRM and call recordings look inward. Everyone in them already replied to you.</p>
-
-    <h3>Why does repeating matter so much?</h3>
-    <p>Because attribution depends on it. If the answer moves on an unchanged page, it cannot tell you anything about a changed one. Every other question here assumes you have a stable reading to compare against.</p>
-
-    <h3>Is a high hit rate enough?</h3>
-    <p>No. Ask three things. Are the misses still counted? Were claims sealed before the outcome existed? Who did the grading? A rate graded by the vendor, after the fact, with failures removed, is marketing.</p>
-
-    </div>
-
-    <div class="related">
-      <a href="compare/whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser</a> &middot;
-      <a href="accuracy.html">Accuracy and track record</a> &middot;
-      <a href="glossary/behavioral-state.html">Behavioural state</a> &middot;
-      <a href="compare.html">All comparisons</a>
-    </div>
-
   </div>
 </section>
+
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Start here</span>
+    <h2 class="lp-h2">Q1 costs four minutes and nothing else.</h2>
+    <p class="lp-lead">Do it before you take a single vendor call.</p>
+    <div class="lp-test">
+      <div class="lp-test-row">
+        <div><h3>The four-minute test</h3><p>Open two fresh sessions with no shared history. Paste the same page into both and ask the same question.</p></div>
+        <div><h3>What it tells you</h3><p>If the answers disagree about what is broken, you have an opinion generator. Useful, but not something to spend budget against.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Our answers</span>
+    <h2 class="lp-h2">Three rows we do not win.</h2>
+    <p class="lp-lead">A guide whose author wins everything is a brochure.</p>
+    <div class="lp-cards c3">
+      <div class="lp-card"><div class="lp-card-k">We lose</div><h3>Speed</h3><p>An assistant answers in seconds. We take about thirty minutes.</p></div>
+      <div class="lp-card"><div class="lp-card-k">We lose</div><h3>Writing</h3><p>We do not write copy. Drafting and variants are what an assistant is great at.</p></div>
+      <div class="lp-card"><div class="lp-card-k">We lose</div><h3>Magnitude</h3><p>We tell you whether a call was right, not by how much. A live A/B test wins there.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Common questions</span>
+    <h2 class="lp-h2">Answers, briefly.</h2>
+    <div class="lp-faq">
+      <div class="lp-q"><h3>Can I use a general AI assistant to test a landing page before launch?</h3>
+        <p>For drafting and variants, yes. For a spend decision it fails Q1, because two fresh sessions give two different answers.</p></div>
+      <div class="lp-q"><h3>What if we connect the assistant to our own data?</h3>
+        <p>It helps, and attaching evidence is easy now. It still cannot tell you it read the same thing last week.</p></div>
+      <div class="lp-q"><h3>Why does repeating matter so much?</h3>
+        <p>Attribution depends on it. If the answer moves on an unchanged page, it says nothing about a changed one.</p></div>
+      <div class="lp-q"><h3>Is a high hit rate enough?</h3>
+        <p>No. Ask whether the misses are counted, whether claims were sealed first, and who did the grading.</p></div>
+    </div>
+
+    <div class="lp-more">
+      <span>Keep reading</span>
+      <a href="compare/whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser &rarr;</a>
+      <a href="accuracy.html">Accuracy and track record &rarr;</a>
+      <a href="glossary/behavioral-state.html">Behavioural state &rarr;</a>
+      <a href="compare.html">All comparisons &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="wu-close">
+  <div class="wrap">
+    <span class="wu-eyebrow">Before you spend</span>
+    <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
+    <p class="wu-close-line">Send us three campaigns you already ran and know the results of. We predict the ranking. You check it.</p>
+    <div class="wu-close-ctas">
+      <a class="btn btn-primary btn-lg" href="index.html#access">Request access &rarr;</a>
+      <a class="btn btn-ghost btn-lg" href="whyuser-vs-ai-opinions.html">See a page judged two ways</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.ck-item input[type="checkbox"]'));
+  var n = document.getElementById('ck-n');
+  var fill = document.getElementById('ck-fill');
+  if (!boxes.length) return;
+
+  function sync() {
+    var done = 0;
+    boxes.forEach(function (b) {
+      var item = b.closest('.ck-item');
+      if (b.checked) { done++; if (item) item.classList.add('done'); }
+      else if (item) { item.classList.remove('done'); }
+    });
+    if (n) n.textContent = done;
+    if (fill) fill.style.width = (done / boxes.length * 100) + '%';
+  }
+
+  boxes.forEach(function (b) { b.addEventListener('change', sync); });
+
+  var reset = document.getElementById('ck-reset');
+  if (reset) reset.addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    sync();
+  });
+
+  ['ck-print', 'ck-print-top'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('click', function () { window.print(); });
+  });
+
+  sync();
+})();
+</script>
 </main>
 
-
-
-<section class="page-cta">
-    <div class="wrap">
-        <h2>Fail in the stress test. Win in the market.</h2>
-        <p>Tell us about the next campaign you have going live. We reply within 48 hours.</p>
-        <div class="cta-row">
-            <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
-            <a href="whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
-        </div>
-    </div>
-</section>
 
 <!-- WHYUSER:FOOTER:START -->
 <!-- ═══════════════════════════════════════════════════════════════════

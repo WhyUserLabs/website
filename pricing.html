@@ -89,6 +89,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
+<style>
+/* WhyUser UI overrides. Kept per-page and self-contained so no shared
+   stylesheet has to change.
+   1. No hairline under the sticky nav; the blur already separates it.
+   2. No rule above the closing CTA; spacing and the eyebrow carry it. */
+.nav, .masthead { border-bottom: 0 !important; }
+.cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
+
+/* PRICING: full-width section dividers replaced with a short centred
+   mark, and the proof strip's horizontal fences dropped. The vertical
+   dividers between the four cells are left alone. */
+.section-rule { border-top: 0 !important; position: relative; }
+.section-rule::before {
+  content: ""; position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 56px; height: 1px; background: var(--rule);
+}
+.proofstrip { border-top: 0 !important; border-bottom: 0 !important; }
+</style>
 </head>
 <body class="grain">
 <!-- Google Tag Manager (noscript) -->
@@ -237,8 +256,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">AI opinions vs. simulations</span>
-                            <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            <span class="nav-dd-name">Claude vs WhyUser</span>
+                            <span class="nav-dd-desc">The same page, twice. Interactive, no login.</span>
                         </span>
                     </a>
                     <a href="compare.html" class="nav-dd-item" role="menuitem">
@@ -375,7 +394,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="nav-m-group">
                 <span class="nav-m-label">Why WhyUser</span>
                 <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="how-to-evaluate.html" class="nav-m-link">How to evaluate a method</a>
                 <a href="compare.html" class="nav-m-link">Compare</a>
                 <a href="developers.html" class="nav-m-link">Architecture &amp; data flow</a>
                 <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
@@ -416,6 +436,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span class="section-eyebrow">Pricing</span>
   <h1 class="h1">Every run has a price. Here it is.</h1>
   <p class="standfirst">Annual plans with a pool of credits. Spend them across landing pages, ads, emails and audience research. <strong>A page test is 10 credits, or $50 on Standard, and fields 50 agents.</strong> No quote. No call to find out the price.</p>
+  <div style="margin-top:1.75rem;max-width:46rem;border:1px solid var(--rule-bold,rgba(255,255,255,.16));border-radius:12px;padding:1.25rem 1.4rem">
+    <span class="mono-label">What a test costs elsewhere</span>
+    <p style="margin:.6rem 0 0;font-size:.95rem">A buyer panel study runs <strong>$2,000&ndash;$8,000</strong> and takes 12 hours to several weeks. A traditional message-testing engagement runs <strong>$5,000&ndash;$30,000</strong>. A WhyUser page run is <strong>$40&ndash;$50</strong> and takes about thirty minutes.</p>
+  </div>
   <div class="cta-row" style="justify-content:flex-start;margin-top:1.75rem">
   <a href="#plans" class="btn btn-primary btn-lg">See the plans</a>
   <a href="#calc" class="btn btn-ghost btn-lg">Size your own plan</a>
@@ -491,7 +515,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- SCALE -->
   <div class="plan featured">
-  <span class="plan-flag">Most teams start here</span>
+  <span class="plan-flag">Most popular</span>
   <div class="plan-name">Scale</div>
   <p class="plan-for">Several channels or product lines at once.</p>
   <div class="plan-price">$24,000<span class="plan-per"> /year</span></div>
@@ -565,7 +589,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <tr><th>Ad creative runs</th><td class="num">1</td><td class="num">3</td><td class="num">8</td></tr>
   <tr><th>Email combo runs</th><td class="num">3</td><td class="num">8</td><td class="num">20</td></tr>
   <tr><th>Audience runs per year</th><td class="num">4</td><td class="num">10</td><td class="num">24</td></tr>
-  <tr><th>Intelligence</th><td class="num">2 a month</td><td class="num">4 a month</td><td class="num">4 a month</td></tr>
+  <tr><th>Community &amp; Competitor Intelligence</th><td class="num">2 a month</td><td class="num">4 a month</td><td class="num">4 a month</td></tr>
   <tr><th>Credits used per year</th><td class="num">2,360</td><td class="num">5,180</td><td class="num">12,000</td></tr>
   <tr><th>Cost per run</th><td class="num">~$61</td><td class="num">~$59</td><td class="num col-us">~$53</td></tr>
   </tbody>
@@ -642,7 +666,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="note note-green">
   <strong>What counts as one email combo.</strong> Ten credits per subject, body and link combination, at 300 agents. Three subjects against one body and one link is three combos, so 30 credits. Three subjects against two bodies is six combos, so 60. The whole matrix is priced up front. </div>
   <div class="note note-amber">
-  <strong>Intelligence runs on a schedule you control.</strong> Twice a month on Standard, four times on Scale and Enterprise. <strong>Every plan tracks up to 5 competitors.</strong> Cadence buys freshness, not breadth. Turn the schedule off and run it by hand any time. At plan cadence it costs 240 credits a year on Standard and 480 on Scale and Enterprise. </div>
+  <strong>Community &amp; Competitor Intelligence runs on a schedule you control.</strong> Twice a month on Standard, four times on Scale and Enterprise. <strong>Every plan tracks up to 5 competitors.</strong> Cadence buys freshness, not breadth. Turn the schedule off and run it by hand any time. At plan cadence it costs 240 credits a year on Standard and 480 on Scale and Enterprise. </div>
   </div>
   </div>
 </section>
@@ -662,52 +686,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="calc-panel">
   <div class="calc-row">
   <div><div class="calc-label">Landing pages tested <span class="calc-unit">per month</span></div>
-  <div class="calc-sub">10 credits &middot; 50 agents &middot; <span class="calc-yr" id="y-lp">144</span> a year</div></div>
-  <input class="calc-input" type="number" id="i-lp" value="12" min="0" step="1" aria-label="Landing pages tested per month">
+  <div class="calc-sub">2 runs per page &middot; 20 credits per page &middot; 50 agents &middot; <span class="calc-yr" id="y-lp">144</span> runs a year</div></div>
+  <input class="calc-input" type="number" id="i-lp" value="6" min="0" step="1" aria-label="Landing pages tested per month">
   </div>
   <div class="calc-row">
   <div><div class="calc-label">Content pages tested <span class="calc-unit">per month</span></div>
-  <div class="calc-sub">Blog posts, white papers, case studies, docs &middot; 10 credits &middot; <span class="calc-yr" id="y-cp">72</span> a year</div></div>
-  <input class="calc-input" type="number" id="i-cp" value="6" min="0" step="1" aria-label="Content pages tested per month">
+  <div class="calc-sub">Blog posts, white papers, case studies, docs &middot; 2 runs per page &middot; 20 credits per page &middot; <span class="calc-yr" id="y-cp">72</span> runs a year</div></div>
+  <input class="calc-input" type="number" id="i-cp" value="3" min="0" step="1" aria-label="Content pages tested per month">
   </div>
   <div class="calc-row">
   <div><div class="calc-label">Ad creatives tested <span class="calc-unit">per month</span></div>
-  <div class="calc-sub">30 credits each &middot; 300 agents &middot; <span class="calc-yr" id="y-ad">36</span> a year</div></div>
-  <input class="calc-input" type="number" id="i-ad" value="3" min="0" step="1" aria-label="Ad creatives tested per month">
+  <div class="calc-sub">2 runs per creative &middot; 60 credits per creative &middot; 300 agents &middot; <span class="calc-yr" id="y-ad">48</span> runs a year</div></div>
+  <input class="calc-input" type="number" id="i-ad" value="2" min="0" step="1" aria-label="Ad creatives tested per month">
   </div>
   <div class="calc-row">
   <div><div class="calc-label">Email combos tested <span class="calc-unit">per month</span></div>
-  <div class="calc-sub">10 credits per subject &times; body &times; link &middot; 300 agents &middot; <span class="calc-yr" id="y-em">96</span> a year</div></div>
-  <input class="calc-input" type="number" id="i-em" value="8" min="0" step="1" aria-label="Email combos tested per month">
+  <div class="calc-sub">2 runs per combination &middot; 20 credits per combination &middot; 300 agents &middot; <span class="calc-yr" id="y-em">72</span> runs a year</div></div>
+  <input class="calc-input" type="number" id="i-em" value="3" min="0" step="1" aria-label="Email combos tested per month">
   </div>
   <div class="calc-row">
   <div><div class="calc-label">Audience Discovery runs <span class="calc-unit">per year</span></div>
   <div class="calc-sub">50 credits each &middot; asked annually because these follow planning cycles, not a monthly rhythm</div></div>
-  <input class="calc-input" type="number" id="i-au" value="10" min="0" step="1" aria-label="Audience Discovery runs per year">
+  <input class="calc-input" type="number" id="i-au" value="9" min="0" step="1" aria-label="Audience Discovery runs per year">
   </div>
   <div class="calc-row">
   <div><div class="calc-label">Community &amp; Competitor Intelligence <span class="calc-unit">per month</span></div>
-  <div class="calc-sub">10 credits &middot; plan cadence: 2 a month on Standard, 4 on Scale and Enterprise &middot; <span class="calc-yr" id="y-ci">48</span> a year</div></div>
-  <input class="calc-input" type="number" id="i-ci" value="4" min="0" step="1" aria-label="Intelligence runs per month">
+  <div class="calc-sub">10 credits &middot; plan cadence: 2 a month on Standard, 4 on Scale and Enterprise &middot; <span class="calc-yr" id="y-ci">48</span> runs a year</div></div>
+  <input class="calc-input" type="number" id="i-ci" value="4" min="0" step="1" aria-label="Community and Competitor Intelligence runs per month">
   </div>
 
   <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--rule)">
-  <p class="body" style="font-size:0.875rem;margin:0">Most rows ask for a month, because that is the number people actually know. An annual box tends to get a monthly answer. Audience Discovery is asked per year, since it follows planning cycles. Every row shows its own yearly total, so nothing is multiplied out of sight.</p>
+  <p class="body" style="font-size:0.875rem;margin:0">You enter assets, not runs. We assume each page, ad creative and email combination is tested twice, once before launch and once after the fix, because most are. Most rows ask for a month, because that is the number people actually know. An annual box tends to get a monthly answer. Audience Discovery is asked per year, since it follows planning cycles. Every row shows its own yearly total, so nothing is multiplied out of sight.</p>
   </div>
   </div>
 
   <aside class="calc-out">
   <div class="mono-label">Credits you would use</div>
-  <div class="calc-big" id="o-credits">5,180</div>
-  <p class="calc-note" id="o-runs">406 runs across the year</p>
+  <div class="calc-big" id="o-credits">5,250</div>
+  <p class="calc-note" id="o-runs">393 runs across the year, with every asset tested twice</p>
 
   <div class="calc-rec">
   <div class="mono-label">Plan that fits</div>
   <div class="calc-rec-name" id="o-plan">Scale</div>
   <div class="calc-line"><span>Annual price</span><b id="o-price">$24,000</b></div>
   <div class="calc-line"><span>Credits included</span><b id="o-inc">5,250</b></div>
-  <div class="calc-line"><span>Headroom left</span><b id="o-head">70 credits</b></div>
-  <div class="calc-line"><span>Cost per run at this volume</span><b id="o-per">$59</b></div>
+  <div class="calc-line"><span id="o-head-k">Unused credits</span><b id="o-head">0 credits</b></div>
+  <div class="calc-line"><span>Cost per run at this volume</span><b id="o-per">$61</b></div>
   </div>
 
   <p class="calc-note" id="o-msg" style="margin-top:1.25rem"></p>
@@ -749,7 +773,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="card">
   <div class="card-ic"><i class="fa-solid fa-masks-theater"></i></div>
   <h3 class="h3">Three behavioural states</h3>
-  <p>Every role runs rushed, sceptical and ideal. Your reviewers read like ideal users. Most of your traffic does not. That gap is where the silent veto lives.</p>
+  <p>Every role runs distracted, sceptical and ideal. Your reviewers read like ideal users. Most of your traffic does not. That gap is where the silent veto lives.</p>
   </div>
   <div class="card">
   <div class="card-ic"><i class="fa-solid fa-diagram-project"></i></div>
@@ -940,7 +964,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div><h4>Why WhyUser</h4><ul>
                 <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
-                <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                <li><a href="whyuser-vs-ai-opinions.html">Claude vs WhyUser</a></li>
+                <li><a href="how-to-evaluate.html">How to evaluate a method</a></li>
                 <li><a href="compare.html">Compare WhyUser</a></li>
                 <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
                 <li><a href="glossary/index.html">Glossary</a></li>
@@ -989,6 +1014,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  people answer an annual question with a monthly-sized number. */
  var PER_YEAR = { lp: 12, cp: 12, ad: 12, em: 12, au: 1, ci: 12 };
 
+ /* Runs per asset. A page, an ad creative and an email combination are
+ each tested twice: once before launch and once after the fix. The
+ inputs ask for assets, so the multiplier lives here rather than
+ asking the reader to do it in their head. */
+ var RUNS_PER = { lp: 2, cp: 2, ad: 2, em: 2, au: 1, ci: 1 };
+
  var PLANS = [
  { name: "Standard", price: 12000, credits: 2400 },
  { name: "Scale", price: 24000, credits: 5250 },
@@ -1005,6 +1036,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  price: document.getElementById("o-price"),
  inc: document.getElementById("o-inc"),
  head: document.getElementById("o-head"),
+ headK: document.getElementById("o-head-k"),
  per: document.getElementById("o-per"),
  msg: document.getElementById("o-msg")
  };
@@ -1021,7 +1053,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  var counts = {}, credits = 0, runs = 0;
  ids.forEach(function (id) {
  var entered = val(id);
- var annual = entered * PER_YEAR[id];
+ var annual = entered * PER_YEAR[id] * RUNS_PER[id];
  counts[id] = annual;
  credits += annual * RATE[id];
  runs += annual;
@@ -1050,7 +1082,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  included = included + packs * PACK.credits;
  }
 
- var headroom = included - credits;
+ /* Measure against the plan's own allowance, not the allowance after
+ packs have been bought to cover the gap. Comparing to the padded
+ number showed a large positive "headroom" at exactly the moment the
+ reader had been pushed onto a bigger plan, which reads backwards. */
+ var base = plan.credits;
+ var headroom = base - credits;
 
  out.credits.textContent = n(credits);
  out.runs.textContent = runs === 1 ? "1 run across the year"
@@ -1059,15 +1096,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  : plan.name;
  out.price.textContent = usd(total);
  out.inc.textContent = n(included);
+ if (headroom >= 0) {
+ out.headK.textContent = "Unused credits";
  out.head.textContent = n(headroom) + " credits";
+ } else {
+ out.headK.textContent = "Short of " + plan.name + " by";
+ out.head.textContent = n(-headroom) + " credits";
+ }
  out.per.textContent = runs > 0 ? usd(total / runs) : " ";
 
  var msg = "";
  if (runs === 0) {
  msg = "Put some numbers in and this will size itself.";
- } else if (headroom > included * 0.45) {
+ } else if (headroom > base * 0.45) {
  msg = "Comfortable headroom. You could add a second channel without changing plan.";
- } else if (headroom > included * 0.12) {
+ } else if (headroom > base * 0.12) {
  msg = "A sensible fit. Roughly " + Math.round(headroom / RATE.lp) +
  " spare landing page tests for the campaigns you have not planned yet.";
  } else if (packs > 0) {

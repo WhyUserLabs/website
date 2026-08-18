@@ -82,7 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "Why is temperature zero not enough for a repeatable verdict?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Attention behaviour and batching mean the same prompt can still return different text. The architectural fix is to stop letting the model decide: count runs in code, compute the verdict algebraically, and let the model write only the narrative on top of a number it did not choose."
+            "text": "Attention behaviour and batching mean the same prompt can still return different text. The fix is to stop letting the model decide. Count runs in code, compute the verdict algebraically, and let the model write only the narrative."
           }
         },
         {
@@ -90,7 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "What do in-house simulations usually get wrong first?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The behavioural mix. Splitting mindsets evenly over-represents the actively shopping buyer by more than tenfold on cold social, so simulated click rates come back around 20 to 30% when real cold LinkedIn is under 1%. The output is confident and wrong with no warning."
+            "text": "The behavioural mix. An even split over-represents the actively shopping buyer by more than tenfold on cold social. Simulated click rates come back around 20 to 30%. Real cold LinkedIn is under 1%. The output is confident and wrong with no warning."
           }
         },
         {
@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "What can an in-house build never replicate?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A record of predictions sealed before outcomes existed. It accumulates at the speed of real campaigns and cannot be backdated, so a team starting today has none, and that is exactly what gets asked for the first time the simulation contradicts a senior opinion."
+            "text": "A record of predictions sealed before outcomes existed. It accumulates at the speed of real campaigns and cannot be backdated. A team starting today has none, and that is what gets asked the first time the simulation contradicts a senior opinion."
           }
         },
         {
@@ -106,7 +106,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "When is building it yourself the right call?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "When simulation is your product, when you already have a research function that owns methodology and calibration, when your use case sits outside B2B buying committees, or when you need something the vendor does not do."
+            "text": "When simulation is your product. When you already have a research function that owns methodology. When your use case sits outside B2B buying committees. Or when you need something the vendor does not do."
           }
         }
       ]
@@ -147,6 +147,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="../assets/dark-theme.css">
   <link rel="stylesheet" href="../assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="../assets/whyuser-readability.css">
+<style>
+/* WhyUser UI overrides. Kept per-page and self-contained so no shared
+   stylesheet has to change.
+   1. No hairline under the sticky nav; the blur already separates it.
+   2. No rule above the closing CTA; spacing and the eyebrow carry it. */
+.nav, .masthead { border-bottom: 0 !important; }
+.cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
+</style>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
@@ -291,8 +299,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="../whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">AI opinions vs. simulations</span>
-                            <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            <span class="nav-dd-name">Claude vs WhyUser</span>
+                            <span class="nav-dd-desc">The same page, twice. Interactive, no login.</span>
                         </span>
                     </a>
                     <a href="../compare.html" class="nav-dd-item" role="menuitem">
@@ -429,7 +437,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-m-group">
                 <span class="nav-m-label">Why WhyUser</span>
                 <a href="../accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                <a href="../whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="../whyuser-vs-ai-opinions.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="../how-to-evaluate.html" class="nav-m-link">How to evaluate a method</a>
                 <a href="../compare.html" class="nav-m-link">Compare</a>
                 <a href="../developers.html" class="nav-m-link">Architecture &amp; data flow</a>
                 <a href="../security.html" class="nav-m-link">Security &amp; DPA</a>
@@ -453,30 +462,135 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- WHYUSER:NAV:END -->
 
-<main>
-<section class="page-head">
+<main class="lp">
+<style>
+/* ── Compare page: landing-page layout. Scoped, self-contained, with
+      colour fallbacks so it does not depend on whyuser-pages.css. ── */
+.lp{--lp-rule:var(--rule,rgba(255,255,255,.12));--lp-bold:var(--rule-bold,rgba(255,255,255,.2));
+    --lp-mute:var(--mute,#a1a1aa);--lp-brand:var(--brand,#8b7cf6);--lp-surface:var(--surface,rgba(255,255,255,.03))}
+.lp .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+.lp-hero{text-align:center;padding:3.5rem 0 2.75rem}
+.lp-crumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
+.lp-crumb a{color:inherit;text-decoration:none}
+.lp-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.04;margin:0 0 1.1rem}
+.lp-sub{font-size:1.125rem;line-height:1.55;color:var(--lp-mute);max-width:40rem;margin:0 auto 2rem}
+.lp-ctas{display:flex;flex-direction:column;gap:.7rem;align-items:center;justify-content:center}
+@media(min-width:480px){.lp-ctas{flex-direction:row}}
+
+.lp-strip{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--lp-rule);border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-strip{grid-template-columns:repeat(3,1fr)}}
+.lp-cell{padding:1.75rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-cell{border-bottom:0;border-right:1px solid var(--lp-rule)}.lp-cell:last-child{border-right:0}}
+.lp-cell:last-child{border-bottom:0}
+.lp-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
+.lp-v{font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:.5rem}
+.lp-cell p{margin:0;font-size:.875rem;line-height:1.5;color:var(--lp-mute)}
+
+.lp-sec{padding:3.25rem 0}
+.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
+.lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
+.lp-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin:0 0 .7rem}
+.lp-lead{font-size:1.0625rem;line-height:1.55;color:var(--lp-mute);max-width:44rem;margin:0}
+
+.lp-split{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:800px){.lp-split{grid-template-columns:1fr 1fr;gap:1.5rem}}
+.lp-panel{border:1px solid var(--lp-rule);border-radius:14px;padding:1.6rem 1.7rem}
+.lp-panel.us{border-color:var(--lp-bold);background:var(--lp-surface)}
+.lp-panel h3{font-size:1.0625rem;font-weight:650;margin:0 0 1rem}
+.lp-panel ul{list-style:none;margin:0;padding:0}
+.lp-panel li{position:relative;padding-left:1.4rem;margin-bottom:.7rem;font-size:.9375rem;line-height:1.5;color:var(--lp-mute)}
+.lp-panel li:last-child{margin-bottom:0}
+.lp-panel li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--lp-mute)}
+.lp-panel.us li::before{background:var(--lp-brand)}
+.lp-panel li strong{color:var(--ink,#fff);font-weight:600}
+
+.lp-cards{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:700px){.lp-cards{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.lp-cards.c3{grid-template-columns:repeat(3,1fr)}}
+.lp-card{border:1px solid var(--lp-rule);border-radius:14px;padding:1.5rem 1.6rem}
+.lp-card-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
+.lp-card h3{font-size:1.0625rem;font-weight:650;margin:0 0 .4rem;line-height:1.35}
+.lp-card p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+
+.lp-test{border:1px solid var(--lp-bold);border-radius:14px;padding:1.9rem 2rem;margin-top:2rem;background:var(--lp-surface)}
+.lp-test-row{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:760px){.lp-test-row{grid-template-columns:1fr 1fr;gap:2.5rem}}
+.lp-test h3{font-size:1rem;font-weight:650;margin:0 0 .4rem}
+.lp-test p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+
+.lp-faq{margin-top:1.75rem;border-top:1px solid var(--lp-rule)}
+.lp-q{border-bottom:1px solid var(--lp-rule);padding:1.35rem 0}
+.lp-q h3{font-size:1rem;font-weight:650;margin:0 0 .45rem}
+.lp-q p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute);max-width:48rem}
+
+.lp-more{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;padding:1.6rem 0 0;border-top:1px solid var(--lp-rule);margin-top:2.5rem}
+.lp-more span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
+.lp-more a{font-size:.9375rem;font-weight:600;color:var(--lp-brand);text-decoration:none}
+
+.wu-close{text-align:center;padding:4.5rem 0 5rem}
+.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand,#8b7cf6);margin-bottom:1.4rem}
+.wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--brand,#8b7cf6)}
+.wu-close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.06;margin:0 0 1.3rem}
+.wu-close h2 .fail{color:var(--red,#f87171)} .wu-close h2 .win{color:var(--green-b,#34d399)}
+.wu-close-line{font-size:1.0625rem;line-height:1.6;color:var(--mute,#a1a1aa);max-width:34rem;margin:0 auto 2.25rem}
+.wu-close-ctas{display:flex;flex-direction:column;gap:.75rem;align-items:center;justify-content:center}
+@media(min-width:480px){.wu-close-ctas{flex-direction:row}}
+</style>
+<section class="lp-hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">WhyUser</a> <span aria-hidden="true">/</span>
-      <a href="../compare.html">Compare</a> <span aria-hidden="true">/</span>
-      <span>Building it yourself vs. WhyUser</span>
+    <nav class="lp-crumb" aria-label="Breadcrumb">
+      <a href="../index.html">WhyUser</a> / <a href="../compare.html">Compare</a> / Building it yourself
     </nav>
-    <h1 class="h1">Building it yourself vs. WhyUser</h1>
-    <p class="standfirst">You can. The orchestration really is a weekend, and anyone telling you otherwise is selling. <strong>This page is about the other fifty-one weekends</strong>, and about the one thing that cannot be built at any budget.</p>
+    <h1 class="lp-h1">The weekend estimate is correct.</h1>
+    <p class="lp-sub">The orchestration is a weekend. Determinism, sourcing and a graded track record are not.</p>
+    <div class="lp-ctas">
+      <a href="../index.html#access" class="btn btn-primary btn-lg">Request access</a>
+      <a href="../whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
+    </div>
   </div>
 </section>
 
-<section>
+<div class="wrap"><div class="lp-strip">
+  <div class="lp-cell"><span class="lp-k">Orchestration</span><div class="lp-v">A weekend</div><p>Agents that read a page and return structured JSON.</p></div>
+  <div class="lp-cell"><span class="lp-k">What breaks</span><div class="lp-v">Month two</div><p>Verdicts move when the page did not.</p></div>
+  <div class="lp-cell"><span class="lp-k">Track record</span><div class="lp-v">Never</div><p>It accumulates at the speed of real campaigns and cannot be backdated.</p></div>
+</div></div>
+
+<section class="lp-sec">
   <div class="wrap">
-    <div class="prose">
-      
-    <h2>The weekend estimate is correct</h2>
-    <p>Someone on your team has said this. They are right, and they are usually the most capable engineer in the room.</p>
-    <p>In a weekend you can have agents that read a landing page, personas that hold different briefs, structured JSON coming back, and a report that reads well. It will demo beautifully.</p>
-    <p>The estimate is honest. It is just an estimate of version one, and version one is not the part that costs.</p>
+    <span class="lp-eyebrow">The honest part</span>
+    <h2 class="lp-h2">You probably can build it.</h2>
+    <p class="lp-lead">Five role prompts, a loop, a scoring pass, a report template. It will look like our output by Sunday night.</p>
+    <div class="lp-split">
+      <div class="lp-panel">
+        <h3>A weekend gets you</h3>
+        <ul>
+        <li><strong>Agents</strong> that read a landing page.</li>
+        <li><strong>Personas</strong> holding different briefs.</li>
+        <li><strong>Structured JSON</strong> coming back.</li>
+        <li><strong>A report</strong> that reads well.</li>
+        </ul>
+      </div>
+      <div class="lp-panel us">
+        <h3>A weekend does not get you</h3>
+        <ul>
+        <li><strong>A seal store,</strong> so an untouched finding replays instead of being recomputed.</li>
+        <li><strong>A verifier,</strong> proving each quote exists in the page it cites.</li>
+        <li><strong>Author classification,</strong> so a rival&rsquo;s page is never read as a buyer&rsquo;s words.</li>
+        <li><strong>A graded record,</strong> sealed before outcomes exist.</li>
+        </ul>
+      </div>
     </div>
-    <div style="max-width:62rem">
-    <div class="cmp-wrap">
+  </div>
+</section>
+
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Side by side</span>
+    <h2 class="lp-h2">What you own on Monday, and what you owe by month two.</h2>
+    <div style="margin-top:2rem">
+<div class="cmp-wrap">
       <table class="cmp">
         <thead><tr><th></th><th>Build it yourself</th><th class="col-us">WhyUser</th></tr></thead>
         <tbody>
@@ -497,80 +611,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </table>
     </div>
     </div>
-    <div class="prose">
-      
-    <h2>1. What breaks in month two</h2>
-    <p>Three things, in the order teams hit them.</p>
-    <p><strong>Determinism.</strong> The obvious fix is temperature zero. It is not enough. Attention behaviour and batching mean the same prompt can still return different text, so your verdict moves when your page did not, and you can never tell your edit from the model. The fix is architectural: stop letting the model decide. Count the runs in code, compute the verdict algebraically, and let the model write only the narrative on top of a number it did not choose. That is a rebuild, not a patch.</p>
-    <p><strong>Calibration.</strong> You will run each persona in a few mindsets and split them evenly, because that is the obvious choice. Even splits over-represent the buyer who is actively shopping by more than tenfold on cold social, and simulated click rates come back in the 20 to 30% range. Real cold LinkedIn is under 1%. The output is confident and wrong, and nothing in it warns you. Getting this right means deriving weights from published benchmarks per channel, then re-deriving them when a partner measures something different. See <a href="../glossary/behavioral-state.html">behavioural state</a>.</p>
-    <p><strong>The committee layer.</strong> Almost every in-house build stops at per-role output: five verdicts, blended into a score. That misses the failure that matters, because it lives between roles rather than inside one. See section 3.</p>
+  </div>
+</section>
 
-    <h2>2. What cannot be built at all</h2>
-    <p>Everything above is engineering. Hard, but yours if you want it.</p>
-    <p>This one is not. <strong>A record of predictions sealed before the outcome existed accumulates at the speed of real campaigns and no other speed.</strong> A team starting today has zero. In twelve months they have twelve months. There is no way to buy back time, and no amount of talent shortens it.</p>
-    <p>That matters for one practical reason. The first time your in-house simulation says the hero is broken and a VP disagrees, someone will ask how often it has been right. "We built it in-house and it feels solid" is not an answer that survives that room. See <a href="../glossary/evidence-ledger.html">evidence ledger</a>.</p>
-
-    <h2>3. The failure an in-house build almost never catches</h2>
-    <p>Five roles read the page. Five roles approve. The blended score looks healthy, and the build works exactly as designed.</p>
-    <div class="eg">
-      <span class="eg-label">Convinced, and still dead</span>
-      <p>The champion picked up nothing that answers what the economic buyer needs.</p>
-      <p>Every path into that buyer is stalled. The deal cannot move, and no per-role output shows it, because no individual role failed.</p>
-      <p><strong>Verdict: cannot recommend.</strong></p>
-    </div>
-    <p>Catching this means modelling the handoff as a graph and scoring the edges: does the evidence one role collected intersect what the next role vetoes on? That is a different piece of software from the one your weekend produced. See <a href="../glossary/conflict-graph.html">conflict graph</a>.</p>
-
-    <h2>4. About the person proposing it</h2>
-    <p>Usually your best engineer, and their instinct is sound. Worth noticing two things anyway.</p>
-    <p>The estimate is for the demo, not the instrument. Nobody scopes calibration drift, determinism, or a graded record, because those problems are invisible until you are inside them.</p>
-    <p>And in your own deal, that person is the technical decision maker. If they say "we could build this," the deal stalls and no objection is ever recorded. That is a <a href="../glossary/silent-veto.html">silent veto</a>, cast inside your own company. Worth surfacing rather than routing around.</p>
-
-    <h2>When you genuinely should build it</h2>
-    <p>Four cases, and they are real.</p>
-    <ul>
-      <li><strong>Simulation is your product.</strong> Then this is core and you should own every line.</li>
-      <li><strong>You have a research function.</strong> A team that already owns methodology and calibration is not starting from zero.</li>
-      <li><strong>Your use case is far from B2B committees.</strong> Consumer, in-product, non-committee. Our evidence base does not help you.</li>
-      <li><strong>You need something we do not do.</strong> We read pages, ads and emails. Not onboarding flows or dashboards.</li>
-    </ul>
-
-    <h2>The bill nobody quotes</h2>
-    <ul>
-      <li>Model updates, each one a re-baseline.</li>
-      <li>Calibration against real campaign outcomes, ongoing.</li>
-      <li>Prompt and schema drift as providers change formats.</li>
-      <li>Evidence collection: reviews, community threads, competitor coverage, refreshed.</li>
-      <li>The engineer who owns it, and what happens when they leave.</li>
-    </ul>
-    <p>None of this is a reason not to build. It is the reason to price the build honestly against about 30 minutes a run.</p>
-
-    <div class="related"><strong>Related:</strong> <a href="whyuser-vs-chatgpt-and-claude.html">ChatGPT and Claude vs. WhyUser</a> &middot; <a href="../glossary/conflict-graph.html">Conflict graph</a> &middot; <a href="../glossary/evidence-ledger.html">Evidence ledger</a></div>
-      <h2>Common questions</h2>
-      <h3>Can I build a buying committee simulation with Claude Code?</h3>
-<p>The orchestration is roughly a weekend and it will demo well. What takes longer is determinism, calibrating the behavioural mix against real channel benchmarks, modelling the handoffs between roles, and accumulating a graded track record.</p>
-<h3>Why is temperature zero not enough for a repeatable verdict?</h3>
-<p>Attention behaviour and batching mean the same prompt can still return different text. The architectural fix is to stop letting the model decide: count runs in code, compute the verdict algebraically, and let the model write only the narrative on top of a number it did not choose.</p>
-<h3>What do in-house simulations usually get wrong first?</h3>
-<p>The behavioural mix. Splitting mindsets evenly over-represents the actively shopping buyer by more than tenfold on cold social, so simulated click rates come back around 20 to 30% when real cold LinkedIn is under 1%. The output is confident and wrong with no warning.</p>
-<h3>What can an in-house build never replicate?</h3>
-<p>A record of predictions sealed before outcomes existed. It accumulates at the speed of real campaigns and cannot be backdated, so a team starting today has none, and that is exactly what gets asked for the first time the simulation contradicts a senior opinion.</p>
-<h3>When is building it yourself the right call?</h3>
-<p>When simulation is your product, when you already have a research function that owns methodology and calibration, when your use case sits outside B2B buying committees, or when you need something the vendor does not do.</p>
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Three things that break</span>
+    <h2 class="lp-h2">None of them show up in a demo.</h2>
+    <div class="lp-cards c3">
+      <div class="lp-card"><div class="lp-card-k">Drift</div><h3>Your verdict moves when your page did not.</h3><p>The same prompt can still return different text, so you cannot tell your edit from the noise.</p></div>
+      <div class="lp-card"><div class="lp-card-k">Even splits</div><h3>Simulated click rates come back at 20 to 30%.</h3><p>An even mindset split over-represents the actively shopping buyer more than tenfold. Real cold LinkedIn is under 1%.</p></div>
+      <div class="lp-card"><div class="lp-card-k">No handoff graph</div><h3>Every role approves and the deal still dies.</h3><p>Catching this means scoring the edges, not the roles. Most in-house builds stop at per-role output.</p></div>
     </div>
   </div>
 </section>
-</main>
 
-<section class="page-cta">
-    <div class="wrap">
-        <h2>Run it on the campaign you are about to launch.</h2>
-        <p>Send us the next ad, email or landing page going live. We return the role that vetoes, the handoff that breaks, the proof that is missing, and the fix. We reply within 48 hours.</p>
-        <div class="cta-row">
-            <a href="../index.html#access" class="btn btn-primary btn-lg">Request access</a>
-            <a href="../whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
-        </div>
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Common questions</span>
+    <h2 class="lp-h2">Answers, briefly.</h2>
+    <div class="lp-faq">
+      <div class="lp-q"><h3>Can I build this with Claude Code and agents?</h3><p>Probably. The orchestration is a weekend. The gap is everything after it.</p></div>
+      <div class="lp-q"><h3>What is the real cost?</h3><p>Maintaining simulation infrastructure through every model update, for exactly one customer.</p></div>
+      <div class="lp-q"><h3>When should I build it?</h3><p>When simulation is your product, or you have a research function that owns methodology.</p></div>
+      <div class="lp-q"><h3>Can I copy the calibration?</h3><p>No. You can copy a sprint. You cannot copy a quarter of graded outcomes.</p></div>
     </div>
+  </div>
 </section>
+
+<div class="wrap">
+  <div class="lp-more">
+    <span>Keep reading</span>
+    <a href="whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser &rarr;</a>
+    <a href="../how-to-evaluate.html">How to evaluate a method &rarr;</a>
+    <a href="../developers.html#determinism">Determinism & replay &rarr;</a>
+    <a href="../compare.html">All comparisons &rarr;</a>
+  </div>
+</div>
+
+<section class="wu-close">
+  <div class="wrap">
+    <span class="wu-eyebrow">Before you spend</span>
+    <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
+    <p class="wu-close-line">The orchestration is a weekend. Determinism, sourcing and a graded record are not. Try the finished one first.</p>
+    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="../index.html#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="../whyuser-vs-ai-opinions.html">See a page judged two ways</a></div>
+  </div>
+</section>
+</main>
 
 <!-- WHYUSER:FOOTER:START -->
 <!-- ═══════════════════════════════════════════════════════════════════
@@ -615,7 +702,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Why WhyUser</h4><ul>
                 <li><a href="../accuracy.html">Accuracy &amp; track record</a></li>
-                <li><a href="../whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                <li><a href="../whyuser-vs-ai-opinions.html">Claude vs WhyUser</a></li>
+                <li><a href="../how-to-evaluate.html">How to evaluate a method</a></li>
                 <li><a href="../compare.html">Compare WhyUser</a></li>
                 <li><a href="../compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
                 <li><a href="../glossary/index.html">Glossary</a></li>

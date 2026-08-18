@@ -3012,6 +3012,14 @@
 {"@type":"Question","name":"Why not just use ChatGPT or Claude to review a landing page?","acceptedAnswer":{"@type":"Answer","text":"For drafting and variants, use them. For a spend decision, no. A chatbot answers as one voice rather than a committee, reads as an unusually attentive reader when most traffic is distracted, and gives a different answer each time. Your competitors have the same tool and get the same advice."}}
 ]}
 </script>
+<style>
+/* WhyUser UI overrides. Kept per-page and self-contained so no shared
+   stylesheet has to change.
+   1. No hairline under the sticky nav; the blur already separates it.
+   2. No rule above the closing CTA; spacing and the eyebrow carry it. */
+.nav, .masthead { border-bottom: 0 !important; }
+.cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
+</style>
 </head>
 <body class="grain">
     <!-- Google Tag Manager (noscript) -->
@@ -3160,8 +3168,8 @@
                     <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">AI opinions vs. simulations</span>
-                            <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            <span class="nav-dd-name">Claude vs WhyUser</span>
+                            <span class="nav-dd-desc">The same page, twice. Interactive, no login.</span>
                         </span>
                     </a>
                     <a href="compare.html" class="nav-dd-item" role="menuitem">
@@ -3298,7 +3306,8 @@
             <div class="nav-m-group">
                 <span class="nav-m-label">Why WhyUser</span>
                 <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="how-to-evaluate.html" class="nav-m-link">How to evaluate a method</a>
                 <a href="compare.html" class="nav-m-link">Compare</a>
                 <a href="developers.html" class="nav-m-link">Architecture &amp; data flow</a>
                 <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
@@ -3565,9 +3574,9 @@
                     </div>
 
                     <div class="acc-cell">
-                        <span class="mono-label">Cost per test</span>
-                        <div class="acc-value">$50</div>
-                        <p class="acc-note">Per study, vs $5,000&ndash;$30,000 at a traditional firm. <a href="pricing.html" style="color:var(--brand);font-weight:600">See plans and credits &rarr;</a></p>
+                        <span class="mono-label">Sourced</span>
+                        <div class="acc-value">100%</div>
+                        <p class="acc-note">Every finding traced to a named page and a real buyer&rsquo;s own words. Nothing is asserted without a source. <a href="sample-report.html" style="color:var(--brand);font-weight:600">See a report &rarr;</a></p>
                     </div>
 
                 </div>
@@ -3602,7 +3611,7 @@
             <div class="def-grid">
                 <span class="mono-eyebrow">What WhyUser is</span>
                 <p class="def-text">
-                    WhyUser is a buying committee simulation that runs before you launch a B2B campaign. Your reviewers know the product, so they read the page as ideal users. Real buyers arrive rushed and skeptical. WhyUser runs at least 30 agents per committee seat, each rushed, skeptical, or ideal, and each built from your sales calls, reviews, and community threads. It finds the silent vetoes, the missing proof, and the bounce risk that internal reviews and AI chatbots miss. Every finding cites its evidence, so you can forward instead of defending it.
+                    WhyUser is a buying committee simulation that runs before you launch a B2B campaign. Your reviewers know the product, so they read the page as ideal users. Real buyers arrive distracted and skeptical. WhyUser runs at least 30 agents per committee seat, each distracted, skeptical, or ideal, and each built from your sales calls, reviews, and community threads. It finds the silent vetoes, the missing proof, and the bounce risk that internal reviews and AI chatbots miss. Every finding cites its evidence, so you can forward instead of defending it.
                 </p>
             </div>
         </div>
@@ -3718,20 +3727,20 @@
         <div class="wrap">
             <div class="section-head" style="max-width: 54rem">
                 <span class="section-eyebrow">What comes back</span>
-                <h2 class="h2">A verdict you can forward, not an opinion you defend.</h2>
+                <h2 class="h2">A verdict you can forward backed with evidence.</h2>
                 <p>Every finding names the role, the line they were reading, and the buyer trait that made them look. That trait was built before your page existed.</p>
             </div>
 
             <div class="wu-out-grid">
                 <div class="wu-out-card">
+                    <span class="wu-out-ic"><i class="fa-solid fa-fingerprint"></i></span>
+                    <h3 class="wu-out-h">The same answer, twice</h3>
+                    <p class="wu-out-p">Re-run the same page and you get the same verdict. Fix one section and only that section moves. So you know whether your fix worked, or whether the tool just had a different day.</p>
+                </div>
+                <div class="wu-out-card">
                     <span class="wu-out-ic"><i class="fa-solid fa-diagram-project"></i></span>
                     <h3 class="wu-out-h">The conflict graph</h3>
                     <p class="wu-out-p">Seven handoffs between five roles. You see which ones snap, and why. A page every role approves can still be dead. An average hides that.</p>
-                </div>
-                <div class="wu-out-card">
-                    <span class="wu-out-ic"><i class="fa-solid fa-list-check"></i></span>
-                    <h3 class="wu-out-h">A ranked fix queue</h3>
-                    <p class="wu-out-p">Ranked by which snapped handoff each fix reconnects, not by page order. Tick one and watch the graph reconnect before you write any code.</p>
                 </div>
                 <div class="wu-out-card">
                     <span class="wu-out-ic"><i class="fa-solid fa-quote-left"></i></span>
@@ -3739,9 +3748,9 @@
                     <p class="wu-out-p">Each finding states its confidence and sample size. Low confidence comes back marked low confidence, not quietly dropped.</p>
                 </div>
                 <div class="wu-out-card">
-                    <span class="wu-out-ic"><i class="fa-solid fa-fingerprint"></i></span>
-                    <h3 class="wu-out-h">A replayable record</h3>
-                    <p class="wu-out-p">Same fingerprints, same buyers. A run is replayed, not re-rolled. So a fix is a fix, not model drift.</p>
+                    <span class="wu-out-ic"><i class="fa-solid fa-rss"></i></span>
+                    <h3 class="wu-out-h">Buyers that stay current</h3>
+                    <p class="wu-out-p">Your buyers re-compile from live evidence on every run. When your market moves, they move. Buyers are not files. They are feeds.</p>
                 </div>
             </div>
 
@@ -3751,7 +3760,7 @@
             <div class="wu-selfrun">
                 <div>
                     <span class="wu-selfrun-tag">Four published reports</span>
-                    <p class="wu-selfrun-p">A landing page, an ad campaign, an email send, and an audience study. These are the full reports a customer gets. <strong>One is our own homepage.</strong> It found our nav hard to scan and our proof thin. We published that one too.</p>
+                    <p class="wu-selfrun-p">A landing page, an ad campaign, an email send, and an audience study. These are the full reports a customer gets. <strong>One is our own homepage.</strong> It found our nav hard to scan and our proof thin.</p>
                 </div>
                 <a href="sample-report.html#library" class="btn btn-primary btn-lg">Read the reports <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
             </div>
@@ -3762,7 +3771,7 @@
         <div class="wrap">
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">Where WhyUser fits</span>
-                <h2 class="h2">Not another review round. The one that ends them.</h2>
+                <h2 class="h2">One run settles what three meetings argue about.</h2>
                 <p>No new cycle, no new process. WhyUser fills the gap between review and launch with one 30 minute answer. That gap is where silent vetoes slip through today. Run it in-app or via API.</p>
             </div>
 
@@ -3859,8 +3868,8 @@
         <div class="wrap">
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">Ground Reality</span>
-                <h2 class="h2">Not imaginary AI characters. Not a static profile with a chatbot attached.</h2>
-                <p>We compile your buyers based on evidence from your site, your customer calls, and community and competitor voice. Each persona updates as new evidence lands, so it never drifts. That makes a finding forwardable, not arguable.</p>
+                <h2 class="h2">Your buyers compiled from evidence.</h2>
+                <p>We compile your buyers based on evidence from your site, your customer calls, and community and competitor voice. <strong>Buyers are not files. They are feeds.</strong> Each one re-compiles from live evidence on every run, so it never drifts. That makes a finding forwardable, not arguable.</p>
             </div>
 
             <div class="hub">
@@ -3960,7 +3969,7 @@
                 <div class="wu-persona-head">
                     <span class="wu-persona-tag">One compiled buyer</span>
                     <h3 class="wu-persona-h">Compiled from evidence, before and after they engage.</h3>
-                    <p class="wu-persona-p">One buyer, from one run. Not an invented character. <strong>42 things that hold steady:</strong> the role they own, how they behave, the biases they decide with, what blocks a yes. <strong>58 that move:</strong> what hurts right now, what they want, what would convince them, who they compare you to. The moving half updates as new evidence lands, from community and competitor voice, your sales conversations, how the campaign actually performed, and what your team learns next. That is why a finding is forwardable rather than arguable.</p>
+                    <p class="wu-persona-p">One buyer compiled from your reviews, calls and community threads. Half of what defines them holds steady and the other half moves every time new evidence lands.</p>
                 </div>
                 <figure class="wu-persona-fig">
                     <img src="images/persona-graph.svg"
@@ -3988,6 +3997,7 @@
     <style>
       .tech2-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;margin-top:.5rem}
       @media(min-width:920px){.tech2-grid{grid-template-columns:1fr 1fr;gap:3.5rem}}
+      @media(min-width:760px){.wu-layers{grid-template-columns:1fr 1fr;gap:2.5rem}}
       .tech2-list{display:flex;flex-direction:column;gap:1.5rem}
       .tech2-item{padding-bottom:1.5rem;border-bottom:1px solid var(--rule)}
       .tech2-item:last-child{border-bottom:none;padding-bottom:0}
@@ -4006,33 +4016,33 @@
     <section id="build" class="section-rule">
         <div class="wrap">
             <div class="section-head" style="max-width: 54rem">
-                <span class="section-eyebrow">What makes a simulation trustworthy</span>
-                <h2 class="h2">Four things that separate a simulation from a guess.</h2>
-                <p>Anyone can ask AI what it thinks of a page. Four things turn an opinion into a verdict you can defend: a real agent per role, at least 30 of them in different moods, the same answer every run, and a graded track record.</p>
+                <span class="section-eyebrow">How WhyUser compares</span>
+                <h2 class="h2">Four things a measurement has to do.</h2>
+                <p>Anyone can ask AI what it thinks of a page. Four things turn an opinion into a verdict you can defend. <strong>Ask any tool, including us.</strong></p>
             </div>
 
             <div class="tech2-grid">
                 <!-- LEFT: the four concepts -->
                 <div class="tech2-list">
                     <div class="tech2-item">
-                        <div class="tech2-k">01 &middot; The committee</div>
-                        <h3 class="tech2-h">A committee, not a cast.</h3>
-                        <p class="tech2-p">WhyUser runs one agent per committee role, not one agent playing five parts. Miss the ROI proof and the Economic Buyer vetoes. The veto is computed from the evidence the page is missing, never scripted in advance.</p>
+                        <div class="tech2-k">01 &middot; Repeats</div>
+                        <h3 class="tech2-h">Same page in, same answer out.</h3>
+                        <p class="tech2-p">Fix one section, re-run, and only that section can move. So you know whether your fix worked, or whether the tool just had a different day. A chatbot writes a new essay every time.</p>
                     </div>
                     <div class="tech2-item">
-                        <div class="tech2-k">02 &middot; The states</div>
-                        <h3 class="tech2-h">Many moods, not one.</h3>
-                        <p class="tech2-p">Every role is run in three behavioral states: rushed, skeptical and ideal, across 30 or more agents each, and you set the number. You get a distribution, not one take. Loop a chatbot 30 times and you get one opinion 30 ways.</p>
+                        <div class="tech2-k">02 &middot; Shows its source</div>
+                        <h3 class="tech2-h">Every quote traced to a real page.</h3>
+                        <p class="tech2-p">Each quote is checked against the page it came from, not taken on trust. And you are told who wrote it. A rival&rsquo;s comparison page is not a buyer&rsquo;s words, but to a chatbot both are just text.</p>
                     </div>
                     <div class="tech2-item">
-                        <div class="tech2-k">03 &middot; Determinism + lineage</div>
-                        <h3 class="tech2-h">Same page in, same verdict out.</h3>
-                        <p class="tech2-p">WhyUser is deterministic at the element level: the same page in produces the same verdict out. Fix one section, re-run, and you know whether that change is what moved the result. A chatbot writes a new essay every time.</p>
+                        <div class="tech2-k">03 &middot; Reads like your buyer</div>
+                        <h3 class="tech2-h">Scans, hunts, abandons. Never patient.</h3>
+                        <p class="tech2-p">Every role reads as a distribution, not a person: distracted, skeptical and ideal, with motivation, familiarity and skill mixed to match the traffic your channel actually sends. Loop a chatbot 30 times and you get one opinion 30 ways.</p>
                     </div>
                     <div class="tech2-item">
-                        <div class="tech2-k">04 &middot; It compounds</div>
-                        <h3 class="tech2-h">Your 10th simulation is better tuned than your 1st.</h3>
-                        <p class="tech2-p">WhyUser keeps learning about your buyers with every run. Each finding is graded HIT or MISS against what actually happened, and the result carries forward. One loud quote stays an outlier until other buyers confirm it.</p>
+                        <div class="tech2-k">04 &middot; Remembers</div>
+                        <h3 class="tech2-h">Your 10th run is better tuned than your 1st.</h3>
+                        <p class="tech2-p">Every finding is graded HIT or MISS against what actually happened, and the result carries forward. One loud quote stays an outlier until other buyers confirm it. A chatbot has no idea there was a last week.</p>
                     </div>
                 </div>
 
@@ -4081,143 +4091,64 @@
                 </div>
             </div>
 
+            <!-- The two-layer claim. Kept out of the four cards because it is a
+                 method claim, not a measurement property, and because the
+                 committee layer is the single thing no other method does. -->
+            <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--rule)">
+                <h3 style="font-size:1.35rem; font-weight:650; margin:0 0 1.4rem">Two layers, not one.</h3>
+                <div style="display:grid; grid-template-columns:1fr; gap:1.6rem" class="wu-layers">
+                    <div>
+                        <span class="mono-label">Per persona</span>
+                        <p style="margin:.55rem 0 0">Each role is run across all three behavioral states, with motivation, familiarity and skill mixed to match the buyer population, not one ideal reader.</p>
+                    </div>
+                    <div>
+                        <span class="mono-label">Per committee</span>
+                        <p style="margin:.55rem 0 0">B2B buyers decide together, so roles are computed as a graph rather than averaged. What one role collects has to answer what the next one vetoes on.</p>
+                    </div>
+                </div>
+                <p style="margin:1.4rem 0 0; color:var(--dim); font-size:.9375rem">Most methods do the first. Almost none do the second, which is why a page every role approves can still be dead.</p>
+            </div>
+
             <div style="margin-top: 2.5rem; text-align: center">
                 <a href="whyuser-vs-ai-opinions.html" style="display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 600; font-size: 0.9375rem; color: var(--brand)">
                     <i class="fa-solid fa-bolt" style="font-size: 11px"></i>
-                    See these four ideas live: AI Opinions vs. WhyUser Simulations
+                    See these four ideas live: the same page, judged two ways
                     <i class="fa-solid fa-arrow-right" style="font-size: 10px"></i>
                 </a>
             </div>
-        </div>
-    </section>
 
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         COMPARE TABLE
-         ═════════════════════════════════════════════════════════════════ -->
-    <section id="compare" class="section-rule">
-        <div class="wrap">
-            <div class="section-head" style="max-width: 52rem">
-                <span class="section-eyebrow">How WhyUser compares</span>
-                <h2 class="h2">Six ways to pressure-test a campaign. We do not win every row.</h2>
-                <p>Chatbots give opinions. WhyUser gives simulations you can repeat and grade. Each option below is best at a different job.</p>
+            <!-- Replaces the old six-column compare table. Keeps the alternative
+                 set named and all four compare pages linked, at a fraction of
+                 the visual weight. -->
+            <div style="margin-top:2.75rem; padding-top:1.75rem; border-top:1px solid var(--rule); text-align:center">
+                <span class="mono-label">Also compared with</span>
+                <p style="margin:.7rem 0 0; font-size:.9375rem">
+                    <a href="compare/whyuser-vs-internal-review.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule-bold)">Internal review</a> &middot;
+                    <a href="compare/synthetic-personas-vs-buyer-panels.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule-bold)">Buyer panels</a> &middot;
+                    <a href="compare.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule-bold)">A/B testing</a> &middot;
+                    <a href="compare/whyuser-vs-building-it-yourself.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule-bold)">Building it yourself</a>
+                </p>
+                <p style="margin:.85rem 0 0; font-size:.9375rem; color:var(--dim)">
+                    We do not win every row. <a href="compare.html" style="color:var(--brand); font-weight:600">See all six side by side &rarr;</a>
+                </p>
             </div>
 
-            <div class="table-wrap">
-                <table class="compare-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th><a href="compare/whyuser-vs-chatgpt-and-claude.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule-bold)">ChatGPT</a></th>
-                            <th>A/B Test</th>
-                            <th><a href="compare/whyuser-vs-internal-review.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule-bold)">Internal Review</a></th>
-                            <th><a href="compare/whyuser-vs-building-it-yourself.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule-bold)">Agents / Claude Code</a></th>
-                            <th class="col-us">WhyUser</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Works before you spend budget</td>
-                            <td data-value="yes"><i class="fa-solid fa-check check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="yes"><i class="fa-solid fa-check check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                            <td data-value="yes"><i class="fa-solid fa-check check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                            <td class="col-us" data-value="yes"><i class="fa-solid fa-check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                        </tr>
-                        <tr>
-                            <td>Tests behavior, not just reads copy</td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="yes"><i class="fa-solid fa-check check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="partial"><i class="fa-solid fa-circle-half-stroke" style="color: var(--signal-amber)" title="Possible - but you build and maintain it" aria-hidden="true"></i><span class="sr-only">Partial: Possible - but you build and maintain it</span></td>
-                            <td class="col-us" data-value="yes"><i class="fa-solid fa-check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                        </tr>
-                        <tr>
-                            <td>Models the buying committee</td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="partial"><i class="fa-solid fa-circle-half-stroke" style="color: var(--signal-amber)" title="Possible - but this is the hard part you would be building" aria-hidden="true"></i><span class="sr-only">Partial: Possible - but this is the hard part you would be building</span></td>
-                            <td class="col-us" data-value="yes"><i class="fa-solid fa-check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                        </tr>
-                        <tr>
-                            <td>Catches "every role approves, deal still stalls"</td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td class="col-us" data-value="yes"><i class="fa-solid fa-check check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                        </tr>
-                        <tr>
-                            <td>Repeatable, same input, same verdict</td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td class="col-us" data-value="yes"><i class="fa-solid fa-check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                        </tr>
-                        <tr>
-                            <td>Proves it on live traffic</td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="yes"><i class="fa-solid fa-check check" aria-hidden="true"></i><span class="sr-only">Yes</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                            <td class="col-us" data-value="no"><i class="fa-solid fa-xmark cross" aria-hidden="true"></i><span class="sr-only">No</span></td>
-                        </tr>
-                        <tr>
-                            <td>Time to first result</td>
-                            <td>instant</td>
-                            <td>4–6 weeks</td>
-                            <td>~2 weeks</td>
-                            <td>weeks to build</td>
-                            <td class="col-us">~30 min</td>
-                        </tr>
-                        <tr>
-                            <td>What it costs</td>
-                            <td>free</td>
-                            <td>$10K+ in traffic</td>
-                            <td>team hours</td>
-                            <td>build + upkeep</td>
-                            <td class="col-us">credit-based</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p style="margin: 1.25rem 0 0; max-width: 52rem; text-align: left; color: var(--dim); font-size: 0.8125rem; line-height: 1.5">
-                <i class="fa-solid fa-circle-half-stroke" style="color: var(--signal-amber)"></i> Agents / Claude Code can build these, but you build the infrastructure, state management and determinism of probabilistic models yourself and maintain it through every model update.
-            </p>
-
-            <p style="margin: 0.75rem 0 0; max-width: 52rem; text-align: left; color: var(--dim); font-size: 0.8125rem; line-height: 1.5">
-                Every other method reads the page. Only a committee graph scores the <strong style="color: var(--ink-soft); font-weight: 600">handoff between roles</strong>, which is where a page that everyone approves still fails to move a deal.
-            </p>
-
-            <div style="margin-top: 1.75rem; text-align: left; font-size: 0.875rem; color: var(--mute)">
-                Full comparisons, no gate:
-                <a href="compare/whyuser-vs-chatgpt-and-claude.html" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px">vs. ChatGPT and Claude</a>
-                &middot;
-                <a href="compare/whyuser-vs-internal-review.html" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px">vs. internal review</a>
-                &middot;
-                <a href="compare/whyuser-vs-building-it-yourself.html" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px">vs. building it yourself</a>
-                &middot;
-                <a href="compare/synthetic-personas-vs-buyer-panels.html" style="color: var(--brand); text-decoration: underline; text-underline-offset: 2px">vs. buyer panels</a>
-            </div>
-
-            <div style="margin-top: 2.25rem; text-align: center">
-                <p style="font-size: 0.9375rem; color: var(--mute); margin: 0 0 1rem">See the difference for yourself, one landing page, judged two ways.</p>
-                <a href="whyuser-vs-ai-opinions.html" class="btn btn-primary btn-lg">
-                    <i class="fa-solid fa-bolt" style="font-size: 12px"></i>
-                    AI Opinions vs. WhyUser Simulations
-                    <i class="fa-solid fa-arrow-right" style="font-size: 11px"></i>
-                </a>
-                <div style="margin-top: 0.7rem; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim)">Interactive &middot; no login &middot; nothing to install</div>
+            <!-- The Claude question, as the closing beat of this section.
+                 It is an objection, so it lands last, not as the frame. -->
+            <div style="margin-top:2.5rem; border:1px solid var(--rule-bold); border-radius:14px; padding:1.9rem 2rem; display:flex; flex-wrap:wrap; gap:1.5rem; align-items:center; justify-content:space-between">
+                <div style="flex:1 1 30rem; min-width:18rem">
+                    <span class="mono-label">The question we get most</span>
+                    <h3 style="font-size:1.45rem; line-height:1.3; margin:.55rem 0 .6rem; font-weight:650">&ldquo;Can&rsquo;t we just do this with Claude?&rdquo;</h3>
+                    <p style="margin:0; max-width:44rem">Keep it for drafting. It is better at that than we are. For a spend decision, no. <strong>Claude is the most patient reader alive, and none of your buyers are.</strong> And every run with Claude is a first run. It cannot tell you whether your fix worked, or whether it just had a different day.</p>
+                </div>
+                <div style="flex:0 0 auto; display:flex; flex-direction:column; gap:.55rem">
+                    <a href="compare/whyuser-vs-chatgpt-and-claude.html" class="btn btn-primary">Claude vs WhyUser <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+                    <a href="how-to-evaluate.html" class="btn btn-ghost">The four-minute test</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═════════════════════════════════════════════════════════════════
-         SCOPED STYLES for TECHNOLOGY
-         ═════════════════════════════════════════════════════════════════ -->
 
     <!-- ═════════════════════════════════════════════════════════════════
          ANTI-ICP
@@ -4229,7 +4160,7 @@
                     <div>
                         <span class="section-eyebrow">Who this is not for</span>
                         <h2 class="h2">If any of these are you, save your time.</h2>
-                        <p style="color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.55; margin-top: 1rem">WhyUser is a poor fit for four groups. Better you know now than after a procurement cycle.</p>
+                        <p style="color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.55; margin-top: 1rem">WhyUser is a poor fit for three groups. Better you know now than after a procurement cycle.</p>
                     </div>
                     <div class="anti-list">
                         <div class="anti-item">
@@ -4237,13 +4168,6 @@
                             <div>
                                 <h3 class="anti-item-h">CMOs at 500+ person companies.</h3>
                                 <p class="anti-item-p">Your team needs the artifact, not you. We sell directly to your VP of Demand Gen instead.</p>
-                            </div>
-                        </div>
-                        <div class="anti-item">
-                            <i class="anti-item-x fa-solid fa-xmark"></i>
-                            <div>
-                                <h3 class="anti-item-h">Product marketing or content roles.</h3>
-                                <p class="anti-item-p">Different sale shape. We focus on the buyer who owns paid distribution and pipeline accountability.</p>
                             </div>
                         </div>
                         <div class="anti-item">
@@ -4404,7 +4328,8 @@
 
             <div><h4>Why WhyUser</h4><ul>
                 <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
-                <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                <li><a href="whyuser-vs-ai-opinions.html">Claude vs WhyUser</a></li>
+                <li><a href="how-to-evaluate.html">How to evaluate a method</a></li>
                 <li><a href="compare.html">Compare WhyUser</a></li>
                 <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
                 <li><a href="glossary/index.html">Glossary</a></li>

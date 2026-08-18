@@ -99,6 +99,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/dark-theme.css">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
+<style>
+/* WhyUser UI overrides. Kept per-page and self-contained so no shared
+   stylesheet has to change.
+   1. No hairline under the sticky nav; the blur already separates it.
+   2. No rule above the closing CTA; spacing and the eyebrow carry it. */
+.nav, .masthead { border-bottom: 0 !important; }
+.cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
+</style>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
@@ -243,8 +251,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">AI opinions vs. simulations</span>
-                            <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            <span class="nav-dd-name">Claude vs WhyUser</span>
+                            <span class="nav-dd-desc">The same page, twice. Interactive, no login.</span>
                         </span>
                     </a>
                     <a href="compare.html" class="nav-dd-item" role="menuitem">
@@ -381,7 +389,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-m-group">
                 <span class="nav-m-label">Why WhyUser</span>
                 <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="how-to-evaluate.html" class="nav-m-link">How to evaluate a method</a>
                 <a href="compare.html" class="nav-m-link">Compare</a>
                 <a href="developers.html" class="nav-m-link">Architecture &amp; data flow</a>
                 <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
@@ -405,26 +414,113 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- WHYUSER:NAV:END -->
 
-<main>
-<section class="page-head">
+<main class="lp">
+<style>
+/* ── Compare page: landing-page layout. Scoped, self-contained, with
+      colour fallbacks so it does not depend on whyuser-pages.css. ── */
+.lp{--lp-rule:var(--rule,rgba(255,255,255,.12));--lp-bold:var(--rule-bold,rgba(255,255,255,.2));
+    --lp-mute:var(--mute,#a1a1aa);--lp-brand:var(--brand,#8b7cf6);--lp-surface:var(--surface,rgba(255,255,255,.03))}
+.lp .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+.lp-hero{text-align:center;padding:3.5rem 0 2.75rem}
+.lp-crumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
+.lp-crumb a{color:inherit;text-decoration:none}
+.lp-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.04;margin:0 0 1.1rem}
+.lp-sub{font-size:1.125rem;line-height:1.55;color:var(--lp-mute);max-width:40rem;margin:0 auto 2rem}
+.lp-ctas{display:flex;flex-direction:column;gap:.7rem;align-items:center;justify-content:center}
+@media(min-width:480px){.lp-ctas{flex-direction:row}}
+
+.lp-strip{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--lp-rule);border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-strip{grid-template-columns:repeat(3,1fr)}}
+.lp-cell{padding:1.75rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-cell{border-bottom:0;border-right:1px solid var(--lp-rule)}.lp-cell:last-child{border-right:0}}
+.lp-cell:last-child{border-bottom:0}
+.lp-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
+.lp-v{font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:.5rem}
+.lp-cell p{margin:0;font-size:.875rem;line-height:1.5;color:var(--lp-mute)}
+
+.lp-sec{padding:3.25rem 0}
+.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
+.lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
+.lp-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin:0 0 .7rem}
+.lp-lead{font-size:1.0625rem;line-height:1.55;color:var(--lp-mute);max-width:44rem;margin:0}
+
+.lp-split{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:800px){.lp-split{grid-template-columns:1fr 1fr;gap:1.5rem}}
+.lp-panel{border:1px solid var(--lp-rule);border-radius:14px;padding:1.6rem 1.7rem}
+.lp-panel.us{border-color:var(--lp-bold);background:var(--lp-surface)}
+.lp-panel h3{font-size:1.0625rem;font-weight:650;margin:0 0 1rem}
+.lp-panel ul{list-style:none;margin:0;padding:0}
+.lp-panel li{position:relative;padding-left:1.4rem;margin-bottom:.7rem;font-size:.9375rem;line-height:1.5;color:var(--lp-mute)}
+.lp-panel li:last-child{margin-bottom:0}
+.lp-panel li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--lp-mute)}
+.lp-panel.us li::before{background:var(--lp-brand)}
+.lp-panel li strong{color:var(--ink,#fff);font-weight:600}
+
+.lp-cards{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:700px){.lp-cards{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.lp-cards.c3{grid-template-columns:repeat(3,1fr)}}
+.lp-card{border:1px solid var(--lp-rule);border-radius:14px;padding:1.5rem 1.6rem}
+.lp-card-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
+.lp-card h3{font-size:1.0625rem;font-weight:650;margin:0 0 .4rem;line-height:1.35}
+.lp-card p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+.lp-card.link{display:block;text-decoration:none;color:inherit;transition:border-color .15s ease,background .15s ease,transform .15s ease}
+.lp-card.link:hover,.lp-card.link:focus-visible{border-color:var(--lp-brand);background:var(--lp-surface);transform:translateY(-2px)}
+.lp-card.link h3{color:var(--ink,#fff)}
+.lp-card.link:hover h3{color:var(--lp-brand)}
+.lp-card-go{display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-size:.875rem;font-weight:600;color:var(--lp-brand)}
+.lp-card.link:hover .lp-card-go i{transform:translateX(3px)}
+.lp-card-go i{font-size:10px;transition:transform .15s ease}
+
+.lp-test{border:1px solid var(--lp-bold);border-radius:14px;padding:1.9rem 2rem;margin-top:2rem;background:var(--lp-surface)}
+.lp-test-row{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:760px){.lp-test-row{grid-template-columns:1fr 1fr;gap:2.5rem}}
+.lp-test h3{font-size:1rem;font-weight:650;margin:0 0 .4rem}
+.lp-test p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+
+.lp-faq{margin-top:1.75rem;border-top:1px solid var(--lp-rule)}
+.lp-q{border-bottom:1px solid var(--lp-rule);padding:1.35rem 0}
+.lp-q h3{font-size:1rem;font-weight:650;margin:0 0 .45rem}
+.lp-q p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute);max-width:48rem}
+
+.lp-more{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;padding:1.6rem 0 0;border-top:1px solid var(--lp-rule);margin-top:2.5rem}
+.lp-more span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
+.lp-more a{font-size:.9375rem;font-weight:600;color:var(--lp-brand);text-decoration:none}
+
+.wu-close{text-align:center;padding:4.5rem 0 5rem}
+.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand,#8b7cf6);margin-bottom:1.4rem}
+.wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--brand,#8b7cf6)}
+.wu-close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.06;margin:0 0 1.3rem}
+.wu-close h2 .fail{color:var(--red,#f87171)} .wu-close h2 .win{color:var(--green-b,#34d399)}
+.wu-close-line{font-size:1.0625rem;line-height:1.6;color:var(--mute,#a1a1aa);max-width:34rem;margin:0 auto 2.25rem}
+.wu-close-ctas{display:flex;flex-direction:column;gap:.75rem;align-items:center;justify-content:center}
+@media(min-width:480px){.wu-close-ctas{flex-direction:row}}
+</style>
+<section class="lp-hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="index.html">WhyUser</a> <span aria-hidden="true">/</span> <span>Compare</span>
-    </nav>
-    <h1 class="h1">Six ways to pressure-test a B2B campaign. WhyUser is one of them.</h1>
-    <p class="standfirst">We do not win every row. Here is what each method is best at, where WhyUser is the wrong tool, and the order that costs least if you can run more than one. <strong>No gate, no form.</strong></p>
+    <nav class="lp-crumb" aria-label="Breadcrumb"><a href="index.html">WhyUser</a> / Compare</nav>
+    <h1 class="lp-h1">Six ways to pressure-test<br>a B2B campaign.</h1>
+    <p class="lp-sub">WhyUser is one of them, and it does not win every row. Here is what each method is best at.</p>
+    <div class="lp-ctas">
+      <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+      <a href="how-to-evaluate.html" class="btn btn-ghost btn-lg">How to evaluate a method</a>
+    </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="prose">
-      <h2>The one-screen version</h2>
-      <p>Each method answers a different question. The costly mistake is picking a tool for a question it was never built to answer, then deciding the method does not work.</p>
-    </div>
+<div class="wrap"><div class="lp-strip">
+  <div class="lp-cell"><span class="lp-k">Simulation</span><div class="lp-v">~30 min</div><p>Which role vetoes, which handoff breaks, what proof is missing.</p></div>
+  <div class="lp-cell"><span class="lp-k">Internal review</span><div class="lp-v">~2 weeks</div><p>On-brand, legal and typo-free. Not why a stranger leaves.</p></div>
+  <div class="lp-cell"><span class="lp-k">A/B test</span><div class="lp-v">4 to 6 weeks</div><p>What actually happened, after the budget is spent.</p></div>
+</div></div>
 
-    <div style="max-width:64rem">
-    <div class="cmp-wrap">
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">The one-screen version</span>
+    <h2 class="lp-h2">Each method answers a different question.</h2>
+    <p class="lp-lead">The costly mistake is picking a tool for a question it was never built to answer.</p>
+    <div style="margin-top:2rem">
+<div class="cmp-wrap">
       <table class="cmp">
         <thead><tr><th>Method</th><th>The question it answers</th><th>Time</th><th>Fails when</th></tr></thead>
         <tbody>
@@ -438,70 +534,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </table>
     </div>
     </div>
+  </div>
+</section>
 
-    <div class="prose" style="margin-top:3rem">
-      <h2>What WhyUser adds that the others cannot</h2>
-      <p>Two layers, not one.</p>
-      <p><strong>Per persona.</strong> Up to 10 personas, about 30 runs each, across three behavioural states weighted to your channel. You get an abandon rate and a reason code per role, not one opinion. Rare dealbreakers surface even when the average looks fine.</p>
-      <p><strong>Per committee.</strong> The roles are then computed as a graph rather than averaged. One blocking role sinks the verdict. Seven handoff chains are scored healthy, at risk or broken, which catches the failure every other method misses: <strong>every role approves the page and the deal still cannot move</strong>, because the champion holds nothing that answers the economic buyer.</p>
-    </div>
-
-    <div class="prose" id="compare-children">
-      <h2>The full comparison, one method at a time</h2>
-      <p>Each page takes a single alternative and works through where it beats WhyUser, where it does not, and what it costs to run both. No gate, no form.</p>
-    </div>
-
-    <div class="term-grid">
-      <a class="term-card" href="compare/whyuser-vs-chatgpt-and-claude.html">
-        <span class="t-name">ChatGPT and Claude vs. WhyUser</span>
-        <span class="t-def">An honest comparison of a general AI assistant and a buying committee simulation for testing a B2B landing page. Why one opinion i&hellip;</span>
-        <span class="t-more">Read the comparison &rarr;</span>
-      </a>
-      <a class="term-card" href="compare/whyuser-vs-internal-review.html">
-        <span class="t-name">Internal review vs. WhyUser</span>
-        <span class="t-def">An honest comparison of internal review and a buying committee simulation. Why your reviewers sit in the ideal behavioural state t&hellip;</span>
-        <span class="t-more">Read the comparison &rarr;</span>
-      </a>
-      <a class="term-card" href="compare/whyuser-vs-building-it-yourself.html">
-        <span class="t-name">Building it yourself vs. WhyUser</span>
-        <span class="t-def">An honest look at building a buying committee simulation in-house with Claude Code or agents. What you will have working in a week&hellip;</span>
-        <span class="t-more">Read the comparison &rarr;</span>
-      </a>
-      <a class="term-card" href="compare/synthetic-personas-vs-buyer-panels.html">
-        <span class="t-name">Synthetic personas vs. real buyer panels</span>
-        <span class="t-def">A neutral comparison of synthetic personas and real buyer panels for B2B message testing. What each method is good at, how each on&hellip;</span>
-        <span class="t-more">Read the comparison &rarr;</span>
-      </a>
-    </div>
-
-    <div class="prose" style="margin-top:4rem">
-      <h2>Where WhyUser is the wrong choice</h2>
-      <ul>
-        <li><strong>You want copy written, or twenty variants.</strong> Use ChatGPT or Claude.</li>
-        <li><strong>Simulation is your product, or you have a research function.</strong> <a href="compare/whyuser-vs-building-it-yourself.html">Build it</a>.</li>
-        <li><strong>You need legal sign-off, or a claim checked against your roadmap.</strong> That is internal review, always.</li>
-        <li><strong>You need a quote from a real human</strong> to settle an internal argument. Use a panel.</li>
-        <li><strong>You have the traffic and the time</strong> and only need to know which variant wins. Run the A/B test.</li>
-        <li><strong>You sell B2C or e-commerce.</strong> Committees are shallow there. Our evidence carries little weight.</li>
-      </ul>
-
-      <h2>Check us rather than trust us</h2>
-      <p><a href="whyuser-vs-ai-opinions.html">One landing page, judged two ways</a> is interactive and needs no login. <a href="accuracy.html">Our accuracy page</a> publishes 473 graded claims, each sealed before the outcome existed, with the misses left in.</p>
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">What makes WhyUser different</span>
+    <h2 class="lp-h2">Four things a measurement has to do, and two things B2B needs.</h2>
+    <p class="lp-lead">Ask any tool on this page, including us.</p>
+    <div class="lp-cards c3">
+      <div class="lp-card"><div class="lp-card-k">01 &middot; Repeats</div><h3>Same page in, same answer out.</h3><p>Fix one section, re-run, and only that section can move. So you know whether your fix worked.</p></div>
+      <div class="lp-card"><div class="lp-card-k">02 &middot; Shows its source</div><h3>Every quote traced to a real page.</h3><p>Checked against the page it came from, and you are told who wrote it.</p></div>
+      <div class="lp-card"><div class="lp-card-k">03 &middot; Reads like your buyer</div><h3>Scans, hunts, abandons. Never patient.</h3><p>Distracted, skeptical and ideal, with motivation, familiarity and skill mixed to match your channel.</p></div>
+      <div class="lp-card"><div class="lp-card-k">04 &middot; Remembers</div><h3>Your 10th run is better tuned than your 1st.</h3><p>Every finding graded HIT or MISS against what happened, and the result carries forward.</p></div>
+      <div class="lp-card"><div class="lp-card-k">05 &middot; Simulates the committee</div><h3>B2B buyers decide together.</h3><p>Roles are computed as a graph, not averaged, so one blocking role sinks the verdict.</p></div>
+      <div class="lp-card"><div class="lp-card-k">06 &middot; Buyers stay current</div><h3>Buyers are not files. They are feeds.</h3><p>Each one re-compiles from live evidence on every run, so when your market moves, they move.</p></div>
     </div>
   </div>
 </section>
-</main>
 
-<section class="page-cta">
-    <div class="wrap">
-        <h2>Fail in the stress test. Win in the market.</h2>
-        <p>Tell us about the next campaign you have going live. We reply within 48 hours.</p>
-        <div class="cta-row">
-            <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
-            <a href="whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
-        </div>
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">One method at a time</span>
+    <h2 class="lp-h2">Where each one beats WhyUser, and where it does not.</h2>
+    <p class="lp-lead">No gate, no form.</p>
+    <div class="lp-cards c3">
+      <a class="lp-card link" href="compare/whyuser-vs-chatgpt-and-claude.html"><div class="lp-card-k">Claude</div><h3>Claude vs. WhyUser</h3><p>Claude writes, WhyUser measures. The chat window, Cowork with your data, and building it with Claude Code.</p><span class="lp-card-go">Read the comparison <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a class="lp-card link" href="compare/whyuser-vs-internal-review.html"><div class="lp-card-k">Internal review</div><h3>Your reviewers are the 3%.</h3><p>Everyone in that room already knows the product. Almost none of your traffic does.</p><span class="lp-card-go">Read the comparison <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a class="lp-card link" href="compare/whyuser-vs-building-it-yourself.html"><div class="lp-card-k">Build it yourself</div><h3>The weekend estimate is correct.</h3><p>The orchestration is a weekend. Determinism, sourcing and a graded record are not.</p><span class="lp-card-go">Read the comparison <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a class="lp-card link" href="compare/synthetic-personas-vs-buyer-panels.html"><div class="lp-card-k">Buyer panels</div><h3>Real humans, or the whole room.</h3><p>A panel gives you people we cannot. It cannot put the committee in one room.</p><span class="lp-card-go">Read the comparison <i class="fa-solid fa-arrow-right"></i></span></a>
     </div>
+  </div>
 </section>
+
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Check us</span>
+    <h2 class="lp-h2">Three things you can verify without a call.</h2>
+    <div class="lp-cards c3">
+      <div class="lp-card"><div class="lp-card-k">Interactive</div><h3>One landing page, judged two ways.</h3><p>Runs in the browser, no login. <a href="whyuser-vs-ai-opinions.html" style="color:var(--lp-brand)">Open it &rarr;</a></p></div>
+      <div class="lp-card"><div class="lp-card-k">Published</div><h3>473 graded claims.</h3><p>Each sealed before the outcome existed, misses left in. <a href="accuracy.html" style="color:var(--lp-brand)">See the ledger &rarr;</a></p></div>
+      <div class="lp-card"><div class="lp-card-k">Neutral</div><h3>The evaluation checklist.</h3><p>Twelve questions to ask any vendor here. <a href="how-to-evaluate.html" style="color:var(--lp-brand)">Read it &rarr;</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wu-close">
+  <div class="wrap">
+    <span class="wu-eyebrow">Before you spend</span>
+    <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
+    <p class="wu-close-line">Six ways to pressure-test a campaign, and we do not win every row. Run the 30-minute one before you spend the quarter.</p>
+    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="index.html#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="whyuser-vs-ai-opinions.html">See a page judged two ways</a></div>
+  </div>
+</section>
+</main>
 
 <!-- WHYUSER:FOOTER:START -->
 <!-- ═══════════════════════════════════════════════════════════════════
@@ -546,7 +632,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Why WhyUser</h4><ul>
                 <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
-                <li><a href="whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                <li><a href="whyuser-vs-ai-opinions.html">Claude vs WhyUser</a></li>
+                <li><a href="how-to-evaluate.html">How to evaluate a method</a></li>
                 <li><a href="compare.html">Compare WhyUser</a></li>
                 <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
                 <li><a href="glossary/index.html">Glossary</a></li>

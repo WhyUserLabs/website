@@ -139,6 +139,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="../assets/dark-theme.css">
   <link rel="stylesheet" href="../assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="../assets/whyuser-readability.css">
+<style>
+/* WhyUser UI overrides. Kept per-page and self-contained so no shared
+   stylesheet has to change.
+   1. No hairline under the sticky nav; the blur already separates it.
+   2. No rule above the closing CTA; spacing and the eyebrow carry it. */
+.nav, .masthead { border-bottom: 0 !important; }
+.cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
+</style>
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
@@ -283,8 +291,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="../whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">AI opinions vs. simulations</span>
-                            <span class="nav-dd-desc">One landing page, judged two ways. No login.</span>
+                            <span class="nav-dd-name">Claude vs WhyUser</span>
+                            <span class="nav-dd-desc">The same page, twice. Interactive, no login.</span>
                         </span>
                     </a>
                     <a href="../compare.html" class="nav-dd-item" role="menuitem">
@@ -421,7 +429,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-m-group">
                 <span class="nav-m-label">Why WhyUser</span>
                 <a href="../accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                <a href="../whyuser-vs-ai-opinions.html" class="nav-m-link">AI opinions vs. simulations</a>
+                <a href="../whyuser-vs-ai-opinions.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="../how-to-evaluate.html" class="nav-m-link">How to evaluate a method</a>
                 <a href="../compare.html" class="nav-m-link">Compare</a>
                 <a href="../developers.html" class="nav-m-link">Architecture &amp; data flow</a>
                 <a href="../security.html" class="nav-m-link">Security &amp; DPA</a>
@@ -445,32 +454,134 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- WHYUSER:NAV:END -->
 
-<main>
-<section class="page-head">
+<main class="lp">
+<style>
+/* ── Compare page: landing-page layout. Scoped, self-contained, with
+      colour fallbacks so it does not depend on whyuser-pages.css. ── */
+.lp{--lp-rule:var(--rule,rgba(255,255,255,.12));--lp-bold:var(--rule-bold,rgba(255,255,255,.2));
+    --lp-mute:var(--mute,#a1a1aa);--lp-brand:var(--brand,#8b7cf6);--lp-surface:var(--surface,rgba(255,255,255,.03))}
+.lp .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+.lp-hero{text-align:center;padding:3.5rem 0 2.75rem}
+.lp-crumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
+.lp-crumb a{color:inherit;text-decoration:none}
+.lp-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.04;margin:0 0 1.1rem}
+.lp-sub{font-size:1.125rem;line-height:1.55;color:var(--lp-mute);max-width:40rem;margin:0 auto 2rem}
+.lp-ctas{display:flex;flex-direction:column;gap:.7rem;align-items:center;justify-content:center}
+@media(min-width:480px){.lp-ctas{flex-direction:row}}
+
+.lp-strip{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--lp-rule);border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-strip{grid-template-columns:repeat(3,1fr)}}
+.lp-cell{padding:1.75rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-cell{border-bottom:0;border-right:1px solid var(--lp-rule)}.lp-cell:last-child{border-right:0}}
+.lp-cell:last-child{border-bottom:0}
+.lp-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
+.lp-v{font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:.5rem}
+.lp-cell p{margin:0;font-size:.875rem;line-height:1.5;color:var(--lp-mute)}
+
+.lp-sec{padding:3.25rem 0}
+.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
+.lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
+.lp-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin:0 0 .7rem}
+.lp-lead{font-size:1.0625rem;line-height:1.55;color:var(--lp-mute);max-width:44rem;margin:0}
+
+.lp-split{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:800px){.lp-split{grid-template-columns:1fr 1fr;gap:1.5rem}}
+.lp-panel{border:1px solid var(--lp-rule);border-radius:14px;padding:1.6rem 1.7rem}
+.lp-panel.us{border-color:var(--lp-bold);background:var(--lp-surface)}
+.lp-panel h3{font-size:1.0625rem;font-weight:650;margin:0 0 1rem}
+.lp-panel ul{list-style:none;margin:0;padding:0}
+.lp-panel li{position:relative;padding-left:1.4rem;margin-bottom:.7rem;font-size:.9375rem;line-height:1.5;color:var(--lp-mute)}
+.lp-panel li:last-child{margin-bottom:0}
+.lp-panel li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--lp-mute)}
+.lp-panel.us li::before{background:var(--lp-brand)}
+.lp-panel li strong{color:var(--ink,#fff);font-weight:600}
+
+.lp-cards{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:700px){.lp-cards{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.lp-cards.c3{grid-template-columns:repeat(3,1fr)}}
+.lp-card{border:1px solid var(--lp-rule);border-radius:14px;padding:1.5rem 1.6rem}
+.lp-card-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
+.lp-card h3{font-size:1.0625rem;font-weight:650;margin:0 0 .4rem;line-height:1.35}
+.lp-card p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+
+.lp-test{border:1px solid var(--lp-bold);border-radius:14px;padding:1.9rem 2rem;margin-top:2rem;background:var(--lp-surface)}
+.lp-test-row{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:760px){.lp-test-row{grid-template-columns:1fr 1fr;gap:2.5rem}}
+.lp-test h3{font-size:1rem;font-weight:650;margin:0 0 .4rem}
+.lp-test p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+
+.lp-faq{margin-top:1.75rem;border-top:1px solid var(--lp-rule)}
+.lp-q{border-bottom:1px solid var(--lp-rule);padding:1.35rem 0}
+.lp-q h3{font-size:1rem;font-weight:650;margin:0 0 .45rem}
+.lp-q p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute);max-width:48rem}
+
+.lp-more{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;padding:1.6rem 0 0;border-top:1px solid var(--lp-rule);margin-top:2.5rem}
+.lp-more span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
+.lp-more a{font-size:.9375rem;font-weight:600;color:var(--lp-brand);text-decoration:none}
+
+.wu-close{text-align:center;padding:4.5rem 0 5rem}
+.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand,#8b7cf6);margin-bottom:1.4rem}
+.wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--brand,#8b7cf6)}
+.wu-close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.06;margin:0 0 1.3rem}
+.wu-close h2 .fail{color:var(--red,#f87171)} .wu-close h2 .win{color:var(--green-b,#34d399)}
+.wu-close-line{font-size:1.0625rem;line-height:1.6;color:var(--mute,#a1a1aa);max-width:34rem;margin:0 auto 2.25rem}
+.wu-close-ctas{display:flex;flex-direction:column;gap:.75rem;align-items:center;justify-content:center}
+@media(min-width:480px){.wu-close-ctas{flex-direction:row}}
+</style>
+<section class="lp-hero">
   <div class="wrap">
-    <nav class="crumb" aria-label="Breadcrumb">
-      <a href="../index.html">WhyUser</a> <span aria-hidden="true">/</span>
-      <a href="../compare.html">Compare</a> <span aria-hidden="true">/</span>
-      <span>Synthetic personas vs. real buyer panels</span>
+    <nav class="lp-crumb" aria-label="Breadcrumb">
+      <a href="../index.html">WhyUser</a> / <a href="../compare.html">Compare</a> / Personas vs. panels
     </nav>
-    <h1 class="h1">Synthetic personas vs. real buyer panels</h1>
-    <p class="standfirst">The argument gets framed as real versus fake. That framing is wrong and it costs teams money. <strong>The useful question is which error you can afford this week.</strong></p>
+    <h1 class="lp-h1">Real humans, or the whole room.</h1>
+    <p class="lp-sub">A panel gives you people we cannot. A panel cannot put the buying committee in one room.</p>
+    <div class="lp-ctas">
+      <a href="../index.html#access" class="btn btn-primary btn-lg">Request access</a>
+      <a href="../whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
+    </div>
   </div>
 </section>
 
-<section>
+<div class="wrap"><div class="lp-strip">
+  <div class="lp-cell"><span class="lp-k">Panel study</span><div class="lp-v">12 to 48 hrs</div><p>Real respondents, surveyed one at a time.</p></div>
+  <div class="lp-cell"><span class="lp-k">Simulation</span><div class="lp-v">~30 min</div><p>The whole committee, reading the same asset.</p></div>
+  <div class="lp-cell"><span class="lp-k">Best order</span><div class="lp-v">Both</div><p>Simulate first while fixing is free, then spend the panel budget.</p></div>
+</div></div>
+
+<section class="lp-sec">
   <div class="wrap">
-    <div class="prose">
-      
-    <h2>Two methods, opposite failure modes</h2>
-    <ul>
-      <li><strong>A panel fails on stated preference.</strong> People report what confuses them accurately. They predict their own behaviour badly. They say they prefer headline A and click headline B.</li>
-      <li><strong>A simulation fails on thin evidence.</strong> Compiled from too little, it returns a fluent, well-structured answer about nothing, and nothing in the output warns you.</li>
-    </ul>
-    <p>Both are survivable. Neither is survivable if you do not know which one you are exposed to.</p>
+    <span class="lp-eyebrow">Opposite failure modes</span>
+    <h2 class="lp-h2">Each method breaks in the other one&rsquo;s strength.</h2>
+    <div class="lp-split">
+      <div class="lp-panel">
+        <h3>A panel gives you</h3>
+        <ul>
+        <li><strong>Real humans.</strong> Ours are not, and we will never imply otherwise.</li>
+        <li><strong>Context no corpus holds.</strong> A person brings what they lived.</li>
+        <li><strong>Quotable words</strong> that settle an internal argument.</li>
+        <li><strong>Its risk:</strong> stated preference drifts from real behaviour.</li>
+        </ul>
+      </div>
+      <div class="lp-panel us">
+        <h3>A simulation gives you</h3>
+        <ul>
+        <li><strong>The committee,</strong> not forty separate opinions.</li>
+        <li><strong>The handoff,</strong> where the deal actually dies.</li>
+        <li><strong>Cheap iteration.</strong> Run it eight times, not once.</li>
+        <li><strong>Its risk:</strong> thin evidence produces confident nonsense.</li>
+        </ul>
+      </div>
     </div>
-    <div style="max-width:62rem">
-    <div class="cmp-wrap">
+  </div>
+</section>
+
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Side by side</span>
+    <h2 class="lp-h2">What each one measures.</h2>
+    <div style="margin-top:2rem">
+<div class="cmp-wrap">
       <table class="cmp">
         <thead><tr><th></th><th>Real buyer panel</th><th class="col-us">Synthetic persona</th></tr></thead>
         <tbody>
@@ -489,66 +600,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </table>
     </div>
     </div>
-    <div class="prose">
-      
-    <h2>Four questions for any synthetic persona vendor</h2>
-    <p>Most of the gap between a useful simulation and an expensive random-answer generator sits in these four. Ask us too.</p>
-    <ol>
-      <li><strong>What is it built from, specifically?</strong> "Trained on B2B data" is not an answer. Name the sources, and show the source on each finding.</li>
-      <li><strong>Is it deterministic?</strong> Ask them to run the same page twice. If the verdict moves, you cannot test an edit, because you can never separate your change from the model.</li>
-      <li><strong>What is the published hit rate, and where are the misses?</strong> Ask whether predictions were sealed before the outcome existed, who graded them, and whether misses stayed in the denominator. See <a href="../glossary/evidence-ledger.html">evidence ledger</a>.</li>
-      <li><strong>What does it refuse to claim?</strong> A vendor who cannot name a limitation has not found one yet.</li>
-    </ol>
+  </div>
+</section>
 
-    <h2>Three questions for a panel vendor</h2>
-    <ol>
-      <li><strong>How are respondents verified?</strong> "Works in IT" is not a buying committee role.</li>
-      <li><strong>Can I reach the roles that block deals?</strong> Security reviewers and economic buyers are the hardest to recruit and the most likely to kill your deal.</li>
-      <li><strong>What is my sample once I segment by role?</strong> Fifty people across five roles is ten per role. Ten is not many when roles disagree.</li>
-    </ol>
-
-    <h2>What a simulation cannot do</h2>
-    <p>Worth being blunt, since we sell one.</p>
-    <ul>
-      <li><strong>It cannot replace talking to customers.</strong> It is built from customer evidence, so it sits downstream of it.</li>
-      <li><strong>It cannot give absolute numbers.</strong> Rank and direction are defensible. A precise conversion rate is not, and one wrong magnitude sinks every correct finding beside it.</li>
-      <li><strong>It inherits the bias of its corpus.</strong> Public reviews skew to the delighted and the furious. The quiet middle is under-represented.</li>
-      <li><strong>It cannot surprise you from outside its evidence.</strong> A real person sometimes says the thing nobody modelled. Worth paying for.</li>
-    </ul>
-
-    <h2>The order that costs least</h2>
-    <ol>
-      <li><strong>Simulate.</strong> Kill the structural failures across many versions. Missing proof for a role, no baseline number, a broken <a href="../glossary/scent-trail.html">scent trail</a>. Iterating costs almost nothing.</li>
-      <li><strong>Panel.</strong> Spend real money on the question humans answer best: does this land, in these words, with this person.</li>
-      <li><strong>A/B.</strong> The only method that measures what actually happened.</li>
-    </ol>
-    <p>Teams who swap the first two spend panel budget discovering the page has no security signal. Never pay a human for that finding.</p>
-
-    <div class="related"><strong>Related:</strong> <a href="whyuser-vs-chatgpt-and-claude.html">ChatGPT and Claude vs. WhyUser</a> &middot; <a href="whyuser-vs-internal-review.html">Internal review vs. WhyUser</a> &middot; <a href="../glossary/synthetic-persona.html">What is a synthetic persona?</a></div>
-      <h2>Common questions</h2>
-      <h3>Are synthetic personas better than real buyer panels?</h3>
-<p>Neither is better. They fail in opposite directions. A panel measures stated preference, which drifts from behaviour. A simulation built on thin evidence returns confident nonsense. The useful question is which error you can afford this week.</p>
-<h3>What should I ask a synthetic persona vendor before buying?</h3>
-<p>What it is built from, specifically. Whether it is deterministic, so the same input returns the same verdict. What the published hit rate is, whether predictions were sealed before the outcome existed, and whether misses stayed in the denominator. And what the vendor refuses to claim.</p>
-<h3>Can synthetic personas replace customer interviews?</h3>
-<p>No. They are built from customer evidence, so they sit downstream of it. If that evidence is thin the simulation is fluent and empty, and nothing in the output signals it.</p>
-<h3>In what order should I run simulation, panel and A/B testing?</h3>
-<p>Simulate first to kill structural failures cheaply across many versions. Panel second, on the survivor, for the resonance question humans answer best. A/B last, because it is the only method that measures what actually happened.</p>
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Before you buy either</span>
+    <h2 class="lp-h2">Questions worth asking any vendor.</h2>
+    <div class="lp-test">
+      <div class="lp-test-row">
+        <div><h3>Ask a persona vendor</h3><p>Where did the evidence come from, and can you trace a quote to it? Who wrote that source, and what happens when the evidence is thin?</p></div>
+        <div><h3>Ask a panel vendor</h3><p>How is the sample screened, how many respondents actually match my buyer, and what does a second round cost?</p></div>
+      </div>
     </div>
   </div>
 </section>
-</main>
 
-<section class="page-cta">
-    <div class="wrap">
-        <h2>Run it on the campaign you are about to launch.</h2>
-        <p>Send us the next ad, email or landing page going live. We return the role that vetoes, the handoff that breaks, the proof that is missing, and the fix. We reply within 48 hours.</p>
-        <div class="cta-row">
-            <a href="../index.html#access" class="btn btn-primary btn-lg">Request access</a>
-            <a href="../whyuser-vs-ai-opinions.html" class="btn btn-ghost btn-lg">See a page judged two ways</a>
-        </div>
+<section class="lp-sec">
+  <div class="wrap">
+    <span class="lp-eyebrow">Common questions</span>
+    <h2 class="lp-h2">Answers, briefly.</h2>
+    <div class="lp-faq">
+      <div class="lp-q"><h3>Are synthetic personas real people?</h3><p>No, and we will never imply otherwise. What is real is the evidence they are compiled from.</p></div>
+      <div class="lp-q"><h3>Which should I run first?</h3><p>The simulation, while fixing things is free. Then spend the panel budget on what survives.</p></div>
+      <div class="lp-q"><h3>What can a simulation not do?</h3><p>Bring context no corpus holds, or give you a real human quote to settle an argument.</p></div>
+      <div class="lp-q"><h3>Do they measure the same thing?</h3><p>No. A panel measures what people say when asked. A simulation measures what a modelled role does when reading.</p></div>
     </div>
+  </div>
 </section>
+
+<div class="wrap">
+  <div class="lp-more">
+    <span>Keep reading</span>
+    <a href="whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser &rarr;</a>
+    <a href="../how-to-evaluate.html">How to evaluate a method &rarr;</a>
+    <a href="../glossary/synthetic-persona.html">Synthetic persona &rarr;</a>
+    <a href="../compare.html">All comparisons &rarr;</a>
+  </div>
+</div>
+
+<section class="wu-close">
+  <div class="wrap">
+    <span class="wu-eyebrow">Before you spend</span>
+    <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
+    <p class="wu-close-line">A panel gives you real humans. A simulation puts the committee in one room. Run the cheap one first.</p>
+    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="../index.html#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="../whyuser-vs-ai-opinions.html">See a page judged two ways</a></div>
+  </div>
+</section>
+</main>
 
 <!-- WHYUSER:FOOTER:START -->
 <!-- ═══════════════════════════════════════════════════════════════════
@@ -593,7 +692,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Why WhyUser</h4><ul>
                 <li><a href="../accuracy.html">Accuracy &amp; track record</a></li>
-                <li><a href="../whyuser-vs-ai-opinions.html">AI opinions vs. simulations</a></li>
+                <li><a href="../whyuser-vs-ai-opinions.html">Claude vs WhyUser</a></li>
+                <li><a href="../how-to-evaluate.html">How to evaluate a method</a></li>
                 <li><a href="../compare.html">Compare WhyUser</a></li>
                 <li><a href="../compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
                 <li><a href="../glossary/index.html">Glossary</a></li>

@@ -101,6 +101,14 @@ User-agent: Awario
 Allow: /
 
 # ─────────────────────────────────────────────────────────────────────
+# Retired paths
+# The nine per-term glossary pages were consolidated into a single page
+# at /glossary.html. Everything under /glossary/ now 301s to an anchor
+# on that page. Left crawlable on purpose so the redirect is followed
+# and the signal transfers.
+# ─────────────────────────────────────────────────────────────────────
+
+# ─────────────────────────────────────────────────────────────────────
 # Sitemaps
 # ─────────────────────────────────────────────────────────────────────
 Sitemap: https://whyuser.com/sitemap.xml

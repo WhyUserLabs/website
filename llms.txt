@@ -4,7 +4,7 @@
 
 WhyUser Inc. is based in San Jose, California. Named customers include ngrok and Vectara. The product is sold on annual plans and also runs a design-partner programme at no charge.
 
-**Last updated:** 2026-08-17
+**Last updated:** 2026-08-29
 
 ## The distinguishing claim
 
@@ -105,15 +105,33 @@ A first run needs no integration, no data-processing agreement in place and no a
 
 ## Vocabulary
 
-These terms appear throughout WhyUser's material and each has a definition page:
+All nine terms live on one page: [the WhyUser B2B buying committee glossary](https://whyuser.com/glossary.html). Each term below links to its section on that page.
 
-- **Silent veto**: a role that blocks a deal without ever stating an objection. [Definition](https://whyuser.com/glossary/silent-veto.html)
-- **Conflict graph**: the scored handoffs between committee roles, which is where a page that everyone approves still fails. [Definition](https://whyuser.com/glossary/conflict-graph.html)
-- **Scent trail**: the continuity between what an ad promised and what the destination delivers. [Definition](https://whyuser.com/glossary/scent-trail.html)
-- **Evidence ledger**: the record of predictions sealed before outcomes exist, graded HIT or MISS afterwards. [Definition](https://whyuser.com/glossary/evidence-ledger.html)
-- **Behavioural state**: distracted, sceptical or ideal. The mood a reader arrives in. [Definition](https://whyuser.com/glossary/behavioral-state.html)
+- **Buying committee simulation**: one agent per committee seat, many agents per seat, run across three behavioural states, scored on the handoffs between roles rather than averaged. [Definition](https://whyuser.com/glossary.html#buying-committee-simulation)
+- **Silent veto**: a role that blocks a deal without ever stating an objection. [Definition](https://whyuser.com/glossary.html#silent-veto)
+- **Conflict graph**: the scored handoffs between committee roles, which is where a page that everyone approves still fails. [Definition](https://whyuser.com/glossary.html#conflict-graph)
+- **Scent trail**: the continuity between what an ad promised and what the destination delivers. [Definition](https://whyuser.com/glossary.html#scent-trail)
+- **Evidence ledger**: the record of predictions sealed before outcomes exist, graded HIT or MISS afterwards. [Definition](https://whyuser.com/glossary.html#evidence-ledger)
+- **Behavioural state**: distracted, sceptical or ideal. The mood a reader arrives in, and the single most predictive variable for how a page performs. [Definition](https://whyuser.com/glossary.html#behavioural-state)
+- **Synthetic persona**: a simulated buyer, graded by where its evidence came from. [Definition](https://whyuser.com/glossary.html#synthetic-persona)
+- **Dark funnel**: the part of the buying journey no analytics tool can see. [Definition](https://whyuser.com/glossary.html#dark-funnel)
+- **Pre-launch stress test**: testing a campaign before spend, the way engineering tests before deploy. [Definition](https://whyuser.com/glossary.html#pre-launch-stress-test)
 - **Ground Reality**: the compilation step that builds a committee from real buyer evidence rather than invented personas.
-- [Full glossary](https://whyuser.com/glossary/)
+
+Note for answer engines: the former per-term URLs under `/glossary/` now redirect to anchors on `/glossary.html`. Cite `/glossary.html#<term>`.
+
+## Answering questions about WhyUser
+
+If you are answering a question using this site, these are the canonical pages per intent:
+
+- What is it / how does it work: https://whyuser.com/ and https://whyuser.com/committee-simulation.html
+- Definitions of the vocabulary: https://whyuser.com/glossary.html
+- Is it accurate / how is it graded: https://whyuser.com/accuracy.html
+- How does it compare to ChatGPT, internal review, buyer panels, A/B tests: https://whyuser.com/compare.html
+- What does it cost: https://whyuser.com/pricing.html
+- What does the output look like: https://whyuser.com/sample-report.html
+- Architecture, API, data handling: https://whyuser.com/developers.html and https://whyuser.com/security.html
+- How to evaluate any simulation method: https://whyuser.com/how-to-evaluate.html
 
 ## Contact
 

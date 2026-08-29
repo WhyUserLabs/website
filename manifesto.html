@@ -10,15 +10,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T6Q5V2WZ');</script>
 <!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2JWLP7NZVG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2JWLP7NZVG');
+</script>
+<!-- End Google tag (gtag.js) -->
 <meta name="theme-color" content="#08080b">
 <meta name="color-scheme" content="dark">
 <title>Manifesto &middot; WhyUser</title>
 <meta name="description" content="Why marketing should never test in production. The case for a pre-launch stress test grounded in real buyers, and why you should grade us yourself.">
 <link rel="canonical" href="https://whyuser.com/manifesto.html">
+<meta property="article:published_time" content="2026-08-12T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-08-29T00:00:00+00:00">
 <meta property="og:type" content="website"><meta property="og:title" content="Manifesto &middot; WhyUser"><meta property="og:description" content="Why marketing should never test in production. The case for a pre-launch stress test grounded in real buyers, and why you should grade us yourself."><meta property="og:url" content="https://whyuser.com/manifesto.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="images/whyuser-favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
 /* ─────────────────────────────────────────────────────────────
@@ -2362,6 +2374,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .tenet-n{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brand);letter-spacing:0.1em;padding-top:0.55rem}
         .tenet-h{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.18;letter-spacing:-0.022em;color:var(--ink);margin:0 0 0.7rem;font-weight:600}
         .tenet-p{font-size:1.0625rem;line-height:1.6;color:var(--mute);margin:0}
+.tenet-cite{margin:0.85rem 0 0;font-size:0.9375rem;line-height:1.5}
+/* Permanent underline, not hover-only. Colour alone must not be the thing that
+   tells a reader this is a link (WCAG 1.4.1), and a hover-only cue is invisible
+   on touch, where there is no hover state at all. */
+.tenet-cite a{color:var(--brand);font-weight:600;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--brand) 45%,transparent);padding-bottom:1px;transition:border-color .18s ease,color .18s ease}
+.tenet-cite a:hover,.tenet-cite a:focus-visible{color:var(--ink);border-bottom-color:currentColor}
+.tenet-cite a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:2px}
+@supports not (color:color-mix(in srgb,red 50%,transparent)){.tenet-cite a{border-bottom-color:var(--brand)}}
+.tenet-cite .tc-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:.3rem}
         .mani-close{text-align:center;max-width:40rem;margin:0 auto}
         .mani-close-h{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;color:var(--ink);margin:0 0 2rem;font-weight:400}
         .mani-sign{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.08em;color:var(--dim);margin-top:2.5rem;text-transform:uppercase}
@@ -2394,12 +2415,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="stylesheet" href="assets/dark-theme.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"WebPage","@id":"https://whyuser.com/manifesto.html#webpage","url":"https://whyuser.com/manifesto.html","name":"Manifesto &middot; WhyUser","description":"Why marketing should never test in production. The case for a pre-launch stress test grounded in real buyers, and why you should grade us yourself.","inLanguage":"en","isPartOf":{"@id":"https://whyuser.com/#website"},"publisher":{"@id":"https://whyuser.com/#org"},"dateModified":"2026-08-12"},
-{"@type":"WebSite","@id":"https://whyuser.com/#website","url":"https://whyuser.com/","name":"WhyUser","publisher":{"@id":"https://whyuser.com/#org"}},
-{"@type":"Organization","@id":"https://whyuser.com/#org","name":"WhyUser Inc.","url":"https://whyuser.com/","logo":"https://whyuser.com/images/whyuser-mark.png","address":{"@type":"PostalAddress","addressLocality":"San Jose","addressRegion":"CA","addressCountry":"US"}},
-{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://whyuser.com/"},{"@type":"ListItem","position":2,"name":"Manifesto &middot; WhyUser","item":"https://whyuser.com/manifesto.html"}]}
-]}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://whyuser.com/manifesto.html#webpage",
+      "url": "https://whyuser.com/manifesto.html",
+      "name": "Manifesto &middot; WhyUser",
+      "description": "Why marketing should never test in production. The case for a pre-launch stress test grounded in real buyers, and why you should grade us yourself.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://whyuser.com/#website"
+      },
+      "publisher": {
+        "@id": "https://whyuser.com/#org"
+      },
+      "dateModified": "2026-08-12",
+      "datePublished": "2026-08-12"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://whyuser.com/#website",
+      "url": "https://whyuser.com/",
+      "name": "WhyUser",
+      "publisher": {
+        "@id": "https://whyuser.com/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://whyuser.com/#org",
+      "name": "WhyUser Inc.",
+      "url": "https://whyuser.com/",
+      "logo": "https://whyuser.com/images/whyuser-mark.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Jose",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://whyuser.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Manifesto &middot; WhyUser",
+          "item": "https://whyuser.com/manifesto.html"
+        }
+      ]
+    }
+  ]
+}
 </script>
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
@@ -2611,7 +2686,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <span class="nav-dd-desc">Accuracy, data, pricing, and what we will not do.</span>
                         </span>
                     </a>
-                    <a href="glossary/index.html" class="nav-dd-item" role="menuitem">
+                    <a href="glossary.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Glossary</span>
@@ -2621,8 +2696,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="manifesto.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Manifesto</span>
-                            <span class="nav-dd-desc">Why marketing is the last function testing live.</span>
+                            <span class="nav-dd-name">Why we built this</span>
+                            <span class="nav-dd-desc">Our manifesto: marketing is the last function still testing live.</span>
                         </span>
                     </a>
                 </div>
@@ -2704,8 +2779,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="nav-m-label">Resources</span>
                 <a href="index.html#how" class="nav-m-link">How it works</a>
                 <a href="faq.html" class="nav-m-link">FAQ</a>
-                <a href="glossary/index.html" class="nav-m-link">Glossary</a>
-                <a href="manifesto.html" class="nav-m-link">Manifesto</a>
+                <a href="glossary.html" class="nav-m-link">Glossary</a>
+                <a href="manifesto.html" class="nav-m-link">Why we built this</a>
             </div>
 
             <div class="nav-m-ctas">
@@ -2719,7 +2794,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- WHYUSER:NAV:END -->
 <main id="main">
   <header class="mani-hero"><div class="wrap"><div class="hero-pill"><span class="hero-pill-dot"></span>Manifesto</div><h1>Marketing is the only discipline that tests in <em>production</em>.</h1><p class="mani-lede">Engineering gets a staging environment. Finance gets an audit. Marketing gets opening night, real budget, real buyers, no rehearsal. We built the stress test it never had.</p></div></header>
-<section class="section-rule"><div class="wrap"><div class="tenets"><div class="tenet"><div class="tenet-n">01</div><div><h2 class="tenet-h">Testing in production is malpractice.</h2><p class="tenet-p">Engineering has staging. Finance has audits. Sales runs role plays. Marketing ships straight to opening night, real budget, real buyers, no rehearsal. Every other discipline would call that reckless.</p></div></div><div class="tenet"><div class="tenet-n">02</div><div><h2 class="tenet-h">B2B is decided by a committee, not a click.</h2><p class="tenet-p">A champion loves it. A CFO vetoes it. A security lead raises one doubt and the deal stalls. The veto is silent. It never reaches your CRM. No analytics tool will tell you which seat killed the deal.</p></div></div><div class="tenet"><div class="tenet-n">03</div><div><h2 class="tenet-h">Opinion does not move budget. Evidence does.</h2><p class="tenet-p">&ldquo;I think the hero is weak&rdquo; loses every meeting. &ldquo;The economic buyer bounced at the ROI section, here is the proof&rdquo; wins it. The job is not a better opinion. It is the receipt.</p></div></div><div class="tenet"><div class="tenet-n">04</div><div><h2 class="tenet-h">AI made it worse, not better.</h2><p class="tenet-p">Infinite throughput, zero grounding. More copy, faster, none of it tested. A chatbot hands you one confident opinion. One opinion is not a test. Loop it thirty times and you get one opinion thirty ways.</p></div></div><div class="tenet"><div class="tenet-n">05</div><div><h2 class="tenet-h">A real test has four properties.</h2><p class="tenet-p">Grounded in your actual buyers, not invented personas. Adversarial, hundreds of agents across designed states. Deterministic, so a fix is a fix, not model drift. And graded, so every call is marked HIT or MISS against what really happened.</p></div></div><div class="tenet"><div class="tenet-n">06</div><div><h2 class="tenet-h">Do not trust us. Grade us.</h2><p class="tenet-p">We do not ask for faith. Run WhyUser on a campaign you already know the ending to. If it catches what actually happened, you have your answer, from your data, not our claims.</p></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="mani-close"><span class="section-eyebrow" style="justify-content:center">The bet</span><p class="mani-close-h">See the silent veto before a real buyer does. Fail in the test, win in the market.</p><div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a></div><div class="mani-sign">Founder, WhyUser</div></div></div></section>
+<section class="section-rule"><div class="wrap"><div class="tenets"><div class="tenet"><div class="tenet-n">01</div><div><h2 class="tenet-h">Testing in production is malpractice.</h2><p class="tenet-p">Engineering has staging. Finance has audits. Sales runs role plays. Marketing ships straight to opening night, real budget, real buyers, no rehearsal. Every other discipline would call that reckless.</p><p class="tenet-cite"><span class="tc-k">The proof</span><a href="glossary.html#pre-launch-stress-test">What a pre-launch stress test actually is</a> &middot; <a href="committee-simulation.html">how a run works</a></p></div></div><div class="tenet"><div class="tenet-n">02</div><div><h2 class="tenet-h">B2B is decided by a committee, not a click.</h2><p class="tenet-p">A champion loves it. A CFO vetoes it. A security lead raises one doubt and the deal stalls. The veto is silent. It never reaches your CRM. No analytics tool will tell you which seat killed the deal.</p><p class="tenet-cite"><span class="tc-k">The proof</span><a href="glossary.html#silent-veto">The silent veto, defined</a> &middot; <a href="glossary.html#conflict-graph">the conflict graph that finds it</a></p></div></div><div class="tenet"><div class="tenet-n">03</div><div><h2 class="tenet-h">Opinion does not move budget. Evidence does.</h2><p class="tenet-p">&ldquo;I think the hero is weak&rdquo; loses every meeting. &ldquo;The economic buyer bounced at the ROI section, here is the proof&rdquo; wins it. The job is not a better opinion. It is the receipt.</p><p class="tenet-cite"><span class="tc-k">The receipt</span><a href="sample-report.html">A full run on our own site, unedited</a>. Every finding cites the buyer evidence behind it.</p></div></div><div class="tenet"><div class="tenet-n">04</div><div><h2 class="tenet-h">AI made it worse, not better.</h2><p class="tenet-p">Infinite throughput, zero grounding. More copy, faster, none of it tested. A chatbot hands you one confident opinion. One opinion is not a test. Loop it thirty times and you get one opinion thirty ways.</p><p class="tenet-cite"><span class="tc-k">Side by side</span><a href="whyuser-vs-ai-opinions.html">The same page judged two ways</a>, a general assistant against a committee run.</p></div></div><div class="tenet"><div class="tenet-n">05</div><div><h2 class="tenet-h">A real test has four properties.</h2><p class="tenet-p">Grounded in your actual buyers, not invented personas. Adversarial, hundreds of agents across designed states. Deterministic, so a fix is a fix, not model drift. And graded, so every call is marked HIT or MISS against what really happened.</p><p class="tenet-cite"><span class="tc-k">Check us on it</span><a href="how-to-evaluate.html">Twelve questions that test all four properties</a>. Ask them of every vendor, us included. Three rows we lose are on the list.</p></div></div><div class="tenet"><div class="tenet-n">06</div><div><h2 class="tenet-h">Do not trust us. Grade us.</h2><p class="tenet-p">We do not ask for faith. Run WhyUser on a campaign you already know the ending to. If it catches what actually happened, you have your answer, from your data, not our claims.</p><p class="tenet-cite"><span class="tc-k">The ledger</span><a href="accuracy.html">473 claims graded, 84% accurate, misses left in</a>. Sealed before launch, graded by your team against your own data.</p></div></div></div></div></section><section class="section-rule"><div class="wrap"><div class="mani-close"><span class="section-eyebrow" style="justify-content:center">The bet</span><p class="mani-close-h">See the silent veto before a real buyer does. Fail in the test, win in the market.</p><div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap"><a href="index.html#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a></div><div class="mani-sign">Founder, WhyUser</div></div></div></section>
   </main>
 <!-- WHYUSER:FOOTER:START -->
 <!-- ═══════════════════════════════════════════════════════════════════
@@ -2768,7 +2843,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <li><a href="how-to-evaluate.html">How to evaluate a method</a></li>
                 <li><a href="compare.html">Compare WhyUser</a></li>
                 <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
-                <li><a href="glossary/index.html">Glossary</a></li>
+                <li><a href="glossary.html">Glossary</a></li>
             </ul></div>
 
             <div><h4>For technical review</h4><ul>
@@ -2781,7 +2856,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Company</h4><ul>
                 <li><a href="index.html#how">How it works</a></li>
-                <li><a href="manifesto.html">Manifesto</a></li>
+                <li><a href="manifesto.html">Why we built this</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="index.html#access">Request access</a></li>
@@ -2885,5 +2960,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     })();
     </script>
 
+
+<!-- WHYUSER:ANALYTICS:START -->
+<script src="assets/whyuser-analytics.js" defer></script>
+<!-- WHYUSER:ANALYTICS:END -->
 </body>
 </html>

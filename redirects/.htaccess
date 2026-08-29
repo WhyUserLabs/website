@@ -1,0 +1,14 @@
+# Apache — merge into the site-root .htaccess
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RedirectMatch 301 ^/glossary/behavioral-state\.html$            /glossary.html#behavioural-state
+  RedirectMatch 301 ^/glossary/buying-committee-simulation\.html$ /glossary.html#buying-committee-simulation
+  RedirectMatch 301 ^/glossary/conflict-graph\.html$              /glossary.html#conflict-graph
+  RedirectMatch 301 ^/glossary/dark-funnel\.html$                 /glossary.html#dark-funnel
+  RedirectMatch 301 ^/glossary/evidence-ledger\.html$             /glossary.html#evidence-ledger
+  RedirectMatch 301 ^/glossary/pre-launch-stress-test\.html$      /glossary.html#pre-launch-stress-test
+  RedirectMatch 301 ^/glossary/scent-trail\.html$                 /glossary.html#scent-trail
+  RedirectMatch 301 ^/glossary/silent-veto\.html$                 /glossary.html#silent-veto
+  RedirectMatch 301 ^/glossary/synthetic-persona\.html$           /glossary.html#synthetic-persona
+  RedirectMatch 301 ^/glossary/?(index\.html)?$                   /glossary.html
+</IfModule>

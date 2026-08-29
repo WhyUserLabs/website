@@ -1,0 +1,65 @@
+# Netlify — alternative to _redirects if you already keep a netlify.toml.
+# Use ONE of the two, not both.
+#
+# REQUIRED. The glossary/ folder no longer exists. Without these rules the ten
+# retired URLs below return 404.
+
+[[redirects]]
+  from = "/glossary/behavioral-state.html"
+  to = "/glossary.html#behavioural-state"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/buying-committee-simulation.html"
+  to = "/glossary.html#buying-committee-simulation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/conflict-graph.html"
+  to = "/glossary.html#conflict-graph"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/dark-funnel.html"
+  to = "/glossary.html#dark-funnel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/evidence-ledger.html"
+  to = "/glossary.html#evidence-ledger"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/pre-launch-stress-test.html"
+  to = "/glossary.html#pre-launch-stress-test"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/scent-trail.html"
+  to = "/glossary.html#scent-trail"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/silent-veto.html"
+  to = "/glossary.html#silent-veto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/synthetic-persona.html"
+  to = "/glossary.html#synthetic-persona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary/*"
+  to = "/glossary.html"
+  status = 301
+  force = true

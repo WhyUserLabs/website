@@ -21,8 +21,8 @@
 </script>
 <!-- End Google tag (gtag.js) -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#fdfdfd">
-    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#08080b">
+    <meta name="color-scheme" content="dark light">
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-08-12T00:00:00+00:00">
@@ -3667,12 +3667,13 @@ body {
 
     </style>
 
-<!-- LIGHT PAGE.
-     assets/dark-theme.css and assets/whyuser-readability.css are the
-     site's dark override layer; both are deliberately NOT loaded here,
-     which returns this page to the light design the base CSS was
-     authored in. Re-add the two links to put it back to dark. -->
+<!-- The two sheets tagged data-theme="dark" are the site's dark
+     override layer. The theme switch in the page header toggles their
+     `disabled` property, which flips this page to the light design the
+     base CSS was authored in without a reload. -->
+  <link rel="stylesheet" href="assets/dark-theme.css" data-theme="dark">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
+  <link rel="stylesheet" href="assets/whyuser-readability.css" data-theme="dark">
 <style>
 /* WhyUser UI overrides. Kept per-page and self-contained so no shared
    stylesheet has to change.
@@ -3747,7 +3748,15 @@ body {
   letter-spacing: -0.028em; line-height: 1.05; color: var(--ink); margin: 0;
 }
 .wu-h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--emerald); }
-.wu-head-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+.wu-head-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end; }
+.theme-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex: 0 0 32px;
+  border: 1px solid var(--line); border-radius: 50%;
+  background: transparent; color: var(--ink-faint);
+  cursor: pointer; font-size: 12px; transition: all .12s;
+}
+.theme-btn:hover { border-color: var(--emerald); color: var(--emerald); }
 
 /* --- layout ---------------------------------------------------------- */
 .calc { display: grid; grid-template-columns: minmax(320px, 1fr) 440px; gap: 44px; align-items: start; }
@@ -3946,6 +3955,25 @@ body {
 @media print {
   @page { margin: 0.5in; }
 
+  /* The page is dark by default now, and dark tokens on white paper
+     print as near-invisible. Re-declaring the light values here fixes
+     every token-driven colour at once, whichever theme is on screen. */
+  :root {
+    --paper:        #ffffff;
+    --card:         #ffffff;
+    --ink:          #09090b;
+    --ink-muted:    #3f3f46;
+    --ink-faint:    #71717a;
+    --line:         rgba(9, 9, 11, 0.14);
+    --line-soft:    rgba(9, 9, 11, 0.08);
+    --emerald:      #059669;
+    --emerald-tint: #d1fae5;
+    --gold:         #d97706;
+    --gold-tint:    #fef3c7;
+    --rust:         #dc2626;
+    --silver-tint:  #f4f4f5;
+  }
+
   html, body {
     background: #fff !important;
     margin: 0 !important; padding: 0 !important;
@@ -3985,7 +4013,9 @@ body {
   #slide .slide-top { padding-bottom: 10px; }
   #slide .line { padding: 12px 0; page-break-inside: avoid; }
   #slide .line-lead { font-size: 13px; }
-  #slide .math { background: #f4f4f5 !important; font-size: 10px; }
+  #slide .math { background: #f4f4f5 !important; color: #3f3f46 !important; font-size: 10px; }
+  #slide .math b { color: #09090b !important; }
+  #slide, #slide .line-lead, #slide .slide-co { color: #09090b !important; }
   #slide .ask { page-break-inside: avoid; }
   #slide .ask-ratio { font-size: 32px; }
 }
@@ -4187,6 +4217,13 @@ body {
                             <span class="nav-dd-desc">URL in, committee verdict out, in 30 minutes.</span>
                         </span>
                     </a>
+                    <a href="roi.html" class="nav-dd-item" role="menuitem" aria-current="page">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-calculator" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">ROI calculator</span>
+                            <span class="nav-dd-desc">Build the one-page business case for your CFO.</span>
+                        </span>
+                    </a>
                     <a href="faq.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
                         <span>
@@ -4286,6 +4323,7 @@ body {
             <div class="nav-m-group">
                 <span class="nav-m-label">Resources</span>
                 <a href="index.html#how" class="nav-m-link">How it works</a>
+                <a href="roi.html" class="nav-m-link" aria-current="page">ROI calculator</a>
                 <a href="faq.html" class="nav-m-link">FAQ</a>
                 <a href="glossary.html" class="nav-m-link">Glossary</a>
                 <a href="manifesto.html" class="nav-m-link">Why we built this</a>
@@ -4306,6 +4344,10 @@ body {
 <header class="wu-head">
   <h1 class="wu-h1">ROI <em>Calculator</em></h1>
   <div class="wu-head-meta no-print">
+    <button type="button" class="theme-btn" id="theme-btn" aria-pressed="false"
+            aria-label="Switch to light theme" title="Switch theme">
+      <i class="fa-solid fa-sun" aria-hidden="true"></i>
+    </button>
     <div class="meta-field">
       <label class="meta-label" for="cs-company">Prepared for</label>
       <input class="meta-input" id="cs-company" type="text" placeholder="Their company">
@@ -4370,14 +4412,14 @@ body {
         <input class="field-input" type="number" id="ac-assets" value="5" min="0" max="99">
       </div>
       <div class="f">
-        <label class="field-label" for="ac-total">Total calls
-          <span class="tip r" tabindex="0" data-tip="How many predictions those runs produced in total.">?</span>
+        <label class="field-label" for="ac-total">Findings
+          <span class="tip r" tabindex="0" data-tip="Distinct calls the runs produced. One finding can cover a pattern across several assets, so this is usually fewer than the asset count.">?</span>
         </label>
         <input class="field-input" type="number" id="ac-total" value="5" min="0" max="99">
       </div>
       <div class="f">
-        <label class="field-label" for="ac-hits">Calls correct
-          <span class="tip" tabindex="0" data-tip="How many of those predictions the customer confirmed.">?</span>
+        <label class="field-label" for="ac-hits">Findings confirmed
+          <span class="tip" tabindex="0" data-tip="How many of those findings the customer said they had also seen.">?</span>
         </label>
         <input class="field-input" type="number" id="ac-hits" value="4" min="0" max="99">
       </div>
@@ -5089,7 +5131,7 @@ body {
     });
 
     var tot = n('ac-total'), hits = n('ac-hits');
-    $('acc-rate').textContent = tot > 0 && hits <= tot ? Math.round((hits / tot) * 100) + '% correct' : '—';
+    $('acc-rate').textContent = tot > 0 && hits <= tot ? Math.round((hits / tot) * 100) + '% confirmed' : '—';
 
     renderSlide(list, live, totalAnnual, p, ratio);
     renderAlerts(list);
@@ -5194,7 +5236,7 @@ body {
     alertEl('e-alert', UI.features.email ? blocked('email') : null);
     alertEl('u-alert', UI.features.audience ? blocked('audience') : null);
 
-    alertEl('acc-alert', n('ac-hits') > n('ac-total') ? 'More calls correct than calls made.' : null);
+    alertEl('acc-alert', n('ac-hits') > n('ac-total') ? 'More findings confirmed than findings made.' : null);
   }
 
   /* ============================================================
@@ -5240,8 +5282,16 @@ body {
     });
     return data;
   }
+  /* The address bar stays clean until the reader edits something. Writing
+     state on first paint turned every cold visit to /roi.html into a
+     1.5kB base64 URL, which looks broken and is ugly on a shared screen. */
+  var touched = false;
   var hashTimer = null;
-  function updateHash() { clearTimeout(hashTimer); hashTimer = setTimeout(writeHash, 400); }
+  function updateHash() {
+    if (!touched) return;
+    clearTimeout(hashTimer);
+    hashTimer = setTimeout(writeHash, 400);
+  }
   function writeHash() {
     try { history.replaceState(null, '', '#c=' + btoa(unescape(encodeURIComponent(JSON.stringify(collect()))))); }
     catch (e) { /* non-fatal */ }
@@ -5309,13 +5359,14 @@ body {
 
   function bind() {
     document.querySelectorAll('.field-input, .meta-input').forEach(function (el) {
-      el.addEventListener('input', render);
-      el.addEventListener('change', render);
+      el.addEventListener('input', function () { touched = true; render(); });
+      el.addEventListener('change', function () { touched = true; render(); });
     });
     document.querySelectorAll('#seg-features .seg-btn').forEach(function (b) {
       b.addEventListener('click', function () {
         var f = b.dataset.feat, next = !UI.features[f];
         if (!next && Object.keys(UI.features).filter(function (k) { return UI.features[k]; }).length === 1) return;
+        touched = true;
         UI.features[f] = next;
         applyUI(); render();
       });
@@ -5323,10 +5374,27 @@ body {
     [['seg-plan', 'plan', 'plan'], ['seg-ad-pick', 'adPick', 'adpick'],
      ['seg-email-track', 'etrack', 'etrack'], ['seg-au-track', 'utrack', 'utrack']].forEach(function (t) {
       document.querySelectorAll('#' + t[0] + ' .seg-btn').forEach(function (b) {
-        b.addEventListener('click', function () { UI[t[1]] = b.dataset[t[2]]; applyUI(); render(); });
+        b.addEventListener('click', function () { touched = true; UI[t[1]] = b.dataset[t[2]]; applyUI(); render(); });
       });
     });
+    $('theme-btn').addEventListener('click', function () {
+      setTheme(this.getAttribute('aria-pressed') === 'true' ? 'dark' : 'light');
+    });
     $('btn-copy').addEventListener('click', function () { copy(slideText(), this, 'Copied'); });
+  }
+
+  /* ---------- theme ---------- */
+  function setTheme(mode) {
+    var light = mode === 'light';
+    var sheets = document.querySelectorAll('link[data-theme="dark"]');
+    for (var i = 0; i < sheets.length; i++) { sheets[i].disabled = light; }
+    document.documentElement.style.colorScheme = light ? 'light' : 'dark';
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', light ? '#fdfdfd' : '#08080b');
+    var b = $('theme-btn');
+    b.setAttribute('aria-pressed', light ? 'true' : 'false');
+    b.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+    b.innerHTML = '<i class="fa-solid fa-' + (light ? 'moon' : 'sun') + '" aria-hidden="true"></i>';
   }
 
   /* ---------- boot ---------- */

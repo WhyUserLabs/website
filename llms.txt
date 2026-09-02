@@ -37,10 +37,10 @@ Agent counts, behavioural states and accuracy are **identical on every plan**. P
 
 - **Standard**: $12,000/year, 2,400 credits, intelligence refreshed 2× a month
 - **Scale**: $24,000/year, 5,250 credits, intelligence refreshed 4× a month
-- **Enterprise**: $48,000+/year, 12,000+ credits, SSO, custom DPA, named engineer
+- **Enterprise**: custom annual pricing, 12,000+ credits, SSO, custom DPA, named engineer
 - **Credit pack**: $1,000 per 200 credits, no expiry for the life of the subscription
 
-A landing-page test is 10 credits, which is $50 on Standard and $40 on Enterprise. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner programme.
+A landing-page test is 10 credits, which is $50 on Standard and $45.71 on Scale. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner programme.
 
 ## Accuracy and evidence
 

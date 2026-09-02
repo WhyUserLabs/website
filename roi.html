@@ -21,26 +21,26 @@
 </script>
 <!-- End Google tag (gtag.js) -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#08080b">
-    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#fdfdfd">
+    <meta name="color-scheme" content="light">
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-08-12T00:00:00+00:00">
 <meta property="article:modified_time" content="2026-08-29T00:00:00+00:00">
 
-    <title>ROI Workbook | WhyUser — Annual Business Case Calculator</title>
-    <meta name="description" content="Calculate the annual ROI of WhyUser. Operational efficiency, budget protected, GTM velocity, and performance lift. CFO-defensible business case with sensitivity ranges.">
+    <title>ROI Calculator | WhyUser</title>
+    <meta name="description" content="Build the one-page WhyUser business case your champion takes to the CFO. One line feeds the ratio, every number is counted or observed, nothing claims a lift.">
     <meta name="keywords" content="buying committee simulation, B2B campaign testing, pre-launch validation, buyer agent simulation, B2B landing page testing, demand gen validation">
     <link rel="canonical" href="https://whyuser.com/roi.html">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WhyUser">
-    <meta property="og:title" content="WhyUser | Stress Test B2B Campaigns Before You Launch">
-    <meta property="og:description" content="Run hundreds of buyer agents on any page, ad, or email. Catch the silent veto before launch. Trusted by ngrok and Vectara.">
+    <meta property="og:title" content="WhyUser | ROI Calculator">
+    <meta property="og:description" content="Four lines, one ratio. The business case your champion can defend, built from numbers they counted themselves.">
     <meta property="og:url" content="https://whyuser.com/roi.html">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WhyUser | Stress Test B2B Campaigns Before You Launch">
+    <meta name="twitter:title" content="WhyUser | ROI Calculator">
 
     <link rel="icon" type="image/png" href="images/whyuser-favicon.png">
 
@@ -3667,9 +3667,12 @@ body {
 
     </style>
 
-<link rel="stylesheet" href="assets/dark-theme.css">
+<!-- LIGHT PAGE.
+     assets/dark-theme.css and assets/whyuser-readability.css are the
+     site's dark override layer; both are deliberately NOT loaded here,
+     which returns this page to the light design the base CSS was
+     authored in. Re-add the two links to put it back to dark. -->
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
-  <link rel="stylesheet" href="assets/whyuser-readability.css">
 <style>
 /* WhyUser UI overrides. Kept per-page and self-contained so no shared
    stylesheet has to change.
@@ -3697,7 +3700,7 @@ body {
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "ROI workbook",
+          "name": "ROI calculator",
           "item": "https://whyuser.com/roi.html"
         }
       ]
@@ -3727,6 +3730,267 @@ body {
 }
 </script>
 <!-- WHYUSER:SEO-SUPPLEMENT:END -->
+<style>
+/* ============================================================
+   ROI CALCULATOR — lean UI
+   All colour from mapped tokens, so dark-theme.css flips it.
+   ============================================================ */
+
+/* --- header ---------------------------------------------------------- */
+.wu-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 24px; flex-wrap: wrap; padding: 40px 0 28px;
+}
+@media (min-width: 900px) { .wu-head { padding: 54px 0 34px; } }
+.wu-h1 {
+  font-family: var(--sans); font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 600;
+  letter-spacing: -0.028em; line-height: 1.05; color: var(--ink); margin: 0;
+}
+.wu-h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--emerald); }
+.wu-head-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+
+/* --- layout ---------------------------------------------------------- */
+.calc { display: grid; grid-template-columns: minmax(320px, 1fr) 440px; gap: 44px; align-items: start; }
+@media (max-width: 1080px) { .calc { grid-template-columns: 1fr; } }
+.calc-out { position: sticky; top: 18px; }
+@media (max-width: 1080px) { .calc-out { position: static; } }
+
+/* --- input sections: inline on the page, no card chrome --------------- */
+.sec { padding: 24px 0; border-top: 1px solid var(--line); }
+.sec:first-child { padding-top: 0; border-top: none; }
+.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.sec-t {
+  font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink);
+}
+.sec-v { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--emerald); }
+
+/* --- fields ---------------------------------------------------------- */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 16px; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.grid + .grid { margin-top: 16px; }
+.f.wide + .grid, .seg + .grid { margin-top: 16px; }
+@media (max-width: 620px) { .grid, .grid.two { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+.f { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.f.wide { grid-column: 1 / -1; }
+.f > label.field-label {
+  font-size: 11.5px !important; font-weight: 500 !important; line-height: 1.3;
+  display: flex; align-items: center; gap: 5px; color: var(--ink-muted) !important;
+}
+.f .field-input {
+  width: 100%; font-family: var(--mono); font-size: 14px; padding: 8px 10px;
+  border: 1px solid var(--line); border-radius: var(--radius); background: transparent;
+  color: var(--ink); outline: none; transition: border-color .12s;
+}
+.f .field-input:focus { border-color: var(--emerald); }
+.f .field-input[type="text"] { font-family: var(--sans); font-size: 13px; }
+/* affixes: the input has to make room for them */
+.f .input-wrap-dollar .field-input { padding-left: 24px; }
+.f .input-wrap-percent .field-input { padding-right: 24px; }
+.f .input-wrap-dollar::before, .f .input-wrap-percent::after { font-size: 12.5px; }
+
+/* --- tooltip --------------------------------------------------------- */
+.tip {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 14px; height: 14px; flex: 0 0 14px; border-radius: 50%;
+  border: 1px solid var(--line-soft); background: var(--silver-tint);
+  font-family: var(--mono); font-size: 9px; font-weight: 700; line-height: 1;
+  color: var(--ink-faint); cursor: help; position: relative; outline: none;
+}
+.tip:hover, .tip:focus { border-color: var(--emerald); color: var(--emerald); }
+.tip::after {
+  content: attr(data-tip);
+  position: absolute; left: -8px; bottom: calc(100% + 8px); z-index: 60;
+  width: max-content; max-width: 250px; padding: 9px 11px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); font-size: 12px; font-weight: 400; line-height: 1.45;
+  letter-spacing: 0; text-transform: none; text-align: left;
+  border-radius: var(--radius); box-shadow: 0 8px 24px -8px rgba(0,0,0,.45);
+  opacity: 0; visibility: hidden; transform: translateY(3px);
+  transition: opacity .12s, transform .12s; pointer-events: none;
+}
+.tip:hover::after, .tip:focus::after { opacity: 1; visibility: visible; transform: translateY(0); }
+.tip.r::after { left: auto; right: -8px; }
+
+/* --- toggles --------------------------------------------------------- */
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg-btn {
+  font-family: var(--sans); font-size: 12.5px; font-weight: 500; padding: 7px 13px;
+  border: 1px solid var(--line); background: transparent; color: var(--ink-muted);
+  border-radius: 100px; cursor: pointer; transition: all .12s; white-space: nowrap;
+}
+.seg-btn:hover { border-color: var(--ink-faint); color: var(--ink); }
+.seg-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.seg-price { display: inline-block; }
+.seg-price .field-input {
+  width: 116px; font-family: var(--mono); font-size: 13px; padding: 7px 10px 7px 22px;
+  border: 1px solid var(--line); border-radius: 100px; background: transparent;
+  color: var(--ink); outline: none;
+}
+.seg-price .field-input:focus { border-color: var(--emerald); }
+.seg-price.input-wrap-dollar::before { left: 12px; font-size: 12px; }
+
+/* --- inline alert, only when something is actually wrong -------------- */
+.alert {
+  display: flex; gap: 9px; align-items: flex-start; margin-top: 14px; padding: 10px 12px;
+  border-radius: var(--radius); font-size: 12.5px; line-height: 1.5;
+  background: var(--gold-tint); color: var(--ink); border: 1px solid var(--line);
+}
+.alert b { font-weight: 600; }
+.alert::before { content: '!'; font-family: var(--mono); font-weight: 700; color: var(--gold); }
+.hidden { display: none !important; }
+
+/* ============================================================
+   THE SLIDE — horizontal, two columns
+   ============================================================ */
+.slide {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 24px 26px; box-shadow: var(--shadow-card);
+}
+.print-brand { display: none; }
+
+.slide-top {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  padding-bottom: 13px; border-bottom: 1px solid var(--line);
+}
+.slide-co { font-size: 15px; font-weight: 600; color: var(--ink); }
+.slide-dt { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); }
+
+.line { padding: 15px 0; border-top: 1px solid var(--line-soft); }
+.slide-top + .line { border-top: none; }
+.line-tag { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; flex-wrap: wrap; }
+.line-n {
+  font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink);
+}
+.line-flag {
+  font-family: var(--mono); font-size: 8.5px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; padding: 2px 6px; border-radius: 3px;
+  background: var(--silver-tint); color: var(--ink-faint);
+}
+.line-flag.on { background: var(--emerald-tint); color: var(--emerald); }
+.line-lead { font-size: 14px; line-height: 1.5; color: var(--ink); }
+.line-lead .ctx { display: block; }
+.line-lead .ctx + .ctx { margin-top: 7px; }
+.math {
+  font-family: var(--mono); font-size: 10.5px; line-height: 1.75; color: var(--ink-muted);
+  margin-top: 9px; padding: 9px 11px; background: var(--silver-tint);
+  border-radius: var(--radius); white-space: pre-wrap; overflow-x: auto;
+}
+.math b { color: var(--ink); font-weight: 700; }
+.line-note { font-size: 11px; line-height: 1.45; color: var(--ink-faint); margin-top: 8px; }
+
+.ask { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.ask-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.ask-cost { font-size: 13px; color: var(--ink-muted); }
+.ask-cost b { color: var(--ink); font-weight: 600; }
+.ask-ratio { font-family: var(--mono); font-size: 38px; font-weight: 700; letter-spacing: -.02em; color: var(--emerald); line-height: 1; }
+.ask-ratio.thin { color: var(--gold); }
+.ask-ratio.none { color: var(--ink-faint); }
+.ask-src { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
+.upside { margin-top: 16px; padding: 12px 14px; border-left: 2px solid var(--gold); background: var(--gold-tint); border-radius: 0 var(--radius) var(--radius) 0; }
+.upside-h { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 5px; }
+.upside-b { font-size: 12px; line-height: 1.5; color: var(--ink); }
+
+.slide-actions { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 16px; }
+.btn {
+  font-family: var(--sans); font-size: 12.5px; font-weight: 500; padding: 8px 14px;
+  border: 1px solid var(--line); background: transparent; color: var(--ink);
+  border-radius: var(--radius); cursor: pointer; transition: all .12s;
+}
+.btn:hover { border-color: var(--emerald); color: var(--emerald); }
+.btn.primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn.primary:hover { opacity: .86; color: var(--paper); }
+
+/* --- folded reference ------------------------------------------------- */
+.folds { margin-top: 40px; border-bottom: 1px solid var(--line); }
+.fold { border-top: 1px solid var(--line); }
+.fold > summary {
+  list-style: none; cursor: pointer; padding: 15px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary:hover { color: var(--ink); }
+.fold > summary::after { content: '+'; font-size: 14px; color: var(--ink-faint); }
+.fold[open] > summary::after { content: '–'; }
+.fold-b { padding: 2px 0 24px; }
+.ref { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.ref td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line-soft); vertical-align: top; line-height: 1.55; color: var(--ink-muted); }
+.ref td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; width: 170px; }
+.ref code { font-family: var(--mono); font-size: 11.5px; color: var(--ink); }
+
+/* --- mobile: keep the answer visible while filling -------------------- */
+.mini { display: none; }
+@media (max-width: 1080px) {
+  .mini {
+    display: flex; align-items: center; gap: 12px;
+    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40;
+    padding: 11px 16px; border-radius: 100px;
+    background: var(--ink); color: var(--paper); box-shadow: 0 10px 30px -10px rgba(0,0,0,.5);
+  }
+  .mini-r { font-family: var(--mono); font-size: 17px; font-weight: 700; }
+  .mini-v { font-family: var(--mono); font-size: 12px; opacity: .7; flex: 1; }
+  .mini a { font-size: 12.5px; font-weight: 500; color: var(--paper); opacity: .9; white-space: nowrap; }
+  body { padding-bottom: 68px; }
+}
+
+/* ============================================================
+   PRINT — the slide, and nothing else
+   Everything outside the slide is display:none rather than hidden, so
+   it stops taking up space. Visibility alone left the page's full
+   height behind and printed blank sheets after the card.
+   ============================================================ */
+@media print {
+  @page { margin: 0.5in; }
+
+  html, body {
+    background: #fff !important;
+    margin: 0 !important; padding: 0 !important;
+  }
+  body { font-size: 12px; }
+
+  /* page chrome and every input */
+  .nav, .nav-mobile, .footer, .meta-strip, .grain::after,
+  .wu-head, .calc-in, .folds, .mini, .slide-actions,
+  [aria-label="Breadcrumb"], .no-print { display: none !important; }
+
+  /* unwind the two-column shell so the card sits at the top of page 1 */
+  .page { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .calc { display: block !important; }
+  .calc-out { position: static !important; top: auto !important; }
+
+  /* Keep the card frame. On paper an unbordered block reads as a browser
+     printout that lost its styling; the border makes it a one-pager. */
+  #slide {
+    border: 1px solid rgba(9, 9, 11, 0.22) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    padding: 26px 28px !important;
+    background: #fff !important;
+    max-width: 100%;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  #slide .print-brand {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 16px;
+  }
+  #slide .print-brand img { width: 18px; height: 18px; object-fit: contain; }
+  #slide .print-brand span {
+    font-family: var(--sans); font-size: 14px; font-weight: 700;
+    letter-spacing: -0.01em; color: #09090b;
+  }
+  #slide .slide-top { padding-bottom: 10px; }
+  #slide .line { padding: 12px 0; page-break-inside: avoid; }
+  #slide .line-lead { font-size: 13px; }
+  #slide .math { background: #f4f4f5 !important; font-size: 10px; }
+  #slide .ask { page-break-inside: avoid; }
+  #slide .ask-ratio { font-size: 32px; }
+}
+
+</style>
 </head>
 <body class="grain">
     <!-- Google Tag Manager (noscript) -->
@@ -4037,768 +4301,470 @@ body {
 
 <!-- WHYUSER:NAV:END -->
 <main id="main">
-
-    <!-- Breadcrumb wrapper before existing calculator -->
-    <div class="page" style="padding-top: 1.5rem;">
-        <nav aria-label="Breadcrumb" style="display:flex; align-items:center; gap:0.5rem; font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim);">
-            <a href="index.html" style="color:var(--mute)">Home</a>
-            <span style="color:var(--rule-bold)">/</span>
-            <span style="color:var(--ink)">ROI Workbook</span>
-        </nav>
-    </div>
-
-
 <div class="page">
 
-<!-- Print-only page header: appears on Page 1 of the PDF above Section i -->
-<div class="print-page-header">
-  <div class="print-page-brand">
-    <div class="print-page-brand-name">WhyUser</div>
-    <div class="print-page-brand-tag">Annual Business Case</div>
-  </div>
-  <div class="print-page-meta">
-    <div class="print-page-meta-row"><span class="print-page-meta-label">Prepared for</span> <span id="print-page-customer">your company</span></div>
-    <div class="print-page-meta-row"><span class="print-page-meta-label">Date</span> <span id="print-page-date">—</span></div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- MASTHEAD                                                     -->
-<!-- ============================================================ -->
-<header class="masthead">
-  <div class="masthead-brand">
-    <div class="masthead-eyebrow">WhyUser · Annual Business Case</div>
-    <h1 class="masthead-title">The <em>ROI</em> Workbook</h1>
-  </div>
-  <div class="masthead-meta">
+<header class="wu-head">
+  <h1 class="wu-h1">ROI <em>Calculator</em></h1>
+  <div class="wu-head-meta no-print">
     <div class="meta-field">
-      <label class="meta-label" for="customer-name">Prepared for</label>
-      <input class="meta-input" id="customer-name" type="text" placeholder="Your company">
+      <label class="meta-label" for="cs-company">Prepared for</label>
+      <input class="meta-input" id="cs-company" type="text" placeholder="Their company">
     </div>
     <div class="meta-field">
-      <label class="meta-label" for="customer-date">Date</label>
-      <input class="meta-input" id="customer-date" type="text" readonly>
+      <label class="meta-label" for="cs-date">Date</label>
+      <input class="meta-input" id="cs-date" type="text" readonly>
     </div>
   </div>
 </header>
 
-<!-- ============================================================ -->
-<!-- PRIMER — What the calculator models                         -->
-<!-- ============================================================ -->
-<section class="section primer">
-  <div class="section-header">
-    <div class="section-number" style="font-style: normal; font-size: 11px; font-family: var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); padding-top: 14px;">Primer</div>
-    <div>
-      <h2 class="section-title">What this calculator models</h2>
-      <p class="section-kicker">WhyUser pays back on three streams that don't depend on growth — operational efficiency, budget protected, and GTM velocity. Performance lift is upside.</p>
-    </div>
-  </div>
+<div class="calc">
 
-  <div class="streams-primer">
-    <div class="stream-card predictable">
-      <div class="stream-tag">Cost reduction</div>
-      <div class="stream-name">Operational efficiency</div>
-      <div class="stream-desc">Hours and agency fees replaced by simulation runs — review cycles, content QA, research labor.</div>
-      <div class="stream-cfo"><strong>CFO read</strong>Hard cost reduction.</div>
+<!-- ============================ INPUTS ============================ -->
+<div class="calc-in">
+
+  <!-- SETUP -->
+  <section class="sec">
+    <div class="sec-h">
+      <span class="sec-t">Setup</span>
+      <span class="sec-v" id="acc-rate">—</span>
     </div>
 
-    <div class="stream-card predictable">
-      <div class="stream-tag">Waste prevention</div>
-      <div class="stream-name">Budget protected</div>
-      <div class="stream-desc">Ad spend at risk on bad creative or landing pages, email list damage, content QA waste.</div>
-      <div class="stream-cfo"><strong>CFO read</strong>Protects existing spend. Insurance against known failure modes.</div>
-    </div>
-
-    <div class="stream-card predictable">
-      <div class="stream-tag">Throughput</div>
-      <div class="stream-name">GTM velocity gain</div>
-      <div class="stream-desc">Marketing FTE throughput improvement — 15–22% based on number of active features.</div>
-      <div class="stream-cfo"><strong>CFO read</strong>Productivity multiplier on existing headcount.</div>
-    </div>
-
-    <div class="stream-card predictable">
-      <div class="stream-tag">Growth upside</div>
-      <div class="stream-name">Performance lift</div>
-      <div class="stream-desc">New ARR from improved CVR, reply rates, click-through, MQL volume.</div>
-      <div class="stream-cfo"><strong>CFO read</strong>From your pilot, not our forecast.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- MAIN GRID                                                    -->
-<!-- ============================================================ -->
-
-<div class="main-grid">
-<!-- ============================================================ -->
-<!-- LEFT COLUMN — INPUTS                                         -->
-<!-- ============================================================ -->
-<div>
-
-<!-- Section 1 · Scope & Plan -->
-<section class="section">
-  <div class="section-header">
-    <div class="section-number">i.</div>
-    <div>
-      <h2 class="section-title">Scope of the business case</h2>
-      <p class="section-kicker">Which WhyUser features are in pilot scope, and at what plan tier. Active features determine which sections appear below. All plans support all features — plans differ by annual credit allowance.</p>
-    </div>
-  </div>
-
-  <div style="margin-bottom: 20px;">
-    <div class="meta-label" style="margin-bottom: 10px;">Active features in pilot</div>
-    <div class="feature-picker">
-      <div class="feature-card" data-feature="committee">
-        <div class="feature-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div>
-          <div class="feature-name">Page &amp; Content Committee Simulation</div>
-          <div class="feature-desc">Simulates the buying committee reading a landing page or whitepaper. Surfaces which stakeholder vetoes which element.</div>
-          <div class="feature-team">Labor origin · Content team / PMM</div>
-        </div>
+    <div class="f wide">
+      <label class="field-label">Features
+        <span class="tip" tabindex="0" data-tip="Which WhyUser features you ran for this customer.">?</span>
+      </label>
+      <div class="seg" id="seg-features">
+        <button type="button" class="seg-btn active" data-feat="committee">Committee</button>
+        <button type="button" class="seg-btn" data-feat="ad">Ads</button>
+        <button type="button" class="seg-btn" data-feat="email">Email</button>
+        <button type="button" class="seg-btn" data-feat="audience">Audience</button>
       </div>
-      <div class="feature-card" data-feature="ad">
-        <div class="feature-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div>
-          <div class="feature-name">Ad Campaign Simulation</div>
-          <div class="feature-desc">Simulates the ad-to-landing-page funnel. Quantifies $ of ad spend at risk from diagnosable failures.</div>
-          <div class="feature-team">Labor origin · Campaign / demand gen team</div>
-        </div>
-      </div>
-      <div class="feature-card" data-feature="email">
-        <div class="feature-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div>
-          <div class="feature-name">Email Campaign Simulation</div>
-          <div class="feature-desc">Simulates inbox psychology across subject + body variants. Predicts open, click, reply-to-meeting rates.</div>
-          <div class="feature-team">Labor origin · Campaign / SDR team</div>
-        </div>
-      </div>
-      <div class="feature-card" data-feature="audience">
-        <div class="feature-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div>
-          <div class="feature-name">Audience Discovery</div>
-          <div class="feature-desc">Surfaces Hidden Champion titles and adjacent sub-verticals for TAM expansion, reverse-engineered from content.</div>
-          <div class="feature-team">Labor origin · PMM / GTM research</div>
+    </div>
+
+    <div class="f wide" style="margin-top: 16px;">
+      <label class="field-label">Pricing
+        <span class="tip" tabindex="0" data-tip="The annual price this business case is built against.">?</span>
+      </label>
+      <div class="seg" id="seg-plan">
+        <button type="button" class="seg-btn active" data-plan="standard">Standard · $12k</button>
+        <button type="button" class="seg-btn" data-plan="scale">Scale · $24k</button>
+        <button type="button" class="seg-btn" data-plan="enterprise">Enterprise</button>
+        <div class="input-wrap input-wrap-dollar seg-price hidden" id="f-custom-price">
+          <label class="sr-only" for="sh-price">Annual price</label>
+          <input class="field-input" type="number" id="sh-price" value="48000" min="0" step="1000">
         </div>
       </div>
     </div>
-  </div>
 
-  <div>
-    <div class="meta-label" style="margin-bottom: 10px;">Candidate plan tier</div>
-    <div class="plan-grid" id="plan-grid">
-      <button class="plan-card" data-plan="standard"><div class="plan-name">Standard</div><div class="plan-price">$12k / year</div><div class="plan-credits">2,400 credits/year</div></button>
-      <button class="plan-card" data-plan="growth"><div class="plan-name">Scale</div><div class="plan-price">$24k / year</div><div class="plan-credits">5,250 credits/year</div></button>
-      <button class="plan-card" data-plan="enterprise"><div class="plan-name">Enterprise</div><div class="plan-price">$48k+ / year</div><div class="plan-credits">12,000+ credits/year</div></button>
-    </div>
-    <div id="plan-warning" class="dedup-notice hidden" style="margin-top: 12px;">
-      <strong>Plan validation</strong>
-      <span id="plan-warning-msg"></span>
-    </div>
-  </div>
-</section>
-
-<!-- Section 2 · Shared Context -->
-<section class="section">
-  <div class="section-header">
-    <div class="section-number">ii.</div>
-    <div>
-      <h2 class="section-title">Shared context</h2>
-      <p class="section-kicker">Fields used across multiple streams. All values are yours.</p>
-    </div>
-  </div>
-
-  <div class="field-grid">
-    <!-- Your data -->
-    <div class="field">
-      <label class="field-label">Average contract value <span class="pill pill-your">Your data</span></label>
-      <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="ctx-acv" value="30000" min="0"></div>
-      <div class="field-help">Median annual contract value in your core market. Not list price — actual sold.</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Marketing FTE <span class="pill pill-your">Your data</span></label>
-      <input class="field-input" type="number" id="ctx-marketing-fte" value="2" min="0" step="0.5">
-      <div class="field-help">Content marketing / Demand gen / SDR / ad ops / Research FTE. Used for GTM Velocity calculation only — other streams use per-feature inputs.</div>
-    </div>
-    <!-- Benchmark data -->
-    <div class="field">
-      <label class="field-label">MQL → close rate <span class="pill pill-benchmark">Benchmark</span></label>
-      <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ctx-close-rate" value="3" step="0.1" min="0" max="100"></div>
-      <div class="field-help">B2B SaaS median ≈ 3%. Prefilled — override if your CRM shows different. Only affects Performance Lift.</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Loaded hourly rate (USD) <span class="pill pill-benchmark">Benchmark</span></label>
-      <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="ctx-loaded-rate" value="150" min="0"></div>
-      <div class="field-help">Fully loaded marketing FTE cost. Industry typical $150/hr. Confirm with finance.</div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 3 · Attribution controls -->
-<section class="section">
-  <div class="section-header">
-    <div class="section-number">iii.</div>
-    <div>
-      <h2 class="section-title">Attribution controls</h2>
-      <p class="section-kicker">The variables a CFO objects to most. Exposed so you set them.</p>
-    </div>
-  </div>
-
-  <div class="attribution-strip">
-    <div class="attribution-grid">
-      <div class="attribution-field">
-        <div class="attribution-header">
-          <label class="attribution-label">Performance Lift attribution</label>
-          <span class="attribution-value" id="attr-perf-attr-v">40%</span>
-        </div>
-        <input type="range" class="attribution-slider" id="attr-perf-attr" min="25" max="80" value="40" step="5">
-        <div class="attribution-help">Share of Performance Lift attributable to WhyUser (rest to sales, product, market). Default 40%.</div>
-      </div>
-      <div class="attribution-field">
-        <div class="attribution-header">
-          <label class="attribution-label">Waste attributable share</label>
-          <span class="attribution-value" id="attr-waste-v">45%</span>
-        </div>
-        <input type="range" class="attribution-slider" id="attr-waste" min="25" max="80" value="45" step="5">
-        <div class="attribution-help">Share of budget waste diagnosable / preventable by WhyUser. Default 45%.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 4 · Feature inputs — Committee -->
-<section class="section" id="sec-committee">
-  <div class="section-header">
-    <div class="section-number">iv.</div>
-    <div>
-      <h2 class="section-title">Feature inputs</h2>
-      <p class="section-kicker">Only the feature sections you enabled above appear here. Each feature captures its own streams; the aggregation panel below handles dedup.</p>
-    </div>
-  </div>
-
-  <!-- Committee Sim Feature Section -->
-  <div class="feature-section" id="fs-committee">
-    <div class="feature-section-header">
-      <div class="feature-section-title-wrap">
-        <h3 class="feature-section-title">Committee Simulation</h3>
-        <span class="defensibility">Produces: Operational Efficiency · Budget Protected · Performance Lift </span>
-      </div>
-      <div class="feature-section-subtotal" id="sub-committee">—</div>
-    </div>
-    <div class="feature-section-body">
-      <div class="field-grid">
-        <div class="field">
-          <label class="field-label">Content assets per quarter <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="com-assets-q" value="8" min="0">
-          <div class="field-help">Landing pages, whitepapers, solution briefs per quarter.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Agency fee per review round <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="com-agency-fee" value="1200" min="0"></div>
-          <div class="field-help">If outsourced. $0 if all in-house.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Annual content production budget <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="com-content-budget" value="150000" min="0"></div>
-          <div class="field-help">Total annual content spend (agency + internal if tracked).</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Monthly website sessions <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="com-sessions" value="10000" min="0">
-          <div class="field-help">Total monthly sessions across organic, direct, referral, social, and paid traffic — all benefit from committee-tested messaging. From Google Analytics.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Baseline site conversion rate (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="com-baseline-cvr" value="3" step="0.1" min="0" max="100"></div>
-          <div class="field-help">Session-to-conversion rate. "Conversion" = whatever your analytics tracks via conversion pixel: form fills, demo requests, trial signups, content downloads. Not MQLs. B2B SaaS median ≈ 2–4%.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Conservative CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="com-lift-con" value="10" step="1" min="0" max="200"></div>
-          <div class="field-help">Relative lift on baseline CVR from committee-tested messaging. 15% = B2B SaaS messaging-driven CVR benchmark (low end).</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Optimistic CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="com-lift-opt" value="30" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end relative lift. Override to match your pilot expectations.</div>
-        </div>
-        <div class="lift-preview" id="com-lift-preview">Baseline CVR <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Ad Campaign Feature Section -->
-  <div class="feature-section" id="fs-ad">
-    <div class="feature-section-header">
-      <div class="feature-section-title-wrap">
-        <h3 class="feature-section-title">Ad Campaign Simulation</h3>
-        <span class="defensibility">Produces: Operational Efficiency · Budget Protected · Performance Lift </span>
-      </div>
-      <div class="feature-section-subtotal" id="sub-ad">—</div>
-    </div>
-    <div class="feature-section-body">
-      <div class="field-grid">
-        <div class="field">
-          <label class="field-label">Monthly ad spend (USD) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="ad-spend" value="15000" min="0"></div>
-          <div class="field-help">LinkedIn, Google, Reddit — protected channels.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Current CPC (USD) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="ad-cpc" value="7" step="0.01" min="0"></div>
-          <div class="field-help">Campaign average CPC. LinkedIn B2B SaaS median $6–8.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Creative CTR <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-ctr" value="1" step="0.1" min="0" max="100"></div>
-          <div class="field-help">Click-through rate on your ad creative — clicks ÷ impressions. LinkedIn B2B 0.4–0.6%, Google Search 3–5%, Display ~0.5–1%.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Landing page conversion rate <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-landing-cvr" value="3" step="0.1" min="0" max="100"></div>
-          <div class="field-help">What your ads dashboard reports as "conversion rate" — form fills, demo requests, trial signups, content downloads tracked by your conversion pixel. </div>
-        </div>
-        <div class="field">
-          <label class="field-label">Ad campaigns / variants per year <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="ad-campaigns" value="24" min="0">
-          <div class="field-help">Distinct campaigns or ad variants launched per year. Drives Operational Efficiency calc (review-cycle hours saved).</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Conservative CTR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-ctr-lift-con" value="10" step="1" min="0" max="200"></div>
-          <div class="field-help">Relative lift on creative click-through rate from pre-validated headlines and creative. More clicks per ad dollar.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Optimistic CTR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-ctr-lift-opt" value="30" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end CTR lift. Override to match your pilot expectations.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Conservative CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-cvr-lift-con" value="10" step="1" min="0" max="200"></div>
-          <div class="field-help">Relative lift on landing-page conversion rate from pre-validated landing pages. More conversions per click.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Optimistic CVR lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ad-cvr-lift-opt" value="30" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end CVR lift. Override to match your pilot expectations. Total conversion lift compounds CTR × CVR.</div>
-        </div>
-        <div class="lift-preview" id="ad-lift-preview">
-          <div>Baseline CTR <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
-          <div>Baseline CVR <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Email Campaign Feature Section -->
-  <div class="feature-section" id="fs-email">
-    <div class="feature-section-header">
-      <div class="feature-section-title-wrap">
-        <h3 class="feature-section-title">Email Campaign Simulation</h3>
-        <span class="defensibility">Produces: Operational Efficiency · Budget Protected · Performance Lift </span>
-      </div>
-      <div class="feature-section-subtotal" id="sub-email">—</div>
-    </div>
-        <div class="feature-section-body">
-
-      <div class="field-grid">
-        <div class="field">
-          <label class="field-label">Monthly email volume <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="em-volume" value="1000" min="0">
-          <div class="field-help">Emails sent per month across campaigns.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Click metric type <span class="pill pill-your">Your data</span></label>
-          <select class="field-input" id="em-click-type">
-            <option value="ctor">CTOR (clicks ÷ opens)</option>
-            <option value="ctr">CTR (clicks ÷ sent)</option>
-          </select>
-          <div class="field-help">Outreach/Salesloft/Apollo report CTR. HubSpot/Marketo default to CTOR. Math differs by ~5×.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Baseline open rate (%) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-open" value="20" step="0.1" min="0" max="100"></div>
-          <div class="field-implied" id="em-open-implied">≈ — opens/mo</div>
-          <div class="field-help">From your ESP (HubSpot, Marketo, Outreach, Apollo). Subject-line-driven.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Baseline click rate (%) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click" value="47" step="0.1" min="0" max="100"></div>
-          <div class="field-implied" id="em-click-implied">≈ — clicks/mo</div>
-          <div class="field-help">Value of selected click-metric type above. Body-copy-driven.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Success metric <span class="pill pill-your">Your data</span></label>
-          <select class="field-input" id="em-success-metric">
-            <option value="reply">Reply rate (outbound — SDR sequences)</option>
-            <option value="cvr">Blended landing-page CVR (nurture — broadcasts)</option>
-          </select>
-          <div class="field-help">What you optimize for. Outbound = reply (Outreach, Salesloft, Apollo). Nurture = landing conversion (HubSpot, Marketo, Mailchimp).</div>
-        </div>
-        <div class="field em-field-reply">
-          <label class="field-label">Reply rate (%) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-reply" value="10" step="0.1" min="0" max="100"></div>
-          <div class="field-implied" id="em-reply-implied">≈ — replies/mo</div>
-          <div class="field-help">Reply rate from your outbound dashboard. Directly reflects message resonance.</div>
-        </div>
-        <div class="field em-field-cvr hidden">
-          <label class="field-label">Blended landing-page CVR (%) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-landing-cvr" value="5" step="0.1" min="0" max="100"></div>
-          <div class="field-implied" id="em-cvr-implied">≈ — conversions/mo</div>
-          <div class="field-help"><strong>Average across all destinations</strong> your nurture emails link to. Different pages may have different CVRs — this is the blended rate weighted by traffic share. Form fills, demo requests, signups tracked by your conversion pixel.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Campaigns per year <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="em-campaigns" value="12" min="0">
-          <div class="field-help">Unique campaigns run per year. Drives Operational Efficiency calc.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Agency fee per round (USD) <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="em-agency" value="800" min="0"></div>
-          <div class="field-help">If outsourced. $0 if all in-house.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Conservative open-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-open-lift-con" value="5" step="1" min="0" max="200"></div>
-          <div class="field-help">Lift from pre-validated subject lines.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Optimistic open-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-open-lift-opt" value="15" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end open-rate lift. Override to match your pilot.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Conservative click-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click-lift-con" value="5" step="1" min="0" max="200"></div>
-          <div class="field-help">Lift from pre-validated body copy and CTAs.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Optimistic click-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-click-lift-opt" value="15" step="1" min="0" max="200"></div>
-          <div class="field-help">Upper-end click-rate lift.</div>
-        </div>
-        <div class="field">
-          <label class="field-label" id="em-success-lift-con-label">Conservative reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-lift-con" value="5" step="1" min="0" max="200"></div>
-          <div class="field-help" id="em-success-lift-con-help">Lift on reply rate from pre-validated CTAs and personalization.</div>
-        </div>
-        <div class="field">
-          <label class="field-label" id="em-success-lift-opt-label">Optimistic reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="em-lift-opt" value="15" step="1" min="0" max="200"></div>
-          <div class="field-help" id="em-success-lift-opt-help">Upper-end success-metric lift. Total compounds open × click × success.</div>
-        </div>
-        <div class="lift-preview" id="em-lift-preview">
-          <div>Baseline open rate <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
-          <div>Baseline click rate <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
-          <div>Baseline reply rate <strong>—</strong> · Conservative → <strong>—</strong> · Optimistic → <strong>—</strong></div>
-        </div>
-      </div>
-
-      <div class="dedup-notice hidden" id="dedup-em-ceiling">
-        <strong>Reply-rate ceiling warning</strong>Your optimistic reply rate after lift exceeds 30%, which is top-decile territory. Top-quartile B2B reply rates are 15–25%. Consider a more conservative lift or re-verify your baseline.
-      </div>
-    </div>
-  </div>
-
-  <!-- Audience Discovery Feature Section -->
-  <div class="feature-section" id="fs-audience">
-    <div class="feature-section-header">
-      <div class="feature-section-title-wrap">
-        <h3 class="feature-section-title">Audience Discovery</h3>
-        <span class="defensibility">Produces: TAM expansion · CPC reduction · Operational Efficiency </span>
-      </div>
-      <div class="feature-section-subtotal" id="sub-audience">—</div>
-    </div>
-    <div class="feature-section-body">
-      <div class="field-grid">
-        <div class="field">
-          <label class="field-label">Audience research hours / quarter <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="au-research-hours" value="20" min="0">
-          <div class="field-help">Team hours on ICP / vertical / persona research per quarter.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Audience agency fee / quarter <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="au-agency-fee" value="3000" min="0"></div>
-          <div class="field-help">If outsourced. $0 if all in-house.</div>
-        </div>
-      </div>
-
-      <div style="margin: 20px 0 10px; padding-top: 16px; border-top: 1px solid var(--line-soft);">
-        <label style="font-size: 13px; display: flex; gap: 8px; align-items: flex-start; cursor: pointer;">
-          <input type="checkbox" id="au-activate-verticals" style="margin-top: 3px;">
-          <span>
-            <strong>We plan to activate campaigns in newly validated sub-verticals this year.</strong>
-            <span style="display: block; font-size: 11px; color: var(--ink-muted); margin-top: 2px;">
-              If unchecked, TAM expansion collapses to $0 and the feature is anchored on Operational Efficiency alone.
-            </span>
-          </span>
+    <div class="grid" style="margin-top: 16px;">
+      <div class="f">
+        <label class="field-label" for="sh-rate">Loaded hourly rate
+          <span class="tip" tabindex="0" data-tip="Hourly cost of one employee including benefits and overhead.">?</span>
         </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="sh-rate" value="150" min="0"></div>
       </div>
-
-      <div class="field-grid" id="au-tam-inputs">
-        <div class="field">
-          <label class="field-label">Sub-verticals to activate / year <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="au-verticals" value="2" min="0">
-          <div class="field-help">Industry data suggests 1–3 is typical in Year 1.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Net new deals per vertical <span class="pill pill-your">Your data</span></label>
-          <input class="field-input" type="number" id="au-deals" value="4" min="0">
-          <div class="field-help">Year 1 deals per activated vertical. Typical 2–8.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">Median deal size in new vertical <span class="pill pill-your">Your data</span></label>
-          <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="au-deal-size" value="40000" min="0"></div>
-          <div class="field-help">Median, not average. Often 20–30% smaller than core ACV until PMF proven in new vertical.</div>
-        </div>
-        <div class="field">
-          <label class="field-label">TAM attribution % <span class="pill pill-attribution">Attribution</span></label>
-          <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="au-tam-attr" value="40" step="1" min="0" max="100"></div>
-          <div class="field-help">Share of new-vertical deals attributable to Audience Discovery (rest to sales/product). Customer-set.</div>
-        </div>
+      <div class="f">
+        <label class="field-label" for="ac-assets">Assets
+          <span class="tip" tabindex="0" data-tip="How many of their assets you ran blind.">?</span>
+        </label>
+        <input class="field-input" type="number" id="ac-assets" value="5" min="0" max="99">
       </div>
-
-      <div class="dedup-notice hidden" id="dedup-au-exec">
-        <strong>Execution-dependent</strong>TAM expansion requires your sales/marketing team to activate campaigns in the validated sub-verticals. If activation doesn't happen in Year 1, this value collapses to $0.
+      <div class="f">
+        <label class="field-label" for="ac-total">Total calls
+          <span class="tip r" tabindex="0" data-tip="How many predictions those runs produced in total.">?</span>
+        </label>
+        <input class="field-input" type="number" id="ac-total" value="5" min="0" max="99">
       </div>
-      <div class="dedup-notice hidden" id="dedup-au-inflated">
-        <strong>Sanity warning</strong>Verticals × deals exceeds 30. Industry data suggests 1–3 verticals activated in Year 1 is typical. Consider more conservative inputs.
-      </div>
-      <div class="dedup-notice hidden" id="dedup-au-attr">
-        <strong>Attribution warning</strong>TAM attribution above 50% implies Audience Discovery caused most of the vertical's success. Consider if 20–40% is more defensible.
+      <div class="f">
+        <label class="field-label" for="ac-hits">Calls correct
+          <span class="tip" tabindex="0" data-tip="How many of those predictions the customer confirmed.">?</span>
+        </label>
+        <input class="field-input" type="number" id="ac-hits" value="4" min="0" max="99">
       </div>
     </div>
-  </div>
-</section>
+    <div class="alert hidden" id="acc-alert"></div>
+  </section>
 
-<!-- Section 5 · Aggregation -->
-<section class="section">
-  <div class="section-header">
-    <div class="section-number">v.</div>
-    <div>
-      <h2 class="section-title">Aggregation &amp; dedup</h2>
-      <p class="section-kicker">Per-feature value streams summed across active features. GTM Velocity Gain computed on your Marketing FTE, with diminishing-returns gain across active features. Dedup rules applied automatically — no double-counting of the same reclaimed hour or the same dollar of spend.</p>
+  <!-- COMMITTEE -->
+  <section class="sec" id="sec-committee">
+    <div class="sec-h"><span class="sec-t">Committee</span><span class="sec-v" id="tot-committee">—</span></div>
+    <div class="grid">
+      <div class="f">
+        <label class="field-label" for="c-stake">Reviewers
+          <span class="tip" tabindex="0" data-tip="People who review a page before it goes live.">?</span>
+        </label>
+        <input class="field-input" type="number" id="c-stake" value="5" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-hours">Hours each, per round</label>
+        <input class="field-input" type="number" id="c-hours" value="1.5" min="0" step="0.25">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-agency">Agency / asset
+          <span class="tip r" tabindex="0" data-tip="Outside fees for one revision cycle on one asset.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="c-agency" value="2400" min="0" step="100"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-rounds-now">Review rounds today</label>
+        <input class="field-input" type="number" id="c-rounds-now" value="3" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-rounds-after">Review rounds after
+          <span class="tip" tabindex="0" data-tip="Rounds of review expected once WhyUser is in the workflow.">?</span>
+        </label>
+        <input class="field-input" type="number" id="c-rounds-after" value="1" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-days">Days / round
+          <span class="tip r" tabindex="0" data-tip="Calendar days that one review round adds.">?</span>
+        </label>
+        <input class="field-input" type="number" id="c-days" value="5" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-assets-q">Assets / quarter</label>
+        <input class="field-input" type="number" id="c-assets-q" value="8" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-campaigns">Campaigns / year</label>
+        <input class="field-input" type="number" id="c-campaigns" value="12" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-spend">Paid spend / month
+          <span class="tip r" tabindex="0" data-tip="Monthly paid media spend driving traffic to these pages.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="c-spend" value="50000" min="0" step="1000"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-bounce">Bounce rate</label>
+        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="c-bounce" value="72" min="0" max="100" step="1"></div>
+      </div>
     </div>
-  </div>
+    <div class="alert hidden" id="c-alert"></div>
+  </section>
 
-  <table class="breakdown-table">
-    <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Type</th>
-        <th class="num">Conservative</th>
-        <th class="num">Optimistic</th>
-      </tr>
-    </thead>
-    <tbody id="breakdown-body">
-      <!-- populated by JS -->
-    </tbody>
-  </table>
+  <!-- ADS -->
+  <section class="sec hidden" id="sec-ad">
+    <div class="sec-h"><span class="sec-t">Ads</span><span class="sec-v" id="tot-ad">—</span></div>
 
-  <h3 style="font-family: var(--serif); font-size: 18px; font-weight: 400; margin-top: 32px; margin-bottom: 10px;">Sensitivity</h3>
-  <table class="sensitivity" id="sensitivity-table">
-    <thead>
-      <tr>
-        <th>Scenario</th>
-        <th class="num">Total annual value</th>
-        <th class="num">ROI multiple</th>
-        <th class="num">Payback (mo)</th>
-      </tr>
-    </thead>
-    <tbody id="sensitivity-body"><!-- populated by JS --></tbody>
-  </table>
-</section>
-
-<!-- Section 6 · Methodology -->
-<section class="section">
-  <div class="section-header">
-    <div class="section-number">vi.</div>
-    <div>
-      <h2 class="section-title">Methodology &amp; sources</h2>
-      <p class="section-kicker">Every benchmark cited. Every URL auditable.</p>
-    </div>
-  </div>
-  <div class="source-list">
-    <div class="source-group">
-      <div class="source-group-title">Content operations</div>
-      <div class="source-item"><strong>B2B marketing approval cycle 15–19 days baseline;</strong> reduction 50–70% with process optimization — <a href="https://jam7.com/resources/how-to-reduce-marketing-approval-process-time" target="_blank" rel="noopener">Jam7 analysis of Series A/B B2B tech</a></div>
-      <div class="source-item"><strong>Revision rounds with structured templates:</strong> 2.3 → 0.8 per asset (65% reduction) — <a href="https://jam7.com/resources/how-to-reduce-marketing-approval-process-time" target="_blank" rel="noopener">Jam7 production data</a></div>
-      <div class="source-item"><strong>Content review cycle time:</strong> webpage assembly 4 hrs → 10 min with agentic AI — <a href="https://aws.amazon.com/blogs/machine-learning/from-hours-to-minutes-how-agentic-ai-gave-marketers-time-back-for-what-matters/" target="_blank" rel="noopener">AWS + Gradial case study</a></div>
-      <div class="source-item"><strong>AI use in B2B content:</strong> 87% productivity improvement, 80% Operational Efficiency improvement — <a href="https://contentmarketinginstitute.com/b2b-research/b2b-content-marketing-trends-research" target="_blank" rel="noopener">Content Marketing Institute 2026 B2B Report</a></div>
-    </div>
-    <div class="source-group">
-      <div class="source-group-title">LinkedIn &amp; paid ads</div>
-      <div class="source-item"><strong>Senior title CPC $6.40; junior $4.40; global avg $5.58; SaaS/tech median ~$7.85</strong> — <a href="https://www.autelo.ai/blog/top-7-linkedin-benchmarks-for-b2b-marketers-in-2025" target="_blank" rel="noopener">Autelo B2B benchmarks 2025</a></div>
-      <div class="source-item"><strong>CPC range by audience specificity:</strong> varies 2–3× by specificity — <a href="https://www.stackmatix.com/blog/linkedin-ads-cost-budget-guide-2026" target="_blank" rel="noopener">Stackmatix LinkedIn Ads 2026</a></div>
-      <div class="source-item"><strong>LinkedIn conversion rate:</strong> 2–5% good, 5–15% possible — <a href="https://www.poweredbysearch.com/learn/linkedin-ads-stats-benchmarks/" target="_blank" rel="noopener">Powered by Search</a></div>
-      <div class="source-item"><strong>B2B customer journey:</strong> 211 days, 76 touches, 6.8 stakeholders — <a href="https://www.swydo.com/blog/google-ads-vs-linkedin-ads/" target="_blank" rel="noopener">Dreamdata 2024 via Swydo</a></div>
-    </div>
-    <div class="source-group">
-      <div class="source-group-title">B2B SaaS expansion / adjacency</div>
-      <div class="source-item"><strong>Expansion ARR as share of new ARR:</strong> 28.8% (2020) → 32.3% (2023); 40%+ at $50M+ ARR — <a href="https://www.hubifi.com/blog/b2b-saas-benchmarks-2023" target="_blank" rel="noopener">ChartMogul via HubiFi</a></div>
-      <div class="source-item"><strong>NRR benchmark:</strong> 85–135%, top performers 110%+ — <a href="https://www.velaris.io/articles/b2b-saas-benchmarks-key-metrics" target="_blank" rel="noopener">ChartMogul via Velaris</a></div>
-      <div class="source-item"><strong>B2B SaaS median growth rate 2025:</strong> 26% median, 50% top quartile — <a href="https://www.joinpavilion.com/resource/b2b-saas-performance-benchmarks" target="_blank" rel="noopener">Pavilion 2025 Benchmarks</a></div>
-    </div>
-    <div class="source-group">
-      <div class="source-group-title">TAM attribution</div>
-      <div class="source-item">TAM attribution is treated as a customer-set variable — WhyUser surfaces the opportunity; your sales and marketing teams activate it. You own the attribution number, set on the slider above.</div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 7 · How each value stream is calculated (champion-defensible formulas) -->
-<section class="section">
-  <div class="section-header">
-    <div class="section-number">vii.</div>
-    <div>
-      <h2 class="section-title">How each value stream is calculated</h2>
-      <p class="section-kicker">One paragraph per stream. Designed so you can point at any number and answer "where did this come from?" in plain English.</p>
-    </div>
-  </div>
-
-  <div class="formula-list">
-    <div class="formula-block">
-      <div class="formula-title">Operational Efficiency</div>
-      <div class="formula-body">
-        <p><strong>What it measures:</strong> labor hours reclaimed when WhyUser pre-validates content, ad variants, email copy, and audience research — replacing expensive human review cycles with simulated-committee feedback.</p>
-        <p><strong>Formula:</strong> For each active feature, we multiply the cost of one review cycle (stakeholders × hours × loaded hourly rate, plus agency fees) by the number of cycles per year. Then we subtract the simulation cost and apply a capture factor (50% conservative, 80% optimistic) to account for cycles that still require some human review.</p>
-        <p><strong>Example — Committee Simulation:</strong> 5 stakeholders × 1.5 hrs × $150 × 3 rounds × 8 assets × 4 quarters = $54K of review labor per year. Conservative capture (50%) = $27K reclaimed; optimistic (80%) = $43K. Same shape applies to the other features with their feature-specific cycle counts.</p>
+    <div class="grid">
+      <div class="f">
+        <label class="field-label" for="a-spend">Spend / month
+          <span class="tip" tabindex="0" data-tip="Monthly LinkedIn ad spend.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-spend" value="20000" min="0" step="1000"></div>
       </div>
     </div>
 
-    <div class="formula-block">
-      <div class="formula-title">Budget Protected</div>
-      <div class="formula-body">
-        <p><strong>What it measures:</strong> budget dollars currently at risk on campaigns, content, and email sends that fail silently. WhyUser diagnoses the failure before launch, so you don't spend behind broken creative.</p>
-        <p><strong>Formula:</strong> budget at risk × attributable share × capture rate. "Budget at risk" is the portion of spend visibly failing (for ads: spend on clicks that didn't convert, discounted by 0.7 to acknowledge that some non-converting traffic still drives brand and retargeting value; for committee: annual content production budget; for email: pipeline impact from list-health erosion). Attributable share is the slice WhyUser can realistically diagnose (default 45%, editable). Capture rate is how much of that you actually recover by acting on the diagnosis (50% conservative, 75% optimistic).</p>
-        <p><strong>Example — Ad Campaign:</strong> $15K/mo ad spend × 97% non-converting (1 − 3% landing CVR) × 0.7 waste coefficient × 45% attributable × 50% capture × 12 = $27K/yr prevented waste. Committee waste uses your annual content production budget on the same multiplicative structure.</p>
+    <div class="f wide" style="margin-top: 16px;">
+      <label class="field-label">What ads remove
+        <span class="tip" tabindex="0" data-tip="Which of the two ad numbers this case uses.">?</span>
+      </label>
+      <div class="seg" id="seg-ad-pick">
+        <button type="button" class="seg-btn active" data-adpick="media">Media waste</button>
+        <button type="button" class="seg-btn" data-adpick="cycle">Creative cycle</button>
       </div>
     </div>
 
-    <div class="formula-block">
-      <div class="formula-title">GTM Velocity Gain</div>
-      <div class="formula-body">
-        <p><strong>What it measures:</strong> additional team throughput — the compounding effect of a team doing more campaigns / launches / experiments per quarter because fewer cycles are burned on failed iterations.</p>
-        <p><strong>Formula:</strong> annual fully-loaded Marketing FTE cost × throughput gain. Throughput gain is 15% for one active WhyUser feature, 20% for two, 22% for three or more (diminishing returns, per v1.3 specification).</p>
-        <p><strong>Example:</strong> 2 Marketing FTE × $150 × 2,080 hrs = $624K annual cost × 15% gain = ~$94K/yr. With more FTE or more active features, this scales.</p>
+    <div class="grid" id="a-media-fields">
+      <div class="f">
+        <label class="field-label" for="a-cpc-win">CPC, winner
+          <span class="tip" tabindex="0" data-tip="Cost per click of the best performing creative in the test.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-cpc-win" value="11" min="0" step="0.5"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="a-cpc-weak">CPC, weakest
+          <span class="tip r" tabindex="0" data-tip="Cost per click of the worst performing creative in the same test.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-cpc-weak" value="19" min="0" step="0.5"></div>
       </div>
     </div>
 
-    <div class="formula-block">
-      <div class="formula-title">Performance Lift</div>
-      <div class="formula-body">
-        <p><strong>What it measures:</strong> additional revenue from messaging that converts better — more MQLs from your landing pages, more replies from outbound, more clicks on nurture, more conversions on paid ads.</p>
-        <p><strong>Formula:</strong> baseline funnel throughput × relative lift × ACV × close rate × attribution. Baseline throughput is what your current dashboards report today (sessions × CVR for content; ad spend / CPC × landing CVR for ads; volume × open × click × reply-or-CVR for email). For ads, total relative lift compounds CTR × CVR end-to-end. For email, total lift compounds open × click × success-metric (reply or landing CVR). For other features, lift is your single editable conservative / optimistic input. Attribution (default 40%) credits WhyUser's share of the improvement — the rest goes to sales execution, product, and market conditions.</p>
-        <p><strong>Example — Committee Simulation:</strong> 10K sessions/mo × 12 × 3% baseline CVR × 15% lift × $30K ACV × 3% close × 40% attribution = ~$194K conservative. Same chain applies to Ad and Email with their respective baseline funnels.</p>
+    <div class="grid hidden" id="a-cycle-fields">
+      <div class="f">
+        <label class="field-label" for="a-rev">Reviewers / set
+          <span class="tip" tabindex="0" data-tip="People who review a creative set before it goes live.">?</span>
+        </label>
+        <input class="field-input" type="number" id="a-rev" value="4" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="a-hours">Hours each, per round</label>
+        <input class="field-input" type="number" id="a-hours" value="1" min="0" step="0.25">
+      </div>
+      <div class="f">
+        <label class="field-label" for="a-agency">Agency / set / round
+          <span class="tip r" tabindex="0" data-tip="Outside fees for one revision round on one creative set.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-agency" value="2000" min="0" step="100"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="a-rounds-now">Review rounds today</label>
+        <input class="field-input" type="number" id="a-rounds-now" value="3" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="a-rounds-after">Review rounds after</label>
+        <input class="field-input" type="number" id="a-rounds-after" value="1" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="a-days">Days / round</label>
+        <input class="field-input" type="number" id="a-days" value="3" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="a-sets">Sets / year
+          <span class="tip" tabindex="0" data-tip="Creative sets or refreshes produced per year.">?</span>
+        </label>
+        <input class="field-input" type="number" id="a-sets" value="6" min="0" step="1">
       </div>
     </div>
-  </div>
-</section>
+    <div class="alert hidden" id="a-alert"></div>
+  </section>
 
-</div> <!-- end left column -->
+  <!-- EMAIL -->
+  <section class="sec hidden" id="sec-email">
+    <div class="sec-h"><span class="sec-t">Email</span><span class="sec-v" id="tot-email">—</span></div>
 
-<!-- ============================================================ -->
-<!-- RIGHT COLUMN — STICKY CFO CARD                              -->
-<!-- ============================================================ -->
-<aside class="cfo-card-wrap">
-<div class="cfo-card" id="cfo-card">
-  <!-- Print-only header: WhyUser brand + company + date, shown only when printing -->
-  <div class="cfo-print-header">
-    <div class="cfo-print-brand">
-      <div class="cfo-print-brand-name">WhyUser</div>
-      <div class="cfo-print-brand-tag">Annual Business Case</div>
+    <div class="seg" id="seg-email-track">
+      <button type="button" class="seg-btn active" data-etrack="a">Newsletter</button>
+      <button type="button" class="seg-btn" data-etrack="b">Outbound</button>
     </div>
-    <div class="cfo-print-meta">
-      <div class="cfo-print-meta-row"><span class="cfo-print-meta-label">Prepared for</span> <span id="cfo-print-customer">your company</span></div>
-      <div class="cfo-print-meta-row"><span class="cfo-print-meta-label">Date</span> <span id="cfo-print-date">—</span></div>
-    </div>
-  </div>
-  <div class="cfo-card-eyebrow">Business case · One-page summary</div>
-  <h2 class="cfo-card-title">Annual <em>value</em> for <span id="cfo-customer">your company</span></h2>
-  <div class="cfo-card-meta" id="cfo-meta">Plan: — · Prepared: —</div>
 
-  <div class="cfo-streams">
-    <div class="cfo-stream-row header">
-      <div>Value stream</div>
-      <div style="text-align: right;">Conservative</div>
-      <div style="text-align: right;">Optimistic</div>
+    <div class="grid" style="margin-top: 16px;">
+      <div class="f">
+        <label class="field-label" for="e-rev">Reviewers / email
+          <span class="tip" tabindex="0" data-tip="People who review an email before it goes out.">?</span>
+        </label>
+        <input class="field-input" type="number" id="e-rev" value="4" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-hours">Hours each, per round</label>
+        <input class="field-input" type="number" id="e-hours" value="0.75" min="0" step="0.25">
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-agency">Copywriter / round
+          <span class="tip r" tabindex="0" data-tip="Outside copy fees for one revision round on one email.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="e-agency" value="800" min="0" step="100"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-rounds-now">Review rounds today</label>
+        <input class="field-input" type="number" id="e-rounds-now" value="3" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-rounds-after">Review rounds after</label>
+        <input class="field-input" type="number" id="e-rounds-after" value="1" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-days">Days / round</label>
+        <input class="field-input" type="number" id="e-days" value="2" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-sends">Sends / month
+          <span class="tip" tabindex="0" data-tip="Emails sent per month.">?</span>
+        </label>
+        <input class="field-input" type="number" id="e-sends" value="6" min="0" step="1">
+      </div>
     </div>
-    <div class="cfo-stream-row">
-      <div class="cfo-stream-label">Operational Efficiency </div>
-      <div class="cfo-stream-num" id="cfo-d-con">—</div>
-      <div class="cfo-stream-num opt" id="cfo-d-opt">—</div>
-    </div>
-    <div class="cfo-stream-row">
-      <div class="cfo-stream-label">Budget Protected </div>
-      <div class="cfo-stream-num" id="cfo-c-con">—</div>
-      <div class="cfo-stream-num opt" id="cfo-c-opt">—</div>
-    </div>
-    <div class="cfo-stream-row">
-      <div class="cfo-stream-label">GTM Velocity Gain </div>
-      <div class="cfo-stream-num" id="cfo-b-con">—</div>
-      <div class="cfo-stream-num opt" id="cfo-b-opt">—</div>
-    </div>
-    <div class="cfo-stream-row">
-      <div class="cfo-stream-label">Performance Lift </div>
-      <div class="cfo-stream-num" id="cfo-a-con">—</div>
-      <div class="cfo-stream-num opt" id="cfo-a-opt">—</div>
-    </div>
-    <div class="cfo-total-row">
-      <div class="label">Total annual value</div>
-      <div class="num" id="cfo-total-con">—</div>
-      <div class="num opt" id="cfo-total-opt">—</div>
-    </div>
-  </div>
 
-  <div class="cfo-kpis">
-    <div class="kpi">
-      <div class="kpi-label">ROI</div>
-      <div class="kpi-value" id="cfo-roi">—</div>
-      <div class="kpi-sub" id="cfo-roi-opt">Opt: —</div>
+    <div class="grid" id="e-ctx-a">
+      <div class="f">
+        <label class="field-label" for="e-cac">Cost / contact
+          <span class="tip" tabindex="0" data-tip="What it cost to acquire one contact on the list.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="e-cac" value="310" min="0" step="10"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-unsub">Unsubs / bad send
+          <span class="tip r" tabindex="0" data-tip="Unsubscribes a single poor send typically produces.">?</span>
+        </label>
+        <input class="field-input" type="number" id="e-unsub" value="140" min="0" step="10">
+      </div>
     </div>
-    <div class="kpi">
-      <div class="kpi-label">Payback</div>
-      <div class="kpi-value" id="cfo-payback">—</div>
-      <div class="kpi-sub">months</div>
+    <div class="grid hidden" id="e-ctx-b">
+      <div class="f">
+        <label class="field-label" for="e-domains">Sending domains
+          <span class="tip" tabindex="0" data-tip="How many domains they send outbound from.">?</span>
+        </label>
+        <input class="field-input" type="number" id="e-domains" value="3" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="e-warmup">Warmup weeks
+          <span class="tip" tabindex="0" data-tip="Weeks needed to warm a replacement sending domain.">?</span>
+        </label>
+        <input class="field-input" type="number" id="e-warmup" value="6" min="0" step="1">
+      </div>
     </div>
-    <div class="kpi">
-      <div class="kpi-label">Plan</div>
-      <div class="kpi-value" id="cfo-plan-cost" style="font-size: 22px;">—</div>
-      <div class="kpi-sub" id="cfo-plan-name">—</div>
+    <div class="alert hidden" id="e-alert"></div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="sec hidden" id="sec-audience">
+    <div class="sec-h"><span class="sec-t">Audience</span><span class="sec-v" id="tot-audience">—</span></div>
+
+    <div class="seg" id="seg-au-track">
+      <button type="button" class="seg-btn active" data-utrack="paid">Paid</button>
+      <button type="button" class="seg-btn" data-utrack="expansion">Expansion</button>
     </div>
-  </div>
 
-  <div class="upside-block">
-    <div class="block-label">Potential upside</div>
-    <div class="block-sub">Not counted in headline total.</div>
-    <ul class="upside-list" id="cfo-upside">
-      <li>Feature compounding — pilot typically runs on 1–2 features; subscription unlocks all four. Every additional active feature raises GTM Velocity Gain and expands the surface area covered.</li>
-    </ul>
-  </div>
+    <div class="grid" id="au-paid" style="margin-top: 16px;">
+      <div class="f">
+        <label class="field-label" for="u-cpl-base">Control CPL
+          <span class="tip" tabindex="0" data-tip="Cost per lead from the audience they were already targeting.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-cpl-base" value="310" min="0" step="10"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-cpl-test">Test CPL
+          <span class="tip" tabindex="0" data-tip="Cost per lead from the discovered audience.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-cpl-test" value="190" min="0" step="10"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-leads">Leads / month
+          <span class="tip r" tabindex="0" data-tip="Leads they generate per month at current spend.">?</span>
+        </label>
+        <input class="field-input" type="number" id="u-leads" value="160" min="0" step="10">
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-window">Test window, days
+          <span class="tip" tabindex="0" data-tip="How many days the head-to-head test ran.">?</span>
+        </label>
+        <input class="field-input" type="number" id="u-window" value="14" min="1" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-q-ctrl">MQL→SQL, control</label>
+        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="u-q-ctrl" value="22" min="0" max="100" step="0.5"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-q-treat">MQL→SQL, test
+          <span class="tip r" tabindex="0" data-tip="MQL to SQL rate on leads from the discovered audience.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="u-q-treat" value="24" min="0" max="100" step="0.5"></div>
+      </div>
+    </div>
 
-  <div class="quali-block">
-    <div class="block-label">Qualitative</div>
-    <ul class="quali-list">
-      <li>Silent-filter protection — 43–68% of B2B buyers AI-research before contact. WhyUser is the measurement instrument for that evaluation layer.</li>
-      <li>Account learning — the platform ingests your product, ICPs, messaging, and historical decision data with every run. Simulations become progressively more tuned to your specific market and committee dynamics the longer you use it.</li>
-      <li>Pilot-to-production path — every stress-test run becomes a measurable production decision.</li>
-    </ul>
-  </div>
+    <div class="grid hidden" id="au-expansion" style="margin-top: 16px;">
+      <div class="f">
+        <label class="field-label" for="u-hours">Hours / assessment
+          <span class="tip" tabindex="0" data-tip="Internal hours one vertical assessment takes today.">?</span>
+        </label>
+        <input class="field-input" type="number" id="u-hours" value="80" min="0" step="5">
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-research">Research firm cost
+          <span class="tip" tabindex="0" data-tip="Outside research or analyst spend per vertical assessment.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-research" value="15000" min="0" step="1000"></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-verticals">Assessments / year
+          <span class="tip r" tabindex="0" data-tip="Vertical assessments they run per year.">?</span>
+        </label>
+        <input class="field-input" type="number" id="u-verticals" value="2" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="u-weeks">Weeks / assessment
+          <span class="tip" tabindex="0" data-tip="Elapsed weeks one assessment takes end to end.">?</span>
+        </label>
+        <input class="field-input" type="number" id="u-weeks" value="8" min="0" step="1">
+      </div>
+    </div>
 
-  <div class="cfo-actions">
-    <button class="action-btn primary" onclick="window.print()">Export as PDF</button>
-    <button class="action-btn" onclick="copyCfoText(this)">Copy summary</button>
-  </div>
+    <div class="grid">
+      <div class="f">
+        <label class="field-label" for="u-newsegs">New segments found
+          <span class="tip" tabindex="0" data-tip="Sub-verticals surfaced that they have not marketed into.">?</span>
+        </label>
+        <input class="field-input" type="number" id="u-newsegs" value="4" min="0" step="1">
+      </div>
+    </div>
+    <div class="alert hidden" id="u-alert"></div>
+  </section>
 
-  <div class="methodology-note">
-    WhyUser does not claim outcomes. The calculator applies benchmark ranges to your own inputs. Performance Lift is an estimate based on industry benchmarks and will be adjusted to actual measured results after the pilot. Every benchmark has a citable source in §vi.
-  </div>
 </div>
+
+<!-- ============================ SLIDE ============================ -->
+<aside class="calc-out">
+  <div class="slide" id="slide">
+    <!-- Print only: the sheet gets forwarded to people who were not on the
+         call, so it needs provenance. The mark removes itself if the image
+         path 404s, leaving the wordmark. -->
+    <div class="print-brand">
+      <img src="images/whyuser-mark.png" alt="" onerror="this.remove()">
+      <span>WhyUser</span>
+    </div>
+    <div class="slide-top">
+      <div class="slide-co" id="slide-company">Their company</div>
+      <div class="slide-dt" id="slide-date">—</div>
+    </div>
+
+    <div class="line">
+      <div class="line-tag"><span class="line-n">1 · Accuracy</span></div>
+      <div class="line-lead" id="l1-lead">—</div>
+    </div>
+
+    <div class="line">
+      <div class="line-tag"><span class="line-n" id="l2-name">2 · —</span><span class="line-flag on">In the ratio</span></div>
+      <div class="line-lead" id="l2-lead">—</div>
+      <div class="math" id="l2-math"></div>
+    </div>
+
+    <div class="line">
+      <div class="line-tag"><span class="line-n">3 · Context</span></div>
+      <div class="line-lead" id="l3-lead">—</div>
+    </div>
+
+    <div class="line">
+      <div class="line-tag"><span class="line-n">4 · Speed</span><span class="line-flag">Not added</span></div>
+      <div class="line-lead" id="l4-lead">—</div>
+      <div class="math" id="l4-math"></div>
+      <div class="line-note" id="l4-note"></div>
+    </div>
+
+    <div class="ask">
+      <div class="ask-row">
+        <div class="ask-cost"><b id="ask-cost">—</b> / year</div>
+        <div class="ask-ratio" id="ask-ratio">—</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="slide-actions no-print">
+    <button class="btn primary" id="btn-copy">Copy</button>
+    <button class="btn" onclick="window.print()">Print</button>
+  </div>
 </aside>
 
-</div> <!-- end main-grid -->
+</div>
 
+<div class="folds no-print">
+  <details class="fold">
+    <summary><span>How each number is built</span></summary>
+    <div class="fold-b">
+      <table class="ref"><tbody>
+        <tr><td>Committee</td><td><code>(reviewers × hours × rounds removed × rate + agency per asset) × assets/qtr × 4</code></td></tr>
+        <tr><td>Ads — media</td><td><code>((spend ÷ CPC winner − spend ÷ CPC weakest) ÷ 2) × CPC winner × 12</code><br>Halved on purpose. Claiming the full gap assumes they'd always have picked the loser.</td></tr>
+        <tr><td>Ads — creative</td><td><code>(reviewers × hours × rounds removed × rate + agency × rounds removed) × sets/yr</code></td></tr>
+        <tr><td>Email</td><td><code>(reviewers × hours × rounds removed × rate + agency × rounds removed) × sends/mo × 12</code></td></tr>
+        <tr><td>Audience — paid</td><td><code>(control CPL − test CPL) × leads/mo × 12 × haircut</code><br>Haircut is 0.5 when the test window is under 30 days.</td></tr>
+        <tr><td>Audience — expansion</td><td><code>(hours × rate + research cost) × assessments/yr</code></td></tr>
+        <tr><td>Line 4 — speed</td><td><code>rounds removed × days per round × cycles per year</code>, summed across the same features</td></tr>
+        <tr><td>The ratio</td><td><code>(sum of the numbers above, one per active feature) ÷ annual price</code>, always rounded down</td></tr>
+      </tbody></table>
+    </div>
+  </details>
+</div>
+
+<div class="mini no-print" id="mini">
+  <span class="mini-r" id="mini-r">—</span>
+  <span class="mini-v" id="mini-v">—</span>
+  <a href="#slide">See the slide</a>
+</div>
+
+</div>
 </main>
+
 <!-- WHYUSER:FOOTER:START -->
 <!-- ═══════════════════════════════════════════════════════════════════
      WHYUSER GLOBAL FOOTER  ·  v2
@@ -4876,955 +4842,502 @@ body {
 
 <!-- WHYUSER:FOOTER:END -->
 
-</div> <!-- end page -->
-
 <script>
-// ============================================================
-// STATE
-// ============================================================
-const PLAN_COSTS = { standard: 12000, growth: 24000, enterprise: 48000 };
-const PLAN_NAMES = { standard: 'Standard', growth: 'Scale', enterprise: 'Enterprise' };
-// All plans support all features. Plans differ by annual credit allowance,
-// not by feature access. Standard customers can run Ad/Email simulations —
-// they just consume credits faster and hit the ceiling sooner.
-const PLAN_GATES = {
-  standard:   { committee: true, audience: true, email: true, ad: true },
-  growth:     { committee: true, audience: true, email: true, ad: true },
-  enterprise: { committee: true, audience: true, email: true, ad: true },
-};
-const CREDIT_RATE = 5; // $/credit on Standard ($12,000 / 2,400). Scale is
-                       // 4.57 and Enterprise 4.00, so this is the
-                       // conservative end — the ROI only improves on
-                       // larger plans. See pricing.html for the rate table.
+/* ============================================================
+   WHYUSER — ROI CALCULATOR
+   Builds the one-page business case from the proof playbooks.
+     · exactly one line feeds the ratio
+     · context and speed never enter the arithmetic
+     · every figure is counted or observed, never modelled
+   ============================================================ */
+(function () {
+  'use strict';
 
-const state = {
-  features: { committee: false, ad: false, email: false, audience: false },
-  plan: 'growth',
-  customerName: '',
-  ctx: { acv: 30000, closeRate: 3, loadedRate: 150, marketingFTE: 2 },
-  attr: { perfAttr: 40, wasteAttr: 45 },
-  committee: { stakeholders: 5, hoursPer: 1.5, rounds: 3, assetsQ: 8, agencyFee: 1200, contentBudget: 150000, sessions: 10000, baselineCvr: 3, liftCon: 10, liftOpt: 30 },
-  ad: { spend: 15000, cpc: 7, ctr: 1, landingCvr: 3, campaigns: 24, ctrLiftCon: 10, ctrLiftOpt: 30, cvrLiftCon: 10, cvrLiftOpt: 30 },
-  email: { volume: 1000, open: 20, clickType: 'ctor', click: 47, reply: 10, campaigns: 12, agency: 800, hours: 4, successMetric: 'reply', landingCvr: 5, openLiftCon: 5, openLiftOpt: 15, clickLiftCon: 5, clickLiftOpt: 15, successLiftCon: 5, successLiftOpt: 15 },
-  audience: {
-    researchHours: 20, agencyFee: 3000,
-    activate: false, verticals: 2, deals: 4, dealSize: 40000, tamAttr: 30, tamCap: 40,
-  },
-};
-
-// ============================================================
-// FORMATTERS
-// ============================================================
-const fmtCurrency = (n) => {
-  if (n === 0) return '$0';
-  if (Math.abs(n) >= 1000) return '$' + Math.round(n).toLocaleString('en-US');
-  return '$' + n.toFixed(0);
-};
-const fmtCurrencyK = (n) => {
-  if (n === 0) return '$0';
-  if (Math.abs(n) >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
-  if (Math.abs(n) >= 1000) return '$' + Math.round(n / 1000) + 'K';
-  return '$' + Math.round(n);
-};
-const fmtPct = (n) => `${Math.round(n * 10) / 10}%`;
-const fmtX = (n) => {
-  if (!isFinite(n) || n === 0) return '—';
-  return n >= 10 ? `${Math.round(n)}×` : `${n.toFixed(1)}×`;
-};
-
-// ============================================================
-// COMPUTE — per feature
-// ============================================================
-function computeCommittee(s) {
-  if (!s.features.committee) return null;
-  const { loadedRate, acv, closeRate } = s.ctx;
-  const c = s.committee;
-
-  // Operational Efficiency: review cycles replaced
-  const perAssetReview = (c.stakeholders * c.hoursPer * loadedRate + c.agencyFee) * c.rounds;
-  const annualReview = perAssetReview * c.assetsQ * 4;
-  const stressTestCost = 10 * CREDIT_RATE; // a page committee simulation is
-                                         // 10 credits, 50 agents
-  const annualStressTest = stressTestCost * c.assetsQ * 4;
-  const net = Math.max(0, annualReview - annualStressTest);
-  const D_con = net * 0.5;
-  const D_opt = net * 0.8;
-
-  // Content QA Budget Protected
-  const nonAdFraction = s.features.ad ? 0.6 : 1.0;
-  const wasteAttr = s.attr.wasteAttr / 100;
-  const C_con = c.contentBudget * nonAdFraction * wasteAttr * 0.6;
-  const C_opt = c.contentBudget * nonAdFraction * Math.min(wasteAttr + 0.1, 0.5) * 0.7;
-
-  // Performance Lift — messaging tested by the committee benefits ALL traffic
-  // (organic, direct, referral, social, paid, email). No dedup vs Ad/Email —
-  // those channels each drive their own additional lift on their own traffic slice,
-  // and this calc uses the customer's own session volume and baseline CVR.
-  const perfAttrC = s.attr.perfAttr / 100;
-  const baselineCvr = (c.baselineCvr || 0) / 100;
-  // Relative lift on baseline CVR, user-editable. Same attribution applied
-  // on both cases — spread between con/opt comes from lift inputs alone.
-  const liftCon = (c.liftCon || 0) / 100;
-  const liftOpt = (c.liftOpt || 0) / 100;
-  const addMqlsCon = c.sessions * 12 * baselineCvr * liftCon;
-  const addMqlsOpt = c.sessions * 12 * baselineCvr * liftOpt;
-  const A_con = addMqlsCon * acv * (closeRate / 100) * perfAttrC;
-  const A_opt = addMqlsOpt * acv * (closeRate / 100) * perfAttrC;
-
-  return {
-    D: { con: D_con, opt: D_opt },
-    C: { con: C_con, opt: C_opt },
-    A: { con: A_con, opt: A_opt },
-    dedup: {
-      C_nonAd: s.features.ad,
-    },
-    subtotal_con: D_con + C_con + A_con,
-    subtotal_opt: D_opt + C_opt + A_opt,
+  var $ = function (id) { return document.getElementById(id); };
+  var n = function (id) { var e = $(id); var v = e ? parseFloat(e.value) : 0; return isFinite(v) ? v : 0; };
+  var s = function (id) { var e = $(id); return e ? (e.value || '').trim() : ''; };
+  var money = function (v) { return '$' + Math.round(v).toLocaleString('en-US'); };
+  var qty = function (v) { return Math.round(v).toLocaleString('en-US'); };
+  var dec = function (v) { return (Math.round(v * 100) / 100).toString(); };
+  /* Ratios always round DOWN. The slide never overstates itself. */
+  var ratioStr = function (r) {
+    if (!isFinite(r) || r <= 0) return '—';
+    return (r >= 10 ? Math.floor(r) : Math.floor(r * 10) / 10) + ':1';
   };
-}
+  var plural = function (v, one, many) { return Math.abs(v) === 1 ? one : many; };
 
-function computeAd(s) {
-  if (!s.features.ad) return null;
-  const { acv, closeRate, loadedRate } = s.ctx;
-  const a = s.ad;
-  const wasteAttr = s.attr.wasteAttr / 100;
-  const perfAttrC = s.attr.perfAttr / 100;
-
-  // Operational Efficiency: pre-simulation kills losing variants before launch,
-  // reducing in-market iteration cycles and campaign-ops review hours.
-  // Formula: campaigns_per_year × hours_saved_per_campaign × loaded_rate × capture
-  // Conservative: 4 hrs saved / campaign × 0.5 capture
-  // Optimistic: 8 hrs saved / campaign × 0.75 capture
-  const D_con = (a.campaigns || 0) * 4 * loadedRate * 0.5;
-  const D_opt = (a.campaigns || 0) * 8 * loadedRate * 0.75;
-
-  // Budget Protected: ad spend at risk on weak landing pages / off-target creative.
-  // Derived from landing CVR — no separate bounce-rate input needed. Of the
-  // spend that DIDN'T drive a conversion (1 − landingCvr%), we apply a 0.7
-  // waste coefficient because not 100% of non-converting spend is fully
-  // wasted — some drives brand, retargeting, and longer-cycle conversion.
-  // Capture rate hardcoded to 50% conservative / 75% optimistic (per §vii spec).
-  // The attributable-share slider (§iii) already controls the upstream haircut
-  // via wasteAttr — no second recovery-capture knob here.
-  const wasteCoeff = 0.7;
-  const monthlyWaste = a.spend * (1 - (a.landingCvr || 0) / 100) * wasteCoeff * wasteAttr;
-  const C_con = monthlyWaste * 12 * 0.5;
-  const C_opt = monthlyWaste * 12 * 0.75;
-
-  // Performance Lift: relative lift on monthly paid conversions, decomposed
-  // into CTR lift (more clicks per ad dollar) and CVR lift (more conversions
-  // per click). Compounded multiplier on baseline conversions.
-  // Total lift = (1 + ctrLift) × (1 + cvrLift) − 1
-  const baselineMonthlyMqls = (a.spend / a.cpc) * (a.landingCvr / 100);
-  const ctrLiftC = (a.ctrLiftCon || 0) / 100;
-  const ctrLiftO = (a.ctrLiftOpt || 0) / 100;
-  const cvrLiftC = (a.cvrLiftCon || 0) / 100;
-  const cvrLiftO = (a.cvrLiftOpt || 0) / 100;
-  const totalLiftC = (1 + ctrLiftC) * (1 + cvrLiftC) - 1;
-  const totalLiftO = (1 + ctrLiftO) * (1 + cvrLiftO) - 1;
-  const deltaC = baselineMonthlyMqls * totalLiftC;
-  const deltaO = baselineMonthlyMqls * totalLiftO;
-  const A_con = deltaC * 12 * (closeRate / 100) * acv * perfAttrC;
-  const A_opt = deltaO * 12 * (closeRate / 100) * acv * perfAttrC;
-
-  return {
-    D: { con: D_con, opt: D_opt },
-    C: { con: C_con, opt: C_opt },
-    A: { con: A_con, opt: A_opt },
-    dedup: {},
-    subtotal_con: D_con + C_con + A_con,
-    subtotal_opt: D_opt + C_opt + A_opt,
-    insuranceRatio: C_con / PLAN_COSTS[s.plan],
-  };
-}
-
-function computeEmail(s) {
-  if (!s.features.email) return null;
-  const { acv, closeRate, loadedRate } = s.ctx;
-  const e = s.email;
-  const perfAttrC = s.attr.perfAttr / 100;
-
-  // Performance Lift: WhyUser influences subject (open), body (click), and
-  // CTA / reply or landing copy (success). Total lift on monthly goals
-  // compounds across all three stages: (1+openL)(1+clickL)(1+successL) − 1.
-  // Goals = meetings (if successMetric=reply) or conversions (if cvr).
-  const successValuePct = e.successMetric === 'cvr' ? (e.landingCvr || 0) : (e.reply || 0);
-  let baselineGoals;
-  if (e.clickType === 'ctor') {
-    baselineGoals = e.volume * (e.open / 100) * (e.click / 100) * (successValuePct / 100);
-  } else {
-    baselineGoals = e.volume * (e.click / 100) * (successValuePct / 100);
-  }
-  const oL_c = (e.openLiftCon    || 0) / 100;
-  const oL_o = (e.openLiftOpt    || 0) / 100;
-  const cL_c = (e.clickLiftCon   || 0) / 100;
-  const cL_o = (e.clickLiftOpt   || 0) / 100;
-  const sL_c = (e.successLiftCon || 0) / 100;
-  const sL_o = (e.successLiftOpt || 0) / 100;
-  const totalLiftC = (1 + oL_c) * (1 + cL_c) * (1 + sL_c) - 1;
-  const totalLiftO = (1 + oL_o) * (1 + cL_o) * (1 + sL_o) - 1;
-  const deltaCon = baselineGoals * totalLiftC;
-  const deltaOpt = baselineGoals * totalLiftO;
-  // Reply-ceiling sanity check only applies when reply is the success metric.
-  const replyCeiling = e.successMetric === 'reply' && (e.reply * (1 + sL_o) > 30);
-
-  const A_con = deltaCon * 12 * (closeRate / 100) * acv * perfAttrC;
-  const A_opt = deltaOpt * 12 * (closeRate / 100) * acv * perfAttrC;
-
-  // Operational Efficiency: copy cycle replacement (unchanged across modes)
-  const perCampaignCycle = e.agency + (e.hours * loadedRate);
-  const D_con = perCampaignCycle * e.campaigns * 1.5 * 0.5;
-  const D_opt = perCampaignCycle * e.campaigns * 1.5 * 0.8;
-
-  // Budget Protected: list health preservation. Bad sends damage domain rep
-  // and trigger permanent unsubs, eroding future email-driven pipeline.
-  const wasteAttr = s.attr.wasteAttr / 100;
-  const annualEmailPipeline = baselineGoals * 12 * (closeRate / 100) * acv;
-  const C_con = annualEmailPipeline * 0.02 * wasteAttr;
-  const C_opt = annualEmailPipeline * 0.05 * Math.min(wasteAttr + 0.1, 0.5);
-
-  return {
-    D: { con: D_con, opt: D_opt },
-    C: { con: C_con, opt: C_opt },
-    A: { con: A_con, opt: A_opt },
-    dedup: { replyCeiling },
-    subtotal_con: D_con + C_con + A_con,
-    subtotal_opt: D_opt + C_opt + A_opt,
-  };
-}
-
-function computeAudience(s) {
-  if (!s.features.audience) return null;
-  const { loadedRate } = s.ctx;
-  const au = s.audience;
-
-  // Operational Efficiency: research labor replaced
-  const runCost = 50 * CREDIT_RATE; // Audience Discovery is 50 credits
-  const runsPerQuarter = 2;
-  const annualResearch = (au.researchHours * loadedRate + au.agencyFee) * 4;
-  const annualRunCost = runCost * runsPerQuarter * 4;
-  const D_con = Math.max(0, annualResearch - annualRunCost);
-  const D_opt = D_con * 1.3; // moderate optimistic bump
-
-  // Performance Lift: TAM expansion from adjacent verticals
-  let A_con = 0, A_opt = 0;
-  let inflatedWarn = false;
-  let attrWarn = false;
-
-  if (au.activate) {
-    const tamAttrC = au.tamAttr / 100;
-    const tamAttrO = Math.min((au.tamAttr + 15) / 100, 0.7);
-    const tamCapC = au.tamCap / 100;
-    const tamCapO = Math.min((au.tamCap + 20) / 100, 0.8);
-
-    A_con = au.verticals * au.deals * au.dealSize * tamAttrC * tamCapC;
-    A_opt = au.verticals * au.deals * au.dealSize * tamAttrO * tamCapO;
-
-    inflatedWarn = au.verticals * au.deals > 30;
-    attrWarn = au.tamAttr > 50;
-  }
-
-  // Audience Discovery does not claim a waste-prevention stream in this calculator.
-  // Its value is captured in Operational Efficiency (research labor) and TAM expansion.
-  // Independent of Ad Simulation — no dedup applied.
-  const C_con = 0, C_opt = 0;
-
-  return {
-    D: { con: D_con, opt: D_opt },
-    C: { con: C_con, opt: C_opt },
-    A: { con: A_con, opt: A_opt },
-    dedup: {
-      execDep: au.activate,
-      inflatedWarn,
-      attrWarn,
-    },
-    subtotal_con: D_con + A_con,
-    subtotal_opt: D_opt + A_opt,
-  };
-}
-
-// ============================================================
-// COMPUTE — GTM Velocity Gain (single marketing FTE pool)
-// ============================================================
-function computeStreamB(s) {
-  const marketingFTE = s.ctx.marketingFTE || 0;
-  if (marketingFTE === 0) return { con: 0, opt: 0 };
-
-  // Count total active features. Diminishing returns applied once across
-  // the whole marketing function (not split per team).
-  const activeFeatureCount =
-    (s.features.committee ? 1 : 0) +
-    (s.features.ad ? 1 : 0) +
-    (s.features.email ? 1 : 0) +
-    (s.features.audience ? 1 : 0);
-
-  if (activeFeatureCount === 0) return { con: 0, opt: 0 };
-
-  // Throughput gain: 15% for 1 feature, 20% for 2, 22% for 3+ (diminishing returns).
-  const gains = [0, 0.15, 0.20, 0.22, 0.22];
-  const gain = gains[Math.min(activeFeatureCount, 4)];
-
-  const annualCost = marketingFTE * s.ctx.loadedRate * 2080;
-  const Bcon = annualCost * gain;
-  const Bopt = annualCost * (gain * 1.25);
-
-  return { con: Bcon, opt: Bopt };
-}
-
-// ============================================================
-// COMPUTE — aggregate
-// ============================================================
-function computeAll(s) {
-  const features = {
-    committee: computeCommittee(s),
-    ad: computeAd(s),
-    email: computeEmail(s),
-    audience: computeAudience(s),
+  var UI = {
+    features: { committee: true, ad: false, email: false, audience: false },
+    plan: 'standard',
+    adPick: 'media',
+    etrack: 'a',
+    utrack: 'paid',
+    driver: 'auto'
   };
 
-  let A = { con: 0, opt: 0 };
-  let C = { con: 0, opt: 0 };
-  let D = { con: 0, opt: 0 };
+  /* ============================================================
+     CANDIDATES
+     One entry per way a feature removes cost. A feature with two
+     ways (ads) contributes only the one that is picked.
+     ============================================================ */
+  function buildCandidates() {
+    var rate = n('sh-rate');
+    var list = [];
 
-  for (const f of Object.values(features)) {
-    if (!f) continue;
-    A.con += f.A.con; A.opt += f.A.opt;
-    C.con += f.C.con; C.opt += f.C.opt;
-    D.con += f.D.con; D.opt += f.D.opt;
-  }
+    /* --- committee --- */
+    if (UI.features.committee) {
+      var cRR = Math.max(0, n('c-rounds-now') - n('c-rounds-after'));
+      var cHours = n('c-stake') * n('c-hours') * cRR * rate;
+      var cAgency = cRR > 0 ? n('c-agency') : 0;
+      var cPerAsset = cHours + cAgency;
+      var cQuarter = cPerAsset * n('c-assets-q');
+      var cDays = cRR * n('c-days');
 
-  const B = computeStreamB(s);
-  const total_con = A.con + B.con + C.con + D.con;
-  const total_opt = A.opt + B.opt + C.opt + D.opt;
-  const floor_con = B.con + C.con + D.con;
-  const planCost = PLAN_COSTS[s.plan];
-  const roi_con = total_con / planCost;
-  const roi_opt = total_opt / planCost;
-  const floorRoi = floor_con / planCost;
-  const payback = planCost / (total_con / 12);
-
-  // Deal shape
-  let shape, shapeDesc;
-  if (floorRoi >= 8) { shape = 'Lift-independent'; shapeDesc = 'Operational Efficiency and velocity alone justify the plan comfortably. Pilot performance is upside, not the gate.'; }
-  else if (floorRoi >= 5) { shape = 'Mixed-weight'; shapeDesc = 'Floor streams clear most CFO thresholds; Performance Lift adds meaningful upside. Safe to close on Conservative even with modest lift.'; }
-  else if (floorRoi >= 3) { shape = 'Lift-material'; shapeDesc = 'Pilot lift matters to the case, but floor streams still produce positive ROI at any reasonable plan.'; }
-  else { shape = 'Lift-dependent'; shapeDesc = 'Without pilot lift, the case is thin. Consider downsizing the plan or strengthening the pilot design.'; }
-
-  return {
-    features, A, B, C, D,
-    total_con, total_opt,
-    floor_con, floorRoi,
-    roi_con, roi_opt, payback,
-    planCost, shape, shapeDesc,
-  };
-}
-
-// ============================================================
-// RENDER
-// ============================================================
-function render() {
-  let r;
-  try {
-    r = computeAll(state);
-  } catch (e) {
-    console.error('computeAll failed:', e);
-    return;
-  }
-  try {
-
-  // Feature pickers
-  document.querySelectorAll('.feature-card').forEach(card => {
-    const f = card.dataset.feature;
-    card.classList.toggle('active', state.features[f]);
-  });
-
-  // Plan grid — only the selected plan gets visual treatment (.active).
-  // All unselected plans render identically (default white card). No
-  // feature gating — every plan supports every feature. Plans differ
-  // only by credit allowance and intelligence cadence, surfaced on the card itself.
-  document.querySelectorAll('.plan-card').forEach(card => {
-    const p = card.dataset.plan;
-    card.classList.toggle('active', state.plan === p);
-    card.classList.remove('invalid');
-  });
-
-  // Plan warning — feature gating removed, so this stays hidden.
-  document.getElementById('plan-warning').classList.add('hidden');
-
-  // Feature sections show/hide
-  document.getElementById('fs-committee').classList.toggle('hidden', !state.features.committee);
-  document.getElementById('fs-ad').classList.toggle('hidden', !state.features.ad);
-  document.getElementById('fs-email').classList.toggle('hidden', !state.features.email);
-  document.getElementById('fs-audience').classList.toggle('hidden', !state.features.audience);
-
-  // Per-feature subtotals
-  if (r.features.committee) {
-    document.getElementById('sub-committee').textContent = `Subtotal: ${fmtCurrencyK(r.features.committee.subtotal_con)} conservative`;
-  }
-  if (r.features.ad) document.getElementById('sub-ad').textContent = `Subtotal: ${fmtCurrencyK(r.features.ad.subtotal_con)} conservative`;
-  if (r.features.email) {
-    document.getElementById('sub-email').textContent = `Subtotal: ${fmtCurrencyK(r.features.email.subtotal_con)} conservative`;
-    document.getElementById('dedup-em-ceiling').classList.toggle('hidden', !r.features.email.dedup.replyCeiling);
-  }
-  if (r.features.audience) {
-    document.getElementById('sub-audience').textContent = `Subtotal: ${fmtCurrencyK(r.features.audience.subtotal_con)} conservative`;
-    document.getElementById('dedup-au-exec').classList.toggle('hidden', !r.features.audience.dedup.execDep);
-    document.getElementById('dedup-au-inflated').classList.toggle('hidden', !r.features.audience.dedup.inflatedWarn);
-    document.getElementById('dedup-au-attr').classList.toggle('hidden', !r.features.audience.dedup.attrWarn);
-    document.getElementById('au-tam-inputs').style.opacity = state.audience.activate ? 1 : 0.5;
-  }
-
-  // Lift previews (per-feature before/after display)
-  if (state.features.committee) {
-    const c = state.committee;
-    const baseCvr = c.baselineCvr || 0;
-    const conRate = (baseCvr * (1 + (c.liftCon || 0) / 100)).toFixed(2);
-    const optRate = (baseCvr * (1 + (c.liftOpt || 0) / 100)).toFixed(2);
-    document.getElementById('com-lift-preview').innerHTML =
-      `Baseline CVR <strong>${baseCvr}%</strong> &middot; Conservative &rarr; <strong>${conRate}%</strong> &middot; Optimistic &rarr; <strong>${optRate}%</strong>`;
-  }
-  if (state.features.ad) {
-    const a = state.ad;
-    const baseCtr = a.ctr || 0;
-    const conCtr = (baseCtr * (1 + (a.ctrLiftCon || 0) / 100)).toFixed(2);
-    const optCtr = (baseCtr * (1 + (a.ctrLiftOpt || 0) / 100)).toFixed(2);
-    const baseCvr = a.landingCvr || 0;
-    const conCvr = (baseCvr * (1 + (a.cvrLiftCon || 0) / 100)).toFixed(2);
-    const optCvr = (baseCvr * (1 + (a.cvrLiftOpt || 0) / 100)).toFixed(2);
-    document.getElementById('ad-lift-preview').innerHTML =
-      `<div>Baseline CTR <strong>${baseCtr}%</strong> &middot; Conservative &rarr; <strong>${conCtr}%</strong> &middot; Optimistic &rarr; <strong>${optCtr}%</strong></div>` +
-      `<div>Baseline CVR <strong>${baseCvr}%</strong> &middot; Conservative &rarr; <strong>${conCvr}%</strong> &middot; Optimistic &rarr; <strong>${optCvr}%</strong></div>`;
-  }
-  if (state.features.email) {
-    const e = state.email;
-    // Implied counts directly under each rate field — translates the
-    // percentage to an absolute monthly count derived from email volume,
-    // using the same funnel math computeEmail() uses (so the helper
-    // matches the subtotal exactly).
-    const volume = e.volume || 0;
-    const opens = volume * (e.open || 0) / 100;
-    const clicks = e.clickType === 'ctor'
-      ? volume * (e.open || 0) / 100 * (e.click || 0) / 100
-      : volume * (e.click || 0) / 100;
-    const replies = clicks * (e.reply || 0) / 100;
-    const conversions = clicks * (e.landingCvr || 0) / 100;
-    const fmtCount = n => {
-      if (!isFinite(n) || n < 0) return '—';
-      if (n === 0) return '0';
-      if (n < 1) return n.toFixed(1);
-      return Math.round(n).toLocaleString();
-    };
-    const setImplied = (id, n, unit) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = `≈ ${fmtCount(n)} ${unit}/mo`;
-    };
-    setImplied('em-open-implied',  opens,       'opens');
-    setImplied('em-click-implied', clicks,      'clicks');
-    setImplied('em-reply-implied', replies,     'replies');
-    setImplied('em-cvr-implied',   conversions, 'conversions');
-    // Show/hide the success-metric value field based on dropdown selection.
-    const isReply = e.successMetric === 'reply';
-    document.querySelectorAll('#fs-email .em-field-reply').forEach(el => el.classList.toggle('hidden', !isReply));
-    document.querySelectorAll('#fs-email .em-field-cvr').forEach(el => el.classList.toggle('hidden', isReply));
-    // Update the success-metric lift labels and help text to match selection.
-    const liftConLabel = document.getElementById('em-success-lift-con-label');
-    const liftOptLabel = document.getElementById('em-success-lift-opt-label');
-    const liftConHelp  = document.getElementById('em-success-lift-con-help');
-    if (liftConLabel) {
-      liftConLabel.innerHTML = isReply
-        ? 'Conservative reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span>'
-        : 'Conservative landing-CVR lift (%) <span class="pill pill-benchmark">Benchmark</span>';
+      list.push({
+        id: 'committee', feature: 'committee', tag: 'pages',
+        short: 'Review rounds removed', name: 'Review rounds removed',
+        grade: 'counted', annual: cQuarter * 4, roundsBased: true,
+        blocked: cRR > 0 ? null : 'Rounds after is not lower than rounds today.',
+        lead: 'Cutting review rounds from <strong>' + qty(n('c-rounds-now')) + ' to ' + qty(n('c-rounds-after')) +
+              '</strong> on every page we ship.',
+        math: [
+          qty(n('c-stake')) + ' reviewers × ' + dec(n('c-hours')) + ' hrs × ' + qty(cRR) + ' ' + plural(cRR, 'round', 'rounds') + ' × ' + money(rate) + '  =  ' + money(cHours),
+          '+ ' + money(cAgency) + ' agency revision  =  ' + money(cPerAsset) + ' per asset',
+          '× ' + qty(n('c-assets-q')) + ' assets per quarter  =  ' + money(cQuarter) + ' per quarter',
+          '=  ' + money(cQuarter * 4) + ' per year'
+        ],
+        speed: cRR > 0 ? {
+          days: cDays * n('c-campaigns'),
+          per: qty(cDays) + ' days per campaign × ' + qty(n('c-campaigns')) + ' campaigns'
+        } : null,
+        context: money(n('c-spend')) + '/month of traffic to pages shipped on opinion. ' +
+                 qty(n('c-bounce')) + '% leaves without converting.',
+        upside: 'One killed campaign. We spend ' + money(n('c-spend')) +
+                ' a month on paid. Catching one bad campaign before it launches returns more than the annual cost of the tool.'
+      });
     }
-    if (liftOptLabel) {
-      liftOptLabel.innerHTML = isReply
-        ? 'Optimistic reply-rate lift (%) <span class="pill pill-benchmark">Benchmark</span>'
-        : 'Optimistic landing-CVR lift (%) <span class="pill pill-benchmark">Benchmark</span>';
+
+    /* --- ads: media waste, or the creative cycle. One or the other. --- */
+    if (UI.features.ad) {
+      var spend = n('a-spend'), cpcW = n('a-cpc-win'), cpcL = n('a-cpc-weak');
+      var clicksW = cpcW > 0 ? spend / cpcW : 0;
+      var clicksL = cpcL > 0 ? spend / cpcL : 0;
+      var gap = clicksW - clicksL;
+      var mMonthly = (gap / 2) * cpcW;
+      var mBlock = null;
+      if (cpcW <= 0 || cpcL <= 0) mBlock = 'Both cost-per-click figures are needed.';
+      else if (cpcW >= cpcL) mBlock = 'The winning creative has to cost less per click than the weakest one.';
+      else if (spend < 10000) mBlock = 'Below $10,000 a month this number cannot reach a defensible ratio.';
+
+      var media = {
+        id: 'ad-media', feature: 'ad', tag: 'ad media',
+        short: 'Media waste avoided', name: 'Media waste avoided',
+        grade: 'observed', annual: mMonthly * 12, roundsBased: false, blocked: mBlock,
+        lead: 'Without this we pick the creative on gut — <strong>a coin flip</strong>.',
+        math: [
+          'Winner ' + money(cpcW) + ' a click vs weakest ' + money(cpcL) + ' — same audience, same week',
+          money(spend) + ' a month buys ' + qty(clicksW) + ' clicks vs ' + qty(clicksL) + '  →  gap of ' + qty(gap),
+          'Picking blind we run the weaker one half the time, so we claim half',
+          qty(gap / 2) + ' clicks × ' + money(cpcW) + '  =  ' + money(mMonthly) + ' a month',
+          '=  ' + money(mMonthly * 12) + ' per year'
+        ],
+        speed: null,
+        context: money(spend) + '/month on LinkedIn, with no check that the ad and the page promise the same thing.',
+        upside: 'The creative that won on clicks was the one our budget holders liked least. LinkedIn reports one number for the whole audience. It has no idea which roles clicked.'
+      };
+
+      var aRR = Math.max(0, n('a-rounds-now') - n('a-rounds-after'));
+      var aHours = n('a-rev') * n('a-hours') * aRR * rate;
+      var aPerSet = aHours + n('a-agency') * aRR;
+      var aDays = aRR * n('a-days');
+
+      var cycle = {
+        id: 'ad-cycle', feature: 'ad', tag: 'ad creative',
+        short: 'Creative cycle cost removed', name: 'Creative cycle cost removed',
+        grade: 'counted', annual: aPerSet * n('a-sets'), roundsBased: true,
+        blocked: aRR > 0 ? null : 'Rounds after is not lower than rounds today.',
+        lead: 'Cutting creative review rounds from <strong>' + qty(n('a-rounds-now')) + ' to ' + qty(n('a-rounds-after')) + '</strong>.',
+        math: [
+          qty(n('a-rev')) + ' reviewers × ' + dec(n('a-hours')) + ' hrs × ' + qty(aRR) + ' ' + plural(aRR, 'round', 'rounds') + ' × ' + money(rate) + '  =  ' + money(aHours),
+          '+ ' + money(n('a-agency')) + ' agency × ' + qty(aRR) + '  =  ' + money(aPerSet) + ' per creative set',
+          '× ' + qty(n('a-sets')) + ' sets a year  =  ' + money(aPerSet * n('a-sets')) + ' per year'
+        ],
+        speed: aRR > 0 ? {
+          days: aDays * n('a-sets'),
+          per: qty(aDays) + ' days per creative set × ' + qty(n('a-sets')) + ' sets'
+        } : null,
+        context: media.context,
+        upside: media.upside
+      };
+
+      var wantMedia = UI.adPick === 'media' && !media.blocked;
+      list.push(wantMedia ? media : (cycle.blocked && !media.blocked ? media : cycle));
     }
-    if (liftConHelp) {
-      liftConHelp.textContent = isReply
-        ? 'Lift on reply rate from pre-validated CTAs and personalization.'
-        : 'Lift on blended landing-page CVR from pre-validated copy and CTAs aligned to landing pages.';
+
+    /* --- email --- */
+    if (UI.features.email) {
+      var eRR = Math.max(0, n('e-rounds-now') - n('e-rounds-after'));
+      var eHours = n('e-rev') * n('e-hours') * eRR * rate;
+      var ePerEmail = eHours + n('e-agency') * eRR;
+      var eMonthly = ePerEmail * n('e-sends');
+      var eDays = eRR * n('e-days');
+
+      list.push({
+        id: 'email-cycle', feature: 'email', tag: 'email',
+        short: 'Copy cycle cost removed', name: 'Copy cycle cost removed',
+        grade: 'counted', annual: eMonthly * 12, roundsBased: true,
+        blocked: eRR > 0 ? null : 'Rounds after is not lower than rounds today.',
+        lead: 'Cutting copy review rounds from <strong>' + qty(n('e-rounds-now')) + ' to ' + qty(n('e-rounds-after')) + '</strong> on every send.',
+        math: [
+          qty(n('e-rev')) + ' reviewers × ' + dec(n('e-hours')) + ' hrs × ' + qty(eRR) + ' ' + plural(eRR, 'round', 'rounds') + ' × ' + money(rate) + '  =  ' + money(eHours),
+          '+ ' + money(n('e-agency')) + ' copywriter × ' + qty(eRR) + '  =  ' + money(ePerEmail) + ' per email',
+          '× ' + qty(n('e-sends')) + ' sends a month  =  ' + money(eMonthly) + ' a month',
+          '=  ' + money(eMonthly * 12) + ' per year'
+        ],
+        speed: eRR > 0 ? {
+          days: eDays * n('e-sends') * 12,
+          per: qty(eDays) + ' days per email × ' + qty(n('e-sends')) + ' a month'
+        } : null,
+        context: UI.etrack === 'a'
+          ? 'Contacts cost ' + money(n('e-cac')) + ' each. One bad send burns ' + qty(n('e-unsub')) + ' of them.'
+          : qty(n('e-domains')) + ' sending domains. Burning one costs ' + qty(n('e-warmup')) + ' weeks of warmup.',
+        upside: 'On some sends the variant that won overall was the one our budget holders liked least. A split test would never have told us that.'
+      });
     }
-    // Lift preview — 3 rows: open · click · success metric.
-    const baseOpen = e.open || 0;
-    const conOpen = (baseOpen * (1 + (e.openLiftCon || 0) / 100)).toFixed(2);
-    const optOpen = (baseOpen * (1 + (e.openLiftOpt || 0) / 100)).toFixed(2);
-    const baseClick = e.click || 0;
-    const conClick = (baseClick * (1 + (e.clickLiftCon || 0) / 100)).toFixed(2);
-    const optClick = (baseClick * (1 + (e.clickLiftOpt || 0) / 100)).toFixed(2);
-    const clickLabel = e.clickType === 'ctr' ? 'CTR' : 'CTOR';
-    const successLabel = isReply ? 'reply rate' : 'landing CVR';
-    const baseSuccess = isReply ? (e.reply || 0) : (e.landingCvr || 0);
-    const conSuccess = (baseSuccess * (1 + (e.successLiftCon || 0) / 100)).toFixed(2);
-    const optSuccess = (baseSuccess * (1 + (e.successLiftOpt || 0) / 100)).toFixed(2);
-    document.getElementById('em-lift-preview').innerHTML =
-      `<div>Baseline open rate <strong>${baseOpen}%</strong> &middot; Conservative &rarr; <strong>${conOpen}%</strong> &middot; Optimistic &rarr; <strong>${optOpen}%</strong></div>` +
-      `<div>Baseline ${clickLabel} <strong>${baseClick}%</strong> &middot; Conservative &rarr; <strong>${conClick}%</strong> &middot; Optimistic &rarr; <strong>${optClick}%</strong></div>` +
-      `<div>Baseline ${successLabel} <strong>${baseSuccess}%</strong> &middot; Conservative &rarr; <strong>${conSuccess}%</strong> &middot; Optimistic &rarr; <strong>${optSuccess}%</strong></div>`;
-  }
 
-  // Attribution display
-  document.getElementById('attr-perf-attr-v').textContent = state.attr.perfAttr + '%';
-  document.getElementById('attr-waste-v').textContent = state.attr.wasteAttr + '%';
+    /* --- audience --- */
+    if (UI.features.audience) {
+      if (UI.utrack === 'paid') {
+        var base = n('u-cpl-base'), test = n('u-cpl-test'), leads = n('u-leads'), win = n('u-window');
+        var haircut = win < 30 ? 0.5 : 1;
+        var uMonthly = Math.max(0, base - test) * leads;
+        var pct = base > 0 ? Math.round((1 - test / base) * 100) : 0;
+        var qBlock = null;
+        if (test >= base) qBlock = 'The discovered audience is not cheaper per lead.';
+        else if (n('u-q-treat') < n('u-q-ctrl')) qBlock = 'Lead quality fell, so this number cannot be stated.';
 
-  // Breakdown table (aggregation section)
-  const bodyEl = document.getElementById('breakdown-body');
-  const rows = [];
-  // Fixed feature display order — independent of state.features insertion order
-  const featureOrder = ['committee', 'ad', 'email', 'audience'];
-  const activeFeatures = featureOrder.filter(f => state.features[f]);
+        var uMath = [
+          'Control ' + money(base) + ' per lead → discovered ' + money(test) + '  =  ' + pct + '% lower',
+          '× ' + qty(leads) + ' leads a month  =  ' + money(uMonthly) + ' a month'
+        ];
+        if (haircut < 1) uMath.push('Test ran ' + qty(win) + ' days, so we halve the annual figure ourselves');
+        uMath.push('=  ' + money(uMonthly * 12 * haircut) + ' per year');
 
-  // Iterate by feature: all of one feature's value streams together, then next feature's, etc.
-  for (const f of activeFeatures) {
-    const feat = r.features[f];
-    if (!feat) continue;
-    // Operational Efficiency
-    if (feat.D.con !== 0 || feat.D.opt !== 0) {
-      rows.push(`<tr><td>${featureLabel(f)}</td><td>Operational Efficiency</td><td class="num">${fmtCurrencyK(feat.D.con)}</td><td class="num">${fmtCurrencyK(feat.D.opt)}</td></tr>`);
-    }
-    // Budget Protected
-    if (feat.C.con !== 0 || feat.C.opt !== 0) {
-      rows.push(`<tr><td>${featureLabel(f)}</td><td>Budget Protected</td><td class="num">${fmtCurrencyK(feat.C.con)}</td><td class="num">${fmtCurrencyK(feat.C.opt)}</td></tr>`);
-    }
-    // Performance Lift
-    if (feat.A.con !== 0 || feat.A.opt !== 0) {
-      rows.push(`<tr><td>${featureLabel(f)}</td><td>Performance Lift</td><td class="num">${fmtCurrencyK(feat.A.con)}</td><td class="num">${fmtCurrencyK(feat.A.opt)}</td></tr>`);
-    }
-  }
-
-  // GTM Velocity Gain — always shown when at least one feature is active.
-  // If Marketing FTE is zero, the value is $0 and a hint directs the user to
-  // the shared context block where they can enter Marketing FTE.
-  if (activeFeatures.length > 0) {
-    const gtmLabel = r.B.con > 0
-      ? 'GTM Velocity Gain'
-      : 'GTM Velocity Gain <span style="color: var(--ink-faint); font-size: 11px; font-style: italic;">(enter Marketing FTE in shared context)</span>';
-    rows.push(`<tr><td>Cross-team</td><td>${gtmLabel}</td><td class="num">${fmtCurrencyK(r.B.con)}</td><td class="num">${fmtCurrencyK(r.B.opt)}</td></tr>`);
-  }
-
-  // Total
-  rows.push(`<tr class="row-total"><td colspan="2"><strong>Total annual value</strong></td><td class="num">${fmtCurrencyK(r.total_con)}</td><td class="num">${fmtCurrencyK(r.total_opt)}</td></tr>`);
-
-  if (rows.length === 1) {
-    bodyEl.innerHTML = `<tr><td colspan="4" style="padding: 20px; text-align: center; color: var(--ink-faint);">Select active features above to populate the breakdown.</td></tr>`;
-  } else {
-    bodyEl.innerHTML = rows.join('');
-  }
-
-  // Sensitivity — champion-optimized 4-row stress test for CFO conversations.
-  //   Row 1: the ask.
-  //   Row 2: the upside, explicitly framed as not-the-ask.
-  //   Row 3: realistic pessimism on lift (half the projected lift, not zero).
-  //   Row 4: floor-only scenario (Performance Lift fully zero'd).
-  const sensBody = document.getElementById('sensitivity-body');
-  const sens = [];
-  const fmtPb = p => (!isFinite(p) || p <= 0) ? '—' : Math.max(1, Math.round(p));
-
-  // Row 1: current Conservative
-  sens.push({
-    label: 'Current inputs — Conservative (the ask)',
-    val: r.total_con, roi: r.roi_con, pb: r.payback,
-  });
-  // Row 2: current Optimistic — payback derived from total_opt
-  sens.push({
-    label: 'Current inputs — Optimistic (upside, not the ask)',
-    val: r.total_opt, roi: r.roi_opt,
-    pb: r.planCost / (r.total_opt / 12),
-  });
-
-  // Row 3: half the projected lift. Clone state, halve both committee, ad,
-  // and email lift inputs (both outbound reply-lift and nurture click-lift).
-  // Everything else — floor streams, attribution — unchanged.
-  const halfLiftState = JSON.parse(JSON.stringify(state));
-  halfLiftState.committee.liftCon = (state.committee.liftCon || 0) / 2;
-  halfLiftState.committee.liftOpt = (state.committee.liftOpt || 0) / 2;
-  halfLiftState.ad.ctrLiftCon    = (state.ad.ctrLiftCon || 0) / 2;
-  halfLiftState.ad.ctrLiftOpt    = (state.ad.ctrLiftOpt || 0) / 2;
-  halfLiftState.ad.cvrLiftCon    = (state.ad.cvrLiftCon || 0) / 2;
-  halfLiftState.ad.cvrLiftOpt    = (state.ad.cvrLiftOpt || 0) / 2;
-  halfLiftState.email.openLiftCon    = (state.email.openLiftCon || 0) / 2;
-  halfLiftState.email.openLiftOpt    = (state.email.openLiftOpt || 0) / 2;
-  halfLiftState.email.clickLiftCon   = (state.email.clickLiftCon || 0) / 2;
-  halfLiftState.email.clickLiftOpt   = (state.email.clickLiftOpt || 0) / 2;
-  halfLiftState.email.successLiftCon = (state.email.successLiftCon || 0) / 2;
-  halfLiftState.email.successLiftOpt = (state.email.successLiftOpt || 0) / 2;
-  const rHalfLift = computeAll(halfLiftState);
-  sens.push({
-    label: 'If we hit only half the lift we\'re projecting',
-    val: rHalfLift.total_con, roi: rHalfLift.roi_con, pb: rHalfLift.payback,
-  });
-
-  // Row 4: Performance Lift fully zero'd — floor-only scenario.
-  // Shows what stays when WhyUser drives 0 additional conversions / revenue.
-  // Operational Efficiency + Budget Protected + GTM Velocity Gain still stand.
-  // Math identity: total_con = A + B + C + D, so floor = total_con − A.con.
-  const floorOnlyVal = r.total_con - r.A.con;
-  const floorOnlyRoi = floorOnlyVal / r.planCost;
-  const floorOnlyPb  = r.planCost / (floorOnlyVal / 12);
-  sens.push({
-    label: 'Performance Lift fully zero\'d (floor-only scenario)',
-    val: floorOnlyVal, roi: floorOnlyRoi, pb: floorOnlyPb,
-  });
-
-  sensBody.innerHTML = sens.map(s =>
-    `<tr><td>${s.label}</td><td class="num">${fmtCurrencyK(s.val)}</td><td class="num">${fmtX(s.roi)}</td><td class="num">${fmtPb(s.pb)}</td></tr>`
-  ).join('');
-
-  // CFO card
-  document.getElementById('cfo-d-con').textContent = fmtCurrencyK(r.D.con);
-  document.getElementById('cfo-d-opt').textContent = fmtCurrencyK(r.D.opt);
-  document.getElementById('cfo-c-con').textContent = fmtCurrencyK(r.C.con);
-  document.getElementById('cfo-c-opt').textContent = fmtCurrencyK(r.C.opt);
-  document.getElementById('cfo-b-con').textContent = fmtCurrencyK(r.B.con);
-  document.getElementById('cfo-b-opt').textContent = fmtCurrencyK(r.B.opt);
-  document.getElementById('cfo-a-con').textContent = fmtCurrencyK(r.A.con);
-  document.getElementById('cfo-a-opt').textContent = fmtCurrencyK(r.A.opt);
-  document.getElementById('cfo-total-con').textContent = fmtCurrencyK(r.total_con);
-  document.getElementById('cfo-total-opt').textContent = fmtCurrencyK(r.total_opt);
-  document.getElementById('cfo-roi').textContent = fmtX(r.roi_con);
-  document.getElementById('cfo-roi-opt').textContent = `Opt: ${fmtX(r.roi_opt)}`;
-  document.getElementById('cfo-payback').textContent = (!isFinite(r.payback) || r.payback === 0) ? '—' : Math.max(1, Math.round(r.payback));
-  document.getElementById('cfo-plan-cost').textContent = fmtCurrencyK(r.planCost);
-  document.getElementById('cfo-plan-name').textContent = PLAN_NAMES[state.plan];
-  const _customer = state.customerName || 'your company';
-  const _date = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  document.getElementById('cfo-customer').textContent = _customer;
-  document.getElementById('cfo-meta').textContent = `Plan: ${PLAN_NAMES[state.plan]} @ ${fmtCurrencyK(r.planCost / 12)}/mo · Prepared: ${_date}`;
-  // Mirror values into both print-only headers (page 1 + CFO card page)
-  const _pc = document.getElementById('cfo-print-customer');
-  if (_pc) _pc.textContent = _customer;
-  const _pd = document.getElementById('cfo-print-date');
-  if (_pd) _pd.textContent = _date;
-  const _ppc = document.getElementById('print-page-customer');
-  if (_ppc) _ppc.textContent = _customer;
-  const _ppd = document.getElementById('print-page-date');
-  if (_ppd) _ppd.textContent = _date;
-
-  // Upside list — build dynamically
-  const upside = [];
-  upside.push('Feature compounding — pilot typically runs on 1–2 features; subscription unlocks all four. Every additional active feature raises GTM Velocity Gain and expands the surface area covered.');
-  if (state.features.audience && !state.audience.activate) upside.push('TAM expansion from new verticals (not activated in Year 1)');
-  if (!state.features.audience) upside.push('Hidden Champion CPC savings (requires live post-campaign data)');
-  upside.push('Multi-year throughput compounding as the team builds stress-test habits');
-  document.getElementById('cfo-upside').innerHTML = upside.map(u => `<li>${u}</li>`).join('');
-} catch (e) { console.error('render failed:', e); }
-}
-
-function featureLabel(f) {
-  return { committee: 'Committee Sim', ad: 'Ad Campaign', email: 'Email Campaign', audience: 'Audience Discovery' }[f];
-}
-
-// ============================================================
-// BIND — event handlers
-// ============================================================
-function bind() {
-  // Customer name + date
-  const _cn = document.getElementById('customer-name');
-  if (_cn) {
-    const _cnh = e => { state.customerName = e.target.value; render(); };
-    _cn.addEventListener('input', _cnh);
-    _cn.addEventListener('change', _cnh);
-  }
-  document.getElementById('customer-date').value = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-
-  // Feature picker
-  document.querySelectorAll('.feature-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const f = card.dataset.feature;
-      state.features[f] = !state.features[f];
-      render();
-    });
-  });
-
-  // Plan picker
-  document.querySelectorAll('.plan-card').forEach(card => {
-    card.addEventListener('click', () => {
-      state.plan = card.dataset.plan;
-      render();
-    });
-  });
-
-  // Shared context
-  bindNum('ctx-acv', v => state.ctx.acv = v);
-  bindNum('ctx-close-rate', v => state.ctx.closeRate = v);
-  bindNum('ctx-loaded-rate', v => state.ctx.loadedRate = v);
-  bindNum('ctx-marketing-fte', v => state.ctx.marketingFTE = v);
-
-  // Attribution sliders
-  bindSlider('attr-perf-attr', v => state.attr.perfAttr = v);
-  bindSlider('attr-waste', v => state.attr.wasteAttr = v);
-
-  // Committee
-  bindNum('com-assets-q', v => state.committee.assetsQ = v);
-  bindNum('com-agency-fee', v => state.committee.agencyFee = v);
-  bindNum('com-content-budget', v => state.committee.contentBudget = v);
-  bindNum('com-sessions', v => state.committee.sessions = v);
-  bindNum('com-baseline-cvr', v => state.committee.baselineCvr = v);
-  bindNum('com-lift-con', v => state.committee.liftCon = v);
-  bindNum('com-lift-opt', v => state.committee.liftOpt = v);
-
-  // Ad
-  bindNum('ad-spend', v => state.ad.spend = v);
-  bindNum('ad-cpc', v => state.ad.cpc = v);
-  bindNum('ad-ctr', v => state.ad.ctr = v);
-  bindNum('ad-landing-cvr', v => state.ad.landingCvr = v);
-  bindNum('ad-campaigns', v => state.ad.campaigns = v);
-  bindNum('ad-ctr-lift-con', v => state.ad.ctrLiftCon = v);
-  bindNum('ad-ctr-lift-opt', v => state.ad.ctrLiftOpt = v);
-  bindNum('ad-cvr-lift-con', v => state.ad.cvrLiftCon = v);
-  bindNum('ad-cvr-lift-opt', v => state.ad.cvrLiftOpt = v);
-
-  // Email
-  bindNum('em-volume', v => state.email.volume = v);
-  bindNum('em-open', v => state.email.open = v);
-  document.getElementById('em-click-type').addEventListener('change', e => {
-    const newType = e.target.value;
-    const oldType = state.email.clickType;
-    // Auto-convert the click value so the underlying funnel stays constant.
-    // Identity used: CTR = open% × CTOR%   ⇔   CTOR = CTR / open%
-    // If open is 0 we can't divide — leave the value alone in that case.
-    const open = state.email.open || 0;
-    const click = state.email.click || 0;
-    if (newType !== oldType && open > 0) {
-      let converted;
-      if (oldType === 'ctor' && newType === 'ctr') {
-        converted = click * (open / 100);          // CTOR → CTR
-      } else if (oldType === 'ctr' && newType === 'ctor') {
-        converted = click / (open / 100);          // CTR → CTOR
-      }
-      if (typeof converted === 'number' && isFinite(converted)) {
-        // Clamp to [0, 100] for the field, round to 1 decimal for sanity.
-        converted = Math.max(0, Math.min(100, converted));
-        converted = Math.round(converted * 10) / 10;
-        state.email.click = converted;
-        const clickInput = document.getElementById('em-click');
-        if (clickInput) clickInput.value = converted;
+        list.push({
+          id: 'aud-cpl', feature: 'audience', tag: 'audience',
+          short: 'Cost per lead, measured', name: 'Cost per lead, measured',
+          grade: 'observed', annual: uMonthly * 12 * haircut, roundsBased: false, blocked: qBlock,
+          lead: '<strong>' + qty(win) + '-day head-to-head.</strong> Same creative, same page, same budget. Only the audience changed.',
+          math: uMath,
+          speed: null,
+          context: 'Cost per lead fell and quality held: MQL to SQL ' + dec(n('u-q-ctrl')) + '% → ' +
+                   dec(n('u-q-treat')) + '%.',
+          upside: qty(n('u-newsegs')) + ' sub-verticals we have never marketed into, scoring above our current primary audience. An opportunity, not a saving.'
+        });
+      } else {
+        var vHours = n('u-hours') * rate;
+        var vPer = vHours + n('u-research');
+        list.push({
+          id: 'aud-research', feature: 'audience', tag: 'audience',
+          short: 'Research cost removed', name: 'Research cost removed',
+          grade: 'counted', annual: vPer * n('u-verticals'), roundsBased: false,
+          blocked: n('u-verticals') > 0 ? null : 'No assessments a year means nothing is removed.',
+          lead: 'Assessing a new vertical takes us <strong>' + qty(n('u-hours')) + ' hours plus a ' +
+                money(n('u-research')) + ' research project</strong>.',
+          math: [
+            qty(n('u-hours')) + ' hrs × ' + money(rate) + '  =  ' + money(vHours),
+            '+ ' + money(n('u-research')) + ' research  =  ' + money(vPer) + ' per vertical',
+            '× ' + qty(n('u-verticals')) + ' a year  =  ' + money(vPer * n('u-verticals')) + ' per year'
+          ],
+          speed: {
+            days: n('u-weeks') * n('u-verticals') * 7,
+            per: qty(n('u-weeks')) + ' weeks per assessment × ' + qty(n('u-verticals'))
+          },
+          context: qty(n('u-newsegs')) + ' sub-verticals scored above our primary audience. None tested.',
+          upside: qty(n('u-newsegs')) + ' sub-verticals we have never marketed into, scoring above our current primary audience. An opportunity, not a saving.'
+        });
       }
     }
-    state.email.clickType = newType;
-    render();
-  });
-  bindNum('em-click', v => state.email.click = v);
-  bindNum('em-reply', v => state.email.reply = v);
-  bindNum('em-campaigns', v => state.email.campaigns = v);
-  bindNum('em-agency', v => state.email.agency = v);
-  bindNum('em-landing-cvr', v => state.email.landingCvr = v);
-  bindNum('em-open-lift-con', v => state.email.openLiftCon = v);
-  bindNum('em-open-lift-opt', v => state.email.openLiftOpt = v);
-  bindNum('em-click-lift-con', v => state.email.clickLiftCon = v);
-  bindNum('em-click-lift-opt', v => state.email.clickLiftOpt = v);
-  bindNum('em-lift-con', v => state.email.successLiftCon = v);
-  bindNum('em-lift-opt', v => state.email.successLiftOpt = v);
-  // Success-metric dropdown swaps which third-stage value field and lift labels are shown.
-  document.getElementById('em-success-metric').addEventListener('change', e => { state.email.successMetric = e.target.value; render(); });
 
-  // Audience
-  bindNum('au-research-hours', v => state.audience.researchHours = v);
-  bindNum('au-agency-fee', v => state.audience.agencyFee = v);
-  document.getElementById('au-activate-verticals').addEventListener('change', e => { state.audience.activate = e.target.checked; render(); });
-  bindNum('au-verticals', v => state.audience.verticals = v);
-  bindNum('au-deals', v => state.audience.deals = v);
-  bindNum('au-deal-size', v => state.audience.dealSize = v);
-  bindNum('au-tam-attr', v => state.audience.tamAttr = v);
-}
-
-function bindNum(id, setter) {
-  const el = document.getElementById(id);
-  if (!el) { console.warn('bindNum: element not found:', id); return; }
-  const handler = e => {
-    const v = parseFloat(e.target.value);
-    setter(isNaN(v) ? 0 : v);
-    render();
-  };
-  // Listen to both 'input' (fires on every keystroke / spinner click in modern browsers)
-  // and 'change' (fires on blur / Enter — fallback for any browser that skips 'input').
-  el.addEventListener('input', handler);
-  el.addEventListener('change', handler);
-}
-
-function bindSlider(id, setter) {
-  const el = document.getElementById(id);
-  if (!el) { console.warn('bindSlider: element not found:', id); return; }
-  const handler = e => {
-    setter(parseInt(e.target.value, 10));
-    render();
-  };
-  el.addEventListener('input', handler);
-  el.addEventListener('change', handler);
-}
-
-// ============================================================
-// COPY-TO-CLIPBOARD
-// ============================================================
-function copyCfoText(btn) {
-  const r = computeAll(state);
-  const lines = [
-    `WhyUser ROI — ${state.customerName || 'Your company'}`,
-    `Plan: ${PLAN_NAMES[state.plan]} @ ${fmtCurrencyK(r.planCost / 12)}/mo`,
-    `Prepared: ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
-    ``,
-    `ANNUAL VALUE STREAMS         CONSERVATIVE    OPTIMISTIC`,
-    `Operational Efficiency       ${fmtCurrencyK(r.D.con).padEnd(15)} ${fmtCurrencyK(r.D.opt)}`,
-    `Budget Protected             ${fmtCurrencyK(r.C.con).padEnd(15)} ${fmtCurrencyK(r.C.opt)}`,
-    `GTM Velocity Gain                 ${fmtCurrencyK(r.B.con).padEnd(15)} ${fmtCurrencyK(r.B.opt)}`,
-    `Performance Lift             ${fmtCurrencyK(r.A.con).padEnd(15)} ${fmtCurrencyK(r.A.opt)}`,
-    `─────────────────────────────`,
-    `Total annual value           ${fmtCurrencyK(r.total_con).padEnd(15)} ${fmtCurrencyK(r.total_opt)}`,
-    ``,
-    `Plan cost                    ${fmtCurrencyK(r.planCost)}`,
-    `ROI multiple                 ${fmtX(r.roi_con)} conservative / ${fmtX(r.roi_opt)} optimistic`,
-    `Payback                      ${isFinite(r.payback) ? Math.max(1, Math.round(r.payback)) + ' months' : '—'}`,
-    ``,
-    `WhyUser does not claim outcomes. Calculator applies benchmark`,
-    `ranges to your own inputs. Performance Lift adjusted to actual`,
-    `pilot results at decision meeting.`,
-  ];
-  const text = lines.join('\n');
-  const showSuccess = () => {
-    if (!btn) return;
-    const orig = btn.textContent;
-    btn.textContent = 'Copied ✓';
-    setTimeout(() => { btn.textContent = orig; }, 2000);
-  };
-  const fallback = () => {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.top = '0';
-    ta.style.left = '0';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    let ok = false;
-    try { ok = document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(ta);
-    if (ok) { showSuccess(); }
-    else { window.prompt('Copy failed — select and copy this text manually:', text); }
-  };
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(showSuccess).catch(fallback);
-  } else {
-    fallback();
+    return list;
   }
-}
 
-// ============================================================
-// INIT
-// ============================================================
-// Sync state from the initial HTML values, so HTML is the source of truth
-// on page load and there's no way for state/HTML defaults to drift apart.
-function syncStateFromHtml() {
-  // Numeric inputs → state via the setter path each binding already uses
-  const pairs = [
-    ['ctx-acv',           v => state.ctx.acv = v],
-    ['ctx-close-rate',    v => state.ctx.closeRate = v],
-    ['ctx-loaded-rate',   v => state.ctx.loadedRate = v],
-    ['ctx-marketing-fte', v => state.ctx.marketingFTE = v],
-    ['com-assets-q',    v => state.committee.assetsQ = v],
-    ['com-agency-fee',  v => state.committee.agencyFee = v],
-    ['com-content-budget', v => state.committee.contentBudget = v],
-    ['com-sessions',    v => state.committee.sessions = v],
-    ['com-baseline-cvr',v => state.committee.baselineCvr = v],
-    ['com-lift-con',    v => state.committee.liftCon = v],
-    ['com-lift-opt',    v => state.committee.liftOpt = v],
-    ['ad-spend',        v => state.ad.spend = v],
-    ['ad-cpc',          v => state.ad.cpc = v],
-    ['ad-ctr',          v => state.ad.ctr = v],
-    ['ad-landing-cvr',  v => state.ad.landingCvr = v],
-    ['ad-campaigns',    v => state.ad.campaigns = v],
-    ['ad-ctr-lift-con', v => state.ad.ctrLiftCon = v],
-    ['ad-ctr-lift-opt', v => state.ad.ctrLiftOpt = v],
-    ['ad-cvr-lift-con', v => state.ad.cvrLiftCon = v],
-    ['ad-cvr-lift-opt', v => state.ad.cvrLiftOpt = v],
-    ['em-volume',       v => state.email.volume = v],
-    ['em-open',         v => state.email.open = v],
-    ['em-click',        v => state.email.click = v],
-    ['em-reply',        v => state.email.reply = v],
-    ['em-campaigns',    v => state.email.campaigns = v],
-    ['em-agency',       v => state.email.agency = v],
-    ['em-landing-cvr',  v => state.email.landingCvr = v],
-    ['em-open-lift-con', v => state.email.openLiftCon = v],
-    ['em-open-lift-opt', v => state.email.openLiftOpt = v],
-    ['em-click-lift-con', v => state.email.clickLiftCon = v],
-    ['em-click-lift-opt', v => state.email.clickLiftOpt = v],
-    ['em-lift-con',     v => state.email.successLiftCon = v],
-    ['em-lift-opt',     v => state.email.successLiftOpt = v],
-    ['au-research-hours', v => state.audience.researchHours = v],
-    ['au-agency-fee',   v => state.audience.agencyFee = v],
-    ['au-verticals',    v => state.audience.verticals = v],
-    ['au-deals',        v => state.audience.deals = v],
-    ['au-deal-size',    v => state.audience.dealSize = v],
-    ['au-tam-attr',     v => state.audience.tamAttr = v],
-  ];
-  for (const [id, setter] of pairs) {
-    const el = document.getElementById(id);
-    if (!el) continue;
-    const v = parseFloat(el.value);
-    if (!isNaN(v)) setter(v);
+  function price() {
+    if (UI.plan === 'standard') return 12000;
+    if (UI.plan === 'scale') return 24000;
+    return n('sh-price');
   }
-  // Attribution sliders
-  const sliders = [
-    ['attr-perf-attr', v => state.attr.perfAttr = v],
-    ['attr-waste',     v => state.attr.wasteAttr = v],
-  ];
-  for (const [id, setter] of sliders) {
-    const el = document.getElementById(id);
-    if (el) setter(parseInt(el.value, 10));
-  }
-  // Select inputs
-  const clickTypeEl = document.getElementById('em-click-type');
-  if (clickTypeEl) state.email.clickType = clickTypeEl.value;
-  // Radio buttons (email mode)
-  const successMetricEl = document.getElementById('em-success-metric');
-  if (successMetricEl) state.email.successMetric = successMetricEl.value;
-  // Checkbox (audience activate verticals)
-  const auActivate = document.getElementById('au-activate-verticals');
-  if (auActivate) state.audience.activate = auActivate.checked;
-}
 
-syncStateFromHtml();
-bind();
-render();
+  /* ============================================================
+     RENDER
+     ============================================================ */
+  var CUR = { live: [], name: '—' };
+  var CTX = [];
+
+  function render() {
+    var list = buildCandidates();
+    var live = list.filter(function (c) { return !c.blocked && c.annual > 0; });
+    var totalAnnual = live.reduce(function (t, c) { return t + c.annual; }, 0);
+    var p = price();
+    var ratio = p > 0 ? totalAnnual / p : 0;
+
+    ['committee', 'ad', 'email', 'audience'].forEach(function (f) {
+      var el = $('tot-' + f);
+      if (!el) return;
+      var c = list.filter(function (x) { return x.feature === f; })[0];
+      el.textContent = c && !c.blocked && c.annual > 0 ? money(c.annual) + '/yr' : '—';
+    });
+
+    var tot = n('ac-total'), hits = n('ac-hits');
+    $('acc-rate').textContent = tot > 0 && hits <= tot ? Math.round((hits / tot) * 100) + '% correct' : '—';
+
+    renderSlide(list, live, totalAnnual, p, ratio);
+    renderAlerts(list);
+    updateHash();
+  }
+
+  function renderSlide(list, live, totalAnnual, p, ratio) {
+    $('slide-company').textContent = s('cs-company') || 'Their company';
+    $('slide-date').textContent = s('cs-date');
+
+    /* --- line 1 --- */
+    var assets = n('ac-assets'), tot = n('ac-total'), hits = n('ac-hits');
+    var acc = tot > 0 && hits <= tot ? ' (' + Math.round((hits / tot) * 100) + '% accuracy)' : '';
+    $('l1-lead').innerHTML = 'Tested blind on <strong>' + qty(assets) + ' ' + plural(assets, 'asset', 'assets') +
+      '</strong>, WhyUser called <strong>' + qty(hits) + ' of ' + qty(tot) + '</strong>' + acc + '.';
+
+    /* --- line 2: one candidate keeps its own arithmetic, several aggregate --- */
+    var lead, math;
+    var name = 'Cost Savings';
+    if (!live.length) {
+      lead = 'No eligible line.'; math = [];
+    } else if (live.length === 1) {
+      lead = live[0].lead;
+      math = live[0].math;
+    } else {
+      lead = '<strong>' + money(totalAnnual) + ' a year</strong> of work and fees that stop being spent, across ' +
+             joinList(live.map(function (c) { return c.tag; })) + '.';
+      var w = 0;
+      live.forEach(function (c) { w = Math.max(w, c.short.length); });
+      math = live.map(function (c) { return pad(c.short, w) + '   ' + money(c.annual) + ' / yr'; });
+      math.push('=  ' + money(totalAnnual) + ' per year');
+    }
+    $('l2-name').textContent = '2 · ' + name;
+    $('l2-lead').innerHTML = lead;
+    $('l2-math').innerHTML = math.map(function (m, i) {
+      return i === math.length - 1 ? '<b>' + m + '</b>' : m;
+    }).join('\n');
+    CUR = { live: live, name: name };
+
+    /* --- line 3 --- */
+    var ctx = [];
+    live.forEach(function (c) { if (c.context && ctx.indexOf(c.context) === -1) ctx.push(c.context); });
+    CTX = ctx.slice(0, 3);
+    $('l3-lead').innerHTML = CTX.map(function (x) { return '<span class="ctx">' + x + '</span>'; }).join('');
+
+    /* --- line 4: the same removals, in calendar time --- */
+    var timed = live.filter(function (c) { return c.speed && c.speed.days > 0; });
+    var days = timed.reduce(function (t, c) { return t + c.speed.days; }, 0);
+    if (timed.length) {
+      /* Months only when a single removal is being stated. Summed across
+         features the days are partly parallel, so a months figure would be
+         the double count a CFO looks for. */
+      var tail = timed.length === 1 && days <= 365
+        ? ' — about ' + dec(Math.round(days / 3) / 10) + ' months more in-market, same team'
+        : ' of production time, same team';
+      $('l4-lead').innerHTML = 'Velocity improves by <strong>' + qty(days) + ' days a year</strong>' + tail + '.';
+      var sm = timed.map(function (c) { return c.speed.per; });
+      sm.push('=  ' + qty(days) + ' days a year');
+      $('l4-math').innerHTML = sm.map(function (m, i) {
+        return i === sm.length - 1 ? '<b>' + m + '</b>' : m;
+      }).join('\n');
+      $('l4-note').textContent = 'The same ' + plural(timed.length, 'removal', 'removals') +
+        ' as line 2, in time rather than cost. Not additional to it.';
+    } else {
+      $('l4-lead').textContent = 'No review rounds removed, so no velocity to state.';
+      $('l4-math').textContent = '';
+      $('l4-note').textContent = '';
+    }
+
+    /* --- the ask --- */
+    $('ask-cost').textContent = money(p);
+    var rEl = $('ask-ratio');
+    rEl.textContent = ratioStr(ratio);
+    rEl.className = 'ask-ratio' + (!live.length ? ' none' : ratio < 3 ? ' thin' : '');
+
+    $('mini-r').textContent = ratioStr(ratio);
+    $('mini-v').textContent = live.length ? money(totalAnnual) + '/yr' : 'nothing eligible';
+  }
+
+  function pad(str, w) { while (str.length < w) str += ' '; return str; }
+  function joinList(a) {
+    if (a.length === 1) return a[0];
+    return a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+  }
+
+  /* ---------- inline alerts, only when something is wrong ---------- */
+  function alertEl(id, html) {
+    var el = $(id);
+    if (!el) return;
+    if (!html) { el.className = 'alert hidden'; el.innerHTML = ''; return; }
+    el.className = 'alert';
+    el.innerHTML = '<div>' + html + '</div>';
+  }
+
+  function renderAlerts(list) {
+    var blocked = function (f) {
+      var c = list.filter(function (x) { return x.feature === f; })[0];
+      return c && c.blocked ? c.blocked : null;
+    };
+    alertEl('c-alert', UI.features.committee ? blocked('committee') : null);
+    alertEl('a-alert', UI.features.ad ? blocked('ad') : null);
+    alertEl('e-alert', UI.features.email ? blocked('email') : null);
+    alertEl('u-alert', UI.features.audience ? blocked('audience') : null);
+
+    alertEl('acc-alert', n('ac-hits') > n('ac-total') ? 'More calls correct than calls made.' : null);
+  }
+
+  /* ============================================================
+     EXPORT
+     ============================================================ */
+  function stripTags(h) { return String(h).replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, ''); }
+  function mathLines(id) {
+    return stripTags($(id).innerHTML).split('\n').filter(function (l) { return l.trim(); });
+  }
+
+  function slideText() {
+    var o = [];
+    o.push('WHYUSER — THE BUSINESS CASE');
+    o.push((s('cs-company') || 'Our company') + '  ·  ' + s('cs-date'));
+    o.push('');
+    o.push('1. ACCURACY');
+    o.push(stripTags($('l1-lead').innerHTML));
+    o.push('');
+    o.push('2. COST SAVINGS');
+    o.push(stripTags($('l2-lead').innerHTML));
+    mathLines('l2-math').forEach(function (l) { o.push('   ' + l); });
+    o.push('');
+    o.push('3. CONTEXT');
+    CTX.forEach(function (l) { o.push(l); });
+    o.push('');
+    o.push('4. SPEED');
+    o.push(stripTags($('l4-lead').innerHTML));
+    mathLines('l4-math').forEach(function (l) { o.push('   ' + l); });
+    if ($('l4-note').textContent) o.push($('l4-note').textContent);
+    o.push('');
+    o.push('THE ASK');
+    o.push('Cost: ' + $('ask-cost').textContent + ' a year.   Ratio: ' + $('ask-ratio').textContent);
+    return o.join('\n');
+  }
+
+  /* ============================================================
+     STATE IN THE URL — no browser storage
+     ============================================================ */
+  function collect() {
+    var data = { ui: UI, v: {} };
+    document.querySelectorAll('.field-input, .meta-input').forEach(function (el) {
+      if (el.id && el.id !== 'cs-date') data.v[el.id] = el.value;
+    });
+    return data;
+  }
+  var hashTimer = null;
+  function updateHash() { clearTimeout(hashTimer); hashTimer = setTimeout(writeHash, 400); }
+  function writeHash() {
+    try { history.replaceState(null, '', '#c=' + btoa(unescape(encodeURIComponent(JSON.stringify(collect()))))); }
+    catch (e) { /* non-fatal */ }
+  }
+  function restore() {
+    var h = location.hash || '';
+    if (h.indexOf('#c=') !== 0) return;
+    try {
+      var data = JSON.parse(decodeURIComponent(escape(atob(h.slice(3)))));
+      if (data.ui) Object.keys(data.ui).forEach(function (k) { UI[k] = data.ui[k]; });
+      if (!UI.features) UI.features = { committee: true, ad: false, email: false, audience: false };
+      Object.keys(data.v || {}).forEach(function (id) { var el = $(id); if (el) el.value = data.v[id]; });
+    } catch (e) { /* non-fatal */ }
+  }
+
+  /* ============================================================
+     WIRING
+     ============================================================ */
+  function applyUI() {
+    ['committee', 'ad', 'email', 'audience'].forEach(function (f) {
+      var on = !!UI.features[f];
+      $('sec-' + f).classList.toggle('hidden', !on);
+      var b = document.querySelector('#seg-features [data-feat="' + f + '"]');
+      if (b) b.classList.toggle('active', on);
+    });
+    document.querySelectorAll('#seg-plan .seg-btn').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.plan === UI.plan);
+    });
+    $('f-custom-price').classList.toggle('hidden', UI.plan !== 'enterprise');
+    document.querySelectorAll('#seg-ad-pick .seg-btn').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.adpick === UI.adPick);
+    });
+    document.querySelectorAll('#seg-email-track .seg-btn').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.etrack === UI.etrack);
+    });
+    $('e-ctx-a').classList.toggle('hidden', UI.etrack !== 'a');
+    $('e-ctx-b').classList.toggle('hidden', UI.etrack !== 'b');
+    document.querySelectorAll('#seg-au-track .seg-btn').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.utrack === UI.utrack);
+    });
+    $('au-paid').classList.toggle('hidden', UI.utrack !== 'paid');
+    $('au-expansion').classList.toggle('hidden', UI.utrack !== 'expansion');
+    $('a-media-fields').classList.toggle('hidden', UI.adPick !== 'media');
+    $('a-cycle-fields').classList.toggle('hidden', UI.adPick !== 'cycle');
+  }
+
+  function flash(btn, msg) {
+    var old = btn.textContent;
+    btn.textContent = msg;
+    setTimeout(function () { btn.textContent = old; }, 1500);
+  }
+  function fallbackCopy(text, done) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) { /* noop */ }
+    document.body.removeChild(ta); done();
+  }
+  function copy(text, btn, msg) {
+    var done = function () { flash(btn, msg); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+    } else fallbackCopy(text, done);
+  }
+
+  function bind() {
+    document.querySelectorAll('.field-input, .meta-input').forEach(function (el) {
+      el.addEventListener('input', render);
+      el.addEventListener('change', render);
+    });
+    document.querySelectorAll('#seg-features .seg-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.dataset.feat, next = !UI.features[f];
+        if (!next && Object.keys(UI.features).filter(function (k) { return UI.features[k]; }).length === 1) return;
+        UI.features[f] = next;
+        applyUI(); render();
+      });
+    });
+    [['seg-plan', 'plan', 'plan'], ['seg-ad-pick', 'adPick', 'adpick'],
+     ['seg-email-track', 'etrack', 'etrack'], ['seg-au-track', 'utrack', 'utrack']].forEach(function (t) {
+      document.querySelectorAll('#' + t[0] + ' .seg-btn').forEach(function (b) {
+        b.addEventListener('click', function () { UI[t[1]] = b.dataset[t[2]]; applyUI(); render(); });
+      });
+    });
+    $('btn-copy').addEventListener('click', function () { copy(slideText(), this, 'Copied'); });
+  }
+
+  /* ---------- boot ---------- */
+  $('cs-date').value = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  restore();
+  applyUI();
+  bind();
+  render();
+})();
+
 </script>
-
-
-    <footer class="footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand-mark"><span class="nav-mark"><img src="images/whyuser-mark.png" alt=""></span><span class="footer-brand-name">WhyUser Inc.</span></div>
-                    <p class="footer-tagline">WhyUser. The pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
-                </div>
-                <div><h4>Engines</h4><ul>
-                    <li><a href="committee-simulation.html">Committee Simulation</a></li>
-                    <li><a href="ad-campaign-simulation.html">Ad Campaign Simulation</a></li>
-                    <li><a href="email-campaign-simulation.html">Email Campaign Simulation</a></li>
-                    <li><a href="audience-discovery.html">Audience Discovery</a></li>
-                </ul></div>
-                <div><h4>Proof</h4><ul>
-                    <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
-                    <li><a href="whyuser-vs-ai-opinions.html">Claude vs WhyUser</a></li>
-                <li><a href="how-to-evaluate.html">How to evaluate a method</a></li>
-                    <li><a href="compare.html">Compare WhyUser</a></li>
-                    <li><a href="index.html#build">Why not build it</a></li>
-                    <li><a href="glossary.html">Glossary</a></li>
-                    <li><a href="roi.html">ROI calculator</a></li>
-                </ul></div>
-                <div><h4>Company</h4><ul>
-                    <li><a href="index.html#how">How it works</a></li>
-                    <li><a href="manifesto.html">Why we built this</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="index.html#access">Request access</a></li>
-                </ul></div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
-                <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
-                <span><a href="accuracy.html">473 claims graded, 84% accurate</a></span>
-            </div>
-        </div>
-    </footer>
 
     <!-- Nav behaviour: Product dropdown + mobile menu -->
     <script>

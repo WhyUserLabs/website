@@ -4350,7 +4350,7 @@ body {
     </button>
     <div class="meta-field">
       <label class="meta-label" for="cs-company">Prepared for</label>
-      <input class="meta-input" id="cs-company" type="text" placeholder="Their company">
+      <input class="meta-input" id="cs-company" type="text" placeholder="Your company">
     </div>
     <div class="meta-field">
       <label class="meta-label" for="cs-date">Date</label>
@@ -4736,7 +4736,7 @@ body {
       <span>WhyUser</span>
     </div>
     <div class="slide-top">
-      <div class="slide-co" id="slide-company">Their company</div>
+      <div class="slide-co" id="slide-company">Your company</div>
       <div class="slide-dt" id="slide-date">—</div>
     </div>
 
@@ -5139,7 +5139,7 @@ body {
   }
 
   function renderSlide(list, live, totalAnnual, p, ratio) {
-    $('slide-company').textContent = s('cs-company') || 'Their company';
+    $('slide-company').textContent = s('cs-company') || 'Your company';
     $('slide-date').textContent = s('cs-date');
 
     /* --- line 1 --- */

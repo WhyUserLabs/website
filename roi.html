@@ -21,7 +21,7 @@
 </script>
 <!-- End Google tag (gtag.js) -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#08080b">
+    <meta name="theme-color" content="#faf9f7">
     <meta name="color-scheme" content="dark light">
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
@@ -3667,14 +3667,24 @@ body {
 
     </style>
 
-<!-- The two sheets tagged data-theme="dark" are the site's dark
-     override layer. The theme switch in the page header toggles their
-     `disabled` property, which flips this page to the light design the
-     base CSS was authored in without a reload. -->
-  <link rel="stylesheet" href="assets/dark-theme.css" data-theme="dark">
+<!-- The dark layer is gone, so there is nothing to toggle. The
+     data-theme="dark" attribute used to sit on whyuser-readability.css,
+     which means the old switch disabled the LIGHT theme. -->
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
-  <link rel="stylesheet" href="assets/whyuser-readability.css" data-theme="dark">
+  <link rel="stylesheet" href="assets/whyuser-readability.css">
 <style>
+/* roi.html leaves .calc-out transparent over a white .slide, unlike
+   pricing.html, which loads whyuser-core.css and paints it as a dark
+   instrument frame. The shared sheet sets frame ink on .calc-out for that
+   case, so it is reset here. This block loads after the shared sheets. */
+.calc-out {
+  --ink: #18181b; --ink-soft: #27272a; --mute: #52525b; --dim: #6b6b75;
+  background: transparent !important; border: none !important;
+}
+.calc-out .calc-big  { color: var(--ink) !important; }
+.calc-out .calc-note, .calc-out .calc-line, .calc-out .calc-line span,
+.calc-out .calc-rec  { color: var(--mute) !important; }
+
 /* WhyUser UI overrides. Kept per-page and self-contained so no shared
    stylesheet has to change.
    1. No hairline under the sticky nav; the blur already separates it.
@@ -3749,15 +3759,6 @@ body {
 }
 .wu-h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--emerald); }
 .wu-head-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end; }
-.theme-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px; flex: 0 0 32px;
-  border: 1px solid var(--line); border-radius: 50%;
-  background: transparent; color: var(--ink-faint);
-  cursor: pointer; font-size: 12px; transition: all .12s;
-}
-.theme-btn:hover { border-color: var(--emerald); color: var(--emerald); }
-
 /* --- layout ---------------------------------------------------------- */
 .calc { display: grid; grid-template-columns: minmax(320px, 1fr) 440px; gap: 44px; align-items: start; }
 @media (max-width: 1080px) { .calc { grid-template-columns: 1fr; } }
@@ -4165,11 +4166,18 @@ body {
                             <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by you.</span>
                         </span>
                     </a>
-                    <a href="whyuser-vs-ai-opinions.html" class="nav-dd-item" role="menuitem">
+                    <a href="compare/whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Claude vs WhyUser</span>
-                            <span class="nav-dd-desc">The same page, twice. Interactive, no login.</span>
+                            <span class="nav-dd-desc">Where Claude helps, and where it cannot decide.</span>
+                        </span>
+                    </a>
+                    <a href="one-page-two-answers.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">The same page, twice</span>
+                            <span class="nav-dd-desc">One page, two answers. No login.</span>
                         </span>
                     </a>
                     <a href="compare.html" class="nav-dd-item" role="menuitem">
@@ -4313,7 +4321,8 @@ body {
             <div class="nav-m-group">
                 <span class="nav-m-label">Why WhyUser</span>
                 <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                <a href="whyuser-vs-ai-opinions.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="compare/whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="one-page-two-answers.html" class="nav-m-link">The same page, twice</a>
                 <a href="how-to-evaluate.html" class="nav-m-link">How to evaluate a method</a>
                 <a href="compare.html" class="nav-m-link">Compare</a>
                 <a href="developers.html" class="nav-m-link">Architecture &amp; data flow</a>
@@ -4344,10 +4353,6 @@ body {
 <header class="wu-head">
   <h1 class="wu-h1">ROI <em>Calculator</em></h1>
   <div class="wu-head-meta no-print">
-    <button type="button" class="theme-btn" id="theme-btn" aria-pressed="false"
-            aria-label="Switch to light theme" title="Switch theme">
-      <i class="fa-solid fa-sun" aria-hidden="true"></i>
-    </button>
     <div class="meta-field">
       <label class="meta-label" for="cs-company">Prepared for</label>
       <input class="meta-input" id="cs-company" type="text" placeholder="Your company">
@@ -4850,7 +4855,8 @@ body {
 
             <div><h4>Why WhyUser</h4><ul>
                 <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
-                <li><a href="whyuser-vs-ai-opinions.html">Claude vs WhyUser</a></li>
+                <li><a href="compare/whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser</a></li>
+                <li><a href="one-page-two-answers.html">The same page, twice</a></li>
                 <li><a href="how-to-evaluate.html">How to evaluate a method</a></li>
                 <li><a href="compare.html">Compare WhyUser</a></li>
                 <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
@@ -5377,24 +5383,7 @@ body {
         b.addEventListener('click', function () { touched = true; UI[t[1]] = b.dataset[t[2]]; applyUI(); render(); });
       });
     });
-    $('theme-btn').addEventListener('click', function () {
-      setTheme(this.getAttribute('aria-pressed') === 'true' ? 'dark' : 'light');
-    });
     $('btn-copy').addEventListener('click', function () { copy(slideText(), this, 'Copied'); });
-  }
-
-  /* ---------- theme ---------- */
-  function setTheme(mode) {
-    var light = mode === 'light';
-    var sheets = document.querySelectorAll('link[data-theme="dark"]');
-    for (var i = 0; i < sheets.length; i++) { sheets[i].disabled = light; }
-    document.documentElement.style.colorScheme = light ? 'light' : 'dark';
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', light ? '#fdfdfd' : '#08080b');
-    var b = $('theme-btn');
-    b.setAttribute('aria-pressed', light ? 'true' : 'false');
-    b.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
-    b.innerHTML = '<i class="fa-solid fa-' + (light ? 'moon' : 'sun') + '" aria-hidden="true"></i>';
   }
 
   /* ---------- boot ---------- */

@@ -1,15 +1,64 @@
 {
   "redirects": [
-    { "source": "/glossary/behavioral-state.html",            "destination": "/glossary.html#behavioural-state",          "permanent": true },
-    { "source": "/glossary/buying-committee-simulation.html", "destination": "/glossary.html#buying-committee-simulation", "permanent": true },
-    { "source": "/glossary/conflict-graph.html",              "destination": "/glossary.html#conflict-graph",             "permanent": true },
-    { "source": "/glossary/dark-funnel.html",                 "destination": "/glossary.html#dark-funnel",                "permanent": true },
-    { "source": "/glossary/evidence-ledger.html",             "destination": "/glossary.html#evidence-ledger",            "permanent": true },
-    { "source": "/glossary/pre-launch-stress-test.html",      "destination": "/glossary.html#pre-launch-stress-test",     "permanent": true },
-    { "source": "/glossary/scent-trail.html",                 "destination": "/glossary.html#scent-trail",                "permanent": true },
-    { "source": "/glossary/silent-veto.html",                 "destination": "/glossary.html#silent-veto",                "permanent": true },
-    { "source": "/glossary/synthetic-persona.html",           "destination": "/glossary.html#synthetic-persona",          "permanent": true },
-    { "source": "/glossary/index.html",                       "destination": "/glossary.html",                            "permanent": true },
-    { "source": "/glossary",                                  "destination": "/glossary.html",                            "permanent": true }
+    {
+      "source": "/glossary/behavioral-state.html",
+      "destination": "/glossary.html#behavioural-state",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/buying-committee-simulation.html",
+      "destination": "/glossary.html#buying-committee-simulation",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/conflict-graph.html",
+      "destination": "/glossary.html#conflict-graph",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/dark-funnel.html",
+      "destination": "/glossary.html#dark-funnel",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/evidence-ledger.html",
+      "destination": "/glossary.html#evidence-ledger",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/pre-launch-stress-test.html",
+      "destination": "/glossary.html#pre-launch-stress-test",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/scent-trail.html",
+      "destination": "/glossary.html#scent-trail",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/silent-veto.html",
+      "destination": "/glossary.html#silent-veto",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/synthetic-persona.html",
+      "destination": "/glossary.html#synthetic-persona",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/index.html",
+      "destination": "/glossary.html",
+      "permanent": true
+    },
+    {
+      "source": "/glossary",
+      "destination": "/glossary.html",
+      "permanent": true
+    },
+    {
+      "source": "/whyuser-vs-ai-opinions.html",
+      "destination": "/one-page-two-answers.html",
+      "permanent": true
+    }
   ]
 }

@@ -1,10 +1,10 @@
 # WhyUser
 
-> WhyUser is a buying-committee simulation that runs before a B2B campaign goes live. It takes a landing page, content page, ad or email and reads it as an entire buying committee would, one agent per committee seat, many agents per seat, across three behavioural states, then reports which buyer role vetoes, at which section, what proof was missing, and the fix. Every finding cites the buyer evidence behind it. A run takes about 30 minutes and starts from a public URL.
+> WhyUser tests a B2B landing page, content page, ad or email before it launches. It runs 50 to 300 simulated buyer agents across every role that has to approve the asset, each in one of three behavioural states, then reports what is working, what is broken and what to fix. Every finding cites the buyer evidence behind it. A run takes about 30 minutes and starts from a public URL.
 
 WhyUser Inc. is based in San Jose, California. Named customers include ngrok and Vectara. The product is sold on annual plans and also runs a design-partner programme at no charge.
 
-**Last updated:** 2026-08-29
+**Last updated:** 2026-09-05
 
 ## The distinguishing claim
 
@@ -22,12 +22,12 @@ In WhyUser's own published run against whyuser.com, all five roles finished conv
 
 | Run | Agents | Credits | Returns |
 |---|---|---|---|
-| [Landing page, Committee Simulation](https://whyuser.com/committee-simulation.html) | 50 | 10 per run | Conflict graph, per-role verdict, ranked fix queue |
-| Content page, Committee Simulation (blog posts, white papers, case studies, docs) | 50 | 10 per run | Same, for non-landing assets |
+| [Landing Page Testing](https://whyuser.com/committee-simulation.html) | 50 | 10 per run | Conflict graph, per-role verdict, ranked fix queue |
+| Content page testing (blog posts, white papers, case studies, docs) | 50 | 10 per run | Same, for non-landing assets |
 | [Ad campaign](https://whyuser.com/ad-campaign-simulation.html) | 300 | 30 per creative | Ad-to-page scent trail, kill sheet, projected CTR and CVR |
 | [Email campaign](https://whyuser.com/email-campaign-simulation.html) | 300 | 10 per subject × body × link combo | Per-role winner across subject, body and CTA |
-| [Audience Discovery](https://whyuser.com/audience-discovery.html) |, | 50 per run | Ranked title pool by subvertical and role, negative keywords |
-| Community & Competitor Intelligence |, | 10 per run | Refreshed competitor and community picture behind the committee |
+| [Audience Discovery](https://whyuser.com/audience-discovery.html) | full committee | 50 per run | Ranked title pool by subvertical and role, negative keywords |
+| Community & Competitor Intelligence | n/a | 10 per run | Refreshed competitor and community picture behind the committee |
 
 Agent counts, behavioural states and accuracy are **identical on every plan**. Plans differ in how much you can run, never in how good the answer is.
 
@@ -42,11 +42,34 @@ Agent counts, behavioural states and accuracy are **identical on every plan**. P
 
 A landing-page test is 10 credits, which is $50 on Standard and $45.71 on Scale. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner programme.
 
+## How the buyers are built
+
+WhyUser calls this Ground Reality. Buyers are compiled from evidence, never written by hand.
+
+- **Before they meet you:** review sites, community threads, competitor complaints, your own pages, and how all of it shifted over the last 18 months.
+- **After they meet you:** call recordings, CRM notes, win/loss reasons.
+- **Static or dynamic, the customer chooses.** Freeze a persona to hold a fixed baseline, or leave it live and it rebuilds when new evidence lands. It never drifts on its own.
+- Where sources disagree, a real buyer's words outrank the model's own draft, which ranks last of the nine streams that merge into one agent.
+- Statements about *selling* — funnel, MQLs, pipeline, ABM — are stripped before they can become a buyer's belief. A buyer has never had an MQL problem.
+
+## Behavioural states by channel
+
+Internal reviewers read with full motivation, full product knowledge and full attention. Almost no real traffic does. WhyUser spreads agents across that range, weighted to the channel being bought. Shares are derived from published CTR benchmarks and the Ehrenberg-Bass 95:5 rule, not from WhyUser's opinion, and a customer can pin their own measured mix.
+
+| Channel | Distracted | Sceptical | In-market |
+|---|---|---|---|
+| LinkedIn, cold | 82% | 15% | 3% |
+| Cold email | 78% | 17% | 5% |
+| Google Search, cold | 30% | 25% | 45% |
+| Google Search, retargeted | 15% | 20% | 65% |
+
+The single most common error this corrects: quoting 82% distracted as a fact about all cold traffic. It is LinkedIn cold specifically.
+
 ## Accuracy and evidence
 
 - [Accuracy and track record](https://whyuser.com/accuracy.html): **473 claims graded, 84% accuracy** across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data, never by WhyUser. Misses stay in the denominator. The page also states the known blind spots.
 - [Three complete published reports](https://whyuser.com/sample-report.html), no login and nothing removed: a landing-page committee run against whyuser.com's own homepage, an email campaign run, and an audience study.
-- [AI opinions vs. WhyUser simulations](https://whyuser.com/whyuser-vs-ai-opinions.html): interactive, no login. The same landing page judged by a general AI assistant and by a committee simulation, side by side.
+- [The same page, twice](https://whyuser.com/one-page-two-answers.html): interactive, no login. One landing page judged by a general AI assistant and by WhyUser, side by side. This is the demo, not the comparison write-up; for that see the Claude vs WhyUser page.
 
 ## Can you do this with Claude, ChatGPT or an AI agent?
 

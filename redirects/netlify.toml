@@ -63,3 +63,11 @@
   to = "/glossary.html"
   status = 301
   force = true
+
+# The demo was renamed. It was called whyuser-vs-ai-opinions.html, which read
+# like a comparison page and collided with /compare/whyuser-vs-chatgpt-and-claude.html.
+[[redirects]]
+  from = "/whyuser-vs-ai-opinions.html"
+  to = "/one-page-two-answers.html"
+  status = 301
+  force = true

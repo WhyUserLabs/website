@@ -278,6 +278,77 @@ body {
 }
 
 
+/* ── 2b · THE REST OF THE CARDS ────────────────────────────────
+   A sweep of all 27 pages for card-shaped elements (rounded, filled
+   or bordered, real padding, over 180px wide) found these still
+   boxed. Same reasoning as above: on a light canvas the fill does
+   almost nothing and the border carries the whole separation, so a
+   grid of them reads as crates rather than as content.
+
+   .card alone is 28 instances across sample-report, developers and
+   pricing, and it lives in whyuser-core.css so all three inherit it.
+
+   Kept as boxes on purpose, listed here so the decision is explicit:
+     .plan        three pricing tiers you scan ACROSS, which is the
+                  one case a card is genuinely the right container
+     .slide       the ROI output, a document preview
+     .table-wrap  needs its own box for overflow scrolling
+     dark frames  meant to read as screenshots
+     .nav-dd-panel  a floating menu needs an edge
+*/
+
+.card, .whohub-role, .lp-test, .addon, .calc-panel, .info-card {
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.4rem 0 0 !important;
+}
+
+/* The role cards on the solution pages were centre-aligned inside their
+   box. Without the box, centred text in a four-column row has nothing
+   to sit against. */
+.whohub-role { text-align: left !important; }
+
+/* Icon chips were a filled tile. The icon alone carries it. The tile was
+   a centring flex box, so display must go back to block or the icon
+   floats to the middle of a now full-width container. */
+.card-ic, .whohub-role-ic, .info-card .card-ic, .wu-out-ic {
+  display: block !important;
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  margin-bottom: 0.55rem !important;
+  font-size: 1.05rem !important;
+}
+
+/* Full-bleed outlined buttons inside a de-boxed card just put the box
+   back. They size to their label instead. */
+.card .btn, .whohub-role .btn, .info-card .btn {
+  display: inline-flex !important;
+  width: auto !important;
+}
+
+/* The six inputs feeding the Ground Reality hub stay as cards, because
+   they are nodes in a diagram with lines drawn to them, but they lose
+   the lift so they sit on the page rather than above it. */
+.hub-source { box-shadow: none !important; }
+
+/* Pricing tiers keep their box and lose the shadow, so the three read
+   as a set rather than three floating objects. */
+.plan { box-shadow: none !important; }
+
+/* how-to-evaluate.html's sticky checklist bar. */
+.ck-bar {
+  background: var(--paper) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+}
+
+
+
 /* ═══════════════════════════════════════════════════════════════
    3 · QUOTES
 

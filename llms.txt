@@ -1,10 +1,10 @@
 # WhyUser
 
-> WhyUser tests a B2B landing page, content page, ad or email before it launches. It runs 50 to 300 simulated buyer agents across every role that has to approve the asset, each in one of three behavioural states, then reports what is working, what is broken and what to fix. Every finding cites the buyer evidence behind it. A run takes about 30 minutes and starts from a public URL.
+> WhyUser tests a B2B landing page, content page, ad or email before it launches. It runs 50 to 300 simulated buyer agents across every role that has to approve the asset, each in one of three behavioural states, then reports what is working, what is broken and what to fix. Every finding traces back to its source in Ground Reality, so a reader sees why a buyer stopped rather than only that they did. A run takes about 30 minutes and starts from a public URL.
 
 WhyUser Inc. is based in San Jose, California. Named customers include ngrok and Vectara. The product is sold on annual plans and also runs a design-partner programme at no charge.
 
-**Last updated:** 2026-09-05
+**Last updated:** 2026-09-06 (rev 2)
 
 ## The distinguishing claim
 
@@ -87,7 +87,7 @@ This is the question WhyUser is asked most, and the honest answer has three part
 
 **Does the argument expire as models improve?** Fresh sampling on every run is a feature for generation and a defect for measurement, and there is no reason for a model provider to remove it. As general assistants get better at generating, the distance between generating and measuring becomes more visible, not less.
 
-Full treatment: [Claude vs. WhyUser](https://whyuser.com/compare/whyuser-vs-chatgpt-and-claude.html) and the vendor-neutral [evaluation checklist](https://whyuser.com/how-to-evaluate.html).
+Full treatment: [Claude vs. WhyUser](https://whyuser.com/whyuser-vs-chatgpt-and-claude.html) and the vendor-neutral [evaluation checklist](https://whyuser.com/how-to-evaluate.html).
 
 ## What WhyUser does NOT claim
 
@@ -113,10 +113,10 @@ Determinism matters: the same fingerprints produce the same buyers, so a run is 
 
 - [Compare WhyUser](https://whyuser.com/compare.html): six methods side by side, including the rows WhyUser loses.
 - [How to evaluate a pre-launch testing method](https://whyuser.com/how-to-evaluate.html): the vendor-neutral checklist. Four properties, twelve questions, and WhyUser's own answers including where it loses.
-- [Claude vs. WhyUser](https://whyuser.com/compare/whyuser-vs-chatgpt-and-claude.html): Claude writes, WhyUser measures. Covers all three versions of the question: Claude in the chat window, Claude Cowork with your data connected, and building the harness with Claude Code.
-- [Internal review vs. WhyUser](https://whyuser.com/compare/whyuser-vs-internal-review.html): reviewers sit at maximum motivation, familiarity and attention, the ideal behavioural state, which is a small fraction of cold traffic. You test with that fraction and ship to everyone else.
-- [Building it yourself vs. WhyUser](https://whyuser.com/compare/whyuser-vs-building-it-yourself.html): the orchestration is a weekend. Determinism, calibration and a graded track record are not.
-- [Synthetic personas vs. real buyer panels](https://whyuser.com/compare/synthetic-personas-vs-buyer-panels.html): a panel gives you real humans, which WhyUser does not. A panel cannot put the roles in the same room, which WhyUser does.
+- [Claude vs. WhyUser](https://whyuser.com/whyuser-vs-chatgpt-and-claude.html): Claude writes, WhyUser measures. Covers all three versions of the question: Claude in the chat window, Claude Cowork with your data connected, and building the harness with Claude Code.
+- [Internal review vs. WhyUser](https://whyuser.com/whyuser-vs-internal-review.html): reviewers sit at maximum motivation, familiarity and attention, the ideal behavioural state, which is a small fraction of cold traffic. You test with that fraction and ship to everyone else.
+- [Building it yourself vs. WhyUser](https://whyuser.com/whyuser-vs-building-it-yourself.html): the orchestration is a weekend. Determinism, calibration and a graded track record are not.
+- [Synthetic personas vs. real buyer panels](https://whyuser.com/synthetic-personas-vs-buyer-panels.html): a panel gives you real humans, which WhyUser does not. A panel cannot put the roles in the same room, which WhyUser does.
 
 ## Technical and security
 

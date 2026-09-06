@@ -1,6 +1,36 @@
 {
   "redirects": [
     {
+      "source": "/compare/whyuser-vs-chatgpt-and-claude.html",
+      "destination": "/whyuser-vs-chatgpt-and-claude.html",
+      "permanent": true
+    },
+    {
+      "source": "/compare/whyuser-vs-internal-review.html",
+      "destination": "/whyuser-vs-internal-review.html",
+      "permanent": true
+    },
+    {
+      "source": "/compare/whyuser-vs-building-it-yourself.html",
+      "destination": "/whyuser-vs-building-it-yourself.html",
+      "permanent": true
+    },
+    {
+      "source": "/compare/synthetic-personas-vs-buyer-panels.html",
+      "destination": "/synthetic-personas-vs-buyer-panels.html",
+      "permanent": true
+    },
+    {
+      "source": "/compare/",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
+      "source": "/compare/:path*",
+      "destination": "/compare.html",
+      "permanent": true
+    },
+    {
       "source": "/glossary/behavioral-state.html",
       "destination": "/glossary.html#behavioural-state",
       "permanent": true

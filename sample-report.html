@@ -159,9 +159,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      JavaScript changes.
 
      PATHS
-     Written for pages at the site ROOT. For pages one level down
-     (glossary/*, compare/*) prefix every href with ../ — apply-fixes.py
-     does this automatically.
+     Every page now sits at the site ROOT. glossary/ and compare/ were
+     both flattened, so no href needs a ../ prefix any more. 301 rules
+     for the retired URLs live in vercel.json and netlify.toml.
 
      OPTIONAL
      • The "Log in" link assumes app.whyuser.com. Delete the <a> if the
@@ -217,13 +217,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nav-dd-desc">The job titles your content actually fits.</span>
                         </span>
                     </a>
-                    <a href="sample-report.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">See a sample report</span>
-                            <span class="nav-dd-desc">A real run, unedited. No login.</span>
-                        </span>
-                    </a>
                 </div>
             </div>
 
@@ -265,45 +258,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="accuracy.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Accuracy &amp; track record</span>
+                            <span class="nav-dd-name">Accuracy</span>
                             <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by you.</span>
-                        </span>
-                    </a>
-                    <a href="compare/whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Claude vs WhyUser</span>
-                            <span class="nav-dd-desc">Where Claude helps, and where it cannot decide.</span>
-                        </span>
-                    </a>
-                    <a href="one-page-two-answers.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">The same page, twice</span>
-                            <span class="nav-dd-desc">One page, two answers. No login.</span>
                         </span>
                     </a>
                     <a href="compare.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Compare</span>
-                            <span class="nav-dd-desc">Next to panels, chatbots, internal review, A/B.</span>
+                            <span class="nav-dd-desc">Next to panels, chatbots, internal review and A/B.</span>
                         </span>
                     </a>
-
-                    <span class="nav-dd-label nav-dd-label-2">To forward to security or IT</span>
-                    <a href="developers.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
+                    <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Architecture &amp; data flow</span>
-                            <span class="nav-dd-desc">What we read, what we never touch, where it goes.</span>
+                            <span class="nav-dd-name">Claude vs WhyUser</span>
+                            <span class="nav-dd-desc">Where Claude helps, and where it cannot decide.</span>
                         </span>
                     </a>
-                    <a href="security.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                    <a href="how-to-evaluate.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Security &amp; DPA</span>
-                            <span class="nav-dd-desc">Encryption, retention, sub-processors, terms.</span>
+                            <span class="nav-dd-name">How to Evaluate It</span>
+                            <span class="nav-dd-desc">The test to run before you buy anything here.</span>
+                        </span>
+                    </a>
+                    <a href="manifesto.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Why We Built This</span>
+                            <span class="nav-dd-desc">Marketing is the last function testing in production.</span>
                         </span>
                     </a>
                 </div>
@@ -321,17 +305,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
                     <span class="nav-dd-label">Read before you buy</span>
-                    <a href="index.html#how" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-next" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">How it works</span>
-                            <span class="nav-dd-desc">URL in, committee verdict out, in 30 minutes.</span>
-                        </span>
-                    </a>
                     <a href="roi.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-calculator" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">ROI calculator</span>
+                            <span class="nav-dd-name">ROI Calculator</span>
                             <span class="nav-dd-desc">Build the one-page business case for your CFO.</span>
                         </span>
                     </a>
@@ -342,18 +319,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nav-dd-desc">Accuracy, data, pricing, and what we will not do.</span>
                         </span>
                     </a>
+                    <a href="sample-report.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Sample Reports</span>
+                            <span class="nav-dd-desc">Four real runs, unedited. No login.</span>
+                        </span>
+                    </a>
                     <a href="glossary.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Glossary</span>
-                            <span class="nav-dd-desc">Silent veto, conflict graph, scent trail.</span>
+                            <span class="nav-dd-desc">Plain definitions for every term we use.</span>
                         </span>
                     </a>
-                    <a href="manifesto.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                    <span class="nav-dd-label">Security</span>
+                    <a href="developers.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Why we built this</span>
-                            <span class="nav-dd-desc">Our manifesto: marketing is the last function still testing live.</span>
+                            <span class="nav-dd-name">Architecture &amp; Data Flow</span>
+                            <span class="nav-dd-desc">What we read, what we never touch, where it runs.</span>
+                        </span>
+                    </a>
+                    <a href="security.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Security</span>
+                            <span class="nav-dd-desc">Encryption, retention, sub-processors.</span>
+                        </span>
+                    </a>
+                    <a href="dpa.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">DPA</span>
+                            <span class="nav-dd-desc">Data processing agreement, ready to sign.</span>
+                        </span>
+                    </a>
+                    <a href="privacy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Privacy</span>
+                            <span class="nav-dd-desc">What we collect, and what we never keep.</span>
                         </span>
                     </a>
                 </div>
@@ -408,13 +414,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="nav-dd-desc">The job titles your content actually fits.</span>
                 </span>
             </a>
-            <a href="sample-report.html" class="nav-m-eng">
-                <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
-                <span>
-                    <span class="nav-dd-name">See a sample report</span>
-                    <span class="nav-dd-desc">A real run, unedited. No login.</span>
-                </span>
-            </a>
 
             <div class="nav-m-group">
                 <span class="nav-m-label">Pricing</span>
@@ -423,27 +422,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="nav-m-group">
                 <span class="nav-m-label">Why WhyUser</span>
-                <a href="accuracy.html" class="nav-m-link">Accuracy &amp; track record</a>
-                <a href="compare/whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">Claude vs WhyUser</a>
-                <a href="one-page-two-answers.html" class="nav-m-link">The same page, twice</a>
-                <a href="how-to-evaluate.html" class="nav-m-link">How to evaluate a method</a>
+                
+                <a href="accuracy.html" class="nav-m-link">Accuracy</a>
                 <a href="compare.html" class="nav-m-link">Compare</a>
-                <a href="developers.html" class="nav-m-link">Architecture &amp; data flow</a>
-                <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
-            </div>
+                <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="how-to-evaluate.html" class="nav-m-link">How to Evaluate It</a>
+                <a href="manifesto.html" class="nav-m-link">Why We Built This</a>
+                </div>
 
             <div class="nav-m-group">
                 <span class="nav-m-label">Resources</span>
-                <a href="index.html#how" class="nav-m-link">How it works</a>
-                <a href="roi.html" class="nav-m-link">ROI calculator</a>
+                
+                <a href="roi.html" class="nav-m-link">ROI Calculator</a>
                 <a href="faq.html" class="nav-m-link">FAQ</a>
+                <a href="sample-report.html" class="nav-m-link">Sample Reports</a>
                 <a href="glossary.html" class="nav-m-link">Glossary</a>
-                <a href="manifesto.html" class="nav-m-link">Why we built this</a>
-            </div>
-
+                <span class="nav-m-label">Security</span>
+                <a href="developers.html" class="nav-m-link">Architecture &amp; Data Flow</a>
+                <a href="security.html" class="nav-m-link">Security</a>
+                <a href="dpa.html" class="nav-m-link">DPA</a>
+                <a href="privacy.html" class="nav-m-link">Privacy</a>
             <div class="nav-m-ctas">
                 <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
-                <a href="sample-report.html" class="btn btn-ghost btn-lg">See a sample report</a>
+                <a href="sample-report.html" class="btn btn-ghost btn-lg">See sample reports</a>
             </div>
         </div>
     </div>
@@ -558,146 +559,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═════════════════════════════════════════════════════════════════
  THE VERDICT
  ═════════════════════════════════════════════════════════════════ -->
-<section class="section-rule">
- <div class="wrap">
- <div style="max-width:46rem">
- <span class="section-eyebrow">Report one &middot; whyuser.com</span>
- <h2 class="h2">Report one: everybody was convinced. Nobody could hand it on.</h2>
- <p class="body" style="font-size:1.0625rem;margin-bottom:1rem">All five roles ended <strong style="color:var(--ink)">Convinced</strong>, each at intent 7 out of 10. Every one understood the product. Forty-five of fifty passes clicked forward.</p>
- <p class="body" style="font-size:1.0625rem;margin-bottom:1rem">None converted. <strong style="color:var(--ink)">Two of the seven handoffs between roles snapped.</strong> The End User had no docs to send the Technical Decision Maker. The Champion had no proof to send the Economic Buyer.</p>
- <p class="body" style="font-size:1.0625rem">No single role failed. An average would have scored this page a winner. That is the exact failure we built the product to catch, and we had it on our own homepage.</p>
- </div>
-
- <div class="frame" style="margin-top:2.5rem;max-width:46rem">
- <div class="frame-bar">
- <span class="frame-tag">Conflict graph &middot; whyuser.com</span>
- <span class="frame-pill">2 of 7 snap</span>
- </div>
- <div class="frame-body">
- <div class="frame-row"><span>End User &rarr; Champion</span><span class="chip-green">HOLDS</span></div>
- <div class="frame-row"><span>End User &rarr; Technical Decision Maker</span><span class="chip-red">SNAPS &middot; no docs evidence</span></div>
- <div class="frame-row"><span>End User &rarr; Economic Buyer</span><span class="chip-green">HOLDS</span></div>
- <div class="frame-row"><span>Champion &rarr; Technical Decision Maker</span><span class="chip-green">HOLDS</span></div>
- <div class="frame-row"><span>Champion &rarr; Economic Buyer</span><span class="chip-red">SNAPS &middot; no proof evidence</span></div>
- <div class="frame-row"><span>Technical Decision Maker &rarr; Economic Buyer</span><span class="chip-green">HOLDS</span></div>
- <div class="frame-row" style="margin-bottom:0"><span>Security Guardian &rarr; Economic Buyer</span><span class="chip-green">HOLDS</span></div>
- </div>
- </div>
- </div>
-</section>
-
 <!-- ═════════════════════════════════════════════════════════════════
- WHAT IT FOUND
- ═════════════════════════════════════════════════════════════════ -->
+         WHAT EVERY REPORT CONTAINS
+
+         Replaces three sections that walked through report one only:
+         "Report one", "Findings" (W1-W4 / B1-B4) and "The fix queue".
+         Together they were 552 words, 57% of the page, spent on one of
+         the four runs. The other three got 64 words each.
+
+         Two problems with that. It made the reader finish one report
+         before choosing one, and it reproduced on the index page what
+         the linked report already says in full.
+
+         This block does the job the page is actually for: showing what
+         the output looks like, for every run type rather than one. The
+         conflict-graph line is kept because it is the single clearest
+         statement of what the product catches that an average cannot.
+         ═════════════════════════════════════════════════════════════════ -->
 <section id="what-it-found" class="section-rule">
- <div class="wrap">
- <div class="section-head">
- <span class="section-eyebrow">Findings</span>
- <h2 class="h2">Four things working. Four broken.</h2>
- <p>Each finding is tagged to the zone of the page it came from, carries the verbatim line the buyer was looking at, and traces back to a trait compiled before the page was ever opened.</p>
- </div>
-
- <div class="grid-2">
- <div>
- <div class="mono-label" style="color:var(--signal-green)">Working</div>
- <div class="card" style="margin-bottom:1rem">
- <h3 class="h3">W1 &middot; The value proposition lands</h3>
- <p>All five roles picked up on determinism and lineage as what makes an output defensible in a review.</p>
- </div>
- <div class="card" style="margin-bottom:1rem">
- <h3 class="h3">W2 &middot; Evaluation routes exist</h3>
- <p>Three roles found their own way to the proof pages without being led there.</p>
- </div>
- <div class="card" style="margin-bottom:1rem">
- <h3 class="h3">W3 &middot; Procurement path is discoverable</h3>
- <p>Security and DPA sat in the footer. That calmed the Economic Buyer and the Security Guardian.</p>
- </div>
- <div class="card">
- <h3 class="h3">W4 &middot; Category clarity</h3>
- <p>Roles knew what the product was and when to use it, without scrolling.</p>
- </div>
- </div>
-
- <div>
- <div class="mono-label" style="color:var(--signal-red)">Broken</div>
- <div class="card" style="margin-bottom:1rem">
- <h3 class="h3">B1 &middot; Proof is claims-first</h3>
- <p style="margin-bottom:0.75rem">We stated our accuracy. We gave no fast way to check it. All five roles reacted.</p>
- <p style="font-family:var(--mono);font-size:11.5px;color:var(--quote-ink);border-left:2px solid var(--rule-bold);padding-left:0.75rem;margin:0">&ldquo;Trusted by demand gen teams at + NDA design partners&rdquo;<br><span style="color:var(--faint)"> Champion, Staff Marketing Ops Manager</span></p>
- </div>
- <div class="card" style="margin-bottom:1rem">
- <h3 class="h3">B2 &middot; The navigation is hard to scan</h3>
- <p style="margin-bottom:0.75rem">Four of five roles said the top nav was hard to scan.</p>
- <p style="font-family:var(--mono);font-size:11.5px;color:var(--quote-ink);border-left:2px solid var(--rule-bold);padding-left:0.75rem;margin:0">&ldquo;Multiple Request Access CTAs and many competing nav links create mild choice paralysis.&rdquo;<br><span style="color:var(--faint)"> Champion</span></p>
- </div>
- <div class="card" style="margin-bottom:1rem">
- <h3 class="h3">B3 &middot; Sales-led gating dominates</h3>
- <p>We asked five times and offered nothing to look at. Lots of clicks. No submits.</p>
- </div>
- <div class="card">
- <h3 class="h3">B4 &middot; Security and pricing surface too late</h3>
- <p style="margin-bottom:0.75rem">Both were on the site. Neither was above the fold.</p>
- <p style="font-family:var(--mono);font-size:11.5px;color:var(--quote-ink);border-left:2px solid var(--rule-bold);padding-left:0.75rem;margin:0">&ldquo;Hero states what the product does… but says nothing about SOC 2, logs, or DPA up front.&rdquo;<br><span style="color:var(--faint)"> Security Guardian, Director of Security</span></p>
- </div>
- </div>
- </div>
- </div>
+<div class="wrap">
+<div class="section-head">
+<span class="section-eyebrow">Anatomy</span>
+<h2 class="h2">What every report gives you.</h2>
+<p class="body">Same shape whichever run you open. A verdict per role, the handoff that breaks, and a queue you can hand to whoever does the work.</p>
+</div>
+<div class="grid-2">
+<div class="card">
+<span class="mono-label">01 · The verdict</span>
+<h3 class="h3">Where each role landed, and why.</h3>
+<p class="body">Every role that has to approve, scored on its own. Convinced, blocked, or somewhere between, with the line that decided it.</p>
+</div>
+<div class="card">
+<span class="mono-label">02 · The conflict graph</span>
+<h3 class="h3">Which handoff snaps.</h3>
+<p class="body">Roles pass the deal to each other. The graph shows which pass fails. This is the failure an average score cannot see.</p>
+</div>
+<div class="card">
+<span class="mono-label">03 · Working and broken</span>
+<h3 class="h3">Both sides, with counts.</h3>
+<p class="body">The lines that landed and who they landed with, next to the ones that lost people, with how many buyers each affected.</p>
+</div>
+<div class="card">
+<span class="mono-label">04 · The fix queue</span>
+<h3 class="h3">Ranked by handoffs unblocked.</h3>
+<p class="body">Not ranked by page order. Each fix names the element to change and how many buyers it frees.</p>
+</div>
+</div>
+<p class="note">Every finding traces back to its source in Ground Reality, so you see why a buyer stopped rather than only that they did.</p>
+</div>
 </section>
 
-<!-- ═════════════════════════════════════════════════════════════════
- WHAT WE DID ABOUT IT
- ═════════════════════════════════════════════════════════════════ -->
+<!-- The one line worth lifting out of the committee run: the failure that
+     no average can show, on our own homepage. -->
 <section class="section-rule">
- <div class="wrap">
- <div class="section-head">
- <span class="section-eyebrow">The fix queue</span>
- <h2 class="h2">Ranked against the broken handoffs, not against page order.</h2>
- <p>Fixes are ranked by which snapped handoff each one reconnects, not by where they sit on the page. We shipped all five.</p>
- </div>
-
- <div class="table-wrap">
- <table class="cmp">
- <thead><tr><th>#</th><th>Fix</th><th>Closes</th><th>Status</th></tr></thead>
- <tbody>
- <tr>
- <th>1</th>
- <td>Add a self-serve preview path beside Request Access. Cut repeated CTAs to one primary and one secondary.</td>
- <td class="num">B4</td>
- <td><span class="chip-green" style="color:var(--signal-green)">SHIPPED</span> this page</td>
- </tr>
- <tr>
- <th>2</th>
- <td>Give the technical material a route from the header, so the champion can find and forward it.</td>
- <td class="num">B3 &middot; B2</td>
- <td><span class="chip-green" style="color:var(--signal-green)">SHIPPED</span> <a href="developers.html" style="color:var(--brand);font-weight:600">Architecture &amp; data flow</a>, under Why WhyUser</td>
- </tr>
- <tr>
- <th>3</th>
- <td>Add an above-fold proof strip: logos and a quantified metric, each linking to an inspectable artifact.</td>
- <td class="num">B1</td>
- <td><span class="chip-green" style="color:var(--signal-green)">SHIPPED</span> homepage</td>
- </tr>
- <tr>
- <th>4</th>
- <td>Collapse the top navigation into five scannable buckets.</td>
- <td class="num">B2</td>
- <td><span class="chip-green" style="color:var(--signal-green)">SHIPPED</span> sitewide</td>
- </tr>
- <tr>
- <th>5</th>
- <td>Make Security and Pricing first-class nav items, with an above-fold micro-row.</td>
- <td class="num">B4</td>
- <td><span class="chip-green" style="color:var(--signal-green)">SHIPPED</span> <a href="pricing.html" style="color:var(--brand);font-weight:600">Pricing</a></td>
- </tr>
- </tbody>
- </table>
- </div>
-
+<div class="wrap">
+<div class="section-head">
+<span class="section-eyebrow">Why it reads handoffs</span>
+<h2 class="h2">All five convinced. Nobody could hand it on.</h2>
+<p class="body">In the committee run against whyuser.com, all five roles finished convinced at intent 7 out of 10. Forty-five of fifty passes clicked forward. None converted, because two of seven handoffs snapped: the End User had no docs for the Technical Decision Maker, the Champion had no proof for the Economic Buyer. No single role failed. An average would have called the page a winner.</p>
+<p class="note"><a href="reports/committee-simulation-whyuser-sample.html">Open that report in full</a></p>
+</div>
+</div>
 </section>
 
-
-
-<!-- ═════ CTA ═════ -->
 <section class="cta-section">
  <div class="wrap" style="padding-top:4.5rem;padding-bottom:4.5rem">
  <div class="cta-card">
@@ -752,32 +676,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="ad-campaign-simulation.html">Ad Campaign Testing</a></li>
                 <li><a href="email-campaign-simulation.html">Email Testing</a></li>
                 <li><a href="audience-discovery.html">Audience Research</a></li>
-                <li><a href="sample-report.html">See a sample report</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
             </ul></div>
 
             <div><h4>Why WhyUser</h4><ul>
-                <li><a href="accuracy.html">Accuracy &amp; track record</a></li>
-                <li><a href="compare/whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser</a></li>
-                <li><a href="one-page-two-answers.html">The same page, twice</a></li>
-                <li><a href="how-to-evaluate.html">How to evaluate a method</a></li>
-                <li><a href="compare.html">Compare WhyUser</a></li>
-                <li><a href="compare/whyuser-vs-building-it-yourself.html">Why not build it</a></li>
-                <li><a href="glossary.html">Glossary</a></li>
-            </ul></div>
+     <li><a href="accuracy.html">Accuracy</a></li>
+     <li><a href="compare.html">Compare</a></li>
+     <li><a href="whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser</a></li>
+     <li><a href="how-to-evaluate.html">How to Evaluate It</a></li>
+     <li><a href="manifesto.html">Why We Built This</a></li>
+    </ul></div>
 
-            <div><h4>For technical review</h4><ul>
-                <li><a href="developers.html">Architecture &amp; data flow</a></li>
-                <li><a href="developers.html#api">API &amp; output schema</a></li>
-                <li><a href="developers.html#determinism">Determinism &amp; replay</a></li>
-                <li><a href="security.html">Security</a></li>
-                <li><a href="dpa.html">DPA</a></li>
-            </ul></div>
+            <div><h4>Resources</h4>
+    <ul>
+     <li><a href="roi.html">ROI Calculator</a></li>
+     <li><a href="faq.html">FAQ</a></li>
+     <li><a href="sample-report.html">Sample Reports</a></li>
+     <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+   </div>
+   <div>
+    <h4>Security</h4>
+    <ul>
+     <li><a href="developers.html">Architecture &amp; Data Flow</a></li>
+     <li><a href="security.html">Security</a></li>
+     <li><a href="dpa.html">DPA</a></li>
+     <li><a href="privacy.html">Privacy</a></li>
+    </ul></div>
 
             <div><h4>Company</h4><ul>
                 <li><a href="index.html#how">How it works</a></li>
-                <li><a href="manifesto.html">Why we built this</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                
+                
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="index.html#access">Request access</a></li>
             </ul></div>

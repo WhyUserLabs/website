@@ -1,0 +1,242 @@
+/* ═══════════════════════════════════════════════════════════════════
+   WHYUSER — PAGES LAYER   (assets/whyuser-pages.css)
+
+   THIS FILE WAS MISSING FROM THE DEPLOY.
+
+   Seven pages link it and it did not exist on disk, so every one of
+   them rendered with unstyled comparison tables, unstyled glossary
+   definitions and unstyled example callouts:
+
+       compare.html
+       glossary.html
+       how-to-evaluate.html
+       whyuser-vs-chatgpt-and-claude.html
+       whyuser-vs-internal-review.html
+       whyuser-vs-building-it-yourself.html
+       synthetic-personas-vs-buyer-panels.html
+
+   Those are the proof pages. They are the ones a sceptical buyer opens
+   before they will believe the product, and they were the worst-looking
+   pages on the site.
+
+   WHAT IS IN HERE
+   Only the classes those pages use that no other stylesheet defines:
+   .cmp-wrap, .cmp-sec, .defn-label, .related, .eg, .eg-label, and the
+   .scroll-smooth utility.
+
+   TOKENS
+   Consumes the token set declared in whyuser-shell.css. Declares no
+   tokens of its own, so it cannot fight the palette.
+
+   LOAD ORDER
+   After whyuser-core.css and whyuser-shell.css, before
+   whyuser-readability.css. No !important anywhere in this file.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Utility ─────────────────────────────────────────────────────── */
+
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-smooth {
+        scroll-behavior: auto;
+    }
+}
+
+/* ── Comparison tables ───────────────────────────────────────────────
+   .cmp-wrap is a scroll container. Comparison tables on these pages run
+   4–6 columns wide and were overflowing the viewport on phones with no
+   way to reach the right-hand columns. */
+
+.cmp-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.75rem 0 2rem;
+    border: 0;
+    border-top: 1px solid var(--rule-strong, #d6d3ce);
+    border-bottom: 1px solid var(--rule-strong, #d6d3ce);
+    border-radius: 0;
+    background: none;
+}
+
+.cmp-wrap table {
+    width: 100%;
+    min-width: 42rem;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.cmp-wrap thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    text-align: left;
+    padding: 0.85rem 1rem;
+    background: var(--paper, #fff);
+    border-bottom: 1px solid var(--rule-strong, #d6d3ce);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
+    color: var(--ink, #16151a);
+    white-space: nowrap;
+}
+
+.cmp-wrap tbody td,
+.cmp-wrap tbody th {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--rule, #e3e1dd);
+    vertical-align: top;
+    color: var(--ink-soft, #3a3840);
+}
+
+.cmp-wrap tbody th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--ink, #16151a);
+    white-space: nowrap;
+}
+
+.cmp-wrap tbody tr:last-child td,
+.cmp-wrap tbody tr:last-child th {
+    border-bottom: 0;
+}
+
+/* No zebra fill. Row separation is the hairline rule alone. */
+
+/* The WhyUser column, when a page marks one. */
+.cmp-wrap .is-us,
+.cmp-wrap [data-col="whyuser"] {
+    color: var(--ink, #16151a);
+    font-weight: 600;
+    box-shadow: inset 2px 0 0 0 var(--brand, #5b4bd6);
+}
+
+/* Scroll affordance on narrow screens. */
+@media (max-width: 46rem) {
+    .cmp-wrap::after {
+        content: "Scroll for more \2192";
+        display: block;
+        padding: 0.5rem 1rem;
+        border-top: 1px solid var(--rule, #e3e1dd);
+        font-family: var(--mono, ui-monospace, monospace);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--faint, #8b8892);
+    }
+}
+
+/* ── Comparison section band ─────────────────────────────────────── */
+
+.cmp-sec {
+    padding: 3.5rem 0;
+    border-top: 1px solid var(--rule, #e3e1dd);
+}
+
+.cmp-sec:first-of-type {
+    border-top: 0;
+}
+
+.cmp-sec > h2 {
+    margin: 0 0 0.6rem;
+    max-width: 34ch;
+}
+
+.cmp-sec > p {
+    max-width: 68ch;
+    color: var(--ink-soft, #3a3840);
+}
+
+@media (max-width: 46rem) {
+    .cmp-sec {
+        padding: 2.5rem 0;
+    }
+}
+
+/* ── Glossary: definition label ──────────────────────────────────────
+   Small rail above each definition ("In one line", "Why it matters"). */
+
+.defn-label {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand, #5b4bd6);
+}
+
+/* ── Glossary: related terms rail ────────────────────────────────── */
+
+.related {
+    margin: 1.1rem 0 0;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule, #e3e1dd);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--dim, #66636e);
+}
+
+.related a {
+    color: var(--brand, #5b4bd6);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.related a:hover,
+.related a:focus-visible {
+    border-bottom-color: currentColor;
+}
+
+/* ── Worked example callout ──────────────────────────────────────────
+   Used on glossary.html to show the same page read two ways. Deliberately
+   a quiet panel, not a card: it is evidence, not a feature tile. */
+
+.eg {
+    margin: 1.6rem 0;
+    padding: 1.1rem 0;
+    background: none;
+    border-top: 1px solid var(--rule, #e3e1dd);
+    border-bottom: 1px solid var(--rule, #e3e1dd);
+    border-radius: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--ink-soft, #3a3840);
+}
+
+.eg > :first-child {
+    margin-top: 0;
+}
+
+.eg > :last-child {
+    margin-bottom: 0;
+}
+
+.eg-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand, #5b4bd6);
+}
+
+.eg strong {
+    color: var(--ink, #16151a);
+}
+
+/* ── Accessibility floor ─────────────────────────────────────────── */
+
+.cmp-wrap:focus-visible,
+.related a:focus-visible {
+    outline: 2px solid var(--brand, #5b4bd6);
+    outline-offset: 2px;
+}

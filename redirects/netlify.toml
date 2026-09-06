@@ -71,3 +71,40 @@
   to = "/one-page-two-answers.html"
   status = 301
   force = true
+
+
+# ═══════════════════════════════════════════════════════════════════
+# compare/ FLATTENED. The four comparison pages moved to the site root
+# so they stop colliding with /compare.html and stop needing ../assets
+# paths. Without these rules the four live URLs below return 404.
+# ═══════════════════════════════════════════════════════════════════
+
+[[redirects]]
+  from = "/compare/whyuser-vs-chatgpt-and-claude.html"
+  to = "/whyuser-vs-chatgpt-and-claude.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/compare/whyuser-vs-internal-review.html"
+  to = "/whyuser-vs-internal-review.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/compare/whyuser-vs-building-it-yourself.html"
+  to = "/whyuser-vs-building-it-yourself.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/compare/synthetic-personas-vs-buyer-panels.html"
+  to = "/synthetic-personas-vs-buyer-panels.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/compare/*"
+  to = "/compare.html"
+  status = 301
+  force = true

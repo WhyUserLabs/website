@@ -3914,6 +3914,16 @@ body {
 .btn.primary:hover { opacity: .86; color: var(--paper); }
 
 /* --- folded reference ------------------------------------------------- */
+.wu-notes { margin-top: 44px; }
+.wu-note { margin-bottom: 30px; }
+.wu-note h3 { margin: 0 0 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); font-weight: 600; }
+.wu-note p { margin: 10px 0 0; font-size: 12.5px; line-height: 1.6; color: var(--ink-muted); max-width: 62ch; }
+.wu-note b { color: var(--ink); font-weight: 600; }
+.wu-calc { font-family: var(--mono); font-size: 11.5px; line-height: 1.85; color: var(--ink-muted); white-space: pre-wrap; margin: 0; }
+.wu-calc b { color: var(--ink); font-weight: 600; }
+.req { color: var(--emerald); font-weight: 600; }
+.req-key { font-size: 11.5px; color: var(--ink-faint); margin-top: 14px; }
+
 .folds { margin-top: 40px; border-bottom: 1px solid var(--line); }
 .fold { border-top: 1px solid var(--line); }
 .fold > summary {
@@ -4394,8 +4404,8 @@ body {
         <span class="tip" tabindex="0" data-tip="The annual price this business case is built against.">?</span>
       </label>
       <div class="seg" id="seg-plan">
-        <button type="button" class="seg-btn active" data-plan="standard">Standard · $12k</button>
-        <button type="button" class="seg-btn" data-plan="scale">Scale · $24k</button>
+        <button type="button" class="seg-btn" data-plan="standard">Standard · $12k</button>
+        <button type="button" class="seg-btn active" data-plan="scale">Scale · $24k</button>
         <button type="button" class="seg-btn" data-plan="enterprise">Enterprise</button>
         <div class="input-wrap input-wrap-dollar seg-price hidden" id="f-custom-price">
           <label class="sr-only" for="sh-price">Annual price</label>
@@ -4406,72 +4416,76 @@ body {
 
     <div class="grid" style="margin-top: 16px;">
       <div class="f">
-        <label class="field-label" for="sh-rate">Loaded hourly rate
+        <label class="field-label" for="sh-rate">Loaded hourly rate <span class="req">*</span>
           <span class="tip" tabindex="0" data-tip="Hourly cost of one employee including benefits and overhead.">?</span>
         </label>
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="sh-rate" value="150" min="0"></div>
       </div>
       <div class="f">
-        <label class="field-label" for="ac-assets">Assets
+        <label class="field-label" for="ac-assets">Assets <span class="req">*</span>
           <span class="tip" tabindex="0" data-tip="How many of their assets you ran blind.">?</span>
         </label>
         <input class="field-input" type="number" id="ac-assets" value="5" min="0" max="99">
       </div>
       <div class="f">
-        <label class="field-label" for="ac-total">Findings
+        <label class="field-label" for="ac-total">Findings <span class="req">*</span>
           <span class="tip r" tabindex="0" data-tip="Distinct calls the runs produced. One finding can cover a pattern across several assets, so this is usually fewer than the asset count.">?</span>
         </label>
         <input class="field-input" type="number" id="ac-total" value="5" min="0" max="99">
       </div>
       <div class="f">
-        <label class="field-label" for="ac-hits">Findings confirmed
+        <label class="field-label" for="ac-hits">Findings confirmed <span class="req">*</span>
           <span class="tip" tabindex="0" data-tip="How many of those findings the customer said they had also seen.">?</span>
         </label>
         <input class="field-input" type="number" id="ac-hits" value="4" min="0" max="99">
       </div>
     </div>
     <div class="alert hidden" id="acc-alert"></div>
+    <div class="req-key"><span class="req">*</span> Required. Defaults are shown so the page runs, but replace every starred field with their number before you send this.</div>
   </section>
 
   <!-- COMMITTEE -->
   <section class="sec" id="sec-committee">
     <div class="sec-h"><span class="sec-t">Committee</span><span class="sec-v" id="tot-committee">—</span></div>
+
     <div class="grid">
       <div class="f">
-        <label class="field-label" for="c-stake">Reviewers
-          <span class="tip" tabindex="0" data-tip="People who review a page before it goes live.">?</span>
+        <label class="field-label" for="c-collat">Asks per deal <span class="req">*</span>
+          <span class="tip" tabindex="0" data-tip="Times per deal a rep builds something the page should have carried. Count the ROI one-pager, the security summary, the custom comparison. Two is typical.">?</span>
         </label>
-        <input class="field-input" type="number" id="c-stake" value="5" min="0" step="1">
+        <input class="field-input" type="number" id="c-collat" value="2" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="c-hours">Hours each, per round</label>
-        <input class="field-input" type="number" id="c-hours" value="1.5" min="0" step="0.25">
-      </div>
-      <div class="f">
-        <label class="field-label" for="c-agency">Agency / asset
-          <span class="tip r" tabindex="0" data-tip="Outside fees for one revision cycle on one asset.">?</span>
+        <label class="field-label" for="c-collat-hrs">Rep hours each <span class="req">*</span>
+          <span class="tip" tabindex="0" data-tip="Time to build one from scratch: pull the numbers, write it, get it approved internally. Ask a rep what a CFO one-pager costs them. Three hours is typical.">?</span>
         </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="c-agency" value="2400" min="0" step="100"></div>
+        <input class="field-input" type="number" id="c-collat-hrs" value="3" min="0" step="0.5">
       </div>
       <div class="f">
-        <label class="field-label" for="c-rounds-now">Review rounds today</label>
+        <label class="field-label" for="c-se-hrs">SE hours per deal <span class="req">*</span>
+          <span class="tip r" tabindex="0" data-tip="Solutions engineer time answering what the page left open: architecture, integrations, security questions. Count the calls plus the follow-up write-ups.">?</span>
+        </label>
+        <input class="field-input" type="number" id="c-se-hrs" value="4" min="0" step="0.5">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-deals">Opportunities / quarter <span class="req">*</span>
+          <span class="tip r" tabindex="0" data-tip="Opportunities your reps worked last quarter, won and lost. A lost deal burned the same hours. One account with two opportunities counts twice. Count only those that reached a second stakeholder.">?</span>
+        </label>
+        <input class="field-input" type="number" id="c-deals" value="15" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="c-rounds-now">Review rounds today
+          <span class="tip" tabindex="0" data-tip="Rounds of internal review a page goes through today. Feeds the speed line only, never the ratio.">?</span>
+        </label>
         <input class="field-input" type="number" id="c-rounds-now" value="3" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="c-rounds-after">Review rounds after
-          <span class="tip" tabindex="0" data-tip="Rounds of review expected once WhyUser is in the workflow.">?</span>
-        </label>
+        <label class="field-label" for="c-rounds-after">Review rounds after</label>
         <input class="field-input" type="number" id="c-rounds-after" value="1" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="c-days">Days / round
-          <span class="tip r" tabindex="0" data-tip="Calendar days that one review round adds.">?</span>
-        </label>
+        <label class="field-label" for="c-days">Days / round</label>
         <input class="field-input" type="number" id="c-days" value="5" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="c-assets-q">Assets / quarter</label>
-        <input class="field-input" type="number" id="c-assets-q" value="8" min="0" step="1">
       </div>
       <div class="f">
         <label class="field-label" for="c-campaigns">Campaigns / year</label>
@@ -4479,7 +4493,7 @@ body {
       </div>
       <div class="f">
         <label class="field-label" for="c-spend">Paid spend / month
-          <span class="tip r" tabindex="0" data-tip="Monthly paid media spend driving traffic to these pages.">?</span>
+          <span class="tip" tabindex="0" data-tip="Monthly paid media spend driving traffic to these pages.">?</span>
         </label>
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="c-spend" value="50000" min="0" step="1000"></div>
       </div>
@@ -4497,72 +4511,34 @@ body {
 
     <div class="grid">
       <div class="f">
-        <label class="field-label" for="a-spend">Spend / month
-          <span class="tip" tabindex="0" data-tip="Monthly LinkedIn ad spend.">?</span>
+        <label class="field-label" for="a-spend">Spend / month <span class="req">*</span>
+          <span class="tip" tabindex="0" data-tip="Monthly paid spend behind the creatives in this test.">?</span>
         </label>
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-spend" value="20000" min="0" step="1000"></div>
       </div>
-    </div>
-
-    <div class="f wide" style="margin-top: 16px;">
-      <label class="field-label">What ads remove
-        <span class="tip" tabindex="0" data-tip="Which of the two ad numbers this case uses.">?</span>
-      </label>
-      <div class="seg" id="seg-ad-pick">
-        <button type="button" class="seg-btn active" data-adpick="media">Media waste</button>
-        <button type="button" class="seg-btn" data-adpick="cycle">Creative cycle</button>
-      </div>
-    </div>
-
-    <div class="grid" id="a-media-fields">
       <div class="f">
-        <label class="field-label" for="a-cpc-win">CPC, winner
-          <span class="tip" tabindex="0" data-tip="Cost per click of the best performing creative in the test.">?</span>
+        <label class="field-label" for="a-creatives">Creatives checked <span class="req">*</span>
+          <span class="tip" tabindex="0" data-tip="Ad creatives run against their landing pages in this test.">?</span>
         </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-cpc-win" value="11" min="0" step="0.5"></div>
+        <input class="field-input" type="number" id="a-creatives" value="4" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="a-cpc-weak">CPC, weakest
-          <span class="tip r" tabindex="0" data-tip="Cost per click of the worst performing creative in the same test.">?</span>
+        <label class="field-label" for="a-mismatch">Ad and page disagreed <span class="req">*</span>
+          <span class="tip r" tabindex="0" data-tip="Creatives promising something the page does not deliver. The committee run says what the page answers. The ad run says what the creative promised. This is the gap between them.">?</span>
         </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-cpc-weak" value="19" min="0" step="0.5"></div>
+        <input class="field-input" type="number" id="a-mismatch" value="2" min="0" step="1">
       </div>
-    </div>
-
-    <div class="grid hidden" id="a-cycle-fields">
       <div class="f">
-        <label class="field-label" for="a-rev">Reviewers / set
-          <span class="tip" tabindex="0" data-tip="People who review a creative set before it goes live.">?</span>
+        <label class="field-label" for="a-review-days">Days to your next review <span class="req">*</span>
+          <span class="tip" tabindex="0" data-tip="How long a mismatch runs before your normal process would catch it. Their own cadence, not ours. Most teams never catch it, so this is the cautious read.">?</span>
         </label>
-        <input class="field-input" type="number" id="a-rev" value="4" min="0" step="1">
+        <input class="field-input" type="number" id="a-review-days" value="30" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="a-hours">Hours each, per round</label>
-        <input class="field-input" type="number" id="a-hours" value="1" min="0" step="0.25">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-agency">Agency / set / round
-          <span class="tip r" tabindex="0" data-tip="Outside fees for one revision round on one creative set.">?</span>
+        <label class="field-label" for="a-campaigns">Campaigns / year <span class="req">*</span>
+          <span class="tip r" tabindex="0" data-tip="Paid campaign launches a year. Each one can carry the same mismatch.">?</span>
         </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-agency" value="2000" min="0" step="100"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-rounds-now">Review rounds today</label>
-        <input class="field-input" type="number" id="a-rounds-now" value="3" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-rounds-after">Review rounds after</label>
-        <input class="field-input" type="number" id="a-rounds-after" value="1" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-days">Days / round</label>
-        <input class="field-input" type="number" id="a-days" value="3" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-sets">Sets / year
-          <span class="tip" tabindex="0" data-tip="Creative sets or refreshes produced per year.">?</span>
-        </label>
-        <input class="field-input" type="number" id="a-sets" value="6" min="0" step="1">
+        <input class="field-input" type="number" id="a-campaigns" value="6" min="0" step="1">
       </div>
     </div>
     <div class="alert hidden" id="a-alert"></div>
@@ -4579,13 +4555,13 @@ body {
 
     <div class="grid" style="margin-top: 16px;">
       <div class="f">
-        <label class="field-label" for="e-rev">Reviewers / email
+        <label class="field-label" for="e-rev">Reviewers / email <span class="req">*</span>
           <span class="tip" tabindex="0" data-tip="People who review an email before it goes out.">?</span>
         </label>
         <input class="field-input" type="number" id="e-rev" value="4" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="e-hours">Hours each, per round</label>
+        <label class="field-label" for="e-hours">Hours each, per round <span class="req">*</span></label>
         <input class="field-input" type="number" id="e-hours" value="0.75" min="0" step="0.25">
       </div>
       <div class="f">
@@ -4595,11 +4571,11 @@ body {
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="e-agency" value="800" min="0" step="100"></div>
       </div>
       <div class="f">
-        <label class="field-label" for="e-rounds-now">Review rounds today</label>
+        <label class="field-label" for="e-rounds-now">Review rounds today <span class="req">*</span></label>
         <input class="field-input" type="number" id="e-rounds-now" value="3" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="e-rounds-after">Review rounds after</label>
+        <label class="field-label" for="e-rounds-after">Review rounds after <span class="req">*</span></label>
         <input class="field-input" type="number" id="e-rounds-after" value="1" min="0" step="1">
       </div>
       <div class="f">
@@ -4607,7 +4583,7 @@ body {
         <input class="field-input" type="number" id="e-days" value="2" min="0" step="1">
       </div>
       <div class="f">
-        <label class="field-label" for="e-sends">Sends / month
+        <label class="field-label" for="e-sends">Sends / month <span class="req">*</span>
           <span class="tip" tabindex="0" data-tip="Emails sent per month.">?</span>
         </label>
         <input class="field-input" type="number" id="e-sends" value="6" min="0" step="1">
@@ -4656,19 +4632,19 @@ body {
 
     <div class="grid" id="au-paid" style="margin-top: 16px;">
       <div class="f">
-        <label class="field-label" for="u-cpl-base">Control CPL
+        <label class="field-label" for="u-cpl-base">Control CPL <span class="req">*</span>
           <span class="tip" tabindex="0" data-tip="Cost per lead from the audience they were already targeting.">?</span>
         </label>
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-cpl-base" value="310" min="0" step="10"></div>
       </div>
       <div class="f">
-        <label class="field-label" for="u-cpl-test">Test CPL
+        <label class="field-label" for="u-cpl-test">Test CPL <span class="req">*</span>
           <span class="tip" tabindex="0" data-tip="Cost per lead from the discovered audience.">?</span>
         </label>
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-cpl-test" value="190" min="0" step="10"></div>
       </div>
       <div class="f">
-        <label class="field-label" for="u-leads">Leads / month
+        <label class="field-label" for="u-leads">Leads / month <span class="req">*</span>
           <span class="tip r" tabindex="0" data-tip="Leads they generate per month at current spend.">?</span>
         </label>
         <input class="field-input" type="number" id="u-leads" value="160" min="0" step="10">
@@ -4755,6 +4731,7 @@ body {
       <div class="line-tag"><span class="line-n" id="l2-name">2 · —</span><span class="line-flag on">In the ratio</span></div>
       <div class="line-lead" id="l2-lead">—</div>
       <div class="math" id="l2-math"></div>
+      <div class="line-note" id="l2-note"></div>
     </div>
 
     <div class="line">
@@ -4786,18 +4763,39 @@ body {
 
 </div>
 
+<div class="wu-notes no-print">
+  <div class="wu-note">
+    <h3>Why no CTR or CVR</h3>
+    <p>The roles that decide are the smallest slice of your traffic. Fix them and your page numbers do not move.</p>
+    <p class="wu-calc">Economic Buyer                        <b>7% of your traffic</b>
+Lift that slice 2% → 3%               <b>3,800</b> sessions per arm   =  2 years
+Blended, that same fix reads          2.00% → <b>2.07%</b>
+To see 2.07% at all                   <b>600,000</b> sessions per arm  =  never</p>
+    <p>And analytics cannot tell you which sessions were theirs.</p>
+    <p><b>So we count what you can count. We never claim a lift.</b></p>
+  </div>
+
+  <div class="wu-note">
+    <h3>What we do not count</h3>
+    <p class="wu-calc">Buyers who left before any form        no record, no CRM row, no rep
+A campaign you stopped                 budget pulled, never spent</p>
+    <p>The first is the largest number on this page. The second you already know.</p>
+    <p><b>Both are real. Neither is in the ratio.</b></p>
+  </div>
+</div>
+
 <div class="folds no-print">
-  <details class="fold">
+  <details class="fold" open>
     <summary><span>How each number is built</span></summary>
     <div class="fold-b">
       <table class="ref"><tbody>
-        <tr><td>Committee</td><td><code>(reviewers × hours × rounds removed × rate + agency per asset) × assets/qtr × 4</code></td></tr>
-        <tr><td>Ads — media</td><td><code>((spend ÷ CPC winner − spend ÷ CPC weakest) ÷ 2) × CPC winner × 12</code><br>Halved on purpose. Claiming the full gap assumes they'd always have picked the loser.</td></tr>
-        <tr><td>Ads — creative</td><td><code>(reviewers × hours × rounds removed × rate + agency × rounds removed) × sets/yr</code></td></tr>
+        <tr><td>Committee</td><td><code>(asks × rep hours + SE hours) × rate × deals/qtr × 4 × your confirmed rate</code><br>The hours a rep spends carrying what the page did not.</td></tr>
+        <tr><td>Ads</td><td><code>spend/mo × (flagged ÷ checked) × (days to next review ÷ 30) × campaigns/yr × your confirmed rate</code><br>The committee run says what the page answers, the ad run says what the creative promised, and we count the gap.<br><b>No overlap with the committee line.</b> That one counts rep hours after contact, this one counts clicks before it.</td></tr>
         <tr><td>Email</td><td><code>(reviewers × hours × rounds removed × rate + agency × rounds removed) × sends/mo × 12</code></td></tr>
         <tr><td>Audience — paid</td><td><code>(control CPL − test CPL) × leads/mo × 12 × haircut</code><br>Haircut is 0.5 when the test window is under 30 days.</td></tr>
         <tr><td>Audience — expansion</td><td><code>(hours × rate + research cost) × assessments/yr</code></td></tr>
         <tr><td>Line 4 — speed</td><td><code>rounds removed × days per round × cycles per year</code>, summed across the same features</td></tr>
+        <tr><td>Confirmed rate</td><td><code>findings you confirmed ÷ findings made</code>. Applied to the committee line. Blank, and we use our published 84%.</td></tr>
         <tr><td>The ratio</td><td><code>(sum of the numbers above, one per active feature) ÷ annual price</code>, always rounded down</td></tr>
       </tbody></table>
     </div>
@@ -4923,8 +4921,7 @@ body {
 
   var UI = {
     features: { committee: true, ad: false, email: false, audience: false },
-    plan: 'standard',
-    adPick: 'media',
+    plan: 'scale',
     etrack: 'a',
     utrack: 'paid',
     driver: 'auto'
@@ -4939,94 +4936,73 @@ body {
     var rate = n('sh-rate');
     var list = [];
 
-    /* --- committee --- */
+    /* Your own confirmed rate haircuts every findings-based line.
+       No confirmed rate entered, we fall back to our published 84%. */
+    var acT = n('ac-total'), acH = n('ac-hits');
+    var conf = (acT > 0 && acH <= acT) ? acH / acT : 0.84;
+    var confPct = Math.round(conf * 100);
+
+    /* --- committee: what the page did not carry, a rep carried by hand --- */
     if (UI.features.committee) {
+      var hrsDeal = n('c-collat') * n('c-collat-hrs') + n('c-se-hrs');
+      var perDeal = hrsDeal * rate;
+      var stGross = perDeal * n('c-deals') * 4, stNet = stGross * conf;
       var cRR = Math.max(0, n('c-rounds-now') - n('c-rounds-after'));
-      var cHours = n('c-stake') * n('c-hours') * cRR * rate;
-      var cAgency = cRR > 0 ? n('c-agency') : 0;
-      var cPerAsset = cHours + cAgency;
-      var cQuarter = cPerAsset * n('c-assets-q');
       var cDays = cRR * n('c-days');
 
       list.push({
         id: 'committee', feature: 'committee', tag: 'pages',
-        short: 'Review rounds removed', name: 'Review rounds removed',
-        grade: 'counted', annual: cQuarter * 4, roundsBased: true,
-        blocked: cRR > 0 ? null : 'Rounds after is not lower than rounds today.',
-        lead: 'Cutting review rounds from <strong>' + qty(n('c-rounds-now')) + ' to ' + qty(n('c-rounds-after')) +
-              '</strong> on every page we ship.',
+        short: 'Sales cover removed', name: 'Sales cover removed',
+        grade: 'counted', annual: stNet,
+        blocked: (hrsDeal > 0 && n('c-deals') > 0) ? null : 'No sales hours entered, so nothing is counted.',
+        lead: 'What the page leaves open, a rep closes by hand. <strong>' + dec(hrsDeal) + ' hours a deal</strong>.',
         math: [
-          qty(n('c-stake')) + ' reviewers × ' + dec(n('c-hours')) + ' hrs × ' + qty(cRR) + ' ' + plural(cRR, 'round', 'rounds') + ' × ' + money(rate) + '  =  ' + money(cHours),
-          '+ ' + money(cAgency) + ' agency revision  =  ' + money(cPerAsset) + ' per asset',
-          '× ' + qty(n('c-assets-q')) + ' assets per quarter  =  ' + money(cQuarter) + ' per quarter',
-          '=  ' + money(cQuarter * 4) + ' per year'
+          qty(n('c-collat')) + ' asks × ' + dec(n('c-collat-hrs')) + ' hrs + ' + dec(n('c-se-hrs')) +
+            ' SE hrs  =  ' + dec(hrsDeal) + ' hrs a deal',
+          '× ' + money(rate) + '  =  ' + money(perDeal) + ' a deal',
+          '× ' + qty(n('c-deals')) + ' deals a quarter × 4  =  ' + money(stGross),
+          '× ' + confPct + '% of our calls you confirmed  =  ' + money(stNet) + ' per year'
         ],
         speed: cRR > 0 ? {
           days: cDays * n('c-campaigns'),
           per: qty(cDays) + ' days per campaign × ' + qty(n('c-campaigns')) + ' campaigns'
         } : null,
         context: money(n('c-spend')) + '/month of traffic to pages shipped on opinion. ' +
-                 qty(n('c-bounce')) + '% leaves without converting.',
-        upside: 'One killed campaign. We spend ' + money(n('c-spend')) +
-                ' a month on paid. Catching one bad campaign before it launches returns more than the annual cost of the tool.'
+                 qty(n('c-bounce')) + '% leaves without converting.'
       });
     }
 
-    /* --- ads: media waste, or the creative cycle. One or the other. --- */
+    /* --- ads: the seam the committee run cannot see on its own.
+       Committee counts rep hours after contact. This counts paid clicks
+       before it. A click that bounces on a mismatch never becomes an
+       opportunity, so the two never touch the same dollar. --- */
     if (UI.features.ad) {
-      var spend = n('a-spend'), cpcW = n('a-cpc-win'), cpcL = n('a-cpc-weak');
-      var clicksW = cpcW > 0 ? spend / cpcW : 0;
-      var clicksL = cpcL > 0 ? spend / cpcL : 0;
-      var gap = clicksW - clicksL;
-      var mMonthly = (gap / 2) * cpcW;
-      var mBlock = null;
-      if (cpcW <= 0 || cpcL <= 0) mBlock = 'Both cost-per-click figures are needed.';
-      else if (cpcW >= cpcL) mBlock = 'The winning creative has to cost less per click than the weakest one.';
-      else if (spend < 10000) mBlock = 'Below $10,000 a month this number cannot reach a defensible ratio.';
+      var aSpend = n('a-spend'), aChk = n('a-creatives'), aMis = n('a-mismatch');
+      var aShare = aChk > 0 ? aMis / aChk : 0;
+      var aMonthly = aSpend * aShare;
+      var aPerCampaign = aMonthly * (n('a-review-days') / 30);
+      var aGross = aPerCampaign * n('a-campaigns');
+      var aNet = aGross * conf;
+      var aBlock = null;
+      if (aChk <= 0) aBlock = 'No creatives were checked, so nothing is counted.';
+      else if (aMis > aChk) aBlock = 'More disagreements than creatives checked.';
+      else if (aMis <= 0) aBlock = 'Nothing was flagged, so nothing is counted.';
+      else if (aSpend <= 0 || n('a-campaigns') <= 0) aBlock = 'Spend and campaigns a year are both needed.';
 
-      var media = {
-        id: 'ad-media', feature: 'ad', tag: 'ad media',
-        short: 'Media waste avoided', name: 'Media waste avoided',
-        grade: 'observed', annual: mMonthly * 12, roundsBased: false, blocked: mBlock,
-        lead: 'Without this we pick the creative on gut — <strong>a coin flip</strong>.',
+      list.push({
+        id: 'ad-scent', feature: 'ad', tag: 'ad spend',
+        short: 'Ad spend repointed', name: 'Ad spend repointed',
+        grade: 'counted', annual: aNet, blocked: aBlock,
+        lead: '<strong>' + qty(aMis) + ' of ' + qty(aChk) + ' creatives</strong> promised what the page does not deliver. The click is already paid for.',
         math: [
-          'Winner ' + money(cpcW) + ' a click vs weakest ' + money(cpcL) + ' — same audience, same week',
-          money(spend) + ' a month buys ' + qty(clicksW) + ' clicks vs ' + qty(clicksL) + '  →  gap of ' + qty(gap),
-          'Picking blind we run the weaker one half the time, so we claim half',
-          qty(gap / 2) + ' clicks × ' + money(cpcW) + '  =  ' + money(mMonthly) + ' a month',
-          '=  ' + money(mMonthly * 12) + ' per year'
+          money(aSpend) + ' a month × ' + qty(aMis) + ' of ' + qty(aChk) + ' flagged  =  ' + money(aMonthly) + ' a month behind the break',
+          '× ' + qty(n('a-review-days')) + ' days to your next review ÷ 30  =  ' + money(aPerCampaign) + ' a campaign',
+          '× ' + qty(n('a-campaigns')) + ' campaigns a year  =  ' + money(aGross),
+          '× ' + confPct + '% of our calls you confirmed  =  ' + money(aNet) + ' per year'
         ],
         speed: null,
-        context: money(spend) + '/month on LinkedIn, with no check that the ad and the page promise the same thing.',
-        upside: 'The creative that won on clicks was the one our budget holders liked least. LinkedIn reports one number for the whole audience. It has no idea which roles clicked.'
-      };
-
-      var aRR = Math.max(0, n('a-rounds-now') - n('a-rounds-after'));
-      var aHours = n('a-rev') * n('a-hours') * aRR * rate;
-      var aPerSet = aHours + n('a-agency') * aRR;
-      var aDays = aRR * n('a-days');
-
-      var cycle = {
-        id: 'ad-cycle', feature: 'ad', tag: 'ad creative',
-        short: 'Creative cycle cost removed', name: 'Creative cycle cost removed',
-        grade: 'counted', annual: aPerSet * n('a-sets'), roundsBased: true,
-        blocked: aRR > 0 ? null : 'Rounds after is not lower than rounds today.',
-        lead: 'Cutting creative review rounds from <strong>' + qty(n('a-rounds-now')) + ' to ' + qty(n('a-rounds-after')) + '</strong>.',
-        math: [
-          qty(n('a-rev')) + ' reviewers × ' + dec(n('a-hours')) + ' hrs × ' + qty(aRR) + ' ' + plural(aRR, 'round', 'rounds') + ' × ' + money(rate) + '  =  ' + money(aHours),
-          '+ ' + money(n('a-agency')) + ' agency × ' + qty(aRR) + '  =  ' + money(aPerSet) + ' per creative set',
-          '× ' + qty(n('a-sets')) + ' sets a year  =  ' + money(aPerSet * n('a-sets')) + ' per year'
-        ],
-        speed: aRR > 0 ? {
-          days: aDays * n('a-sets'),
-          per: qty(aDays) + ' days per creative set × ' + qty(n('a-sets')) + ' sets'
-        } : null,
-        context: media.context,
-        upside: media.upside
-      };
-
-      var wantMedia = UI.adPick === 'media' && !media.blocked;
-      list.push(wantMedia ? media : (cycle.blocked && !media.blocked ? media : cycle));
+        context: money(aSpend) + '/month running behind creatives never checked against the page they land on.'
+      });
     }
 
     /* --- email --- */
@@ -5039,10 +5015,10 @@ body {
 
       list.push({
         id: 'email-cycle', feature: 'email', tag: 'email',
-        short: 'Copy cycle cost removed', name: 'Copy cycle cost removed',
-        grade: 'counted', annual: eMonthly * 12, roundsBased: true,
+        short: 'Send capacity gained', name: 'Send capacity gained',
+        grade: 'counted', annual: eMonthly * 12,
         blocked: eRR > 0 ? null : 'Rounds after is not lower than rounds today.',
-        lead: 'Cutting copy review rounds from <strong>' + qty(n('e-rounds-now')) + ' to ' + qty(n('e-rounds-after')) + '</strong> on every send.',
+        lead: '<strong>' + qty(eRR) + ' copy ' + plural(eRR, 'round', 'rounds') + ' back</strong> on every send. Same team, more sends.',
         math: [
           qty(n('e-rev')) + ' reviewers × ' + dec(n('e-hours')) + ' hrs × ' + qty(eRR) + ' ' + plural(eRR, 'round', 'rounds') + ' × ' + money(rate) + '  =  ' + money(eHours),
           '+ ' + money(n('e-agency')) + ' copywriter × ' + qty(eRR) + '  =  ' + money(ePerEmail) + ' per email',
@@ -5055,8 +5031,7 @@ body {
         } : null,
         context: UI.etrack === 'a'
           ? 'Contacts cost ' + money(n('e-cac')) + ' each. One bad send burns ' + qty(n('e-unsub')) + ' of them.'
-          : qty(n('e-domains')) + ' sending domains. Burning one costs ' + qty(n('e-warmup')) + ' weeks of warmup.',
-        upside: 'On some sends the variant that won overall was the one our budget holders liked least. A split test would never have told us that.'
+          : qty(n('e-domains')) + ' sending domains. Burning one costs ' + qty(n('e-warmup')) + ' weeks of warmup.'
       });
     }
 
@@ -5081,13 +5056,12 @@ body {
         list.push({
           id: 'aud-cpl', feature: 'audience', tag: 'audience',
           short: 'Cost per lead, measured', name: 'Cost per lead, measured',
-          grade: 'observed', annual: uMonthly * 12 * haircut, roundsBased: false, blocked: qBlock,
+          grade: 'observed', annual: uMonthly * 12 * haircut, blocked: qBlock,
           lead: '<strong>' + qty(win) + '-day head-to-head.</strong> Same creative, same page, same budget. Only the audience changed.',
           math: uMath,
           speed: null,
           context: 'Cost per lead fell and quality held: MQL to SQL ' + dec(n('u-q-ctrl')) + '% → ' +
-                   dec(n('u-q-treat')) + '%.',
-          upside: qty(n('u-newsegs')) + ' sub-verticals we have never marketed into, scoring above our current primary audience. An opportunity, not a saving.'
+                   dec(n('u-q-treat')) + '%.'
         });
       } else {
         var vHours = n('u-hours') * rate;
@@ -5095,7 +5069,7 @@ body {
         list.push({
           id: 'aud-research', feature: 'audience', tag: 'audience',
           short: 'Research cost removed', name: 'Research cost removed',
-          grade: 'counted', annual: vPer * n('u-verticals'), roundsBased: false,
+          grade: 'counted', annual: vPer * n('u-verticals'),
           blocked: n('u-verticals') > 0 ? null : 'No assessments a year means nothing is removed.',
           lead: 'Assessing a new vertical takes us <strong>' + qty(n('u-hours')) + ' hours plus a ' +
                 money(n('u-research')) + ' research project</strong>.',
@@ -5108,8 +5082,7 @@ body {
             days: n('u-weeks') * n('u-verticals') * 7,
             per: qty(n('u-weeks')) + ' weeks per assessment × ' + qty(n('u-verticals'))
           },
-          context: qty(n('u-newsegs')) + ' sub-verticals scored above our primary audience. None tested.',
-          upside: qty(n('u-newsegs')) + ' sub-verticals we have never marketed into, scoring above our current primary audience. An opportunity, not a saving.'
+          context: qty(n('u-newsegs')) + ' sub-verticals scored above our primary audience. None tested.'
         });
       }
     }
@@ -5167,10 +5140,11 @@ body {
     if (!live.length) {
       lead = 'No eligible line.'; math = [];
     } else if (live.length === 1) {
+      name = live[0].name;
       lead = live[0].lead;
       math = live[0].math;
     } else {
-      lead = '<strong>' + money(totalAnnual) + ' a year</strong> of work and fees that stop being spent, across ' +
+      lead = '<strong>' + money(totalAnnual) + ' a year</strong> of spend and work removed, across ' +
              joinList(live.map(function (c) { return c.tag; })) + '.';
       var w = 0;
       live.forEach(function (c) { w = Math.max(w, c.short.length); });
@@ -5183,6 +5157,12 @@ body {
       return i === math.length - 1 ? '<b>' + m + '</b>' : m;
     }).join('\n');
     CUR = { live: live, name: name };
+
+    /* --- the double-count answer, stated before anyone asks --- */
+    var bothLive = live.filter(function (c) { return c.feature === 'committee' || c.feature === 'ad'; }).length > 1;
+    $('l2-note').textContent = bothLive
+      ? 'No overlap: the committee line counts rep hours after contact, the ad line counts paid clicks before it. A click that bounces never becomes an opportunity.'
+      : '';
 
     /* --- line 3 --- */
     var ctx = [];
@@ -5250,6 +5230,7 @@ body {
     alertEl('u-alert', UI.features.audience ? blocked('audience') : null);
 
     alertEl('acc-alert', n('ac-hits') > n('ac-total') ? 'More findings confirmed than findings made.' : null);
+
   }
 
   /* ============================================================
@@ -5271,6 +5252,7 @@ body {
     o.push('2. COST SAVINGS');
     o.push(stripTags($('l2-lead').innerHTML));
     mathLines('l2-math').forEach(function (l) { o.push('   ' + l); });
+    if ($('l2-note').textContent) o.push($('l2-note').textContent);
     o.push('');
     o.push('3. CONTEXT');
     CTX.forEach(function (l) { o.push(l); });
@@ -5334,9 +5316,6 @@ body {
       b.classList.toggle('active', b.dataset.plan === UI.plan);
     });
     $('f-custom-price').classList.toggle('hidden', UI.plan !== 'enterprise');
-    document.querySelectorAll('#seg-ad-pick .seg-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.adpick === UI.adPick);
-    });
     document.querySelectorAll('#seg-email-track .seg-btn').forEach(function (b) {
       b.classList.toggle('active', b.dataset.etrack === UI.etrack);
     });
@@ -5347,8 +5326,6 @@ body {
     });
     $('au-paid').classList.toggle('hidden', UI.utrack !== 'paid');
     $('au-expansion').classList.toggle('hidden', UI.utrack !== 'expansion');
-    $('a-media-fields').classList.toggle('hidden', UI.adPick !== 'media');
-    $('a-cycle-fields').classList.toggle('hidden', UI.adPick !== 'cycle');
   }
 
   function flash(btn, msg) {
@@ -5384,7 +5361,7 @@ body {
         applyUI(); render();
       });
     });
-    [['seg-plan', 'plan', 'plan'], ['seg-ad-pick', 'adPick', 'adpick'],
+    [['seg-plan', 'plan', 'plan'], 
      ['seg-email-track', 'etrack', 'etrack'], ['seg-au-track', 'utrack', 'utrack']].forEach(function (t) {
       document.querySelectorAll('#' + t[0] + ' .seg-btn').forEach(function (b) {
         b.addEventListener('click', function () { touched = true; UI[t[1]] = b.dataset[t[2]]; applyUI(); render(); });

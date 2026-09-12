@@ -139,12 +139,12 @@ body {
 .dotgrid { background-image: none !important; }
 
 /* ── ASSETS THAT ASSUME A DARK BACKGROUND ──────────────────────
-   images/whyuser-mark.png is 100% light pixels, so on paper it is a
-   white logo on white. The dark variant already exists. The customer
-   logos are white silhouettes for the same reason. */
+   The mark is the happy-judge dog head (images/whyuser-logo.png): a
+   transparent PNG with black strokes, so it reads on paper as is. The
+   customer logos are white silhouettes, so they still get darkened. */
 .nav-mark img,
 .footer-brand-mark img,
-.footer-mark img { content: url("../images/whyuser-mark-dark.png"); }
+.footer-mark img { content: url("../images/whyuser-logo.png?v=2"); }
 .trust-logo { filter: brightness(0) !important; opacity: 0.72 !important; }
 .trust-logo:hover { opacity: 1 !important; }
 

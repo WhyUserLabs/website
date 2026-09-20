@@ -45,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <!-- Load order matters: shell layout, then new components, then the
      dark theme LAST so its token overrides win. -->
@@ -111,6 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
+  <link rel="stylesheet" href="assets/whyuser-r3.css">
 <style>
 /* WhyUser UI overrides. Kept per-page and self-contained so no shared
    stylesheet has to change.
@@ -778,7 +779,7 @@ curl https://api.whyuser.com/v1/runs/AN-90670518 \
   -H <span class="s">"Authorization: Bearer $WHYUSER_API_KEY"</span></pre>
 
     <div class="note note-amber" style="margin-top:1.75rem">
-      <strong>Two things to tell your reviewer up front.</strong> A run is asynchronous and takes about thirty minutes, so this belongs in a publish hook, not a blocking CI gate. And an API run costs the same credits as an in-app one: 10 for a page, 30 per ad creative. <a href="pricing.html" style="color:var(--brand);font-weight:600">Full rates are on the pricing page.</a>
+      <strong>Two things to tell your reviewer up front.</strong> A run is asynchronous and takes about thirty minutes, so this belongs in a publish hook, not a blocking CI gate. And an API run costs the same credits as an in-app one: 20 for a page, 50 per ad creative. <a href="pricing.html" style="color:var(--brand);font-weight:600">Full rates are on the pricing page.</a>
     </div>
   </div>
 </section>

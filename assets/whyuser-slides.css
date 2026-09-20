@@ -1,0 +1,1303 @@
+/* ═══════════════════════════════════════════════════════════════════
+   WHYUSER — SLIDE-DERIVED SECTIONS
+   ═══════════════════════════════════════════════════════════════════
+
+   Components for the sections recut from the sales deck: the problem
+   band, the solution flow, the today/with-WhyUser rails, automatic
+   runs, the four-teams fan-out, the LLM comparison and the design
+   partnership block.
+
+   RULES THIS FILE KEEPS
+   - Declares no tokens of its own. Every colour is an existing var().
+   - Zero !important. It cannot fight the palette.
+   - Borderless: hairline rules only, no fills, radii or shadows on
+     content cards. Matches the hero's own note — "inline, not a card
+     ... typeset into the page like a figure in a report."
+   - Dark bands reuse the .anti-block idiom already on the homepage,
+     which is the site's one sanctioned exception to the flat canvas.
+   - Every diagram is real text in real elements, so the numbers stay
+     crawlable and quotable. Nothing here is an image of words.
+
+   Load AFTER whyuser-readability.css.
+   ═══════════════════════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   SHARED
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Dark band. Same construction as .anti-block, but reusable and with
+   its own eyebrow/heading inheritance so section-head works inside. */
+.wu-band {
+  background: var(--frame);
+  color: var(--frame-text);
+  border-radius: 16px;
+  padding: 2.75rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .wu-band { padding: 3.75rem 3rem; }
+}
+.wu-band .section-eyebrow { color: #c4b5fd; }
+.wu-band .section-eyebrow::before { background: #c4b5fd; }
+.wu-band .h2, .wu-band h2, .wu-band h3 { color: var(--frame-text); }
+.wu-band .section-head p { color: rgba(255, 255, 255, 0.66); }
+.wu-band a { color: inherit; }
+
+/* The one-sentence plain answer under a statement headline. This is
+   the AEO payload: slide headings are assertions, and an assertion
+   alone gives an answer engine nothing to lift. */
+.wu-answer {
+  max-width: 44rem;
+  margin: 0.9rem 0 0;
+  color: var(--mute);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.wu-band .wu-answer { color: rgba(255, 255, 255, 0.66); }
+
+/* Full-width closing statement bar that several slides end on. */
+.wu-kicker {
+  margin: 2.75rem 0 0;
+  padding: 1.375rem 1.5rem;
+  background: var(--frame);
+  color: var(--frame-text);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .wu-kicker { font-size: 1.1875rem; padding: 1.5rem 2rem; }
+}
+
+/* Column label above a list, e.g. PUBLIC / YOURS / WHAT COMES BACK. */
+.wu-collabel {
+  display: block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding-bottom: 0.625rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.wu-band .wu-collabel {
+  color: var(--frame-mute);
+  border-bottom-color: var(--frame-rule);
+}
+
+/* Connector arrow between flow columns. Hidden on narrow widths where
+   the columns stack and a horizontal arrow would point at nothing. */
+/* These were 13px and read as punctuation rather than as the two
+   hinges of the whole diagram. They carry the "in → committee → out"
+   argument, so they get real presence. */
+.wu-arrow {
+  display: none;
+  align-self: center;
+  color: var(--brand);
+  font-size: 22px;
+}
+@media (min-width: 960px) {
+  .wu-arrow { display: block; padding: 0 0.25rem; }
+}
+@media (min-width: 1200px) {
+  .wu-arrow { font-size: 26px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   01 · THE PROBLEM  —  "Every team rehearses. Except marketing."
+   Three panels: no staging, ideal reviewers, perfect AI reader.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-prob-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 2.5rem;
+}
+@media (min-width: 880px) {
+  .wu-prob-grid { grid-template-columns: repeat(3, 1fr); gap: 0 2.5rem; }
+}
+.wu-prob-card {
+  padding: 1.5rem 0 1.75rem;
+  border-top: 1px solid var(--frame-rule);
+  display: flex;
+  flex-direction: column;
+}
+.wu-prob-k {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c4b5fd;
+  margin-bottom: 1.25rem;
+}
+/* The diagram sits above the claim, so the claim reads as its caption. */
+.wu-prob-fig { flex: 1 1 auto; margin: 0 0 1.375rem; }
+.wu-prob-claim {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--frame-text);
+  letter-spacing: -0.01em;
+}
+
+/* 01 — the three-team staging table */
+.wu-stage-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.625rem 0;
+}
+.wu-stage-team { font-size: 0.9375rem; color: var(--frame-mute); }
+.wu-stage-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--frame-elevated);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--frame-text);
+  white-space: nowrap;
+}
+.wu-stage-chip i { font-size: 10px; color: var(--signal-green-bright); }
+/* The odd one out: outlined and tinted, so the eye lands on it. */
+.wu-stage-row-bad .wu-stage-team { color: var(--frame-text); font-weight: 500; }
+.wu-stage-chip-bad {
+  background: transparent;
+  border: 1px solid #c4b5fd;
+  color: #c4b5fd;
+  font-weight: 600;
+}
+.wu-stage-chip-bad i { color: #c4b5fd; }
+
+/* 02 — the reviewer/buyer scale rows */
+.wu-scale-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 1.5rem;
+  margin-bottom: 1.125rem;
+}
+.wu-scale-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  font-size: 0.8125rem;
+  color: var(--frame-mute);
+}
+.wu-scale-key::before {
+  content: '';
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--frame-dim);
+}
+.wu-scale-key-team::before { background: var(--frame-text); }
+.wu-scale-key-buyer::before { background: #86a9d6; }
+.wu-scale-row {
+  display: grid;
+  grid-template-columns: 5.25rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4375rem 0;
+}
+.wu-scale-label { font-size: 0.875rem; color: var(--frame-mute); }
+.wu-scale-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 14px;
+}
+/* The rail is drawn behind the dots as a single line. */
+.wu-scale-track::before {
+  content: '';
+  position: absolute;
+  left: 3px; right: 3px; top: 50%;
+  height: 1px;
+  background: var(--frame-rule-strong);
+}
+.wu-scale-dot {
+  position: relative;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #86a9d6;
+}
+/* Last dot on each row is the internal reviewer, pinned at "high". */
+.wu-scale-dot-team { width: 13px; height: 13px; background: var(--frame-text); }
+.wu-scale-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.3125rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: var(--frame-dim);
+}
+
+/* 03 — two reading patterns, side by side */
+.wu-read-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.wu-read-col { min-width: 0; }
+.wu-read-h {
+  font-size: 0.8125rem;
+  color: var(--frame-mute);
+  margin: 0 0 0.625rem;
+  font-weight: 400;
+}
+.wu-read-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem;
+  padding: 0.875rem 0.75rem;
+  background: var(--frame-elevated);
+  border-radius: 8px;
+  min-height: 7.5rem;
+}
+.wu-read-line { height: 7px; border-radius: 3px; background: #9fc0a9; }
+/* The skimmed column: most lines are dim, a couple are read, and the
+   last one is short because the reader left mid-page. */
+.wu-read-line-skip { background: var(--frame-rule-strong); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   02 · THE SOLUTION  —  "Rehearse every launch before you spend."
+   assets in  →  committee  →  what comes back
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-sol-flow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+@media (min-width: 960px) {
+  .wu-sol-flow {
+    grid-template-columns: minmax(0, 0.85fr) auto minmax(0, 1.3fr) auto minmax(0, 0.9fr);
+    gap: 1.75rem;
+    align-items: center;
+  }
+}
+
+/* Left: the asset types you can put in */
+.wu-sol-list { display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; list-style: none; }
+.wu-sol-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6875rem 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.wu-sol-item i { width: 1.125rem; font-size: 14px; color: var(--brand); flex: none; }
+
+/* Centre: the committee, in a dark product frame */
+.wu-sol-core {
+  background: var(--frame);
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
+}
+@media (min-width: 768px) { .wu-sol-core { padding: 1.75rem 1.625rem; } }
+.wu-sol-core-k {
+  display: block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9fc0a9;
+  margin-bottom: 1.25rem;
+}
+/* Five roles, each a 2-wide × 3-deep block of agents. The three fills
+   are the three moods, so the block is a legend for itself. */
+.wu-sol-roles {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+.wu-sol-role { text-align: center; min-width: 0; }
+.wu-sol-dots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  justify-items: center;
+  margin-bottom: 0.625rem;
+}
+.wu-sol-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--frame-dim); }
+.wu-sol-dot-ideal { background: #fafafa; }
+.wu-sol-dot-skept { background: #9fc0a9; }
+.wu-sol-role-n {
+  display: block;
+  font-size: 10.5px;
+  line-height: 1.3;
+  color: var(--frame-mute);
+  overflow-wrap: break-word;
+}
+.wu-sol-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.125rem;
+  margin-top: 1.375rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid var(--frame-rule);
+}
+.wu-sol-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  font-size: 0.75rem;
+  color: var(--frame-mute);
+}
+.wu-sol-key::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--frame-dim); }
+.wu-sol-key-ideal::before { background: #fafafa; }
+.wu-sol-key-skept::before { background: #9fc0a9; }
+
+/* Right: what comes back */
+.wu-sol-out { display: flex; flex-direction: column; gap: 0; }
+.wu-sol-out-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6875rem;
+  padding: 0.6875rem 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.wu-sol-out-row i { width: 1rem; font-size: 13px; flex: none; }
+.wu-sol-out-ok i { color: var(--signal-green); }
+.wu-sol-out-bad i { color: var(--signal-red); }
+.wu-sol-out-fix i { color: var(--ink); }
+.wu-sol-time {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 0.875rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--signal-green);
+}
+.wu-sol-time i { font-size: 1rem; }
+
+/* Footer strip: the five things on the platform */
+.wu-sol-platform {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 3rem;
+  padding-top: 0.25rem;
+}
+@media (min-width: 620px) { .wu-sol-platform { grid-template-columns: 1fr 1fr; gap: 0 2rem; } }
+@media (min-width: 1040px) { .wu-sol-platform { grid-template-columns: repeat(5, 1fr); gap: 0 1.75rem; } }
+.wu-sol-plat {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding: 1.125rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.012em;
+  transition: border-top-color 0.15s ease, color 0.15s ease;
+}
+.wu-sol-plat i { font-size: 13px; color: var(--brand); padding-top: 2px; flex: none; }
+a.wu-sol-plat:hover, a.wu-sol-plat:focus-visible { border-top-color: var(--brand); color: var(--brand); }
+a.wu-sol-plat:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   03 · GROUND REALITY additions  —  PUBLIC / YOURS labels
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-hub-labels {
+  display: none;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 1024px) {
+  .wu-hub-labels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24rem;
+  }
+  .wu-hub-labels .wu-collabel { margin-bottom: 0; }
+  .wu-hub-labels .wu-collabel-r { text-align: right; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   04 · TODAY vs WITH WHYUSER  —  two rails
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-rails { display: flex; flex-direction: column; gap: 2.25rem; margin-top: 2.5rem; }
+.wu-rail { }
+.wu-rail-k {
+  display: block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1rem;
+}
+.wu-rail-k-good { color: var(--signal-green); }
+.wu-rail-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+.wu-rail-track::before {
+  content: '';
+  position: absolute;
+  left: 6px; right: 6px; top: 6px;
+  height: 1px;
+  background: var(--rule-strong);
+}
+.wu-rail-stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  flex: 1 1 0;
+  text-align: center;
+}
+.wu-rail-dot {
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--rule-bold);
+  flex: none;
+}
+.wu-rail-stop-flag .wu-rail-dot { background: var(--signal-blue); border-color: var(--signal-blue); }
+.wu-rail-stop-fix .wu-rail-dot { background: var(--signal-green); border-color: var(--signal-green); }
+.wu-rail-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--mute);
+  letter-spacing: -0.008em;
+  overflow-wrap: break-word;
+}
+@media (min-width: 768px) { .wu-rail-label { font-size: 0.9375rem; } }
+.wu-rail-stop-flag .wu-rail-label { color: var(--signal-blue); }
+.wu-rail-stop-fix .wu-rail-label { color: var(--signal-green); }
+.wu-rail-note {
+  margin: 1rem 0 0;
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--dim);
+  line-height: 1.5;
+}
+.wu-rail-note-good { color: var(--signal-green); font-style: italic; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   05 · AUTOMATIC RUNS  —  decision flow + guardrails + digest
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-auto-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 1024px) { .wu-auto-wrap { grid-template-columns: 1.35fr 1fr; gap: 3rem; } }
+
+/* The four-step decision chain */
+.wu-auto-chain { display: flex; flex-direction: column; gap: 0; }
+.wu-auto-step {
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  gap: 0.875rem;
+  padding: 1.125rem 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.wu-auto-step:last-child { border-bottom: 1px solid var(--rule); }
+.wu-auto-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: 50%;
+  background: var(--paper-warm);
+  color: var(--brand);
+  font-size: 11px;
+  flex: none;
+}
+/* The one step that costs money is the emphasised one. */
+.wu-auto-step-run .wu-auto-ic { background: var(--frame); color: #9fc0a9; }
+.wu-auto-h {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.wu-auto-p { margin: 0.25rem 0 0; font-size: 0.875rem; line-height: 1.5; color: var(--mute); }
+.wu-auto-p .tabular { font-variant-numeric: tabular-nums; }
+/* The skip branch, indented under "did it change?" */
+.wu-auto-branch {
+  margin: 0.625rem 0 0;
+  padding: 0.5rem 0 0 0.875rem;
+  border-left: 1px solid var(--rule-strong);
+  font-size: 0.8125rem;
+  color: var(--dim);
+  line-height: 1.5;
+}
+.wu-auto-branch strong { color: var(--ink-soft); font-weight: 600; }
+
+/* Slack digest mock. Keeps its frame: it reads as a screenshot. */
+.wu-digest {
+  border: 1px solid var(--rule-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.wu-digest-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.wu-digest-bar i { color: var(--dim); font-size: 11px; }
+.wu-digest-body { padding: 1rem; }
+.wu-digest-from { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.875rem; }
+.wu-digest-av {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: 6px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  flex: none;
+}
+.wu-digest-who { font-size: 0.8125rem; font-weight: 600; color: var(--ink); }
+.wu-digest-when { font-size: 0.75rem; color: var(--dim); font-weight: 400; }
+.wu-digest-card {
+  padding: 0.875rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+}
+.wu-digest-url {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--brand);
+  margin-bottom: 0.5rem;
+}
+.wu-digest-find {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.wu-digest-fix { margin: 0 0 0.75rem; font-size: 0.875rem; line-height: 1.5; color: var(--mute); }
+.wu-digest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 0.75rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--signal-blue);
+}
+.wu-digest-cap { margin: 0.75rem 0 0; font-size: 0.75rem; font-style: italic; color: var(--dim); }
+
+/* Guardrail row under the flow */
+.wu-auto-rail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 2.75rem;
+}
+@media (min-width: 620px) { .wu-auto-rail { grid-template-columns: 1fr 1fr; gap: 0 2rem; } }
+@media (min-width: 1024px) { .wu-auto-rail { grid-template-columns: repeat(4, 1fr); gap: 0 2rem; } }
+.wu-auto-guard { padding: 1.125rem 0 0; border-top: 1px solid var(--rule); }
+.wu-auto-guard-h {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+.wu-auto-guard-h i { font-size: 12px; color: var(--brand); }
+.wu-auto-guard-p { margin: 0; font-size: 0.8125rem; line-height: 1.55; color: var(--mute); }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   06 · FOUR TEAMS  —  one proof block fans out
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-teams-src {
+  display: block;
+  max-width: 34rem;
+  margin: 2.5rem auto 0;
+  padding: 0.875rem 1.5rem;
+  background: var(--frame);
+  border-radius: 999px;
+  text-align: center;
+}
+.wu-teams-src-t {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--frame-text);
+}
+.wu-teams-src-t span { color: #9fc0a9; }
+/* The fan: a short vertical stem, then four columns. Drawn with
+   borders rather than an SVG so it reflows and needs no viewBox. */
+.wu-teams-stem {
+  width: 1px;
+  height: 2rem;
+  margin: 0 auto;
+  background: var(--rule-strong);
+}
+.wu-teams-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding-top: 0;
+  position: relative;
+}
+/* The horizontal bar spans only between the outermost risers, not the
+   full grid width, or it reads as a stray rule hanging off both ends.
+   With N equal columns the outer risers sit at 1/2N and 1 - 1/2N. */
+.wu-teams-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: var(--rule-strong);
+}
+@media (min-width: 640px) {
+  .wu-teams-grid { grid-template-columns: 1fr 1fr; }
+  .wu-teams-grid::before { left: 25%; right: 25%; }
+}
+@media (min-width: 1000px) {
+  .wu-teams-grid { grid-template-columns: repeat(4, 1fr); }
+  .wu-teams-grid::before { left: 12.5%; right: 12.5%; }
+}
+/* Single column: the bar would connect nothing, so it goes away and the
+   stem alone carries the join. */
+@media (max-width: 639px) {
+  .wu-teams-grid::before { content: none; }
+  .wu-team::before { content: none; }
+  .wu-team { padding-top: 1.75rem; }
+}
+.wu-team {
+  padding: 2rem 1.25rem 0;
+  text-align: center;
+  position: relative;
+}
+/* Each column grows its own riser up to the horizontal rule. */
+.wu-team::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  width: 1px; height: 1.25rem;
+  background: var(--rule-strong);
+}
+.wu-team-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem; height: 2.75rem;
+  border-radius: 50%;
+  background: var(--paper-warm);
+  color: var(--brand);
+  font-size: 15px;
+  margin-bottom: 0.875rem;
+}
+.wu-team-h {
+  margin: 0 0 0.375rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.wu-team-p { margin: 0; font-size: 0.875rem; line-height: 1.5; color: var(--mute); }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   07 · AUDIENCE RESEARCH  —  what each run returns
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-aud-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem 1.5rem;
+  margin-top: 2rem;
+}
+@media (min-width: 900px) { .wu-aud-grid { grid-template-columns: repeat(4, 1fr); gap: 0 1.75rem; } }
+.wu-aud-col { min-width: 0; }
+.wu-aud-k {
+  display: block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  padding-bottom: 0.625rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--ink);
+}
+.wu-aud-pills { display: flex; flex-direction: column; gap: 0.625rem; }
+.wu-aud-pill {
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--rule-bold);
+  border-radius: 999px;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: var(--paper-warm);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   08 · LLM COMPARISON  —  attribute rows, two columns
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-vs { margin-top: 2rem; }
+.wu-vs-head {
+  display: none;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.625rem;
+}
+@media (min-width: 760px) {
+  .wu-vs-head { display: grid; grid-template-columns: 8.5rem 1fr 1fr; gap: 1.5rem; }
+}
+.wu-vs-head-k {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.wu-vs-head-k-us { color: var(--brand); }
+.wu-vs-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  padding: 1.125rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 760px) {
+  .wu-vs-row { grid-template-columns: 8.5rem 1fr 1fr; gap: 1.5rem; align-items: baseline; }
+}
+.wu-vs-k {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.wu-vs-cell { display: flex; align-items: baseline; gap: 0.625rem; font-size: 0.9375rem; line-height: 1.5; }
+.wu-vs-cell i { font-size: 12px; flex: none; }
+.wu-vs-them { color: var(--mute); }
+.wu-vs-them i { color: var(--faint); }
+.wu-vs-us { color: var(--ink); font-weight: 600; }
+.wu-vs-us i { color: var(--signal-green); }
+/* On narrow widths each cell needs its own label, since the column
+   headers are hidden. */
+.wu-vs-cell::before {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  flex: none;
+  width: 4.25rem;
+}
+.wu-vs-them::before { content: 'Chatbot'; }
+.wu-vs-us::before { content: 'WhyUser'; color: var(--brand); }
+@media (min-width: 760px) {
+  .wu-vs-cell::before { content: none; width: 0; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   09 · DESIGN PARTNERSHIP  —  terms + three steps
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-dp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 1000px) { .wu-dp-grid { grid-template-columns: 15rem 1fr; gap: 3.5rem; } }
+
+.wu-dp-terms { display: flex; flex-direction: column; gap: 1.75rem; }
+.wu-dp-term { }
+.wu-dp-term-v {
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #9fc0a9;
+}
+.wu-dp-term-l {
+  display: block;
+  margin-top: 0.4375rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.wu-dp-steps { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 720px) { .wu-dp-steps { grid-template-columns: repeat(3, 1fr); gap: 0 2rem; } }
+@media (min-width: 1000px) { .wu-dp-steps { border-left: 1px solid var(--frame-rule); padding-left: 3rem; } }
+@media (min-width: 1000px) and (max-width: 719px) { .wu-dp-steps { padding-left: 0; border-left: none; } }
+.wu-dp-step { padding: 1.5rem 0 1.75rem; border-top: 1px solid var(--frame-rule); }
+.wu-dp-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: 50%;
+  background: #3f6b52;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.wu-dp-h {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 650;
+  letter-spacing: -0.018em;
+  color: var(--frame-text);
+}
+.wu-dp-p { margin: 0; font-size: 0.875rem; line-height: 1.55; color: rgba(255, 255, 255, 0.66); }
+.wu-dp-pick { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+.wu-dp-opt {
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--frame-rule-strong);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--frame-mute);
+}
+.wu-dp-opt-on {
+  background: #3f6b52;
+  border-color: #3f6b52;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.wu-dp-opt-on i { font-size: 10px; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   10 · FAQ  —  visible content that earns the FAQPage schema
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-faq { margin-top: 2rem; max-width: 56rem; }
+.wu-faq-item { border-top: 1px solid var(--rule); }
+.wu-faq-item:last-child { border-bottom: 1px solid var(--rule); }
+.wu-faq-q {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  line-height: 1.4;
+  transition: color 0.15s ease;
+}
+.wu-faq-q::-webkit-details-marker { display: none; }
+.wu-faq-q:hover { color: var(--brand); }
+.wu-faq-item:focus-within .wu-faq-q { color: var(--brand); }
+.wu-faq-q i {
+  font-size: 12px;
+  color: var(--brand);
+  padding-top: 5px;
+  flex: none;
+  transition: transform 0.2s ease;
+}
+.wu-faq-item[open] .wu-faq-q i { transform: rotate(45deg); }
+.wu-faq-a {
+  margin: 0;
+  padding: 0 0 1.375rem;
+  max-width: 46rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--mute);
+}
+.wu-faq-a strong { color: var(--ink-soft); font-weight: 600; }
+.wu-faq-a a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+.wu-faq-foot { margin-top: 1.75rem; font-size: 0.9375rem; color: var(--mute); }
+.wu-faq-foot a { color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ROUND 2 · PLATFORM STRIP WITH SUBTITLES
+
+   Each item now carries a name and one line saying what it takes in,
+   so the strip reads as a menu rather than five bare names. Ground
+   Reality leads, because it is the foundation the other four run on.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-sol-plat { align-items: flex-start; }
+.wu-sol-plat-t { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.wu-sol-plat-n {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+.wu-sol-plat-s {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--dim);
+  letter-spacing: 0;
+}
+a.wu-sol-plat:hover .wu-sol-plat-n,
+a.wu-sol-plat:focus-visible .wu-sol-plat-n { color: var(--brand); }
+/* The parent's hover rule recolours everything it contains; the
+   subtitle should stay quiet. */
+a.wu-sol-plat:hover .wu-sol-plat-s,
+a.wu-sol-plat:focus-visible .wu-sol-plat-s { color: var(--dim); }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ROUND 2 · RAIL NOTES, PINNED UNDER THE STOPS THEY DESCRIBE
+
+   "Weeks of traffic. Still no reason why." describes Measure and Guess
+   why specifically, so it sits under those two stops rather than
+   centred under the whole rail. The grid column count matches the
+   rail's stop count, and the note is placed by grid-column.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-rail-notes { display: grid; margin-top: 0.75rem; }
+.wu-rail-notes-5 { grid-template-columns: repeat(5, 1fr); }
+.wu-rail-notes-6 { grid-template-columns: repeat(6, 1fr); }
+.wu-rail-notes .wu-rail-note { margin: 0; text-align: center; }
+/* Below the point where six labels still fit, the grid placement stops
+   helping and the note goes full width. */
+@media (max-width: 40rem) {
+  .wu-rail-notes-5, .wu-rail-notes-6 { grid-template-columns: 1fr; }
+  .wu-rail-notes .wu-rail-note { grid-column: 1 / -1 !important; text-align: left; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ROUND 2 · WHYUSER WATCHES / FLAGS FIXES
+
+   The two dashed connectors are what make the reordered rail legible:
+   WhyUser watches Build, and flags fixes into Fix. Without them, "Fix
+   before Launch" looks like a claim rather than a mechanism.
+
+   Drawn as a grid whose columns match the rail's five stops, so each
+   connector lands under its own stop at any width.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-rail-conn {
+  display: grid;
+  margin-top: 0.875rem;
+}
+.wu-rail-conn-5 { grid-template-columns: repeat(5, 1fr); }
+.wu-conn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3125rem;
+}
+.wu-conn-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--signal-green);
+  white-space: nowrap;
+}
+.wu-conn-line {
+  position: relative;
+  width: 1px;
+  height: 1.75rem;
+  border-left: 1px dashed var(--signal-green);
+}
+/* Arrowheads, drawn with a rotated border so they inherit the colour
+   and need no extra markup. */
+.wu-conn-line::after {
+  content: '';
+  position: absolute;
+  left: -3.5px;
+  width: 6px; height: 6px;
+  border-right: 1px solid var(--signal-green);
+  border-bottom: 1px solid var(--signal-green);
+}
+.wu-conn-down::after { bottom: 0; transform: rotate(45deg); }
+.wu-conn-up::after   { top: 0;    transform: rotate(-135deg); }
+
+/* The background bar the two connectors run into. */
+.wu-runbar {
+  margin-top: 0.5rem;
+  padding: 0.875rem 1.25rem;
+  background: var(--frame);
+  border-radius: 10px;
+  text-align: center;
+}
+.wu-runbar-t {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--frame-text);
+}
+.wu-runbar-t span { color: #9fc0a9; }
+
+/* Narrow: the connectors have nothing to line up with once the labels
+   crowd, so they go and the bar speaks for itself. */
+@media (max-width: 40rem) {
+  .wu-rail-conn { display: none; }
+  .wu-runbar { margin-top: 1.25rem; }
+}
+
+.wu-rail-good { margin-top: 0; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ROUND 2 · EVIDENCE LEDGER, FULL WIDTH
+
+   The four concept cards that shared this grid restated the five rows
+   of the comparison table above it, so they came out. The ledger is
+   the section's one visual and now gets the full measure.
+   ═══════════════════════════════════════════════════════════════════ */
+/* Two classes, deliberately. index.html's inline <style> block loads
+   AFTER this file and sets `.tech2-grid { grid-template-columns: 1fr 1fr }`
+   above 920px, so a single-class rule here would lose on source order and
+   the ledger would sit in column one of a two-column grid. */
+.tech2-grid.tech2-grid-solo { grid-template-columns: 1fr; }
+@media (min-width: 920px) {
+  .tech2-grid.tech2-grid-solo { grid-template-columns: 1fr; }
+}
+.tech2-grid.tech2-grid-solo > div { max-width: 46rem; margin: 0 auto; width: 100%; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   FIX · INLINE CTA HORIZONTAL OVERFLOW
+
+   .wu-inline-cta carried `white-space: nowrap`, to keep the trailing
+   arrow attached to the last word. On a 390px viewport the longest of
+   these links measures 410px and cannot break, so it pushed the whole
+   document 40px wider than the screen and every page carrying the
+   class scrolled sideways on a phone.
+
+   Wrapping is allowed again. The arrow can now orphan onto its own
+   line in the rare worst case, which is cosmetic; a horizontally
+   scrolling page is not.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-inline-cta {
+  white-space: normal;
+  /* Break inside a word only as a last resort, so ordinary wrapping
+     still happens at spaces. */
+  overflow-wrap: break-word;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOLD · ACCURACY NUMBERS AND CUSTOMER LOGOS ON THE FIRST SCREEN
+
+   The brief: keep the accuracy strip above the fold and get the logo
+   strip up there with it.
+
+   What was in the way. `.acc` carried
+   `margin-top: clamp(3.25rem, calc(100vh - 47rem), 8rem)`, a device
+   that pushes the three numbers down to sit ON the fold. That worked
+   for the numbers and guaranteed the logos fell below them, 69px off
+   the bottom of a 1440x900 screen.
+
+   The anchor target changes from "the numbers end at the fold" to
+   "the numbers and the logos together end at the fold", which is
+   worth about 190px:
+     - the clamp's ceiling drops from 8rem to 3.5rem   (-72px)
+     - the accuracy cells lose interior padding        (-38px)
+     - the logo strip becomes one row, not a stack     (-76px)
+   Vertical rhythm inside the strip is otherwise untouched.
+
+   These rules live here rather than in the page because this file
+   loads last, so they win on source order without a single
+   !important.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Compact the interior of the three-number strip. */
+.acc-cell { padding: 1.25rem 0; }
+.acc-value { margin-bottom: 0.45rem; }
+.acc-note { line-height: 1.45; }
+.acc-foot { padding-top: 0.75rem; }
+
+@media (min-width: 768px) {
+  /* More air above the numbers, and a shorter strip. The brief changed:
+     the first screen was reading as busy, so the proof strip now gets
+     separation from the CTAs rather than being packed against them.
+
+     The clamp floor is 2.25rem, not 3: at 1280x720 the extra 12px
+     pushed the strip's footer link 4px past the fold and clipped it.
+     Tall screens get the full 5.5rem. */
+  .acc { margin-top: clamp(2.25rem, calc(100vh - 50rem), 5.5rem); }
+  .acc-cell { padding: 0.5rem 1.75rem 0.375rem; }
+
+  /* The logo strip becomes a single centred row: label, logos and the
+     NDA note on one line. whyuser-type-fix.css forces a centred column
+     with 1.75rem of padding, so both are restated here. */
+  .trust-strip {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0 1.75rem;
+    /* No viewport maths here any more. The band is a sibling of the hero
+       and the hero fills one screen, so this is simply normal spacing. */
+    margin-top: 0;
+    padding: 1.5rem 0;
+  }
+  /* The two short bracket marks were drawn for a centred column, where
+     they sat clear above and below the stack. In a single row they land
+     on top of the logos. A row needs one hairline above it, not a pair
+     of centred marks through it. */
+  .trust-strip::before {
+    width: 100%;
+    left: 0;
+    transform: none;
+    background: var(--rule);
+  }
+  .trust-strip::after { content: none; }
+}
+
+@supports (height: 100svh) {
+  @media (min-width: 768px) {
+    .acc { margin-top: clamp(2.25rem, calc(100svh - 50rem), 5.5rem); }
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   THE HERO OWNS THE FIRST SCREEN
+
+   This is what actually puts the logos below the fold, and it works at
+   every viewport height because it does not guess at one. The hero is
+   at least one screen tall (less the 60px nav), content stays at the
+   top where it already sat, and the leftover space simply falls to the
+   bottom of the hero. The trust band, being the next sibling, starts
+   at the fold line.
+
+   min-height, not height: on a short laptop the hero content is taller
+   than the screen and the box grows to fit rather than clipping.
+   ─────────────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .hero {
+    min-height: calc(100vh - 3.75rem);
+    /* Centred, not top-aligned. On a tall screen the hero is shorter
+       than the box, and top-aligning dumped all the leftover height
+       into one void under the proof numbers. Centring splits it above
+       and below, which reads as an airy hero instead of a gap. */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@supports (height: 100svh) {
+  @media (min-width: 768px) {
+    .hero { min-height: calc(100svh - 3.75rem); }
+  }
+}
+
+/* The band gets its own quiet rhythm rather than the hero's. */
+.trust-band { padding: 0 0 1rem; }
+
+/* Shorter strip: the three notes keep their words, they just sit
+   closer to their numbers. Nothing is hidden at any size — those
+   sentences are the part an answer engine quotes. */
+.acc-value { margin-bottom: 0.3rem; }
+.acc-note { line-height: 1.4; }
+.acc-foot { padding-top: 0.5rem; }
+
+/* The two aggressive short-laptop tiers that used to live here were
+   there for one purpose: cramming the logos onto the first screen.
+   The logos now belong below it, so the hero keeps its normal rhythm
+   at every height and the tiers are gone. */
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   Nothing here animates on load, but the arrow and chevron transitions
+   are still gestures. Honour the preference.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .wu-sol-plat, .wu-faq-q, .wu-faq-q i, .wu-auto-guard { transition: none; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   PRINT
+   The deck these sections came from still gets printed. Drop the dark
+   bands to ink on white so they do not eat a toner cartridge.
+   ═══════════════════════════════════════════════════════════════════ */
+@media print {
+  .wu-band, .wu-kicker, .wu-sol-core, .wu-teams-src {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+  .wu-band .h2, .wu-band h2, .wu-band h3,
+  .wu-band .section-head p, .wu-band .wu-answer,
+  .wu-prob-claim, .wu-dp-h, .wu-dp-p, .wu-dp-term-v, .wu-dp-term-l { color: #000; }
+  .wu-faq-item[open] .wu-faq-a { display: block; }
+}

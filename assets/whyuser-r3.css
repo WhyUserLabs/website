@@ -1,0 +1,747 @@
+/* ═══════════════════════════════════════════════════════════════════
+   WHYUSER — ROUND 3
+   Four rebuilt sections, plus the type change.
+
+   Loaded LAST, and every rule that has to beat a page's own inline
+   <style> block uses either a class the page does not define or a
+   two-class selector. index.html's inline block sits AFTER the <link>
+   tags, so a single-class rule here loses on source order. That is the
+   one thing to remember when editing this file.
+
+   No !important. No new tokens except the two the deck introduced.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* The deck marks the "today" path in a rust that reads as a warning
+     without shouting. The site had no warm accent; --signal-red is an
+     error colour and too loud for a process step. */
+  --rust: #9c4f2c;
+  --rust-soft: #c4714a;
+  /* Dashed "not connected yet" outline for the Ground Reality inputs
+     you have not wired up. */
+  --pending: rgba(9, 9, 11, 0.28);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   TYPE · INTER + INTER + GEIST MONO
+
+   One text face doing both jobs, with Geist Mono reserved for data.
+
+   Inter for everything read as language, at two very different
+   settings: headlines at 800 weight with tight negative tracking,
+   body at 400 and near-normal. Geist Mono still marks anything a
+   reader should treat as a measurement — the proof numbers, the
+   eyebrow labels, the mock product UI — so data never gets mistaken
+   for prose. That mono/text split is now the only typographic
+   contrast on the page, which makes it carry more.
+
+   These selectors are deliberately broad. Every page declares
+   font-family: 'Inter' in its own inline CSS, so the override has to
+   name the same elements.
+   ═══════════════════════════════════════════════════════════════════ */
+
+body,
+.btn, button, input, select, textarea,
+.hero-sub, .standfirst, p, li, td, th, figcaption, blockquote {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Inter's defaults leave a slightly wide fit at body sizes. */
+  letter-spacing: -0.005em;
+}
+
+/* Headlines and titles.
+
+   roi.html's own `.wu-h1` rule lives in a <style> block AFTER this
+   file's <link>, so it is named here as `h1.wu-h1` — tag plus class
+   beats a bare class whatever the source order. */
+h1, h2, h3,
+.h1, .h2, .h3,
+.cta-h, .lp-h2, .wu-team-h, .wu-vs-k,
+.wu-dp-term-v, .wu-sol-time,
+.wu-box-h, .wu-guard-h, .wu-auto-h, .wu-dp-h, .wu-runfact-h,
+.wu-out-h, .anti-item-h, .spec-h, .flow-card-h, .cta-pill-h,
+.wu-digest-find, .wu-gr-n, .wu-sol-plat-n, .wu-prob-claim,
+.wu-faq-q, .wu-cmp-card-h, .tech2-h, .ps-engine-name, .wu-sol-item,
+h1.wu-h1, h2.wu-h2, h3.wu-h3 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-variation-settings: normal;
+}
+
+/* One family, two jobs. With a single face carrying both headlines and
+   body, the separation has to come from weight and tracking instead of
+   from contrast between two designs: headlines go heavy and tight,
+   body stays regular and near-normal. Inter tightens well at display
+   sizes, which is the reason it can do both. */
+.h1, h1 { font-weight: 800; letter-spacing: -0.042em; }
+.h2, .cta-h, .lp-h2 { font-weight: 800; letter-spacing: -0.038em; }
+.h3, h3, .wu-team-h, .wu-vs-k { font-weight: 700; letter-spacing: -0.024em; }
+
+/* DATA · Geist Mono. Anything the reader should read as a measurement
+   rather than as writing: the three proof numbers, the partnership
+   terms, the run time, every mono eyebrow, and the mock product UI. */
+.acc-value, .wu-dp-term-v, .wu-sol-time,
+.mono-label, .mono-eyebrow, .section-eyebrow, .hero-eyebrow,
+.trust-label, .trust-aux, .wu-collabel, .wu-gr-lab, .wu-rail-k,
+.wu-prob-k, .wu-sol-core-k, .wu-runbar-t, .wu-arrowh-k, .wu-branch-k,
+.wu-conn-label, .wu-aud-k, .wu-vs-head-k, .wu-digest-bar,
+.wu-digest-url, .wu-digest-tags, .wu-sol-count, .wu-scale-ends,
+.led-claim, .led-chip, .frame-bar, .frame-bar-pill, .tabular,
+.cflow-stat-v, .cflow-stat-l, .cflow-cap-title, .wu-teams-src-t {
+  font-family: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+}
+.acc-value, .wu-dp-term-v, .wu-sol-time {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* Inter sets close to Geist at the same size, so the display scale
+   stays where the original design had it. */
+.h1 { font-size: clamp(2.125rem, 3.5vw, 3.125rem); line-height: 1.07; }
+.h2 { font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.08; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   1 · GROUND REALITY
+
+   Rebuilt from the deck. Three changes of substance beyond the layout:
+
+   - The two columns are now labelled by AVAILABILITY, not just origin:
+     public evidence is in use from the first run, your own evidence
+     starts when you connect it. That distinction was invisible before
+     and it is the thing a buyer actually wants to know.
+   - The right-hand icons are drawn with a dashed ring to carry that
+     "not connected yet" state visually.
+   - "A/B outcomes" became "Expert knowledge", which is the broader and
+     truer description: experiment findings plus whatever your team
+     corrects by hand.
+
+   Icons face the centre — text-then-icon on the left, icon-then-text
+   on the right — so the two columns read as feeding the core.
+
+   The three-column layout starts at 1140px, not 1000: between those
+   widths the columns were narrow enough that every meta label wrapped,
+   so below 1140 the diagram stacks instead.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-gr { margin-top: 2.5rem; }
+.wu-gr-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 1140px) {
+  .wu-gr-grid {
+    grid-template-columns: 1fr minmax(15rem, 18rem) 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.wu-gr-col { display: flex; flex-direction: column; gap: 2rem; min-width: 0; }
+.wu-gr-lab {
+  display: block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--rule-strong);
+  margin-bottom: 0.5rem;
+}
+.wu-gr-lab b { color: var(--ink-soft); font-weight: 600; }
+@media (min-width: 1140px) {
+  .wu-gr-col-l .wu-gr-lab { text-align: right; }
+}
+
+.wu-gr-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+/* Grid, not flex, once the connectors appear. With a flexed line the
+   icon's position depended on how long that row's text happened to be,
+   so the three icons in a column did not sit in a vertical line. Fixed
+   tracks put every icon at the same distance from the centre. */
+@media (min-width: 1140px) {
+  .wu-gr-item { display: grid; align-items: center; }
+  .wu-gr-col-l .wu-gr-item { grid-template-columns: minmax(0, 1fr) 2.75rem 4.25rem; }
+  .wu-gr-col-r .wu-gr-item { grid-template-columns: 4.25rem 2.75rem minmax(0, 1fr); }
+}
+@media (min-width: 1140px) {
+  .wu-gr-col-l .wu-gr-item { text-align: right; }
+}
+
+/* ── THE CONNECTORS ────────────────────────────────────────────────
+   These were an SVG with a fixed 1000x420 viewBox stretched over the
+   grid with preserveAspectRatio="none". The container's real ratio is
+   nothing like 1000:420, so the curves were squashed and their
+   endpoints landed well short of both the icons and the ring — the
+   misalignment in the screenshot.
+
+   No geometry to get wrong now: each connector is a flex sibling of
+   its own icon, so it starts exactly at that icon's edge and grows to
+   fill whatever space is left in the column. It cannot drift, at any
+   width, because nothing is being positioned by coordinate.
+   ────────────────────────────────────────────────────────────────── */
+.wu-gr-line { display: none; }
+@media (min-width: 1140px) {
+  .wu-gr-line {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 1.5rem;
+    height: 0;
+    border-top: 1.5px dashed var(--rule-bold);
+  }
+  /* Reach across the grid gutter so the dashes arrive at the ring
+     rather than stopping 48px short of it. They stay ~12px clear of
+     the circle: the middle row would meet its edge, but the top and
+     bottom rows approach where the circle has already curved away, so
+     touching would look wrong on two rows out of three. */
+  .wu-gr-col-l .wu-gr-line { margin-right: -2.25rem; }
+  .wu-gr-col-r .wu-gr-line { margin-left: -2.25rem; }
+  .wu-gr-line { min-width: 0; }
+  /* The text keeps its measure; only the line takes up the slack. */
+  .wu-gr-item > span:not(.wu-gr-ic):not(.wu-gr-line) { flex: 0 1 auto; }
+}
+
+.wu-gr-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem; height: 2.75rem;
+  border-radius: 50%;
+  flex: none;
+  font-size: 15px;
+  color: var(--brand);
+  background: var(--paper-warm);
+}
+/* "Yours" — dashed ring, no fill: connected on your say-so. */
+.wu-gr-ic-pending {
+  background: transparent;
+  border: 1.5px dashed var(--pending);
+  color: var(--mute);
+}
+.wu-gr-n {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.wu-gr-m {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--dim);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* The core */
+.wu-gr-core { position: relative; display: flex; align-items: center; justify-content: center; padding: 1rem 0; }
+.wu-gr-ring {
+  position: relative;
+  width: 15rem; height: 15rem;
+  max-width: 100%;
+  border-radius: 50%;
+  border: 2px dotted var(--rule-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wu-gr-orb {
+  width: 11.5rem; height: 11.5rem;
+  border-radius: 50%;
+  background: var(--frame);
+  color: var(--frame-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+.wu-gr-orb-ic { font-size: 20px; color: #9fc0a9; margin-bottom: 0.625rem; }
+.wu-gr-orb-t {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.wu-gr-orb-s {
+  margin-top: 0.4375rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--frame-mute);
+  max-width: 9rem;
+}
+/* Recompile badge, pinned to the ring at 45° */
+.wu-gr-sync {
+  position: absolute;
+  top: 8%; right: 8%;
+  width: 2.25rem; height: 2.25rem;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--brand);
+}
+
+/* The dashed feed lines, desktop only — below that the columns stack
+   and a horizontal line would point at nothing. */
+.wu-gr-lines { display: none; }
+@media (min-width: 1140px) {
+  .wu-gr-lines {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+  .wu-gr { position: relative; }
+}
+
+/* Closing line — a typographic statement, not a black bar. */
+.wu-gr-foot {
+  margin: 2.75rem auto 0;
+  max-width: 44rem;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--mute);
+}
+.wu-gr-foot strong { color: var(--ink); font-weight: 700; }
+@media (min-width: 768px) { .wu-gr-foot { font-size: 1.1875rem; } }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   2 · WHERE WHYUSER FITS
+   Two rails, the background bar with its five facts, and the digest
+   beside them. Rust marks the two stops where today's process guesses.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-fits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 1080px) {
+  .wu-fits { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 2.75rem; }
+}
+
+/* Today's rail spans the full measure; only the with-WhyUser rail is
+   paired with the digest. */
+.wu-fits-top { margin-top: 2.5rem; }
+.wu-fits-top .wu-rail-split { margin: 2rem 0 0; }
+.wu-fits { margin-top: 2.25rem; }
+
+/* ── LINE WEIGHT ───────────────────────────────────────────────────
+   The rails and the Ground Reality connectors were drawn in
+   --rule-strong (12% ink) and --rule-bold (24%), which is the right
+   weight for a divider between paragraphs but too faint for a line
+   that IS the diagram. These are structure, not separation, so they
+   step up to roughly a third ink and the dots get a real edge.
+   ────────────────────────────────────────────────────────────────── */
+.wu-rail-track::before { background: rgba(9, 9, 11, 0.34); height: 1.5px; }
+.wu-rail-dot { border-width: 2px; border-color: rgba(9, 9, 11, 0.42); }
+.wu-rail-split { background: rgba(9, 9, 11, 0.16); }
+.wu-gr-line { border-top-color: rgba(9, 9, 11, 0.36); }
+.wu-gr-ring { border-color: rgba(9, 9, 11, 0.26); }
+.wu-gr-ic-pending { border-color: rgba(9, 9, 11, 0.38); }
+.wu-conn-line { border-left-width: 1.5px; }
+.wu-branch-line { background: rgba(9, 9, 11, 0.38); }
+
+/* Rust replaces the blue flag on the two guessing stops. */
+.wu-rail-stop-flag .wu-rail-dot { background: var(--rust); border-color: var(--rust); }
+.wu-rail-stop-flag .wu-rail-label { color: var(--rust); }
+.wu-rail-note-bad { color: var(--rust); }
+
+/* Hairline between the two rails, as the deck draws it. */
+.wu-rail-split {
+  height: 1px;
+  background: var(--rule);
+  margin: 2rem 0 2.25rem;
+}
+
+/* The background bar, now carrying its five facts. */
+.wu-runbar { text-align: left; padding: 1.25rem 1.5rem; }
+.wu-runbar-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.125rem 1.5rem;
+  margin-top: 1.125rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid var(--frame-rule);
+}
+/* Columns size to their content rather than to five equal shares.
+   "Runs on change" is half again as long as "~30 min", so equal
+   columns made the longest one wrap while the shortest sat in white
+   space. auto + space-between gives each the width it needs. */
+@media (min-width: 720px) {
+  .wu-runbar-facts {
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-between;
+    gap: 0 1.25rem;
+  }
+}
+.wu-runfact { min-width: 0; }
+/* Five facts across a column that is only ~700px wide once the digest
+   takes its share. At 0.9375rem "Runs on change" wrapped and dragged
+   its sub-line out of alignment with the other four, so the type comes
+   down a step and the icon tucks closer. */
+.wu-runfact-h {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--frame-text);
+  line-height: 1.3;
+}
+.wu-runfact-h i { font-size: 12px; color: #9fc0a9; flex: none; }
+.wu-runfact-p { margin: 0.25rem 0 0; font-size: 0.75rem; line-height: 1.4; color: var(--frame-mute); }
+@media (min-width: 1080px) and (max-width: 1320px) {
+  .wu-runfact-h { font-size: 0.8125rem; }
+}
+
+/* Closing line for this section — typographic, no bar. */
+.wu-fits-foot {
+  margin: 2.5rem auto 0;
+  text-align: center;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+.wu-fits-foot span { color: var(--brand); }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   3 · HOW AUTOMATIC RUNS WORK
+   The deck's decision flow, as boxes. Drawn with grid and borders
+   rather than an SVG so it reflows and every label stays real text.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.wu-flow { margin-top: 2.5rem; }
+.wu-flow-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  align-items: stretch;
+}
+@media (min-width: 900px) {
+  .wu-flow-row {
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 0 0.75rem;
+    align-items: center;
+  }
+}
+.wu-box {
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 1.125rem 1.25rem;
+  text-align: center;
+  min-width: 0;
+}
+.wu-box-h {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.wu-box-p { margin: 0.375rem 0 0; font-size: 0.875rem; line-height: 1.45; color: var(--mute); }
+/* The one step that spends credits. */
+.wu-box-run {
+  background: var(--frame);
+  border-color: var(--frame);
+}
+.wu-box-run .wu-box-h { color: var(--frame-text); }
+.wu-box-run .wu-box-p { color: var(--frame-mute); }
+.wu-box-run .wu-box-p .tabular { font-variant-numeric: tabular-nums; color: #9fc0a9; font-weight: 600; }
+
+/* Connectors between boxes */
+.wu-arrowh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  color: var(--mute);
+  padding: 0.25rem 0;
+}
+.wu-arrowh i { font-size: 12px; }
+.wu-arrowh-k {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--signal-green);
+}
+@media (max-width: 899px) {
+  .wu-arrowh { transform: rotate(90deg); }
+}
+
+/* The NO branch, dropped below "page changed?" */
+.wu-flow-branch {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 0.875rem;
+}
+@media (min-width: 900px) {
+  .wu-flow-branch { grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: 0 0.75rem; }
+  /* sits under column 3, which is "page changed?" */
+  .wu-flow-branch > * { grid-column: 3; }
+}
+.wu-branch-stem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0 0.625rem;
+}
+.wu-branch-k {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.wu-branch-line {
+  position: relative;
+  width: 1px; height: 1.75rem;
+  background: var(--rule-bold);
+}
+.wu-branch-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: -3.5px;
+  width: 6px; height: 6px;
+  border-right: 1px solid var(--rule-bold);
+  border-bottom: 1px solid var(--rule-bold);
+  transform: rotate(45deg);
+}
+.wu-box-skip { border-style: dashed; background: transparent; }
+.wu-box-skip .wu-box-h { color: var(--mute); }
+
+/* Guardrail cards under the flow */
+.wu-guards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 620px) { .wu-guards { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .wu-guards { grid-template-columns: repeat(4, 1fr); } }
+.wu-guard {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.125rem 1.25rem;
+}
+.wu-guard-h {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.4375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+.wu-guard-h i { font-size: 13px; color: var(--signal-green); }
+.wu-guard-p { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--mute); }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   4 · CLOSING LINES WITHOUT THE BLACK BAR
+
+   .wu-kicker was a full-width dark slab. At three per page it started
+   to read as furniture rather than emphasis. The statement now carries
+   itself: centred, larger, with a short rule above it.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-kicker-plain {
+  position: relative;
+  margin: 3rem auto 0;
+  padding: 2rem 1rem 0;
+  max-width: 46rem;
+  background: none;
+  border-radius: 0;
+  color: var(--ink);
+  text-align: center;
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+}
+@media (min-width: 768px) { .wu-kicker-plain { font-size: 1.625rem; } }
+.wu-kicker-plain::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem; height: 2px;
+  background: var(--brand);
+  border-radius: 1px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   5 · THE SOLUTION VISUAL, TIDIED
+
+   The committee block was a flat panel of dots. Three changes: the
+   roles sit on their own hairline-separated columns so the five reads
+   as five, the mood legend gains its counts, and the whole frame gets
+   a soft inner glow so it reads as the centre of the flow rather than
+   a box parked between two lists.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-sol-core {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -24px rgba(9, 9, 11, 0.45);
+}
+.wu-sol-core::after {
+  content: '';
+  position: absolute;
+  top: -40%; left: 50%;
+  width: 120%; height: 90%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(159, 192, 169, 0.16), transparent 70%);
+  pointer-events: none;
+}
+.wu-sol-roles { position: relative; }
+.wu-sol-role + .wu-sol-role { border-left: 1px solid var(--frame-rule); }
+.wu-sol-role { padding: 0 0.25rem; }
+.wu-sol-dots { gap: 6px; }
+.wu-sol-dot { box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.18); }
+.wu-sol-role-n { font-size: 10px; letter-spacing: 0.01em; }
+
+/* The two flanking lists get a number, so the eye has somewhere to
+   land before it reads six labels. */
+.wu-sol-count {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   6 · COMPARISON TABLE + EVIDENCE LEDGER, SIDE BY SIDE
+
+   The ledger used to sit under the table, which made the section tall
+   and separated the claim from its evidence by a full scroll. They now
+   run adjacent: the table argues, the ledger shows a real record of
+   the argument being kept.
+
+   Two columns only above 1200px. Below that the table's three inner
+   columns get too narrow to read and the pair stacks instead.
+   ═══════════════════════════════════════════════════════════════════ */
+.wu-cmp-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+@media (min-width: 1200px) {
+  .wu-cmp-layout { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 3rem; }
+}
+.wu-cmp-aside { min-width: 0; }
+.wu-cmp-aside .product-frame { width: 100%; }
+.wu-cmp-aside .tech2-cap { margin-top: 1rem; text-align: center; }
+
+.wu-cmp-layout .wu-vs { margin-top: 0; }
+@media (min-width: 760px) {
+  .wu-vs-row { grid-template-columns: 8.5rem 1fr 1fr; padding: 1.125rem 0; }
+  .wu-vs-head { grid-template-columns: 8.5rem 1fr 1fr; }
+}
+/* In the two-column layout the table is narrower, so the label column
+   and the cell type come down a step to keep three columns readable. */
+@media (min-width: 1200px) {
+  .wu-cmp-layout .wu-vs-row,
+  .wu-cmp-layout .wu-vs-head { grid-template-columns: 7.25rem 1fr 1fr; gap: 1rem; }
+  .wu-cmp-layout .wu-vs-k { font-size: 1rem; }
+  .wu-cmp-layout .wu-vs-cell { font-size: 0.875rem; }
+}
+.wu-vs-row:last-of-type { border-bottom: 2px solid var(--ink); }
+.wu-vs-k { font-size: 1.125rem; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   FIX · ROI CALCULATOR OVERFLOWED ON PHONES
+
+   Pre-existing, and the worst page to have it on: the ROI calculator
+   is what gets forwarded to a CFO. `.calc .grid` is a hard
+   `repeat(3, 1fr)` with no narrow breakpoint, and `1fr` resolves to
+   `minmax(auto, 1fr)` — so the number inputs' intrinsic minimum width
+   propped the grid open to 395px inside a 350px column and the page
+   scrolled sideways by 25px.
+
+   Two changes: the tracks may shrink below their content, and below
+   560px the fields stack. Selectors carry two classes so they beat the
+   page's own single-class `.grid` rule whatever the source order.
+   ═══════════════════════════════════════════════════════════════════ */
+.calc .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.calc .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.calc .fld, .calc .grid > * { min-width: 0; }
+.calc input, .calc select { max-width: 100%; min-width: 0; }
+@media (max-width: 560px) {
+  .calc .grid,
+  .calc .grid.two { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* The remaining 25px came from the field tooltips, confirmed by
+   bisect: hiding `.tip::after` alone took the page to 0. The bubble is
+   absolutely positioned at `left: -8px` with `max-width: 250px`, so a
+   tooltip on a field near the right edge extended past the viewport
+   and widened the document.
+
+   Absolute positioning means it cannot be fixed by making ancestors
+   shrink; the bubble itself has to be told how much room it has. Below
+   640px it anchors to the left edge of its field and takes its width
+   from the viewport, so it can never reach past the right edge. The
+   tooltip still opens and still reads — it just cannot push the page.
+
+   The breakpoint is 1000px, not 640: at 768 the calculator is still
+   narrow enough that a right-edge tooltip overran by 78px. */
+@media (max-width: 1000px) {
+  .calc .tip::after,
+  .calc .tip.r::after {
+    left: auto;
+    right: 0;
+    max-width: min(250px, calc(100vw - 3rem));
+    white-space: normal;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════════════════════════════════ */
+@media print {
+  .wu-box-run, .wu-runbar, .wu-gr-orb {
+    background: #fff; color: #000; border: 1px solid #000;
+  }
+  .wu-box-run .wu-box-h, .wu-box-run .wu-box-p,
+  .wu-gr-orb-t, .wu-gr-orb-s, .wu-runfact-h, .wu-runfact-p { color: #000; }
+}

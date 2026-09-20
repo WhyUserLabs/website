@@ -97,6 +97,18 @@ img { max-width: 100%; }
   transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
   white-space: nowrap;
 }
+/* `nowrap` keeps ordinary button labels on one line, which is right. But
+   six pages carry the CTA "Request access, run it on your next campaign",
+   which measures 415px and cannot break, so on a 390px phone it pushed
+   the document 12px wider than the screen and those pages scrolled
+   sideways. Below 480px a label is allowed to wrap onto a second line. */
+@media (max-width: 30rem) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+  }
+}
 .btn-primary { background: var(--ink); color: #fff; }
 .btn-primary:hover { background: #000; transform: translateY(-1px); }
 .btn-ghost { background: var(--surface); border-color: var(--rule-strong); color: var(--ink); }

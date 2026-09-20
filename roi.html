@@ -49,7 +49,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script async src="https://tally.so/widgets/embed.js"></script>
 
@@ -125,7 +125,7 @@
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
         body {
-            font-family: 'Geist', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--paper);
             color: var(--ink);
             font-size: 16px;
@@ -144,13 +144,13 @@
            No italic-keyword pattern in every H2.
            ───────────────────────────────────────────────────────────── */
         .display {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             letter-spacing: -0.04em;
             line-height: 1.0;
         }
         .h1 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             /* Was 0.98. At three or four lines that put descenders ~6px from
@@ -160,7 +160,7 @@
             text-wrap: balance;
         }
         .h2 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.875rem, 3.6vw, 2.875rem);
             line-height: 1.05;
@@ -168,7 +168,7 @@
             text-wrap: balance;
         }
         .h3 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.25rem, 2vw, 1.625rem);
             line-height: 1.15;
@@ -186,11 +186,11 @@
 
         /* Mono signature treatment — used everywhere for technical labels */
         .mono {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-feature-settings: "ss01", "ss02";
         }
         .mono-eyebrow {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -198,7 +198,7 @@
             color: var(--mute);
         }
         .mono-label {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.16em;
@@ -206,7 +206,7 @@
             color: var(--dim);
         }
         .mono-tab {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -261,7 +261,7 @@
             background: var(--ink);
             color: rgba(255,255,255,0.78);
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -369,7 +369,7 @@
         .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
         .nav-dd-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.4rem 0.625rem 0.5rem;
@@ -434,7 +434,7 @@
         .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
         .nav-m-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.25rem 0 0.6rem;
@@ -543,7 +543,7 @@
             background: var(--surface);
             border: 1px solid var(--rule-strong);
             border-radius: 999px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -590,7 +590,7 @@
             gap: 0.875rem;
         }
         .trust-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -631,7 +631,7 @@
             background: var(--rule-strong);
         }
         .trust-aux {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -666,7 +666,7 @@
         }
         .frame-bar-left {
             display: flex; align-items: center; gap: 0.875rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -709,7 +709,7 @@
 
         .frame-h {
             color: var(--frame-text);
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -793,7 +793,7 @@
         .frame-metric:first-child { padding-left: 0; }
         .frame-metric:last-child { border-right: none; padding-right: 0; }
         .metric-value {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 1.25rem;
             font-weight: 600;
             letter-spacing: -0.02em;
@@ -804,7 +804,7 @@
         .metric-value-veto { color: var(--signal-red-bright); }
         .metric-value-ok { color: var(--signal-green-bright); }
         .metric-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -820,7 +820,7 @@
             border: 1px solid var(--frame-rule-strong);
             border-radius: 8px;
             padding: 0.625rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             line-height: 1.4;
             color: var(--frame-text);
@@ -852,7 +852,7 @@
             }
         }
         .stat-prefix {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -869,7 +869,7 @@
             .stat-cell { padding-left: 1.5rem; }
         }
         .stat-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 1.625rem;
             font-weight: 600;
             letter-spacing: -0.02em;
@@ -879,7 +879,7 @@
             margin-bottom: 0.5rem;
         }
         .stat-cap {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -904,7 +904,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -982,7 +982,7 @@
             box-shadow: 0 1px 0 0 rgba(9,9,11,0.04), 0 12px 32px -16px rgba(9,9,11,0.12);
         }
         .pain-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1056,7 +1056,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1075,7 +1075,7 @@
             text-align: center;
         }
         .engine-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
             font-size: clamp(1.5rem, 2.2vw, 1.875rem);
             line-height: 1.1;
@@ -1104,7 +1104,7 @@
             background: var(--paper-warm);
             border: 1px solid var(--rule);
             border-radius: 6px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             color: var(--ink);
@@ -1120,7 +1120,7 @@
             border-radius: 0 8px 8px 0;
         }
         .engine-quote-text {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-style: normal;
             font-size: 0.9375rem;
             line-height: 1.6;
@@ -1150,7 +1150,7 @@
             font-weight: 400;
         }
         .engine-quote-cite {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -1182,7 +1182,7 @@
             gap: 0.875rem;
         }
         .engine-frame-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -1198,7 +1198,7 @@
             border: 1px solid rgba(16,185,129,0.28);
             border-radius: 4px;
             color: var(--signal-green-bright);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9px;
             font-weight: 600;
             letter-spacing: 0.1em;
@@ -1255,7 +1255,7 @@
             position: absolute;
             top: -8px;
             right: 6px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-weight: 700;
             font-size: 88px;
             line-height: 1;
@@ -1266,7 +1266,7 @@
             pointer-events: none;
         }
         .dyad-pain-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -1302,7 +1302,7 @@
             flex-direction: column;
         }
         .dyad-engine-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -1320,7 +1320,7 @@
             background: rgba(109, 40, 217, 0.5);
         }
         .dyad-engine-name {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.125rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -1350,7 +1350,7 @@
             background: var(--paper-warm);
             border: 1px solid var(--rule);
             border-radius: 5px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 500;
             color: var(--ink);
@@ -1451,7 +1451,7 @@
             .flow-stop-text { align-items: center; }
         }
         .flow-stop-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1547,7 +1547,7 @@
             padding: 3px 7px;
             background: rgba(196,181,253,0.14);
             color: #c4b5fd;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -1562,7 +1562,7 @@
             background: #c4b5fd;
         }
         .flow-card-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -1587,7 +1587,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 500;
             color: rgba(255,255,255,0.65);
@@ -1741,7 +1741,7 @@
             margin-bottom: 2px;
         }
         .hub-source-meta {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             color: var(--dim);
             line-height: 1.35;
@@ -1841,7 +1841,7 @@
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.22));
         }
         .hub-core-orb-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -1851,7 +1851,7 @@
             text-align: center;
         }
         .hub-core-orb-meta {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9px;
             font-weight: 500;
             letter-spacing: 0.16em;
@@ -1888,7 +1888,7 @@
             user-select: none;
         }
         .section-quote-text {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
             line-height: 1.55;
             color: var(--ink);
@@ -1901,7 +1901,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1939,7 +1939,7 @@
             box-shadow: 0 12px 28px -16px rgba(9,9,11,0.12);
         }
         .pattern-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1956,7 +1956,7 @@
             line-height: 1.2;
         }
         .pattern-meta {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 12px;
             color: var(--dim);
             margin-bottom: 1.25rem;
@@ -1981,13 +1981,13 @@
             background: var(--brand-soft);
             color: var(--brand);
             border-radius: 5px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: -0.005em;
         }
         .combo-plus {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             color: var(--faint);
             font-size: 14px;
         }
@@ -2020,7 +2020,7 @@
             justify-content: center;
         }
         .diff-side-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -2050,7 +2050,7 @@
         .diff-col-them { background: var(--surface); }
         .diff-col-us { background: var(--paper-warm); }
         .diff-col-h {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2092,7 +2092,7 @@
         }
         .compare-table th {
             padding: 1rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2210,7 +2210,7 @@
         }
         details.faq-item summary::-webkit-details-marker { display: none; }
         .faq-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -2256,7 +2256,7 @@
             .cta-card { padding: 4rem 3.5rem; }
         }
         .cta-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.04em;
@@ -2281,7 +2281,7 @@
             padding: 1.25rem 1.25rem;
         }
         .cta-pill-h {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2314,7 +2314,7 @@
             .footer-grid { grid-template-columns: 1.5fr repeat(4, 1fr); gap: 2.25rem; }
         }
         .footer h4 {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -2343,7 +2343,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -2401,8 +2401,8 @@
   --radius: 6px;
   --radius-lg: 10px;
   --serif: 'Instrument Serif', Georgia, serif;
-  --sans: 'Geist', system-ui, -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, monospace;
 }
 
 /* ============================================================ */
@@ -3610,7 +3610,7 @@ select.field-input {
 body {
   background: var(--paper) !important;
   color: var(--ink);
-  font-family: 'Geist', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-feature-settings: "ss01", "cv11", "kern";
 }
 /* Allow homepage nav/meta-strip to use full width */
@@ -3674,6 +3674,7 @@ body {
      which means the old switch disabled the LIGHT theme. -->
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
+  <link rel="stylesheet" href="assets/whyuser-r3.css">
 <style>
 /* roi.html leaves .calc-out transparent over a white .slide, unlike
    pricing.html, which loads whyuser-core.css and paints it as a dark

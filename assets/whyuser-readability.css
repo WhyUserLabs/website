@@ -395,7 +395,7 @@ body {
 }
 .section-quote-cite {
   display: block !important;
-  font-family: 'Geist', system-ui, sans-serif !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
   font-size: 0.875rem !important; font-weight: 500 !important;
   letter-spacing: 0 !important; text-transform: none !important;
   color: var(--mute) !important;

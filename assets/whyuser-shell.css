@@ -37,16 +37,16 @@
   --brand:#a78bfa; --brand-soft:rgba(167,139,250,.14);
   --signal-green:#10b981; --signal-green-bright:#34d399; --signal-red:#f87171;
   --signal-amber:#f59e0b; --signal-blue:#60a5fa; --quote-ink:#a8a8b3;
-  --sans:'Geist',system-ui,-apple-system,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --mono:'Geist Mono',ui-monospace,monospace;
 }
-h1,h2,h3,h4 { font-family:'Geist',system-ui,-apple-system,sans-serif; }
+h1,h2,h3,h4 { font-family:'Inter',system-ui,-apple-system,sans-serif; }
 .nav-mark img,.footer-brand-mark img,.footer-mark img { width:100%;height:100%;object-fit:contain;display:block; }
 
 * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 body {
-            font-family: 'Geist', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--paper);
             color: var(--ink);
             font-size: 16px;
@@ -58,7 +58,7 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 .h1 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(2.5rem, 5vw, 4.25rem);
             /* Was 0.98. At four lines that put descenders ~6px from the next
@@ -68,7 +68,7 @@ button { font-family: inherit; cursor: pointer; }
             text-wrap: balance;
         }
 .h2 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.875rem, 3.6vw, 2.875rem);
             line-height: 1.05;
@@ -76,7 +76,7 @@ button { font-family: inherit; cursor: pointer; }
             text-wrap: balance;
         }
 .h3 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.25rem, 2vw, 1.625rem);
             line-height: 1.15;
@@ -85,7 +85,7 @@ button { font-family: inherit; cursor: pointer; }
         }
 .body { font-size: 0.9375rem; line-height: 1.6; color: var(--ink-soft); }
 .mono-label {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.16em;
@@ -184,7 +184,7 @@ button { font-family: inherit; cursor: pointer; }
 .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-dd-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.4rem 0.625rem 0.5rem;
@@ -248,7 +248,7 @@ button { font-family: inherit; cursor: pointer; }
 .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
 .nav-m-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.25rem 0 0.6rem;
@@ -336,7 +336,7 @@ button { font-family: inherit; cursor: pointer; }
             }
 }
 .trust-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -363,7 +363,7 @@ button { font-family: inherit; cursor: pointer; }
             background: var(--rule-strong);
         }
 .trust-aux {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -379,7 +379,7 @@ button { font-family: inherit; cursor: pointer; }
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -429,7 +429,7 @@ button { font-family: inherit; cursor: pointer; }
             color: var(--ink-soft); font-weight: 600;
         }
 .acc-value {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-variant-numeric: tabular-nums;
             font-size: 1.875rem;
             font-weight: 700;
@@ -472,7 +472,7 @@ button { font-family: inherit; cursor: pointer; }
   .cta-card { padding: 4rem 3.5rem; }
 }
 .cta-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.04em;
@@ -497,7 +497,7 @@ button { font-family: inherit; cursor: pointer; }
             padding: 1.25rem 1.25rem;
         }
 .cta-pill-h {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -526,7 +526,7 @@ button { font-family: inherit; cursor: pointer; }
   .footer-grid { grid-template-columns: 1.4fr repeat(3, 1fr); gap: 3rem; }
 }
 .footer h4 {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -555,7 +555,7 @@ button { font-family: inherit; cursor: pointer; }
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.14em;

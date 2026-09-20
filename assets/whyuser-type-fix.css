@@ -298,7 +298,7 @@
    ═══════════════════════════════════════════════════════════════════ */
 .wu-figure { max-width: 74rem; }
 .wu-figure-tag {
-  display: inline-block; font-family: 'JetBrains Mono', ui-monospace, monospace;
+  display: inline-block; font-family: 'Geist Mono', ui-monospace, monospace;
   font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
   color: var(--brand); margin-bottom: .6rem;
 }
@@ -314,6 +314,6 @@
 }
 .wu-figure-fig img { display: block; width: 100%; height: auto; border-radius: 7px; }
 .wu-figure-fig figcaption {
-  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px;
+  font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px;
   letter-spacing: .04em; color: var(--dim); padding: .75rem .25rem 0; line-height: 1.5;
 }

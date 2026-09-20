@@ -26,7 +26,7 @@
     <meta name="author" content="WhyUser Inc.">
 
     <title>WhyUser | Test B2B pages and campaigns before you launch</title>
-    <meta name="description" content="Test a B2B landing page, ad or email before you launch it. Up to 300 simulated buyer agents, up to 60 per role, scored as a chain of handoffs rather than an average. Get what is working, what is broken and what to fix in about 30 minutes from a URL. Every finding traces back to its source evidence.">
+    <meta name="description" content="Test a B2B landing page, ad or email before you launch it. A page test fields 50 simulated buyer agents and an ad or email test fields up to 300, up to 60 per role, scored as a chain of handoffs rather than an average. Get what is working, what is broken and what to fix in about 30 minutes from a URL. Every finding traces back to its source evidence.">
     <meta name="keywords" content="B2B campaign testing, pre-launch test, End-Customer Buying Committee simulation, pre-flight campaign testing, demand gen staging, GTM staging environment, ad and landing page testing">
     <link rel="canonical" href="https://whyuser.com/">
 
@@ -47,7 +47,7 @@
     <meta name="twitter:image:alt" content="WhyUser, Pre-Launch Test">
 
     <meta property="article:published_time" content="2025-09-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-19T00:00:00+00:00">
     <!-- AI crawler access is declared in /robots.txt. GPTBot, ClaudeBot, PerplexityBot and Google-Extended are robots.txt user-agent tokens, not meta names. -->
 
     <link rel="icon" href="favicon.ico?v=2" sizes="any">
@@ -57,7 +57,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script async src="https://tally.so/widgets/embed.js"></script>
 
@@ -233,7 +233,8 @@
         "cssSelector": [
           ".h1",
           ".hero-sub",
-          ".wu-out-p"
+          ".def-text",
+          ".wu-answer"
         ]
       },
       "significantLink": [
@@ -242,7 +243,14 @@
         "https://whyuser.com/compare.html",
         "https://whyuser.com/how-to-evaluate.html",
         "https://whyuser.com/faq.html",
-        "https://whyuser.com/pricing.html"
+        "https://whyuser.com/pricing.html",
+        "https://whyuser.com/#problem",
+        "https://whyuser.com/#rehearse",
+        "https://whyuser.com/#automatic",
+        "https://whyuser.com/#faq",
+        "https://whyuser.com/one-page-two-answers.html",
+        "https://whyuser.com/#build",
+        "https://whyuser.com/#teams"
       ],
       "relatedLink": [
         "https://whyuser.com/faq.html"
@@ -261,7 +269,7 @@
         {
           "@type": "Thing",
           "name": "Ground Reality",
-          "description": "WhyUser's evidence layer. Six sources compile into each buyer agent: company context, customer voice, market intelligence, AI awareness, institutional knowledge and past A/B outcomes. Every finding traces back to one of them."
+          "description": "WhyUser's evidence layer. Six sources compile into each buyer agent: company context, market intelligence, AI awareness, customer voice, institutional knowledge and expert knowledge. Every finding traces back to one of them."
         }
       ]
     },
@@ -282,7 +290,7 @@
           "@type": "HowToStep",
           "position": 2,
           "name": "Buyer agents are built from your buyers' words",
-          "text": "Six evidence sources compile into each agent: your site and go-to-market context, customer voice from calls and CRM, market intelligence, AI awareness, institutional knowledge and past A/B outcomes."
+          "text": "Six evidence sources compile into each agent: your site and go-to-market context, market intelligence, AI awareness, customer voice from calls and CRM, institutional knowledge, and expert knowledge from experiment findings and your team's corrections."
         },
         {
           "@type": "HowToStep",
@@ -356,6 +364,65 @@
       "isPartOf": {
         "@id": "https://whyuser.com/#webpage"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://whyuser.com/#faq",
+      "url": "https://whyuser.com/#faq",
+      "name": "WhyUser — frequently asked questions",
+      "isPartOf": {
+        "@id": "https://whyuser.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many buyer agents read my page?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the run. A landing page or content page test fields 50 agents, ten per committee role. An ad or email campaign test fields 300, up to 60 per role. Every role runs in three states — ideal, skeptical and distracted — weighted to your real traffic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can WhyUser run automatically when a page changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. WhyUser checks your staging URLs on a daily schedule and runs the committee only when the decision content on a page has actually changed. Cosmetic edits such as dates, counters or prices in the copy do not trigger a run. Findings arrive as a Slack digest, and a page run costs 20 credits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to write the personas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. WhyUser compiles them from evidence you already have. On the public side: your site, review sites, community threads and competitor complaints. On your side, when you connect it: call recordings, CRM objections, win/loss notes, and the experiment findings and corrections your own team makes. Where two sources disagree, a real buyer's words beat the model's guess."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it work on a staging URL that is not public?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, provided WhyUser can reach it. Allowlist the crawler or share a password-protected link. If staging is unreachable when a scheduled run fires you get an alert rather than a silent failure, and nothing is charged."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from an A/B test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An A/B test tells you which variant won after you have already paid for the traffic, and it cannot tell you why. WhyUser runs before launch, names the role that stalled and the proof they were missing, and returns a ranked fix list in about 30 minutes. The two are complementary: test before you spend, then measure what you shipped."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which teams actually use the report?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One run produces one block of buyer evidence that four functions work from. Product marketing takes the objections into case studies and comparison pages. Content tests blogs and whitepapers before publishing. Web and CRO work the ranked fix list. Demand gen checks that the ad and the landing page still promise the same thing."
+          }
+        }
+      ]
     }
   ]
 }
@@ -425,7 +492,7 @@
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
         body {
-            font-family: 'Geist', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--paper);
             color: var(--ink);
             font-size: 16px;
@@ -444,13 +511,13 @@
            No italic-keyword pattern in every H2.
            ───────────────────────────────────────────────────────────── */
         .display {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             letter-spacing: -0.04em;
             line-height: 1.0;
         }
         .h1 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(2.5rem, 5vw, 4.25rem);
             /* Was 0.98. At four lines that put descenders ~6px from the next
@@ -460,7 +527,7 @@
             text-wrap: balance;
         }
         .h2 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.875rem, 3.6vw, 2.875rem);
             line-height: 1.05;
@@ -468,7 +535,7 @@
             text-wrap: balance;
         }
         .h3 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.25rem, 2vw, 1.625rem);
             line-height: 1.15;
@@ -486,11 +553,11 @@
 
         /* Mono signature treatment, used everywhere for technical labels */
         .mono {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-feature-settings: "ss01", "ss02";
         }
         .mono-eyebrow {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -498,7 +565,7 @@
             color: var(--mute);
         }
         .mono-label {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.16em;
@@ -506,7 +573,7 @@
             color: var(--dim);
         }
         .mono-tab {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -561,7 +628,7 @@
             background: var(--ink);
             color: rgba(255,255,255,0.78);
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -670,7 +737,7 @@
         .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
         .nav-dd-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.4rem 0.625rem 0.5rem;
@@ -735,7 +802,7 @@
         .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
         .nav-m-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.25rem 0 0.6rem;
@@ -831,7 +898,7 @@
            that a pill reads as a banner, and the H1 should own the top of the page. */
         .hero-eyebrow {
             display: block;
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -886,10 +953,15 @@
         .trust-strip {
             /* Sits below the accuracy strip. Bracketed by two short marks,
                drawn as pseudo-elements so no extra markup is needed. They
-               are absolutely positioned, so they never join the flex row. */
+               are absolutely positioned, so they never join the flex row.
+
+               Tightened in the slide pass: the brief is that the accuracy
+               numbers AND the logos both land above the fold, and this strip
+               plus the accuracy strip above it were together about 90px too
+               tall to manage that on a 900px viewport. */
             position: relative;
-            margin-top: 2rem;
-            padding: 1.75rem 0;
+            margin-top: 1.125rem;
+            padding: 1.125rem 0;
             display: flex;
             flex-direction: column;
             /* Centered on the page: the label and the logos sit on the
@@ -923,7 +995,7 @@
         }
         .trust-label {
             margin: 0;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.24em;
@@ -951,7 +1023,7 @@
             background: var(--rule-strong);
         }
         .trust-aux {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -986,7 +1058,7 @@
         }
         .frame-bar-left {
             display: flex; align-items: center; gap: 0.875rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -1029,7 +1101,7 @@
 
         .frame-h {
             color: var(--frame-text);
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -1113,7 +1185,7 @@
         .frame-metric:first-child { padding-left: 0; }
         .frame-metric:last-child { border-right: none; padding-right: 0; }
         .metric-value {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 1.25rem;
             font-weight: 600;
             letter-spacing: -0.02em;
@@ -1124,7 +1196,7 @@
         .metric-value-veto { color: var(--signal-red-bright); }
         .metric-value-ok { color: var(--signal-green-bright); }
         .metric-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -1140,7 +1212,7 @@
             border: 1px solid var(--frame-rule-strong);
             border-radius: 8px;
             padding: 0.625rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             line-height: 1.4;
             color: var(--frame-text);
@@ -1164,7 +1236,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -1262,7 +1334,7 @@
             flex-wrap: wrap;
             padding-bottom: 0.75rem;
             border-bottom: 1px solid var(--rule);
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1300,14 +1372,14 @@
            coloured so edges pass cleanly underneath the words. */
         .cf-bg   { fill: var(--paper); }
         .cf-name {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 20px; font-weight: 600;
             letter-spacing: -0.018em;
             fill: var(--ink);
         }
         .cf-name-end { fill: var(--brand); }
         .cf-code {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 11.5px; font-weight: 600;
             letter-spacing: 0.16em;
             fill: var(--faint);
@@ -1338,7 +1410,7 @@
         /* Labels: pill on paper, so a label never fights an edge. */
         .cf-lab rect { fill: var(--paper); stroke-width: 1; }
         .cf-lab text {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 14px; font-weight: 500;
             letter-spacing: 0.01em;
             text-anchor: middle;
@@ -1388,7 +1460,7 @@
         .cflow-stat { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
         .cflow-stat + .cflow-stat { border-left: 1px solid var(--rule); padding-left: 0.875rem; }
         .cflow-stat-v {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 1.0625rem; font-weight: 600;
             letter-spacing: -0.02em;
             font-variant-numeric: tabular-nums;
@@ -1398,7 +1470,7 @@
         .cflow-stat-veto { color: var(--cf-neg); }
         .cflow-stat-ok   { color: var(--signal-green); }
         .cflow-stat-l {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 9px; font-weight: 500;
             letter-spacing: 0.15em; text-transform: uppercase;
             color: var(--dim);
@@ -1468,7 +1540,7 @@
             color: var(--ink-soft); font-weight: 600;
         }
         .acc-value {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-variant-numeric: tabular-nums;
             font-size: 1.875rem;
             font-weight: 700;
@@ -1518,7 +1590,7 @@
             box-shadow: 0 1px 0 0 rgba(9,9,11,0.04), 0 12px 32px -16px rgba(9,9,11,0.12);
         }
         .pain-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1592,7 +1664,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1611,7 +1683,7 @@
             text-align: center;
         }
         .engine-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
             font-size: clamp(1.5rem, 2.2vw, 1.875rem);
             line-height: 1.1;
@@ -1640,7 +1712,7 @@
             background: var(--paper-warm);
             border: 1px solid var(--rule);
             border-radius: 6px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             color: var(--ink);
@@ -1682,7 +1754,7 @@
             user-select: none;
         }
         .engine-quote-text {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-style: normal;
             font-size: 1rem;
             line-height: 1.55;
@@ -1697,7 +1769,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -1735,7 +1807,7 @@
             gap: 0.875rem;
         }
         .engine-frame-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -1751,7 +1823,7 @@
             border: 1px solid rgba(16,185,129,0.28);
             border-radius: 4px;
             color: var(--signal-green-bright);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9px;
             font-weight: 600;
             letter-spacing: 0.1em;
@@ -1850,7 +1922,7 @@
         .ps-idx {
             position: absolute;
             top: 1rem; right: 1.125rem;
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.14em;
@@ -1876,7 +1948,7 @@
             margin: 0.5rem 0 0.375rem;
         }
         .ps-item .ps-engine-name {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -1937,7 +2009,7 @@
             gap: 0.5rem;
         }
         .ps-pain-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1945,7 +2017,7 @@
             color: var(--signal-red);
         }
         .ps-pain-q {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.0625rem;
             line-height: 1.4;
             font-weight: 500;
@@ -1999,7 +2071,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -2015,7 +2087,7 @@
             background: var(--brand);
         }
         .ps-engine-name {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: clamp(1.375rem, 2.2vw, 1.75rem);
             font-weight: 600;
             color: var(--ink);
@@ -2058,7 +2130,7 @@
             gap: 0.5rem;
             align-self: flex-start;
             margin-top: 0.125rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.04em;
@@ -2180,7 +2252,7 @@
             .flow-stop-text { align-items: center; }
         }
         .flow-stop-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2276,7 +2348,7 @@
             padding: 3px 7px;
             background: rgba(196,181,253,0.14);
             color: #c4b5fd;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -2291,7 +2363,7 @@
             background: #c4b5fd;
         }
         .flow-card-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -2316,7 +2388,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 500;
             color: rgba(255,255,255,0.65);
@@ -2468,7 +2540,7 @@
             margin-bottom: 2px;
         }
         .hub-source-meta {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             color: var(--dim);
             line-height: 1.35;
@@ -2568,7 +2640,7 @@
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.22));
         }
         .hub-core-orb-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -2578,7 +2650,7 @@
             text-align: center;
         }
         .hub-core-orb-meta {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9px;
             font-weight: 500;
             letter-spacing: 0.16em;
@@ -2618,7 +2690,7 @@
             user-select: none;
         }
         .section-quote-text {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-style: normal;
             font-size: 1.18rem;
             line-height: 1.55;
@@ -2632,7 +2704,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2675,7 +2747,7 @@
             justify-content: center;
         }
         .diff-side-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -2705,7 +2777,7 @@
         .diff-col-them { background: var(--surface); }
         .diff-col-us { background: var(--paper-warm); }
         .diff-col-h {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2747,7 +2819,7 @@
         }
         .compare-table th {
             padding: 1rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2865,7 +2937,7 @@
         }
         details.faq-item summary::-webkit-details-marker { display: none; }
         .faq-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -2912,7 +2984,7 @@
             .cta-card { padding: 3.5rem 0 0; }
         }
         .cta-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.04em;
@@ -2937,7 +3009,7 @@
             padding: 1.25rem 1.25rem;
         }
         .cta-pill-h {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2970,7 +3042,7 @@
             .footer-grid { grid-template-columns: 1.5fr repeat(4, 1fr); gap: 2.25rem; }
         }
         .footer h4 {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -2999,7 +3071,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -3024,11 +3096,11 @@
         .solfix-card:hover { border-color: var(--rule-strong); transform: translateY(-2px); box-shadow: 0 1px 0 0 rgba(9,9,11,0.04), 0 14px 34px -18px rgba(9,9,11,0.16); }
         .solfix-head { display: flex; align-items: center; justify-content: space-between; }
         .solfix-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--paper-warm); display: flex; align-items: center; justify-content: center; color: var(--brand); font-size: 15px; }
-        .solfix-pain { font-family: 'Geist', sans-serif; font-size: 0.95rem; line-height: 1.45; color: var(--signal-red); font-weight: 500; letter-spacing: -0.01em; margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
-        .solfix-name { font-family: 'Geist', sans-serif; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); margin: 0 0 0.4rem; }
+        .solfix-pain { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.45; color: var(--signal-red); font-weight: 500; letter-spacing: -0.01em; margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+        .solfix-name { font-family: 'Inter', sans-serif; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); margin: 0 0 0.4rem; }
         .solfix-desc { font-size: 0.9375rem; line-height: 1.55; color: var(--mute); margin: 0; }
         .solfix-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-        .solfix-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--ink); }
+        .solfix-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 6px; font-family: 'Geist Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--ink); }
         .solfix-chip i { font-size: 9.5px; color: var(--brand); }
         .solfix-arrow { color: var(--faint); font-size: 12px; transition: transform 200ms ease, color 200ms ease; }
         .solfix-card:hover .solfix-arrow { color: var(--brand); transform: translateX(3px); }
@@ -3077,6 +3149,8 @@
 <link rel="stylesheet" href="assets/dark-theme.css">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
+  <link rel="stylesheet" href="assets/whyuser-slides.css">
+  <link rel="stylesheet" href="assets/whyuser-r3.css">
 
 <style>
 /* ── micro-row under the spec strip ─────────────────────────────── */
@@ -3104,7 +3178,7 @@
   border-radius:0;padding:1.75rem 0 0;
   display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center}
 @media(min-width:820px){.wu-selfrun{grid-template-columns:1fr auto;padding:1.9rem 0 0}}
-.wu-selfrun-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;
+.wu-selfrun-tag{display:inline-block;font-family:'Geist Mono',monospace;font-size:11px;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:.6rem}
 .wu-selfrun-p{margin:0;color:var(--ink-soft);font-size:1rem;line-height:1.6;max-width:44rem}
 .wu-selfrun-p strong{color:var(--ink)}
@@ -3126,7 +3200,7 @@
 .wu-persona{position:relative;z-index:3;isolation:isolate;margin-top:3.5rem;padding-top:2.5rem;
   border-top:1px solid var(--rule);background:var(--paper)}
 .wu-persona-head{max-width:46rem;margin-bottom:1.75rem}
-.wu-persona-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;
+.wu-persona-tag{display:inline-block;font-family:'Geist Mono',monospace;font-size:11px;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:.6rem}
 .wu-persona-h{font-size:clamp(1.375rem,2.4vw,1.75rem);font-weight:600;letter-spacing:-.025em;
   line-height:1.15;margin:0 0 .6rem;color:var(--ink)}
@@ -3137,7 +3211,7 @@
 .wu-persona-fig img{display:block;width:100%;height:auto}
 .wu-persona-fig figcaption{margin-top:.75rem;text-align:center}
 .wu-persona-fig img{display:block;width:100%;height:auto;border-radius:7px}
-.wu-persona-fig figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;
+.wu-persona-fig figcaption{font-family:'Geist Mono',monospace;font-size:11px;
   letter-spacing:.04em;color:var(--dim);padding:.75rem .25rem 0;line-height:1.5}
 
 /* The timeline card is position:absolute above the rail, with the rail
@@ -3175,7 +3249,13 @@
   color: var(--brand);
   font-weight: 600;
   text-decoration: none;
-  white-space: nowrap;
+  /* `nowrap` was here. The longest of these links measures 410px, which
+     cannot break, so on a 390px viewport it pushed the whole document
+     40px wider than the screen and the page scrolled sideways. Wrapping
+     is allowed again; an orphaned arrow is cosmetic, sideways scroll on
+     a phone is not. */
+  white-space: normal;
+  overflow-wrap: break-word;
   border-bottom: 1px solid color-mix(in srgb, var(--brand) 45%, transparent);
   padding-bottom: 1px;
   transition: border-color .18s ease, color .18s ease;
@@ -3782,7 +3862,23 @@
                     </a>
                 </div>
             </div>
-            <!-- TRUST LOGOS, now below the accuracy strip and below the fold -->
+        </div>
+    </header>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         TRUST LOGOS
+
+         Moved OUT of the hero. Keeping it inside and pushing it down with
+         a margin could not work: the gap needed to clear the fold depends
+         on the viewport height, and a gap big enough for a 1330px screen
+         left a 500px void on a 900px one.
+
+         The hero is now given a min-height of one screen, so this band
+         starts exactly where the first screen ends — below the fold at any
+         height, with no invented whitespace.
+         ═════════════════════════════════════════════════════════════════ -->
+    <section class="trust-band">
+        <div class="wrap">
             <div class="trust-strip">
                 <h2 class="trust-label">Trusted By</h2>
                 <div class="trust-logos">
@@ -3794,7 +3890,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- ═════════════════════════════════════════════════════════════════
          DEFINITION STRIP, quiet AEO featured-snippet block
@@ -3805,9 +3901,318 @@
             <div class="def-grid">
                 <span class="mono-eyebrow">What WhyUser is</span>
                 <p class="def-text">
-                    WhyUser tests a B2B landing page, ad or email before you launch it. 50 to 300 agents, built from your buyers&rsquo; own words and each citing its source, report what&rsquo;s working, what&rsquo;s broken and what to fix.
+                    WhyUser tests a B2B landing page, ad or email before you launch it. A page or content run fields 50 agents and an ad or email run fields 300, up to 60 per role. Each agent is built from your buyers&rsquo; own words and cites its source, and together they report what&rsquo;s working, what&rsquo;s broken and what to fix in about 30 minutes.
                 </p>
             </div>
+        </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         THE PROBLEM  (#problem)
+
+         Recut from the sales deck, slide 1. This is the wedge, and it
+         used to sit at section 5 under the eyebrow "What you can test",
+         tangled up with the product menu. A cold reader never reached
+         it. It now runs second, directly after the definition.
+
+         Every count and label here is real text in a real element, not
+         an exported image, so the numbers stay crawlable and quotable.
+         The three dot/scale diagrams are aria-hidden and each carries
+         an .sr-only sentence that states the same thing in words.
+         ═════════════════════════════════════════════════════════════════ -->
+    <section id="problem" class="section-rule">
+        <div class="wrap">
+            <div class="wu-band">
+
+                <div class="section-head" style="max-width: 46rem">
+                    <span class="section-eyebrow">The problem</span>
+                    <h2 class="h2">Every team rehearses.<br><span style="color:#c4b5fd">Except marketing.</span></h2>
+                    <p class="wu-answer">Engineering ships to staging first and operations runs a dry run. Marketing goes straight to <strong style="color:#c4b5fd;font-weight:600">opening night</strong>, then buys traffic to find out whether the message landed.</p>
+                </div>
+
+                <div class="wu-prob-grid">
+
+                    <!-- 01 · no staging -->
+                    <div class="wu-prob-card">
+                        <span class="wu-prob-k">01 &middot; No staging</span>
+                        <div class="wu-prob-fig">
+                            <div aria-hidden="true">
+                                <div class="wu-stage-row">
+                                    <span class="wu-stage-team">Engineering</span>
+                                    <span class="wu-stage-chip">Staging <i class="fa-solid fa-check"></i></span>
+                                </div>
+                                <div class="wu-stage-row">
+                                    <span class="wu-stage-team">Operations</span>
+                                    <span class="wu-stage-chip">Dry run <i class="fa-solid fa-check"></i></span>
+                                </div>
+                                <div class="wu-stage-row wu-stage-row-bad">
+                                    <span class="wu-stage-team">Marketing</span>
+                                    <span class="wu-stage-chip wu-stage-chip-bad">Opening night <i class="fa-solid fa-xmark"></i></span>
+                                </div>
+                            </div>
+                            <p class="sr-only">Engineering tests on staging. Operations runs a dry run. Marketing has neither, and goes live cold.</p>
+                        </div>
+                        <p class="wu-prob-claim">Launch first. Learn after the spend.</p>
+                    </div>
+
+                    <!-- 02 · ideal reviewers -->
+                    <div class="wu-prob-card">
+                        <span class="wu-prob-k">02 &middot; Ideal reviewers</span>
+                        <div class="wu-prob-fig">
+                            <div aria-hidden="true">
+                                <div class="wu-scale-legend">
+                                    <span class="wu-scale-key wu-scale-key-team">Your team</span>
+                                    <span class="wu-scale-key wu-scale-key-buyer">Your buyers</span>
+                                </div>
+                                <div class="wu-scale-row">
+                                    <span class="wu-scale-label">Familiarity</span>
+                                    <span class="wu-scale-track">
+                                        <span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot wu-scale-dot-team"></span>
+                                    </span>
+                                </div>
+                                <div class="wu-scale-row">
+                                    <span class="wu-scale-label">Motivation</span>
+                                    <span class="wu-scale-track">
+                                        <span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot wu-scale-dot-team"></span>
+                                    </span>
+                                </div>
+                                <div class="wu-scale-row">
+                                    <span class="wu-scale-label">Skill</span>
+                                    <span class="wu-scale-track">
+                                        <span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot"></span><span class="wu-scale-dot wu-scale-dot-team"></span>
+                                    </span>
+                                </div>
+                                <div class="wu-scale-row">
+                                    <span class="wu-scale-label"></span>
+                                    <span class="wu-scale-ends"><span>low</span><span>high</span></span>
+                                </div>
+                            </div>
+                            <p class="sr-only">On familiarity, motivation and skill, your own reviewers sit at the top of every scale. Your real buyers are spread across the rest of it.</p>
+                        </div>
+                        <p class="wu-prob-claim">Your team is the ideal buyer. Your buyers are skeptical or distracted.</p>
+                    </div>
+
+                    <!-- 03 · perfect AI reader -->
+                    <div class="wu-prob-card">
+                        <span class="wu-prob-k">03 &middot; Perfect AI reader</span>
+                        <div class="wu-prob-fig">
+                            <div class="wu-read-pair" aria-hidden="true">
+                                <div class="wu-read-col">
+                                    <p class="wu-read-h">Claude / ChatGPT</p>
+                                    <div class="wu-read-lines">
+                                        <span class="wu-read-line" style="width:62%"></span>
+                                        <span class="wu-read-line" style="width:100%"></span>
+                                        <span class="wu-read-line" style="width:88%"></span>
+                                        <span class="wu-read-line" style="width:96%"></span>
+                                        <span class="wu-read-line" style="width:78%"></span>
+                                        <span class="wu-read-line" style="width:91%"></span>
+                                    </div>
+                                </div>
+                                <div class="wu-read-col">
+                                    <p class="wu-read-h">Your buyer</p>
+                                    <div class="wu-read-lines">
+                                        <span class="wu-read-line" style="width:62%"></span>
+                                        <span class="wu-read-line wu-read-line-skip" style="width:100%"></span>
+                                        <span class="wu-read-line" style="width:54%"></span>
+                                        <span class="wu-read-line wu-read-line-skip" style="width:88%"></span>
+                                        <span class="wu-read-line wu-read-line-skip" style="width:70%"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="sr-only">An AI assistant reads every line of the page in order. One of your buyers reads the headline, skips to hunt for one thing, and leaves part way down.</p>
+                        </div>
+                        <p class="wu-prob-claim">AI reads every word. Your buyers scan, hunt, bounce.</p>
+                    </div>
+
+                </div>
+
+                <p class="wu-answer" style="max-width: 52rem; margin-top: 2.5rem; font-size: 1.0625rem">
+                    <strong style="color: var(--frame-text); font-weight: 600">The result:</strong> wasted budget, and weeks before anyone can say which part of the message missed.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         THE SOLUTION  (#rehearse)
+
+         Slide 2. Three columns: what you put in, the committee that
+         reads it, what comes back. The centre block is five roles
+         deep-stacked two-wide, and the three fills are the three
+         moods, so the diagram legends itself.
+
+         The agent count here is the umbrella figure. It is engine
+         dependent and pricing.html is authoritative: a landing or
+         content page run fields 50, an ad or email run fields 300. The
+         line under the core block says so, so this page and the
+         product pages cannot be read as contradicting each other.
+         ═════════════════════════════════════════════════════════════════ -->
+    <section id="rehearse" class="section-rule">
+        <div class="wrap">
+
+            <div class="section-head" style="max-width: 52rem">
+                <span class="section-eyebrow">The solution</span>
+                <h2 class="h2">Rehearse every launch before you spend.</h2>
+                <p class="wu-answer">Give WhyUser a URL, a PDF or your copy. A buying committee built from your own buyers' words reads it, and you get what is working, what is broken and what to fix in about 30 minutes.</p>
+            </div>
+
+            <div class="wu-sol-flow">
+
+                <!-- IN -->
+                <div>
+                    <span class="wu-collabel">Your launch</span>
+                    <ul class="wu-sol-list">
+                        <li class="wu-sol-item"><i class="fa-solid fa-table-columns"></i>Pages</li>
+                        <li class="wu-sol-item"><i class="fa-solid fa-file-lines"></i>Whitepapers</li>
+                        <li class="wu-sol-item"><i class="fa-solid fa-briefcase"></i>Case studies</li>
+                        <li class="wu-sol-item"><i class="fa-solid fa-pen-nib"></i>Blog posts</li>
+                        <li class="wu-sol-item"><i class="fa-solid fa-bullseye"></i>Ads</li>
+                        <li class="wu-sol-item"><i class="fa-solid fa-envelope"></i>Emails</li>
+                    </ul>
+                    <span class="wu-sol-count">Any URL, PDF or pasted copy</span>
+                </div>
+
+                <i class="wu-arrow fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+                <!-- THE COMMITTEE -->
+                <div>
+                    <div class="wu-sol-core">
+                        <span class="wu-sol-core-k">Buyers grounded in your data</span>
+                        <div class="wu-sol-roles" aria-hidden="true">
+                            <div class="wu-sol-role">
+                                <div class="wu-sol-dots">
+                                    <span class="wu-sol-dot wu-sol-dot-ideal"></span><span class="wu-sol-dot"></span>
+                                    <span class="wu-sol-dot wu-sol-dot-skept"></span><span class="wu-sol-dot wu-sol-dot-ideal"></span>
+                                    <span class="wu-sol-dot"></span><span class="wu-sol-dot wu-sol-dot-skept"></span>
+                                </div>
+                                <span class="wu-sol-role-n">Champion</span>
+                            </div>
+                            <div class="wu-sol-role">
+                                <div class="wu-sol-dots">
+                                    <span class="wu-sol-dot wu-sol-dot-skept"></span><span class="wu-sol-dot wu-sol-dot-ideal"></span>
+                                    <span class="wu-sol-dot"></span><span class="wu-sol-dot wu-sol-dot-skept"></span>
+                                    <span class="wu-sol-dot wu-sol-dot-ideal"></span><span class="wu-sol-dot"></span>
+                                </div>
+                                <span class="wu-sol-role-n">End user</span>
+                            </div>
+                            <div class="wu-sol-role">
+                                <div class="wu-sol-dots">
+                                    <span class="wu-sol-dot"></span><span class="wu-sol-dot wu-sol-dot-skept"></span>
+                                    <span class="wu-sol-dot wu-sol-dot-ideal"></span><span class="wu-sol-dot"></span>
+                                    <span class="wu-sol-dot wu-sol-dot-skept"></span><span class="wu-sol-dot wu-sol-dot-ideal"></span>
+                                </div>
+                                <span class="wu-sol-role-n">Tech DM</span>
+                            </div>
+                            <div class="wu-sol-role">
+                                <div class="wu-sol-dots">
+                                    <span class="wu-sol-dot wu-sol-dot-ideal"></span><span class="wu-sol-dot"></span>
+                                    <span class="wu-sol-dot wu-sol-dot-skept"></span><span class="wu-sol-dot wu-sol-dot-ideal"></span>
+                                    <span class="wu-sol-dot"></span><span class="wu-sol-dot wu-sol-dot-skept"></span>
+                                </div>
+                                <span class="wu-sol-role-n">Exec buyer</span>
+                            </div>
+                            <div class="wu-sol-role">
+                                <div class="wu-sol-dots">
+                                    <span class="wu-sol-dot wu-sol-dot-skept"></span><span class="wu-sol-dot wu-sol-dot-ideal"></span>
+                                    <span class="wu-sol-dot"></span><span class="wu-sol-dot wu-sol-dot-skept"></span>
+                                    <span class="wu-sol-dot wu-sol-dot-ideal"></span><span class="wu-sol-dot"></span>
+                                </div>
+                                <span class="wu-sol-role-n">Security</span>
+                            </div>
+                        </div>
+                        <div class="wu-sol-legend" aria-hidden="true">
+                            <span class="wu-sol-key wu-sol-key-ideal">Ideal</span>
+                            <span class="wu-sol-key wu-sol-key-skept">Skeptical</span>
+                            <span class="wu-sol-key">Distracted</span>
+                        </div>
+                        <p class="sr-only">Five committee roles read your asset: champion, end user, technical decision maker, economic buyer and security guardian. Every role is run in three states, ideal, skeptical and distracted, weighted to your real traffic.</p>
+                    </div>
+                    <p style="margin: 1rem 0 0; font-size: 0.875rem; line-height: 1.55; color: var(--dim); text-align: center">
+                        A page or content run fields <strong style="color: var(--ink-soft); font-weight: 600" class="tabular">50</strong> agents. An ad or email run fields <strong style="color: var(--ink-soft); font-weight: 600" class="tabular">300</strong>, up to 60 per role. <a href="pricing.html#rates" style="color: var(--brand)">Every run size and rate</a>.
+                    </p>
+                </div>
+
+                <i class="wu-arrow fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+                <!-- OUT -->
+                <div>
+                    <span class="wu-collabel">What comes back</span>
+                    <div class="wu-sol-out">
+                        <div class="wu-sol-out-row wu-sol-out-ok"><i class="fa-solid fa-check"></i>What&rsquo;s working</div>
+                        <div class="wu-sol-out-row wu-sol-out-bad"><i class="fa-solid fa-xmark"></i>What&rsquo;s broken</div>
+                        <div class="wu-sol-out-row wu-sol-out-fix"><i class="fa-solid fa-arrow-right"></i>What to fix</div>
+                    </div>
+                    <div class="wu-sol-time"><i class="fa-regular fa-clock" aria-hidden="true"></i>In 30 minutes</div>
+                </div>
+
+            </div>
+
+            <!-- ONE PLATFORM
+                 Ground Reality leads, because it is the foundation the
+                 other four run on rather than a fifth product beside
+                 them. Each item carries one line saying what it takes in,
+                 so the strip reads as a menu instead of five names. -->
+            <span class="wu-collabel" style="margin-top: 3rem; margin-bottom: 0">One platform</span>
+            <div class="wu-sol-platform" style="margin-top: 0">
+                <a class="wu-sol-plat" href="#pipeline">
+                    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                    <span class="wu-sol-plat-t">
+                        <span class="wu-sol-plat-n">Ground Reality</span>
+                        <span class="wu-sol-plat-s">The foundation. Your buyers, compiled from evidence.</span>
+                    </span>
+                </a>
+                <a class="wu-sol-plat" href="committee-simulation.html">
+                    <i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i>
+                    <span class="wu-sol-plat-t">
+                        <span class="wu-sol-plat-n">Committee Simulations</span>
+                        <span class="wu-sol-plat-s">Pages, whitepapers, case studies, blog posts.</span>
+                    </span>
+                </a>
+                <a class="wu-sol-plat" href="ad-campaign-simulation.html">
+                    <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                    <span class="wu-sol-plat-t">
+                        <span class="wu-sol-plat-n">Ad Campaign Simulations</span>
+                        <span class="wu-sol-plat-s">The ad, and the page the click lands on.</span>
+                    </span>
+                </a>
+                <a class="wu-sol-plat" href="email-campaign-simulation.html">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <span class="wu-sol-plat-t">
+                        <span class="wu-sol-plat-n">Email Campaign Simulations</span>
+                        <span class="wu-sol-plat-s">Subject, body and CTA, scored per reader.</span>
+                    </span>
+                </a>
+                <a class="wu-sol-plat" href="audience-discovery.html">
+                    <i class="fa-solid fa-compass" aria-hidden="true"></i>
+                    <span class="wu-sol-plat-t">
+                        <span class="wu-sol-plat-n">Audience Discovery</span>
+                        <span class="wu-sol-plat-s">The job titles your content actually fits.</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Self-audit, rescued from the removed "What comes back"
+                 section. It was the only self-critical proof on the page
+                 and exists nowhere else on the site. -->
+<div class="wu-selfrun">
+                <div>
+                    <span class="wu-selfrun-tag">Four published reports</span>
+                    <p class="wu-selfrun-p">Unedited. <strong>One is this homepage.</strong> It found our nav hard to scan and our proof thin.</p>
+                </div>
+                <a href="sample-report.html#library" class="btn btn-primary btn-lg">Read the reports <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+            </div>
+
+            <figure class="section-quote">
+                <span aria-hidden="true" class="section-quote-mark">&ldquo;</span>
+                <blockquote class="section-quote-text">
+                    WhyUser gives me the ammunition to make the case internally, to engineering, leadership and sales. It doesn't just say a page is broken, it shows who bounces and what to fix.
+                </blockquote>
+                <figcaption class="section-quote-cite">
+                    Veronica Dominicis &middot; Head of Demand Gen &amp; RevOps &middot; Vectara
+                </figcaption>
+            </figure>
+
         </div>
     </section>
 
@@ -3824,101 +4229,101 @@
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">Ground Reality</span>
                 <h2 class="h2">You don&rsquo;t write the personas. Your buyers already did.</h2>
-                <p><strong>Before they meet you:</strong> review sites, community threads, competitor complaints, and how all of it shifted over 18 months. <strong>After they meet you:</strong> call recordings, CRM notes, win/loss reasons.</p>
+                <p class="wu-answer">You do not write a persona document. WhyUser compiles each buyer agent from six evidence sources: three public ones that work from your first run, and three of your own that start the day you connect them. The agents recompile whenever that evidence changes.</p>
                             </div>
 
-            <div class="hub">
+            <!-- ═════ GROUND REALITY, rebuilt from the deck ═════
+                 The two columns are labelled by AVAILABILITY, not just
+                 origin: public evidence works from the first run, your
+                 own starts when you connect it. The right-hand icons
+                 carry that state in a dashed ring.
 
-                <!-- SVG lines layer (desktop only), 3 paths from each side flowing into the orb center -->
-                <svg class="hub-svg" viewBox="0 0 1080 480" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-label="Six data sources flow into a calibrated buyer agent core">
-                    <defs>
-                        <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.4"/>
-                            <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
-                        </radialGradient>
-                    </defs>
-                    <!-- Halo behind orb -->
-                    <circle cx="540" cy="240" r="180" fill="url(#hubGlow)"/>
-                    <!-- Left side: 3 lines from x=345 (right edge of left col) flowing to orb center (540, 240) -->
-                    <path d="M 345 60  Q 440 60,  450 240" stroke="#7c3aed" stroke-width="1.6" fill="none" class="hub-edge" style="animation-delay: 0s"   opacity="0.9"/>
-                    <path d="M 345 240 L 450 240"                                stroke="#7c3aed" stroke-width="1.6" fill="none" class="hub-edge" style="animation-delay: 0.4s" opacity="0.9"/>
-                    <path d="M 345 420 Q 440 420, 450 240" stroke="#7c3aed" stroke-width="1.6" fill="none" class="hub-edge" style="animation-delay: 0.8s" opacity="0.9"/>
-                    <!-- Right side: 3 lines from x=735 (left edge of right col) flowing to orb center (540, 240) -->
-                    <path d="M 735 60  Q 640 60,  630 240" stroke="#7c3aed" stroke-width="1.6" fill="none" class="hub-edge" style="animation-delay: 0.2s" opacity="0.9"/>
-                    <path d="M 735 240 L 630 240"                                stroke="#7c3aed" stroke-width="1.6" fill="none" class="hub-edge" style="animation-delay: 0.6s" opacity="0.9"/>
-                    <path d="M 735 420 Q 640 420, 630 240" stroke="#7c3aed" stroke-width="1.6" fill="none" class="hub-edge" style="animation-delay: 1.0s" opacity="0.9"/>
-                </svg>
+                 "A/B outcomes" became "Expert knowledge", which is the
+                 truer description of what actually flows back in:
+                 experiment findings plus whatever your team corrects
+                 by hand. -->
+            <div class="wu-gr">
 
-                <div class="hub-grid">
 
-                    <!-- LEFT column: 3 input cards -->
-                    <div class="hub-col-left">
-                        <div class="hub-source">
-                            <div class="hub-source-icon"><i class="fa-solid fa-globe"></i></div>
-                            <div>
-                                <div class="hub-source-name">Company Context</div>
-                                <div class="hub-source-meta">site_crawl · acv · gtm</div>
-                            </div>
+                <div class="wu-gr-grid">
+
+                    <!-- PUBLIC -->
+                    <div class="wu-gr-col wu-gr-col-l">
+                        <span class="wu-gr-lab">Public <span aria-hidden="true">&middot;</span> <b>in use today</b></span>
+                        <div class="wu-gr-item">
+                            <span>
+                                <span class="wu-gr-n">Company context</span>
+                                <span class="wu-gr-m">Your site &middot; ACV &middot; GTM motion</span>
+                            </span>
+                            <span class="wu-gr-ic" aria-hidden="true"><i class="fa-solid fa-globe"></i></span>
+                            <span class="wu-gr-line" aria-hidden="true"></span>
                         </div>
-                        <div class="hub-source">
-                            <div class="hub-source-icon"><i class="fa-solid fa-comments"></i></div>
-                            <div>
-                                <div class="hub-source-name">Customer Voice</div>
-                                <div class="hub-source-meta">gong · crm_objections</div>
-                            </div>
+                        <div class="wu-gr-item">
+                            <span>
+                                <span class="wu-gr-n">Market intel</span>
+                                <span class="wu-gr-m">Reviews &middot; communities &middot; rivals</span>
+                            </span>
+                            <span class="wu-gr-ic" aria-hidden="true"><i class="fa-solid fa-tower-broadcast"></i></span>
+                            <span class="wu-gr-line" aria-hidden="true"></span>
                         </div>
-                        <div class="hub-source">
-                            <div class="hub-source-icon"><i class="fa-solid fa-radio"></i></div>
-                            <div>
-                                <div class="hub-source-name">Market Intel</div>
-                                <div class="hub-source-meta">community · competitor_gaps</div>
+                        <div class="wu-gr-item">
+                            <span>
+                                <span class="wu-gr-n">AI awareness</span>
+                                <span class="wu-gr-m">ChatGPT &middot; Claude &middot; Perplexity</span>
+                            </span>
+                            <span class="wu-gr-ic" aria-hidden="true"><i class="fa-solid fa-microchip"></i></span>
+                            <span class="wu-gr-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <!-- THE CORE -->
+                    <div class="wu-gr-core">
+                        <div class="wu-gr-ring">
+                            <span class="wu-gr-sync" aria-hidden="true"><i class="fa-solid fa-rotate"></i></span>
+                            <div class="wu-gr-orb">
+                                <span class="wu-gr-orb-ic" aria-hidden="true"><i class="fa-solid fa-users"></i></span>
+                                <span class="wu-gr-orb-t">Buyer agents</span>
+                                <span class="wu-gr-orb-s">Recompiled as your data changes</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- CENTER: the orb -->
-                    <div class="hub-core">
-                        <div class="hub-core-halo"></div>
-                        <div class="hub-core-ring"></div>
-                        <div class="hub-core-orb">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <div class="hub-core-orb-label">Buyer Agent</div>
-                            <div class="hub-core-orb-meta">10 to 60 per role</div>
+                    <!-- YOURS -->
+                    <div class="wu-gr-col wu-gr-col-r">
+                        <span class="wu-gr-lab">Yours <span aria-hidden="true">&middot;</span> <b>when you connect it</b></span>
+                        <div class="wu-gr-item">
+                            <span class="wu-gr-line" aria-hidden="true"></span>
+                            <span class="wu-gr-ic wu-gr-ic-pending" aria-hidden="true"><i class="fa-solid fa-comment"></i></span>
+                            <span>
+                                <span class="wu-gr-n">Customer voice</span>
+                                <span class="wu-gr-m">Call recordings &middot; CRM objections</span>
+                            </span>
                         </div>
-                    </div>
-
-                    <!-- RIGHT column: 3 input cards -->
-                    <div class="hub-col-right">
-                        <div class="hub-source">
-                            <div class="hub-source-icon"><i class="fa-solid fa-microchip"></i></div>
-                            <div>
-                                <div class="hub-source-name">AI Awareness</div>
-                                <div class="hub-source-meta">perplexity · chatgpt · claude</div>
-                            </div>
+                        <div class="wu-gr-item">
+                            <span class="wu-gr-line" aria-hidden="true"></span>
+                            <span class="wu-gr-ic wu-gr-ic-pending" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></span>
+                            <span>
+                                <span class="wu-gr-n">Institutional knowledge</span>
+                                <span class="wu-gr-m">Win/loss &middot; positioning &middot; battlecards</span>
+                            </span>
                         </div>
-                        <div class="hub-source">
-                            <div class="hub-source-icon"><i class="fa-solid fa-bullseye"></i></div>
-                            <div>
-                                <div class="hub-source-name">Institutional Knowledge</div>
-                                <div class="hub-source-meta">closed_won · positioning · battlecards</div>
-                            </div>
-                        </div>
-                        <div class="hub-source">
-                            <div class="hub-source-icon"><i class="fa-solid fa-flask"></i></div>
-                            <div>
-                                <div class="hub-source-name">A/B Outcomes</div>
-                                <div class="hub-source-meta">live_perf · feedback_loop</div>
-                            </div>
+                        <div class="wu-gr-item">
+                            <span class="wu-gr-line" aria-hidden="true"></span>
+                            <span class="wu-gr-ic wu-gr-ic-pending" aria-hidden="true"><i class="fa-solid fa-user-check"></i></span>
+                            <span>
+                                <span class="wu-gr-n">Expert knowledge</span>
+                                <span class="wu-gr-m">Experiment findings &middot; team corrections</span>
+                            </span>
                         </div>
                     </div>
 
                 </div>
 
+                <p class="sr-only">Six evidence sources compile into your buyer agents. Three are public and work from the first run: company context from your site, ACV and GTM motion; market intelligence from reviews, communities and competitors; and AI awareness of how ChatGPT, Claude and Perplexity describe you. Three are yours and start when you connect them: customer voice from call recordings and CRM objections; institutional knowledge from win/loss notes, positioning and battlecards; and expert knowledge from experiment findings and the corrections your team makes. The agents recompile as your data changes.</p>
             </div>
 
-            <p style="margin: 2.5rem auto 0; max-width: 46rem; text-align: center; color: var(--mute); font-size: 0.9375rem; line-height: 1.6">
-                Six inputs become <strong style="color: var(--ink); font-weight: 600">one agent</strong>. Where they disagree, a real buyer&rsquo;s words beat the AI&rsquo;s guess.
-            </p>
+            <p class="wu-gr-foot">Where sources disagree, <strong>a real buyer&rsquo;s words beat the AI&rsquo;s guess.</strong></p>
+
             <!-- ═════ compiled persona graph ═════ -->
             <div class="wu-persona">
                 <div class="wu-persona-head">
@@ -3949,172 +4354,9 @@
         </div>
     </section>
 
-    <!-- ═════════════════════════════════════════════════════════════════
-         AGENTS  ·  scale + evidence-backed patterns.
-         Sits directly after Ground Reality: where the buyers came from,
-         then how many of them read your page. Order matters. "300 agents"
-         alone reads as 300 AI guesses.
-         ═════════════════════════════════════════════════════════════════ -->
-    <!-- ═════════════════════════════════════════════════════════════════
-         WHAT COMES BACK  (merged section)
-
-         Was two sections: #agents ("One opinion isn't data. 300 agents
-         is.") and #output ("A report you forward..."). Between them they
-         carried eight tiles, four of which repeated something already on
-         the page, and they split one job — showing the deliverable —
-         across two scroll positions.
-
-         Merged into one, and moved UP to sit directly after Ground
-         Reality, so a reader who scrolls once meets the artifact before
-         the product list rather than after it.
-
-         DROPPED, and where each survives:
-           Weighted to your channel  -> how-to-evaluate.html, whyuser-vs-internal-review.html
-           The same answer, twice    -> folded into #build card 01
-           Where the handoff breaks  -> already the hero conflict graph
-           Buyers that stay current  -> already "One compiled buyer" above
-
-         KEPT because it exists nowhere else on the site:
-           41 of 60 / 52 of 60   the only concrete output sample
-           chain-not-average     the only statement of how roles are scored
-           confidence + sample size
-           Four published reports / "one is this homepage"
-         ═════════════════════════════════════════════════════════════════ -->
-<section id="output" class="section-rule">
-<div class="wrap">
-<div class="section-head" style="max-width: 54rem">
-<span class="section-eyebrow">What comes back</span>
-<h2 class="h2">A report you forward, instead of a note you defend.</h2>
-<p>Every finding names the reader, the line, and the trait that stopped them. Up to 60 agents per role, scored as a chain rather than an average.</p>
-<p style="margin-top:.9rem">The agents are simulated. The evidence behind them is not.</p>
-</div>
-<div class="wu-out-grid">
-<div class="wu-out-card">
-<span class="wu-out-ic"><i class="fa-solid fa-circle-check"></i></span>
-<h3 class="wu-out-h">What&rsquo;s working</h3>
-<p class="wu-out-p">The lines that landed, and which readers they landed with. Keep them when you rewrite.</p>
-</div>
-<div class="wu-out-card">
-<span class="wu-out-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
-<h3 class="wu-out-h">What&rsquo;s broken</h3>
-<p class="wu-out-p"><span class="tabular">41 of 60</span> never scrolled past the hero. <span class="tabular">52 of 60</span> could not answer &ldquo;what does it cost.&rdquo;</p>
-</div>
-<div class="wu-out-card">
-<span class="wu-out-ic"><i class="fa-solid fa-list-check"></i></span>
-<h3 class="wu-out-h">What to fix</h3>
-<p class="wu-out-p">Ranked by how many agents it unblocks, with the exact element to change.</p>
-</div>
-<div class="wu-out-card">
-<span class="wu-out-ic"><i class="fa-solid fa-quote-left"></i></span>
-<h3 class="wu-out-h">Evidence on every claim</h3>
-<p class="wu-out-p">Every finding traces to its source in Ground Reality. You see why a buyer stopped, not just that they did.</p>
-</div>
-</div>
-<div class="wu-selfrun">
-                <div>
-                    <span class="wu-selfrun-tag">Four published reports</span>
-                    <p class="wu-selfrun-p">Unedited. <strong>One is this homepage.</strong> It found our nav hard to scan and our proof thin.</p>
-                </div>
-                <a href="sample-report.html#library" class="btn btn-primary btn-lg">Read the reports <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
-            </div>
-</div>
-</section>
 
 
 
-    <!-- ═════════════════════════════════════════════════════════════════
-         PROBLEM · SOLUTION
-         Pain → Fix flow. Two stacked pain quotes per row (red-ruled,
-         left), animated arrow, engine fix on the right (violet eyebrow,
-         bold name, 1-2 sentence description). Veronica anchors the
-         section at the bottom.
-         ═════════════════════════════════════════════════════════════════ -->
-    <section id="solution" class="section-rule">
-        <div class="wrap">
-            <div class="section-head" style="max-width: 56rem">
-                <span class="section-eyebrow">What you can test</span>
-                <h2 class="h2">Marketing is the only team that opens without a rehearsal.</h2>
-                <p>Engineering has staging and sales rehearses the pitch. Marketing goes live, then buys traffic to find out whether the message landed. <a href="manifesto.html" class="wu-inline-cta">Why shipping without a rehearsal is malpractice<span class="wu-arr" aria-hidden="true">&rarr;</span></a></p>
-            </div>
-
-                <!-- ═══════════════════════════════════════════════════
-                     THE FOUR ENGINES
-                     Each card is one pain-to-fix unit. The left rule is
-                     crimson at rest (the pain) and wipes to violet on
-                     hover (the fix). That wipe is the only decoration
-                     here, and it encodes what the section is about.
-                     ═══════════════════════════════════════════════════ -->
-                <div class="ps-flow">
-
-                    <!-- 01 · Committee -->
-                    <a class="ps-item" href="committee-simulation.html">
-                        <span class="ps-idx">01</span>
-                        <span class="ps-pain-tag">The quiet no</span>
-                        <p class="ps-pain-q">&ldquo;Everyone said yes. Nothing moved. Nobody says why.&rdquo;</p>
-                        <span class="ps-hr" aria-hidden="true"></span>
-                        <h3 class="ps-engine-name">Landing Page Testing</h3>
-                        <p class="ps-engine-fix">Which reader left, and the proof they wanted.</p>
-                        <span class="ps-engine-out">
-                            <i class="out-icon fa-solid fa-diagram-project"></i> Conflict Graph
-                            <i class="out-arrow fa-solid fa-arrow-right"></i>
-                        </span>
-                    </a>
-
-                    <!-- 02 · Ad -->
-                    <a class="ps-item" href="ad-campaign-simulation.html">
-                        <span class="ps-idx">02</span>
-                        <span class="ps-pain-tag">Wasted spend</span>
-                        <p class="ps-pain-q">&ldquo;Budget pours into a page that was never going to convert.&rdquo;</p>
-                        <span class="ps-hr" aria-hidden="true"></span>
-                        <h3 class="ps-engine-name">Ad Campaign Testing</h3>
-                        <p class="ps-engine-fix">Where the ad and the page stop matching.</p>
-                        <span class="ps-engine-out">
-                            <i class="out-icon fa-solid fa-list-check"></i> Kill Sheet
-                            <i class="out-arrow fa-solid fa-arrow-right"></i>
-                        </span>
-                    </a>
-
-                    <!-- 03 · Email -->
-                    <a class="ps-item" href="email-campaign-simulation.html">
-                        <span class="ps-idx">03</span>
-                        <span class="ps-pain-tag">Flat sends</span>
-                        <p class="ps-pain-q">&ldquo;One email to three readers wins for none of them.&rdquo;</p>
-                        <span class="ps-hr" aria-hidden="true"></span>
-                        <h3 class="ps-engine-name">Email Testing</h3>
-                        <p class="ps-engine-fix">The subject and CTA that win, per reader.</p>
-                        <span class="ps-engine-out">
-                            <i class="out-icon fa-solid fa-trophy"></i> Per-Persona Winner
-                            <i class="out-arrow fa-solid fa-arrow-right"></i>
-                        </span>
-                    </a>
-
-                    <!-- 04 · Audience -->
-                    <a class="ps-item" href="audience-discovery.html">
-                        <span class="ps-idx">04</span>
-                        <span class="ps-pain-tag">Stale targeting</span>
-                        <p class="ps-pain-q">&ldquo;You target last year&rsquo;s titles and bid against every competitor.&rdquo;</p>
-                        <span class="ps-hr" aria-hidden="true"></span>
-                        <h3 class="ps-engine-name">Audience Research</h3>
-                        <p class="ps-engine-fix">The titles your content actually fits.</p>
-                        <span class="ps-engine-out">
-                            <i class="out-icon fa-solid fa-crosshairs"></i> Ranked Title Pool
-                            <i class="out-arrow fa-solid fa-arrow-right"></i>
-                        </span>
-                    </a>
-
-                </div>
-
-            <figure class="section-quote">
-                <span aria-hidden="true" class="section-quote-mark">&ldquo;</span>
-                <blockquote class="section-quote-text">
-                    WhyUser gives me the ammunition to make the case internally, to engineering, leadership and sales. It doesn't just say a page is broken, it shows who bounces and what to fix.
-                </blockquote>
-                <figcaption class="section-quote-cite">
-                    Veronica Dominicis &middot; Head of Demand Gen &amp; RevOps &middot; Vectara
-                </figcaption>
-            </figure>
-        </div>
-    </section>
 
     <!-- ═════════════════════════════════════════════════════════════════
          HOW IT WORKS, campaign lifecycle rail
@@ -4133,88 +4375,271 @@
         <div class="wrap">
             <div class="section-head" style="max-width: 52rem">
                 <span class="section-eyebrow">Where WhyUser fits</span>
-                <h2 class="h2">One run settles what three meetings argue about.</h2>
-                <p>No new cycle, no new process. One 30 minute step between review and launch, in-app or via API.</p>
+                <h2 class="h2">Catch it before launch, not after the spend.</h2>
+                <p class="wu-answer">You already run plan, build, launch, measure. WhyUser moves the fixing to before the spend: it watches your staging pages, flags what is broken, and the fix lands ahead of launch instead of six weeks after it.</p>
             </div>
 
-            <div class="flow">
-                <div class="flow-track">
-                    <div class="flow-stops">
+            <!-- Today's rail runs full width. Only the with-WhyUser rail
+                 gets a neighbour, because the digest is what that rail
+                 produces; sitting it alongside both made it look like an
+                 output of the broken process too. -->
+            <div class="wu-fits-top">
 
-                        <!-- 01 · Plan -->
-                        <div class="flow-stop">
-                            <span class="flow-stop-dot"></span>
-                            <div class="flow-stop-text">
-                                <span class="flow-stop-num">Phase · 01</span>
-                                <span class="flow-stop-label">Plan</span>
-                                <span class="flow-stop-caption">Brief &amp; ICP</span>
-                            </div>
+                    <!-- TODAY -->
+                    <div class="wu-rail">
+                        <span class="wu-rail-k">Today</span>
+                        <div class="wu-rail-track" aria-hidden="true">
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Plan</span></span>
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Build</span></span>
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Launch</span></span>
+                            <span class="wu-rail-stop wu-rail-stop-flag"><span class="wu-rail-dot"></span><span class="wu-rail-label">Measure</span></span>
+                            <span class="wu-rail-stop wu-rail-stop-flag"><span class="wu-rail-dot"></span><span class="wu-rail-label">Guess why</span></span>
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Fix</span></span>
+                        </div>
+                        <p class="sr-only">Today the sequence is plan, build, launch, measure, guess why, then fix. The guessing happens after the spend.</p>
+                        <div class="wu-rail-notes wu-rail-notes-6">
+                            <p class="wu-rail-note wu-rail-note-bad" style="grid-column: 4 / 7">Weeks of traffic. Still no reason why.</p>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="wu-fits">
+                <div>
+
+                    <!-- WITH WHYUSER -->
+                    <div class="wu-rail wu-rail-good">
+                        <span class="wu-rail-k wu-rail-k-good">With WhyUser</span>
+                        <div class="wu-rail-track" aria-hidden="true">
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Plan</span></span>
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Build</span></span>
+                            <span class="wu-rail-stop wu-rail-stop-fix"><span class="wu-rail-dot"></span><span class="wu-rail-label">Fix</span></span>
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Launch</span></span>
+                            <span class="wu-rail-stop"><span class="wu-rail-dot"></span><span class="wu-rail-label">Measure</span></span>
+                        </div>
+                        <p class="sr-only">With WhyUser the sequence is plan, build, fix, launch, measure. Fix moves ahead of launch, because WhyUser watches the build and flags the fixes before you spend.</p>
+
+                        <div class="wu-rail-notes wu-rail-notes-5">
+                            <p class="wu-rail-note wu-rail-note-good" style="grid-column: 4 / 6">Same flow. Fixes land before launch.</p>
                         </div>
 
-                        <!-- 02 · Build -->
-                        <div class="flow-stop">
-                            <span class="flow-stop-dot"></span>
-                            <div class="flow-stop-text">
-                                <span class="flow-stop-num">Phase · 02</span>
-                                <span class="flow-stop-label">Build</span>
-                                <span class="flow-stop-caption">Copy, design, ad creative</span>
-                            </div>
+                        <div class="wu-rail-conn wu-rail-conn-5" aria-hidden="true">
+                            <span class="wu-conn" style="grid-column: 2">
+                                <span class="wu-conn-label">watches</span>
+                                <span class="wu-conn-line wu-conn-down"></span>
+                            </span>
+                            <span class="wu-conn" style="grid-column: 3">
+                                <span class="wu-conn-label">flags fixes</span>
+                                <span class="wu-conn-line wu-conn-up"></span>
+                            </span>
                         </div>
 
-                        <!-- 03 · Review -->
-                        <div class="flow-stop">
-                            <span class="flow-stop-dot"></span>
-                            <div class="flow-stop-text">
-                                <span class="flow-stop-num">Phase · 03</span>
-                                <span class="flow-stop-label">Review</span>
-                                <span class="flow-stop-caption">Internal alignment</span>
-                            </div>
-                        </div>
-
-                        <!-- 04 · WhyUser (new step, raised card on desktop / inline on mobile) -->
-                        <div class="flow-stop flow-stop-whyuser">
-                            <span class="flow-stop-dot"></span>
-                            <div class="flow-card-connector"></div>
-                            <div class="flow-card">
-                                <span class="flow-card-badge">New step · pre-launch</span>
-                                <h3 class="flow-card-h">WhyUser · Test</h3>
-                                <p class="flow-card-desc">Run the ad, email or page past your buyers. Get what&rsquo;s working, what&rsquo;s broken, and what to fix.</p>
-                                <div class="flow-card-meta">
-                                    <span><i class="fa-regular fa-clock"></i>30 min</span>
-                                    <span><i class="fa-solid fa-terminal"></i>Headless via API</span>
-                                    <span><i class="fa-solid fa-shield-halved"></i>Sourced</span>
-                                    <span><i class="fa-solid fa-dollar-sign"></i>Before spend</span>
+                        <!-- The background bar, with the five facts the deck puts on it -->
+                        <div class="wu-runbar">
+                            <span class="wu-runbar-t">WhyUser <span aria-hidden="true">&middot;</span> runs in the background on staging</span>
+                            <div class="wu-runbar-facts">
+                                <div class="wu-runfact">
+                                    <span class="wu-runfact-h"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i>Daily check</span>
+                                    <p class="wu-runfact-p">On staging</p>
+                                </div>
+                                <div class="wu-runfact">
+                                    <span class="wu-runfact-h"><i class="fa-solid fa-rotate" aria-hidden="true"></i>Runs on change</span>
+                                    <p class="wu-runfact-p">No change, no cost</p>
+                                </div>
+                                <div class="wu-runfact">
+                                    <span class="wu-runfact-h"><i class="fa-regular fa-clock" aria-hidden="true"></i>~30 min</span>
+                                    <p class="wu-runfact-p">Per page</p>
+                                </div>
+                                <div class="wu-runfact">
+                                    <span class="wu-runfact-h"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>Slack digest</span>
+                                    <p class="wu-runfact-p">What to fix</p>
+                                </div>
+                                <div class="wu-runfact">
+                                    <span class="wu-runfact-h"><i class="fa-solid fa-sliders" aria-hidden="true"></i>Guardrails</span>
+                                    <p class="wu-runfact-p">Monthly limits next</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- 05 · Launch -->
-                        <div class="flow-stop">
-                            <span class="flow-stop-dot"></span>
-                            <div class="flow-stop-text">
-                                <span class="flow-stop-num">Phase · 05</span>
-                                <span class="flow-stop-label">Launch</span>
-                                <span class="flow-stop-caption">Push live, allocate spend</span>
+                </div>
+
+                <!-- RIGHT: what actually arrives -->
+                <div>
+                    <div class="wu-digest">
+                        <div class="wu-digest-bar"><i class="fa-solid fa-hashtag" aria-hidden="true"></i>web-experimentation</div>
+                        <div class="wu-digest-body">
+                            <div class="wu-digest-from">
+                                <span class="wu-digest-av" aria-hidden="true">W</span>
+                                <span>
+                                    <span class="wu-digest-who">WhyUser</span>
+                                    <span class="wu-digest-when"> &middot; daily digest &middot; 1 staging page changed</span>
+                                </span>
                             </div>
-                        </div>
-
-                        <!-- 06 · Measure -->
-                        <div class="flow-stop">
-                            <span class="flow-stop-dot"></span>
-                            <div class="flow-stop-text">
-                                <span class="flow-stop-num">Phase · 06</span>
-                                <span class="flow-stop-label">Measure</span>
-                                <span class="flow-stop-caption">Live performance, A/B</span>
+                            <div class="wu-digest-card">
+                                <div class="wu-digest-url">/demo</div>
+                                <p class="wu-digest-find">The CIO can&rsquo;t see what drives cost.</p>
+                                <p class="wu-digest-fix"><strong>Fix:</strong> show the price band and the top three cost drivers above the fold.</p>
+                                <div class="wu-digest-tags">
+                                    <span>Technical DM &rarr; CIO</span>
+                                    <span>Cost</span>
+                                </div>
                             </div>
+                            <p class="wu-digest-cap">Example digest.</p>
                         </div>
-
                     </div>
                 </div>
 
-                <p class="flow-tagline">
-                    You already run Plan &rarr; Build &rarr; Review &rarr; Launch &rarr; Measure. <strong>WhyUser adds one 30 minute step</strong>, so you catch it before launch rather than six weeks after the spend.
-                </p>
             </div>
+
+            <p class="wu-fits-foot">Nobody logs in. <span>Nothing slows down.</span></p>
+
+        </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         AUTOMATIC RUNS  (#automatic)
+
+         Slides 4 and 9, merged. This existed only in the deck and was
+         nowhere on the site, which was the largest single gap: it is
+         the retention story, and the one thing here that a chatbot
+         cannot be asked to do at all.
+
+         The credit figure is 20 per page run, which is what
+         pricing.html states. llms.txt and developers.html carried a
+         stale 10 and are corrected in this pass.
+         ═════════════════════════════════════════════════════════════════ -->
+    <section id="automatic" class="section-rule">
+        <div class="wrap">
+
+            <div class="section-head" style="max-width: 52rem">
+                <span class="section-eyebrow">Automatic runs</span>
+                <h2 class="h2">How automatic runs work</h2>
+                <p class="wu-answer">WhyUser checks your staging URLs once a day and runs the committee only when the decision content on a page has actually changed. A run takes about 30 minutes and costs 20 credits; if nothing changed it skips the run and charges nothing.</p>
+            </div>
+
+            <div class="wu-flow">
+
+                <div class="wu-flow-row">
+                    <div class="wu-box">
+                        <h3 class="wu-box-h">Daily check</h3>
+                        <p class="wu-box-p">Your staging URLs</p>
+                    </div>
+
+                    <span class="wu-arrowh" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+
+                    <div class="wu-box">
+                        <h3 class="wu-box-h">Page changed?</h3>
+                        <p class="wu-box-p">Decision content only</p>
+                    </div>
+
+                    <span class="wu-arrowh" aria-hidden="true">
+                        <span class="wu-arrowh-k">Yes</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                    <div class="wu-box wu-box-run">
+                        <h3 class="wu-box-h">Simulate</h3>
+                        <p class="wu-box-p"><span class="tabular">~30 min</span> &middot; <span class="tabular">20 credits</span></p>
+                    </div>
+
+                    <span class="wu-arrowh" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+
+                    <div class="wu-box">
+                        <h3 class="wu-box-h">Slack digest</h3>
+                        <p class="wu-box-p">In the next digest</p>
+                    </div>
+                </div>
+
+                <!-- The NO branch, dropped under "page changed?" -->
+                <div class="wu-flow-branch">
+                    <div>
+                        <div class="wu-branch-stem" aria-hidden="true">
+                            <span class="wu-branch-k">No</span>
+                            <span class="wu-branch-line"></span>
+                        </div>
+                        <div class="wu-box wu-box-skip">
+                            <h3 class="wu-box-h">Skip</h3>
+                            <p class="wu-box-p">No run, no credits</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="sr-only">Each day WhyUser checks your staging URLs. If the decision content on a page changed, it simulates the buying committee in about 30 minutes for 20 credits and posts the findings to your next Slack digest. If nothing changed, it skips the run and charges no credits.</p>
+            </div>
+
+            <div class="wu-guards">
+                <div class="wu-guard">
+                    <h3 class="wu-guard-h"><i class="fa-solid fa-ban" aria-hidden="true"></i>Not a trigger</h3>
+                    <p class="wu-guard-p">Dates, counters and prices in copy.</p>
+                </div>
+                <div class="wu-guard">
+                    <h3 class="wu-guard-h"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>Staging blocked?</h3>
+                    <p class="wu-guard-p">You get an alert. No run, no charge.</p>
+                </div>
+                <div class="wu-guard">
+                    <h3 class="wu-guard-h"><i class="fa-solid fa-bolt" aria-hidden="true"></i>Need it today?</h3>
+                    <p class="wu-guard-p">Run it now from the policy.</p>
+                </div>
+                <div class="wu-guard">
+                    <h3 class="wu-guard-h"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Guardrails</h3>
+                    <p class="wu-guard-p">Policies cap spend. Monthly and per-user limits next.</p>
+                </div>
+            </div>
+
+            <p class="wu-kicker-plain">Set it up once. It runs only when a page really changes.</p>
+
+
+        </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         FOUR TEAMS  (#teams)
+
+         Slide 6. New to the site. This is the section that turns one
+         buyer into a team deal: the same proof block is what four
+         different functions each work from, so the purchase is not one
+         person's tool.
+         ═════════════════════════════════════════════════════════════════ -->
+    <section id="teams" class="section-rule">
+        <div class="wrap">
+
+            <div class="section-head" style="max-width: 50rem">
+                <span class="section-eyebrow">The value to marketing</span>
+                <h2 class="h2">Get every team aligned on what buyers need.</h2>
+                <p class="wu-answer">One run produces one block of buyer evidence. The team that owns the number and the team that owns the page work from the same block, so a change request arrives as a finding, not a preference.</p>
+            </div>
+
+            <div class="wu-teams-src">
+                <span class="wu-teams-src-t">One proof block <span>&middot;</span> Same buyer evidence</span>
+            </div>
+            <div class="wu-teams-stem" aria-hidden="true"></div>
+
+            <div class="wu-teams-grid">
+                <div class="wu-team">
+                    <span class="wu-team-ic" aria-hidden="true"><i class="fa-solid fa-comment"></i></span>
+                    <h3 class="wu-team-h">PMM</h3>
+                    <p class="wu-team-p">Case studies and comparison pages that answer the objection the committee actually raised.</p>
+                </div>
+                <div class="wu-team">
+                    <span class="wu-team-ic" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span>
+                    <h3 class="wu-team-h">Content</h3>
+                    <p class="wu-team-p">Blogs and whitepapers tested before they publish, not after they underperform.</p>
+                </div>
+                <div class="wu-team">
+                    <span class="wu-team-ic" aria-hidden="true"><i class="fa-solid fa-table-columns"></i></span>
+                    <h3 class="wu-team-h">Web &amp; CRO</h3>
+                    <p class="wu-team-p">A ranked fix list to review, instead of a redesign argued from taste.</p>
+                </div>
+                <div class="wu-team">
+                    <span class="wu-team-ic" aria-hidden="true"><i class="fa-solid fa-arrow-trend-up"></i></span>
+                    <h3 class="wu-team-h">Demand Gen</h3>
+                    <p class="wu-team-p">You own the number, not the page. Send the page owner the buyer quote and the drop-off, and the fix gets scheduled without a debate.</p>
+                </div>
+            </div>
+
+            <p class="wu-kicker-plain">A finding travels further than an opinion.</p>
+
         </div>
     </section>
 
@@ -4226,13 +4651,13 @@
       .tech2-list{display:flex;flex-direction:column;gap:1.5rem}
       .tech2-item{padding-bottom:1.5rem;border-bottom:1px solid var(--rule)}
       .tech2-item:last-child{border-bottom:none;padding-bottom:0}
-      .tech2-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:.4rem}
-      .tech2-h{font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:1.0625rem;letter-spacing:-0.01em;color:var(--ink);line-height:1.22;margin:0}
+      .tech2-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:.4rem}
+      .tech2-h{font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:1.0625rem;letter-spacing:-0.01em;color:var(--ink);line-height:1.22;margin:0}
       .tech2-p{color:var(--mute);font-size:.92rem;line-height:1.55;margin:.45rem 0 0}
       .tech2-cap{text-align:center;color:var(--mute);font-size:.875rem;line-height:1.5;margin:1.1rem auto 0;max-width:30rem}
       .led-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.6rem .75rem;background:var(--frame-surface);border:1px solid var(--frame-rule);border-radius:7px}
-      .led-claim{font-size:11px;color:var(--frame-text);font-family:'JetBrains Mono',monospace}
-      .led-chip{font-size:9px;font-weight:700;letter-spacing:.1em;white-space:nowrap;font-family:'JetBrains Mono',monospace}
+      .led-claim{font-size:11px;color:var(--frame-text);font-family:'Geist Mono',monospace}
+      .led-chip{font-size:9px;font-weight:700;letter-spacing:.1em;white-space:nowrap;font-family:'Geist Mono',monospace}
     
 /* ══ ADDED IN THIS PASS ═════════════════════════════════════════════
    Compare strip. Borderless by design: no fill, no radius, no shadow.
@@ -4247,7 +4672,7 @@
 .wu-cmp-card:hover,.wu-cmp-card:focus-visible{border-top-color:var(--brand)}
 .wu-cmp-card:hover .wu-cmp-card-h{color:var(--brand)}
 .wu-cmp-card:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
-.wu-cmp-card-k{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;
+.wu-cmp-card-k{font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--brand);font-weight:600}
 .wu-cmp-card-h{font-size:.9375rem;font-weight:650;color:var(--ink);line-height:1.35;
   transition:color .15s ease}
@@ -4263,38 +4688,64 @@
     <section id="build" class="section-rule">
         <div class="wrap">
             <div class="section-head" style="max-width: 54rem">
-                <span class="section-eyebrow">How WhyUser compares</span>
-<h2 class="h2">One opinion isn&rsquo;t data. 300 agents is.</h2>
-<p>Your reviewers and your chatbot know the product and pay attention. Your buyers do neither. Four things turn an opinion into something you can act on. <strong>Ask any tool here, including us.</strong></p>
+                <span class="section-eyebrow">WhyUser vs Claude and ChatGPT</span>
+<h2 class="h2">Why not just ask Claude or ChatGPT?</h2>
+<p class="wu-answer">Use them for drafting and variants. For a spend decision, no: a chatbot answers as one patient reader, gives a different answer each time you ask, and has no memory of last week. Five things turn an opinion into something you can act on. <strong>Ask any tool here, including us.</strong></p>
             </div>
 
-            <div class="tech2-grid">
-                <!-- LEFT: the four concepts -->
-                <div class="tech2-list">
-                    <div class="tech2-item">
-                        <div class="tech2-k">01 &middot; Repeats</div>
-                        <h3 class="tech2-h">Same page in, same answer out.</h3>
-                        <p class="tech2-p">Fix one section and only that section moves, so you know your fix worked. A chatbot writes a new essay every time you ask.</p>
-                    </div>
-                    <div class="tech2-item">
-                        <div class="tech2-k">02 &middot; Shows its source</div>
-                        <h3 class="tech2-h">Every quote traced to a real page.</h3>
-                        <p class="tech2-p">A rival&rsquo;s comparison page is not a buyer&rsquo;s words. To a chatbot, both are just text.</p>
-                    </div>
-                    <div class="tech2-item">
-                        <div class="tech2-k">03 &middot; Reads like your buyer</div>
-                        <h3 class="tech2-h">Scans, hunts, abandons. Never patient.</h3>
-                        <p class="tech2-p">Loop a chatbot 30 times and you get one opinion 30 ways.</p>
-                    </div>
-                    <div class="tech2-item">
-                        <div class="tech2-k">04 &middot; Remembers</div>
-                        <h3 class="tech2-h">Your 10th run is better tuned than your 1st.</h3>
-                        <p class="tech2-p">Every finding graded HIT or MISS, and carried forward. A chatbot has no idea there was a last week.</p>
-                    </div>
+
+            <!-- Table and ledger adjacent: the table argues, the ledger
+                 shows a real record of that argument being kept. Stacks
+                 below 1200px, where three table columns stop fitting. -->
+            <div class="wu-cmp-layout">
+                <div>
+            <!-- ═════ WHY NOT JUST ASK CLAUDE OR CHATGPT ═════
+                 Slide 8, condensed to five rows. The full argument
+                 lives on whyuser-vs-chatgpt-and-claude.html; this is
+                 the version a homepage reader will actually finish.
+                 Attribute rows are real table-like text, not an image
+                 of a table, so an answer engine can lift any row. -->
+            <div class="wu-vs">
+                <div class="wu-vs-head">
+                    <span class="wu-vs-head-k"></span>
+                    <span class="wu-vs-head-k">Claude / ChatGPT</span>
+                    <span class="wu-vs-head-k wu-vs-head-k-us">WhyUser</span>
                 </div>
 
-                <!-- RIGHT: Evidence Ledger frame (the single visual) -->
-                <div>
+                <div class="wu-vs-row">
+                    <span class="wu-vs-k">Readers</span>
+                    <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>One careful reader</span>
+                    <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>50 to 300 agents, each a buyer profile</span>
+                </div>
+
+                <div class="wu-vs-row">
+                    <span class="wu-vs-k">How it reads</span>
+                    <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>Every word, patiently</span>
+                    <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Scans, hunts, abandons. Never patient.</span>
+                </div>
+
+                <div class="wu-vs-row">
+                    <span class="wu-vs-k">What you get</span>
+                    <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>One opinion</span>
+                    <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Patterns across roles and moods</span>
+                </div>
+
+                <div class="wu-vs-row">
+                    <span class="wu-vs-k">Run it twice</span>
+                    <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>A different answer</span>
+                    <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Same page, same answer</span>
+                </div>
+
+                <div class="wu-vs-row">
+                    <span class="wu-vs-k">Over time</span>
+                    <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>No graded record</span>
+                    <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Learns from your grades and new data</span>
+                </div>
+
+            </div>
+                </div>
+                <div class="wu-cmp-aside">
+<div>
                     <div class="product-frame">
                         <div class="frame-bar">
                             <div class="frame-bar-left">
@@ -4305,10 +4756,10 @@
                         </div>
                         <div class="frame-body">
                             <div style="display:flex; align-items:baseline; gap:0.6rem; margin-bottom:1.1rem">
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:1.9rem; font-weight:700; color:var(--signal-green-bright); letter-spacing:-0.02em">82%</span>
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--frame-mute)">hit rate &middot; 41 graded calls</span>
+                                <span style="font-family:'Geist Mono',monospace; font-size:1.9rem; font-weight:700; color:var(--signal-green-bright); letter-spacing:-0.02em">84%</span>
+                                <span style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--frame-mute)">hit rate &middot; 473 graded calls</span>
                             </div>
-                            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1.25rem; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em">
+                            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1.25rem; font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:0.1em">
                                 <span style="padding:3px 8px; border:1px solid var(--frame-rule-strong); border-radius:5px; color:var(--frame-mute)">v1</span>
                                 <i class="fa-solid fa-arrow-right" style="font-size:8px; color:var(--frame-dim)"></i>
                                 <span style="padding:3px 8px; border:1px solid var(--frame-rule-strong); border-radius:5px; color:var(--frame-mute)">v2</span>
@@ -4329,14 +4780,19 @@
                                     <span class="led-chip" style="color:var(--signal-red-bright)"><i class="fa-solid fa-xmark"></i> MISS</span>
                                 </div>
                             </div>
-                            <div style="margin-top:1rem; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.06em; color:var(--frame-dim)">
+                            <div style="margin-top:1rem; font-family:'Geist Mono',monospace; font-size:9px; letter-spacing:0.06em; color:var(--frame-dim)">
                                 ~150 calibrated fingerprints &middot; each with provenance &middot; deterministic updates
                             </div>
                         </div>
                     </div>
                     <p class="tech2-cap">Each version re-tests only what you changed.</p>
                 </div>
+            
+                </div>
             </div>
+
+            <p class="wu-kicker-plain">An LLM gives one opinion. WhyUser shows which buyers give up, where, and why.</p>
+
 
             <!-- The two-layer claim. Kept out of the four cards because it is a
                  method claim, not a measurement property, and because the
@@ -4350,6 +4806,9 @@
             <!-- Compare strip. Was one line with two links buried under a long
                  section. These are the pages a sceptical buyer opens before
                  they will believe the product, so they get real estate. -->
+
+
+
 <div class="wu-cmp-strip">
 <div class="wu-cmp-strip-grid">
 <a class="wu-cmp-card" href="whyuser-vs-chatgpt-and-claude.html">
@@ -4415,6 +4874,58 @@
         </div>
     </section>
 
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         FAQ  (#faq)
+
+         The homepage previously carried FAQPage schema with no visible FAQ,
+         which is a structured-data violation, so both were removed. This
+         restores the pairing the right way round: the visible answers below
+         are the source, and the JSON-LD in <head> is generated from the same
+         strings, so they cannot drift.
+
+         Questions deliberately avoid restating faq.html's fourteen. These
+         six answer what the new sections raise.
+         ═════════════════════════════════════════════════════════════════ -->
+    <section id="faq" class="section-rule">
+        <div class="wrap">
+            <div class="section-head" style="max-width: 48rem">
+                <span class="section-eyebrow">Before you ask</span>
+                <h2 class="h2">The six questions we get every week.</h2>
+            </div>
+
+            <div class="wu-faq">
+                <details class="wu-faq-item">
+                    <summary class="wu-faq-q">How many buyer agents read my page?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+                    <p class="wu-faq-a">It depends on the run. A landing page or content page test fields 50 agents, ten per committee role. An ad or email campaign test fields 300, up to 60 per role. Every role runs in three states — ideal, skeptical and distracted — weighted to your real traffic.</p>
+                </details>
+                <details class="wu-faq-item">
+                    <summary class="wu-faq-q">Can WhyUser run automatically when a page changes?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+                    <p class="wu-faq-a">Yes. WhyUser checks your staging URLs on a daily schedule and runs the committee only when the decision content on a page has actually changed. Cosmetic edits such as dates, counters or prices in the copy do not trigger a run. Findings arrive as a Slack digest, and a page run costs 20 credits.</p>
+                </details>
+                <details class="wu-faq-item">
+                    <summary class="wu-faq-q">Do I have to write the personas?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+                    <p class="wu-faq-a">No. WhyUser compiles them from evidence you already have. On the public side: your site, review sites, community threads and competitor complaints. On your side, when you connect it: call recordings, CRM objections, win/loss notes, and the experiment findings and corrections your own team makes. Where two sources disagree, a real buyer&rsquo;s words beat the model&rsquo;s guess.</p>
+                </details>
+                <details class="wu-faq-item">
+                    <summary class="wu-faq-q">Will it work on a staging URL that is not public?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+                    <p class="wu-faq-a">Yes, provided WhyUser can reach it. Allowlist the crawler or share a password-protected link. If staging is unreachable when a scheduled run fires you get an alert rather than a silent failure, and nothing is charged.</p>
+                </details>
+                <details class="wu-faq-item">
+                    <summary class="wu-faq-q">How is this different from an A/B test?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+                    <p class="wu-faq-a">An A/B test tells you which variant won after you have already paid for the traffic, and it cannot tell you why. WhyUser runs before launch, names the role that stalled and the proof they were missing, and returns a ranked fix list in about 30 minutes. The two are complementary: test before you spend, then measure what you shipped.</p>
+                </details>
+                <details class="wu-faq-item">
+                    <summary class="wu-faq-q">Which teams actually use the report?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
+                    <p class="wu-faq-a">One run produces one block of buyer evidence that four functions work from. Product marketing takes the objections into case studies and comparison pages. Content tests blogs and whitepapers before publishing. Web and CRO work the ranked fix list. Demand gen checks that the ad and the landing page still promise the same thing.</p>
+                </details>
+            </div>
+
+            <p class="wu-faq-foot">Fourteen more, including what we will not do with your data &mdash; <a href="faq.html">the full FAQ</a>.</p>
+        </div>
+    </section>
+
+
     <!-- ═════════════════════════════════════════════════════════════════
          APPLY / CTA
          ═════════════════════════════════════════════════════════════════ -->
@@ -4422,7 +4933,10 @@
     
 
     <section id="access" class="cta-section">
-        <div class="wrap-narrow">
+        <!-- Widened from .wrap-narrow: the design partnership card now
+             sits inside this section and needs the full measure. The
+             form below it keeps a narrow column of its own. -->
+        <div class="wrap">
             <div class="cta-card">
                 <div style="text-align: center; max-width: 40rem; margin: 0 auto 2.5rem">
                     <span class="section-eyebrow" style="justify-content: center">Get Started</span>
@@ -4435,22 +4949,76 @@
                     </p>
                 </div>
 
-                <div class="cta-grid">
-                    <div class="cta-pill">
-                        <div class="cta-pill-h">The Cost</div>
-                        <p class="cta-pill-p">No charge during the program. Post-program: only if it earns its place in your stack.</p>
-                    </div>
-                    <div class="cta-pill">
-                        <div class="cta-pill-h">The Trade</div>
-                        <p class="cta-pill-p">One short feedback call with our founder while you are in the program. We use it to guide product direction.</p>
-                    </div>
-                    <div class="cta-pill">
-                        <div class="cta-pill-h">The Fit</div>
-                        <p class="cta-pill-p">You drive B2B traffic, with campaigns going live in the next 30 days. You can still change them.</p>
-                    </div>
+                <!-- The Cost / The Trade / The Fit pills were here. All
+                     three facts are stated concretely in the partnership
+                     card below, so the strip only restated them. -->
+                <div class="wu-band">
+
+                <div class="section-head" style="max-width: 48rem">
+                    <span class="section-eyebrow">Design partnership</span>
+                    <h2 class="h2">Bring a miss you already understand.<br><span style="color:#9fc0a9">See if WhyUser finds it too.</span></h2>
+                    <p class="wu-answer">The test we ask you to run is the one that can embarrass us: a page or campaign that underperformed, where you already know the reason. If the simulation does not find what you found, you have learned that cheaply.</p>
                 </div>
 
-                <div class="tally-wrap">
+                <div class="wu-dp-grid">
+
+                    <!-- WHAT YOU GET -->
+                    <div>
+                        <span class="wu-collabel">What you get</span>
+                        <div class="wu-dp-terms">
+                            <div class="wu-dp-term">
+                                <span class="wu-dp-term-v">5 weeks</span>
+                                <span class="wu-dp-term-l">Free platform access, all four engines.</span>
+                            </div>
+                            <div class="wu-dp-term">
+                                <span class="wu-dp-term-v">30 min</span>
+                                <span class="wu-dp-term-l">A weekly feedback call with the founder.</span>
+                            </div>
+                            <div class="wu-dp-term">
+                                <span class="wu-dp-term-v">Slack</span>
+                                <span class="wu-dp-term-l">A shared channel, for the whole program.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HOW IT WORKS -->
+                    <div>
+                        <span class="wu-collabel">How it works</span>
+                        <div class="wu-dp-steps">
+
+                            <div class="wu-dp-step">
+                                <span class="wu-dp-n" aria-hidden="true">1</span>
+                                <h3 class="wu-dp-h">Pick one feature</h3>
+                                <p class="wu-dp-p">Start with one engine rather than all four. Most partners start here.</p>
+                                <div class="wu-dp-pick">
+                                    <span class="wu-dp-opt wu-dp-opt-on">Committee simulations <i class="fa-solid fa-check" aria-hidden="true"></i></span>
+                                    <span class="wu-dp-opt">Ad campaigns</span>
+                                    <span class="wu-dp-opt">Email campaigns</span>
+                                    <span class="wu-dp-opt">Audience discovery</span>
+                                </div>
+                            </div>
+
+                            <div class="wu-dp-step">
+                                <span class="wu-dp-n" aria-hidden="true">2</span>
+                                <h3 class="wu-dp-h">Share known misses</h3>
+                                <p class="wu-dp-p">Pages or campaigns that underperformed, and where you already know why. Keep the reason to yourself until the run finishes.</p>
+                            </div>
+
+                            <div class="wu-dp-step">
+                                <span class="wu-dp-n" aria-hidden="true">3</span>
+                                <h3 class="wu-dp-h">Compare findings</h3>
+                                <p class="wu-dp-p">WhyUser runs. Then you grade it: do its findings match yours? Every call is logged HIT or MISS, and the misses stay on the record.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+                <div class="tally-wrap" style="max-width:46rem;margin-left:auto;margin-right:auto">
                     <iframe
                         data-tally-src="https://tally.so/embed/xXVLNJ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                         loading="lazy"

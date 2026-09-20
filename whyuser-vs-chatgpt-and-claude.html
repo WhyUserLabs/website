@@ -52,7 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/whyuser-shell.css">
 <link rel="stylesheet" href="assets/whyuser-core.css">
@@ -176,6 +176,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/dark-theme.css">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
+  <link rel="stylesheet" href="assets/whyuser-slides.css">
+  <link rel="stylesheet" href="assets/whyuser-r3.css">
 <style>
 /* WhyUser UI overrides. Kept per-page and self-contained so no shared
    stylesheet has to change.
@@ -517,7 +519,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .lp .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
 
 .lp-hero{text-align:center;padding:3.5rem 0 2.75rem}
-.lp-crumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
+.lp-crumb{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
 .lp-crumb a{color:inherit;text-decoration:none}
 .lp-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.04;margin:0 0 1.1rem}
 .lp-sub{font-size:1.125rem;line-height:1.55;color:var(--lp-mute);max-width:40rem;margin:0 auto 2rem}
@@ -529,12 +531,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .lp-cell{padding:1.75rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
 @media(min-width:720px){.lp-cell{border-bottom:0;border-right:1px solid var(--lp-rule)}.lp-cell:last-child{border-right:0}}
 .lp-cell:last-child{border-bottom:0}
-.lp-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
-.lp-v{font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:.5rem}
+.lp-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
+.lp-v{font-family:'Geist Mono',monospace;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:.5rem}
 .lp-cell p{margin:0;font-size:.875rem;line-height:1.5;color:var(--lp-mute)}
 
 .lp-sec{padding:3.25rem 0}
-.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
+.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
 .lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
 .lp-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin:0 0 .7rem}
 .lp-lead{font-size:1.0625rem;line-height:1.55;color:var(--lp-mute);max-width:44rem;margin:0}
@@ -555,7 +557,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @media(min-width:700px){.lp-cards{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.lp-cards.c3{grid-template-columns:repeat(3,1fr)}}
 .lp-card{border:1px solid var(--lp-rule);border-radius:14px;padding:1.5rem 1.6rem}
-.lp-card-k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
+.lp-card-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
 .lp-card h3{font-size:1.0625rem;font-weight:650;margin:0 0 .4rem;line-height:1.35}
 .lp-card p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
 
@@ -571,11 +573,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .lp-q p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute);max-width:48rem}
 
 .lp-more{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;padding:1.6rem 0 0;border-top:1px solid var(--lp-rule);margin-top:2.5rem}
-.lp-more span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
+.lp-more span{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
 .lp-more a{font-size:.9375rem;font-weight:600;color:var(--lp-brand);text-decoration:none}
 
 .wu-close{text-align:center;padding:4.5rem 0 5rem}
-.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand,#8b7cf6);margin-bottom:1.4rem}
+.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand,#8b7cf6);margin-bottom:1.4rem}
 .wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--brand,#8b7cf6)}
 .wu-close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.06;margin:0 0 1.3rem}
 .wu-close h2 .fail{color:var(--red,#f87171)} .wu-close h2 .win{color:var(--green-b,#34d399)}
@@ -600,7 +602,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="wrap"><div class="lp-strip">
   <div class="lp-cell"><span class="lp-k">Re-run the same page</span><div class="lp-v">Same verdict</div><p>Claude returns a new answer every time.</p></div>
   <div class="lp-cell"><span class="lp-k">Findings sourced</span><div class="lp-v">100%</div><p>Each quote checked against the page it came from.</p></div>
-  <div class="lp-cell"><span class="lp-k">Claims graded</span><div class="lp-v">84%</div><p>473 sealed before the outcome existed, misses left in.</p></div>
+  <div class="lp-cell"><span class="lp-k">Claims graded</span><div class="lp-v">473</div><p>84% hit rate, every claim sealed before the outcome existed, misses left in.</p></div>
 </div></div>
 
 <section class="lp-sec">
@@ -636,6 +638,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="lp-eyebrow">Side by side</span>
     <h2 class="lp-h2">Four things a test has to do.</h2>
     <p class="lp-lead">Ask any tool, including us.</p>
+
+    <!-- ═════ THE SHORT VERSION ═════
+         Slide 8, five rows, added as a lead-in to the fourteen-row table
+         below rather than a replacement for it. The detailed table is the
+         better artifact and stays; this is what a reader who will not
+         read a fourteen-row table takes away. -->
+    <div class="wu-vs" style="margin-bottom:2.75rem">
+      <div class="wu-vs-head">
+        <span class="wu-vs-head-k"></span>
+        <span class="wu-vs-head-k">Claude / ChatGPT</span>
+        <span class="wu-vs-head-k wu-vs-head-k-us">WhyUser</span>
+      </div>
+      <div class="wu-vs-row">
+        <span class="wu-vs-k">Readers</span>
+        <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>One careful reader</span>
+        <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>50 to 300 agents, each a buyer profile</span>
+      </div>
+      <div class="wu-vs-row">
+        <span class="wu-vs-k">How it reads</span>
+        <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>Every word, patiently</span>
+        <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Scans, hunts, abandons. Never patient.</span>
+      </div>
+      <div class="wu-vs-row">
+        <span class="wu-vs-k">What you get</span>
+        <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>One opinion</span>
+        <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Patterns across roles and moods</span>
+      </div>
+      <div class="wu-vs-row">
+        <span class="wu-vs-k">Run it twice</span>
+        <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>A different answer</span>
+        <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Same page, same answer</span>
+      </div>
+      <div class="wu-vs-row">
+        <span class="wu-vs-k">Over time</span>
+        <span class="wu-vs-cell wu-vs-them"><i class="fa-solid fa-xmark" aria-hidden="true"></i>No graded record</span>
+        <span class="wu-vs-cell wu-vs-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Learns from your grades and new data</span>
+      </div>
+      <p class="wu-kicker">An LLM gives one opinion. WhyUser shows which buyers give up, where, and why.</p>
+    </div>
+    <p class="lp-lead" style="margin-bottom:0">Row by row, with the mechanism behind each:</p>
     <div style="margin-top:2rem">
 <div class="cmp-wrap">
       <table class="cmp">

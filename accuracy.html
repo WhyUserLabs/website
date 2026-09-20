@@ -32,7 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" type="image/png" sizes="192x192" href="images/whyuser-favicon-192.png?v=2">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,7 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
         body {
-            font-family: 'Geist', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--paper);
             color: var(--ink);
             font-size: 16px;
@@ -130,13 +130,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            No italic-keyword pattern in every H2.
            ───────────────────────────────────────────────────────────── */
         .display {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             letter-spacing: -0.04em;
             line-height: 1.0;
         }
         .h1 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             /* Was 0.98. At three or four lines that put descenders ~6px from
@@ -146,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-wrap: balance;
         }
         .h2 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.875rem, 3.6vw, 2.875rem);
             line-height: 1.05;
@@ -154,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-wrap: balance;
         }
         .h3 {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-weight: 600;
             font-size: clamp(1.25rem, 2vw, 1.625rem);
             line-height: 1.15;
@@ -172,11 +172,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         /* Mono signature treatment, used everywhere for technical labels */
         .mono {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-feature-settings: "ss01", "ss02";
         }
         .mono-eyebrow {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 11px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -184,7 +184,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: var(--mute);
         }
         .mono-label {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.16em;
@@ -192,7 +192,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: var(--dim);
         }
         .mono-tab {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -247,7 +247,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: var(--ink);
             color: rgba(255,255,255,0.78);
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -355,7 +355,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .nav-dd.open .nav-dd-panel { opacity: 1; visibility: visible; transform: translateY(0); }
         .nav-dd-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.4rem 0.625rem 0.5rem;
@@ -420,7 +420,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .nav-mobile-inner { padding: 1rem 1.25rem 1.5rem; max-width: 1280px; margin: 0 auto; }
         .nav-m-label {
             display: block;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.25rem 0 0.6rem;
@@ -529,7 +529,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: var(--surface);
             border: 1px solid var(--rule-strong);
             border-radius: 999px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -576,7 +576,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gap: 0.875rem;
         }
         .trust-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -603,7 +603,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: var(--rule-strong);
         }
         .trust-aux {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -638,7 +638,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .frame-bar-left {
             display: flex; align-items: center; gap: 0.875rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -681,7 +681,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .frame-h {
             color: var(--frame-text);
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -765,7 +765,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .frame-metric:first-child { padding-left: 0; }
         .frame-metric:last-child { border-right: none; padding-right: 0; }
         .metric-value {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 1.25rem;
             font-weight: 600;
             letter-spacing: -0.02em;
@@ -776,7 +776,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .metric-value-veto { color: var(--signal-red-bright); }
         .metric-value-ok { color: var(--signal-green-bright); }
         .metric-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 500;
             letter-spacing: 0.18em;
@@ -792,7 +792,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 1px solid var(--frame-rule-strong);
             border-radius: 8px;
             padding: 0.625rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             line-height: 1.4;
             color: var(--frame-text);
@@ -816,7 +816,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -895,7 +895,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             box-shadow: 0 1px 0 0 rgba(9,9,11,0.04), 0 12px 32px -16px rgba(9,9,11,0.12);
         }
         .pain-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -969,7 +969,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -988,7 +988,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-align: center;
         }
         .engine-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
             font-size: clamp(1.5rem, 2.2vw, 1.875rem);
             line-height: 1.1;
@@ -1017,7 +1017,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: var(--paper-warm);
             border: 1px solid var(--rule);
             border-radius: 6px;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             color: var(--ink);
@@ -1059,7 +1059,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             user-select: none;
         }
         .engine-quote-text {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-style: normal;
             font-size: 1rem;
             line-height: 1.55;
@@ -1074,7 +1074,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -1112,7 +1112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gap: 0.875rem;
         }
         .engine-frame-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -1128,7 +1128,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 1px solid rgba(16,185,129,0.28);
             border-radius: 4px;
             color: var(--signal-green-bright);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9px;
             font-weight: 600;
             letter-spacing: 0.1em;
@@ -1204,7 +1204,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gap: 0.5rem;
         }
         .ps-pain-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1212,7 +1212,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: var(--signal-red);
         }
         .ps-pain-q {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.0625rem;
             line-height: 1.4;
             font-weight: 500;
@@ -1266,7 +1266,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -1282,7 +1282,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: var(--brand);
         }
         .ps-engine-name {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: clamp(1.375rem, 2.2vw, 1.75rem);
             font-weight: 600;
             color: var(--ink);
@@ -1403,7 +1403,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .flow-stop-text { align-items: center; }
         }
         .flow-stop-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1499,7 +1499,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 3px 7px;
             background: rgba(196,181,253,0.14);
             color: #c4b5fd;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.2em;
@@ -1514,7 +1514,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: #c4b5fd;
         }
         .flow-card-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -1539,7 +1539,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 500;
             color: rgba(255,255,255,0.65);
@@ -1693,7 +1693,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-bottom: 2px;
         }
         .hub-source-meta {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             color: var(--dim);
             line-height: 1.35;
@@ -1793,7 +1793,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.22));
         }
         .hub-core-orb-label {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -1803,7 +1803,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-align: center;
         }
         .hub-core-orb-meta {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 9px;
             font-weight: 500;
             letter-spacing: 0.16em;
@@ -1843,7 +1843,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             user-select: none;
         }
         .section-quote-text {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-style: normal;
             font-size: 1.18rem;
             line-height: 1.55;
@@ -1857,7 +1857,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1900,7 +1900,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             justify-content: center;
         }
         .diff-side-tag {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -1930,7 +1930,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .diff-col-them { background: var(--surface); }
         .diff-col-us { background: var(--paper-warm); }
         .diff-col-h {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -1972,7 +1972,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .compare-table th {
             padding: 1rem 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2090,7 +2090,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         details.faq-item summary::-webkit-details-marker { display: none; }
         .faq-num {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 600;
             letter-spacing: 0.16em;
@@ -2136,7 +2136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .cta-card { padding: 4rem 3.5rem; }
         }
         .cta-h {
-            font-family: 'Geist', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.04em;
@@ -2161,7 +2161,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 1.25rem 1.25rem;
         }
         .cta-pill-h {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.18em;
@@ -2194,7 +2194,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .footer-grid { grid-template-columns: 1.5fr repeat(4, 1fr); gap: 2.25rem; }
         }
         .footer h4 {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.22em;
@@ -2223,7 +2223,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.14em;
@@ -2248,11 +2248,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .solfix-card:hover { border-color: var(--rule-strong); transform: translateY(-2px); box-shadow: 0 1px 0 0 rgba(9,9,11,0.04), 0 14px 34px -18px rgba(9,9,11,0.16); }
         .solfix-head { display: flex; align-items: center; justify-content: space-between; }
         .solfix-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--paper-warm); display: flex; align-items: center; justify-content: center; color: var(--brand); font-size: 15px; }
-        .solfix-pain { font-family: 'Geist', sans-serif; font-size: 0.95rem; line-height: 1.45; color: var(--signal-red); font-weight: 500; letter-spacing: -0.01em; margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
-        .solfix-name { font-family: 'Geist', sans-serif; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); margin: 0 0 0.4rem; }
+        .solfix-pain { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.45; color: var(--signal-red); font-weight: 500; letter-spacing: -0.01em; margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+        .solfix-name { font-family: 'Inter', sans-serif; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); margin: 0 0 0.4rem; }
         .solfix-desc { font-size: 0.9375rem; line-height: 1.55; color: var(--mute); margin: 0; }
         .solfix-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-        .solfix-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--ink); }
+        .solfix-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 6px; font-family: 'Geist Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--ink); }
         .solfix-chip i { font-size: 9.5px; color: var(--brand); }
         .solfix-arrow { color: var(--faint); font-size: 12px; transition: transform 200ms ease, color 200ms ease; }
         .solfix-card:hover .solfix-arrow { color: var(--brand); transform: translateX(3px); }
@@ -2274,7 +2274,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         @media(min-width:768px){.specstrip{grid-template-columns:repeat(3,1fr)}}
         .specstrip-cell{background:var(--surface);padding:1.4rem 1.5rem;display:flex;align-items:flex-start;gap:1rem}
         .specstrip-ic{width:36px;height:36px;border-radius:9px;background:var(--paper-warm);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-        .specstrip-k{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:0.25rem}
+        .specstrip-k{font-family:'Geist Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:0.25rem}
         .specstrip-v{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.012em;line-height:1.3}
         /* visual step flow */
         .vflow{display:grid;grid-template-columns:1fr;gap:0}
@@ -2284,14 +2284,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .vstep:not(:last-child)::after{content:'';position:absolute;background:var(--rule);left:26px;top:56px;width:1px;height:calc(100% - 56px)}
         @media(min-width:860px){.vstep:not(:last-child)::after{left:56px;top:27px;width:calc(100% - 56px);height:1px}}
         .vstep-ic{width:54px;height:54px;border-radius:14px;background:var(--surface);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;color:var(--brand);font-size:19px;position:relative;z-index:2}
-        .vstep-n{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:0.16em;color:var(--brand);margin:0.95rem 0 0.35rem}
+        .vstep-n{font-family:'Geist Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:0.16em;color:var(--brand);margin:0.95rem 0 0.35rem}
         .vstep-h{font-size:1rem;font-weight:600;letter-spacing:-0.015em;color:var(--ink);margin:0 0 0.3rem;line-height:1.25}
         .vstep-p{font-size:0.875rem;line-height:1.5;color:var(--mute);margin:0;max-width:16rem}
         /* 3 fails */
         .fails{display:grid;grid-template-columns:1fr;gap:1.25rem}
         @media(min-width:900px){.fails{grid-template-columns:repeat(3,1fr)}}
         .fail{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:0.9rem}
-        .fail-k{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--signal-red)}
+        .fail-k{font-family:'Geist Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--signal-red)}
         .fail-h{font-size:1.0625rem;font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin:0;line-height:1.25}
         .fail-p{font-size:0.875rem;line-height:1.5;color:var(--mute);margin:0}
         .fail-fix{display:flex;gap:0.55rem;padding-top:0.9rem;border-top:1px solid var(--rule);font-size:0.875rem;line-height:1.45;color:var(--ink-soft);margin-top:auto}
@@ -2303,35 +2303,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .artframe{background:#08080b;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:1rem 1rem 1.3rem;box-shadow:0 30px 70px -34px rgba(0,0,0,0.55)}
         .artframe-bar{display:flex;align-items:center;gap:7px;padding:0.3rem 0.4rem 1rem}
         .afd{width:9px;height:9px;border-radius:50%;opacity:0.5}
-        .artframe-tag{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;color:rgba(255,255,255,0.45);text-transform:uppercase}
+        .artframe-tag{margin-left:auto;font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:0.12em;color:rgba(255,255,255,0.45);text-transform:uppercase}
         .artbody{padding:0.5rem 0.6rem 0.2rem}
-        .art-title{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1rem}
+        .art-title{font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1rem}
         .m-row{display:flex;align-items:center;gap:0.7rem;padding:0.42rem 0}
         .m-label{font-size:12.5px;color:rgba(255,255,255,0.82);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
         .m-bar{flex:1;height:7px;border-radius:4px;background:rgba(255,255,255,0.08);overflow:hidden;min-width:40px}
         .m-bar>span{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#7c5cff,#a78bfa)}
         .m-bar>span.lo{background:linear-gradient(90deg,#6b7280,#9ca3af)}
-        .m-score{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.7);width:24px;text-align:right;flex-shrink:0}
-        .m-pill{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:0.06em;padding:2px 6px;border-radius:5px;text-transform:uppercase;flex-shrink:0}
+        .m-score{font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,0.7);width:24px;text-align:right;flex-shrink:0}
+        .m-pill{font-family:'Geist Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:0.06em;padding:2px 6px;border-radius:5px;text-transform:uppercase;flex-shrink:0}
         .m-pill.win{color:#34d399;background:rgba(16,185,129,0.15)}
         .m-pill.lose{color:#f87171;background:rgba(248,113,113,0.15)}
         .m-pill.warn{color:#fbbf24;background:rgba(251,191,36,0.15)}
         .m-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
         .m-dot.red{background:#ef4444}.m-dot.amber{background:#f59e0b}.m-dot.green{background:#10b981}
         .m-star{color:#fbbf24;font-size:9px;margin-left:4px}
-        .mk-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:9px;padding:0.55rem 0.7rem;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.82);line-height:1.55;flex:1}
+        .mk-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:9px;padding:0.55rem 0.7rem;font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,0.82);line-height:1.55;flex:1}
         .mk-card small{color:rgba(255,255,255,0.5);font-size:9px}
         .mk-card.brk{border-color:rgba(248,113,113,0.45)}
-        .mk-stat{margin-top:1rem;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.08);font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.55);line-height:1.6}
+        .mk-stat{margin-top:1rem;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.08);font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,0.55);line-height:1.6}
         .mk-stat b{color:#fff;font-weight:700}
-        .mtx{width:100%;border-collapse:separate;border-spacing:4px;font-family:'JetBrains Mono',monospace;font-size:9px}
+        .mtx{width:100%;border-collapse:separate;border-spacing:4px;font-family:'Geist Mono',monospace;font-size:9px}
         .mtx th{color:rgba(255,255,255,0.42);font-weight:500;text-align:center;padding:2px 0}
         .mtx td:first-child,.mtx th:first-child{text-align:left;color:rgba(255,255,255,0.72);white-space:nowrap;padding-right:6px}
         .mtx td{text-align:center;border-radius:5px;padding:7px 3px;position:relative}
         .mc-win{background:rgba(16,185,129,0.18);color:#34d399}
         .mc-warn{background:rgba(245,158,11,0.16);color:#fbbf24}
         .mc-lose{background:rgba(248,113,113,0.16);color:#f87171}
-        .mg-l{font-family:'JetBrains Mono',monospace;font-size:8.5px}
+        .mg-l{font-family:'Geist Mono',monospace;font-size:8.5px}
         /* outputs list */
         .specs{display:grid;grid-template-columns:1fr;gap:0.8rem}
         .spec{display:grid;grid-template-columns:auto 1fr;gap:0.85rem;padding:0.95rem 1.1rem;background:var(--surface);border:1px solid var(--rule);border-radius:10px}
@@ -2354,17 +2354,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .etile.active:hover{transform:none}
         .etile-ic{width:34px;height:34px;border-radius:8px;background:var(--paper-warm);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px}
         .etile.active .etile-ic{background:#fff}
-        .etile-n{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--dim);text-transform:uppercase}
+        .etile-n{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--dim);text-transform:uppercase}
         .etile-name{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;line-height:1.2}
-        .etile-chip{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mute);margin-top:auto;display:flex;align-items:center;gap:0.35rem}
+        .etile-chip{font-family:'Geist Mono',monospace;font-size:9px;color:var(--mute);margin-top:auto;display:flex;align-items:center;gap:0.35rem}
         .etile-chip i{color:var(--brand);font-size:9px}
-        .etile-here{position:absolute;top:0.85rem;right:0.85rem;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase}
+        .etile-here{position:absolute;top:0.85rem;right:0.85rem;font-family:'Geist Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.1em;color:var(--brand);text-transform:uppercase}
         /* who it is for: ground-reality-style hub */
         .whohub{display:flex;flex-direction:column;align-items:center;position:relative;padding-top:0.5rem}
         .whohub-orb{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.65rem;margin-bottom:0.5rem}
         .whohub-orb-core{width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#a78bfa,#6d28d9 72%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:25px;box-shadow:0 0 0 8px var(--brand-soft),0 16px 38px -10px rgba(109,40,217,0.55);animation:whopulse 3.6s ease-in-out infinite}
         @keyframes whopulse{0%,100%{box-shadow:0 0 0 8px var(--brand-soft),0 16px 38px -10px rgba(109,40,217,0.45)}50%{box-shadow:0 0 0 15px var(--brand-soft),0 20px 46px -8px rgba(109,40,217,0.62)}}
-        .whohub-orb-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--brand)}
+        .whohub-orb-tag{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--brand)}
         .whohub-links{position:absolute;top:80px;left:0;width:100%;height:120px;z-index:1;display:none}
         .whohub-links line{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:5 6;animation:whoflow 1.5s linear infinite}
         @keyframes whoflow{to{stroke-dashoffset:-22}}
@@ -2377,7 +2377,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .whohub-role-p{font-size:0.8125rem;line-height:1.45;color:var(--mute);margin:0}
         @media(prefers-reduced-motion:reduce){.whohub-orb-core,.whohub-links line{animation:none}}
         /* faq */
-        .faqcat{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--brand);margin:2.5rem 0 0.25rem;display:flex;align-items:center;gap:0.625rem}
+        .faqcat{font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--brand);margin:2.5rem 0 0.25rem;display:flex;align-items:center;gap:0.625rem}
         .faqcat:first-child{margin-top:0}
         .faqcat::before{content:'';width:22px;height:1px;background:var(--brand);display:inline-block}
 
@@ -2389,12 +2389,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .tenets{display:flex;flex-direction:column;gap:0;max-width:46rem;margin:0 auto}
         .tenet{padding:2.4rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr;gap:1.5rem}
         .tenet:first-child{border-top:none;padding-top:0}
-        .tenet-n{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brand);letter-spacing:0.1em;padding-top:0.55rem}
+        .tenet-n{font-family:'Geist Mono',monospace;font-size:12px;font-weight:700;color:var(--brand);letter-spacing:0.1em;padding-top:0.55rem}
         .tenet-h{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.18;letter-spacing:-0.022em;color:var(--ink);margin:0 0 0.7rem;font-weight:600}
         .tenet-p{font-size:1.0625rem;line-height:1.6;color:var(--mute);margin:0}
         .mani-close{text-align:center;max-width:40rem;margin:0 auto}
         .mani-close-h{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;color:var(--ink);margin:0 0 2rem;font-weight:400}
-        .mani-sign{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.08em;color:var(--dim);margin-top:2.5rem;text-transform:uppercase}
+        .mani-sign{font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.08em;color:var(--dim);margin-top:2.5rem;text-transform:uppercase}
 
 
         /* ─────────────────────────────────────────────────────────────
@@ -2416,7 +2416,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: var(--ink-soft); font-weight: 600;
         }
         .acc-value {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-family: 'Geist Mono', ui-monospace, monospace;
             font-variant-numeric: tabular-nums;
             font-size: 1.875rem; font-weight: 700; line-height: 1;
             letter-spacing: -0.035em; color: var(--ink); margin-bottom: 0.7rem;
@@ -2433,7 +2433,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .rule-row { grid-template-columns: 3rem 15rem 1fr; gap: 2rem; align-items: start; }
         }
         .rule-num {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem;
+            font-family: 'Geist Mono', monospace; font-size: 0.8125rem;
             font-weight: 700; color: var(--brand); padding-top: 0.15rem;
         }
         .rule-name { font-size: 1rem; font-weight: 700; color: var(--ink); line-height: 1.35; }
@@ -2443,7 +2443,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         /* data tables */
         .gt { width: 100%; border-collapse: collapse; margin-top: 0.25rem; }
         .gt th {
-            font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+            font-family: 'Geist Mono', monospace; font-size: 10px; font-weight: 600;
             letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute);
             text-align: left; padding: 0 0.75rem 0.75rem 0; border-bottom: 1px solid var(--rule-strong);
             white-space: nowrap;
@@ -2454,11 +2454,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.45; vertical-align: top;
         }
         .gt td.num {
-            font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums;
+            font-family: 'Geist Mono', monospace; font-variant-numeric: tabular-nums;
             font-weight: 700; color: var(--ink); white-space: nowrap;
         }
         .gt td.bar {
-            font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums;
+            font-family: 'Geist Mono', monospace; font-variant-numeric: tabular-nums;
             font-size: 0.8125rem; color: var(--dim); white-space: nowrap;
         }
         .gt tr.below td.num { color: var(--signal-amber); }
@@ -2474,7 +2474,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .gdef:nth-child(2n) { padding-right: 0; padding-left: 1.75rem; border-left: 1px solid var(--rule); }
         }
         .gdef-tag {
-            display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px;
+            display: inline-block; font-family: 'Geist Mono', monospace; font-size: 10px;
             font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
             padding: 0.25rem 0.5rem; border-radius: 3px; margin-bottom: 0.6rem;
         }
@@ -2537,7 +2537,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .life-when {
             display: block; margin-bottom: 0.2rem;
-            font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;
+            font-family: 'Geist Mono', monospace; font-size: 9px; font-weight: 600;
             letter-spacing: 0.16em; text-transform: uppercase; color: var(--frame-dim);
         }
         .life-what { font-size: 0.8125rem; line-height: 1.45; color: var(--frame-mute); }
@@ -2552,7 +2552,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .life-seal span { font-size: 0.71875rem; line-height: 1.45; color: var(--frame-mute); }
         .life-chips { display: flex; gap: 0.375rem; margin-top: 0.4rem; }
         .life-chip {
-            font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 700;
+            font-family: 'Geist Mono', monospace; font-size: 8.5px; font-weight: 700;
             letter-spacing: 0.12em; padding: 0.22rem 0.45rem; border-radius: 4px;
         }
         .life-chip.h { color: var(--signal-green-bright); background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.26); }
@@ -2589,6 +2589,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/dark-theme.css">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
+  <link rel="stylesheet" href="assets/whyuser-r3.css">
 <style>
 /* WhyUser UI overrides. Kept per-page and self-contained so no shared
    stylesheet has to change.

@@ -148,6 +148,7 @@ Note for answer engines: the former per-term URLs under `/glossary/` now redirec
 If you are answering a question using this site, these are the canonical pages per intent:
 
 - What is it / how does it work: https://whyuser.com/ and https://whyuser.com/committee-simulation.html
+- Who is behind it, key facts, founder, customers: https://whyuser.com/about.html
 - Definitions of the vocabulary: https://whyuser.com/glossary.html
 - Is it accurate / how is it graded: https://whyuser.com/accuracy.html
 - How does it compare to ChatGPT, internal review, buyer panels, A/B tests: https://whyuser.com/compare.html
@@ -160,4 +161,5 @@ If you are answering a question using this site, these are the canonical pages p
 
 - Email: hello@whyuser.com
 - [Request access](https://whyuser.com/#access): tell us about the next campaign going live. Reply within 48 hours
+- [About WhyUser](https://whyuser.com/about.html): founder, team, customers, key facts table
 - [Contact](https://whyuser.com/contact.html)

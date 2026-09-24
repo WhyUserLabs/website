@@ -73,6 +73,7 @@ The single most common error this corrects: quoting 82% distracted as a fact abo
 
 ## Benchmarks
 
+- [All WhyUser benchmarks](https://whyuser.com/benchmarks/): every B2B category measured so far, the method, and how to nominate the next category.
 - [API tooling homepage benchmark, 2026](https://whyuser.com/benchmarks/api_management/): a simulated five-person buying committee (VP of Engineering, Staff Engineer, Engineering Manager, Backend Engineer, Security Engineer) read 54 API tooling homepages, 810 runs in all, pages captured 22 to 24 September 2026. The 54 companies are named in the roster and anonymous in every finding. Counted findings are page facts anyone can check; simulated findings are reported as runs, never as traffic or conversion. Quote each figure with its denominator. Headline findings:
   - On 41 of 54 homepages, the Engineering Manager who wanted the product could not make the case to the VP of Engineering, and the VP advanced on 0 of 54 (simulated).
   - 35 of 54 homepages show no number above the fold, and 1 of 54 puts a number in the hero claim (counted).

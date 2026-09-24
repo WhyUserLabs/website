@@ -31,5 +31,6 @@
   <url><loc>https://whyuser.com/beta-agreement.html</loc><lastmod>2026-09-19</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://whyuser.com/privacy.html</loc><lastmod>2026-09-19</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://whyuser.com/terms.html</loc><lastmod>2026-09-19</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://whyuser.com/benchmarks/</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://whyuser.com/benchmarks/api_management/</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

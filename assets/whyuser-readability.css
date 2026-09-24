@@ -418,3 +418,10 @@ body {
   body { background: #fff !important; color: #000 !important; }
   .nav, .nav-mobile { display: none !important; }
 }
+
+/* nav dropdown height guard (2026-09-24): a dropdown taller than the window,
+   on a short laptop screen, scrolls inside itself instead of running off the
+   bottom, where its last items could not be reached under the sticky nav. */
+@media (min-width: 1000px) {
+  .nav-dd-panel { max-height: calc(100vh - 80px); overflow-y: auto; overscroll-behavior: contain; }
+}

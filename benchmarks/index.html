@@ -140,6 +140,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .nav, .masthead { border-bottom: 0 !important; }
 .cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
 </style>
+<style>
+/* Nominate-a-category form. Sends to HubSpot via assets/whyuser-hubspot.js. */
+.nom{display:grid;gap:.75rem}
+.nom label{display:grid;gap:.35rem;font-size:.8125rem;font-weight:600;color:var(--ink-soft)}
+.nom label em{font-style:normal;font-weight:400;color:var(--mute)}
+#nomOpen[hidden],.nom[hidden],.nom-done[hidden],.nom-pv[hidden]{display:none!important}
+.nom input,.nom textarea{font:inherit;font-size:1rem;font-weight:400;color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:8px;padding:.6rem .75rem;width:100%;box-sizing:border-box}
+.nom textarea{resize:vertical;min-height:4.5rem}
+.nom input:focus,.nom textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:transparent}
+.nom-2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.nom-hint{margin:0;min-height:1.25em;font-size:.875rem;line-height:1.4;color:var(--mute)}
+.nom-hint.err{color:var(--signal-red)}
+.nom-hint a,.nom-link{color:var(--ink);text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:0;font:inherit;cursor:pointer}
+.nom-done p{margin:0 0 .5rem}
+.nom-pv{display:inline-block;font-size:.75rem;color:var(--signal-amber);border:1px solid var(--rule-strong);border-radius:6px;padding:.3rem .6rem}
+</style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
@@ -506,12 +522,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="api_management/index.html" class="btn btn-ghost" style="width:100%">Read the benchmark <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
       </div>
 
-      <div class="card">
+      <div class="card" id="nominate">
         <div class="card-ic"><i class="fa-solid fa-plus"></i></div>
         <span class="mono-label" style="margin-bottom:.5rem">Next category</span>
         <h3 class="h3">Tell us what to measure next.</h3>
         <p style="margin-bottom:1rem">Name a B2B category and the homepages that belong in it.</p>
-        <a href="mailto:hello@whyuser.com?subject=Benchmark%3A%20the%20next%20category" class="btn btn-ghost" style="width:100%">Nominate a category <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+        <button id="nomOpen" type="button" class="btn btn-ghost" style="width:100%" aria-controls="nomForm" aria-expanded="false">Nominate a category <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></button>
+        <form id="nomForm" class="nom" novalidate hidden>
+          <div class="nom-2">
+            <label for="nFirst">First name<input id="nFirst" name="firstname" type="text" autocomplete="given-name" required></label>
+            <label for="nLast">Last name<input id="nLast" name="lastname" type="text" autocomplete="family-name" required></label>
+          </div>
+          <label for="nEmail">Work email<input id="nEmail" name="email" type="email" autocomplete="email" placeholder="you@yourcompany.com" required></label>
+          <label for="nCat">Category<input id="nCat" name="category" type="text" placeholder="e.g. Data observability" required></label>
+          <label for="nSites"><span>Homepages that belong in it <em>(optional)</em></span><textarea id="nSites" name="homepages" rows="2" placeholder="acme.com, example.io"></textarea></label>
+          <p class="nom-hint" id="nHint" aria-live="polite"></p>
+          <button id="nomSend" type="submit" class="btn btn-ghost" style="width:100%">Send nomination <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></button>
+        </form>
+        <div class="nom-done" id="nomDone" hidden tabindex="-1">
+          <p><strong>Thanks. Your nomination is in.</strong></p>
+          <p style="color:var(--mute)">We read every one. If we run the category, we'll email you first.</p>
+          <span class="nom-pv" id="nomPv" hidden>Preview: nothing was sent. On whyuser.com this form sends to HubSpot.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -712,6 +744,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
     </script>
 
+
+<!-- Nominate a category: builds the request and sends it to HubSpot. -->
+<script>
+(function () {
+  var open = document.getElementById('nomOpen'), form = document.getElementById('nomForm');
+  if (!open || !form) return;
+  var hint = document.getElementById('nHint'), done = document.getElementById('nomDone'), btn = document.getElementById('nomSend');
+  var btnHTML = btn.innerHTML, TO = 'hello@whyuser.com';
+  var LIVE = /(^|\.)whyuser\.com$/i.test(location.hostname);
+
+  function track(name, p) {
+    p = p || {};
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, p); } catch (e) {}
+    try { window.dataLayer = window.dataLayer || []; var d = { event: name }; for (var k in p) d[k] = p[k]; window.dataLayer.push(d); } catch (e) {}
+  }
+  function show() { open.hidden = true; open.setAttribute('aria-expanded', 'true'); form.hidden = false; }
+  open.addEventListener('click', function () { show(); document.getElementById('nFirst').focus(); track('nominate_open'); });
+  if (location.hash === '#nominate') show();
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+  function err(msg, id) { hint.textContent = msg; hint.className = 'nom-hint err'; if (id) document.getElementById(id).focus(); }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first = val('nFirst'), last = val('nLast'), email = val('nEmail'), cat = val('nCat'), sites = val('nSites');
+    if (!first) return err('Enter your first name.', 'nFirst');
+    if (!last) return err('Enter your last name.', 'nLast');
+    if (!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(email)) return err('Enter an email address, like you@yourcompany.com.', 'nEmail');
+    if (!cat) return err('Name the category.', 'nCat');
+    hint.textContent = ''; hint.className = 'nom-hint';
+    var notes = 'Benchmark category nomination\nCategory: ' + cat + (sites ? '\nHomepages: ' + sites : '');
+
+    function finish(sent) { form.hidden = true; done.hidden = false; document.getElementById('nomPv').hidden = sent; done.focus(); }
+    function failed() {
+      // Never a dead end: the visitor can still email the nomination.
+      var body = notes + '\nName: ' + first + ' ' + last + '\nWork email: ' + email;
+      var a = document.createElement('a');
+      a.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Benchmark: the next category') + '&body=' + encodeURIComponent(body.replace(/\n/g, '\r\n'));
+      a.textContent = 'email it to ' + TO;
+      hint.textContent = "We couldn't send your nomination. Please try again, or ";
+      hint.appendChild(a); hint.appendChild(document.createTextNode('.'));
+      hint.className = 'nom-hint err';
+      btn.disabled = false; btn.innerHTML = btnHTML;
+    }
+
+    track('nominate_submit');
+    if (!LIVE) { finish(false); return; }
+    btn.disabled = true; btn.textContent = 'Sending…';
+    if (!window.WhyUserHS) { track('nominate_failed'); failed(); return; }
+    window.WhyUserHS.submit({ cta: 'benchmark_nominate', email: email, firstname: first, lastname: last, notes: notes })
+      .then(function () {
+        track('generate_lead', { value: 0, currency: 'USD', lead_source: 'benchmark_nominate_form' });
+        finish(true);
+      })
+      .catch(function () { track('nominate_failed'); failed(); });
+  });
+})();
+</script>
+<script src="../assets/whyuser-hubspot.js" defer></script>
 
 <!-- WHYUSER:ANALYTICS:START -->
 <script src="../assets/whyuser-analytics.js" defer></script>

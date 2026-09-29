@@ -143,8 +143,9 @@ h1,h2,h3{font-family:var(--fp);font-weight:700;letter-spacing:-.021em;text-wrap:
 .gets li b{font-family:var(--fp);font-weight:600;color:var(--ink);font-size:15px}
 form{display:grid;gap:14px;align-content:start}
 label.f{display:grid;gap:6px;font-family:var(--fp);font-weight:600;font-size:13px;color:var(--ink)}
-input[type=url],input[type=email]{font:inherit;font-size:16px;font-family:var(--fa);height:48px;padding:0 14px;border:1px solid var(--rule);border-radius:10px;background:#fff;color:var(--ink)}
-input[type=url]:focus,input[type=email]:focus{outline:2px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
+input[type=url],input[type=email],input[type=text]{font:inherit;font-size:16px;font-family:var(--fa);height:48px;padding:0 14px;border:1px solid var(--rule);border-radius:10px;background:#fff;color:var(--ink)}
+input[type=url]:focus,input[type=email]:focus,input[type=text]:focus{outline:2px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
+.names{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .hint{font-family:var(--fa);font-weight:400;font-size:14px;line-height:1.4;min-height:1.4em;color:var(--ink3)}
 .hint.yes{color:var(--goodD)}
 .hint.err{color:var(--badD)}
@@ -152,6 +153,7 @@ input[type=url]:focus,input[type=email]:focus{outline:2px solid var(--ink);outli
 .done{border:1px solid var(--rule);border-radius:12px;padding:20px;background:#fff}
 .done h3{font-size:20px;margin-bottom:8px}
 .done p{margin:0 0 8px;color:var(--ink2);font-size:15.5px}
+.linkbtn{font:inherit;color:var(--ink);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .done .pv{font-family:var(--fp);font-size:12px;color:var(--frictionD);background:#F3EEDD;border-radius:6px;padding:6px 10px;display:inline-block;margin-top:6px}
 
 /* roster + method */
@@ -266,6 +268,12 @@ details dd{margin:0;color:var(--ink2)}
         <label class="f" for="rUrl">Your company's homepage
           <input id="rUrl" name="homepage" type="url" inputmode="url" autocomplete="url" placeholder="yourcompany.com" required>
           <span class="hint" id="rUrlHint" aria-live="polite"></span></label>
+        <div class="names">
+          <label class="f" for="rFirst">First name
+            <input id="rFirst" name="firstname" type="text" autocomplete="given-name" required></label>
+          <label class="f" for="rLast">Last name
+            <input id="rLast" name="lastname" type="text" autocomplete="family-name" required></label>
+        </div>
         <label class="f" for="rEmail">Your work email
           <input id="rEmail" name="email" type="email" autocomplete="email" placeholder="you@yourcompany.com" required>
           <span class="hint" id="rEmailHint" aria-live="polite"></span></label>
@@ -275,7 +283,7 @@ details dd{margin:0;color:var(--ink2)}
       <div class="done" id="reportDone" hidden tabindex="-1">
         <h3 id="doneTitle"></h3>
         <p id="doneBody"></p>
-        <span class="pv" id="donePv">Preview: nothing was sent. On whyuser.com this form sends your request.</span>
+        <span class="pv" id="donePv" hidden>Preview: nothing was sent. On whyuser.com this form sends your request to HubSpot.</span>
         <p style="margin-top:12px"><button class="x" id="reportAgain" type="button" style="font-family:var(--fp);font-size:13px;background:transparent;border:1px solid var(--rule);border-radius:999px;padding:7px 14px;cursor:pointer">Request another report</button></p>
       </div>
     </div>
@@ -298,7 +306,7 @@ details dd{margin:0;color:var(--ink2)}
     </dl></details>
     <div class="links">
       <a href="mailto:hello@whyuser.com?subject=Benchmark%3A%20you%20misread%20our%20page">Think we misread your page? Tell us</a>
-      <a href="mailto:hello@whyuser.com?subject=Benchmark%3A%20the%20next%20category">Nominate the next category</a>
+      <a href="../index.html#nominate">Nominate the next category</a>
       <a href="../index.html">All WhyUser benchmarks</a>
     </div>
   </div>
@@ -903,46 +911,59 @@ details dd{margin:0;color:var(--ink2)}
     if (!h) { urlHint(); if (!uEl.value.trim()) { uHint.textContent = "Enter your homepage address."; uHint.className = "hint err"; } uEl.focus(); return; }
     if (!eEl.value.trim()) { eHint.textContent = "Enter your work email."; eHint.className = "hint err"; eEl.focus(); return; }
     if (!emailHint()) { eEl.focus(); return; }
-    var btn = document.getElementById("rSend"), payload = {
-      homepage: h, email: eEl.value.trim(), in_benchmark: inSet(h), edition: D.meta.edition,
-      source: "benchmark-page", page: location.href.split("#")[0]
-    };
+    var first = document.getElementById("rFirst").value.trim(), last = document.getElementById("rLast").value.trim();
+    if (!first || !last) { eHint.textContent = "Enter your first and last name."; eHint.className = "hint err"; document.getElementById(first ? "rLast" : "rFirst").focus(); return; }
+    var email = eEl.value.trim(), inB = inSet(h), to = D.meta.contact_email || "hello@whyuser.com";
+    var pageUrl = location.href.split("#")[0].split("?")[0];
+    var note = "Benchmark report request\n" +
+      "Homepage: " + h + "\n" +
+      "In the " + D.meta.n + "-company set: " + (inB ? "Yes" : "No") + "\n" +
+      "Benchmark: " + D.meta.title + " (" + D.meta.edition + ")";
+    var btn = document.getElementById("rSend");
+
     function done(sent) {
       var box = document.getElementById("reportDone");
-      document.getElementById("doneTitle").textContent = payload.in_benchmark ? "Your report is on its way" : "We'll run your homepage";
-      document.getElementById("doneBody").textContent = payload.in_benchmark
-        ? "We'll email your row, your score on the 12 checks and the committee read for " + h + " to " + payload.email + "."
-        : "We'll run the five-person committee on " + h + " and email your report to " + payload.email + ".";
+      document.getElementById("doneTitle").textContent = inB ? "Your report is on its way" : "We'll run your homepage";
+      document.getElementById("doneBody").textContent = inB
+        ? "We'll email your row, your score on the 12 checks and the committee read for " + h + " to " + email + "."
+        : "We'll run the five-person committee on " + h + " and email your report to " + email + ".";
       document.getElementById("donePv").hidden = sent;
       document.getElementById("reportForm").hidden = true; box.hidden = false; box.focus();
     }
-    track("report_request_submit", { in_benchmark: payload.in_benchmark });
+    function failed() {
+      // Never a dead end: the visitor can still email the request.
+      var subject = "Benchmark report request: " + h;
+      var body = note + "\nName: " + first + " " + last + "\nWork email: " + email + "\nPage: " + pageUrl;
+      var a = document.createElement("a");
+      a.href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n"));
+      a.textContent = "email " + to;
+      var c = document.createElement("button"); c.type = "button"; c.className = "linkbtn"; c.textContent = "copy the request";
+      c.onclick = function () { copyText("To: " + to + "\nSubject: " + subject + "\n\n" + body, "Copied. Paste it into an email to " + to + "."); };
+      eHint.textContent = "We couldn't send your request. Please try again, ";
+      eHint.appendChild(a); eHint.appendChild(document.createTextNode(" or ")); eHint.appendChild(c); eHint.appendChild(document.createTextNode("."));
+      eHint.className = "hint err";
+      btn.disabled = false; btn.textContent = "Send my report";
+    }
+
+    track("report_request_submit", { in_benchmark: inB });
     if (!LIVE) { done(false); return; }
+
     btn.disabled = true; btn.textContent = "Sending…";
-    fetch(D.meta.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
-      .then(function (r) {
-        if (!r.ok) throw new Error(r.status);
-        track("generate_lead", { value: 0, currency: "USD", lead_source: "benchmark_report_form", in_benchmark: payload.in_benchmark });
+    if (!window.WhyUserHS) { track("report_request_failed", { in_benchmark: inB }); failed(); return; }
+    window.WhyUserHS.submit({ cta: "benchmark_report", email: email, firstname: first, lastname: last, notes: note })
+      .then(function () {
+        track("generate_lead", { value: 0, currency: "USD", lead_source: "benchmark_report_form", in_benchmark: inB });
+        btn.disabled = false; btn.textContent = "Send my report";
         done(true);
       })
       .catch(function () {
-        track("report_request_failed", { in_benchmark: payload.in_benchmark });
-        btn.disabled = false; btn.textContent = "Send my report";
-        var mail = D.meta.contact_email;
-        if (mail) {
-          // Never a dead end: the request can still reach a person.
-          var href = "mailto:" + mail + "?subject=" + encodeURIComponent("Benchmark report for " + h) +
-            "&body=" + encodeURIComponent("Homepage: " + h + "\nWork email: " + payload.email + "\n");
-          eHint.innerHTML = "We couldn't send your request. <a href=\"" + href + "\">Email it to " + mail + "</a> instead and we'll send your report.";
-        } else {
-          eHint.textContent = "We couldn't send your request. Check your connection and try again.";
-        }
-        eHint.className = "hint err";
+        track("report_request_failed", { in_benchmark: inB });
+        failed();
       });
   });
   document.getElementById("reportAgain").addEventListener("click", function () {
     document.getElementById("reportDone").hidden = true; document.getElementById("reportForm").hidden = false; uEl.focus();
   });
 })();
-</script><script src="../../assets/whyuser-analytics.js" defer></script>
+</script><script src="../../assets/whyuser-hubspot.js" defer></script><script src="../../assets/whyuser-analytics.js" defer></script>
 </body></html>

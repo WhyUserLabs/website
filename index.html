@@ -59,7 +59,6 @@
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <script async src="https://tally.so/widgets/embed.js"></script>
 
     <script type="application/ld+json">
 {
@@ -2429,6 +2428,52 @@
             border: 0;
             background: transparent;
         }
+        /* Request-access form, inside the dark design partnership band.
+           Sends to HubSpot via assets/whyuser-hubspot.js (replaced Tally
+           2026-09-29). Same two-column rhythm as .wu-dp-grid above it. */
+        .wu-dp-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--frame-rule);
+        }
+        @media (min-width: 1000px) {
+            .wu-dp-form { grid-template-columns: 15rem 1fr; gap: 3.5rem; }
+        }
+        .wu-form { display: grid; gap: 1rem; max-width: 40rem; }
+        @media (min-width: 1000px) {
+            .wu-form, .wu-form-done { border-left: 1px solid var(--frame-rule); padding-left: 3rem; }
+        }
+        .wu-form label { display: grid; gap: .4rem; font-size: .8125rem; font-weight: 600; color: var(--frame-text); }
+        .wu-form label em { font-style: normal; font-weight: 400; color: var(--frame-mute); }
+        .wu-form input, .wu-form select, .wu-form textarea {
+            font: inherit; font-size: 1rem; font-weight: 400; color: var(--frame-text);
+            background: var(--frame-surface); border: 1px solid var(--frame-rule-strong);
+            border-radius: 10px; padding: .7rem .85rem; width: 100%; box-sizing: border-box;
+        }
+        .wu-form select {
+            appearance: none; -webkit-appearance: none; padding-right: 2.25rem; cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a8a8b3' stroke-width='1.6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right .9rem center;
+        }
+        .wu-form textarea { resize: vertical; min-height: 6rem; }
+        .wu-form input::placeholder, .wu-form textarea::placeholder { color: var(--frame-dim); }
+        .wu-form input:focus, .wu-form select:focus, .wu-form textarea:focus {
+            outline: 2px solid #9fc0a9; outline-offset: 1px; border-color: transparent;
+        }
+        .wu-form-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .wu-form-hint { margin: 0; min-height: 1.25em; font-size: .875rem; line-height: 1.45; color: var(--frame-mute); }
+        .wu-form-hint.err { color: #fca5a5; }
+        .wu-form-hint a { text-decoration: underline; text-underline-offset: 3px; }
+        .wu-form .btn { justify-self: start; }
+        /* !important: whyuser-readability.css forces .btn-primary to black. */
+        .wu-form .btn-primary { background: #fafafa !important; color: #131318 !important; border-color: #fafafa !important; }
+        .wu-form .btn-primary:hover { background: #e4e4e7 !important; border-color: #e4e4e7 !important; }
+        .wu-form .btn-primary:disabled { opacity: .6; cursor: wait; }
+        .wu-form-note { margin: 0; font-size: .8125rem; line-height: 1.5; color: var(--frame-dim); }
+        .wu-form-done p { margin: 0 0 .5rem; color: rgba(255,255,255,.66); }
+        .wu-form[hidden], .wu-form-done[hidden] { display: none !important; }
 
         /* ─────────────────────────────────────────────────────────────
            ARCHITECTURE, hub & spoke
@@ -5024,23 +5069,83 @@
 
                 </div>
 
+                <!-- REQUEST ACCESS -->
+                <div class="wu-dp-form">
+                    <div>
+                        <span class="wu-collabel">Request access</span>
+                        <h3 class="wu-dp-h">Apply to be a design partner</h3>
+                        <p class="wu-dp-p">A person reads every request. We reply within 48 hours.</p>
+                    </div>
+                    <form id="accessForm" class="wu-form" novalidate>
+                        <div class="wu-form-2">
+                            <label for="aFirst">First name<input id="aFirst" name="firstname" type="text" autocomplete="given-name" required></label>
+                            <label for="aLast">Last name<input id="aLast" name="lastname" type="text" autocomplete="family-name" required></label>
+                        </div>
+                        <label for="aEmail">Work email<input id="aEmail" name="email" type="email" autocomplete="email" placeholder="you@yourcompany.com" required></label>
+                        <label for="aFocus"><span>Primary marketing focus <em>(optional)</em></span>
+                            <select id="aFocus" name="primary_marketing_focus">
+                                <option value="">Choose one</option>
+                                <option value="demand_generation">Demand generation</option>
+                                <option value="marketing_operations">Marketing operations</option>
+                            </select></label>
+                        <label for="aNotes"><span>Tell us about the next campaign you have going live <em>(optional)</em></span>
+                            <textarea id="aNotes" name="contact_us_notes" rows="3" placeholder="How can we help?"></textarea></label>
+                        <p class="wu-form-hint" id="aHint" aria-live="polite"></p>
+                        <button id="aSend" type="submit" class="btn btn-primary btn-lg">Request access</button>
+                    </form>
+                    <div class="wu-form-done" id="accessDone" hidden tabindex="-1">
+                        <h3 class="wu-dp-h">Request received</h3>
+                        <p>Preview: nothing was sent. On whyuser.com this form sends to HubSpot and opens the thank-you page.</p>
+                    </div>
+                </div>
+                <script>
+                (function () {
+                    var form = document.getElementById('accessForm');
+                    if (!form) return;
+                    var hint = document.getElementById('aHint'), btn = document.getElementById('aSend'), TO = 'hello@whyuser.com';
+                    var LIVE = /(^|\.)whyuser\.com$/i.test(location.hostname);
+                    function val(id) { return document.getElementById(id).value.trim(); }
+                    function err(msg, id) { hint.textContent = msg; hint.className = 'wu-form-hint err'; if (id) document.getElementById(id).focus(); }
+                    function track(name, p) {
+                        p = p || {};
+                        try { if (typeof window.gtag === 'function') window.gtag('event', name, p); } catch (e) {}
+                        try { window.dataLayer = window.dataLayer || []; var d = { event: name }; for (var k in p) d[k] = p[k]; window.dataLayer.push(d); } catch (e) {}
+                    }
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        var first = val('aFirst'), last = val('aLast'), email = val('aEmail'), focus = val('aFocus'), notes = val('aNotes');
+                        if (!first) return err('Enter your first name.', 'aFirst');
+                        if (!last) return err('Enter your last name.', 'aLast');
+                        if (!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(email)) return err('Enter an email address, like you@yourcompany.com.', 'aEmail');
+                        hint.textContent = ''; hint.className = 'wu-form-hint';
+                        track('access_form_submit');
+                        if (!LIVE) { form.hidden = true; var d = document.getElementById('accessDone'); d.hidden = false; d.focus(); return; }
+
+                        function failed() {
+                            // Never a dead end: the visitor can still email the request.
+                            var body = 'Design partner request\nName: ' + first + ' ' + last + '\nWork email: ' + email +
+                                (focus ? '\nFocus: ' + focus : '') + (notes ? '\nNext campaign: ' + notes : '');
+                            var a = document.createElement('a');
+                            a.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Design partner request') + '&body=' + encodeURIComponent(body.replace(/\n/g, '\r\n'));
+                            a.textContent = 'email it to ' + TO;
+                            hint.textContent = "We couldn't send your request. Please try again, or ";
+                            hint.appendChild(a); hint.appendChild(document.createTextNode('.'));
+                            hint.className = 'wu-form-hint err';
+                            btn.disabled = false; btn.textContent = 'Request access';
+                        }
+                        btn.disabled = true; btn.textContent = 'Sending…';
+                        if (!window.WhyUserHS) { track('access_form_failed'); failed(); return; }
+                        var extra = focus ? [{ name: 'primary_marketing_focus', value: focus }] : [];
+                        window.WhyUserHS.submit({ cta: 'design_partner_request', email: email, firstname: first, lastname: last, notes: notes, extra: extra })
+                            .then(function () { window.location.href = 'success.html'; })   /* success.html fires generate_lead */
+                            .catch(function () { track('access_form_failed'); failed(); });
+                    });
+                })();
+                </script>
+
             </div>
 
 
-                <div class="tally-wrap" style="max-width:46rem;margin-left:auto;margin-right:auto">
-                    <iframe
-                        data-tally-src="https://tally.so/embed/xXVLNJ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                        loading="lazy"
-                        width="100%"
-                        height="420"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0"
-                        title="Request access"></iframe>
-                    <script>
-                        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-                    </script>
-                </div>
             </div>
         </div>
     </section>
@@ -5230,6 +5335,7 @@
 
 
 <!-- WHYUSER:ANALYTICS:START -->
+<script src="assets/whyuser-hubspot.js" defer></script>
 <script src="assets/whyuser-analytics.js" defer></script>
 <!-- WHYUSER:ANALYTICS:END -->
 </body>

@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="article:modified_time" content="2026-10-01T00:00:00+00:00">
 
 <title>Six questions ngrok answered before a buyer saw the campaign | WhyUser</title>
-<meta name="description" content="How ngrok used WhyUser to answer six questions before launch: how long it takes, whether the committee sees the known roles, why one was missing, a new HealthTech audience, a HIPAA blocker, and what happened live.">
+<meta name="description" content="How ngrok used WhyUser to answer six questions before launch: does WhyUser see what ngrok knows, why one role was missing, how fast to a new vertical, who is in it, will buyers believe the email, and what happened live.">
 <link rel="canonical" href="https://whyuser.com/casestudy-ngrok.html">
 
 <meta property="og:type" content="article">
@@ -72,7 +72,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@id": "https://whyuser.com/casestudy-ngrok.html#article",
       "url": "https://whyuser.com/casestudy-ngrok.html",
       "headline": "Six questions ngrok answered before a buyer ever saw the campaign",
-      "description": "How ngrok used WhyUser to answer six questions before launch: how long it takes, whether the committee sees the known roles, why one was missing, a new HealthTech audience, a HIPAA blocker, and what happened live.",
+      "description": "How ngrok used WhyUser to answer six questions before launch: does WhyUser see what ngrok knows, why one role was missing, how fast to a new vertical, who is in it, will buyers believe the email, and what happened live.",
       "articleSection": "Customer story",
       "image": "https://whyuser.com/og-image.png",
       "datePublished": "2026-10-01",
@@ -473,7 +473,7 @@ body { background-image: none; }
 .sq{
   --sq-paper:var(--paper,#faf9f7);
   --sq-ink:#2b2f36; --sq-mute:#454a54; --sq-accent:#6a5ba3; --sq-link:#3f5a8a;
-  --sq-sand:#f3f0ea; --sq-trail:#d8d2c8;
+  --sq-sand:#f3f0ea; --sq-trail:#d8d2c8; --sq-line:rgba(43,47,54,.08);
   --sq-rose:#f7e7e2;   --sq-rose-n:#d9a99c;   --sq-rose-t:#7e3f31; --sq-rose-k:#9a4f3e; --sq-rose-p:#4a3b37; --sq-rose-s:#c98c7d;
   --sq-blue:#e5ecf6;   --sq-blue-n:#b5c4de;   --sq-blue-t:#2f4670; --sq-blue-s:#6f87b5; --sq-blue-p:#334058;
   --sq-green:#e6efe8;  --sq-green-n:#a9c6b2;  --sq-green-t:#3d6650; --sq-green-s:#7fa58d; --sq-green-p:#34443a; --sq-green-q:#3a4a40; --sq-green-r:#c6d8cb;
@@ -502,14 +502,20 @@ body { background-image: none; }
 .sq-in{max-width:1120px;margin:0 auto}
 .sq-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:56px;align-items:start}
 .sq-band{padding:96px 24px}
+.sq-q1,.sq-q2,.sq-q3,.sq-q4,.sq-q5,.sq-q6{padding:0 24px 80px}
+.sq-q1>.sq-in,.sq-q2>.sq-in,.sq-q3>.sq-in,.sq-q4>.sq-in,.sq-q5>.sq-in,.sq-q6>.sq-in{position:relative;padding-top:80px}
+/* a short centred mark between questions, like the homepage logo strip */
+.sq-q1>.sq-in::before,.sq-q2>.sq-in::before,.sq-q3>.sq-in::before,.sq-q4>.sq-in::before,.sq-q5>.sq-in::before,.sq-q6>.sq-in::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:56px;height:1px;background:rgba(43,47,54,.22)}
 .sq-stack{display:grid;gap:20px}
 .sq-cards{display:grid;gap:16px}
 .sq-num{font-size:clamp(72px,8vw,96px)}
-.sq-card{background:var(--sq-paper);border-radius:22px;padding:28px;display:grid;gap:8px}
-.sq-panel{border-radius:26px;padding:36px;display:grid;gap:24px}
+/* One page colour throughout (like the homepage). Cards are white with a
+   hairline; each question keeps its colour only in its number, labels and bars. */
+.sq-card{background:#fff;border:1px solid var(--sq-line);border-radius:22px;padding:28px;display:grid;gap:8px}
+.sq-panel{background:#fff;border:1px solid var(--sq-line);border-radius:26px;padding:36px;display:grid;gap:24px}
 
 /* hero */
-.sq-hero{padding:80px 24px 88px}
+.sq-hero{padding:64px 24px 80px}
 .sq-hero .sq-split{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));align-items:center}
 .sq-hero-copy{display:grid;gap:28px}
 .sq-brand{display:grid;gap:16px;justify-items:start}
@@ -519,22 +525,51 @@ body { background-image: none; }
 .sq-lockup-wu{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:21px;letter-spacing:-.025em;line-height:1;color:var(--sq-ink)}
 .sq-lockup-wu img{width:28px;height:28px;object-fit:contain;display:block}
 .sq-hero-copy .p{font-size:19px;color:var(--sq-mute);max-width:520px}
-.sq-journey{background:var(--sq-sand);border-radius:24px;padding:24px 16px 16px;display:grid;gap:6px;width:100%;max-width:400px;justify-self:end;box-sizing:border-box}
+/* outcomes card (hero, right): a 2x2 stat board. Header row holds the
+   label and the Copy button; every tile shares one grid, one left edge and
+   one type scale, so nothing floats. Colour lives only in the tile label. */
+.sq-out{background:#fff;border:1px solid rgba(43,47,54,.08);border-radius:24px;padding:24px 28px 8px;width:100%;max-width:500px;justify-self:end;box-sizing:border-box;box-shadow:0 1px 2px rgba(43,47,54,.04),0 18px 40px -24px rgba(43,47,54,.22)}
+@media(min-width:800px){.sq-out{position:relative;top:24px}}
+.sq-out-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(43,47,54,.08)}
+.sq-out-h .eb{color:var(--sq-mute);font-size:11px;letter-spacing:.14em}
+.sq-out-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+.sq-out-list li{display:flex;flex-direction:column;gap:6px;padding:18px 0 20px;margin:0}
+.sq-out-list li:nth-child(n+3){border-top:1px solid rgba(43,47,54,.08)}
+.sq-out-list .eb{font-size:10.5px;letter-spacing:.13em;line-height:1.3}
+.sq-out-v{font-size:24px;font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--sq-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sq-out-v .to{color:var(--sq-mute);font-weight:500;margin:0 .12em}
+.sq-out-s{font-size:12.5px;line-height:1.45;color:var(--sq-mute);text-wrap:balance}
+.o-rose .eb{color:var(--sq-rose-k)}
+.o-green .eb{color:var(--sq-green-t)}
+.o-gold .eb{color:var(--sq-gold-t)}
+.o-lav .eb{color:var(--sq-lav-k)}
+.sq .sq-copy{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 13px;border:1px solid rgba(43,47,54,.16);border-radius:999px;background:#fff;color:var(--sq-ink);font:600 12.5px/1 'Inter',system-ui,sans-serif;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.sq .sq-copy svg{width:13px;height:13px}
+.sq .sq-copy:hover{background:var(--sq-night);border-color:var(--sq-night);color:#faf8f5}
+.sq .sq-copy:focus-visible{outline:2px solid var(--sq-accent);outline-offset:3px}
+.sq .sq-copy.is-done{background:var(--sq-green-t);border-color:var(--sq-green-t);color:#fff}
+@media(max-width:560px){.sq-out-list{grid-template-columns:1fr}.sq-out-list li:nth-child(n+2){border-top:1px solid rgba(43,47,54,.08)}}
+
+/* journey section (moved below the hero) */
+.sq-map .sq-split{align-items:center}
+.sq-map .sq-stack>.eb{color:var(--sq-mute)}
+.sq-map .sq-stack>.p{color:var(--sq-mute);max-width:480px}
+
+.sq-journey{background:#fff;border:1px solid var(--sq-line);border-radius:24px;padding:24px 16px 16px;display:grid;gap:6px;width:100%;max-width:400px;justify-self:end;box-sizing:border-box}
 .sq-journey .eb{color:var(--sq-mute);padding-left:12px}
 .sq-journey svg{width:100%;height:auto;display:block}
 
 /* 01 */
-.sq-q1{background:var(--sq-rose)}
+.sq-q1{}
 .sq-q1 .sq-num{color:var(--sq-rose-n)}
 .sq-q1 .sq-card .big{font-size:clamp(40px,5vw,56px)}
 .sq-q1 .sq-card .p{color:var(--sq-rose-p)}
-.sq-q1-line{font-size:clamp(15px,calc((100vw - 104px) / 61),17px)!important;font-weight:600;color:var(--sq-rose-t)}
-@media(max-width:743px){.sq-q1-line{font-size:17px!important}}
+.sq-q1 .sq-card.is-now .big{color:var(--sq-rose-t)}
 
 /* 02 */
 .sq-q2 .sq-num{color:var(--sq-blue-n)}
 .sq-q2 .sq-stack>.p{color:var(--sq-mute)}
-.sq-q2 .sq-panel{background:var(--sq-blue)}
+.sq-q2 .sq-panel{}
 .sq-q2 .eb{color:var(--sq-link)}
 .sq-q2 .sq-panel .big{font-size:clamp(84px,9vw,112px);color:var(--sq-blue-t)}
 .sq-bars{display:flex;gap:8px}
@@ -544,10 +579,10 @@ body { background-image: none; }
 .sq-q2 .sq-panel strong{font-weight:600;color:var(--sq-ink)}
 
 /* 03 */
-.sq-q3{background:var(--sq-green)}
+.sq-q3{}
 .sq-q3 .sq-num{color:var(--sq-green-n)}
 .sq-q3 .sq-stack>.p{color:var(--sq-green-q)}
-.sq-q3 .sq-panel{background:var(--sq-paper)}
+.sq-q3 .sq-panel{}
 .sq-ba{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .sq-ba .big{font-size:clamp(68px,7.5vw,88px)}
 .sq-ba .was .eb{color:var(--sq-mute)} .sq-ba .was .big{color:#a3a7ae}
@@ -557,47 +592,51 @@ body { background-image: none; }
 
 /* quotes */
 .sq-quote-wrap{padding:96px 24px 0}
+.sq-quote-wrap.is-1{padding:0 24px}
 .sq-quote-wrap.is-2{padding:0 24px 96px}
-.sq-quote{max-width:880px;margin:0 auto;border:1.5px dashed var(--sq-green-r);border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;gap:28px;box-sizing:border-box}
-.is-2 .sq-quote{border-color:var(--sq-lav-n)}
-.sq-quote blockquote{margin:0;font-size:clamp(24px,3vw,34px);line-height:1.3;font-weight:500;letter-spacing:-.02em;color:var(--sq-ink)}
+/* Quotes read at body size. The tint and the accent bar, not the type size, set them apart. */
+.sq-quote{max-width:880px;margin:0 auto;background:var(--sq-green);border-left:4px solid var(--sq-green-s);border-radius:20px;padding:clamp(24px,4vw,40px);display:grid;gap:18px;box-sizing:border-box}
+.is-2 .sq-quote{background:var(--sq-lav);border-left-color:var(--sq-lav-k)}
+.sq-quote blockquote{margin:0;font-size:17px;line-height:1.6;font-weight:500;color:var(--sq-ink)}
+.sq-quote>svg{width:28px;height:auto}
 .sq-quote blockquote p{margin:0;font:inherit;letter-spacing:inherit;color:inherit}
 .sq-quote figcaption{display:flex;align-items:center;gap:14px}
-.sq-avatar{width:48px;height:48px;border-radius:50%;background:var(--sq-green);display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--sq-green-t);flex-shrink:0}
-.is-2 .sq-avatar{background:var(--sq-lav);color:var(--sq-lav-k)}
+.sq-avatar{width:44px;height:44px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--sq-green-t);flex-shrink:0}
+.is-2 .sq-avatar{background:#fff;color:var(--sq-lav-k)}
 .sq-who{display:grid;gap:2px}
 .sq-who strong{font-weight:600}
 .sq-who span{font-size:15px;color:var(--sq-mute)}
-.sq-disclose{font-size:13px;line-height:1.5;color:var(--sq-mute);margin:-12px 0 0}
+.sq-disclose{font-size:13px;line-height:1.5;color:var(--sq-mute);margin:-6px 0 0}
 .sq-draft{justify-self:start;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#78350f;background:#fef3c7;padding:.25rem .55rem;border-radius:4px}
 
 /* 04 */
 .sq-q4 .sq-num{color:var(--sq-gold-n)}
 .sq-q4 .sq-stack>.p{color:var(--sq-mute)}
 .sq-tiles{display:grid;gap:10px}
-.sq-tile{background:var(--sq-gold);border-radius:20px;padding:24px 28px}
+.sq-tile{background:#fff;border:1px solid var(--sq-line);border-radius:20px;padding:24px 28px}
 .sq-tile .eb{color:var(--sq-gold-t)}
 .sq-tile .hd{font-size:26px;margin-top:8px}
-.sq-tile.is-intent{background:var(--sq-gold-2)}
+.sq-tile-s{font-size:15px;line-height:1.5;color:var(--sq-mute);margin:8px 0 0}
+.sq-tile.is-intent{border-left:4px solid var(--sq-gold-s)}
 .sq-tile.is-intent .eb{color:var(--sq-gold-k)}
 .sq-tiles>.p{color:var(--sq-mute);padding-top:8px}
 
 /* 05 */
-.sq-q5{background:var(--sq-rose)}
+.sq-q5{}
 .sq-q5 .sq-num{color:var(--sq-rose-n)}
 .sq-q5 .sq-stack>.p{color:var(--sq-rose-p)}
 .sq-q5 .sq-cards{gap:12px}
 .sq-q5 .sq-card{padding:30px;gap:10px}
 .sq-q5 .sq-card .eb{color:var(--sq-rose-k)}
 .sq-q5 .sq-card .hd{font-size:30px}
-.sq-q5 .sq-card.is-fix{background:var(--sq-green)}
+.sq-q5 .sq-card.is-fix{border-left:4px solid var(--sq-green-s)}
 .sq-q5 .sq-card.is-fix .eb{color:var(--sq-green-t)}
 .sq-q5 .sq-card.is-fix .hd{font-size:26px}
 
 /* 06 */
 .sq-q6 .sq-num{color:var(--sq-lav-n)}
 .sq-q6 .sq-stack>.p{color:var(--sq-mute)}
-.sq-q6 .sq-panel{background:var(--sq-lav);gap:26px}
+.sq-q6 .sq-panel{gap:26px}
 .sq-q6 .eb{color:var(--sq-lav-k)}
 .sq-q6 .sq-panel .big{font-size:clamp(84px,9vw,112px);color:var(--sq-lav-t)}
 .sq-q6 .sq-bars span{background:var(--sq-lav-k)}
@@ -643,12 +682,16 @@ body { background-image: none; }
 @media(max-width:640px){
   .sq-hero{padding:56px 20px 64px}
   .sq-band{padding:64px 20px}
+  .sq-q1,.sq-q2,.sq-q3,.sq-q4,.sq-q5,.sq-q6{padding:0 20px 56px}
+  .sq-q1>.sq-in,.sq-q2>.sq-in,.sq-q3>.sq-in,.sq-q4>.sq-in,.sq-q5>.sq-in,.sq-q6>.sq-in{padding-top:56px}
   .sq-quote-wrap{padding:64px 20px 0}
+  .sq-quote-wrap.is-1{padding:0 20px}
   .sq-quote-wrap.is-2{padding:0 20px 64px}
   .sq-epi{padding:48px 20px}
   .sq-split{gap:36px}
   .sq-panel{padding:28px}
   .sq-journey{justify-self:stretch;max-width:none}
+  .sq-out{justify-self:stretch;max-width:none;padding:20px 20px 4px}
 }
 </style>
 
@@ -671,105 +714,34 @@ body { background-image: none; }
       <h1 class="hd">Six questions ngrok answered <span>before a buyer ever saw the campaign.</span></h1>
       <p class="p">A missing buyer role, a new HealthTech audience and a HIPAA blocker. ngrok found all three before launch.</p>
     </div>
-    <div class="sq-journey">
-      <div class="eb">The journey</div>
-      <svg viewBox="0 0 440 560" role="img" aria-label="Journey map of six questions: how long until buyers see a campaign, does WhyUser find the known roles, why was one role missing, does the signal hold in HealthTech, will buyers believe the email, and what happened in market.">
-        <path d="M70 50 C70 110 330 80 330 140 S110 170 110 230 S330 260 330 320 S110 350 110 410 S330 440 330 500" fill="none" stroke="#D8D2C8" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
-        <circle cx="70" cy="50" r="22" fill="#F7E7E2" stroke="#C98C7D" stroke-width="2"/>
-        <circle cx="330" cy="140" r="22" fill="#E5ECF6" stroke="#6F87B5" stroke-width="2"/>
-        <circle cx="110" cy="230" r="22" fill="#E6EFE8" stroke="#7FA58D" stroke-width="2"/>
-        <circle cx="330" cy="320" r="22" fill="#F7F0DC" stroke="#C2A35A" stroke-width="2"/>
-        <circle cx="110" cy="410" r="22" fill="#F7E7E2" stroke="#C98C7D" stroke-width="2"/>
-        <circle cx="330" cy="500" r="26" fill="#2B2F36"/>
-        <g font-family="Inter, system-ui, sans-serif" font-weight="600">
-          <g text-anchor="middle" font-size="13">
-            <text x="70" y="55" fill="#7E3F31">01</text>
-            <text x="330" y="145" fill="#2F4670">02</text>
-            <text x="110" y="235" fill="#2F5240">03</text>
-            <text x="330" y="325" fill="#5E4A15">04</text>
-            <text x="110" y="415" fill="#7E3F31">05</text>
-            <text x="330" y="505" fill="#FAF8F5">06</text>
-          </g>
-          <text x="104" y="46" font-size="11" fill="#9A4F3E" letter-spacing="1.2">BEFORE</text>
-          <text x="104" y="66" font-size="16" fill="#2B2F36">How long until buyers see a campaign?</text>
-          <text x="296" y="136" font-size="11" fill="#3F5A8A" letter-spacing="1.2" text-anchor="end">RUN 01</text>
-          <text x="296" y="156" font-size="16" fill="#2B2F36" text-anchor="end">Does WhyUser find the known roles?</text>
-          <text x="144" y="226" font-size="11" fill="#3D6650" letter-spacing="1.2">FIRST AHA</text>
-          <text x="144" y="246" font-size="16" fill="#2B2F36">Why was one role missing?</text>
-          <text x="296" y="316" font-size="11" fill="#7A6020" letter-spacing="1.2" text-anchor="end">RUN 02</text>
-          <text x="296" y="336" font-size="16" fill="#2B2F36" text-anchor="end">Does the signal hold in HealthTech?</text>
-          <text x="144" y="406" font-size="11" fill="#9A4F3E" letter-spacing="1.2">BEFORE SEND</text>
-          <text x="144" y="426" font-size="16" fill="#2B2F36">Will buyers believe the email?</text>
-          <text x="292" y="496" font-size="11" fill="#5B4D8C" letter-spacing="1.2" text-anchor="end">LIVE</text>
-          <text x="292" y="516" font-size="16" fill="#2B2F36" text-anchor="end">What happened in market?</text>
-        </g>
-      </svg>
-    </div>
+    <aside class="sq-out" aria-labelledby="out-h">
+      <div class="sq-out-h">
+        <div class="eb" id="out-h">Outcomes</div>
+        <button type="button" class="sq-copy" id="sq-copy" aria-label="Copy the outcomes summary" aria-describedby="sq-copy-status"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.6"/><path d="M10.5 3.5v-.4A1.6 1.6 0 0 0 8.9 1.5H4.1a1.6 1.6 0 0 0-1.6 1.6v4.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg><span class="sq-copy-t">Copy</span></button>
+      </div>
+      <ul class="sq-out-list">
+        <li class="o-green"><span class="eb">Gaps detected</span><span class="sq-out-v">1</span><span class="sq-out-s">missing buyer role: Product Manager</span></li>
+        <li class="o-rose"><span class="eb">Velocity improvement</span><span class="sq-out-v">4 weeks<span class="to" aria-hidden="true">&rarr;</span><span class="sr-only"> to </span>hours</span><span class="sq-out-s">to a testable buying committee</span></li>
+        <li class="o-gold"><span class="eb">Targets identified</span><span class="sq-out-v">+100</span><span class="sq-out-s">HealthTech roles, validated by Sales</span></li>
+        <li class="o-lav"><span class="eb">Live validation</span><span class="sq-out-v">2 of 5</span><span class="sq-out-s">email ideas moved forward, test ongoing</span></li>
+      </ul>
+      <span class="sr-only" id="sq-copy-status" aria-live="polite"></span>
+    </aside>
   </div>
 </header>
-
-<!-- ═════ 01 · BEFORE: how long ═════ -->
-<section class="sq-band sq-q1" id="how-long" aria-labelledby="q1-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">01</div>
-      <h2 class="hd" id="q1-h">How long before a buyer sees the campaign?</h2>
-    </div>
-    <div class="sq-cards">
-      <div class="sq-card"><div class="big">3&ndash;4 weeks</div><p class="p">to find the audience: research, enrich, group roles, find patterns, validate with Sales.</p></div>
-      <div class="sq-card"><div class="big">+ multiple reviews</div><p class="p">to get the copy ready: draft, review, revise, approve.</p></div>
-      <p class="p sq-q1-line">A lot of people reviewed the campaign before a buyer ever did.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ 02 · RUN 01: does it see the known ═════ -->
-<section class="sq-band sq-q2" id="the-known" aria-labelledby="q2-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">02</div>
-      <h2 class="hd" id="q2-h">Could Audience Discovery see the audience ngrok already knew?</h2>
-      <p class="p">ngrok knew the four core roles for its Site-to-Site use case. The existing landing page became the benchmark.</p>
-    </div>
-    <div class="sq-panel">
-      <div class="eb">Answer: mostly</div>
-      <div class="big" aria-label="3 of 4 core roles">3/4</div>
-      <div class="sq-bars" aria-hidden="true"><span></span><span></span><span></span><span class="off"></span></div>
-      <p class="p">Three of the four known core roles surfaced. ngrok Sales asked, <strong>&ldquo;What&rsquo;s missing?&rdquo;</strong> Product Managers.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ 03 · FIRST AHA: why one role was missing ═════ -->
-<section class="sq-band sq-q3" id="missing-role" aria-labelledby="q3-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">03</div>
-      <h2 class="hd" id="q3-h">Why was one role missing?</h2>
-      <p class="p">Because the page never spoke to them. Sales confirmed the Site-to-Site page did not speak to Product Managers. ngrok updated the messaging and ran Audience Discovery again.</p>
-    </div>
-    <div class="sq-panel">
-      <div class="sq-ba">
-        <div class="was"><div class="eb">Before</div><div class="big">3/4</div></div>
-        <svg width="56" height="20" viewBox="0 0 56 20" fill="none" stroke="#3D6650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h50M44 3l8 7-8 7"/></svg>
-        <div class="now"><div class="eb">After</div><div class="big">4/4</div></div>
-      </div>
-      <p class="p"><strong>Product Manager surfaced</strong>, plus more than 100 related roles to explore.</p>
-    </div>
-  </div>
-</section>
 
 <!-- ═════ QUOTE 1 · PLACEHOLDER: awaiting a quote from ngrok ═════
      First choice: Sam Crowell Richard, CRO. Fallback: ngrok's Product
      Marketing Manager (update the name, title and initials to match).
-     Topic from the design: the first aha, when the missing Product
-     Manager role pointed back to the page. Replace the lorem ipsum and
+     Sits right after the hero, before the journey, so the topic is an
+     overall verdict, not one moment: why he would test a campaign this
+     way again, or what changed for Sales. Replace the lorem ipsum and
      remove the placeholder tag before publish. Add a disclosure line
      under the quote only if the speaker has a tie to WhyUser. -->
-<section class="sq-quote-wrap" aria-label="What ngrok said">
+<section class="sq-quote-wrap is-1" aria-label="What ngrok said">
   <figure class="sq-quote">
     <span class="sq-draft">Placeholder quote &middot; awaiting Sam Crowell Richard</span>
-    <svg width="40" height="32" viewBox="0 0 40 32" fill="#A9C6B2" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
+    <svg width="40" height="32" viewBox="0 0 40 32" fill="#7FA58D" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
     <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p></blockquote>
     <figcaption>
       <span class="sq-avatar" aria-hidden="true">SR</span>
@@ -778,30 +750,129 @@ body { background-image: none; }
   </figure>
 </section>
 
-<!-- ═════ 04 · RUN 02: does it hold in HealthTech ═════ -->
-<section class="sq-band sq-q4" id="healthtech" aria-labelledby="q4-h">
+<!-- ═════ THE JOURNEY: six questions, in order ═════ -->
+<section class="sq-band sq-map" id="journey" aria-labelledby="journey-h">
   <div class="sq-in sq-split">
     <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">04</div>
-      <h2 class="hd" id="q4-h">Would the signal hold in a new vertical?</h2>
-      <p class="p">Same use case, Site-to-Site. New lens, HealthTech. Audience Discovery ran again, and had a testable committee within hours.</p>
+      <div class="eb">The journey</div>
+      <h2 class="hd" id="journey-h">Six questions, <span class="sq-tint">in the order ngrok asked them.</span></h2>
+      <p class="p">Each answer started as a simulated buyer signal. ngrok checked each signal against Sales, real inbound or its own proof, then decided what to change.</p>
     </div>
-    <div class="sq-tiles">
-      <div class="sq-tile"><div class="eb">WhyUser signal</div><div class="hd">Clinical Informatics</div></div>
-      <div class="sq-tile"><div class="eb">Real healthcare inbound</div><div class="hd">A senior clinical informatics leader</div></div>
-      <div class="sq-tile is-intent"><div class="eb">Real buying intent</div><div class="hd">Had already asked about BAAs</div></div>
-      <p class="p">That signal, plus ngrok&rsquo;s inbound and Sales&rsquo; validation, became the HealthTech outbound audience built in Clay.</p>
+    <div class="sq-journey">
+      <div class="eb">Six questions</div>
+      <svg viewBox="0 0 440 560" role="img" aria-label="Journey map of six questions: does WhyUser see what ngrok knows, why was one role missing, how fast to a new vertical, who is in the new audience, will buyers believe the email, and what happened in market.">
+        <path d="M70 50 C70 110 330 80 330 140 S110 170 110 230 S330 260 330 320 S110 350 110 410 S330 440 330 500" fill="none" stroke="#D8D2C8" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
+        <circle cx="70" cy="50" r="22" fill="#E5ECF6" stroke="#6F87B5" stroke-width="2"/>
+        <circle cx="330" cy="140" r="22" fill="#E6EFE8" stroke="#7FA58D" stroke-width="2"/>
+        <circle cx="110" cy="230" r="22" fill="#F7E7E2" stroke="#C98C7D" stroke-width="2"/>
+        <circle cx="330" cy="320" r="22" fill="#F7F0DC" stroke="#C2A35A" stroke-width="2"/>
+        <circle cx="110" cy="410" r="22" fill="#F7E7E2" stroke="#C98C7D" stroke-width="2"/>
+        <circle cx="330" cy="500" r="26" fill="#2B2F36"/>
+        <g font-family="Inter, system-ui, sans-serif" font-weight="600">
+          <g text-anchor="middle" font-size="13">
+            <text x="70" y="55" fill="#2F4670">01</text>
+            <text x="330" y="145" fill="#2F5240">02</text>
+            <text x="110" y="235" fill="#7E3F31">03</text>
+            <text x="330" y="325" fill="#5E4A15">04</text>
+            <text x="110" y="415" fill="#7E3F31">05</text>
+            <text x="330" y="505" fill="#FAF8F5">06</text>
+          </g>
+          <text x="104" y="46" font-size="11" fill="#3F5A8A" letter-spacing="1.2">RUN 01 &#183; SITE-TO-SITE</text>
+          <text x="104" y="66" font-size="16" fill="#2B2F36">Does WhyUser see what ngrok knows?</text>
+          <text x="296" y="136" font-size="11" fill="#3D6650" letter-spacing="1.2" text-anchor="end">FIRST AHA</text>
+          <text x="296" y="156" font-size="16" fill="#2B2F36" text-anchor="end">Why was one role missing?</text>
+          <text x="144" y="226" font-size="11" fill="#9A4F3E" letter-spacing="1.2">RUN 02 &#183; HEALTHTECH</text>
+          <text x="144" y="246" font-size="16" fill="#2B2F36">How fast to a new vertical?</text>
+          <text x="296" y="316" font-size="11" fill="#7A6020" letter-spacing="1.2" text-anchor="end">NEW AUDIENCE</text>
+          <text x="296" y="336" font-size="16" fill="#2B2F36" text-anchor="end">Who is in the new audience?</text>
+          <text x="144" y="406" font-size="11" fill="#9A4F3E" letter-spacing="1.2">BEFORE SEND</text>
+          <text x="144" y="426" font-size="16" fill="#2B2F36">Will buyers believe the email?</text>
+          <text x="292" y="496" font-size="11" fill="#5B4D8C" letter-spacing="1.2" text-anchor="end">LIVE</text>
+          <text x="292" y="516" font-size="16" fill="#2B2F36" text-anchor="end">What happened in market?</text>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
 
-<!-- ═════ 05 · BEFORE SEND: will buyers believe it ═════ -->
+<!-- Section colour classes (.sq-q1 … .sq-q6) carry each card style; the
+     numbers on screen follow the story order, so 01 uses .sq-q2 and so on. -->
+
+<!-- ═════ 01 · RUN 01: does WhyUser see what ngrok knows ═════ -->
+<section class="sq-band sq-q2" id="the-known" aria-labelledby="q1-h">
+  <div class="sq-in sq-split">
+    <div class="sq-stack">
+      <div class="big sq-num" aria-hidden="true">01</div>
+      <h2 class="hd" id="q1-h">Does WhyUser see what ngrok already knows?</h2>
+      <p class="p">Before a new market, ngrok tested WhyUser on one it knew well. ngrok knew the four core roles for its Site-to-Site use case, so its existing landing page became the benchmark.</p>
+    </div>
+    <div class="sq-panel">
+      <div class="eb">Answer: mostly</div>
+      <div class="big" aria-label="3 of 4 core roles">3/4</div>
+      <div class="sq-bars" aria-hidden="true"><span></span><span></span><span></span><span class="off"></span></div>
+      <p class="p">Audience Discovery found three of the four known core roles. ngrok Sales asked, <strong>&ldquo;What&rsquo;s missing?&rdquo;</strong> Product Managers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 02 · FIRST AHA: why one role was missing ═════ -->
+<section class="sq-band sq-q3" id="missing-role" aria-labelledby="q2-h">
+  <div class="sq-in sq-split">
+    <div class="sq-stack">
+      <div class="big sq-num" aria-hidden="true">02</div>
+      <h2 class="hd" id="q2-h">Why was one role missing?</h2>
+      <p class="p">Because the page never spoke to them. Sales confirmed the Site-to-Site page did not speak to Product Managers. ngrok updated the messaging and ran Audience Discovery again.</p>
+    </div>
+    <div class="sq-panel">
+      <div class="sq-ba">
+        <div class="was"><div class="eb">Before</div><div class="big">3/4</div></div>
+        <svg width="56" height="20" viewBox="0 0 56 20" fill="none" stroke="#3D6650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h50M44 3l8 7-8 7"/></svg>
+        <div class="now"><div class="eb">After</div><div class="big">4/4</div></div>
+      </div>
+      <p class="p"><strong>Product Manager surfaced.</strong> With every known role found, ngrok was ready to point Audience Discovery at a new market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 03 · RUN 02: how fast to a new vertical ═════ -->
+<section class="sq-band sq-q1" id="new-vertical" aria-labelledby="q3-h">
+  <div class="sq-in sq-split">
+    <div class="sq-stack">
+      <div class="big sq-num" aria-hidden="true">03</div>
+      <h2 class="hd" id="q3-h">How fast can ngrok reach a new vertical?</h2>
+      <p class="p">Next, ngrok kept the Site-to-Site use case and changed the lens to HealthTech, a vertical ngrok was expanding into.</p>
+    </div>
+    <div class="sq-cards">
+      <div class="sq-card"><div class="eb" style="color:var(--sq-mute)">Before</div><div class="big">4 weeks</div><p class="p">to find a new audience by hand: research, enrich, group roles, find patterns, validate with Sales.</p></div>
+      <div class="sq-card is-now"><div class="eb" style="color:var(--sq-rose-k)">With Audience Discovery</div><div class="big">Hours</div><p class="p">to a testable HealthTech buying committee.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 04 · NEW AUDIENCE: who is in it ═════ -->
+<section class="sq-band sq-q4" id="healthtech" aria-labelledby="q4-h">
+  <div class="sq-in sq-split">
+    <div class="sq-stack">
+      <div class="big sq-num" aria-hidden="true">04</div>
+      <h2 class="hd" id="q4-h">Who is in the new audience?</h2>
+      <p class="p">The HealthTech run surfaced more than 100 related roles. ngrok Sales reviewed the roles and validated them.</p>
+    </div>
+    <div class="sq-tiles">
+      <div class="sq-tile"><div class="eb">WhyUser found</div><div class="hd">+100 related roles</div></div>
+      <div class="sq-tile"><div class="eb">Validated by</div><div class="hd">ngrok Sales</div></div>
+      <div class="sq-tile is-intent"><div class="eb">One example</div><div class="hd">Clinical Informatics</div><p class="sq-tile-s">The role matched ngrok&rsquo;s real healthcare inbound. A senior clinical informatics leader there had already asked about BAAs.</p></div>
+      <p class="p">Those roles, plus ngrok&rsquo;s inbound, became the HealthTech outbound audience built in Clay.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 05 · BEFORE SEND: will that committee believe the email ═════ -->
 <section class="sq-band sq-q5" id="hipaa" aria-labelledby="q5-h">
   <div class="sq-in sq-split">
     <div class="sq-stack">
       <div class="big sq-num" aria-hidden="true">05</div>
-      <h2 class="hd" id="q5-h">Would buyers believe the email?</h2>
-      <p class="p">Five people wrote five ideas: Marketing Ops, Sales, Sales, CRO, Product Growth. All five faced the same simulated HealthTech committee before anything went live.</p>
+      <h2 class="hd" id="q5-h">Would that committee believe the email?</h2>
+      <p class="p">Instead of more rounds of internal review, five people wrote five ideas: Marketing Ops, Sales, Sales, CRO, Product Growth. All five faced a simulated committee built from the HealthTech roles WhyUser found, before anything went live.</p>
     </div>
     <div class="sq-cards">
       <div class="sq-card">
@@ -822,7 +893,7 @@ body { background-image: none; }
     <div class="sq-stack">
       <div class="big sq-num" aria-hidden="true">06</div>
       <h2 class="hd" id="q6-h">What happened when the emails went live?</h2>
-      <p class="p">The five emails launched together as cold outbound tests in Apollo. While the test was still running, early opens and clicks moved two of the five into the next round.</p>
+      <p class="p">ngrok launched the five emails together as cold outbound tests in Apollo. So far, two of the five have moved forward to the next round.</p>
     </div>
     <div class="sq-panel">
       <div class="eb">Early live signal &middot; test in progress</div>
@@ -843,7 +914,7 @@ body { background-image: none; }
 <section class="sq-quote-wrap is-2" aria-label="What ngrok said about testing before launch">
   <figure class="sq-quote">
     <span class="sq-draft">Draft quote &middot; for Nichole to edit</span>
-    <svg width="40" height="32" viewBox="0 0 40 32" fill="#C9C0E2" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
+    <svg width="40" height="32" viewBox="0 0 40 32" fill="#8F82BE" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
     <blockquote><p>By the time the emails went live, we already knew the missing role, the healthcare buyer and the HIPAA question.</p></blockquote>
     <figcaption>
       <span class="sq-avatar" aria-hidden="true">NL</span>
@@ -851,24 +922,6 @@ body { background-image: none; }
     </figcaption>
     <p class="sq-disclose">Nichole also advises WhyUser on go-to-market.</p>
   </figure>
-</section>
-
-<!-- ═════ THE JOURNEY, ANSWERED ═════ -->
-<section class="sq-band sq-answered" id="answered" aria-labelledby="answered-h">
-  <div class="sq-in">
-    <div style="display:grid;gap:16px">
-      <div class="eb">The journey, answered</div>
-      <h2 class="hd" id="answered-h">Six questions in, ngrok knew what to send <span class="sq-tint">and why.</span></h2>
-    </div>
-    <ol class="sq-steps">
-      <li class="c-rose"><div class="sq-rail" aria-hidden="true"><i></i><b></b></div><div class="eb">01 &middot; How long</div><div class="hd">Weeks became hours</div><small>Grounded committee on day one</small></li>
-      <li class="c-blue"><div class="sq-rail" aria-hidden="true"><i></i><b></b></div><div class="eb">02 &middot; The known</div><div class="hd">3/4 roles surfaced</div><small>Sales spotted the gap: PMs</small></li>
-      <li class="c-green"><div class="sq-rail" aria-hidden="true"><i></i><b></b></div><div class="eb">03 &middot; The gap</div><div class="hd">Page fixed, 4/4</div><small>Plus 100+ related roles</small></li>
-      <li class="c-gold"><div class="sq-rail" aria-hidden="true"><i></i><b></b></div><div class="eb">04 &middot; HealthTech</div><div class="hd">Clinical Informatics</div><small>Matched real inbound with BAA intent</small></li>
-      <li class="c-rose"><div class="sq-rail" aria-hidden="true"><i></i><b></b></div><div class="eb">05 &middot; Belief</div><div class="hd">HIPAA proof linked</div><small>Fixed before any email went live</small></li>
-      <li class="c-lav"><div class="sq-rail" aria-hidden="true"><i class="end"></i></div><div class="eb">06 &middot; Live</div><div class="hd">Two ideas moved forward</div><small>On early opens and clicks, test running</small></li>
-    </ol>
-  </div>
 </section>
 
 <!-- ═════ EPILOGUE + CTA ═════ -->
@@ -883,6 +936,41 @@ body { background-image: none; }
     </div>
   </div>
 </section>
+<script type="text/plain" id="sq-summary">How ngrok used WhyUser before launch:
+- Gaps detected: 1 missing buyer role (Product Manager) in a market ngrok knew, fixed on the page.
+- Velocity improvement: 4 weeks to hours, to a testable buying committee.
+- Targets identified: 100+ HealthTech roles, validated by Sales.
+- Live validation: 2 of 5 email ideas moved forward (test ongoing).
+WhyUser simulates the buying committee. ngrok checked each signal against real data.
+https://whyuser.com/casestudy-ngrok.html</script>
+<script>
+(function () {
+  var btn = document.getElementById('sq-copy');
+  var src = document.getElementById('sq-summary');
+  var status = document.getElementById('sq-copy-status');
+  var label = btn ? btn.querySelector('.sq-copy-t') : null;
+  if (!btn || !src || !label) return;
+  var text = src.textContent.trim();
+  function done(ok) {
+    label.textContent = ok ? 'Copied' : 'Press Ctrl+C';
+    btn.classList.toggle('is-done', ok);
+    if (status) status.textContent = ok ? 'Summary copied to clipboard.' : '';
+    setTimeout(function () { label.textContent = 'Copy'; btn.classList.remove('is-done'); }, 2200);
+  }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta); done(ok);
+  }
+  btn.addEventListener('click', function () {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
 </main>
 
 

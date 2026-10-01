@@ -47,7 +47,7 @@
     <meta name="twitter:image:alt" content="WhyUser, Pre-Launch Test">
 
     <meta property="article:published_time" content="2025-09-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-09-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-10-01T00:00:00+00:00">
     <!-- AI crawler access is declared in /robots.txt. GPTBot, ClaudeBot, PerplexityBot and Google-Extended are robots.txt user-agent tokens, not meta names. -->
 
     <link rel="icon" href="favicon.ico?v=2" sizes="any">
@@ -201,7 +201,7 @@
         }
       ],
       "keywords": "B2B campaign testing, pre-launch test, End-Customer Buying Committee simulation, pre-flight campaign testing, demand gen staging, GTM staging environment, ad and landing page testing, pre-launch campaign testing, demand gen testing, GTM staging platform, audience discovery",
-      "dateModified": "2026-08-29",
+      "dateModified": "2026-10-01",
       "datePublished": "2026-08-17",
       "inLanguage": "en",
       "softwareHelp": {
@@ -225,7 +225,7 @@
         "@type": "ImageObject",
         "url": "https://whyuser.com/og-image.png"
       },
-      "dateModified": "2026-08-29",
+      "dateModified": "2026-10-01",
       "datePublished": "2026-08-17",
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -875,7 +875,12 @@
             overflow: hidden;
         }
         @media (min-width: 768px) {
-            .hero { padding: 4.5rem 0 4.5rem; }
+            /* Option C: the bottom pad is what places the trust band.
+               8rem at 900px tall and up puts the band's hairline at
+               ~760px on a 1440x900 screen, as in the mockup. Shorter
+               screens shrink the pad (floor 4.5rem) so the logos still
+               reach the first screen down to 1280x720. */
+            .hero { padding: 4.5rem 0 clamp(4.5rem, calc(100vh - 48rem), 8rem); }
         }
         .hero-grid {
             display: grid;
@@ -889,21 +894,30 @@
                 gap: 3.5rem;
             }
         }
+        /* Option C: the 1280+ gap drops from 4.5rem to 3.5rem, so the
+           graph column starts ~700px on a 1440 screen, as in the mockup. */
         @media (min-width: 1280px) {
-            .hero-grid { gap: 4.5rem; }
+            .hero-grid { gap: 3.5rem; }
         }
 
-        /* Hero kicker. Plain grey mono, no pill: the qualifier is long enough
-           that a pill reads as a banner, and the H1 should own the top of the page. */
+        /* Hero kicker. Brand-violet mono, no pill (Option C): the qualifier
+           is long enough that a pill reads as a banner, and the H1 should
+           own the top of the page. */
         .hero-eyebrow {
             display: block;
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 11px;
-            font-weight: 500;
+            font-size: 11.5px;
+            font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--dim);
+            color: var(--brand);
             margin-bottom: 1.5rem;
+        }
+        /* 11.5px needs ~421px; the copy column is narrower than that
+           from 1024 to 1279, so the size steps down there to keep the
+           kicker on one line. */
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .hero-eyebrow { font-size: 11px; }
         }
         @media (max-width: 520px) {
             .hero-eyebrow { font-size: 10px; letter-spacing: 0.14em; line-height: 1.7; margin-bottom: 1.25rem; }
@@ -1447,38 +1461,63 @@
             transform-origin: center;
         }
 
-        /* Stat rail: same hairline language as the caption rail. */
-        .cflow-rail {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-top: 1px solid var(--rule);
-            margin-top: 0.75rem;
-            padding-top: 0.875rem;
-            gap: 0.5rem;
+        /* Agents key (Option C), replacing the stat rail. A small white
+           card tucked into the empty lower-right corner of the wide graph,
+           under the Economic Buyer. The negative top margin is a percentage
+           of the figure WIDTH, so the overlap scales with the graph and
+           never reaches the "stalls · 15 of 60" pill. Below 720px the narrow
+           graph puts the Economic Buyer in that corner, so the key drops
+           back into flow as a wrapped row. */
+        .cflow-key {
+            position: relative;   /* paints above the SVG it overlaps */
+            z-index: 1;
+            margin-top: 1rem;
+            padding: 0.875rem 1.125rem 1rem;
+            background: var(--surface, #ffffff);
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            box-shadow: 0 1px 2px rgba(24, 24, 27, 0.04),
+                        0 14px 30px -18px rgba(24, 24, 27, 0.22);
         }
-        .cflow-stat { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
-        .cflow-stat + .cflow-stat { border-left: 1px solid var(--rule); padding-left: 0.875rem; }
-        .cflow-stat-v {
+        .cflow-key-h {
+            display: block;
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 1.0625rem; font-weight: 600;
-            letter-spacing: -0.02em;
-            font-variant-numeric: tabular-nums;
-            color: var(--ink);
-            line-height: 1.1;
-        }
-        .cflow-stat-veto { color: var(--cf-neg); }
-        .cflow-stat-ok   { color: var(--signal-green); }
-        .cflow-stat-l {
-            font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 9px; font-weight: 500;
-            letter-spacing: 0.15em; text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
             color: var(--dim);
-            line-height: 1.35;
+            margin-bottom: 0.5rem;
         }
-        @media (max-width: 520px) {
-            .cflow-stat-v { font-size: 0.9375rem; }
-            .cflow-stat-l { font-size: 8px; letter-spacing: 0.1em; }
-            .cflow-stat + .cflow-stat { padding-left: 0.625rem; }
+        .cflow-key-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.125rem 1.125rem;
+        }
+        .cflow-key-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 0;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            color: var(--ink-soft);
+        }
+        .cflow-key-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+        .k-quiet  { background: var(--cf-quiet); }
+        .k-pos    { background: var(--cf-pos); }
+        .k-struct { background: var(--cf-struct); }
+        .k-neg    { background: var(--cf-neg); }
+        .k-decide { background: transparent; box-shadow: inset 0 0 0 1.5px var(--cf-decide); }
+        @media (min-width: 720px) {
+            .cflow-key {
+                width: max-content;
+                margin: -7.4% 0 0 auto;
+            }
+            .cflow-key-list { flex-direction: column; gap: 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1493,78 +1532,48 @@
         }
 
         /* ─────────────────────────────────────────────────────────────
-           ACCURACY STRIP, the evidence beat after the definition.
-           Label → figure → note, borrowed from the Evidence Ledger UI.
+           PROOF LINE (Option C), one quiet mono line under the CTAs.
+           Replaces the three-number accuracy strip, which pushed the
+           logos off the first screen. The .acc rules that remain in the
+           shared sheets serve other pages.
            ───────────────────────────────────────────────────────────── */
-        /* First element after the hero grid. On mobile a plain gap; on
-           desktop the gap grows to fill whatever height is left, so the
-           three numbers land just above the fold and the notes fall below.
-           47rem ≈ the height above the numbers (CTA stack + strip chrome).
-           Floor 3.25rem so short viewports never crowd the buttons,
-           ceiling 8rem so tall monitors don't open a canyon. */
-        .acc { margin-top: 3.25rem; }
-        @media (min-width: 768px) {
-            .acc { margin-top: clamp(3.25rem, calc(100vh - 47rem), 8rem); }
-            .acc { margin-top: clamp(3.25rem, calc(100svh - 47rem), 8rem); }
+        .hero-proof {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;   /* mono line and link share a baseline */
+            gap: 0.375rem 1.5rem;
+            margin: 1.4375rem 0 0;
         }
-        /* Short laptop viewports (~770-800px tall) have no slack left. Trim
-           the rhythm above the numbers rather than let them get clipped. */
+        .hero-proof-k {
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 11.5px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+        .hero-proof-k strong { color: var(--ink); font-weight: 700; }
+        .hero-proof-dot {
+            display: inline-block;
+            width: 5px; height: 5px; border-radius: 50%;
+            margin-right: 0.45rem;
+            vertical-align: 0.15em;
+            background: var(--signal-green);
+        }
+        .hero-proof-link {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--brand);
+            transition: color 0.18s ease;
+        }
+        .hero-proof-link:hover,
+        .hero-proof-link:focus-visible { color: var(--ink); }
+        /* Short laptop screens: trim the rhythm above the proof line so
+           the logo band still reaches the first screen where it can. */
         @media (min-width: 768px) and (max-height: 800px) {
             .hero h1 { margin-bottom: 1.05rem; }
             .hero-sub { margin-bottom: 1rem; }
-            .acc-cell { padding-top: 0.7rem; }
-            .acc-cell .mono-label { margin-bottom: 0.45rem; }
         }
-        .acc-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            /* No fencing rules. The strip is held by whitespace now; the
-               only rules in this zone are the short marks on the logo strip. */
-        }
-        .acc-cell {
-            padding: 1.25rem 0;
-        }
-        @media (min-width: 900px) {
-            .acc-grid { grid-template-columns: repeat(3, 1fr); }
-            .acc-cell {
-                padding: 1.5rem 1.75rem 1.25rem;
-                /* Column dividers kept. Delete the next line to lose them. */
-                border-right: 1px solid var(--rule);
-            }
-            .acc-cell:first-child { padding-left: 0; }
-            .acc-cell:last-child  { padding-right: 0; border-right: 0; }
-        }
-        .acc-cell .mono-label {
-            display: block; margin-bottom: 0.7rem;
-            color: var(--ink-soft); font-weight: 600;
-        }
-        .acc-value {
-            font-family: 'Geist Mono', ui-monospace, monospace;
-            font-variant-numeric: tabular-nums;
-            font-size: 1.875rem;
-            font-weight: 700;
-            line-height: 1;
-            letter-spacing: -0.035em;
-            color: var(--ink);
-            margin-bottom: 0.7rem;
-        }
-        .acc-note {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: var(--mute);
-            max-width: 17rem;
-        }
-        .acc-foot { padding-top: 1rem; }
-        .acc-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            color: var(--brand);
-        }
-        .acc-link i { font-size: 10px; }
-        @media (min-width: 900px) { .acc-foot { padding-top: 1.125rem; } }
 
         /* ─────────────────────────────────────────────────────────────
            PROBLEM CARDS, dense, terminal-edged
@@ -3198,6 +3207,24 @@
   <link rel="stylesheet" href="assets/whyuser-r3.css">
 
 <style>
+/* ── Option C hero, homepage only (1 Oct 2026) ─────────────────────
+   These two rules override shared sheets, so they must sit AFTER the
+   <link> tags above. The rest of the Option C hero CSS lives with the
+   hero rules in the main <style> block.
+
+   1. One flat canvas. whyuser-readability.css paints a white bloom at
+      the top of the viewport, which made the hero read lighter than
+      every section below it. The homepage hero now sits on the same
+      #faf9f7 as the rest of the page.
+   2. The hero no longer fills one screen. whyuser-slides.css gives
+      .hero a full-screen min-height so the logos fall below the fold;
+      Option C wants them on the first screen. The four product pages
+      that share that sheet keep the full-screen hero. */
+body { background-image: none; }
+.hero { min-height: 0; display: block; }
+</style>
+
+<style>
 /* ── micro-row under the spec strip ─────────────────────────────── */
 .wu-microrow{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.25rem;
   font-size:.8125rem;color:var(--mute);margin-top:2rem;line-height:1.5}
@@ -3693,6 +3720,14 @@
                         </a>
                     </div>
 
+                    <!-- PROOF LINE (Option C). Replaces the three-number
+                         accuracy strip that used to sit under the hero grid.
+                         30 minutes is already in the sub line above. -->
+                    <p class="hero-proof">
+                        <span class="hero-proof-k"><span class="hero-proof-dot" aria-hidden="true"></span><strong>84%</strong> accurate &middot; 473 graded calls</span>
+                        <a href="accuracy.html" class="hero-proof-link">How we measure <span aria-hidden="true">&rarr;</span></a>
+                    </p>
+
                 </div>
 
                 <!-- ═══════════════════════════════════════════════════════
@@ -3866,55 +3901,22 @@
                         </g>
                     </svg>
 
-                    <div class="cflow-rail">
-                        <div class="cflow-stat">
-                            <span class="cflow-stat-v tabular">300</span>
-                            <span class="cflow-stat-l">agents &middot; 60 per role &middot; this run</span>
-                        </div>
-                        <div class="cflow-stat">
-                            <span class="cflow-stat-v cflow-stat-veto">52 of 60</span>
-                            <span class="cflow-stat-l">could not pass it on</span>
-                        </div>
-                        <div class="cflow-stat">
-                            <span class="cflow-stat-v cflow-stat-ok">SOURCED</span>
-                            <span class="cflow-stat-l">every finding quotes a buyer</span>
-                        </div>
+                    <!-- AGENTS KEY (Option C). Replaces the stat rail. Maps
+                         the accent underline under each node to its role.
+                         The caption above already says 300 agents, and the
+                         veto label already says 52 of 60. -->
+                    <div class="cflow-key">
+                        <span class="cflow-key-h">Agents</span>
+                        <ul class="cflow-key-list">
+                            <li><span class="cflow-key-dot k-quiet" aria-hidden="true"></span>End User</li>
+                            <li><span class="cflow-key-dot k-pos" aria-hidden="true"></span>Champion</li>
+                            <li><span class="cflow-key-dot k-struct" aria-hidden="true"></span>Technical DM</li>
+                            <li><span class="cflow-key-dot k-neg" aria-hidden="true"></span>Security Guardian</li>
+                            <li><span class="cflow-key-dot k-decide" aria-hidden="true"></span>Economic Buyer</li>
+                        </ul>
                     </div>
                 </figure>
 
-            </div>
-
-            <!-- ACCURACY STRIP, the proof beat. Sits directly under the hero
-                 CTAs so the three numbers land above the fold. -->
-            <div class="acc">
-                <div class="acc-grid">
-
-                    <div class="acc-cell">
-                        <span class="mono-label">Accuracy</span>
-                        <div class="acc-value">84%</div>
-                        <p class="acc-note">473 calls, graded HIT or MISS by your team against your own data.</p>
-                    </div>
-
-                    <div class="acc-cell">
-                        <span class="mono-label">Time per run</span>
-                        <div class="acc-value">30 min</div>
-                        <p class="acc-note">From a URL to a fix list. Review rounds take two weeks.</p>
-                    </div>
-
-                    <div class="acc-cell">
-                        <span class="mono-label">Sourced</span>
-                        <div class="acc-value">100%</div>
-                        <p class="acc-note">Every finding traces to a named page and a buyer&rsquo;s own words.</p>
-                    </div>
-
-                </div>
-
-                <div class="acc-foot">
-                    <a href="accuracy.html" class="acc-link">
-                        How we measure accuracy, and where we miss
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </header>
@@ -3922,14 +3924,13 @@
     <!-- ═════════════════════════════════════════════════════════════════
          TRUST LOGOS
 
-         Moved OUT of the hero. Keeping it inside and pushing it down with
-         a margin could not work: the gap needed to clear the fold depends
-         on the viewport height, and a gap big enough for a 1330px screen
-         left a 500px void on a 900px one.
+         Kept OUT of the hero, as its own band.
 
-         The hero is now given a min-height of one screen, so this band
-         starts exactly where the first screen ends — below the fold at any
-         height, with no invented whitespace.
+         Option C (1 Oct 2026) brings it back onto the first screen. The
+         hero no longer fills one screen; it ends after its own content
+         plus a bottom pad (see .hero), so at 1440x900 this band sits at
+         about 760px, and the logos stay on the first screen down to
+         1280x720.
          ═════════════════════════════════════════════════════════════════ -->
     <section class="trust-band">
         <div class="wrap">
@@ -4402,7 +4403,7 @@
                     Most tools need weeks of manual data mapping. WhyUser's Ground Reality ingested our site, social sentiment and customer transcripts in minutes, and it keeps learning.
                 </blockquote>
                 <figcaption class="section-quote-cite">
-                    Nichole Larue · Head of Marketing Operations · ngrok
+                    Nichole LaRue · Head of Marketing Operations · ngrok
                 </figcaption>
             </figure>
         </div>

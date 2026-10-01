@@ -20,3 +20,6 @@
 /glossary/index.html                       /glossary.html                             301!
 /glossary/                                 /glossary.html                             301!
 /glossary                                  /glossary.html                             301!
+
+# Manifesto merged into the About letter (1 Oct 2026).
+/manifesto.html                            /about.html#why                            301!

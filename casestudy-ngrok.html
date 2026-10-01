@@ -126,6 +126,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .nav, .masthead { border-bottom: 0 !important; }
 .cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
 body { background-image: none; }
+
+/* WhyUser mark: the smiling-dog badge. whyuser-readability.css swaps the
+   nav and footer mark to whyuser-logo.png with content:url(), so this must
+   follow it. */
+.nav-mark img, .footer-brand-mark img, .footer-mark img { content: url("images/whyuser-dog-badge.png"); }
 </style>
 </head>
 <body>
@@ -170,7 +175,7 @@ body { background-image: none; }
 <nav class="nav" id="site-nav">
     <div class="wrap nav-inner">
         <a href="index.html" class="nav-brand">
-            <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
+            <span class="nav-mark"><img src="images/whyuser-dog-badge.png" alt=""></span>
             <span>WhyUser</span>
         </a>
 
@@ -462,236 +467,287 @@ body { background-image: none; }
 
 <main class="sq">
 <style>
-/* ngrok customer story, Option B "Six questions" (draft, 1 Oct 2026).
-   Built from the Option B design reference (Alt-B-Questions.dc.html).
-   Layout, palette, type scale and radii follow the mockup; the copy
-   follows the content rules already set for the ngrok story (see
-   claude/ngrok-case-study-decisions.md): no live campaign rates, no
-   prospect title, no roadmap hint, no idea letters, no unexplained
-   asterisk. Scoped to .sq. No new shared CSS. The base canvas is the
-   site paper, so the page, nav and footer share one background. */
+/* ngrok customer story (draft, 1 Oct 2026). Order and diagrams follow the
+   ngrok deck (WhyUser_ngrok_v4.pdf), redrawn as clean diagrams on one page
+   colour. Colour carries one meaning each, as in the deck:
+     purple = WhyUser   teal = ngrok   orange = Sales, the old way, the blocker
+   Content rules (claude/ngrok-case-study-decisions.md): no live campaign
+   rates, no prospect title, no roadmap hint, no idea letters, no bare "it".
+   Scoped to .sq. No new shared CSS. */
 .sq{
-  --sq-paper:var(--paper,#faf9f7);
-  --sq-ink:#2b2f36; --sq-mute:#454a54; --sq-accent:#6a5ba3; --sq-link:#3f5a8a;
-  --sq-sand:#f3f0ea; --sq-trail:#d8d2c8; --sq-line:rgba(43,47,54,.08);
-  --sq-rose:#f7e7e2;   --sq-rose-n:#d9a99c;   --sq-rose-t:#7e3f31; --sq-rose-k:#9a4f3e; --sq-rose-p:#4a3b37; --sq-rose-s:#c98c7d;
-  --sq-blue:#e5ecf6;   --sq-blue-n:#b5c4de;   --sq-blue-t:#2f4670; --sq-blue-s:#6f87b5; --sq-blue-p:#334058;
-  --sq-green:#e6efe8;  --sq-green-n:#a9c6b2;  --sq-green-t:#3d6650; --sq-green-s:#7fa58d; --sq-green-p:#34443a; --sq-green-q:#3a4a40; --sq-green-r:#c6d8cb;
-  --sq-gold:#f7f0dc;   --sq-gold-n:#dcc891;   --sq-gold-t:#7a6020; --sq-gold-2:#efe3bd; --sq-gold-k:#6a5218; --sq-gold-s:#c2a35a; --sq-gold-d:#5e4a15;
-  --sq-lav:#ece8f5;    --sq-lav-n:#c9c0e2;    --sq-lav-t:#4a3d7a; --sq-lav-k:#5b4d8c; --sq-lav-r:#d6cfea; --sq-lav-p:#332d48;
-  --sq-night:#2b2f36;  --sq-night-k:#c9c3de;  --sq-night-p:#d9d6e3; --sq-night-r:#4a4f58;
+  --sq-paper:var(--paper,#faf9f7); --sq-card:#fff; --sq-line:rgba(24,24,27,.09); --sq-line-2:rgba(24,24,27,.16);
+  --sq-ink:#18181b; --sq-soft:#3f3f46; --sq-mute:#52525b; --sq-dim:#71717a;
+  --sq-wu:#6d47d9; --sq-wu-soft:#efeafc; --sq-tl:#0e7490; --sq-tl-soft:#e4f3f7; --sq-or:#c2410c; --sq-or-hi:#ea5a2a; --sq-or-soft:#fdeee7;
+  --sq-ok:#047857; --sq-ok-soft:#e7f4ee;
+  --sq-mono:'Geist Mono',ui-monospace,'SF Mono',monospace;
   font-family:'Inter',system-ui,sans-serif; color:var(--sq-ink); background:var(--sq-paper);
 }
-.sq a{color:var(--sq-link)}
-.sq a:hover{color:var(--sq-ink)}
-.sq p, .sq li, .sq blockquote, .sq figcaption{letter-spacing:normal}
-
-/* review banner: staging only */
-.sq-review{background:#fef3c7;color:#78350f;font-family:'Geist Mono',ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:.65rem 1rem;line-height:1.5}
+.sq *{box-sizing:border-box}
+.sq p,.sq li,.sq blockquote,.sq figcaption{letter-spacing:normal}
+.sq a{color:var(--sq-wu)} .sq a:hover{color:var(--sq-ink)}
+.sq-in{max-width:1120px;margin:0 auto}
+.sq-review{background:#fef3c7;color:#78350f;font-family:var(--sq-mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:.65rem 1rem;line-height:1.5}
 
 /* type */
-.sq .eb{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.4}
-.sq .hd{font-weight:600;letter-spacing:-.03em;line-height:1.08;margin:0}
-.sq .big{font-weight:600;letter-spacing:-.045em;line-height:.95}
-.sq .p{font-size:17px;line-height:1.6;margin:0}
-.sq h1.hd{font-size:clamp(40px,5.4vw,72px);letter-spacing:-.045em;font-weight:600;color:var(--sq-ink)}
-.sq h2.hd{font-size:clamp(30px,3.6vw,42px);font-weight:600;color:var(--sq-ink);text-wrap:balance}
-.sq h1 span,.sq h2 span.sq-tint{color:var(--sq-accent)}
+.sq .k{font-family:var(--sq-mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;line-height:1.4;color:var(--sq-or)}
+.sq .k-wu{color:var(--sq-wu)} .sq .k-tl{color:var(--sq-tl)} .sq .k-dim{color:var(--sq-dim)} .sq .k-ok{color:var(--sq-ok)}
+.sq h1.h,.sq h2.h,.sq h3.h{font-weight:700;color:var(--sq-ink);margin:0;text-wrap:balance}
+.sq h1.h{font-size:clamp(40px,5.2vw,68px);letter-spacing:-.045em;line-height:1.02}
+.sq h2.h{font-size:clamp(30px,3.6vw,44px);letter-spacing:-.035em;line-height:1.08}
+.sq h3.h{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.sq .h .t{color:var(--sq-wu)}
+.sq .lead{font-size:18px;line-height:1.6;color:var(--sq-mute);margin:0;max-width:640px}
+.sq .p{font-size:16px;line-height:1.6;color:var(--sq-mute);margin:0}
+.sq .num{font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--sq-ink);font-variant-numeric:tabular-nums}
 
-/* frame: one 1120px column, full-bleed bands */
-.sq-in{max-width:1120px;margin:0 auto}
-.sq-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:56px;align-items:start}
-.sq-band{padding:96px 24px}
-.sq-q1,.sq-q2,.sq-q3,.sq-q4,.sq-q5,.sq-q6{padding:0 24px 80px}
-.sq-q1>.sq-in,.sq-q2>.sq-in,.sq-q3>.sq-in,.sq-q4>.sq-in,.sq-q5>.sq-in,.sq-q6>.sq-in{position:relative;padding-top:80px}
-/* a short centred mark between questions, like the homepage logo strip */
-.sq-q1>.sq-in::before,.sq-q2>.sq-in::before,.sq-q3>.sq-in::before,.sq-q4>.sq-in::before,.sq-q5>.sq-in::before,.sq-q6>.sq-in::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:56px;height:1px;background:rgba(43,47,54,.22)}
-.sq-stack{display:grid;gap:20px}
-.sq-cards{display:grid;gap:16px}
-.sq-num{font-size:clamp(72px,8vw,96px)}
-/* One page colour throughout (like the homepage). Cards are white with a
-   hairline; each question keeps its colour only in its number, labels and bars. */
-.sq-card{background:#fff;border:1px solid var(--sq-line);border-radius:22px;padding:28px;display:grid;gap:8px}
-.sq-panel{background:#fff;border:1px solid var(--sq-line);border-radius:26px;padding:36px;display:grid;gap:24px}
+/* sections: one page colour; a short centred mark starts each one */
+.sq-sec{padding:0 24px 88px}
+.sq-sec>.sq-in{position:relative;padding-top:88px;display:grid;gap:40px}
+.sq-sec>.sq-in::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:56px;height:1px;background:var(--sq-line-2)}
+.sq-head{display:grid;gap:14px;max-width:760px}
+.sq-card{background:var(--sq-card);border:1px solid var(--sq-line);border-radius:18px;padding:24px}
+.sq-proof{display:grid;gap:10px;max-width:420px}
+.sq-proof::before{content:"";display:block;height:3px;border-radius:2px;background:var(--sq-wu);width:100%;order:1}
+.sq-proof .k{order:0}
+.sq-proof strong{order:2;font-size:17px;font-weight:600;color:var(--sq-ink)}
+.sq-arrow{flex:none;color:var(--sq-or-hi)}
+.sq-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px}
 
-/* hero */
-.sq-hero{padding:64px 24px 80px}
-.sq-hero .sq-split{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));align-items:center}
-.sq-hero-copy{display:grid;gap:28px}
-.sq-brand{display:grid;gap:16px;justify-items:start}
+/* ── hero ── */
+.sq-hero{padding:64px 24px 72px}
+.sq-hero>.sq-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:56px;align-items:center}
+.sq-hero-copy{display:grid;gap:24px}
+.sq-brand{display:grid;gap:14px;justify-items:start}
 .sq-lockup{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .sq-lockup-ngrok{height:26px;width:auto;display:block}
-.sq-lockup-x{font-size:18px;line-height:1;color:var(--sq-mute)}
+.sq-lockup-x{font-size:18px;line-height:1;color:var(--sq-dim)}
 .sq-lockup-wu{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:21px;letter-spacing:-.025em;line-height:1;color:var(--sq-ink)}
-.sq-lockup-wu img{width:28px;height:28px;object-fit:contain;display:block}
-.sq-hero-copy .p{font-size:19px;color:var(--sq-mute);max-width:520px}
-/* outcomes card (hero, right): a 2x2 stat board. Header row holds the
-   label and the Copy button; every tile shares one grid, one left edge and
-   one type scale, so nothing floats. Colour lives only in the tile label. */
-.sq-out{background:#fff;border:1px solid rgba(43,47,54,.08);border-radius:24px;padding:24px 28px 8px;width:100%;max-width:500px;justify-self:end;box-sizing:border-box;box-shadow:0 1px 2px rgba(43,47,54,.04),0 18px 40px -24px rgba(43,47,54,.22)}
+.sq-lockup-wu img{width:34px;height:34px;object-fit:contain;display:block}
+.sq-used{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-top:18px;border-top:1px solid var(--sq-line)}
+.sq-used .k{margin-right:4px}
+.sq .sq-chip{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border:1px solid var(--sq-line-2);border-radius:999px;background:#fff;font-size:13px;font-weight:600;color:var(--sq-ink);text-decoration:none}
+.sq .sq-chip:hover{border-color:var(--sq-wu);color:var(--sq-wu)}
+
+/* outcomes card */
+.sq-out{background:#fff;border:1px solid var(--sq-line);border-radius:24px;padding:24px 28px 8px;width:100%;max-width:500px;justify-self:end;box-shadow:0 1px 2px rgba(24,24,27,.04),0 18px 40px -24px rgba(24,24,27,.22)}
 @media(min-width:800px){.sq-out{position:relative;top:24px}}
-.sq-out-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(43,47,54,.08)}
-.sq-out-h .eb{color:var(--sq-mute);font-size:11px;letter-spacing:.14em}
+.sq-out-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--sq-line)}
+.sq-out-h .k{color:var(--sq-mute);font-size:11px;letter-spacing:.14em}
 .sq-out-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
 .sq-out-list li{display:flex;flex-direction:column;gap:6px;padding:18px 0 20px;margin:0}
-.sq-out-list li:nth-child(n+3){border-top:1px solid rgba(43,47,54,.08)}
-.sq-out-list .eb{font-size:10.5px;letter-spacing:.13em;line-height:1.3}
-.sq-out-v{font-size:24px;font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--sq-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
-.sq-out-v .to{color:var(--sq-mute);font-weight:500;margin:0 .12em}
+.sq-out-list li:nth-child(n+3){border-top:1px solid var(--sq-line)}
+.sq-out-list .k{font-size:10.5px;letter-spacing:.13em;line-height:1.3}
+.sq-out-v{font-size:24px;font-weight:700;letter-spacing:-.03em;line-height:1.1;color:var(--sq-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sq-out-v .to{color:var(--sq-dim);font-weight:500;margin:0 .12em}
 .sq-out-s{font-size:12.5px;line-height:1.45;color:var(--sq-mute);text-wrap:balance}
-.o-rose .eb{color:var(--sq-rose-k)}
-.o-green .eb{color:var(--sq-green-t)}
-.o-gold .eb{color:var(--sq-gold-t)}
-.o-lav .eb{color:var(--sq-lav-k)}
-.sq .sq-copy{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 13px;border:1px solid rgba(43,47,54,.16);border-radius:999px;background:#fff;color:var(--sq-ink);font:600 12.5px/1 'Inter',system-ui,sans-serif;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.sq .sq-copy{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 13px;border:1px solid var(--sq-line-2);border-radius:999px;background:#fff;color:var(--sq-ink);font:600 12.5px/1 'Inter',system-ui,sans-serif;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}
 .sq .sq-copy svg{width:13px;height:13px}
-.sq .sq-copy:hover{background:var(--sq-night);border-color:var(--sq-night);color:#faf8f5}
-.sq .sq-copy:focus-visible{outline:2px solid var(--sq-accent);outline-offset:3px}
-.sq .sq-copy.is-done{background:var(--sq-green-t);border-color:var(--sq-green-t);color:#fff}
-@media(max-width:560px){.sq-out-list{grid-template-columns:1fr}.sq-out-list li:nth-child(n+2){border-top:1px solid rgba(43,47,54,.08)}}
+.sq .sq-copy:hover{background:var(--sq-ink);border-color:var(--sq-ink);color:#fff}
+.sq .sq-copy:focus-visible{outline:2px solid var(--sq-wu);outline-offset:3px}
+.sq .sq-copy.is-done{background:var(--sq-ok);border-color:var(--sq-ok);color:#fff}
+@media(max-width:560px){.sq-out-list{grid-template-columns:1fr}.sq-out-list li:nth-child(n+2){border-top:1px solid var(--sq-line)}}
 
-/* journey section (moved below the hero) */
-.sq-map .sq-split{align-items:center}
-.sq-map .sq-stack>.eb{color:var(--sq-mute)}
-.sq-map .sq-stack>.p{color:var(--sq-mute);max-width:480px}
-
-.sq-journey{background:#fff;border:1px solid var(--sq-line);border-radius:24px;padding:24px 16px 16px;display:grid;gap:6px;width:100%;max-width:400px;justify-self:end;box-sizing:border-box}
-.sq-journey .eb{color:var(--sq-mute);padding-left:12px}
-.sq-journey svg{width:100%;height:auto;display:block}
-
-/* 01 */
-.sq-q1{}
-.sq-q1 .sq-num{color:var(--sq-rose-n)}
-.sq-q1 .sq-card .big{font-size:clamp(40px,5vw,56px)}
-.sq-q1 .sq-card .p{color:var(--sq-rose-p)}
-.sq-q1 .sq-card.is-now .big{color:var(--sq-rose-t)}
-
-/* 02 */
-.sq-q2 .sq-num{color:var(--sq-blue-n)}
-.sq-q2 .sq-stack>.p{color:var(--sq-mute)}
-.sq-q2 .sq-panel{}
-.sq-q2 .eb{color:var(--sq-link)}
-.sq-q2 .sq-panel .big{font-size:clamp(84px,9vw,112px);color:var(--sq-blue-t)}
-.sq-bars{display:flex;gap:8px}
-.sq-bars span{flex:1;height:10px;border-radius:9px;background:var(--sq-blue-s);box-sizing:border-box}
-.sq-bars span.off{background:transparent;border:1.5px dashed var(--sq-blue-s)}
-.sq-q2 .sq-panel .p{color:var(--sq-blue-p)}
-.sq-q2 .sq-panel strong{font-weight:600;color:var(--sq-ink)}
-
-/* 03 */
-.sq-q3{}
-.sq-q3 .sq-num{color:var(--sq-green-n)}
-.sq-q3 .sq-stack>.p{color:var(--sq-green-q)}
-.sq-q3 .sq-panel{}
-.sq-ba{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.sq-ba .big{font-size:clamp(68px,7.5vw,88px)}
-.sq-ba .was .eb{color:var(--sq-mute)} .sq-ba .was .big{color:#a3a7ae}
-.sq-ba .now .eb{color:var(--sq-green-t)} .sq-ba .now .big{color:var(--sq-green-t)}
-.sq-q3 .sq-panel>.p{color:var(--sq-green-p)}
-.sq-q3 .sq-panel strong{font-weight:600}
-
-/* quotes */
-.sq-quote-wrap{padding:96px 24px 0}
-.sq-quote-wrap.is-1{padding:0 24px}
-.sq-quote-wrap.is-2{padding:0 24px 96px}
-/* Quotes read at body size. The tint and the accent bar, not the type size, set them apart. */
-.sq-quote{max-width:880px;margin:0 auto;background:var(--sq-green);border-left:4px solid var(--sq-green-s);border-radius:20px;padding:clamp(24px,4vw,40px);display:grid;gap:18px;box-sizing:border-box}
-.is-2 .sq-quote{background:var(--sq-lav);border-left-color:var(--sq-lav-k)}
+/* quotes: body size, tinted card, left bar */
+.sq-quote-wrap{padding:0 24px 88px}
+.sq-quote{max-width:880px;margin:0 auto;background:var(--sq-wu-soft);border-left:4px solid var(--sq-wu);border-radius:18px;padding:clamp(24px,4vw,36px);display:grid;gap:16px}
+.sq-quote.is-ng{background:var(--sq-tl-soft);border-left-color:var(--sq-tl)}
+.sq-quote>svg{width:26px;height:auto}
 .sq-quote blockquote{margin:0;font-size:17px;line-height:1.6;font-weight:500;color:var(--sq-ink)}
-.sq-quote>svg{width:28px;height:auto}
-.sq-quote blockquote p{margin:0;font:inherit;letter-spacing:inherit;color:inherit}
+.sq-quote blockquote p{margin:0;font:inherit;color:inherit}
 .sq-quote figcaption{display:flex;align-items:center;gap:14px}
-.sq-avatar{width:44px;height:44px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--sq-green-t);flex-shrink:0}
-.is-2 .sq-avatar{background:#fff;color:var(--sq-lav-k)}
-.sq-who{display:grid;gap:2px}
-.sq-who strong{font-weight:600}
-.sq-who span{font-size:15px;color:var(--sq-mute)}
-.sq-disclose{font-size:13px;line-height:1.5;color:var(--sq-mute);margin:-6px 0 0}
-.sq-draft{justify-self:start;font-family:'Geist Mono',ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#78350f;background:#fef3c7;padding:.25rem .55rem;border-radius:4px}
+.sq-avatar{width:44px;height:44px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--sq-tl);flex-shrink:0}
+.sq-who{display:grid;gap:2px} .sq-who strong{font-weight:600} .sq-who span{font-size:14px;color:var(--sq-mute)}
+.sq-disclose{font-size:13px;line-height:1.5;color:var(--sq-mute);margin:-4px 0 0}
+.sq-draft{justify-self:start;font-family:var(--sq-mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#78350f;background:#fef3c7;padding:.25rem .55rem;border-radius:4px}
 
-/* 04 */
-.sq-q4 .sq-num{color:var(--sq-gold-n)}
-.sq-q4 .sq-stack>.p{color:var(--sq-mute)}
-.sq-tiles{display:grid;gap:10px}
-.sq-tile{background:#fff;border:1px solid var(--sq-line);border-radius:20px;padding:24px 28px}
-.sq-tile .eb{color:var(--sq-gold-t)}
-.sq-tile .hd{font-size:26px;margin-top:8px}
-.sq-tile-s{font-size:15px;line-height:1.5;color:var(--sq-mute);margin:8px 0 0}
-.sq-tile.is-intent{border-left:4px solid var(--sq-gold-s)}
-.sq-tile.is-intent .eb{color:var(--sq-gold-k)}
-.sq-tiles>.p{color:var(--sq-mute);padding-top:8px}
+/* ── before ── */
+.sq-before{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px 48px}
+.sq-before>div{border-top:2px solid var(--sq-ink);padding-top:18px;display:grid;gap:10px;align-content:start}
+.sq-before .num{font-size:clamp(56px,7vw,84px)}
+.sq-before .is-wu .num{color:var(--sq-wu)} .sq-before .is-or .num{color:var(--sq-or-hi)}
+.sq-callout{background:#fff;border:1px solid var(--sq-line);border-left:4px solid var(--sq-wu);border-radius:18px;padding:28px 32px;display:grid;gap:6px}
+.sq-callout .big{font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.15;color:var(--sq-ink)}
+.sq-callout .big .t{color:var(--sq-wu)}
+.sq-note-line{font-size:15px;line-height:1.55;color:var(--sq-mute);margin:0}
+.sq-note-line strong{color:var(--sq-ink);font-weight:600}
 
-/* 05 */
-.sq-q5{}
-.sq-q5 .sq-num{color:var(--sq-rose-n)}
-.sq-q5 .sq-stack>.p{color:var(--sq-rose-p)}
-.sq-q5 .sq-cards{gap:12px}
-.sq-q5 .sq-card{padding:30px;gap:10px}
-.sq-q5 .sq-card .eb{color:var(--sq-rose-k)}
-.sq-q5 .sq-card .hd{font-size:30px}
-.sq-q5 .sq-card.is-fix{border-left:4px solid var(--sq-green-s)}
-.sq-q5 .sq-card.is-fix .eb{color:var(--sq-green-t)}
-.sq-q5 .sq-card.is-fix .hd{font-size:26px}
+/* ── Q1: roles ── */
+.sq-roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;align-items:center}
+.sq-score{display:grid;gap:14px;align-content:start}
+.sq-score .num{font-size:clamp(96px,11vw,140px)}
+.sq-pips{display:flex;gap:10px}
+.sq-pips i{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sq-wu);color:#fff;font-size:15px}
+.sq-pips i.off{background:transparent;border:1.5px dashed var(--sq-or-hi);color:var(--sq-or-hi)}
+.sq-ask{background:#fff;border:1px solid var(--sq-line);border-radius:18px;padding:28px;display:grid;gap:12px}
+.sq-ask .q{font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--sq-ink);line-height:1.2}
+.sq-ask .a{font-size:30px;font-weight:700;letter-spacing:-.03em;color:var(--sq-wu);line-height:1.1}
 
-/* 06 */
-.sq-q6 .sq-num{color:var(--sq-lav-n)}
-.sq-q6 .sq-stack>.p{color:var(--sq-mute)}
-.sq-q6 .sq-panel{gap:26px}
-.sq-q6 .eb{color:var(--sq-lav-k)}
-.sq-q6 .sq-panel .big{font-size:clamp(84px,9vw,112px);color:var(--sq-lav-t)}
-.sq-q6 .sq-bars span{background:var(--sq-lav-k)}
-.sq-q6 .sq-bars span.off{background:transparent;border-color:var(--sq-lav-k)}
-.sq-q6-foot{display:grid;gap:8px;border-top:1px solid var(--sq-lav-r);padding-top:20px}
-.sq-q6-foot .p{color:var(--sq-lav-p)}
-.sq-q6-foot strong{font-weight:600;color:var(--sq-ink)}
-.sq-note{font-size:14px;line-height:1.55;color:var(--sq-mute);margin:0}
+/* ── Q2: before / after ── */
+.sq-ba{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center}
+.sq-ba>div{display:grid;gap:10px}
+.sq-ba .num{font-size:clamp(84px,10vw,128px)}
+.sq-ba .after .num{color:var(--sq-wu)}
+.sq-ba .lab{font-size:16px;font-weight:600;color:var(--sq-mute)}
+.sq-ba .after .lab{color:var(--sq-wu)}
+.sq-ba-line{width:clamp(80px,16vw,220px);height:2px;background:var(--sq-wu);position:relative}
+.sq-ba-line::after{content:"";position:absolute;right:-2px;top:-5px;border:6px solid transparent;border-left:9px solid var(--sq-wu);border-right:0}
 
-/* journey answered */
-.sq-answered{background:var(--sq-sand)}
-.sq-answered .sq-in{display:grid;gap:48px}
-.sq-answered .eb{color:var(--sq-mute)}
-.sq-answered h2.hd{max-width:860px}
-.sq-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0}
-.sq-steps li{display:grid;gap:14px;padding:0 16px 24px 0;align-content:start}
-.sq-rail{display:flex;align-items:center;height:24px}
-.sq-rail i{width:20px;height:20px;border-radius:50%;flex-shrink:0;box-sizing:border-box;border:2px solid}
-.sq-rail b{flex:1;height:2px;background:var(--sq-trail)}
-.sq-rail i.end{width:24px;height:24px;border:0;background:var(--sq-night)}
-.sq-steps .hd{font-size:18px;min-height:2.16em}
-.sq-steps small{font-size:14px;line-height:1.5;color:var(--sq-mute)}
-.c-rose i{background:var(--sq-rose);border-color:var(--sq-rose-s)} .c-rose .eb{color:var(--sq-rose-k)}
-.c-blue i{background:var(--sq-blue);border-color:var(--sq-blue-s)} .c-blue .eb{color:var(--sq-link)}
-.c-green i{background:var(--sq-green);border-color:var(--sq-green-s)} .c-green .eb{color:var(--sq-green-t)}
-.c-gold i{background:var(--sq-gold);border-color:var(--sq-gold-s)} .c-gold .eb{color:var(--sq-gold-t)}
-.c-lav .eb{color:var(--sq-lav-k)}
+/* ── Q3: flow ── */
+.sq-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:20px;align-items:end}
+.sq-flow>div{display:grid;gap:8px}
+.sq-flow .v{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1;text-transform:uppercase}
+.sq-flow .v.or{color:var(--sq-or-hi)} .sq-flow .v.wu{color:var(--sq-wu)}
+.sq-flow-arrow{width:clamp(48px,7vw,110px);height:2px;background:var(--sq-wu);position:relative;margin-bottom:14px}
+.sq-flow-arrow::after{content:"";position:absolute;right:-2px;top:-5px;border:6px solid transparent;border-left:9px solid var(--sq-wu);border-right:0}
+.sq-bar{background:#fff;border:1px solid var(--sq-line);border-radius:18px;padding:22px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px}
+.sq-bar .l{font-size:clamp(18px,2vw,22px);font-weight:700;letter-spacing:-.02em;color:var(--sq-ink)}
+.sq-time{display:inline-flex;align-items:baseline;gap:10px;font-weight:800;letter-spacing:-.03em;font-size:clamp(22px,2.4vw,28px)}
+.sq-time s{color:var(--sq-dim);text-decoration-thickness:2px;font-weight:700}
+.sq-time b{color:var(--sq-wu)}
 
-/* epilogue */
-.sq-epi{padding:72px 24px}
-.sq-epi-card{max-width:1120px;margin:0 auto;background:var(--sq-night);color:#faf8f5;border-radius:32px;padding:clamp(32px,6vw,80px);display:grid;gap:32px;box-sizing:border-box}
-.sq-epi-card .eb{color:var(--sq-night-k)}
-.sq-epi-card h2.hd{font-size:clamp(32px,4.6vw,56px);color:#faf8f5}
-.sq-epi-card .p{color:var(--sq-night-p);max-width:640px}
-.sq-epi-foot{border-top:1px solid var(--sq-night-r);padding-top:32px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
-.sq-epi-foot .hd{font-size:clamp(24px,3vw,34px);color:#faf8f5}
-.sq-epi-foot .hd span{color:var(--sq-night-k)}
-.sq .sq-cta{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:var(--sq-lav);color:var(--sq-ink);font-weight:600;text-decoration:none;transition:background .15s ease}
-.sq .sq-cta:hover{background:#fff;color:var(--sq-ink)}
-.sq .sq-cta:focus-visible{outline:2px solid var(--sq-night-k);outline-offset:3px}
+/* ── Q4: chain + merge ── */
+.sq-chain{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:16px;align-items:stretch}
+.sq-chain>.sq-card{display:grid;gap:8px;align-content:start;border-top:3px solid var(--sq-wu)}
+.sq-chain>.sq-card.tl{border-top-color:var(--sq-tl)} .sq-chain>.sq-card.or{border-top-color:var(--sq-or-hi)}
+.sq-chain .v{font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:var(--sq-ink)}
+.sq-chain-arrow{align-self:center;color:var(--sq-or-hi)}
+.sq-stat{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+.sq-stat .num{font-size:clamp(64px,8vw,96px);color:var(--sq-wu)}
+.sq-stat .s{font-size:17px;line-height:1.5;color:var(--sq-mute);max-width:420px}
+.sq-stat .s strong{color:var(--sq-ink)}
+.sq-merge{display:grid;gap:0}
+.sq-merge-src{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sq-merge-src .sq-card{display:grid;gap:6px}
+.sq-merge-src .v{font-size:18px;font-weight:700;letter-spacing:-.015em;line-height:1.25}
+.sq-merge-src .s{font-size:14px;color:var(--sq-mute)}
+.sq-merge svg{display:block;width:100%;height:64px}
+.sq-merge-out{justify-self:center;width:min(100%,460px);background:var(--sq-ink);color:#fff;border-radius:18px;padding:22px 26px;display:grid;gap:6px}
+.sq-merge-out .k{color:#c4b5fd}
+.sq-merge-out .v{font-size:22px;font-weight:700;letter-spacing:-.02em}
+.sq-merge-out .s{font-size:14px;color:#d4d4d8}
 
-/* phones: the mockup's 96px rhythm is a desktop rhythm */
+/* ── Ground Reality ── */
+.sq-gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px}
+.sq-gr .sq-card{display:grid;gap:8px;border-top:3px solid var(--sq-wu)}
+.sq-gr .sq-card.or{border-top-color:var(--sq-or-hi)}
+.sq-gr .v{font-size:22px;font-weight:700;letter-spacing:-.02em}
+
+/* ── Q5: five ideas → one committee → blocker → fix ── */
+.sq-ideas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.sq-ideas li{background:#fff;border:1px solid var(--sq-line);border-top:4px solid var(--sq-wu);border-radius:12px;padding:14px 12px;text-align:center;display:grid;gap:6px;margin:0}
+.sq-ideas b{font-family:var(--sq-mono);font-size:11px;color:var(--sq-wu);font-weight:600}
+.sq-ideas span{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--sq-ink)}
+.sq-join{display:grid;justify-items:center;gap:8px}
+.sq-pill{font-family:var(--sq-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--sq-ink);color:#fff;border-radius:999px;padding:9px 18px}
+.sq-bench{display:flex;align-items:center;gap:20px;background:#fff;border:1px solid var(--sq-line);border-left:4px solid var(--sq-wu);border-radius:18px;padding:20px 24px;max-width:760px;margin:0 auto;width:100%}
+.sq-bench img{width:72px;height:72px;object-fit:contain;flex:none}
+.sq-bench .v{font-size:17px;font-weight:600;line-height:1.45;color:var(--sq-ink)}
+.sq-fix{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+.sq-fix .sq-card{text-align:center;display:grid;gap:8px;padding:28px}
+.sq-fix .blk{border-top:4px solid var(--sq-wu)}
+.sq-fix .ok{border-top:4px solid var(--sq-or-hi)}
+.sq-fix .big{font-size:clamp(30px,3.6vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--sq-or-hi);text-transform:uppercase}
+.sq-fix .big.wu{color:var(--sq-wu)}
+.sq-fix .q{font-size:19px;font-weight:700;color:var(--sq-ink)}
+.sq-fix .s{font-size:16px;font-weight:600;color:var(--sq-ink)}
+.sq-fix-mid{display:grid;justify-items:center;gap:6px}
+.sq-fix-mid .k{font-size:10.5px}
+
+/* ── Q6: live ── */
+.sq-live{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;align-items:center}
+.sq-live .num{font-size:clamp(96px,11vw,140px);color:var(--sq-wu)}
+.sq-bars{display:flex;gap:8px;max-width:360px}
+.sq-bars span{flex:1;height:10px;border-radius:9px;background:var(--sq-wu)}
+.sq-bars span.off{background:transparent;border:1.5px dashed var(--sq-wu)}
+.sq-note{font-size:13.5px;line-height:1.55;color:var(--sq-mute);margin:0}
+
+/* ── what changed ── */
+.sq-four{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.sq-four li{border-top:3px solid var(--sq-wu);padding-top:16px;display:grid;gap:6px;margin:0}
+.sq-four li.tl{border-top-color:var(--sq-tl)} .sq-four li.or{border-top-color:var(--sq-or-hi)}
+.sq-four .v{font-size:19px;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:var(--sq-ink)}
+.sq-four .s{font-size:14px;color:var(--sq-mute)}
+.sq-sum{font-size:17px;font-weight:600;color:var(--sq-ink);margin:0;padding-top:20px;border-top:1px solid var(--sq-line)}
+
+/* ── learning loop ── */
+.sq-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:st}
+.sq-steps li{position:relative;display:grid;gap:6px;margin:0;counter-increment:st}
+.sq-steps li::before{content:counter(st);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:16px;background:var(--c,var(--sq-wu));margin-bottom:10px}
+.sq-steps li:not(:last-child)::after{content:"";position:absolute;top:26px;left:64px;right:4px;height:2px;background:var(--sq-line-2)}
+.sq-steps li.or{--c:var(--sq-or-hi)} .sq-steps li.tl{--c:var(--sq-tl)} .sq-steps li.ink{--c:var(--sq-ink)}
+.sq-steps .v{font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
+.sq-steps .s{font-size:14px;color:var(--sq-mute)}
+.sq-split{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--sq-line);border-top:4px solid var(--sq-wu);border-radius:18px;overflow:hidden}
+.sq-split>div{padding:24px 28px;display:grid;gap:4px}
+.sq-split>div+div{border-left:1px solid var(--sq-line)}
+.sq-split .v{font-size:clamp(20px,2.2vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.15;text-transform:uppercase}
+.sq-split .v .t{color:var(--sq-wu)} .sq-split .v .o{color:var(--sq-or-hi)}
+
+/* ── closing ── */
+.sq-close{padding:0 24px 80px}
+.sq-close-card{max-width:1120px;margin:0 auto;background:var(--sq-ink);color:#fafafa;border-radius:28px;padding:clamp(32px,5vw,64px);display:grid;gap:28px}
+.sq-close-card .k{color:#fdba74}
+.sq-close-card h2.h{color:#fafafa}
+.sq-loop{list-style:none;margin:0;padding:0 0 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;border-bottom:1px solid rgba(255,255,255,.14)}
+.sq-loop li{font-family:var(--sq-mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd;display:inline-flex;align-items:center;gap:14px;margin:0}
+.sq-loop li:last-child{color:#fdba74}
+.sq-loop li:not(:last-child)::after{content:"";width:40px;height:1px;background:rgba(255,255,255,.35)}
+.sq-close-card .stage{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.035em;line-height:1.05;text-transform:uppercase;margin:0}
+.sq-close-card .stage span{color:#a78bfa}
+.sq .sq-cta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;background:#8b5cf6;color:#fff;border-radius:16px;padding:22px 28px;text-decoration:none;transition:background .15s ease}
+.sq .sq-cta:hover{background:#7c3aed;color:#fff}
+.sq .sq-cta:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.sq-cta .v{font-size:clamp(20px,2.4vw,28px);font-weight:800;letter-spacing:-.02em;text-transform:uppercase}
+.sq-cta .s{font-size:14px;font-weight:600;color:#ede9fe}
+
+/* ── journey strip: ngrok's own path, one clickable row ── */
+.sq-path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.sq-path li{margin:0;position:relative}
+.sq-path li:not(:last-child)::after{content:"";position:absolute;top:21px;left:calc(50% + 22px);right:calc(-50% + 22px);height:2px;background:var(--sq-line-2)}
+.sq .sq-path a{display:grid;justify-items:center;text-align:center;gap:6px;padding:0 6px 4px;text-decoration:none;color:var(--sq-ink);border-radius:12px}
+.sq-path .dot{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--c,var(--sq-wu));color:var(--c,var(--sq-wu));font:600 13px/1 var(--sq-mono);margin-bottom:6px;transition:background .15s ease,color .15s ease}
+.sq-path .t{font-size:14px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.sq-path .v{font:600 12px/1.3 var(--sq-mono);letter-spacing:.04em;color:var(--c,var(--sq-wu))}
+.sq-path li.or{--c:var(--sq-or-hi)} .sq-path li.tl{--c:var(--sq-tl)}
+.sq .sq-path a:hover .dot,.sq .sq-path a:focus-visible .dot{background:var(--c,var(--sq-wu));color:#fff}
+.sq .sq-path a:focus-visible{outline:2px solid var(--sq-wu);outline-offset:4px}
+@media(max-width:820px){
+  .sq-path{grid-template-columns:1fr;gap:6px}
+  .sq-path li:not(:last-child)::after{top:44px;bottom:-6px;left:21px;right:auto;width:2px;height:auto}
+  .sq .sq-path a{grid-template-columns:44px 1fr;justify-items:start;text-align:left;column-gap:16px;align-items:center;padding:4px 0}
+  .sq-path .dot{grid-row:1/span 2;margin:0}
+}
+
+/* phones and small tablets */
+@media(max-width:820px){
+  .sq-flow,.sq-chain,.sq-fix{grid-template-columns:1fr}
+  .sq-flow-arrow,.sq-chain-arrow{display:none}
+  .sq-fix-mid{gap:0}
+  .sq-fix-mid svg{transform:rotate(90deg);margin:18px 0 12px}
+  .sq-merge-src{grid-template-columns:1fr}
+  .sq-merge svg{display:none}
+  .sq-merge-out{margin-top:16px}
+  .sq-ideas{grid-template-columns:repeat(3,1fr)}
+  .sq-four{grid-template-columns:repeat(2,1fr)}
+  .sq-steps{grid-template-columns:1fr;gap:18px}
+  .sq-steps li{grid-template-columns:52px 1fr;column-gap:16px;align-items:center}
+  .sq-steps li::before{grid-row:1/span 2;margin:0}
+  .sq-steps li:not(:last-child)::after{display:none}
+  .sq-split{grid-template-columns:1fr}
+  .sq-split>div+div{border-left:0;border-top:1px solid var(--sq-line)}
+}
 @media(max-width:640px){
-  .sq-hero{padding:56px 20px 64px}
-  .sq-band{padding:64px 20px}
-  .sq-q1,.sq-q2,.sq-q3,.sq-q4,.sq-q5,.sq-q6{padding:0 20px 56px}
-  .sq-q1>.sq-in,.sq-q2>.sq-in,.sq-q3>.sq-in,.sq-q4>.sq-in,.sq-q5>.sq-in,.sq-q6>.sq-in{padding-top:56px}
-  .sq-quote-wrap{padding:64px 20px 0}
-  .sq-quote-wrap.is-1{padding:0 20px}
-  .sq-quote-wrap.is-2{padding:0 20px 64px}
-  .sq-epi{padding:48px 20px}
-  .sq-split{gap:36px}
-  .sq-panel{padding:28px}
-  .sq-journey{justify-self:stretch;max-width:none}
+  .sq-hero{padding:48px 20px 56px}
+  .sq-sec{padding:0 20px 64px}
+  .sq-sec>.sq-in{padding-top:64px;gap:32px}
+  .sq-quote-wrap{padding:0 20px 64px}
+  .sq-close{padding:0 20px 56px}
   .sq-out{justify-self:stretch;max-width:none;padding:20px 20px 4px}
+  .sq-ba{grid-template-columns:1fr;gap:16px}
+  .sq-ba-line{transform:rotate(90deg);margin:8px 0 8px 20px;width:60px}
+  .sq-ideas{grid-template-columns:repeat(2,1fr)}
+  .sq-four{grid-template-columns:1fr}
+  .sq-bench{flex-direction:column;align-items:flex-start}
 }
 </style>
 
@@ -699,31 +755,37 @@ body { background-image: none; }
 <div class="sq-review" role="note">Draft for review &middot; Not linked from the site &middot; noindex &middot; Every number, quote and named role needs ngrok&rsquo;s sign-off</div>
 <!-- REVIEW:END -->
 
-<!-- ═════ HERO: the six questions, mapped ═════ -->
+<!-- ═════ HERO (deck 01) ═════ -->
 <header class="sq-hero">
-  <div class="sq-in sq-split">
+  <div class="sq-in">
     <div class="sq-hero-copy">
       <div class="sq-brand">
         <div class="sq-lockup" role="img" aria-label="ngrok and WhyUser">
           <img class="sq-lockup-ngrok" src="images/ngrok-logo.svg" alt="" width="684" height="256">
           <span class="sq-lockup-x" aria-hidden="true">&times;</span>
-          <span class="sq-lockup-wu" aria-hidden="true"><img src="images/whyuser-logo.png" alt="" width="28" height="28">WhyUser</span>
+          <span class="sq-lockup-wu" aria-hidden="true"><img src="images/whyuser-dog-badge.png" alt="" width="34" height="34">WhyUser</span>
         </div>
-        <div class="eb" style="color:var(--sq-mute)">Customer story</div>
+        <div class="k">Customer story</div>
       </div>
-      <h1 class="hd">Six questions ngrok answered <span>before a buyer ever saw the campaign.</span></h1>
-      <p class="p">A missing buyer role, a new HealthTech audience and a HIPAA blocker. ngrok found all three before launch.</p>
+      <h1 class="h">Six questions ngrok answered <span class="t">before a buyer ever saw the campaign.</span></h1>
+      <p class="lead">A missing buyer role, a new HealthTech audience and a HIPAA blocker. ngrok found all three before launch.</p>
+      <div class="sq-used">
+        <span class="k k-dim">WhyUser used for</span>
+        <a class="sq-chip" href="audience-discovery.html">Audience Discovery</a>
+        <a class="sq-chip" href="committee-simulation.html">Landing Page Simulation</a>
+        <a class="sq-chip" href="email-campaign-simulation.html">Email Copy Simulation</a>
+      </div>
     </div>
     <aside class="sq-out" aria-labelledby="out-h">
       <div class="sq-out-h">
-        <div class="eb" id="out-h">Outcomes</div>
+        <div class="k" id="out-h">Outcomes</div>
         <button type="button" class="sq-copy" id="sq-copy" aria-label="Copy the outcomes summary" aria-describedby="sq-copy-status"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.6"/><path d="M10.5 3.5v-.4A1.6 1.6 0 0 0 8.9 1.5H4.1a1.6 1.6 0 0 0-1.6 1.6v4.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg><span class="sq-copy-t">Copy</span></button>
       </div>
       <ul class="sq-out-list">
-        <li class="o-green"><span class="eb">Gaps detected</span><span class="sq-out-v">1</span><span class="sq-out-s">missing buyer role: Product Manager</span></li>
-        <li class="o-rose"><span class="eb">Velocity improvement</span><span class="sq-out-v">4 weeks<span class="to" aria-hidden="true">&rarr;</span><span class="sr-only"> to </span>hours</span><span class="sq-out-s">to a testable buying committee</span></li>
-        <li class="o-gold"><span class="eb">Targets identified</span><span class="sq-out-v">+100</span><span class="sq-out-s">HealthTech roles, validated by Sales</span></li>
-        <li class="o-lav"><span class="eb">Live validation</span><span class="sq-out-v">2 of 5</span><span class="sq-out-s">email ideas moved forward, test ongoing</span></li>
+        <li><span class="k k-wu">Gaps detected</span><span class="sq-out-v">1</span><span class="sq-out-s">missing buyer role: Product Manager</span></li>
+        <li><span class="k">Velocity improvement</span><span class="sq-out-v">4 weeks<span class="to" aria-hidden="true">&rarr;</span><span class="sr-only"> to </span>hours</span><span class="sq-out-s">to a testable buying committee</span></li>
+        <li><span class="k k-tl">Targets identified</span><span class="sq-out-v">+100</span><span class="sq-out-s">HealthTech roles, validated by Sales</span></li>
+        <li><span class="k k-wu">Live validation</span><span class="sq-out-v">2 of 5</span><span class="sq-out-s">email ideas moved forward, test ongoing</span></li>
       </ul>
       <span class="sr-only" id="sq-copy-status" aria-live="polite"></span>
     </aside>
@@ -733,15 +795,14 @@ body { background-image: none; }
 <!-- ═════ QUOTE 1 · PLACEHOLDER: awaiting a quote from ngrok ═════
      First choice: Sam Crowell Richard, CRO. Fallback: ngrok's Product
      Marketing Manager (update the name, title and initials to match).
-     Sits right after the hero, before the journey, so the topic is an
-     overall verdict, not one moment: why he would test a campaign this
+     Topic: an overall verdict, such as why he would test a campaign this
      way again, or what changed for Sales. Replace the lorem ipsum and
-     remove the placeholder tag before publish. Add a disclosure line
-     under the quote only if the speaker has a tie to WhyUser. -->
-<section class="sq-quote-wrap is-1" aria-label="What ngrok said">
-  <figure class="sq-quote">
+     remove the placeholder tag before publish. Add a disclosure line only
+     if the speaker has a tie to WhyUser. -->
+<section class="sq-quote-wrap" aria-label="What ngrok said">
+  <figure class="sq-quote is-ng">
     <span class="sq-draft">Placeholder quote &middot; awaiting Sam Crowell Richard</span>
-    <svg width="40" height="32" viewBox="0 0 40 32" fill="#7FA58D" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
+    <svg viewBox="0 0 40 32" fill="#0e7490" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
     <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p></blockquote>
     <figcaption>
       <span class="sq-avatar" aria-hidden="true">SR</span>
@@ -750,190 +811,281 @@ body { background-image: none; }
   </figure>
 </section>
 
-<!-- ═════ THE JOURNEY: six questions, in order ═════ -->
-<section class="sq-band sq-map" id="journey" aria-labelledby="journey-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="eb">The journey</div>
-      <h2 class="hd" id="journey-h">Six questions, <span class="sq-tint">in the order ngrok asked them.</span></h2>
-      <p class="p">Each answer started as a simulated buyer signal. ngrok checked each signal against Sales, real inbound or its own proof, then decided what to change.</p>
+<!-- ═════ BEFORE (deck 02) ═════ -->
+<section class="sq-sec" id="before" aria-labelledby="before-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k">Before Audience Discovery</div>
+      <h2 class="h" id="before-h">Getting to a live test <span class="t">took time.</span></h2>
+      <p class="lead">Audience research and copy review both happened before buyers saw the campaign.</p>
     </div>
-    <div class="sq-journey">
-      <div class="eb">Six questions</div>
-      <svg viewBox="0 0 440 560" role="img" aria-label="Journey map of six questions: does WhyUser see what ngrok knows, why was one role missing, how fast to a new vertical, who is in the new audience, will buyers believe the email, and what happened in market.">
-        <path d="M70 50 C70 110 330 80 330 140 S110 170 110 230 S330 260 330 320 S110 350 110 410 S330 440 330 500" fill="none" stroke="#D8D2C8" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
-        <circle cx="70" cy="50" r="22" fill="#E5ECF6" stroke="#6F87B5" stroke-width="2"/>
-        <circle cx="330" cy="140" r="22" fill="#E6EFE8" stroke="#7FA58D" stroke-width="2"/>
-        <circle cx="110" cy="230" r="22" fill="#F7E7E2" stroke="#C98C7D" stroke-width="2"/>
-        <circle cx="330" cy="320" r="22" fill="#F7F0DC" stroke="#C2A35A" stroke-width="2"/>
-        <circle cx="110" cy="410" r="22" fill="#F7E7E2" stroke="#C98C7D" stroke-width="2"/>
-        <circle cx="330" cy="500" r="26" fill="#2B2F36"/>
-        <g font-family="Inter, system-ui, sans-serif" font-weight="600">
-          <g text-anchor="middle" font-size="13">
-            <text x="70" y="55" fill="#2F4670">01</text>
-            <text x="330" y="145" fill="#2F5240">02</text>
-            <text x="110" y="235" fill="#7E3F31">03</text>
-            <text x="330" y="325" fill="#5E4A15">04</text>
-            <text x="110" y="415" fill="#7E3F31">05</text>
-            <text x="330" y="505" fill="#FAF8F5">06</text>
-          </g>
-          <text x="104" y="46" font-size="11" fill="#3F5A8A" letter-spacing="1.2">RUN 01 &#183; SITE-TO-SITE</text>
-          <text x="104" y="66" font-size="16" fill="#2B2F36">Does WhyUser see what ngrok knows?</text>
-          <text x="296" y="136" font-size="11" fill="#3D6650" letter-spacing="1.2" text-anchor="end">FIRST AHA</text>
-          <text x="296" y="156" font-size="16" fill="#2B2F36" text-anchor="end">Why was one role missing?</text>
-          <text x="144" y="226" font-size="11" fill="#9A4F3E" letter-spacing="1.2">RUN 02 &#183; HEALTHTECH</text>
-          <text x="144" y="246" font-size="16" fill="#2B2F36">How fast to a new vertical?</text>
-          <text x="296" y="316" font-size="11" fill="#7A6020" letter-spacing="1.2" text-anchor="end">NEW AUDIENCE</text>
-          <text x="296" y="336" font-size="16" fill="#2B2F36" text-anchor="end">Who is in the new audience?</text>
-          <text x="144" y="406" font-size="11" fill="#9A4F3E" letter-spacing="1.2">BEFORE SEND</text>
-          <text x="144" y="426" font-size="16" fill="#2B2F36">Will buyers believe the email?</text>
-          <text x="292" y="496" font-size="11" fill="#5B4D8C" letter-spacing="1.2" text-anchor="end">LIVE</text>
-          <text x="292" y="516" font-size="16" fill="#2B2F36" text-anchor="end">What happened in market?</text>
-        </g>
+    <div class="sq-before">
+      <div class="is-wu"><span class="k k-dim">01 &middot; Find the audience</span><span class="num">4 weeks</span><p class="p">Research, enrich, group roles, find patterns, validate with Sales.</p></div>
+      <div class="is-or"><span class="k k-dim">02 &middot; Get the copy ready</span><span class="num">Multiple reviews</span><p class="p">Draft, review, revise, approve. Then buyers finally saw the campaign.</p></div>
+    </div>
+    <div class="sq-callout">
+      <span class="big">A lot of people reviewed the campaign <span class="t">before a buyer ever did.</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ JOURNEY STRIP: ngrok's path; each step jumps to its section ═════ -->
+<section class="sq-sec" id="journey" aria-labelledby="journey-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k k-wu">The journey</div>
+      <h2 class="h" id="journey-h">From a market ngrok knew <span class="t">to a new one, in six steps.</span></h2>
+    </div>
+    <ol class="sq-path">
+      <li><a href="#known"><span class="dot">01</span><span class="t">Site-to-Site run</span><span class="v">3/4 roles</span></a></li>
+      <li><a href="#first-aha"><span class="dot">02</span><span class="t">First aha</span><span class="v">4/4 after the fix</span></a></li>
+      <li class="or"><a href="#new-vertical"><span class="dot">03</span><span class="t">HealthTech run</span><span class="v">4 weeks &rarr; hours</span></a></li>
+      <li class="tl"><a href="#healthtech"><span class="dot">04</span><span class="t">New audience</span><span class="v">+100 roles</span></a></li>
+      <li class="or"><a href="#message-test"><span class="dot">05</span><span class="t">Message test</span><span class="v">HIPAA blocker fixed</span></a></li>
+      <li><a href="#live"><span class="dot">06</span><span class="t">Live</span><span class="v">2 of 5 forward</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═════ 01 · START WITH WHAT NGROK ALREADY KNOWS (deck 03) ═════ -->
+<section class="sq-sec" id="known" aria-labelledby="q1-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k">01 &middot; Site-to-Site &middot; Start with what ngrok already knows</div>
+      <h2 class="h" id="q1-h">Could Audience Discovery see <span class="t">the audience ngrok already knew?</span></h2>
+      <p class="lead">ngrok first ran Audience Discovery on its Site-to-Site use case. ngrok already knew the four core roles there, so the existing landing page became the benchmark.</p>
+    </div>
+    <div class="sq-roles">
+      <div class="sq-score">
+        <span class="num" aria-label="3 of 4">3/4</span>
+        <div class="sq-pips" aria-hidden="true"><i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i><i class="fa-solid fa-user off"></i></div>
+        <span class="k k-tl">Known core roles surfaced</span>
+      </div>
+      <div class="sq-ask">
+        <span class="k">ngrok Sales</span>
+        <span class="q">&ldquo;What&rsquo;s missing?&rdquo;</span>
+        <span class="a">Product Managers</span>
+      </div>
+    </div>
+    <div class="sq-proof"><span class="k">WhyUser proof</span><strong>The result exposed a question worth checking.</strong></div>
+  </div>
+</section>
+
+<!-- ═════ 02 · THE FIRST AHA (deck 04) ═════ -->
+<section class="sq-sec" id="first-aha" aria-labelledby="q2-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k k-wu">02 &middot; The first aha</div>
+      <h2 class="h" id="q2-h">The missing role pointed <span class="t">back to the page.</span></h2>
+      <p class="lead">Sales confirmed the Site-to-Site page did not speak to Product Managers. ngrok updated the messaging, then ran Audience Discovery again.</p>
+    </div>
+    <div class="sq-ba">
+      <div><span class="k k-dim">Before</span><span class="num">3/4</span><span class="lab">Product Manager absent</span></div>
+      <span class="sq-ba-line" aria-hidden="true"></span>
+      <div class="after"><span class="k k-wu">After</span><span class="num">4/4</span><span class="lab">Product Manager surfaced</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 03 · RUN 02: CHANGE THE VERTICAL (deck 05) ═════ -->
+<section class="sq-sec" id="new-vertical" aria-labelledby="q3-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k">03 &middot; Audience Discovery &middot; Run 02</div>
+      <h2 class="h" id="q3-h">The first run proved the known. <span class="t">Now change the vertical.</span></h2>
+      <p class="lead">ngrok already knew its Site-to-Site buyers. Next, ngrok used HealthTech as the target vertical to expand into.</p>
+    </div>
+    <div class="sq-flow">
+      <div><span class="k k-dim">Keep the use case</span><span class="v">Site-to-Site</span></div>
+      <span class="sq-flow-arrow" aria-hidden="true"></span>
+      <div><span class="k">Change the lens</span><span class="v or">HealthTech</span></div>
+      <span class="sq-flow-arrow" aria-hidden="true"></span>
+      <div><span class="k k-wu">Run Audience Discovery</span><span class="v wu">Again</span></div>
+    </div>
+    <div class="sq-bar">
+      <span class="l">Same use case. New vertical. Fresh buyer signals.</span>
+      <span class="sq-time"><s>4 weeks</s><span aria-hidden="true">&rarr;</span><b>hours</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 04 · TAKE IT INTO HEALTHTECH (deck 06-07) ═════ -->
+<section class="sq-sec" id="healthtech" aria-labelledby="q4-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k k-wu">04 &middot; Into HealthTech</div>
+      <h2 class="h" id="q4-h">Who is in <span class="t">the new audience?</span></h2>
+      <p class="lead">The HealthTech run surfaced more than 100 related roles, and ngrok Sales validated them. ngrok checked one strong signal against its real healthcare inbound.</p>
+    </div>
+    <div class="sq-stat"><span class="num">+100</span><span class="s"><strong>HealthTech roles to explore,</strong> validated by Sales. One strong role signal: Clinical Informatics.</span></div>
+    <div class="sq-chain">
+      <div class="sq-card"><span class="k k-wu">WhyUser signal</span><span class="v">Clinical Informatics</span></div>
+      <svg class="sq-chain-arrow" width="40" height="16" viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h34M30 2l6 6-6 6"/></svg>
+      <div class="sq-card tl"><span class="k k-tl">Real inbound</span><span class="v">A senior clinical informatics leader</span></div>
+      <svg class="sq-chain-arrow" width="40" height="16" viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h34M30 2l6 6-6 6"/></svg>
+      <div class="sq-card or"><span class="k">And that buyer had</span><span class="v">already asked about BAAs</span></div>
+    </div>
+
+    <div class="sq-head" style="margin-top:24px">
+      <div class="k k-wu">From discovery to targeting</div>
+      <h3 class="h" style="font-size:clamp(24px,2.8vw,32px)">Discovery became targeting. <span class="t">WhyUser found the roles. ngrok added the context.</span></h3>
+    </div>
+    <div class="sq-merge">
+      <div class="sq-merge-src">
+        <div class="sq-card"><span class="k k-wu">WhyUser</span><span class="v">HealthTech Audience Discovery</span><span class="s">+100 roles, including Clinical Informatics</span></div>
+        <div class="sq-card"><span class="k k-tl">ngrok</span><span class="v">Healthcare inbound + lookalikes</span><span class="s">real buyer behavior</span></div>
+        <div class="sq-card"><span class="k">Sales</span><span class="v">Buyer knowledge + validation</span><span class="s">commercial context</span></div>
+      </div>
+      <svg viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M50 2 L146 60" stroke="#6d47d9" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
+        <path d="M150 2 L150 60" stroke="#0e7490" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
+        <path d="M250 2 L154 60" stroke="#ea5a2a" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
       </svg>
+      <div class="sq-merge-out"><span class="k">Built in Clay</span><span class="v">HealthTech outbound audience</span><span class="s">ready for the five-message test</span></div>
     </div>
   </div>
 </section>
 
-<!-- Section colour classes (.sq-q1 … .sq-q6) carry each card style; the
-     numbers on screen follow the story order, so 01 uses .sq-q2 and so on. -->
-
-<!-- ═════ 01 · RUN 01: does WhyUser see what ngrok knows ═════ -->
-<section class="sq-band sq-q2" id="the-known" aria-labelledby="q1-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">01</div>
-      <h2 class="hd" id="q1-h">Does WhyUser see what ngrok already knows?</h2>
-      <p class="p">Before a new market, ngrok tested WhyUser on one it knew well. ngrok knew the four core roles for its Site-to-Site use case, so its existing landing page became the benchmark.</p>
+<!-- ═════ GROUND REALITY (deck 08) ═════ -->
+<section class="sq-sec" id="ground-reality" aria-labelledby="gr-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k">Ground Reality</div>
+      <h2 class="h" id="gr-h">Audience Discovery finds the buyers. <span class="t">Ground Reality gives them context.</span></h2>
+      <p class="lead">ngrok started with a grounded base committee on Day 1, then expanded the committee for HealthTech.</p>
     </div>
-    <div class="sq-panel">
-      <div class="eb">Answer: mostly</div>
-      <div class="big" aria-label="3 of 4 core roles">3/4</div>
-      <div class="sq-bars" aria-hidden="true"><span></span><span></span><span></span><span class="off"></span></div>
-      <p class="p">Audience Discovery found three of the four known core roles. ngrok Sales asked, <strong>&ldquo;What&rsquo;s missing?&rdquo;</strong> Product Managers.</p>
+    <div class="sq-gr">
+      <div class="sq-card"><span class="k k-wu">Day 1</span><span class="v">Ground Reality</span><p class="p">Starts when the account is created. No setup required. Grounded base committee ready within hours.</p></div>
+      <div class="sq-card or"><span class="k">Expand</span><span class="v">Audience Discovery</span><p class="p">New target &rarr; grounded committee within hours, not weeks of manual research.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═════ 02 · FIRST AHA: why one role was missing ═════ -->
-<section class="sq-band sq-q3" id="missing-role" aria-labelledby="q2-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">02</div>
-      <h2 class="hd" id="q2-h">Why was one role missing?</h2>
-      <p class="p">Because the page never spoke to them. Sales confirmed the Site-to-Site page did not speak to Product Managers. ngrok updated the messaging and ran Audience Discovery again.</p>
+<!-- ═════ 05 · THE MESSAGE TEST + BEFORE SEND (deck 09-10) ═════ -->
+<section class="sq-sec" id="message-test" aria-labelledby="q5-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k">05 &middot; The message test</div>
+      <h2 class="h" id="q5-h">Five people. Five ideas. <span class="t">One HealthTech buying committee.</span></h2>
+      <p class="lead">The committee was built from ngrok&rsquo;s HealthTech Audience Discovery. Every idea faced the same buyers before any email went live.</p>
     </div>
-    <div class="sq-panel">
-      <div class="sq-ba">
-        <div class="was"><div class="eb">Before</div><div class="big">3/4</div></div>
-        <svg width="56" height="20" viewBox="0 0 56 20" fill="none" stroke="#3D6650" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10h50M44 3l8 7-8 7"/></svg>
-        <div class="now"><div class="eb">After</div><div class="big">4/4</div></div>
+    <ol class="sq-ideas">
+      <li><b>01</b><span>Marketing Ops</span></li>
+      <li><b>02</b><span>Sales</span></li>
+      <li><b>03</b><span>Sales</span></li>
+      <li><b>04</b><span>CRO</span></li>
+      <li><b>05</b><span>Product Growth</span></li>
+    </ol>
+    <div class="sq-join">
+      <span class="sq-pill">All five tested against the same committee</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="#6d47d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v18M2 14l6 6 6-6"/></svg>
+    </div>
+    <div class="sq-bench">
+      <img src="images/whyuser-dog-badge.png" alt="" width="72" height="72">
+      <div><span class="k k-wu">Same grounded buyer benchmark</span><p class="v" style="margin:6px 0 0">Every approach faced the same HealthTech committee before any email went live.</p></div>
+    </div>
+
+    <div class="sq-head" style="margin-top:24px">
+      <div class="k">Before send</div>
+      <h3 class="h" style="font-size:clamp(24px,2.8vw,32px)">The buyers wanted to <span class="t">verify the HIPAA claim.</span></h3>
+      <p class="p">WhyUser surfaced the blocker before launch. ngrok used the committee feedback to put the proof within reach.</p>
+    </div>
+    <div class="sq-fix">
+      <div class="sq-card blk"><span class="k k-wu">HealthTech committee simulation</span><span class="s">Flagged a</span><span class="big">Blocker</span><span class="q">&ldquo;Can I verify the HIPAA claim?&rdquo;</span></div>
+      <div class="sq-fix-mid"><span class="k">Before launch</span><svg width="44" height="16" viewBox="0 0 44 16" fill="none" stroke="#ea5a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h38M34 2l6 6-6 6"/></svg></div>
+      <div class="sq-card ok"><span class="k">ngrok fixed it</span><span class="s">Direct link to</span><span class="big wu">HIPAA reports</span><span class="s">in the Trust Center</span></div>
+    </div>
+    <div class="sq-proof"><span class="k">WhyUser proof</span><strong>Buyer feedback became a campaign change.</strong></div>
+  </div>
+</section>
+
+<!-- ═════ 06 · LIVE IN APOLLO (deck 11; live rates kept out) ═════ -->
+<section class="sq-sec" id="live" aria-labelledby="q6-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k k-wu">06 &middot; Live in Apollo</div>
+      <h2 class="h" id="q6-h">The five emails went live together. <span class="t">Then ngrok narrowed the field.</span></h2>
+    </div>
+    <div class="sq-live">
+      <div class="sq-score">
+        <span class="k k-dim">Early live signal &middot; test in progress</span>
+        <span class="num" aria-label="2 of 5">2/5</span>
+        <div class="sq-bars" aria-hidden="true"><span></span><span></span><span class="off"></span><span class="off"></span><span class="off"></span></div>
       </div>
-      <p class="p"><strong>Product Manager surfaced.</strong> With every known role found, ngrok was ready to point Audience Discovery at a new market.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ 03 · RUN 02: how fast to a new vertical ═════ -->
-<section class="sq-band sq-q1" id="new-vertical" aria-labelledby="q3-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">03</div>
-      <h2 class="hd" id="q3-h">How fast can ngrok reach a new vertical?</h2>
-      <p class="p">Next, ngrok kept the Site-to-Site use case and changed the lens to HealthTech, a vertical ngrok was expanding into.</p>
-    </div>
-    <div class="sq-cards">
-      <div class="sq-card"><div class="eb" style="color:var(--sq-mute)">Before</div><div class="big">4 weeks</div><p class="p">to find a new audience by hand: research, enrich, group roles, find patterns, validate with Sales.</p></div>
-      <div class="sq-card is-now"><div class="eb" style="color:var(--sq-rose-k)">With Audience Discovery</div><div class="big">Hours</div><p class="p">to a testable HealthTech buying committee.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ 04 · NEW AUDIENCE: who is in it ═════ -->
-<section class="sq-band sq-q4" id="healthtech" aria-labelledby="q4-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">04</div>
-      <h2 class="hd" id="q4-h">Who is in the new audience?</h2>
-      <p class="p">The HealthTech run surfaced more than 100 related roles. ngrok Sales reviewed the roles and validated them.</p>
-    </div>
-    <div class="sq-tiles">
-      <div class="sq-tile"><div class="eb">WhyUser found</div><div class="hd">+100 related roles</div></div>
-      <div class="sq-tile"><div class="eb">Validated by</div><div class="hd">ngrok Sales</div></div>
-      <div class="sq-tile is-intent"><div class="eb">One example</div><div class="hd">Clinical Informatics</div><p class="sq-tile-s">The role matched ngrok&rsquo;s real healthcare inbound. A senior clinical informatics leader there had already asked about BAAs.</p></div>
-      <p class="p">Those roles, plus ngrok&rsquo;s inbound, became the HealthTech outbound audience built in Clay.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ 05 · BEFORE SEND: will that committee believe the email ═════ -->
-<section class="sq-band sq-q5" id="hipaa" aria-labelledby="q5-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">05</div>
-      <h2 class="hd" id="q5-h">Would that committee believe the email?</h2>
-      <p class="p">Instead of more rounds of internal review, five people wrote five ideas: Marketing Ops, Sales, Sales, CRO, Product Growth. All five faced a simulated committee built from the HealthTech roles WhyUser found, before anything went live.</p>
-    </div>
-    <div class="sq-cards">
-      <div class="sq-card">
-        <div class="eb">The committee pushed back</div>
-        <div class="hd">&ldquo;Can I verify the HIPAA claim?&rdquo;</div>
-      </div>
-      <div class="sq-card is-fix">
-        <div class="eb">Fixed before launch</div>
-        <div class="hd">Direct link to HIPAA reports in the Trust Center</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════ 06 · LIVE: what happened in market ═════ -->
-<section class="sq-band sq-q6" id="live" aria-labelledby="q6-h">
-  <div class="sq-in sq-split">
-    <div class="sq-stack">
-      <div class="big sq-num" aria-hidden="true">06</div>
-      <h2 class="hd" id="q6-h">What happened when the emails went live?</h2>
-      <p class="p">ngrok launched the five emails together as cold outbound tests in Apollo. So far, two of the five have moved forward to the next round.</p>
-    </div>
-    <div class="sq-panel">
-      <div class="eb">Early live signal &middot; test in progress</div>
-      <div class="big" aria-label="2 of 5 ideas moved forward">2/5</div>
-      <div class="sq-bars" aria-hidden="true"><span></span><span></span><span class="off"></span><span class="off"></span><span class="off"></span></div>
-      <div class="sq-q6-foot">
-        <p class="p"><strong>Two ideas moved forward</strong> to the next round.</p>
+      <div class="sq-card" style="display:grid;gap:12px">
+        <p class="p" style="color:var(--sq-ink);font-size:17px"><strong>Two of the five ideas moved forward</strong> to the next round, on early opens and clicks. The test is still running.</p>
         <p class="sq-note">Every WhyUser signal on this page is simulated. Where this page says a signal matched, ngrok checked that signal against real data it already had. The live results are ngrok&rsquo;s, not WhyUser&rsquo;s.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═════ WHAT CHANGED BEFORE LAUNCH (deck 12) ═════ -->
+<section class="sq-sec" id="what-changed" aria-labelledby="wc-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k">What changed before launch</div>
+      <h2 class="h" id="wc-h">The live test still mattered. <span class="t">WhyUser changed what ngrok knew before the test began.</span></h2>
+    </div>
+    <ul class="sq-four">
+      <li><span class="v">3/4 &rarr; 4/4</span><span class="s">messaging evidence</span></li>
+      <li class="tl"><span class="v">+100 roles</span><span class="s">new vertical audience</span></li>
+      <li class="or"><span class="v">BAA intent</span><span class="s">buyer reality</span></li>
+      <li><span class="v">HIPAA proof</span><span class="s">changed before send</span></li>
+    </ul>
+    <p class="sq-sum">A grounded committee gave every idea the same buyer benchmark before launch.</p>
+  </div>
+</section>
+
+<!-- ═════ KEEP THE LEARNING (deck 13) ═════ -->
+<section class="sq-sec" id="learning" aria-labelledby="loop-h">
+  <div class="sq-in">
+    <div class="sq-head">
+      <div class="k k-wu">Keep the learning</div>
+      <h2 class="h" id="loop-h">The offer changed. <span class="t">The learning loop kept going.</span></h2>
+      <p class="lead">When the offer changed, ngrok reworked the two leading emails and ran the new versions through WhyUser again.</p>
+    </div>
+    <ol class="sq-steps">
+      <li><span class="v">Two ideas</span><span class="s">live signal</span></li>
+      <li class="or"><span class="v">Offer</span><span class="s">changes</span></li>
+      <li class="tl"><span class="v">Rewrite</span><span class="s">new versions</span></li>
+      <li><span class="v">WhyUser</span><span class="s">buyer feedback</span></li>
+      <li class="ink"><span class="v">Next</span><span class="s">apply + test</span></li>
+    </ol>
+    <div class="sq-split">
+      <div><span class="k k-wu">WhyUser</span><span class="v">Buyer evidence <span class="t">earlier.</span></span></div>
+      <div><span class="k">ngrok</span><span class="v">Adds context. <span class="o">Decides what to apply.</span></span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ═════ QUOTE 2 · DRAFT for Nichole to edit and approve ═════
-     Drafted from the story, per the case study template ("draft it from
-     what they actually said; they edit"). Do not publish until she
-     approves her own words. -->
-<section class="sq-quote-wrap is-2" aria-label="What ngrok said about testing before launch">
+     Drafted from the story, per the case study template. Do not publish
+     until she approves her own words. -->
+<section class="sq-quote-wrap" aria-label="What ngrok said about testing before launch">
   <figure class="sq-quote">
     <span class="sq-draft">Draft quote &middot; for Nichole to edit</span>
-    <svg width="40" height="32" viewBox="0 0 40 32" fill="#8F82BE" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
+    <svg viewBox="0 0 40 32" fill="#6d47d9" aria-hidden="true"><path d="M0 32V19C0 8 6 1.5 16 0l1.5 4.5C11.5 6.5 9 10.5 9 15h7v17H0Zm22 0V19c0-11 6-17.5 16-19l1.5 4.5C33.5 6.5 31 10.5 31 15h7v17H22Z"/></svg>
     <blockquote><p>By the time the emails went live, we already knew the missing role, the healthcare buyer and the HIPAA question.</p></blockquote>
     <figcaption>
-      <span class="sq-avatar" aria-hidden="true">NL</span>
+      <span class="sq-avatar" aria-hidden="true" style="color:var(--sq-wu)">NL</span>
       <span class="sq-who"><strong>Nichole LaRue</strong><span>Head of Marketing Operations, ngrok</span></span>
     </figcaption>
     <p class="sq-disclose">Nichole also advises WhyUser on go-to-market.</p>
   </figure>
 </section>
 
-<!-- ═════ EPILOGUE + CTA ═════ -->
-<section class="sq-epi" id="next" aria-labelledby="next-h">
-  <div class="sq-epi-card">
-    <div class="eb">Epilogue &middot; and the next question</div>
-    <h2 class="hd" id="next-h">The offer changed. So ngrok reworked both emails and asked the committee again.</h2>
-    <p class="p">The learning loop kept going. WhyUser brings buyer evidence earlier. ngrok adds context and decides what to apply.</p>
-    <div class="sq-epi-foot">
-      <div class="hd">Marketing has a <span>staging environment</span> now.</div>
-      <a class="sq-cta" href="index.html#access">Start with Audience Discovery</a>
-    </div>
+<!-- ═════ THE NGROK LOOP + CTA (deck 14) ═════ -->
+<section class="sq-close" id="next" aria-labelledby="next-h">
+  <div class="sq-close-card">
+    <div class="k">The ngrok loop</div>
+    <h2 class="h" id="next-h">ngrok tested before launch. Then learned from what happened after.</h2>
+    <ol class="sq-loop" aria-label="The loop">
+      <li>Audience</li><li>Committee</li><li>Simulate</li><li>Fix</li><li>Go live</li>
+    </ol>
+    <div class="k" style="color:#a1a1aa">That&rsquo;s the loop.</div>
+    <p class="stage">Marketing has a <span>staging environment now.</span></p>
+    <a class="sq-cta" href="index.html#access"><span class="v">Stage your next campaign &rarr;</span><span class="s">Start with Audience Discovery</span></a>
   </div>
 </section>
 <script type="text/plain" id="sq-summary">How ngrok used WhyUser before launch:
@@ -1000,7 +1152,7 @@ https://whyuser.com/casestudy-ngrok.html</script>
         <div class="footer-grid">
             <div>
                 <div class="footer-brand-mark">
-                    <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
+                    <span class="nav-mark"><img src="images/whyuser-dog-badge.png" alt=""></span>
                     <span class="footer-brand-name">WhyUser Inc.</span>
                 </div>
                 <p class="footer-tagline">WhyUser is the pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>

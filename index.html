@@ -3233,6 +3233,11 @@ body { background-image: none; }
    it sit on the page colour, not white. Hairline borders still hold them.
    whyuser-slides.css sets the white (--surface), so this must follow it. */
 .wu-digest, .wu-digest-card { background: var(--paper); }
+
+/* WhyUser mark: the smiling-dog badge. whyuser-readability.css swaps the
+   nav and footer mark to whyuser-logo.png with content:url(), so this must
+   follow it. */
+.nav-mark img, .footer-brand-mark img, .footer-mark img { content: url("images/whyuser-dog-badge.png"); }
 </style>
 
 <style>
@@ -3407,7 +3412,7 @@ body { background-image: none; }
 <nav class="nav" id="site-nav">
     <div class="wrap nav-inner">
         <a href="index.html" class="nav-brand">
-            <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
+            <span class="nav-mark"><img src="images/whyuser-dog-badge.png" alt=""></span>
             <span>WhyUser</span>
         </a>
 
@@ -5192,7 +5197,7 @@ body { background-image: none; }
         <div class="footer-grid">
             <div>
                 <div class="footer-brand-mark">
-                    <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
+                    <span class="nav-mark"><img src="images/whyuser-dog-badge.png" alt=""></span>
                     <span class="footer-brand-name">WhyUser Inc.</span>
                 </div>
                 <p class="footer-tagline">WhyUser is the pre-launch test for B2B campaigns. Run your ad, email or landing page past your buyers before you spend the budget, and get what&rsquo;s working, what&rsquo;s broken and what to fix. Every finding quotes a real buyer.</p>

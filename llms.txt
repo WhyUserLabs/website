@@ -33,14 +33,14 @@ Agent counts, behavioural states and accuracy are **identical on every plan**. P
 
 ## Pricing
 
-[Full pricing](https://whyuser.com/pricing.html). Annual plans only.
+[Full pricing](https://whyuser.com/pricing.html). Annual plans, priced per month.
 
-- **Standard**: $12,000/year, 2,400 credits, intelligence refreshed 4× a month
-- **Scale**: $24,000/year, 5,250 credits, intelligence refreshed 4× a month
+- **Standard**: $1,000/month, 2,400 credits a year, intelligence refreshed 4× a month
+- **Scale**: $2,000/month, 5,400 credits a year, intelligence refreshed 4× a month
 - **Enterprise**: custom annual pricing, 12,000+ credits, SSO, custom DPA, named engineer
 - **Credit pack**: $1,000 per 200 credits, no expiry for the life of the subscription
 
-A landing-page test is 20 credits, which is $100 on Standard and $91.43 on Scale. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner programme.
+A landing-page test is 20 credits, which is $89 on Scale and $100 on Standard. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner programme.
 
 ## How the buyers are built
 

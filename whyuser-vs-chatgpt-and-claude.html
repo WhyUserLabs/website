@@ -68,9 +68,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "headline": "Claude vs WhyUser: Claude writes, WhyUser tests",
       "description": "Claude is excellent at drafting and the most patient reader alive, which none of your buyers are. An honest comparison across three ways people mean \"just use Claude\": the chat window, Cowork with your data connected, and building the harness with Claude Code.",
       "url": "https://whyuser.com/whyuser-vs-chatgpt-and-claude.html",
+      "image": "https://whyuser.com/og-image.png",
       "author": {
         "@type": "Organization",
-        "name": "WhyUser"
+        "name": "WhyUser",
+        "url": "https://whyuser.com/"
       },
       "publisher": {
         "@id": "https://whyuser.com/#organization"
@@ -92,15 +94,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "Can I just use Claude to review my landing page?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For drafting and variants, yes. For a spend decision, no. Every run with Claude is a first run. Ask it the same page twice in two fresh sessions and you get two different answers. You cannot tell whether your fix worked or the model simply sampled differently. It also reads as the most patient reader alive, when roughly 82 percent of cold traffic is distracted."
+            "text": "For drafting and variants, yes. For a spend decision, no, because every run is a first run."
           }
         },
         {
           "@type": "Question",
-          "name": "What if we use Claude Cowork with our own data connected?",
+          "name": "What if we use Claude Cowork with our data connected?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Attaching data is the easy part now, and it genuinely helps. What it does not fix: Claude cannot tell you this week's finding is last week's finding, cannot tell a buyer's words from a rival's marketing because both are simply text to it, and cannot reach the competitor reviews and community threads where most of the deciding evidence actually lives."
+            "text": "It reads your evidence well. It cannot tell you it read the same thing last week."
           }
         },
         {
@@ -108,31 +110,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "Is WhyUser just a wrapper around Claude?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "WhyUser runs on frontier models, Claude among them, and the model is the cheapest part of the system. The product is everything around it: sealed re-runs so an unchanged page returns an unchanged verdict, quote verification against the fetched document, author classification of every source, meaning-level identity across weeks, channel-weighted behavioural states, and a graded track record. Swap the model underneath and all of that still stands."
+            "text": "The model is the cheapest part. The product is sealed re-runs, quote verification, author classification and a graded record."
           }
         },
         {
           "@type": "Question",
-          "name": "Claude keeps getting better. Does this comparison expire?",
+          "name": "Claude keeps getting better. Does this expire?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fresh sampling on every run is a feature for writing and a defect for testing, and there is no reason for a model provider to remove it. As a general assistant gets better at generating, the gap between generating and testing becomes more visible rather than less."
+            "text": "No. Fresh sampling is a feature for writing and a defect for testing, so the gap widens as Claude improves."
           }
         },
         {
           "@type": "Question",
-          "name": "What does simulating a committee add over asking Claude to play five roles?",
+          "name": "What does a committee add over playing five roles?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The handoffs. Asked to play five roles, an assistant plays them in one pass, so the answers agree with each other. A committee simulation computes each role's verdict separately, then scores the path between roles: whether the champion holds evidence that answers the economic buyer's objection. A page where every role approves can still be dead, and an average calls that page a winner."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is my CRM or call data enough to ground a persona?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It is inward-looking. Everyone in it already replied to you. Marketing needs the people who did not, and their voice sits in competitor reviews and community threads instead."
+            "text": "The handoffs. Five roles played in one pass agree with each other. Real committees do not."
           }
         }
       ],
@@ -167,7 +161,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "Organization",
       "@id": "https://whyuser.com/#organization",
       "name": "WhyUser",
-      "url": "https://whyuser.com/"
+      "url": "https://whyuser.com/",
+      "logo": "https://whyuser.com/images/whyuser-logo.png"
     }
   ]
 }
@@ -228,7 +223,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      ═══════════════════════════════════════════════════════════════════ -->
 <nav class="nav" id="site-nav">
     <div class="wrap nav-inner">
-        <a href="index.html" class="nav-brand">
+        <a href="./" class="nav-brand">
             <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
             <span>WhyUser</span>
         </a>
@@ -349,7 +344,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
                     <span class="nav-dd-label">Benchmarks</span>
-                    <a href="benchmarks/index.html" class="nav-dd-item" role="menuitem">
+                    <a href="benchmarks/" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">All Benchmarks</span>
@@ -440,7 +435,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              needed something to look at. -->
         <div class="nav-cta-row">
             <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
-            <a href="index.html#access" class="btn btn-primary">Request access</a>
+            <a href="./#access" class="btn btn-primary">Request access</a>
             <button type="button" class="nav-burger" id="nav-burger"
                     aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
                 <span></span><span></span><span></span>
@@ -497,7 +492,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-m-group">
                 <span class="nav-m-label">Resources</span>
                 
-                <a href="benchmarks/index.html" class="nav-m-link">All Benchmarks</a>
+                <a href="benchmarks/" class="nav-m-link">All Benchmarks</a>
                 <a href="accuracy.html" class="nav-m-link">Accuracy</a>
                 <a href="how-to-evaluate.html" class="nav-m-link">How to Evaluate It</a>
                 <a href="roi.html" class="nav-m-link">ROI Calculator</a>
@@ -510,7 +505,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <a href="dpa.html" class="nav-m-link">DPA</a>
                 <a href="privacy.html" class="nav-m-link">Privacy</a>
             <div class="nav-m-ctas">
-                <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
                 <a href="sample-report.html" class="btn btn-ghost btn-lg">See sample reports</a>
             </div>
         </div>
@@ -597,12 +592,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="lp-hero">
   <div class="wrap">
     <nav class="lp-crumb" aria-label="Breadcrumb">
-      <a href="index.html">WhyUser</a> / <a href="compare.html">Compare</a> / Claude vs WhyUser
+      <a href="./">WhyUser</a> / <a href="compare.html">Compare</a> / Claude vs WhyUser
     </nav>
     <h1 class="lp-h1">Claude writes.<br><span style="color:var(--lp-brand)">WhyUser tests.</span></h1>
     <p class="lp-sub">Every run with Claude is a first run. Ask it the same page twice and you get two different answers.</p>
     <div class="lp-ctas">
-      <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+      <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
       <a href="one-page-two-answers.html" class="btn btn-ghost btn-lg">The same page, twice</a>
     </div>
   </div>
@@ -775,7 +770,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="wu-eyebrow">Before you spend</span>
     <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
     <p class="wu-close-line">Claude writes a fresh answer every time. WhyUser returns the same verdict, sourced and graded.</p>
-    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="index.html#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="one-page-two-answers.html">The same page, twice</a></div>
+    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="./#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="one-page-two-answers.html">The same page, twice</a></div>
   </div>
 </section>
 </main>
@@ -828,7 +823,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Resources</h4>
     <ul>
-     <li><a href="benchmarks/index.html">Benchmarks</a></li>
+     <li><a href="benchmarks/">Benchmarks</a></li>
      <li><a href="accuracy.html">Accuracy</a></li>
      <li><a href="how-to-evaluate.html">How to Evaluate It</a></li>
      <li><a href="roi.html">ROI Calculator</a></li>
@@ -843,7 +838,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                 
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.html#access">Request access</a></li>
+                <li><a href="./#access">Request access</a></li>
             </ul></div>
         </div>
 

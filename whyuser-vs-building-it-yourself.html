@@ -68,9 +68,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "headline": "Should you build a buying committee simulation with Claude Code?",
       "description": "An honest look at building a buying committee simulation in-house with Claude Code or agents. What you will have working in a weekend, what breaks in month two, what cannot be built at all, and when building it yourself is genuinely the right call.",
       "url": "https://whyuser.com/whyuser-vs-building-it-yourself.html",
+      "image": "https://whyuser.com/og-image.png",
       "author": {
         "@type": "Organization",
-        "name": "WhyUser"
+        "name": "WhyUser",
+        "url": "https://whyuser.com/"
       },
       "publisher": {
         "@id": "https://whyuser.com/#organization"
@@ -89,42 +91,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can I build a buying committee simulation with Claude Code?",
+          "name": "Can I build this with Claude Code and agents?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The orchestration is roughly a weekend and it will demo well. What takes longer is determinism, calibrating the behavioural mix against real channel benchmarks, modelling the handoffs between roles, and accumulating a graded track record."
+            "text": "Probably. The orchestration is a weekend. The gap is everything after it."
           }
         },
         {
           "@type": "Question",
-          "name": "Why is temperature zero not enough for a repeatable verdict?",
+          "name": "What is the real cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Attention behaviour and batching mean the same prompt can still return different text. The fix is to stop letting the model decide. Count runs in code, compute the verdict algebraically, and let the model write only the narrative."
+            "text": "Maintaining simulation infrastructure through every model update, for exactly one customer."
           }
         },
         {
           "@type": "Question",
-          "name": "What do in-house simulations usually get wrong first?",
+          "name": "When should I build it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The behavioural mix. An even split over-represents the actively shopping buyer by more than tenfold on cold social. Simulated click rates come back around 20 to 30%. Real cold LinkedIn is under 1%. The output is confident and wrong with no warning."
+            "text": "When simulation is your product, or you have a research function that owns methodology."
           }
         },
         {
           "@type": "Question",
-          "name": "What can an in-house build never replicate?",
+          "name": "Can I copy the calibration?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A record of predictions sealed before outcomes existed. It accumulates at the speed of real campaigns and cannot be backdated. A team starting today has none, and that is what gets asked the first time the simulation contradicts a senior opinion."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "When is building it yourself the right call?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "When simulation is your product. When you already have a research function that owns methodology. When your use case sits outside B2B buying committees. Or when you need something the vendor does not do."
+            "text": "No. You can copy a sprint. You cannot copy a quarter of graded outcomes."
           }
         }
       ],
@@ -159,7 +153,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "Organization",
       "@id": "https://whyuser.com/#organization",
       "name": "WhyUser",
-      "url": "https://whyuser.com/"
+      "url": "https://whyuser.com/",
+      "logo": "https://whyuser.com/images/whyuser-logo.png"
     }
   ]
 }
@@ -219,7 +214,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      ═══════════════════════════════════════════════════════════════════ -->
 <nav class="nav" id="site-nav">
     <div class="wrap nav-inner">
-        <a href="index.html" class="nav-brand">
+        <a href="./" class="nav-brand">
             <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
             <span>WhyUser</span>
         </a>
@@ -340,7 +335,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
                     <span class="nav-dd-label">Benchmarks</span>
-                    <a href="benchmarks/index.html" class="nav-dd-item" role="menuitem">
+                    <a href="benchmarks/" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">All Benchmarks</span>
@@ -431,7 +426,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              needed something to look at. -->
         <div class="nav-cta-row">
             <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
-            <a href="index.html#access" class="btn btn-primary">Request access</a>
+            <a href="./#access" class="btn btn-primary">Request access</a>
             <button type="button" class="nav-burger" id="nav-burger"
                     aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
                 <span></span><span></span><span></span>
@@ -488,7 +483,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-m-group">
                 <span class="nav-m-label">Resources</span>
                 
-                <a href="benchmarks/index.html" class="nav-m-link">All Benchmarks</a>
+                <a href="benchmarks/" class="nav-m-link">All Benchmarks</a>
                 <a href="accuracy.html" class="nav-m-link">Accuracy</a>
                 <a href="how-to-evaluate.html" class="nav-m-link">How to Evaluate It</a>
                 <a href="roi.html" class="nav-m-link">ROI Calculator</a>
@@ -501,7 +496,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <a href="dpa.html" class="nav-m-link">DPA</a>
                 <a href="privacy.html" class="nav-m-link">Privacy</a>
             <div class="nav-m-ctas">
-                <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
                 <a href="sample-report.html" class="btn btn-ghost btn-lg">See sample reports</a>
             </div>
         </div>
@@ -588,12 +583,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="lp-hero">
   <div class="wrap">
     <nav class="lp-crumb" aria-label="Breadcrumb">
-      <a href="index.html">WhyUser</a> / <a href="compare.html">Compare</a> / Building it yourself
+      <a href="./">WhyUser</a> / <a href="compare.html">Compare</a> / Building it yourself
     </nav>
     <h1 class="lp-h1">The weekend estimate is correct.</h1>
     <p class="lp-sub">The orchestration is a weekend. Determinism, sourcing and a graded track record are not.</p>
     <div class="lp-ctas">
-      <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+      <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
       <a href="one-page-two-answers.html" class="btn btn-ghost btn-lg">The same page, twice</a>
     </div>
   </div>
@@ -702,7 +697,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="wu-eyebrow">Before you spend</span>
     <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
     <p class="wu-close-line">The orchestration is a weekend. Determinism, sourcing and a graded record are not. Try the finished one first.</p>
-    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="index.html#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="one-page-two-answers.html">The same page, twice</a></div>
+    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="./#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="one-page-two-answers.html">The same page, twice</a></div>
   </div>
 </section>
 </main>
@@ -755,7 +750,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Resources</h4>
     <ul>
-     <li><a href="benchmarks/index.html">Benchmarks</a></li>
+     <li><a href="benchmarks/">Benchmarks</a></li>
      <li><a href="accuracy.html">Accuracy</a></li>
      <li><a href="how-to-evaluate.html">How to Evaluate It</a></li>
      <li><a href="roi.html">ROI Calculator</a></li>
@@ -770,7 +765,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                 
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.html#access">Request access</a></li>
+                <li><a href="./#access">Request access</a></li>
             </ul></div>
         </div>
 

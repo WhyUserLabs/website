@@ -68,9 +68,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "headline": "Internal review vs. WhyUser: your reviewers are the 3%",
       "description": "An honest comparison of internal review and a buying committee simulation. Why your reviewers sit in the ideal behavioural state that roughly 3% of cold traffic occupies, why the handoffs between buyer roles go unreviewed, and a five-minute exercise that improves your next review for free.",
       "url": "https://whyuser.com/whyuser-vs-internal-review.html",
+      "image": "https://whyuser.com/og-image.png",
       "author": {
         "@type": "Organization",
-        "name": "WhyUser"
+        "name": "WhyUser",
+        "url": "https://whyuser.com/"
       },
       "publisher": {
         "@id": "https://whyuser.com/#organization"
@@ -89,42 +91,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Is internal review enough before a campaign launches?",
+          "name": "Is internal review enough before launch?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Internal review is enough for typos, brand consistency, legal risk and accuracy about your own product. It cannot tell you why a stranger leaves, because everyone in the room has full motivation, deep product knowledge and full attention, and on LinkedIn cold traffic only about 3% of readers arrive in that state."
+            "text": "Enough for typos, brand, legal risk and product accuracy. Not for why a stranger leaves."
           }
         },
         {
           "@type": "Question",
-          "name": "Why do internal reviewers miss what buyers see?",
+          "name": "Does this replace internal review?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "They are the wrong population, not bad reviewers. Three dials decide how a page reads: motivation, product knowledge and attention. Reviewers are at maximum on all three, while 82% of LinkedIn cold traffic arrives distracted. The mix changes by channel: Google Search cold runs 30% distracted and 45% in-market, so the right comparison depends on what you buy."
+            "text": "No. Run the stress test first, then spend the two weeks on what only your team can judge."
           }
         },
         {
           "@type": "Question",
-          "name": "What is the handoff failure that reviews never catch?",
+          "name": "What is the handoff failure?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Deals move when one role carries evidence to the next. If the page arms the champion with enthusiasm but no baseline number, the handoff to the economic buyer is broken, and every role can still approve the page. That failure sits between seats, so no review of the page itself finds it."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does a buying committee simulation replace internal review?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Legal sign-off, accuracy about your own roadmap, brand voice and stakeholder buy-in all still need it. The simulation clears the decision failures first so the review can spend its two weeks on what only your team can judge."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I improve internal review without adding a tool?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Before discussion begins, have everyone privately write down which committee role would refuse the page and what that role would need to see. If everyone names the same role, or nobody can answer, the review is not testing what you think it is."
+            "text": "Deals move when one role carries evidence to the next. If the page arms nobody, every role can still approve."
           }
         }
       ],
@@ -159,7 +145,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "Organization",
       "@id": "https://whyuser.com/#organization",
       "name": "WhyUser",
-      "url": "https://whyuser.com/"
+      "url": "https://whyuser.com/",
+      "logo": "https://whyuser.com/images/whyuser-logo.png"
     }
   ]
 }
@@ -219,7 +206,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      ═══════════════════════════════════════════════════════════════════ -->
 <nav class="nav" id="site-nav">
     <div class="wrap nav-inner">
-        <a href="index.html" class="nav-brand">
+        <a href="./" class="nav-brand">
             <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
             <span>WhyUser</span>
         </a>
@@ -340,7 +327,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
                     <span class="nav-dd-label">Benchmarks</span>
-                    <a href="benchmarks/index.html" class="nav-dd-item" role="menuitem">
+                    <a href="benchmarks/" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">All Benchmarks</span>
@@ -431,7 +418,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              needed something to look at. -->
         <div class="nav-cta-row">
             <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
-            <a href="index.html#access" class="btn btn-primary">Request access</a>
+            <a href="./#access" class="btn btn-primary">Request access</a>
             <button type="button" class="nav-burger" id="nav-burger"
                     aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
                 <span></span><span></span><span></span>
@@ -488,7 +475,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-m-group">
                 <span class="nav-m-label">Resources</span>
                 
-                <a href="benchmarks/index.html" class="nav-m-link">All Benchmarks</a>
+                <a href="benchmarks/" class="nav-m-link">All Benchmarks</a>
                 <a href="accuracy.html" class="nav-m-link">Accuracy</a>
                 <a href="how-to-evaluate.html" class="nav-m-link">How to Evaluate It</a>
                 <a href="roi.html" class="nav-m-link">ROI Calculator</a>
@@ -501,7 +488,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <a href="dpa.html" class="nav-m-link">DPA</a>
                 <a href="privacy.html" class="nav-m-link">Privacy</a>
             <div class="nav-m-ctas">
-                <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
                 <a href="sample-report.html" class="btn btn-ghost btn-lg">See sample reports</a>
             </div>
         </div>
@@ -588,12 +575,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="lp-hero">
   <div class="wrap">
     <nav class="lp-crumb" aria-label="Breadcrumb">
-      <a href="index.html">WhyUser</a> / <a href="compare.html">Compare</a> / Internal review vs. WhyUser
+      <a href="./">WhyUser</a> / <a href="compare.html">Compare</a> / Internal review vs. WhyUser
     </nav>
     <h1 class="lp-h1">Your reviewers are the 3%.</h1>
     <p class="lp-sub">Everyone in that room has full motivation, deep product knowledge and full attention. Almost none of your traffic has any of the three.</p>
     <div class="lp-ctas">
-      <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+      <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
       <a href="one-page-two-answers.html" class="btn btn-ghost btn-lg">The same page, twice</a>
     </div>
   </div>
@@ -737,7 +724,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="wu-eyebrow">Before you spend</span>
     <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
     <p class="wu-close-line">Your reviewers are the 3%. Your traffic is not. Run the page past the other 97% first.</p>
-    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="index.html#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="one-page-two-answers.html">The same page, twice</a></div>
+    <div class="wu-close-ctas"><a class="btn btn-primary btn-lg" href="./#access">Request access, run it on your next campaign &rarr;</a><a class="btn btn-ghost btn-lg" href="one-page-two-answers.html">The same page, twice</a></div>
   </div>
 </section>
 </main>
@@ -790,7 +777,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Resources</h4>
     <ul>
-     <li><a href="benchmarks/index.html">Benchmarks</a></li>
+     <li><a href="benchmarks/">Benchmarks</a></li>
      <li><a href="accuracy.html">Accuracy</a></li>
      <li><a href="how-to-evaluate.html">How to Evaluate It</a></li>
      <li><a href="roi.html">ROI Calculator</a></li>
@@ -805,7 +792,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                 
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.html#access">Request access</a></li>
+                <li><a href="./#access">Request access</a></li>
             </ul></div>
         </div>
 

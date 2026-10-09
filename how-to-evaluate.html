@@ -68,9 +68,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "headline": "How to evaluate a pre-launch testing method",
       "description": "Four things a measurement has to do: repeat, show its source, read like your buyer, and remember. Twelve questions to ask any pre-launch testing method, including WhyUser.",
       "url": "https://whyuser.com/how-to-evaluate.html",
+      "image": "https://whyuser.com/og-image.png",
       "author": {
         "@type": "Organization",
-        "name": "WhyUser"
+        "name": "WhyUser",
+        "url": "https://whyuser.com/"
       },
       "publisher": {
         "@type": "Organization",
@@ -78,7 +80,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "logo": {
           "@type": "ImageObject",
           "url": "https://whyuser.com/images/whyuser-logo.png"
-        }
+        },
+        "url": "https://whyuser.com/"
       },
       "datePublished": "2026-08-17",
       "dateModified": "2026-08-17",
@@ -90,42 +93,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How do I evaluate a pre-launch testing method?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Test four properties. Does it repeat: run the same asset twice in two fresh sessions and check whether the verdicts agree. Does it show its source: ask it to trace any quote back to a string in a named document. Does it read like your buyer: ask what reader state it assumes, patient or distracted. Does it remember: ask whether week four knows anything week one did not, and whether it publishes a hit rate with misses left in the denominator."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Can I use a general AI assistant to test a landing page before launch?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For drafting and variants, yes. For a spend decision, it fails the first property. Ask a general AI assistant the same page twice in two fresh sessions and you get two different answers, so you cannot tell whether a change you made worked or the model simply sampled differently. A general AI assistant is also the most patient reader alive, and reads to the bottom of every page, which none of your buyers do."
+            "text": "For drafting and variants, yes. For a spend decision it fails Q1, because two fresh sessions give two different answers."
           }
         },
         {
           "@type": "Question",
-          "name": "Why does it matter whether a testing tool gives the same answer twice?",
+          "name": "What if we connect the assistant to our own data?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because attribution depends on it. If the tool returns a different verdict each run, you cannot separate the effect of your fix from the tool's own variation. A method that changes its answer on an unchanged page cannot tell you anything about a changed one."
+            "text": "It helps, and attaching evidence is easy now. It still cannot tell you it read the same thing last week."
           }
         },
         {
           "@type": "Question",
-          "name": "What does it mean for a finding to be sourced?",
+          "name": "Why does repeating matter so much?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "That the quote behind it can be traced to a string that actually exists in a named document, and that the tool tells you who wrote that document. A large share of what any research agent finds in a B2B category is written by competing vendors. A method that cannot distinguish a rival's comparison page from a verified buyer review will reason about competitor marketing as though it were buyer testimony."
+            "text": "Attribution depends on it. If the answer moves on an unchanged page, it says nothing about a changed one."
           }
         },
         {
           "@type": "Question",
-          "name": "What reader state should a pre-launch test assume?",
+          "name": "Is a high hit rate enough?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The mix your channel actually delivers, not one patient reader. Published benchmark data puts cold LinkedIn traffic at roughly 82 percent distracted, 15 percent skeptical and 3 percent actively shopping. A method that assumes a careful reader is measuring a population that barely exists in your traffic."
+            "text": "No. Ask whether the misses are counted, whether claims were sealed first, and who did the grading."
           }
         }
       ],
@@ -253,7 +248,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      ═══════════════════════════════════════════════════════════════════ -->
 <nav class="nav" id="site-nav">
     <div class="wrap nav-inner">
-        <a href="index.html" class="nav-brand">
+        <a href="./" class="nav-brand">
             <span class="nav-mark"><img src="images/whyuser-logo.png" alt=""></span>
             <span>WhyUser</span>
         </a>
@@ -374,7 +369,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
                     <span class="nav-dd-label">Benchmarks</span>
-                    <a href="benchmarks/index.html" class="nav-dd-item" role="menuitem">
+                    <a href="benchmarks/" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">All Benchmarks</span>
@@ -465,7 +460,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
              needed something to look at. -->
         <div class="nav-cta-row">
             <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
-            <a href="index.html#access" class="btn btn-primary">Request access</a>
+            <a href="./#access" class="btn btn-primary">Request access</a>
             <button type="button" class="nav-burger" id="nav-burger"
                     aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
                 <span></span><span></span><span></span>
@@ -522,7 +517,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-m-group">
                 <span class="nav-m-label">Resources</span>
                 
-                <a href="benchmarks/index.html" class="nav-m-link">All Benchmarks</a>
+                <a href="benchmarks/" class="nav-m-link">All Benchmarks</a>
                 <a href="accuracy.html" class="nav-m-link">Accuracy</a>
                 <a href="how-to-evaluate.html" class="nav-m-link">How to Evaluate It</a>
                 <a href="roi.html" class="nav-m-link">ROI Calculator</a>
@@ -535,7 +530,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <a href="dpa.html" class="nav-m-link">DPA</a>
                 <a href="privacy.html" class="nav-m-link">Privacy</a>
             <div class="nav-m-ctas">
-                <a href="index.html#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
                 <a href="sample-report.html" class="btn btn-ghost btn-lg">See sample reports</a>
             </div>
         </div>
@@ -664,7 +659,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="lp-hero">
   <div class="wrap">
     <nav class="lp-crumb" aria-label="Breadcrumb">
-      <a href="index.html">WhyUser</a> / How to evaluate a method
+      <a href="./">WhyUser</a> / How to evaluate a method
     </nav>
     <h1 class="lp-h1">How to evaluate a<br>pre-launch testing method.</h1>
     <p class="lp-sub">Twelve questions to ask any vendor, including us. Tick them off as you go, or print the list and take it into the call.</p>
@@ -851,7 +846,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>
     <p class="wu-close-line">Send us three campaigns you already ran and know the results of. We predict the ranking. You check it.</p>
     <div class="wu-close-ctas">
-      <a class="btn btn-primary btn-lg" href="index.html#access">Request access &rarr;</a>
+      <a class="btn btn-primary btn-lg" href="./#access">Request access &rarr;</a>
       <a class="btn btn-ghost btn-lg" href="one-page-two-answers.html">The same page, twice</a>
     </div>
   </div>
@@ -942,7 +937,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Resources</h4>
     <ul>
-     <li><a href="benchmarks/index.html">Benchmarks</a></li>
+     <li><a href="benchmarks/">Benchmarks</a></li>
      <li><a href="accuracy.html">Accuracy</a></li>
      <li><a href="how-to-evaluate.html">How to Evaluate It</a></li>
      <li><a href="roi.html">ROI Calculator</a></li>
@@ -957,7 +952,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 
                 
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.html#access">Request access</a></li>
+                <li><a href="./#access">Request access</a></li>
             </ul></div>
         </div>
 

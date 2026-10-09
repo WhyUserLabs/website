@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GitHub Pages serves this file, with a 404 status, for any URL that has
+     no file. Links are root-absolute because this page can be served at any
+     depth. Retired URLs that have a direct successor get a redirect stub
+     (see glossary/, compare/, manifesto.html). The script below only helps
+     people who follow an old link to a retired section with no stub. -->
+<title>Page not found | WhyUser</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<script>
+(function () {
+  var p = location.pathname;
+  var moved = [
+    ['/census/', '/benchmarks/']   /* category census became Benchmarks, 24 Sep 2026 */
+  ];
+  for (var i = 0; i < moved.length; i++) {
+    if (p.indexOf(moved[i][0]) === 0) { location.replace(moved[i][1]); return; }
+  }
+})();
+</script>
+<style>
+body{font-family:Inter,system-ui,sans-serif;margin:0;padding:4rem 1.25rem;color:#09090b;background:#fdfdfd;line-height:1.55}
+main{max-width:34rem;margin:0 auto}
+h1{font-size:1.75rem;margin:0 0 .5rem}
+p{margin:0 0 1.25rem;color:#3f3f46}
+ul{list-style:none;padding:0;margin:0}
+li{padding:.6rem 0;border-top:1px solid #e4e4e7}
+a{color:#6d28d9;font-weight:600;text-decoration:none}
+a:hover,a:focus-visible{text-decoration:underline}
+</style>
+</head>
+<body>
+<main>
+<h1>Page not found</h1>
+<p>This page does not exist or has moved. Try one of these.</p>
+<ul>
+<li><a href="/">WhyUser home</a></li>
+<li><a href="/sample-report.html">See a sample report</a></li>
+<li><a href="/pricing.html">Pricing</a></li>
+<li><a href="/glossary.html">Glossary</a></li>
+<li><a href="/compare.html">Compare WhyUser</a></li>
+<li><a href="/benchmarks/">Benchmarks</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+</ul>
+</main>
+</body>
+</html>

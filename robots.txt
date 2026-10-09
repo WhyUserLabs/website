@@ -103,9 +103,10 @@ Allow: /
 # ─────────────────────────────────────────────────────────────────────
 # Retired paths
 # The nine per-term glossary pages were consolidated into a single page
-# at /glossary.html. Everything under /glossary/ now 301s to an anchor
-# on that page. Left crawlable on purpose so the redirect is followed
-# and the signal transfers.
+# at /glossary.html, and the /compare/ pages moved to the site root.
+# GitHub Pages cannot send a 301, so each old URL is a small stub that
+# redirects instantly (meta refresh + canonical). Left crawlable on
+# purpose so the redirect is followed and the signal transfers.
 # ─────────────────────────────────────────────────────────────────────
 
 # ─────────────────────────────────────────────────────────────────────

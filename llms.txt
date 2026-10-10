@@ -73,13 +73,26 @@ The single most common error this corrects: quoting 82% distracted as a fact abo
 
 ## Benchmarks
 
-- [All WhyUser benchmarks](https://whyuser.com/benchmarks/): every B2B category measured so far, the method, and how to nominate the next category.
-- [API tooling homepage benchmark, 2026](https://whyuser.com/benchmarks/api_management/): a simulated five-person buying committee (VP of Engineering, Staff Engineer, Engineering Manager, Backend Engineer, Security Engineer) read 54 API tooling homepages, 810 runs in all, pages captured 22 to 24 September 2026. The 54 companies are named in the roster and anonymous in every finding. Counted findings are page facts anyone can check; simulated findings are reported as runs, never as traffic or conversion. Quote each figure with its denominator. Headline findings:
-  - On 41 of 54 homepages, the Engineering Manager who wanted the product could not make the case to the VP of Engineering, and the VP advanced on 0 of 54 (simulated).
-  - 35 of 54 homepages show no number above the fold, and 1 of 54 puts a number in the hero claim (counted).
-  - 3 of 54 hero headlines lead with the outcome a customer gets (counted).
-  - Homepages that tie their difference to the buyer's problem kept every simulated reader on 25 of 34 pages, against 7 of 20 that do not. An association, not a cause.
-  - 117 of 162 fixes the committee wrote are low effort: a page change, not a rebuild.
+- [All WhyUser benchmarks](https://whyuser.com/benchmarks/): every B2B category counted so far, the method, and how to nominate the next category.
+
+Every benchmark uses the same method. A real browser captures each homepage on one day. Each page is checked for 11 things a buyer looks for: what the product is, who it's for, what it replaces, why it's better, and seven kinds of proof (social, value, ROI, trust, technical, third-party, risk reversal). Every yes rests on a line copied word for word from the page, and code confirms the line is there. Nothing is simulated or estimated. "First screen" means the top 900 pixels. Every company has its own public row with the quote behind each yes. WhyUser's own customers and design partners are left out. Quote each figure with its denominator and the capture date.
+
+- [API tooling homepage benchmark, 9 October 2026](https://whyuser.com/benchmarks/api_management/): 53 API tooling homepages, including Kong, Postman, Apollo GraphQL, Mintlify, Hasura and Zuplo. Headline counts:
+  - 18 of 53 say who they're for on the first screen. 45 of 53 say what the product is there.
+  - 47 of 53 show social proof, but 17 of 53 put a number on money or time saved, and 27 of 53 show no ROI proof and no third-party proof.
+  - 18 of 53 show logos or quotes and nothing more: no named customer's result, no money or time saved.
+  - 42 of 53 link to a trust page and 24 of 53 mention SOC 2, but 6 of 53 have a section written for security review or procurement.
+  - 32 of 53 show proof an engineer can check without a sales call: code, a repo, a benchmark or a sandbox.
+  - 36 of 53 answer all four positioning questions. 17 of 53 name the tool or rival they replace.
+  - 21 of 53 offer both a free start and a demo, 12 only a free start, 11 only a demo, and 9 neither. 45 of 53 link to pricing.
+- [B2B startup homepage benchmark, 9 October 2026](https://whyuser.com/benchmarks/b2b_startups/): 50 B2B startup homepages, including Clay, Attio, Common Room, Navattic, Linear and PostHog. Headline counts:
+  - 16 of 50 say who they're for on the first screen. 45 of 50 say what the product is there.
+  - 49 of 50 show social proof, but 24 of 50 put a number on money or time saved, and 20 of 50 show no ROI proof and no third-party proof.
+  - 13 of 50 show logos or quotes and nothing more: no named customer's result, no money or time saved.
+  - 37 of 50 link to a trust page and 17 of 50 mention SOC 2, but 0 of 50 have a section written for security review or procurement.
+  - 16 of 50 show proof an engineer can check without a sales call: code, a repo, a benchmark or a sandbox.
+  - 39 of 50 answer all four positioning questions. 18 of 50 name the tool or rival they replace.
+  - 22 of 50 offer both a free start and a demo, 10 only a free start, 9 only a demo, and 9 neither. 46 of 50 link to pricing.
 
 ## Can you do this with Claude, ChatGPT or an AI agent?
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- WhyUser sitemap. Only indexable, canonical URLs appear here.
        Excluded on purpose: success.html, 404.html, casestudy-ngrok.html
        (unpublished) and the *-whyuser-sample.html report exports (all
@@ -7,7 +8,11 @@
        whyuser-vs-ai-opinions.html, glossary/*, compare/*), which send
        readers and Google to the canonical page.
        lastmod 2026-10-09: every page's internal links changed that day
-       (index.html -> ./ and benchmarks/index.html -> benchmarks/). -->
+       (index.html -> ./ and benchmarks/index.html -> benchmarks/).
+       Benchmarks: each category page lists its og.png and finding cards
+       as images. Spotted (praise) cards are left out until their post
+       date. The noindex stubs in benchmarks/api_management/
+       (nominate.html, reply.html, which-row.html) are left out. -->
   <url><loc>https://whyuser.com/</loc><lastmod>2026-10-09</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://whyuser.com/pricing.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://whyuser.com/committee-simulation.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -35,5 +40,28 @@
   <url><loc>https://whyuser.com/privacy.html</loc><lastmod>2026-10-09</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://whyuser.com/terms.html</loc><lastmod>2026-10-09</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://whyuser.com/benchmarks/</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://whyuser.com/benchmarks/api_management/</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://whyuser.com/benchmarks/api_management/</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/og.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/who-for.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/budget-holder.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/logo-bar.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/engineer-proof.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/security.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/positioning.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/name-a-rival.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/demo-or-free.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/api_management/cards/pricing.png</image:loc></image:image>
+  </url>
+  <url><loc>https://whyuser.com/benchmarks/b2b_startups/</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/og.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/who-for.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/budget-holder.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/logo-bar.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/engineer-proof.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/security.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/positioning.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/name-a-rival.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/demo-or-free.png</image:loc></image:image>
+    <image:image><image:loc>https://whyuser.com/benchmarks/b2b_startups/cards/pricing.png</image:loc></image:image>
+  </url>
 </urlset>

@@ -144,7 +144,12 @@ body {
    customer logos are white silhouettes, so they still get darkened. */
 .nav-mark img,
 .footer-brand-mark img,
-.footer-mark img { content: url("../images/whyuser-logo.png?v=2"); }
+.footer-mark img { content: url("../images/whyuser-dog-badge.png"); }
+
+/* WhyUser wordmark: "User" in sky blue, as on the benchmark pages and cards.
+   Lighter sky on the dark footer so it keeps its contrast. */
+.wu-wordmark-user { color: #0284c7; }
+.footer .wu-wordmark-user { color: #38bdf8; }
 .trust-logo { filter: brightness(0) !important; opacity: 0.72 !important; }
 .trust-logo:hover { opacity: 1 !important; }
 

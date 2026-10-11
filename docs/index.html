@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6Q5V2WZ');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2JWLP7NZVG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2JWLP7NZVG');
+</script>
+<!-- End Google tag (gtag.js) -->
+<meta name="theme-color" content="#fdfdfd">
+<meta name="color-scheme" content="light">
+<title>WhyUser docs: setup guides for WhyUser | WhyUser</title>
+<meta name="description" content="Setup guides for WhyUser: connect WhyUser to Claude Code, the Claude desktop app and claude.ai.">
+<link rel="canonical" href="https://whyuser.com/docs/">
+<meta property="article:published_time" content="2026-10-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-10-11T00:00:00+00:00">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WhyUser">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="WhyUser docs | WhyUser">
+<meta property="og:description" content="Setup guides for WhyUser: connect WhyUser to Claude Code, the Claude desktop app and claude.ai.">
+<meta property="og:url" content="https://whyuser.com/docs/">
+<meta property="og:image" content="https://whyuser.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="WhyUser: every role approved, the deal still died. Test your campaign on the whole buying committee before you spend.">
+<meta name="twitter:image" content="https://whyuser.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="../images/whyuser-favicon-192.png?v=2">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<!-- Load order matters: shell layout, then new components, then the
+     dark theme LAST so its token overrides win. -->
+<link rel="stylesheet" href="../assets/whyuser-shell.css">
+<link rel="stylesheet" href="../assets/whyuser-core.css">
+<link rel="stylesheet" href="../assets/dark-theme.css">
+<link rel="stylesheet" href="../assets/whyuser-readability.css">
+<style>
+  /* Connect to Claude: docs layout. Existing tokens only; no !important. */
+  pre.code {
+    background: var(--frame); color: var(--frame-text);
+    border: 1px solid var(--frame-rule); border-radius: 10px;
+    padding: 1.1rem 1.25rem; overflow-x: auto;
+    font-family: var(--mono); font-size: 12.5px; line-height: 1.65;
+    margin: 0;
+  }
+  pre.code .k { color: #c4b5fd; }
+  pre.code .s { color: #86efac; }
+
+  /* ── Hero ─────────────────────────────────────────────────────── */
+  .cc-checked { margin: 1rem 0 0; font-size: 0.875rem; color: var(--dim); }
+  .cc-checked a { color: var(--brand); font-weight: 600; }
+
+  .cc-apps { display: grid; grid-template-columns: 1fr; gap: 0.875rem; margin-top: 2rem; }
+  @media (min-width: 860px) { .cc-apps { grid-template-columns: repeat(3, 1fr); } }
+  .cc-app {
+    display: flex; flex-direction: column; gap: 0.9rem;
+    border: 1px solid var(--rule-strong); border-radius: 12px;
+    padding: 1.15rem 1.2rem 1.05rem; transition: border-color .15s ease;
+  }
+  .cc-app:hover { border-color: var(--brand); }
+  .cc-app:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+  .cc-app-top { display: flex; align-items: center; gap: 0.65rem; }
+  .cc-app-ic {
+    width: 32px; height: 32px; border-radius: 8px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--brand-soft); color: var(--brand); font-size: 14px;
+  }
+  .cc-app-name { font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.015em; color: var(--ink); }
+  .cc-app-facts { margin: 0; display: flex; flex-direction: column; gap: 0.45rem; flex: 1; }
+  .cc-app-facts div { display: grid; grid-template-columns: 6.25rem 1fr; gap: 0.75rem; }
+  .cc-app-facts dt { font-size: 0.8125rem; color: var(--dim); }
+  .cc-app-facts dd { margin: 0; font-size: 0.875rem; line-height: 1.45; color: var(--ink-soft); }
+  .cc-app-go { font-size: 0.875rem; font-weight: 600; color: var(--brand); padding-top: 0.75rem; border-top: 1px solid var(--rule); }
+
+  /* ── Docs grid ────────────────────────────────────────────────── */
+  .cc-docs { border-top: 1px solid var(--rule); padding: 3rem 0 4.5rem; }
+  .cc-grid { display: grid; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 1100px) {
+    .cc-grid { grid-template-columns: 13rem minmax(0, 46rem); gap: 4.5rem; justify-content: start; }
+  }
+  .cc-toc { display: none; }
+  @media (min-width: 1100px) {
+    .cc-toc {
+      display: flex; flex-direction: column; position: sticky; top: 6rem; align-self: start;
+      max-height: calc(100vh - 7rem); overflow-y: auto;
+    }
+  }
+  .cc-toc-title { margin: 0 0 0.75rem; font-size: 0.8125rem; font-weight: 600; color: var(--ink); }
+  .cc-toc-group { padding: 0.65rem 0 0.25rem 0.9rem; border-left: 1px solid var(--rule-strong); font-size: 0.8125rem; color: var(--dim); }
+  .cc-toc a {
+    padding: 0.32rem 0 0.32rem 0.9rem; border-left: 1px solid var(--rule-strong);
+    font-size: 0.875rem; line-height: 1.35; color: var(--mute);
+  }
+  .cc-toc a.sub { padding-left: 1.65rem; }
+  .cc-toc a:hover { color: var(--ink); }
+  .cc-toc a.is-active { color: var(--brand); font-weight: 600; border-left: 2px solid var(--brand); padding-left: calc(0.9rem - 1px); }
+  .cc-toc a.sub.is-active { padding-left: calc(1.65rem - 1px); }
+  .cc-toc a:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+  /* ── Body type ────────────────────────────────────────────────── */
+  .cc-body > section { margin-top: 4.5rem; scroll-margin-top: 5.5rem; }
+  .cc-body > section:first-child { margin-top: 0; }
+  .cc-h2 { font-size: clamp(1.5rem, 2.4vw, 1.875rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 0.6rem; color: var(--ink); }
+  .cc-h3 { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); margin: 2.25rem 0 0.75rem; scroll-margin-top: 5.5rem; }
+  .cc-lead { font-size: 1.0625rem; line-height: 1.6; color: var(--mute); margin: 0 0 1.5rem; }
+  .cc-body { overflow-wrap: break-word; }
+  .cc-body p, .cc-body li { font-size: 1rem; line-height: 1.65; color: var(--ink-soft); }
+  .cc-body > section > p:not(.cc-lead) { margin: 0 0 1rem; }
+  .cc-body a { color: var(--brand); font-weight: 600; }
+  .cc-body a:hover { text-decoration: underline; }
+  .cc-body strong { color: var(--ink); font-weight: 600; }
+  .cc-body .note { margin: 1.5rem 0; }
+  .cc-body .cc-lead + .note { margin-top: 0; }
+
+  /* Numbered steps: these are real sequences */
+  ol.cc-steps { list-style: none; counter-reset: cc; padding: 0; margin: 0 0 1.5rem; }
+  ol.cc-steps > li { counter-increment: cc; position: relative; padding: 0 0 1.1rem 2.6rem; }
+  ol.cc-steps > li::before {
+    content: counter(cc); position: absolute; left: 0; top: 0.1rem;
+    width: 1.65rem; height: 1.65rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: var(--brand); background: var(--brand-soft);
+  }
+  ol.cc-steps ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+  ol.cc-steps ul li { margin: 0.3rem 0; }
+
+  /* Borderless rows: replace tables, sit on the page background */
+  dl.cc-rows { margin: 0 0 1.5rem; border-top: 1px solid var(--rule); }
+  .cc-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.2rem 1.5rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 700px) { .cc-row { grid-template-columns: 11.5rem minmax(0, 1fr); } }
+  .cc-row dt { font-size: 0.9375rem; font-weight: 600; color: var(--ink); }
+  .cc-row dd { margin: 0; font-size: 0.9375rem; line-height: 1.6; color: var(--ink-soft); }
+
+  /* Troubleshooting: symptom, then why and fix */
+  .cc-fixes { border-top: 1px solid var(--rule); margin: 0 0 1.75rem; }
+  .cc-fix { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.35rem 1.75rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 760px) { .cc-fix { grid-template-columns: 15rem minmax(0, 1fr); } }
+  .cc-body .cc-fix-q { margin: 0; font-size: 0.9375rem; font-weight: 600; line-height: 1.5; color: var(--ink); }
+  .cc-body .cc-fix-a p { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); margin: 0 0 0.3rem; font-size: 0.9375rem; line-height: 1.55; }
+  .cc-body .cc-fix-a p:last-child { margin-bottom: 0; }
+  .cc-k { font-size: 0.8125rem; font-weight: 600; color: var(--dim); padding-top: 0.1rem; }
+
+  /* Inline code, copy buttons, code blocks */
+  code.cc-c {
+    font-family: var(--mono); font-size: 0.84em; padding: 0.12em 0.4em; border-radius: 5px;
+    background: var(--paper-cool); border: 1px solid var(--rule); color: var(--ink);
+    white-space: nowrap;
+  }
+  q.cc-q { font-style: italic; color: var(--ink); }
+  ul.cc-asks { margin: 0 0 1rem; padding-left: 1.1rem; }
+  ul.cc-asks li { margin: 0.25rem 0; }
+
+  .cc-code { position: relative; margin: 0.75rem 0 0.25rem; }
+  .cc-code pre.code { padding-right: 5.5rem; }
+  .cc-copy {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font: 600 12px/1 var(--sans); color: var(--mute);
+    background: transparent; border: 1px solid var(--rule-strong); border-radius: 7px;
+    padding: 0.4rem 0.55rem; transition: color .15s ease, border-color .15s ease;
+  }
+  .cc-copy:hover { color: var(--ink); border-color: var(--brand); }
+  .cc-copy:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+  .cc-copy.is-done { color: var(--signal-green); border-color: var(--signal-green); }
+  .cc-code .cc-copy {
+    position: absolute; top: 0.6rem; right: 0.6rem;
+    background: rgba(255,255,255,.06); border-color: var(--frame-rule-strong); color: var(--frame-mute);
+  }
+  .cc-code .cc-copy:hover { color: var(--frame-text); border-color: var(--frame-text); }
+  .cc-code .cc-copy.is-done { color: #34d399; border-color: #34d399; }
+  .cc-body .cc-after { margin: 0.6rem 0 0; }
+  .cc-copyline { display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+
+  /* Screenshots */
+  figure.cc-shot { margin: 1.25rem 0 0.75rem; }
+  a.cc-shot-link { display: block; max-width: 42rem; border-radius: 10px; }
+  a.cc-shot-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+  figure.cc-shot img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 28px rgba(9,9,11,0.16), 0 2px 6px rgba(9,9,11,0.08); }
+  figure.cc-shot figcaption { font-size: 0.8125rem; color: var(--dim); margin-top: 0.75rem; }
+
+  ul.cc-sources { margin: 0; padding-left: 1.1rem; }
+  ul.cc-sources li { font-size: 0.9375rem; color: var(--mute); margin: 0.25rem 0; }
+
+  /* Docs home */
+  .cc-hub { max-width: 46rem; }
+  ul.cc-hub-list { list-style: none; margin: 1.25rem 0 2rem; padding: 0; border-top: 1px solid var(--rule); }
+  .cc-hub-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 0.25rem; border-bottom: 1px solid var(--rule); }
+  .cc-hub-item:hover .cc-hub-title { color: var(--brand); }
+  .cc-hub-item:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
+  .cc-hub-text { display: flex; flex-direction: column; gap: 0.3rem; }
+  .cc-hub-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); transition: color .15s ease; }
+  .cc-hub-desc { font-size: 0.9375rem; line-height: 1.55; color: var(--mute); }
+  .cc-hub-meta { font-size: 0.8125rem; color: var(--dim); }
+  .cc-hub-note { font-size: 0.9375rem; color: var(--mute); }
+  .cc-hub-note a { color: var(--brand); font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .cc-code pre.code { padding: 2.9rem 1rem 1rem; }
+  }
+  @media (max-width: 360px) {
+    code.cc-c { white-space: normal; overflow-wrap: anywhere; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cc-app, .cc-copy { transition: none; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "headline": "WhyUser docs",
+  "description": "Setup guides for WhyUser: connect WhyUser to Claude Code, the Claude desktop app and claude.ai.",
+  "url": "https://whyuser.com/docs/",
+  "author": {
+    "@type": "Organization",
+    "name": "WhyUser",
+    "url": "https://whyuser.com/"
+  },
+  "image": "https://whyuser.com/og-image.png",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "WhyUser",
+    "url": "https://whyuser.com/"
+  },
+  "dateModified": "2026-10-11",
+  "datePublished": "2026-10-11",
+  "inLanguage": "en"
+}
+</script>
+  <link rel="stylesheet" href="../assets/whyuser-type-fix.css">
+  <link rel="stylesheet" href="../assets/whyuser-r3.css">
+<style>
+/* WhyUser UI overrides. Kept per-page and self-contained so no shared
+   stylesheet has to change.
+   1. No hairline under the sticky nav; the blur already separates it.
+   2. No rule above the closing CTA; spacing and the eyebrow carry it. */
+.nav, .masthead { border-bottom: 0 !important; }
+.cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
+</style>
+
+<!-- WHYUSER:SEO-SUPPLEMENT:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://whyuser.com/docs/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://whyuser.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Docs",
+          "item": "https://whyuser.com/docs/"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://whyuser.com/#organization",
+      "name": "WhyUser Inc.",
+      "url": "https://whyuser.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://whyuser.com/images/whyuser-logo.png"
+      },
+      "description": "WhyUser is a pre-launch stress test for B2B campaigns. It simulates the whole buying committee on your page, ad or email before you spend."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://whyuser.com/#website",
+      "url": "https://whyuser.com/",
+      "name": "WhyUser",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://whyuser.com/#organization"
+      }
+    }
+  ]
+}
+</script>
+<!-- WHYUSER:SEO-SUPPLEMENT:END -->
+</head>
+<body class="grain">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- WHYUSER:NAV:START -->
+<!-- ═══════════════════════════════════════════════════════════════════
+     WHYUSER GLOBAL NAV  ·  v2
+     Replaces the old site-nav block (nav.nav#site-nav) on
+     EVERY page. Paste directly after the opening body tag, before the
+     first header or main element.
+
+     WHY THIS SHAPE
+     Your own committee simulation of whyuser.com (EXP AN-90670518)
+     returned five ranked fixes. Three of them are nav fixes:
+       fix 2 — add a first-class technical/Docs entry     (closes B3, B2)
+       fix 4 — collapse to 4–6 scannable buckets          (closes B2)
+       fix 5 — surface Security and Pricing in the nav    (closes B5, B2)
+     This block closes all three. It is 5 buckets, down from the old
+     ~15 top-level links, and every label is a noun a buyer scans for.
+
+     COMPATIBILITY
+     Uses the exact class names already in your stylesheet
+     (.nav / .nav-dd / .nav-dd-trigger / .nav-dd-panel / .nav-dd-item /
+      .nav-dd-name / .nav-dd-desc / .nav-mobile / .nav-m-*).
+     Your existing nav script iterates every `.nav-dd` and reads the
+     `.nav-dd-trigger` inside it, so five dropdowns work with ZERO
+     JavaScript changes.
+
+     PATHS
+     Every page now sits at the site ROOT. glossary/ and compare/ were
+     both flattened, so no href needs a ../ prefix any more. 301 rules
+     for the retired URLs live in vercel.json and netlify.toml.
+
+     OPTIONAL
+     • The "Log in" link assumes app.whyuser.com. Delete the <a> if the
+       app is not public yet — but keep the slot, because the committee
+       read repeated "Request Access" as a dead end (finding B4).
+     ═══════════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="site-nav">
+    <div class="wrap nav-inner">
+        <a href="../" class="nav-brand">
+            <span class="nav-mark"><img src="../images/whyuser-logo.png" alt=""></span>
+            <span>WhyUser</span>
+        </a>
+
+        <div class="nav-links">
+
+            <!-- 1 · PRODUCT ─────────────────────────────────────────
+                 Labels lead with the job people search for. The engine
+                 name moves into the description so you keep the brand
+                 vocabulary without charging admission for it. -->
+            <div class="nav-dd" id="nav-dd-product">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-product-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-product-panel" aria-haspopup="true">
+                    Product
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
+                    <span class="nav-dd-label">Test before you spend</span>
+                    <a href="../committee-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Landing Page Testing</span>
+                            <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
+                        </span>
+                    </a>
+                    <a href="../ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Ad Campaign Testing</span>
+                            <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
+                        </span>
+                    </a>
+                    <a href="../email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Email Testing</span>
+                            <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                        </span>
+                    </a>
+                    <a href="../audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Audience Research</span>
+                            <span class="nav-dd-desc">The job titles your content actually fits.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2 · PRICING ──────────────────────────────────────────
+                 First-class, per fix 5. Was previously nowhere on the
+                 site: the Economic Buyer looked for it and did not
+                 find a model. -->
+            <a href="../pricing.html">Pricing</a>
+
+            <!-- 3 · WHY WHYUSER ─────────────────────────────────────
+                 Was "Proof", which is a defensive label nobody scans
+                 for. Now also carries the technical material.
+
+                 WHY THERE IS NO "DEVELOPERS" BUCKET
+                 Your own run flagged B3 at HIGH severity: the Technical
+                 Decision Maker could not find a Developers or Docs link
+                 and the End User → TDM handoff snapped. The obvious fix
+                 was a top-level Developers item.
+
+                 But the TDM is not who you sell to. The ICP is demand
+                 gen, growth marketing and heads of marketing, and a
+                 marketer scanning a five-item nav reads "Developers" as
+                 "this is a dev tool, not for me" — which costs more at
+                 the top of the funnel than it recovers deeper in.
+
+                 So the material stays, one click from the same place,
+                 under a label written for the champion who has to
+                 forward it rather than the engineer who reads it. The
+                 champion is the one doing the finding; the TDM only
+                 needs to receive the link. -->
+            <div class="nav-dd" id="nav-dd-why">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-why-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-why-panel" aria-haspopup="true">
+                    Why WhyUser
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-why-panel" role="menu" aria-labelledby="nav-dd-why-trigger">
+                    <span class="nav-dd-label">Evidence, not opinion</span>
+                    <a href="../compare.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Compare</span>
+                            <span class="nav-dd-desc">Next to panels, chatbots, internal review and A/B.</span>
+                        </span>
+                    </a>
+                    <a href="../whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Claude vs WhyUser</span>
+                            <span class="nav-dd-desc">Where Claude helps, and where it cannot decide.</span>
+                        </span>
+                    </a>
+                    <a href="../about.html#why" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Why We Built This</span>
+                            <span class="nav-dd-desc">Marketing is the last function testing in production.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4 · RESOURCES ───────────────────────────────────────
+                 The old "Company" junk drawer, renamed to what it
+                 actually holds. Manifesto and Glossary keep their SEO
+                 value without taxing the main scan path. -->
+            <div class="nav-dd" id="nav-dd-res">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-res-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-res-panel" aria-haspopup="true">
+                    Resources
+                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
+                    <span class="nav-dd-label">Benchmarks</span>
+                    <a href="../benchmarks/" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">All Benchmarks</span>
+                            <span class="nav-dd-desc">Every category we have measured, and how.</span>
+                        </span>
+                    </a>
+                    <span class="nav-dd-label">Buyer&rsquo;s Guide</span>
+                    <a href="../accuracy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Accuracy</span>
+                            <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by you.</span>
+                        </span>
+                    </a>
+                    <a href="../how-to-evaluate.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">How to Evaluate It</span>
+                            <span class="nav-dd-desc">The test to run before you buy anything here.</span>
+                        </span>
+                    </a>
+                    <a href="../roi.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-calculator" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">ROI Calculator</span>
+                            <span class="nav-dd-desc">Build the one-page business case for your CFO.</span>
+                        </span>
+                    </a>
+                    <a href="../faq.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">FAQ</span>
+                            <span class="nav-dd-desc">Accuracy, data, pricing, and what we will not do.</span>
+                        </span>
+                    </a>
+                    <a href="../sample-report.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Sample Reports</span>
+                            <span class="nav-dd-desc">Four real runs, unedited. No login.</span>
+                        </span>
+                    </a>
+                    <a href="../glossary.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Glossary</span>
+                            <span class="nav-dd-desc">Plain definitions for every term we use.</span>
+                        </span>
+                    </a>
+                    <span class="nav-dd-label">Docs</span>
+                    <a href="../docs/connect-claude.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-plug" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Connect to Claude</span>
+                            <span class="nav-dd-desc">Claude Code, the desktop app and claude.ai.</span>
+                        </span>
+                    </a>
+                    <span class="nav-dd-label">Security</span>
+                    <a href="../developers.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Architecture &amp; Data Flow</span>
+                            <span class="nav-dd-desc">What we read, what we never touch, where it runs.</span>
+                        </span>
+                    </a>
+                    <a href="../security.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Security</span>
+                            <span class="nav-dd-desc">Encryption, retention, sub-processors.</span>
+                        </span>
+                    </a>
+                    <a href="../dpa.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">DPA</span>
+                            <span class="nav-dd-desc">Data processing agreement, ready to sign.</span>
+                        </span>
+                    </a>
+                    <a href="../privacy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Privacy</span>
+                            <span class="nav-dd-desc">What we collect, and what we never keep.</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA ROW ─────────────────────────────────────────────────
+             Fix 1: one primary, one secondary. The old bar had "ROI"
+             and "Request Access" and the page repeated "Request Access"
+             a further four times. The committee clicked 45 of 50 times
+             and submitted zero. They did not need another ask; they
+             needed something to look at. -->
+        <div class="nav-cta-row">
+            <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
+            <a href="../#access" class="btn btn-primary">Request access</a>
+            <button type="button" class="nav-burger" id="nav-burger"
+                    aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MOBILE / TABLET ───────────────────────────────────────────── -->
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-inner">
+            <span class="nav-m-label">Product</span>
+            <a href="../committee-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Landing Page Testing</span>
+                    <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
+                </span>
+            </a>
+            <a href="../ad-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Ad Campaign Testing</span>
+                    <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
+                </span>
+            </a>
+            <a href="../email-campaign-simulation.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Email Testing</span>
+                    <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                </span>
+            </a>
+            <a href="../audience-discovery.html" class="nav-m-eng">
+                <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                <span>
+                    <span class="nav-dd-name">Audience Research</span>
+                    <span class="nav-dd-desc">The job titles your content actually fits.</span>
+                </span>
+            </a>
+
+            <div class="nav-m-group">
+                <span class="nav-m-label">Pricing</span>
+                <a href="../pricing.html" class="nav-m-link">Plans &amp; credits</a>
+            </div>
+
+            <div class="nav-m-group">
+                <span class="nav-m-label">Why WhyUser</span>
+                
+                <a href="../compare.html" class="nav-m-link">Compare</a>
+                <a href="../whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">Claude vs WhyUser</a>
+                <a href="../about.html#why" class="nav-m-link">Why We Built This</a>
+                </div>
+
+            <div class="nav-m-group">
+                <span class="nav-m-label">Resources</span>
+                
+                <a href="../benchmarks/" class="nav-m-link">All Benchmarks</a>
+                <a href="../accuracy.html" class="nav-m-link">Accuracy</a>
+                <a href="../how-to-evaluate.html" class="nav-m-link">How to Evaluate It</a>
+                <a href="../roi.html" class="nav-m-link">ROI Calculator</a>
+                <a href="../faq.html" class="nav-m-link">FAQ</a>
+                <a href="../sample-report.html" class="nav-m-link">Sample Reports</a>
+                <a href="../glossary.html" class="nav-m-link">Glossary</a>
+                <span class="nav-m-label">Docs</span>
+                <a href="../docs/connect-claude.html" class="nav-m-link">Connect to Claude</a>
+                <span class="nav-m-label">Security</span>
+                <a href="../developers.html" class="nav-m-link">Architecture &amp; Data Flow</a>
+                <a href="../security.html" class="nav-m-link">Security</a>
+                <a href="../dpa.html" class="nav-m-link">DPA</a>
+                <a href="../privacy.html" class="nav-m-link">Privacy</a>
+            <div class="nav-m-ctas">
+                <a href="../#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="../sample-report.html" class="btn btn-ghost btn-lg">See sample reports</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- WHYUSER:NAV:END -->
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="../">WhyUser</a> <span aria-hidden="true">/</span> <span>Docs</span>
+    </nav>
+    <span class="section-eyebrow">Docs</span>
+    <h1 class="h1">WhyUser docs.</h1>
+    <p class="standfirst">Guides for setting up WhyUser in the tools you already use.</p>
+  </div>
+</section>
+
+<section class="cc-docs">
+  <div class="wrap">
+    <div class="cc-hub">
+      <h2 class="cc-h2">Setup guides</h2>
+      <ul class="cc-hub-list">
+        <li>
+          <a href="../docs/connect-claude.html" class="cc-hub-item">
+            <span class="cc-app-ic"><i class="fa-solid fa-plug" aria-hidden="true"></i></span>
+            <span class="cc-hub-text">
+              <span class="cc-hub-title">Connect WhyUser to Claude</span>
+              <span class="cc-hub-desc">Add the WhyUser MCP server and skill to Claude Code, the Claude desktop app for macOS and claude.ai. Create a key, check it works, and fix common problems.</span>
+              <span class="cc-hub-meta">Updated 11 October 2026</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <p class="cc-hub-note">Looking for how WhyUser handles your data? Read <a href="../developers.html">Architecture &amp; data flow</a> and <a href="../security.html">Security</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- WHYUSER:FOOTER:START -->
+<!-- ═══════════════════════════════════════════════════════════════════
+     WHYUSER GLOBAL FOOTER  ·  v2
+     Replaces the old site footer block (footer.footer) on every page.
+
+     WHAT CHANGED AND WHY
+     1. Numbers reconciled. The old site shipped TWO different headline
+        proof numbers: "473 claims graded, 84% accurate" on the root
+        pages and "473 claims graded, 84% accurate" in the glossary
+        footer. Two numbers for the same claim reads worse than no
+        number. Everything is now 473 / 84%.
+     2. "Engines" → "Product", with plain-language labels first.
+     3. "Proof" → "Why WhyUser". Same reason as the nav.
+     4. New Pricing and Developers columns. Your Economic Buyer and
+        Security Guardian both reached the footer looking for exactly
+        these; Security and DPA in the footer was one of only four
+        things the run marked as WORKING (finding W3). Keep it, and
+        give it company.
+     5. Sample report added. It is the artifact the committee said it
+        needed to forward internally (finding B1).
+     ═══════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-mark">
+                    <span class="nav-mark"><img src="../images/whyuser-logo.png" alt=""></span>
+                    <span class="footer-brand-name">WhyUser Inc.</span>
+                </div>
+                <p class="footer-tagline">WhyUser is the pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
+            </div>
+
+            <div><h4>Product</h4><ul>
+                <li><a href="../committee-simulation.html">Landing Page Testing</a></li>
+                <li><a href="../ad-campaign-simulation.html">Ad Campaign Testing</a></li>
+                <li><a href="../email-campaign-simulation.html">Email Testing</a></li>
+                <li><a href="../audience-discovery.html">Audience Research</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+            </ul></div>
+
+            <div><h4>Why WhyUser</h4><ul>
+     <li><a href="../compare.html">Compare</a></li>
+     <li><a href="../whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser</a></li>
+     <li><a href="../about.html#why">Why We Built This</a></li>
+    </ul></div>
+
+            <div><h4>Resources</h4>
+    <ul>
+     <li><a href="../benchmarks/">Benchmarks</a></li>
+     <li><a href="../accuracy.html">Accuracy</a></li>
+     <li><a href="../how-to-evaluate.html">How to Evaluate It</a></li>
+     <li><a href="../roi.html">ROI Calculator</a></li>
+     <li><a href="../faq.html">FAQ</a></li>
+     <li><a href="../sample-report.html">Sample Reports</a></li>
+     <li><a href="../glossary.html">Glossary</a></li>
+     <li><a href="../docs/connect-claude.html">Connect to Claude</a></li>
+    </ul>
+   </div>
+
+            <div><h4>Company</h4><ul>
+                <li><a href="../about.html">About</a></li>
+                
+                
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../#access">Request access</a></li>
+            </ul></div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
+            <span class="footer-legal"><a href="../security.html">Security</a> &middot; <a href="../developers.html">Architecture</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a> &middot; <a href="../dpa.html">DPA</a></span>
+            <span><a href="../accuracy.html">473 claims graded, 84% accurate</a></span>
+        </div>
+    </div>
+</footer>
+
+<!-- WHYUSER:FOOTER:END -->
+
+<!-- Nav behaviour, identical to the rest of the site. Without this the
+     dropdowns never open and the mobile panel renders inline as a
+     second copy of every link. -->
+<script>
+    (function () {
+        var burger  = document.getElementById('nav-burger');
+        var mobile  = document.getElementById('nav-mobile');
+        var dds     = [];
+        var desktop = window.matchMedia('(min-width: 1000px)');
+
+        function closeDd(dd) {
+            dd.classList.remove('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'false');
+        }
+        function closeAllDd(except) {
+            for (var i = 0; i < dds.length; i++) { if (dds[i] !== except) closeDd(dds[i]); }
+        }
+        function openDd(dd) {
+            closeAllDd(dd);
+            dd.classList.add('open');
+            dd.ddTrigger.setAttribute('aria-expanded', 'true');
+        }
+        function closeMobile() {
+            if (!mobile) return;
+            mobile.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Open menu');
+        }
+
+        if (burger && mobile) {
+            burger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = mobile.classList.toggle('open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            mobile.addEventListener('click', function (e) {
+                if (e.target && e.target.closest && e.target.closest('a')) closeMobile();
+            });
+        }
+
+        Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd) {
+            var trigger = dd.querySelector('.nav-dd-trigger');
+            if (!trigger) return;
+            dd.ddTrigger = trigger;
+            dd.ddHoverTimer = null;
+            dd.ddLastPointerOpen = 0;
+            dds.push(dd);
+
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // A hover or a touch-tap already opened it a moment ago, so a click
+                // here would close it immediately and read as broken. Leave it open.
+                if (Date.now() - dd.ddLastPointerOpen < 400) return;
+                if (dd.classList.contains('open')) { closeDd(dd); } else { openDd(dd); }
+            });
+            dd.addEventListener('mouseenter', function () {
+                if (desktop.matches) {
+                    clearTimeout(dd.ddHoverTimer);
+                    dd.ddLastPointerOpen = Date.now();
+                    openDd(dd);
+                }
+            });
+            dd.addEventListener('mouseleave', function () {
+                if (desktop.matches) {
+                    dd.ddHoverTimer = setTimeout(function () { closeDd(dd); }, 160);
+                }
+            });
+            dd.addEventListener('focusout', function (e) {
+                if (!dd.contains(e.relatedTarget)) closeDd(dd);
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            for (var i = 0; i < dds.length; i++) {
+                if (!dds[i].contains(e.target)) closeDd(dds[i]);
+            }
+            if (mobile && mobile.classList.contains('open') && !mobile.contains(e.target)) closeMobile();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') { closeAllDd(); closeMobile(); }
+        });
+
+        window.addEventListener('resize', function () {
+            if (desktop.matches) closeMobile();
+        });
+    })();
+    </script>
+
+<!-- WHYUSER:ANALYTICS:START -->
+<script src="../assets/whyuser-analytics.js" defer></script>
+<!-- WHYUSER:ANALYTICS:END -->
+</body>
+</html>

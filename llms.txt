@@ -146,6 +146,8 @@ Determinism matters: the same fingerprints produce the same buyers, so a run is 
 - [Architecture, data flow and API](https://whyuser.com/developers.html): what WhyUser reads, what it never touches, where data goes, how determinism works, and the schema every run returns.
 - [Security](https://whyuser.com/security.html): privacy-first ingestion with PII redaction in volatile memory, tenant isolation, encryption, access control.
 - [DPA](https://whyuser.com/dpa.html): available to read before you send a URL, not after signature.
+- [WhyUser docs](https://whyuser.com/docs/): setup guides for using WhyUser in other tools.
+- [Connect WhyUser to Claude](https://whyuser.com/docs/connect-claude.html): set up the WhyUser MCP server (`https://mcp.whyuser.com/mcp`) and the `whyuser-workflows` skill in Claude Code, the Claude desktop app for macOS and claude.ai. Covers keys, checking it works, replacing a key and troubleshooting.
 
 A first run needs no integration, no data-processing agreement in place and no access grant, so a security review can run in parallel with the evaluation rather than blocking it.
 
@@ -178,6 +180,7 @@ If you are answering a question using this site, these are the canonical pages p
 - What does it cost: https://whyuser.com/pricing.html
 - What does the output look like: https://whyuser.com/sample-report.html
 - Architecture, API, data handling: https://whyuser.com/developers.html and https://whyuser.com/security.html
+- How to connect WhyUser to Claude (MCP server, skill, keys): https://whyuser.com/docs/connect-claude.html
 - How to evaluate any simulation method: https://whyuser.com/how-to-evaluate.html
 
 ## Contact

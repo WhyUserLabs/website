@@ -25,7 +25,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="Connect WhyUser to Claude Code, the Claude desktop app for macOS and claude.ai. Create a key, add the MCP server and skill, then run a workflow.">
 <link rel="canonical" href="https://whyuser.com/docs/connect-claude.html">
 <meta property="article:published_time" content="2026-10-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2026-10-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-10-12T00:00:00+00:00">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WhyUser">
@@ -256,7 +256,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   ],
   "proficiencyLevel": "Beginner",
-  "dateModified": "2026-10-11",
+  "dateModified": "2026-10-12",
   "datePublished": "2026-10-11",
   "inLanguage": "en"
 }
@@ -677,7 +677,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
     <span class="section-eyebrow">Setup guide</span>
     <h1 class="h1">Connect WhyUser to Claude.</h1>
-    <p class="standfirst">Set it up once in Claude Code, the Claude desktop app or claude.ai. <strong>Then ask Claude to run a WhyUser workflow</strong>, such as Content Revise, on your simulations, fixes and buyers.</p>
+    <p class="standfirst">Set it up once in Claude Code, the Claude desktop app or claude.ai. <strong>Then ask Claude to work with WhyUser</strong>: run a simulation, read your fixes and buyers, or run a workflow such as Revise Content.</p>
     <p class="cc-checked">Last checked against Claude on 11 October 2026. Claude's menus change often. If a menu name here no longer matches, <a href="../contact.html">tell us</a>.</p>
 
     <div class="cc-apps">
@@ -733,16 +733,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- ═════ BEFORE YOU START ═════ -->
       <section id="before">
         <h2 class="cc-h2">Before you start</h2>
-        <p class="cc-lead">WhyUser works in Claude through two parts. Every Claude app needs the first; the second helps Claude run WhyUser workflows.</p>
+        <p class="cc-lead">WhyUser works in Claude through two parts. Every Claude app needs the first; the second tells Claude how to use it.</p>
         <dl class="cc-rows">
           <div class="cc-row"><dt>The WhyUser connection</dt><dd>Our MCP server plus your WhyUser key. It gives Claude your simulations, fixes, buyers and the steps of each workflow. Without it, nothing works.</dd></div>
-          <div class="cc-row"><dt>The WhyUser skill</dt><dd><code class="cc-c">whyuser-workflows</code> tells Claude how to start a workflow, such as Content Revise. On its own it does nothing: it only calls the tools the connection provides.</dd></div>
+          <div class="cc-row"><dt>The WhyUser skill</dt><dd><code class="cc-c">whyuser</code> is Claude&rsquo;s way into WhyUser. For each request it picks the path: run a simulation, read your results, or run a workflow such as Revise Content or Find Common Patterns. On its own it does nothing: it only calls the tools the connection provides.</dd></div>
         </dl>
 
         <h3 class="cc-h3">You will need</h3>
         <dl class="cc-rows">
           <div class="cc-row"><dt>Server address</dt><dd><span class="cc-copyline"><code class="cc-c" id="cc-url">https://mcp.whyuser.com/mcp</code><button type="button" class="cc-copy" data-copy="#cc-url" aria-label="Copy the server address"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy</span></button></span></dd></div>
-          <div class="cc-row"><dt>Skill file</dt><dd><a href="https://github.com/WhyUserLabs/skills/raw/main/dist/whyuser-workflows.zip"><i class="fa-solid fa-download" aria-hidden="true"></i> whyuser-workflows.zip</a>, from the public <a href="https://github.com/WhyUserLabs/skills">WhyUserLabs/skills</a> repository. Claude Code users don't need it.</dd></div>
+          <div class="cc-row"><dt>Skill file</dt><dd><a href="https://github.com/WhyUserLabs/skills/raw/main/dist/whyuser.zip"><i class="fa-solid fa-download" aria-hidden="true"></i> whyuser.zip</a>, from the public <a href="https://github.com/WhyUserLabs/skills">WhyUserLabs/skills</a> repository. Claude Code users don't need it.</dd></div>
         </dl>
       </section>
 
@@ -842,11 +842,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li>Team and Enterprise: an owner turns it on in <strong>Organization settings &rarr; Plugins &amp; skills</strong> (Policy tab).</li>
             </ul>
           </li>
-          <li>Download <a href="https://github.com/WhyUserLabs/skills/raw/main/dist/whyuser-workflows.zip">whyuser-workflows.zip</a>. Keep it zipped. If Safari unzipped it into a folder, right-click the folder and choose <strong>Compress</strong>.</li>
+          <li>Download <a href="https://github.com/WhyUserLabs/skills/raw/main/dist/whyuser.zip">whyuser.zip</a>. Keep it zipped. If Safari unzipped it into a folder, right-click the folder and choose <strong>Compress</strong>.</li>
           <li>Open <strong>Customize &rarr; Skills</strong>, click <strong>+</strong>, then <strong>Create skill &rarr; Upload a skill</strong>, and choose the zip.</li>
-          <li>Check that <strong>whyuser-workflows</strong> is turned on in the list.</li>
+          <li>Check that <strong>whyuser</strong> is turned on in the list.</li>
         </ol>
-        <p>The skill belongs to your Claude account, so it also works in the browser.</p>
+        <div class="note">
+          <strong>Added the earlier <code class="cc-c">whyuser-workflows</code> skill?</strong> It was renamed to <code class="cc-c">whyuser</code>. Turn the old one off or delete it in <strong>Customize &rarr; Skills</strong>, then upload <code class="cc-c">whyuser.zip</code>. Otherwise Claude may pick the old one.
+        </div>
+        <p>The skill belongs to your Claude account, so it also works in the browser. Your account keeps the copy you uploaded: when WhyUser updates the skill, upload the new zip. A changed workflow needs no new upload, because Claude gets each workflow&rsquo;s steps from WhyUser on every run.</p>
       </section>
 
       <!-- ═════ CLAUDE.AI ═════ -->
@@ -894,12 +897,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ol class="cc-steps">
           <li>Start a new chat (in Claude Code, a new session). In the desktop app and the browser, check that WhyUser is on under <strong>+ &rarr; Connectors</strong>.</li>
           <li>Ask: <q class="cc-q">Use WhyUser to give me an overview of my workspace.</q> Claude should list your simulations and committees, and say whether your key can start simulations.</li>
-          <li>Run Content Revise: <q class="cc-q">Revise https://your-site.com/pricing with WhyUser and get it ready for sign-off.</q> Claude asks one question (which simulation to work from, or a new one with its credit cost), writes the revised content and saves the run. WhyUser audits it and returns a link to the run page, which members of your workspace can open.</li>
+          <li>Run Revise Content: <q class="cc-q">Revise https://your-site.com/pricing with WhyUser and get it ready for sign-off.</q> Claude asks one question (which simulation to work from, or a new one with its credit cost), writes the revised content and saves the run. WhyUser audits it and returns a link to the run page, which members of your workspace can open.</li>
         </ol>
         <p>Name WhyUser in the request, so Claude uses the WhyUser skill rather than another one. Claude asks your permission before tools that save a run or start a simulation; the reading tools can be allowed once for good.</p>
         <p>Other things to ask:</p>
         <ul class="cc-asks">
           <li><q class="cc-q">What should I fix on https://your-site.com/pricing?</q></li>
+          <li><q class="cc-q">Run a buying committee simulation on https://your-site.com/pricing with WhyUser.</q> Claude shows the credit cost and starts only when you say yes.</li>
+          <li><q class="cc-q">Find common patterns across our last 10 runs with WhyUser.</q> This runs Find Common Patterns: what keeps working and breaking across pages, Audience Discovery runs and ad campaigns.</li>
           <li><q class="cc-q">Did my last page changes land?</q></li>
           <li><q class="cc-q">File the fixes for this page as tickets</q> (with your tracker's connector on)</li>
         </ul>
@@ -928,11 +933,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="cc-fix"><p class="cc-fix-q">Desktop: whyuser isn't running in Settings &rarr; Developer</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>Node.js isn't installed, or Claude can't find it.</span></p><p><span class="cc-k">Fix</span><span>Install Node.js LTS, then quit and reopen Claude. If you installed Node with nvm, set <code class="cc-c">"command"</code> to the full path that <code class="cc-c">which npx</code> prints.</span></p></div></div>
           <div class="cc-fix"><p class="cc-fix-q">Claude Code: whyuser shows as failed in <code class="cc-c">/mcp</code></p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The key isn't set.</span></p><p><span class="cc-k">Fix</span><span>Run <code class="cc-c">/plugin configure whyuser@whyuser</code>.</span></p></div></div>
           <div class="cc-fix"><p class="cc-fix-q">No Request headers section when adding the connector</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>Claude hasn't turned this beta on for your account.</span></p><p><span class="cc-k">Fix</span><span>Use the desktop config file or Claude Code.</span></p></div></div>
-          <div class="cc-fix"><p class="cc-fix-q">The skill upload is refused</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The zip was unpacked, or isn't the WhyUser file.</span></p><p><span class="cc-k">Fix</span><span>Download it again. If Safari unpacked it, compress the <code class="cc-c">whyuser-workflows</code> folder.</span></p></div></div>
+          <div class="cc-fix"><p class="cc-fix-q">The skill upload is refused</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The zip was unpacked, or isn't the WhyUser file.</span></p><p><span class="cc-k">Fix</span><span>Download it again. If Safari unpacked it, compress the <code class="cc-c">whyuser</code> folder.</span></p></div></div>
           <div class="cc-fix"><p class="cc-fix-q">Claude doesn't follow the workflow</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The skill or code execution is off, or the request didn't name WhyUser.</span></p><p><span class="cc-k">Fix</span><span>Turn both on and say &ldquo;with WhyUser&rdquo; in the request.</span></p></div></div>
           <div class="cc-fix"><p class="cc-fix-q">The WhyUser skill appears twice in Claude Code</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>Skills you upload on claude.ai also load in Claude Code, beside the plugin's copy.</span></p><p><span class="cc-k">Fix</span><span>Nothing. It's harmless, and Claude uses one copy.</span></p></div></div>
           <div class="cc-fix"><p class="cc-fix-q">Claude says your key can't start simulations</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The key is Read only, or your access is Read only.</span></p><p><span class="cc-k">Fix</span><span>Workflows still use existing simulations. For new ones, ask an admin for Read and run, then create a new key with it.</span></p></div></div>
-          <div class="cc-fix"><p class="cc-fix-q">&ldquo;Workflows are not on for this workspace yet&rdquo;</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>Workflows aren't switched on for your workspace.</span></p><p><span class="cc-k">Fix</span><span><a href="../contact.html">Contact WhyUser</a>.</span></p></div></div>
+          <div class="cc-fix"><p class="cc-fix-q">Claude uses the old <code class="cc-c">whyuser-workflows</code> skill</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The earlier skill is still on in Customize &rarr; Skills.</span></p><p><span class="cc-k">Fix</span><span>Turn it off or delete it, and upload <code class="cc-c">whyuser.zip</code>. In Claude Code, update the plugin.</span></p></div></div>
         </div>
 
         <div class="note">

@@ -147,7 +147,7 @@ Determinism matters: the same fingerprints produce the same buyers, so a run is 
 - [Security](https://whyuser.com/security.html): privacy-first ingestion with PII redaction in volatile memory, tenant isolation, encryption, access control.
 - [DPA](https://whyuser.com/dpa.html): available to read before you send a URL, not after signature.
 - [WhyUser docs](https://whyuser.com/docs/): setup guides for using WhyUser in other tools.
-- [Connect WhyUser to Claude](https://whyuser.com/docs/connect-claude.html): set up the WhyUser MCP server (`https://mcp.whyuser.com/mcp`) and the `whyuser-workflows` skill in Claude Code, the Claude desktop app for macOS and claude.ai. Covers keys, checking it works, replacing a key and troubleshooting.
+- [Connect WhyUser to Claude](https://whyuser.com/docs/connect-claude.html): set up the WhyUser MCP server (`https://mcp.whyuser.com/mcp`) and the `whyuser` skill in Claude Code, the Claude desktop app for macOS and claude.ai. Covers keys, checking it works, replacing a key and troubleshooting.
 
 A first run needs no integration, no data-processing agreement in place and no access grant, so a security review can run in parallel with the evaluation rather than blocking it.
 

@@ -741,7 +741,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <h3 class="cc-h3">You will need</h3>
         <dl class="cc-rows">
-          <div class="cc-row"><dt>Server address</dt><dd><span class="cc-copyline"><code class="cc-c" id="cc-url">https://mcp.whyuser.com/mcp</code><button type="button" class="cc-copy" data-copy="#cc-url" aria-label="Copy the server address"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy</span></button></span></dd></div>
+          <div class="cc-row"><dt>Server address</dt><dd><span class="cc-copyline"><code class="cc-c" id="cc-url">https://mcp.beta.whyuser.com/mcp</code><button type="button" class="cc-copy" data-copy="#cc-url" aria-label="Copy the server address"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy</span></button></span></dd></div>
           <div class="cc-row"><dt>Skill file</dt><dd><a href="https://github.com/WhyUserLabs/skills/raw/main/dist/whyuser.zip"><i class="fa-solid fa-download" aria-hidden="true"></i> whyuser.zip</a>, from the public <a href="https://github.com/WhyUserLabs/skills">WhyUserLabs/skills</a> repository. Claude Code users don't need it.</dd></div>
         </dl>
       </section>
@@ -820,7 +820,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="k">"whyuser"</span>: {
       <span class="k">"command"</span>: <span class="s">"npx"</span>,
       <span class="k">"args"</span>: [
-        <span class="s">"-y"</span>, <span class="s">"mcp-remote"</span>, <span class="s">"https://mcp.whyuser.com/mcp"</span>,
+        <span class="s">"-y"</span>, <span class="s">"mcp-remote"</span>, <span class="s">"https://mcp.beta.whyuser.com/mcp"</span>,
         <span class="s">"--transport"</span>, <span class="s">"http-only"</span>,
         <span class="s">"--header"</span>, <span class="s">"Authorization:${AUTH_HEADER}"</span>
       ],
@@ -869,7 +869,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 class="cc-h3">Add the connector (Free, Pro, Max)</h3>
         <ol class="cc-steps">
           <li>Go to <strong>Customize &rarr; Connectors</strong> (<a href="https://claude.ai/customize/connectors">claude.ai/customize/connectors</a>), click <strong>+ Add</strong>, then <strong>Add custom connector</strong>.</li>
-          <li>Name it <strong>WhyUser</strong> and enter the server URL <code class="cc-c">https://mcp.whyuser.com/mcp</code>. Click <strong>Continue</strong>.</li>
+          <li>Name it <strong>WhyUser</strong> and enter the server URL <code class="cc-c">https://mcp.beta.whyuser.com/mcp</code>. Click <strong>Continue</strong>.</li>
           <li>Under <strong>Authentication</strong>, choose <strong>No sign-in</strong>. WhyUser uses a key, not a sign-in, so change any option Claude marks as &ldquo;Detected&rdquo;.</li>
           <li>Under <strong>Request headers</strong>, pick <strong>authorization</strong> and enter <code class="cc-c">Bearer wu-mcp-your-key</code>: the word Bearer, a space, then your key. Mark it <strong>Required</strong>.</li>
           <li>Click <strong>Add</strong>.</li>

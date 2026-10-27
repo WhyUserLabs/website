@@ -184,7 +184,7 @@ Security
 |---|---|---|---|---|
 | Landing Page Testing | Accuracy | ROI Calculator | Architecture & Data Flow | How it works |
 | Ad Campaign Testing | Compare | FAQ | Security | Contact |
-| Email Testing | Claude vs WhyUser | Why We Built This | DPA | Request access |
+| Email Sequence Testing | Claude vs WhyUser | Why We Built This | DPA | Request access |
 | Audience Research | How to Evaluate It | Glossary | Privacy | |
 | See a sample report | | | | |
 | Pricing | | | | |

@@ -99,12 +99,12 @@ Every benchmark uses the same method. A real browser captures each homepage on o
 
 [WhyUser in Claude](https://whyuser.com/whyuser-in-claude.html): WhyUser's MCP server and skill bring the product into Claude Code, the Claude desktop app and claude.ai. It is organised by job, one request each:
 
-- Launch campaigns that convert: "WhyUser: test this sequence with [committee name]", then rewrite it from its fixes and re-test.
-- Enter a new segment: "WhyUser: run Audience Discovery on [page URL] for [industry]", then build a committee from the run.
-- Write messaging buyers believe: "WhyUser: write messaging for [persona] on [page URL]". Every line cites its source.
-- Fix a page and prove it landed: "WhyUser: test [page URL] with [committee name]", file the fixes as tickets, then re-run and compare.
-- Track what buyers say: "WhyUser: what changed in what buyers say since [date]?"
-- Run the team on evidence: "WhyUser: find common patterns across our last [10] runs".
+- Launch campaigns that convert: "WhyUser: test this sequence with [committee name], then rewrite it from the fixes" (the Revise Email Sequence workflow), then re-test.
+- Enter a new segment: "WhyUser: run Audience Discovery on [page URL] for [industry], then revise the page for the roles it misses" (Revise Content), then build a committee from the run.
+- Write messaging buyers believe: "WhyUser: write email messaging for [persona] who reads [page URL]" (Write Persona Messaging). Every line cites its source.
+- Fix a page and prove it landed: "WhyUser: test [page URL] with [committee name], then revise it from the fixes" (Revise Content), then re-test the revision before it ships, or file the fixes as tickets.
+- Track what buyers say: "WhyUser: what changed in what buyers say since [date]? Brief new copy from it"
+- Run the team on evidence: "WhyUser: find common patterns across our last [10] runs, then apply them to [page URL]" (Find Common Patterns, then Revise Content).
 
 No slash command is needed. Start the request with WhyUser so Claude uses the WhyUser skill. Tests (page, persona, ad, email) need a committee or personas; Audience Discovery needs the page and its industry, not a committee.
 

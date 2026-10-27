@@ -103,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "What can I ask Claude to do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Six jobs: launch campaigns, enter a new segment, write persona messaging, fix pages, track what buyers say, and find patterns across runs. Each starts with one request, such as “WhyUser: test example.com/pricing with the Platform committee”."
+            "text": "Test a page, ad or email sequence, then have WhyUser revise the page or sequence from the fixes. It also writes persona messaging and finds patterns across runs. One request does it all, such as “WhyUser: test example.com/pricing with the Platform committee, then revise it from the fixes”."
           }
         },
         {
@@ -729,7 +729,7 @@ body { background-image: none; }
 .wc-def strong{color:var(--wc-ink);font-weight:600}
 
 /* ── jobs: inline rows on the page, hairline between ── */
-.wc-jobs-h,.wc-job{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.95fr) minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center}
+.wc-jobs-h,.wc-job{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.9fr) minmax(0,1.45fr) minmax(0,.9fr);gap:28px;align-items:center}
 .wc-jobs-h{padding:0 0 14px;border-bottom:1px solid var(--wc-line-2)}
 .wc-jobs-h span{font:600 10.5px/1 var(--wc-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--wc-dim)}
 .wc-jobs{list-style:none;margin:-40px 0 0;padding:0}
@@ -900,7 +900,7 @@ body { background-image: none; }
     <div class="wc-head">
       <div class="k">Jobs</div>
       <h2 class="h" id="jobs-h">Six marketing jobs. <span class="t">One request each.</span></h2>
-      <p class="wc-hint">Start with <b>WhyUser:</b> Name the page, and the committee or persona.</p>
+      <p class="wc-hint">Start with <b>WhyUser:</b> Name the page, and the committee or persona. WhyUser tests it, then revises it from the fixes.</p>
     </div>
     <div class="wc-jobs-h" aria-hidden="true"><span>Job</span><span>How it runs</span><span>Ask Claude</span><span>Your tools</span></div>
     <ol class="wc-jobs">
@@ -908,43 +908,43 @@ body { background-image: none; }
         <div class="wc-who"><span class="wc-ico"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span><h3>Launch campaigns that convert</h3><span class="wc-roles">Demand Gen</span>
           <a class="wc-proof" href="casestudy-ngrok.html#message-test"><img src="images/ngrok-logo.svg" alt="ngrok" width="36" height="13">HIPAA gap fixed before send<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
         <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-flask" aria-hidden="true"></i>Test</span><b></b><span><i class="fa-solid fa-pen" aria-hidden="true"></i>Rewrite</span><b></b><span><i class="fa-solid fa-rotate" aria-hidden="true"></i>Re-test</span></div></div>
-        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> test this sequence with the Platform committee</span></div>
+        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> test this sequence with the Platform committee, then rewrite it from the fixes</span></div>
         <div class="wc-io"><span class="wc-lab">Your tools</span><div><span class="k">Reads</span><span><i class="fa-solid fa-book" aria-hidden="true"></i>Sequence rules</span></div><div><span class="k">Writes</span><span><i class="fa-solid fa-envelope" aria-hidden="true"></i>Email tool</span><span><i class="fa-solid fa-address-book" aria-hidden="true"></i>CRM</span></div></div>
       </li>
 
       <li class="wc-job" id="segment">
         <div class="wc-who"><span class="wc-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span><h3>Enter a new segment</h3><span class="wc-roles">Demand Gen &middot; Head of Mktg</span>
           <a class="wc-proof" href="casestudy-ngrok.html#new-vertical"><img src="images/ngrok-logo.svg" alt="ngrok" width="36" height="13">Weeks of research, now hours<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
-        <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Find roles</span><b></b><span><i class="fa-solid fa-people-group" aria-hidden="true"></i>Committee</span><b></b><span><i class="fa-solid fa-flask" aria-hidden="true"></i>Test</span></div></div>
-        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> run Audience Discovery on example.com for HealthTech</span></div>
+        <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Find roles</span><b></b><span><i class="fa-solid fa-pen" aria-hidden="true"></i>Revise</span><b></b><span><i class="fa-solid fa-people-group" aria-hidden="true"></i>Committee</span></div></div>
+        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> run Audience Discovery on example.com for HealthTech, then revise the page for the roles it misses</span></div>
         <div class="wc-io"><span class="wc-lab">Your tools</span><div><span class="k">Writes</span><span><i class="fa-solid fa-bullseye" aria-hidden="true"></i>Ad audiences</span><span><i class="fa-solid fa-address-book" aria-hidden="true"></i>CRM</span></div></div>
       </li>
 
       <li class="wc-job" id="messaging">
         <div class="wc-who"><span class="wc-ico"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></span><h3>Write messaging buyers believe</h3><span class="wc-roles">PMM</span></div>
         <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-user" aria-hidden="true"></i>Persona</span><b></b><span><i class="fa-solid fa-file-pen" aria-hidden="true"></i>Brief</span><b></b><span><i class="fa-solid fa-link" aria-hidden="true"></i>Sourced</span></div></div>
-        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> write messaging for the SRE on example.com/platform</span></div>
+        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> write email messaging for the SRE who reads example.com/platform</span></div>
         <div class="wc-io"><span class="wc-lab">Your tools</span><div><span class="k">Reads</span><span><i class="fa-solid fa-book" aria-hidden="true"></i>Voice &amp; messaging</span></div><div><span class="k">Writes</span><span><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Docs &amp; wiki</span></div></div>
       </li>
 
       <li class="wc-job" id="page">
         <div class="wc-who"><span class="wc-ico"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span><h3>Fix a page. Prove it landed.</h3><span class="wc-roles">PMM &middot; Demand Gen</span></div>
-        <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-flask" aria-hidden="true"></i>Test</span><b></b><span><i class="fa-solid fa-ticket" aria-hidden="true"></i>Tickets</span><b></b><span><i class="fa-solid fa-rotate" aria-hidden="true"></i>Re-test</span></div></div>
-        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> test example.com/pricing with the Platform committee</span></div>
+        <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-flask" aria-hidden="true"></i>Test</span><b></b><span><i class="fa-solid fa-pen" aria-hidden="true"></i>Revise</span><b></b><span><i class="fa-solid fa-rotate" aria-hidden="true"></i>Re-test</span></div></div>
+        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> test example.com/pricing with the Platform committee, then revise it from the fixes</span></div>
         <div class="wc-io"><span class="wc-lab">Your tools</span><div><span class="k">Writes</span><span><i class="fa-solid fa-list-check" aria-hidden="true"></i>Issue tracker</span></div></div>
       </li>
 
       <li class="wc-job" id="buyers">
         <div class="wc-who"><span class="wc-ico"><i class="fa-solid fa-wave-square" aria-hidden="true"></i></span><h3>Track what buyers say</h3><span class="wc-roles">PMM &middot; Head of Mktg</span></div>
         <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-headset" aria-hidden="true"></i>Calls</span><b></b><span><i class="fa-solid fa-chart-line" aria-hidden="true"></i>What moved</span><b></b><span><i class="fa-solid fa-file-pen" aria-hidden="true"></i>Brief</span></div></div>
-        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> what changed in what buyers say since Oct 1?</span></div>
+        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> what changed in what buyers say since Oct 1? Brief new copy from it</span></div>
         <div class="wc-io"><span class="wc-lab">Your tools</span><div><span class="k">Writes</span><span><i class="fa-solid fa-comments" aria-hidden="true"></i>Team chat</span><span><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Docs</span></div></div>
       </li>
 
       <li class="wc-job" id="team">
         <div class="wc-who"><span class="wc-ico"><i class="fa-solid fa-chess-knight" aria-hidden="true"></i></span><h3>Run the team on evidence</h3><span class="wc-roles">Head of Mktg</span></div>
-        <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Runs</span><b></b><span><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Patterns</span><b></b><span><i class="fa-solid fa-book-open" aria-hidden="true"></i>Playbook</span></div></div>
-        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> find common patterns across our last 10 runs</span></div>
+        <div><span class="wc-lab">How it runs</span><div class="wc-flow"><span><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Runs</span><b></b><span><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Patterns</span><b></b><span><i class="fa-solid fa-pen" aria-hidden="true"></i>Revise</span></div></div>
+        <div><span class="wc-lab">Ask Claude</span><span class="wc-say"><b>WhyUser:</b> find common patterns across our last 10 runs, then apply them to example.com/pricing</span></div>
         <div class="wc-io"><span class="wc-lab">Your tools</span><div><span class="k">Writes</span><span><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Docs &amp; wiki</span></div></div>
       </li>
     </ol>
@@ -1030,7 +1030,7 @@ body { background-image: none; }
     </div>
     <div class="wc-faq">
       <details><summary>What is WhyUser in Claude?</summary><p>WhyUser&rsquo;s MCP server and skill for Claude Code, the Claude desktop app and claude.ai. Marketers ask Claude to test, fix and ship campaigns, and every run is saved in WhyUser.</p></details>
-      <details><summary>What can I ask Claude to do?</summary><p>Six jobs: launch campaigns, enter a new segment, write persona messaging, fix pages, track what buyers say, and find patterns across runs. Each starts with one request, such as &ldquo;WhyUser: test example.com/pricing with the Platform committee&rdquo;.</p></details>
+      <details><summary>What can I ask Claude to do?</summary><p>Test a page, ad or email sequence, then have WhyUser revise the page or sequence from the fixes. It also writes persona messaging and finds patterns across runs. One request does it all, such as &ldquo;WhyUser: test example.com/pricing with the Platform committee, then revise it from the fixes&rdquo;.</p></details>
       <details><summary>Do I need a special command?</summary><p>No. Start the request with WhyUser, so Claude uses the WhyUser skill. Name the page and the committee or persona. For Audience Discovery, name the page and its industry.</p></details>
       <details><summary>Does it work with my CRM, docs and issue tracker?</summary><p>Yes, through Claude&rsquo;s own connectors and your own access. Claude reads your guidelines and writes tickets, audiences, sequences and briefs. WhyUser never needs those logins, and facts from your tools are flagged for review.</p></details>
       <details><summary>Can I control who runs simulations and spends credits?</summary><p>Yes. An admin sets each person to off, read only, or read and run, with a credit cap. Claude shows the price before every run, and no key can delete anything.</p></details>

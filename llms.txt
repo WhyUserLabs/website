@@ -95,6 +95,21 @@ Every benchmark uses the same method. A real browser captures each homepage on o
   - 39 of 50 answer all four positioning questions. 18 of 50 name the tool or rival they replace.
   - 22 of 50 offer both a free start and a demo, 10 only a free start, 9 only a demo, and 9 neither. 46 of 50 link to pricing.
 
+## Use WhyUser in Claude
+
+[WhyUser in Claude](https://whyuser.com/whyuser-in-claude.html): WhyUser's MCP server and skill bring the product into Claude Code, the Claude desktop app and claude.ai. It is organised by job, one request each:
+
+- Launch campaigns that convert: "WhyUser: test this sequence with [committee name]", then rewrite it from its fixes and re-test.
+- Enter a new segment: "WhyUser: run Audience Discovery on [page URL] for [industry]", then build a committee from the run.
+- Write messaging buyers believe: "WhyUser: write messaging for [persona] on [page URL]". Every line cites its source.
+- Fix a page and prove it landed: "WhyUser: test [page URL] with [committee name]", file the fixes as tickets, then re-run and compare.
+- Track what buyers say: "WhyUser: what changed in what buyers say since [date]?"
+- Run the team on evidence: "WhyUser: find common patterns across our last [10] runs".
+
+No slash command is needed. Start the request with WhyUser so Claude uses the WhyUser skill. Tests (page, persona, ad, email) need a committee or personas; Audience Discovery needs the page and its industry, not a committee.
+
+Claude reads and writes the customer's other tools (CRM, docs and wiki, issue tracker, ad audiences, team chat) through Claude's own connectors, with the person's own access. WhyUser never needs those logins, and facts taken from those tools are flagged for review in WhyUser's audit. An admin sets each person to off, read only, or read and run, with a per-person credit cap. Claude shows the price before every run, and no MCP key can delete anything.
+
 ## Can you do this with Claude, ChatGPT or an AI agent?
 
 This is the question WhyUser is asked most, and the honest answer has three parts.

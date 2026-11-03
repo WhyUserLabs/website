@@ -1,0 +1,106 @@
+/* ═══════════════════════════════════════════════════════════════════
+   WhyUser type system · Fraunces (titles) + Figtree (text)
+
+   Load AFTER whyuser-r3.css. That file sets Inter on the same broad
+   selectors, so this file names them again to win on source order.
+   Geist Mono stays for data, eyebrows and mock UI (untouched here).
+
+   Needs this <link> in <head>:
+   https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Figtree:ital,wght@0,300..800;1,300..800&display=swap
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --font-title: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-text: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Re-point the variables older pages already use. */
+  --sans: var(--font-text);
+  --serif: var(--font-title);
+  --fa: var(--font-text);
+  --fd: var(--font-title);
+  --bs-font-body: var(--font-text);
+  --bs-font-display: var(--font-title);
+}
+
+/* TEXT · Figtree */
+body,
+.btn, button, input, select, textarea,
+.hero-sub, .standfirst, p, li, td, th, figcaption, blockquote {
+  font-family: var(--font-text);
+  letter-spacing: 0;
+}
+
+/* TITLES · Fraunces. Same selector list as whyuser-r3.css. */
+h1, h2, h3, h4,
+.h1, .h2, .h3,
+.cta-h, .lp-h2, .wu-team-h, .wu-vs-k,
+.wu-box-h, .wu-guard-h, .wu-auto-h, .wu-dp-h, .wu-runfact-h,
+.wu-out-h, .anti-item-h, .spec-h, .flow-card-h, .cta-pill-h,
+.wu-digest-find, .wu-gr-n, .wu-sol-plat-n, .wu-prob-claim,
+.wu-faq-q, .wu-cmp-card-h, .tech2-h, .ps-engine-name, .wu-sol-item,
+h1.wu-h1, h2.wu-h2, h3.wu-h3 {
+  font-family: var(--font-title);
+  font-optical-sizing: auto;
+  font-variation-settings: 'SOFT' 0, 'WONK' 0;
+}
+
+/* A serif needs less weight and less negative tracking than Inter 800.
+   Fraunces' optical sizes tighten big headlines on their own. */
+.h1, h1, h1.wu-h1 { font-weight: 600; letter-spacing: -0.022em; line-height: 1.08; }
+.h2, h2, .cta-h, .lp-h2, h2.wu-h2 { font-weight: 600; letter-spacing: -0.018em; line-height: 1.12; }
+.h3, h3, h4, .wu-team-h, .wu-vs-k, h3.wu-h3 { font-weight: 600; letter-spacing: -0.01em; }
+
+/* Editorial italic moments and quote marks (were Instrument Serif). */
+.editorial, .engine-quote::before, .section-quote-mark {
+  font-family: var(--font-title);
+  font-style: italic;
+}
+
+/* Quote text and its cite (readability.css forces Inter with !important). */
+.section-quote-cite { font-family: var(--font-text) !important; }
+
+/* SVG diagram labels set Inter in page CSS. */
+.cf-name { font-family: var(--font-text); }
+
+/* Pull-quotes read as editorial: title face, regular weight. */
+.section-quote-text {
+  font-family: var(--font-title) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.005em !important;
+}
+
+/* ── Page-specific blocks that set their own family inline ─────────
+   `body` prefix wins over the page's own single-class rules, even
+   when the page's <style> comes after this file. */
+
+/* casestudy-ngrok.html (.sq) and whyuser-in-claude.html (.wc) */
+body .sq, body .wc, html body .sq .sq-copy { font-family: var(--font-text); }
+body .sq-close-card .stage {
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* one-page-two-answers.html: italic takeaways were Lora */
+body .takeaway, body .editorial { font-family: var(--font-title); }
+body .takeaway b, body .page-ref b { font-family: var(--font-text); }
+
+/* Homepage centred kicker lines read as statements, not body text. */
+.wu-kicker-plain { font-family: var(--font-title); font-weight: 500; letter-spacing: -0.012em; }
+
+/* ── Title tracking for a serif ─────────────────────────────────────
+   Pages tighten headlines to -0.03…-0.045em, tuned for Inter at 800.
+   At that setting Fraunces letters touch, so reset it everywhere.
+   !important + html body prefix beats the inline page rules and the
+   !important rules in whyuser-readability.css. */
+html body :is(h1, .h1, .lp-h1, h1.h, .sq h1, .wc h1) {
+  letter-spacing: -0.02em !important;
+  font-weight: 600 !important;
+}
+html body :is(h2, .h2, .lp-h2, .cta-h, h2.h, .wu-figure-h) {
+  letter-spacing: -0.015em !important;
+  font-weight: 600 !important;
+}
+html body :is(h3, h4, .h3, .mk-h) {
+  letter-spacing: -0.008em !important;
+}

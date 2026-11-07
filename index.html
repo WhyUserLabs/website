@@ -3255,6 +3255,13 @@
 body { background-image: none; }
 .hero { min-height: 0; display: block; }
 
+/* Logo strip (7 Nov 2026): on wider screens, a little more room under the
+   hero proof line and no extra padding under the strip, so the logos sit
+   lower and the gap before "What WhyUser is" shrinks. */
+@media (min-width: 768px) {
+  .trust-band { padding: 1.25rem 0 0; }
+}
+
 /* The #web-experimentation Slack digest card and the finding card inside
    it sit on the page colour, not white. Hairline borders still hold them.
    whyuser-slides.css sets the white (--surface), so this must follow it. */
@@ -3688,9 +3695,8 @@ body { background-image: none; }
     <header class="hero dotgrid v3-hero-text">
         <div class="wrap">
             <div class="v3-hero-c">
-                <span class="hero-eyebrow">Pre-launch buyer simulation for B2B marketing</span>
-                <h1 class="h1 v3-fit" style="--fit:13.09">Meet your buying committee<br><span class="v3-accent">before your budget&nbsp;does.</span></h1>
-                <p class="hero-sub">Simulate the people who decide your deal, built from your buyers&rsquo; own words. <strong>See who drops off and why. Fix it before launch.</strong></p>
+                <h1 class="h1 v3-fit" style="--fit:13.12">Pre-launch buyer simulation<br><span class="v3-accent">for B2B&nbsp;marketing.</span></h1>
+                <p class="hero-sub">Test your landing page, ad or email on AI buyer personas and buying committees, built from what your buyers say before and after they talk to you. See who drops off, why, and what to fix <strong>before you pay to find&nbsp;out.</strong></p>
                 <div class="hero-ctas">
                     <a href="#access" class="btn btn-primary btn-lg">Become a design partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
                     <a href="sample-report.html" class="btn btn-ghost btn-lg"><i class="fa-solid fa-file-lines" style="font-size:13px;color:var(--brand)"></i> See sample reports</a>
@@ -3719,7 +3725,7 @@ body { background-image: none; }
     </section>
 
     <!-- DEFINITION · the paragraph an answer engine lifts -->
-    <section class="definition" style="padding: 2.25rem 0">
+    <section class="definition" style="padding: 1.75rem 0 2.25rem">
         <div class="wrap">
             <span class="def-rule" aria-hidden="true"></span>
             <div class="def-grid">

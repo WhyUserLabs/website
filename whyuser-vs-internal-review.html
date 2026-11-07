@@ -165,6 +165,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
 </style>
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
+<link rel="stylesheet" href="assets/whyuser-viz.css">
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
@@ -297,6 +298,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <span class="nav-dd-desc">Real panels or a simulated committee.</span>
                         </span>
                     </a>
+                    <a href="whyuser-vs-minds.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">WhyUser vs Minds</span>
+                            <span class="nav-dd-desc">AI persona panels or a committee.</span>
+                        </span>
+                    </a>
                     <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
                         <span>
@@ -365,13 +373,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <span class="nav-dd-desc">Claude Code, desktop app, claude.ai.</span>
                         </span>
                     </a>
-                    <a href="developers.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Architecture &amp; Data Flow</span>
-                            <span class="nav-dd-desc">What we read and never touch.</span>
-                        </span>
-                    </a>
                     <a href="security.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
                         <span>
@@ -425,6 +426,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="nav-m-label">Compare</span>
                 <a href="compare.html" class="nav-m-link">All comparisons</a>
                 <a href="whyuser-vs-wynter.html" class="nav-m-link">WhyUser vs Wynter</a>
+                <a href="whyuser-vs-minds.html" class="nav-m-link">WhyUser vs Minds</a>
                 <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">vs ChatGPT and Claude</a>
             </div>
             <div class="nav-m-group">
@@ -438,7 +440,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <a href="about.html#why" class="nav-m-link">Why We Built This</a>
                 <span class="nav-m-label">Docs &amp; security</span>
                 <a href="docs/connect-claude.html" class="nav-m-link">Connect to Claude</a>
-                <a href="developers.html" class="nav-m-link">Architecture &amp; Data Flow</a>
                 <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
             </div>
             <div class="nav-m-ctas">
@@ -579,17 +580,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="lp-eyebrow">Not one number</span>
     <h2 class="lp-h2">Your channel decides who shows up.</h2>
     <p class="lp-lead">The 3% above is LinkedIn cold. Buy search instead and the room changes completely. Derived from published CTR benchmarks and the Ehrenberg-Bass 95:5 rule. Pin your own measured mix if you have one.</p>
-    <div class="cmp-wrap" style="margin-top:1.5rem">
-      <table class="cmp">
-        <thead><tr><th>Channel</th><th>Distracted</th><th>Skeptical</th><th class="col-us">In-market</th></tr></thead>
-        <tbody>
-          <tr><th>LinkedIn, cold</th><td>82%</td><td>15%</td><td class="col-us">3%</td></tr>
-          <tr><th>Cold email</th><td>78%</td><td>17%</td><td class="col-us">5%</td></tr>
-          <tr><th>Google Search, cold</th><td>30%</td><td>25%</td><td class="col-us">45%</td></tr>
-          <tr><th>Search, retargeted</th><td>15%</td><td>20%</td><td class="col-us">65%</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <figure class="vz vz-mix">
+      <div class="vz-mix-key" aria-hidden="true"><span style="--c:rgba(24,24,27,.13)">Distracted</span><span style="--c:rgba(109,71,217,.32)">Skeptical</span><span style="--c:#6d47d9">In-market</span></div>
+      <div class="vz-mix-row"><b>LinkedIn, cold</b><div class="vz-mix-bar" role="img" aria-label="LinkedIn, cold: 82% distracted, 15% skeptical, 3% in-market"><i class="d" style="width:82%">82%</i><i class="s" style="width:15%">15%</i><i class="m" style="width:3%"></i></div><span class="n">3%<small>in-market</small></span></div>
+      <div class="vz-mix-row"><b>Cold email</b><div class="vz-mix-bar" role="img" aria-label="Cold email: 78% distracted, 17% skeptical, 5% in-market"><i class="d" style="width:78%">78%</i><i class="s" style="width:17%">17%</i><i class="m" style="width:5%"></i></div><span class="n">5%<small>in-market</small></span></div>
+      <div class="vz-mix-row"><b>Google Search, cold</b><div class="vz-mix-bar" role="img" aria-label="Google Search, cold: 30% distracted, 25% skeptical, 45% in-market"><i class="d" style="width:30%">30%</i><i class="s" style="width:25%">25%</i><i class="m" style="width:45%">45%</i></div><span class="n">45%<small>in-market</small></span></div>
+      <div class="vz-mix-row"><b>Search, retargeted</b><div class="vz-mix-bar" role="img" aria-label="Search, retargeted: 15% distracted, 20% skeptical, 65% in-market"><i class="d" style="width:15%">15%</i><i class="s" style="width:20%">20%</i><i class="m" style="width:65%">65%</i></div><span class="n">65%<small>in-market</small></span></div>
+    </figure>
   </div>
 </section>
 
@@ -713,10 +710,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <li><a href="casestudy-ngrok.html">Customer Story: ngrok</a></li>
                 <li><a href="sample-report.html">Sample Reports</a></li>
                 <li><a href="compare.html">All comparisons</a></li>
-                <li><a href="whyuser-vs-wynter.html">WhyUser vs Wynter</a></li>
-                <li><a href="whyuser-vs-synthetic-users.html">WhyUser vs Synthetic Users</a></li>
-                <li><a href="whyuser-vs-delve-ai.html">WhyUser vs Delve AI</a></li>
-                <li><a href="whyuser-vs-chatgpt-and-claude.html">vs ChatGPT and Claude</a></li>
             </ul></div>
 
             <div><h4>Resources</h4><ul>
@@ -730,15 +723,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <div><h4>Company</h4><ul>
                 <li><a href="about.html">About</a></li>
-                <li><a href="about.html#why">Why We Built This</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="./#access">Become a design partner</a></li>
             </ul></div>
         </div>
 
+        <div class="footer-compare">
+            <div><h4><a href="compare.html">Compare</a></h4><p>Every comparison, with each claim linked to its source.</p></div>
+            <ul>
+                <li><a href="whyuser-vs-wynter.html">vs Wynter</a></li>
+                <li><a href="whyuser-vs-minds.html">vs Minds</a></li>
+                <li><a href="whyuser-vs-usertesting.html">vs UserTesting</a></li>
+                <li><a href="whyuser-vs-synthetic-users.html">vs Synthetic Users</a></li>
+                <li><a href="whyuser-vs-articos.html">vs Articos</a></li>
+                <li><a href="whyuser-vs-evidenza.html">vs Evidenza</a></li>
+                <li><a href="whyuser-vs-delve-ai.html">vs Delve AI</a></li>
+                <li><a href="whyuser-vs-buyertwin.html">vs BuyerTwin</a></li>
+                <li><a href="whyuser-vs-ai-sales-roleplay.html">vs AI sales roleplay</a></li>
+                <li><a href="whyuser-vs-chatgpt-and-claude.html">vs ChatGPT and Claude</a></li>
+                <li><a href="whyuser-vs-internal-review.html">vs Internal review</a></li>
+                <li><a href="whyuser-vs-building-it-yourself.html">vs Building it yourself</a></li>
+                <li><a href="synthetic-personas-vs-buyer-panels.html">Personas vs buyer panels</a></li>
+                <li><a href="pre-launch-testing-vs-ab-testing.html">Pre-launch vs A/B testing</a></li>
+                <li><a href="focus-group-alternatives.html">Focus group alternatives</a></li>
+            </ul>
+        </div>
+
         <div class="footer-bottom">
             <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
-            <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="developers.html">Architecture</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
+            <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
             <span><a href="accuracy.html">473 claims graded, 84% accurate</a></span>
         </div>
     </div>

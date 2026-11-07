@@ -176,6 +176,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <link rel="stylesheet" href="assets/whyuser-v3.css">
+<link rel="stylesheet" href="assets/whyuser-viz.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -309,6 +310,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nav-dd-desc">Real panels or a simulated committee.</span>
                         </span>
                     </a>
+                    <a href="whyuser-vs-minds.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">WhyUser vs Minds</span>
+                            <span class="nav-dd-desc">AI persona panels or a committee.</span>
+                        </span>
+                    </a>
                     <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
                         <span>
@@ -377,13 +385,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nav-dd-desc">Claude Code, desktop app, claude.ai.</span>
                         </span>
                     </a>
-                    <a href="developers.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Architecture &amp; Data Flow</span>
-                            <span class="nav-dd-desc">What we read and never touch.</span>
-                        </span>
-                    </a>
                     <a href="security.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
                         <span>
@@ -437,6 +438,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="nav-m-label">Compare</span>
                 <a href="compare.html" class="nav-m-link">All comparisons</a>
                 <a href="whyuser-vs-wynter.html" class="nav-m-link">WhyUser vs Wynter</a>
+                <a href="whyuser-vs-minds.html" class="nav-m-link">WhyUser vs Minds</a>
                 <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">vs ChatGPT and Claude</a>
             </div>
             <div class="nav-m-group">
@@ -450,7 +452,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="about.html#why" class="nav-m-link">Why We Built This</a>
                 <span class="nav-m-label">Docs &amp; security</span>
                 <a href="docs/connect-claude.html" class="nav-m-link">Connect to Claude</a>
-                <a href="developers.html" class="nav-m-link">Architecture &amp; Data Flow</a>
                 <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
             </div>
             <div class="nav-m-ctas">
@@ -485,6 +486,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <span class="lp-eyebrow">What each one is for</span>
     <h2 class="lp-h2 v3-fit" style="--fit:7.75">Different jobs.<br><span class="v3-accent">Sometimes both.</span></h2>
+    <div class="vz vz-vs">
+      <figure class="vz-vs-card" style="margin:0"><div class="vz-vs-k">Synthetic Users</div><div class="vz-vs-art"><div class="vz-chat" aria-hidden="true"><div class="who"><span class="vz-ic"><i class="fa-solid fa-robot"></i></span>One AI user</div><p class="q">What frustrates you about your current tool?</p><p class="a">Setup took weeks, and nobody owned it.</p><p class="q">Would you try a new one?</p></div></div><figcaption class="vz-cap"><b>One AI user at a time</b>, answering interview questions.</figcaption></figure>
+      <figure class="vz-vs-card us" style="margin:0"><div class="vz-vs-k">WhyUser</div><div class="vz-vs-art"><div class="vz-cm" aria-hidden="true"><svg viewBox="0 0 240 192"><g stroke="#6d47d9" stroke-opacity=".45" stroke-width="1.5" fill="none"><line x1="120" y1="12" x2="216" y2="66"/><line x1="216" y1="66" x2="182" y2="160"/><line x1="182" y1="160" x2="58" y2="160"/><line x1="58" y1="160" x2="24" y2="66"/><line x1="24" y1="66" x2="120" y2="12"/></g><line x1="120" y1="12" x2="58" y2="160" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/></svg><span class="pg"><i class="fa-regular fa-file-lines"></i></span><span class="n" style="left:50%;top:9%"><i class="fa-solid fa-bullhorn"></i>Champion</span><span class="n" style="left:90%;top:38%"><i class="fa-solid fa-code"></i>Tech lead</span><span class="n" style="left:76%;top:88%"><i class="fa-solid fa-shield-halved"></i>Security</span><span class="n" style="left:24%;top:88%"><i class="fa-solid fa-wallet"></i>Budget owner</span><span class="n" style="left:10%;top:38%"><i class="fa-solid fa-laptop"></i>End user</span></div></div><figcaption class="vz-cap"><b>Five roles read the same page together.</b> The handoffs between them are scored, so you see where the case breaks.</figcaption></figure>
+    </div>
     <div class="lp-split">
       <div class="lp-panel">
         <h3>Synthetic Users gives you</h3>
@@ -526,15 +531,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </tbody>
     </table>
     <p class="v3-note">Checked 6 November 2026 against Synthetic Users&rsquo;s own pages, linked in each row. Something changed? Tell us at <a href="mailto:hello@whyuser.com">hello@whyuser.com</a> and we will fix it.</p>
-  </div>
-</section>
-
-<section class="lp-sec">
-  <div class="wrap">
-    <span class="lp-eyebrow">Fair is fair</span>
-    <h2 class="lp-h2">When to pick Synthetic Users</h2>
-    <p class="lp-lead">You are exploring a problem or a product concept and want interview-style answers fast.</p>
-
   </div>
 </section>
 
@@ -601,10 +597,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="casestudy-ngrok.html">Customer Story: ngrok</a></li>
                 <li><a href="sample-report.html">Sample Reports</a></li>
                 <li><a href="compare.html">All comparisons</a></li>
-                <li><a href="whyuser-vs-wynter.html">WhyUser vs Wynter</a></li>
-                <li><a href="whyuser-vs-synthetic-users.html">WhyUser vs Synthetic Users</a></li>
-                <li><a href="whyuser-vs-delve-ai.html">WhyUser vs Delve AI</a></li>
-                <li><a href="whyuser-vs-chatgpt-and-claude.html">vs ChatGPT and Claude</a></li>
             </ul></div>
 
             <div><h4>Resources</h4><ul>
@@ -618,15 +610,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div><h4>Company</h4><ul>
                 <li><a href="about.html">About</a></li>
-                <li><a href="about.html#why">Why We Built This</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="./#access">Become a design partner</a></li>
             </ul></div>
         </div>
 
+        <div class="footer-compare">
+            <div><h4><a href="compare.html">Compare</a></h4><p>Every comparison, with each claim linked to its source.</p></div>
+            <ul>
+                <li><a href="whyuser-vs-wynter.html">vs Wynter</a></li>
+                <li><a href="whyuser-vs-minds.html">vs Minds</a></li>
+                <li><a href="whyuser-vs-usertesting.html">vs UserTesting</a></li>
+                <li><a href="whyuser-vs-synthetic-users.html">vs Synthetic Users</a></li>
+                <li><a href="whyuser-vs-articos.html">vs Articos</a></li>
+                <li><a href="whyuser-vs-evidenza.html">vs Evidenza</a></li>
+                <li><a href="whyuser-vs-delve-ai.html">vs Delve AI</a></li>
+                <li><a href="whyuser-vs-buyertwin.html">vs BuyerTwin</a></li>
+                <li><a href="whyuser-vs-ai-sales-roleplay.html">vs AI sales roleplay</a></li>
+                <li><a href="whyuser-vs-chatgpt-and-claude.html">vs ChatGPT and Claude</a></li>
+                <li><a href="whyuser-vs-internal-review.html">vs Internal review</a></li>
+                <li><a href="whyuser-vs-building-it-yourself.html">vs Building it yourself</a></li>
+                <li><a href="synthetic-personas-vs-buyer-panels.html">Personas vs buyer panels</a></li>
+                <li><a href="pre-launch-testing-vs-ab-testing.html">Pre-launch vs A/B testing</a></li>
+                <li><a href="focus-group-alternatives.html">Focus group alternatives</a></li>
+            </ul>
+        </div>
+
         <div class="footer-bottom">
             <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
-            <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="developers.html">Architecture</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
+            <span class="footer-legal"><a href="security.html">Security</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="dpa.html">DPA</a></span>
             <span><a href="accuracy.html">473 claims graded, 84% accurate</a></span>
         </div>
     </div>

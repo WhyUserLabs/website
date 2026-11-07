@@ -163,6 +163,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .nom-pv{display:inline-block;font-size:.75rem;color:var(--signal-amber);border:1px solid var(--rule-strong);border-radius:6px;padding:.3rem .6rem}
 </style>
 <link rel="stylesheet" href="../assets/whyuser-fonts.css">
+<link rel="stylesheet" href="../assets/whyuser-viz.css">
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
@@ -294,6 +295,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nav-dd-desc">Real panels or a simulated committee.</span>
                         </span>
                     </a>
+                    <a href="../whyuser-vs-minds.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">WhyUser vs Minds</span>
+                            <span class="nav-dd-desc">AI persona panels or a committee.</span>
+                        </span>
+                    </a>
                     <a href="../whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
                         <span>
@@ -362,13 +370,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="nav-dd-desc">Claude Code, desktop app, claude.ai.</span>
                         </span>
                     </a>
-                    <a href="../developers.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Architecture &amp; Data Flow</span>
-                            <span class="nav-dd-desc">What we read and never touch.</span>
-                        </span>
-                    </a>
                     <a href="../security.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
                         <span>
@@ -422,6 +423,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="nav-m-label">Compare</span>
                 <a href="../compare.html" class="nav-m-link">All comparisons</a>
                 <a href="../whyuser-vs-wynter.html" class="nav-m-link">WhyUser vs Wynter</a>
+                <a href="../whyuser-vs-minds.html" class="nav-m-link">WhyUser vs Minds</a>
                 <a href="../whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">vs ChatGPT and Claude</a>
             </div>
             <div class="nav-m-group">
@@ -435,7 +437,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="../about.html#why" class="nav-m-link">Why We Built This</a>
                 <span class="nav-m-label">Docs &amp; security</span>
                 <a href="../docs/connect-claude.html" class="nav-m-link">Connect to Claude</a>
-                <a href="../developers.html" class="nav-m-link">Architecture &amp; Data Flow</a>
                 <a href="../security.html" class="nav-m-link">Security &amp; DPA</a>
             </div>
             <div class="nav-m-ctas">
@@ -523,14 +524,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-eyebrow">How we measure</span>
       <h2 class="h2">The same 11 checks on every page</h2>
     </div>
-    <div class="legal">
-      <ul>
-        <li><strong>Eleven checks.</strong> The four questions a buyer brings (what it is, who it&#8217;s for, what it replaces, why it&#8217;s better) and seven kinds of proof, each tied to the person on the buying committee it serves.</li>
-        <li><strong>A yes needs a quote.</strong> Every yes rests on a line copied word for word from the page, and code confirms the line is there. Nothing is simulated or estimated.</li>
-        <li><strong>One capture date.</strong> A real browser opens each homepage at desktop size, closes the cookie banner and scrolls the whole page. &#8220;First screen&#8221; means the top 900 pixels.</li>
-        <li><strong>Every row is public.</strong> Each company has its own row with the line behind every yes. Our own customers and design partners are left out.</li>
-        <li><strong>Corrections.</strong> If we misread your page, tell us. We recheck it and fix the row.</li>
-      </ul>
+    <div class="vz">
+      <div class="vz-eq">
+        <div><b>4</b><small>questions every buyer brings</small><div class="vz-chips"><span>What it is</span><span>Who it&#8217;s for</span><span>What it replaces</span><span>Why it&#8217;s better</span></div></div>
+        <span class="op" aria-hidden="true">+</span>
+        <div><b>7</b><small>kinds of proof, each tied to the person on the buying committee it serves</small><div class="vz-sq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <span class="op" aria-hidden="true">=</span>
+        <div class="tot"><b>11</b><small>checks on every page</small></div>
+      </div>
+      <ol class="vz-flow">
+        <li><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-camera"></i></span><b>One capture date</b><span>A real browser opens each homepage at desktop size, closes the cookie banner and scrolls the whole page. &#8220;First screen&#8221; means the top 900 pixels.</span></li>
+        <li><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></span><b>A yes needs a quote</b><span>Every yes rests on a line copied word for word from the page, and code confirms the line is there. Nothing is simulated or estimated.</span></li>
+        <li><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-table-list"></i></span><b>Every row is public</b><span>Each company has its own row with the line behind every yes. Our own customers and design partners are left out.</span></li>
+        <li><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-rotate"></i></span><b>Corrections</b><span>If we misread your page, tell us. We recheck it and fix the row.</span></li>
+      </ol>
+    </div>
+    <div class="legal" style="margin-top:2rem">
       <p>The counts show what a page says. To see how each buyer on the committee reads it, see <a href="../committee-simulation.html">Committee Simulation</a>, and how often its predictions hold up: <a href="../accuracy.html">Accuracy</a>.</p>
     </div>
   </div>
@@ -568,10 +577,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="../casestudy-ngrok.html">Customer Story: ngrok</a></li>
                 <li><a href="../sample-report.html">Sample Reports</a></li>
                 <li><a href="../compare.html">All comparisons</a></li>
-                <li><a href="../whyuser-vs-wynter.html">WhyUser vs Wynter</a></li>
-                <li><a href="../whyuser-vs-synthetic-users.html">WhyUser vs Synthetic Users</a></li>
-                <li><a href="../whyuser-vs-delve-ai.html">WhyUser vs Delve AI</a></li>
-                <li><a href="../whyuser-vs-chatgpt-and-claude.html">vs ChatGPT and Claude</a></li>
             </ul></div>
 
             <div><h4>Resources</h4><ul>
@@ -585,15 +590,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div><h4>Company</h4><ul>
                 <li><a href="../about.html">About</a></li>
-                <li><a href="../about.html#why">Why We Built This</a></li>
                 <li><a href="../contact.html">Contact</a></li>
                 <li><a href="../#access">Become a design partner</a></li>
             </ul></div>
         </div>
 
+        <div class="footer-compare">
+            <div><h4><a href="../compare.html">Compare</a></h4><p>Every comparison, with each claim linked to its source.</p></div>
+            <ul>
+                <li><a href="../whyuser-vs-wynter.html">vs Wynter</a></li>
+                <li><a href="../whyuser-vs-minds.html">vs Minds</a></li>
+                <li><a href="../whyuser-vs-usertesting.html">vs UserTesting</a></li>
+                <li><a href="../whyuser-vs-synthetic-users.html">vs Synthetic Users</a></li>
+                <li><a href="../whyuser-vs-articos.html">vs Articos</a></li>
+                <li><a href="../whyuser-vs-evidenza.html">vs Evidenza</a></li>
+                <li><a href="../whyuser-vs-delve-ai.html">vs Delve AI</a></li>
+                <li><a href="../whyuser-vs-buyertwin.html">vs BuyerTwin</a></li>
+                <li><a href="../whyuser-vs-ai-sales-roleplay.html">vs AI sales roleplay</a></li>
+                <li><a href="../whyuser-vs-chatgpt-and-claude.html">vs ChatGPT and Claude</a></li>
+                <li><a href="../whyuser-vs-internal-review.html">vs Internal review</a></li>
+                <li><a href="../whyuser-vs-building-it-yourself.html">vs Building it yourself</a></li>
+                <li><a href="../synthetic-personas-vs-buyer-panels.html">Personas vs buyer panels</a></li>
+                <li><a href="../pre-launch-testing-vs-ab-testing.html">Pre-launch vs A/B testing</a></li>
+                <li><a href="../focus-group-alternatives.html">Focus group alternatives</a></li>
+            </ul>
+        </div>
+
         <div class="footer-bottom">
             <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
-            <span class="footer-legal"><a href="../security.html">Security</a> &middot; <a href="../developers.html">Architecture</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a> &middot; <a href="../dpa.html">DPA</a></span>
+            <span class="footer-legal"><a href="../security.html">Security</a> &middot; <a href="../contact.html">Contact</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a> &middot; <a href="../dpa.html">DPA</a></span>
             <span><a href="../accuracy.html">473 claims graded, 84% accurate</a></span>
         </div>
     </div>

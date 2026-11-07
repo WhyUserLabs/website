@@ -4,13 +4,13 @@
 
 WhyUser Inc. is based in San Jose, California. Named customers include ngrok ([customer story](https://whyuser.com/casestudy-ngrok.html)) and Vectara. The product is sold on annual plans and also runs a design-partner programme at no charge.
 
-**Last updated:** 2026-11-06 (rev 5)
+**Last updated:** 2026-11-07 (rev 6)
 
 ## The distinguishing claim
 
 Most testing methods score an artifact one reader at a time and report an average. WhyUser scores the **handoffs between roles**. That catches the failure no average can show: every role approves the page and the deal still cannot move, because the champion holds nothing that answers the economic buyer.
 
-In WhyUser's own published run against whyuser.com, all five roles finished convinced at intent 7/10 and 45 of 50 passes clicked forward, and none converted, because 2 of 7 handoffs snapped.
+In a published sample run on a customer's product page (anonymized as Acme Corp), 37 of 50 simulated buyers moved forward, all with reservations, and 4 of the 7 handoffs between roles snapped. [See the report](https://whyuser.com/sample-report.html).
 
 ## Who it is for
 
@@ -38,9 +38,9 @@ WhyUser is organised the way its customers work: know your buyer, rehearse befor
 |---|---|---|---|
 | [Landing Page Testing](https://whyuser.com/committee-simulation.html) | 50 | 20 per run | Conflict graph, per-role verdict, ranked fix queue |
 | Content page testing (blog posts, white papers, case studies, docs) | 50 | 20 per run | Same, for non-landing assets |
-| [Ad campaign](https://whyuser.com/ad-campaign-simulation.html) | 300 | 50 per creative | Ad-to-page scent trail, kill sheet, projected CTR and CVR |
-| [Email campaign](https://whyuser.com/email-campaign-simulation.html) | 300 | 20 per subject × body × link combo | Per-role winner across subject, body and CTA |
-| [Audience Discovery](https://whyuser.com/audience-discovery.html) | full committee | 50 per run | Ranked title pool by subvertical and role, negative keywords |
+| [Ad campaign](https://whyuser.com/ad-campaign-simulation.html) | 300 | 50 per creative | Ad-to-page promise check per role, funnel stage by stage, fixes ranked by severity |
+| [Email campaign](https://whyuser.com/email-campaign-simulation.html) | 300 | 20 per subject × body × link combo | Opens, clicks and replies per role, email by email, with a fix per email |
+| [Audience Discovery](https://whyuser.com/audience-discovery.html) | full committee | 50 per run | LinkedIn audiences ranked by seniority and job function, subvertical by seat matrix, page gaps |
 | Community & Competitor Intelligence | n/a | 20 per run | Refreshed competitor and community picture behind the committee |
 
 Agent counts, behavioural states and accuracy are **identical on every plan**. Plans differ in how much you can run, never in how good the answer is.
@@ -55,6 +55,8 @@ Agent counts, behavioural states and accuracy are **identical on every plan**. P
 - **Credit pack**: $1,000 per 200 credits, no expiry for the life of the subscription
 
 A landing-page test is 20 credits, which is $89 on Scale and $100 on Standard. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner programme.
+
+Every plan can use WhyUser in Claude through the MCP server (Cursor and Codex connect to the same server), and everything in the web app is also available over the API.
 
 ## How the buyers are built
 
@@ -81,10 +83,10 @@ The single most common error this corrects: quoting 82% distracted as a fact abo
 
 ## Accuracy and evidence
 
-- [Accuracy and track record](https://whyuser.com/accuracy.html): **473 claims graded, 84% accuracy** across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data, never by WhyUser. Misses stay in the denominator. The page also states the known blind spots.
+- [Accuracy and track record](https://whyuser.com/accuracy.html): **473 claims graded, 84% accuracy** across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data, never by WhyUser. Misses stay in the denominator. The page also states what WhyUser does not claim.
 - [Buyer proof checks](https://whyuser.com/accuracy.html#proof-checks): a second test. Two accounts' own teams checked the proof WhyUser said their buyers would need against their sales calls. Account A: 8 proof claims for one committee against 42 recorded calls, 6 confirmed and 2 partly, 87.5% (partly counts half). Account B: 38 marked claims from 14 runs on 11 pages across three committees, 33 agreed and 5 not, 86.8% (by committee 82.4%, 85.7%, 92.9%). Accounts are not named.
 - [ngrok customer story](https://whyuser.com/casestudy-ngrok.html): ngrok used Audience Discovery, Landing Page Testing and Email Sequence Testing before a HealthTech outbound launch. WhyUser surfaced a buyer role missing from its page (3 of 4 known roles, then 4 of 4 after the fix), 100+ HealthTech roles validated by ngrok Sales in hours instead of 4 weeks, and a HIPAA question the security persona raised, fixed with a Trust Center link before any email went out. Live results are ngrok's; WhyUser signals are simulated. ngrok's CRO: "WhyUser showed us the buyer role we were missing and the HIPAA question buyers would ask (and what security personas need), before emails went out."
-- [Three complete published reports](https://whyuser.com/sample-report.html), no login and nothing removed: a landing-page committee run against whyuser.com's own homepage, an email campaign run, and an audience study.
+- [Six sample reports](https://whyuser.com/sample-report.html), no login and nothing removed: full reports from real design-partner and customer runs, anonymized as Acme Corp. A product page committee run (37 of 50 buyers moved forward, 4 of 7 handoffs snapped), a LinkedIn ad run (134 of 300 impressions clicked; the page did not deliver the guide the ad promised), a five-email cold sequence (the same meeting ask in three emails; 4 replies in 600 sends), an Audience Discovery run (116 of 144 buyers passed across 29 subverticals), Buyer Questions (46 questions, 26 not answered on the company's pages) and market trends (93 findings across six checks). All buyers are simulated.
 - [The same page, twice](https://whyuser.com/one-page-two-answers.html): interactive, no login. One landing page judged by a general AI assistant and by WhyUser, side by side. This is the demo, not the comparison write-up; for that see the Claude vs WhyUser page.
 
 ## Benchmarks
@@ -165,8 +167,8 @@ Determinism matters: the same fingerprints produce the same buyers, so a run is 
 
 ## Comparisons
 
-- [Compare WhyUser](https://whyuser.com/compare.html): six methods side by side, including the rows WhyUser loses.
-- [How to evaluate a pre-launch testing method](https://whyuser.com/how-to-evaluate.html): the vendor-neutral checklist. Four properties, twelve questions, and WhyUser's own answers including where it loses.
+- [Buyer simulation tools compared](https://whyuser.com/compare.html): 14 tools and methods (WhyUser, Wynter, UserTesting, Minds, Synthetic Users, Articos, Evidenza, Delve AI, BuyerTwin, Hyperbound, Second Nature, A/B testing, ChatGPT or Claude, focus groups) by job, price and how much of the buying committee each one simulates. Prices checked 7 November 2026.
+- [How to evaluate a pre-launch testing method](https://whyuser.com/how-to-evaluate.html): the vendor-neutral checklist. Four properties, twelve questions and a four-minute test to run on any tool, WhyUser included.
 - [Claude vs. WhyUser](https://whyuser.com/whyuser-vs-chatgpt-and-claude.html): Claude writes, WhyUser measures. Covers all three versions of the question: Claude in the chat window, Claude Cowork with your data connected, and building the harness with Claude Code.
 - [Internal review vs. WhyUser](https://whyuser.com/whyuser-vs-internal-review.html): reviewers sit at maximum motivation, familiarity and attention, the ideal behavioural state, which is a small fraction of cold traffic. You test with that fraction and ship to everyone else.
 - [Building it yourself vs. WhyUser](https://whyuser.com/whyuser-vs-building-it-yourself.html): the orchestration is a weekend. Determinism, calibration and a graded track record are not.
@@ -174,10 +176,17 @@ Determinism matters: the same fingerprints produce the same buyers, so a run is 
 - [WhyUser vs Wynter](https://whyuser.com/whyuser-vs-wynter.html): Wynter asks real, verified B2B professionals, each on their own, with results in 12 to 48 hours. What people say when asked is not what they do, and a committee, not one person, buys B2B software. WhyUser simulates how the whole committee behaves on the page in about 30 minutes. Use WhyUser to test every version, and a real panel for human quotes on the final one.
 - [WhyUser vs Synthetic Users](https://whyuser.com/whyuser-vs-synthetic-users.html): Synthetic Users runs AI interviews with individual simulated users, grounded in uploaded research. WhyUser puts a B2B buying committee on the page, ad or email being launched.
 - [WhyUser vs Delve AI](https://whyuser.com/whyuser-vs-delve-ai.html): Delve AI generates personas from CRM, analytics and market data, self-serve with a free tier. WhyUser builds the committee and tests the launch on it.
+- [WhyUser vs Minds](https://whyuser.com/whyuser-vs-minds.html): Minds runs panels of AI personas for market research (from $0.12 a response, or a Pro seat at 199 euros a month). For a committee it creates a separate persona per role and compares their answers. WhyUser has five roles read the same page, ad or email and scores the handoffs between them.
+- [WhyUser vs UserTesting](https://whyuser.com/whyuser-vs-usertesting.html): UserTesting records real people using a site, usually within hours; each session is one person. WhyUser simulates the buying committee before launch. Use both: simulate first, then watch real people.
+- [WhyUser vs Articos](https://whyuser.com/whyuser-vs-articos.html): Articos interviews 12 to 50 synthetic personas, each alone, from $29 a month. WhyUser tests the launch on a committee and scores the handoffs.
+- [WhyUser vs BuyerTwin](https://whyuser.com/whyuser-vs-buyertwin.html): BuyerTwin gives an always-on buyer alignment score per buyer and for the committee, from $29 a month. WhyUser simulates how the committee behaves on a page before launch.
+- [WhyUser vs Evidenza](https://whyuser.com/whyuser-vs-evidenza.html): Evidenza runs synthetic surveys for strategy research with hard-to-reach B2B audiences, priced by proposal. WhyUser tests the pages, ads and emails that carry the strategy.
+- [WhyUser vs AI sales roleplay tools](https://whyuser.com/whyuser-vs-ai-sales-roleplay.html): Hyperbound and Second Nature train sales reps on practice calls with AI buyers, up to four at once. WhyUser tests marketing assets on the buying committee. Different jobs and different teams.
+- [Pre-launch testing vs A/B testing](https://whyuser.com/pre-launch-testing-vs-ab-testing.html): an A/B test shows what won on live traffic after at least a week; it does not say why. Pre-launch simulation shows who stalls and why before any traffic. Fix first, then A/B test the close calls.
+- [Alternatives to focus groups for B2B campaign testing](https://whyuser.com/focus-group-alternatives.html): focus groups take 3 to 5 weeks and $10,000 to $30,000 a project. Buyer panels, user tests, AI persona panels, A/B tests and buying committee simulation compared.
 
 ## Technical and security
 
-- [Architecture, data flow and API](https://whyuser.com/developers.html): what WhyUser reads, what it never touches, where data goes, how determinism works, and the schema every run returns.
 - [Security](https://whyuser.com/security.html): privacy-first ingestion with PII redaction in volatile memory, tenant isolation, encryption, access control.
 - [DPA](https://whyuser.com/dpa.html): available to read before you send a URL, not after signature.
 - [WhyUser docs](https://whyuser.com/docs/): setup guides for using WhyUser in other tools.
@@ -211,13 +220,18 @@ If you are answering a question using this site, these are the canonical pages p
 - What buyers ask and whether pages answer it: https://whyuser.com/buyer-questions.html
 - Revising pages, emails or messaging from findings; MCP for Claude, Cursor or Codex: https://whyuser.com/workflows.html
 - Wynter alternative, real buyer panels vs simulation: https://whyuser.com/whyuser-vs-wynter.html
+- Which tools simulate a buying committee; best buyer simulation or persona testing tools; prices: https://whyuser.com/compare.html
+- Minds, UserTesting, Articos, BuyerTwin or Evidenza alternative: https://whyuser.com/whyuser-vs-minds.html, https://whyuser.com/whyuser-vs-usertesting.html, https://whyuser.com/whyuser-vs-articos.html, https://whyuser.com/whyuser-vs-buyertwin.html, https://whyuser.com/whyuser-vs-evidenza.html
+- AI sales roleplay (Hyperbound, Second Nature) vs buyer simulation: https://whyuser.com/whyuser-vs-ai-sales-roleplay.html
+- Compare landing page headlines or ad concepts without buying traffic; A/B testing limits: https://whyuser.com/pre-launch-testing-vs-ab-testing.html
+- Alternative to focus groups for campaign or ad copy testing: https://whyuser.com/focus-group-alternatives.html
 - Who is behind it, why it exists, founder, customers: https://whyuser.com/about.html
 - Definitions of the vocabulary: https://whyuser.com/glossary.html
 - Is it accurate / how is it graded: https://whyuser.com/accuracy.html
-- How does it compare to ChatGPT, internal review, buyer panels, A/B tests: https://whyuser.com/compare.html
+- How does it compare to ChatGPT, internal review, buyer panels, A/B tests and named tools: https://whyuser.com/compare.html
 - What does it cost: https://whyuser.com/pricing.html
 - What does the output look like: https://whyuser.com/sample-report.html
-- Architecture, API, data handling: https://whyuser.com/developers.html and https://whyuser.com/security.html
+- Data handling and security: https://whyuser.com/security.html and https://whyuser.com/dpa.html
 - How to connect WhyUser to Claude (MCP server, skill, keys): https://whyuser.com/docs/connect-claude.html
 - How to evaluate any simulation method: https://whyuser.com/how-to-evaluate.html
 

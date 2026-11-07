@@ -317,3 +317,22 @@
   font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px;
   letter-spacing: .04em; color: var(--dim); padding: .75rem .25rem 0; line-height: 1.5;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER · COMPARE ROW (2026-11-07)
+   Every comparison page, on every page. A full-width row under the
+   link columns, on the same grid so the links line up with them.
+   ═══════════════════════════════════════════════════════════════════ */
+.footer-compare { display: grid; grid-template-columns: 1fr; gap: 1rem 2.5rem; margin-top: 2.5rem; padding-top: 2.25rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.footer-compare h4 { margin-bottom: .55rem; }
+.footer-compare h4 a { color: inherit; }
+.footer-compare h4 a:hover { color: rgba(255,255,255,0.9); }
+.footer-compare p { margin: 0; font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,0.45); max-width: 16rem; }
+.footer .footer-compare ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.625rem 2rem; }
+@media (min-width: 640px) {
+  .footer .footer-compare ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .footer-compare { grid-template-columns: 1.7fr repeat(4, 1fr); }
+  .footer .footer-compare ul { grid-column: 2 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 2.5rem; }
+}

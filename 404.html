@@ -7,10 +7,15 @@
      no file. Links are root-absolute because this page can be served at any
      depth. Retired URLs that have a direct successor get a redirect stub
      (see glossary/, compare/, manifesto.html). The script below only helps
-     people who follow an old link to a retired section with no stub. -->
+     people who follow an old link to a retired section with no stub.
+     7 Nov 2026: the pack reviews the missing page. Happy is the zero in 404,
+     the committee weighs in, and the page says what WhyUser is. -->
 <title>Page not found | WhyUser</title>
+<meta name="description" content="This page is not here. WhyUser is pre-launch buyer simulation for B2B marketing: a simulated buying committee reads your page, ad or email before launch.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#faf9f7">
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/whyuser-favicon-192.png?v=3">
 <script>
 (function () {
   var p = location.pathname;
@@ -24,32 +29,180 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Figtree:ital,wght@0,300..800;1,300..800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Figtree:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <style>
-body{font-family:Figtree,system-ui,sans-serif;margin:0;padding:4rem 1.25rem;color:#09090b;background:#fdfdfd;line-height:1.55}
-main{max-width:34rem;margin:0 auto}
-h1{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.015em;font-size:1.75rem;margin:0 0 .5rem}
-p{margin:0 0 1.25rem;color:#3f3f46}
-ul{list-style:none;padding:0;margin:0}
-li{padding:.6rem 0;border-top:1px solid #e4e4e7}
-a{color:#6d28d9;font-weight:600;text-decoration:none}
-a:hover,a:focus-visible{text-decoration:underline}
+:root{--paper:#faf9f7;--surface:#fff;--ink:#18181b;--ink-soft:#3f3f46;--mute:#52525b;--dim:#71717a;--rule:#e4e4e7;--brand:#6d47d9;--brand-soft:#ede9fe;--bubble:#f4c440;--night:#0a0a0c;--title:'Fraunces',Georgia,'Times New Roman',serif;--text:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);line-height:1.55}
+a{color:var(--brand)}
+a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:6px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+@media(min-width:768px){.wrap{padding:0 2rem}}
+
+/* brand bar */
+.top{padding:1.25rem 0}
+.brand{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.0625rem;letter-spacing:-.01em}
+.brand img{width:30px;height:30px;border-radius:50%;display:block}
+.brand span b{color:var(--brand);font-weight:700}
+
+/* hero: Happy is the zero */
+.hero{text-align:center;padding:2.5rem 0 1rem}
+.four{display:flex;align-items:center;justify-content:center;gap:clamp(.4rem,2vw,1.1rem);font-family:var(--title);font-weight:650;font-variation-settings:'opsz' 36,'SOFT' 0,'WONK' 0;font-size:clamp(6rem,22vw,11.5rem);line-height:.9;letter-spacing:-.04em;color:var(--ink);margin:0 0 1.75rem}
+.four .o{width:.86em;height:.86em;border-radius:50%;background:var(--night);display:block;flex:none;box-shadow:0 0 0 .06em var(--paper),0 0 0 .1em var(--ink);transform-origin:50% 80%}
+.four .o img{width:100%;height:100%;display:block;border-radius:50%}
+@media (prefers-reduced-motion:no-preference){.four .o{animation:wag 1.6s cubic-bezier(.3,.7,.4,1) .35s 1 both}}
+@keyframes wag{0%{transform:rotate(0)}20%{transform:rotate(-9deg)}40%{transform:rotate(7deg)}60%{transform:rotate(-4deg)}80%{transform:rotate(2deg)}100%{transform:rotate(0)}}
+h1{font-family:var(--title);font-weight:600;letter-spacing:-.02em;line-height:1.12;font-size:clamp(1.75rem,4.2vw,2.6rem);margin:0 auto .8rem;max-width:20em;text-wrap:balance}
+.lede{font-size:1.0625rem;color:var(--mute);max-width:34rem;margin:0 auto;text-wrap:balance}
+.dev{display:none;max-width:34rem;margin:1.25rem auto 0;padding:.85rem 1rem;border-radius:12px;background:var(--brand-soft);color:var(--ink-soft);font-size:.9375rem;text-align:left}
+.dev.show{display:block}
+.dev a{font-weight:600}
+
+/* the committee weighs in */
+.cm{margin:3rem 0 0}
+.cm-h{text-align:center;font-size:.9375rem;font-weight:600;color:var(--dim);margin:0 0 1.5rem}
+.cm ol{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.cm li{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:.9rem;align-items:center}
+.cm img{width:4rem;height:4rem;border-radius:50%;display:block}
+.bub{position:relative;margin:0;background:var(--bubble);color:var(--ink);border-radius:14px;padding:.6rem .8rem;font-weight:650;font-size:.9375rem;line-height:1.35}
+.bub::before{content:"";position:absolute;left:-7px;top:50%;margin-top:-7px;border:7px solid transparent;border-right-color:var(--bubble);border-left:0}
+.who{display:block;font-size:.75rem;font-weight:600;color:var(--dim);margin-top:.35rem}
+.who b{color:var(--ink);font-weight:650}
+@media(min-width:760px){
+  .cm ol{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.25rem}
+  .cm li{grid-template-columns:none;grid-template-rows:1fr auto auto;justify-items:center;align-items:end;text-align:center;gap:.9rem}
+  .cm li>div{display:contents}
+  .cm li .bub{grid-row:1;align-self:end;width:100%}
+  .cm li .bub::before{left:50%;top:auto;bottom:-7px;margin:0 0 0 -7px;border:7px solid transparent;border-top-color:var(--bubble);border-bottom:0}
+  .cm img{grid-row:2;width:5.5rem;height:5.5rem}
+  .who{grid-row:3;margin:0}
+}
+.verdict{margin:2.25rem auto 0;max-width:36rem;text-align:center;font-family:var(--title);font-size:clamp(1.2rem,2.6vw,1.45rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;text-wrap:balance}
+.verdict span{display:block;color:var(--brand)}
+
+/* what WhyUser is */
+.what{margin:3.5rem 0 0;background:var(--surface);border:1px solid var(--rule);border-radius:20px;padding:1.5rem;display:grid;gap:1.5rem;align-items:center}
+@media(min-width:860px){.what{grid-template-columns:minmax(0,1fr) 15rem;padding:2rem 2.25rem;gap:2.5rem}}
+.what h2{font-family:var(--title);font-weight:600;font-size:1.5rem;letter-spacing:-.015em;line-height:1.2;margin:0 0 .6rem}
+.what p{margin:0 0 .9rem;color:var(--mute);font-size:1rem}
+.what ul{margin:0 0 1.25rem;padding:0;list-style:none;display:grid;gap:.45rem}
+.what li{position:relative;padding-left:1.4rem;color:var(--ink-soft);font-size:.9375rem}
+.what li::before{content:"";position:absolute;left:.15rem;top:.55em;width:.5rem;height:.5rem;border-radius:50%;background:var(--brand)}
+.ctas{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.15rem;border-radius:10px;font-weight:650;font-size:.9375rem;text-decoration:none;border:1px solid var(--ink)}
+.btn.p{background:var(--ink);color:#fff}
+.btn.g{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.g:hover{border-color:var(--ink)}
+.what figure{margin:0;max-width:15rem;justify-self:center}
+.what figure img{width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 18px 36px -22px rgba(24,24,27,.55)}
+
+/* where to next */
+.next{margin:3rem 0 0}
+.next h2{font-family:var(--title);font-weight:600;font-size:1.25rem;margin:0 0 1rem}
+.next ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+@media(min-width:760px){.next ul{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.next a{display:block;height:100%;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:.8rem .9rem;text-decoration:none;color:var(--ink)}
+.next a:hover{border-color:var(--brand)}
+.next b{display:block;font-size:.9375rem;font-weight:650}
+.next span{display:block;font-size:.8125rem;color:var(--dim);margin-top:.15rem;line-height:1.35}
+.foot{margin:3rem 0 2.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);font-size:.8125rem;color:var(--dim);display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;justify-content:space-between}
+.foot a{color:var(--dim)}
 </style>
 </head>
 <body>
-<main>
-<h1>Page not found</h1>
-<p>This page does not exist or has moved. Try one of these.</p>
-<ul>
-<li><a href="/">WhyUser home</a></li>
-<li><a href="/sample-report.html">See a sample report</a></li>
-<li><a href="/pricing.html">Pricing</a></li>
-<li><a href="/glossary.html">Glossary</a></li>
-<li><a href="/docs/connect-claude.html">Connect to Claude</a></li>
-<li><a href="/compare.html">Compare WhyUser</a></li>
-<li><a href="/benchmarks/">Benchmarks</a></li>
-<li><a href="/faq.html">FAQ</a></li>
-</ul>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/whyuser-dog-badge.png" alt="" width="30" height="30"><span>Why<b>User</b></span></a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="four" aria-hidden="true"><span>4</span><span class="o"><img src="/images/pack/cast-happy.webp" alt="" width="256" height="256"></span><span>4</span></p>
+    <h1>Happy looked everywhere. This page isn&rsquo;t here.</h1>
+    <p class="lede">It moved, or it never made it past the buying committee. Here is what the committee thinks of it.</p>
+    <p class="dev" id="dev">Looking for the developer page? Setup now lives in <a href="/docs/connect-claude.html">Connect WhyUser to Claude</a>, and data handling in <a href="/security.html">Security</a>.</p>
+  </section>
+
+  <section class="cm" aria-labelledby="cm-h">
+    <h2 class="cm-h" id="cm-h">The committee reviews this page</h2>
+    <ol>
+      <li><img src="/images/pack/cast-happy.webp" alt="Happy, a golden retriever" width="256" height="256"><div><span class="who"><b>Happy</b>, the champion</span><p class="bub">Love this URL. Ship it!</p></div></li>
+      <li><img src="/images/pack/cast-chewie.webp" alt="Chewie, a fluffy small dog" width="256" height="256"><div><span class="who"><b>Chewie</b>, the economic buyer</span><p class="bub">What&rsquo;s the ROI of a page that isn&rsquo;t there?</p></div></li>
+      <li><img src="/images/pack/cast-hank.webp" alt="Hank, a scruffy terrier" width="256" height="256"><div><span class="who"><b>Hank</b>, the tech lead</span><p class="bub">Returns a 404. Working as designed.</p></div></li>
+      <li><img src="/images/pack/cast-gus.webp" alt="Gus, a French bulldog" width="256" height="256"><div><span class="who"><b>Gus</b>, the end user</span><p class="bub">More clicking? Pass.</p></div></li>
+      <li><img src="/images/pack/cast-peaches.webp" alt="Peaches, a smiling French bulldog" width="256" height="256"><div><span class="who"><b>Peaches</b>, security</span><p class="bub">No page, no risk. Approved.</p></div></li>
+    </ol>
+    <p class="verdict">A page nobody can find is a 404. <span>A page nobody can sign is a lost deal.</span></p>
+  </section>
+
+  <section class="what" aria-labelledby="what-h">
+    <div>
+      <h2 id="what-h">That second one is what we catch.</h2>
+      <p>WhyUser is pre-launch buyer simulation for B2B marketing. A simulated buying committee reads your landing page, ad or email before it goes live.</p>
+      <ul>
+        <li>See which role stalls, on which line, and why.</li>
+        <li>Get the fixes, ranked, in about 30 minutes.</li>
+        <li>No traffic, no panel, nothing sent.</li>
+      </ul>
+      <div class="ctas">
+        <a class="btn p" href="/sample-report.html">See a sample report</a>
+        <a class="btn g" href="/#access">Become a design partner</a>
+      </div>
+    </div>
+    <figure>
+      <img src="/images/pack/dress-rehearsal.webp" alt="Cartoon. Headline: Get the bad reviews before opening night. A golden retriever takes notes on stage at a dress rehearsal while four dogs in the seats ask about price, API docs, length and SOC 2. Caption: Notes in 30 minutes. Before you spend a dollar." width="720" height="900" loading="lazy" decoding="async">
+    </figure>
+  </section>
+
+  <nav class="next" aria-labelledby="next-h">
+    <h2 id="next-h">Where to next</h2>
+    <ul>
+      <li><a href="/"><b>Home</b><span>What WhyUser does, in one page.</span></a></li>
+      <li><a href="/sample-report.html"><b>Sample reports</b><span>Six real runs, nothing cut.</span></a></li>
+      <li><a href="/pricing.html"><b>Pricing</b><span>A page test is about $89.</span></a></li>
+      <li><a href="/compare.html"><b>Compare tools</b><span>WhyUser and the alternatives.</span></a></li>
+      <li><a href="/glossary.html"><b>Glossary</b><span>Silent veto, scent trail and more.</span></a></li>
+      <li><a href="/docs/connect-claude.html"><b>Connect to Claude</b><span>Use WhyUser through MCP.</span></a></li>
+      <li><a href="/benchmarks/"><b>Benchmarks</b><span>Homepages, counted by category.</span></a></li>
+      <li><a href="/about.html"><b>About</b><span>Meet Durga, and the pack.</span></a></li>
+    </ul>
+  </nav>
+
+  <footer class="foot">
+    <span>&copy; 2026 WhyUser Inc. &middot; San Jose, CA</span>
+    <span>Lost something we moved? <a href="mailto:hello@whyuser.com">hello@whyuser.com</a></span>
+  </footer>
 </main>
+<script>
+/* Links and images are root-absolute so they work when GitHub Pages serves
+   this page for a missing URL at any depth. When the file is opened
+   directly (a local file, or a preview server rooted somewhere else), point
+   them at the folder this file sits in instead, so the dogs still show. */
+(function () {
+  var p = location.pathname;
+  if (!/\/404\.html$/.test(p)) return;
+  var base = p.replace(/404\.html$/, '');
+  var file = location.protocol === 'file:';
+  if (!file && base === '/') return;
+  Array.prototype.forEach.call(document.querySelectorAll('[src^="/"],[href^="/"]'), function (el) {
+    ['src', 'href'].forEach(function (a) {
+      var v = el.getAttribute(a);
+      if (!v || v.charAt(0) !== '/' || v.charAt(1) === '/') return;
+      var rest = v.slice(1);
+      if (file) {
+        var hash = rest.indexOf('#'), path = hash < 0 ? rest : rest.slice(0, hash), tail = hash < 0 ? '' : rest.slice(hash);
+        if (path === '' || path.charAt(path.length - 1) === '/') path += 'index.html';
+        rest = path + tail;
+      }
+      el.setAttribute(a, base + rest);
+    });
+  });
+})();
+(function () {
+  if (/developers/i.test(location.pathname)) document.getElementById('dev').className += ' show';
+})();
+</script>
 </body>
 </html>

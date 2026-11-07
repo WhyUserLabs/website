@@ -6,7 +6,8 @@
        *-whyuser-sample.html report exports (all noindex), and the redirect stubs (manifesto.html,
        whyuser-vs-ai-opinions.html, glossary/*, compare/*), which send
        readers and Google to the canonical page.
-       lastmod 2026-11-07: about (new copy and the dog cartoons, listed as
+       lastmod 2026-11-07: new best-tools pages (ad, landing page,
+       message testing and AI buyer personas), compare jobs, glossary terms, about (new copy and the dog cartoons, listed as
        images), FAQ, glossary, pricing, how-to-evaluate, the product pages,
        sample reports, and the legal, security and docs pages whose links
        changed when developers.html was retired (now left out).
@@ -37,6 +38,10 @@
   <url><loc>https://whyuser.com/glossary.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://whyuser.com/how-to-evaluate.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://whyuser.com/one-page-two-answers.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://whyuser.com/best-ad-testing-tools.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://whyuser.com/best-landing-page-testing-tools.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://whyuser.com/best-message-testing-tools.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://whyuser.com/best-ai-buyer-persona-tools.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://whyuser.com/compare.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://whyuser.com/whyuser-vs-wynter.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://whyuser.com/whyuser-vs-synthetic-users.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

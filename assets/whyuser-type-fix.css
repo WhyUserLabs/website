@@ -334,5 +334,5 @@
 }
 @media (min-width: 1024px) {
   .footer-compare { grid-template-columns: 1.7fr repeat(4, 1fr); }
-  .footer .footer-compare ul { grid-column: 2 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 2.5rem; }
+  .footer .footer-compare ul { grid-column: 2 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 2.5rem; }
 }

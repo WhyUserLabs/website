@@ -265,6 +265,7 @@
 /* compare.html: WhyUser-led job cards and full-coverage depth chart (2026-11-07) */
 @media(min-width:900px){.vz-jobs3{grid-template-columns:repeat(3,1fr)}}
 .vz-job p.ft{font-size:.8125rem;font-weight:600;color:var(--vz-ink);margin:0}
+.vz-job p.who{font-size:.75rem;font-weight:600;color:var(--vz-brand);margin:-.15rem 0 0;line-height:1.3}
 .vz-job p.ft a{color:var(--vz-brand);text-decoration:none}
 .vz-job p.ft a:hover{text-decoration:underline}
 .vz-jobs3 .vz-job .tags{border-top:1px solid var(--vz-rule);margin-top:auto;padding-top:.6rem}
@@ -838,3 +839,126 @@
 
 /* sample report minis use the new graph */
 .vp-rep-fig .vq-graph{max-width:15rem;margin:0 auto}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Best-tools hubs (2026-11-07): best-ad-testing-tools, best-landing-
+   page-testing-tools, best-message-testing-tools. Our pick, a coverage
+   matrix (what each kind of tool sees), a ranked list, a table row
+   highlight. Tokens come from .vz on each container.
+   ═══════════════════════════════════════════════════════════════════ */
+.bt-pick{display:grid;gap:2rem;margin-top:2rem;align-items:center}
+@media(min-width:1000px){.bt-pick{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:3rem}}
+.bt-why{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem}
+.bt-why li{display:grid;grid-template-columns:2.25rem minmax(0,1fr);gap:.85rem;align-items:start}
+.bt-why .ic{width:2.25rem;height:2.25rem;border-radius:10px;background:var(--vz-soft);color:var(--vz-brand);display:grid;place-items:center;font-size:.95rem}
+.bt-why b{display:block;font-size:1rem;font-weight:650;color:var(--vz-ink);margin-bottom:.15rem;line-height:1.35}
+.bt-why span{display:block;font-size:.9375rem;line-height:1.55;color:var(--vz-mute)}
+.bt-pick .vq-stage{margin:0}
+.bt-fig{margin:0;background:var(--vz-surface);border:1px solid var(--vz-rule);border-radius:16px;padding:1rem 1rem .9rem;box-shadow:0 24px 48px -32px rgba(24,24,27,.4)}
+.bt-fig img{display:block;width:100%;height:auto}
+.bt-fig figcaption{font-size:.8125rem;line-height:1.45;color:var(--vz-dim);margin-top:.65rem}
+
+.bt-cover{margin-top:2rem;border:1px solid var(--vz-rule);border-radius:16px;background:var(--vz-surface);overflow:hidden}
+.bt-cover-row{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(4,minmax(0,1fr));align-items:center;border-top:1px solid var(--vz-rule)}
+.bt-cover-row:first-child{border-top:0}
+.bt-cover-row>*{padding:.85rem .6rem;text-align:center;min-width:0}
+.bt-cover-row>:first-child{text-align:left;padding-left:1.15rem}
+.bt-cover-head{background:var(--vz-paper)}
+.bt-cover-head>span{font-size:.75rem;font-weight:650;color:var(--vz-ink);line-height:1.3}
+.bt-cover-head>span i{display:block;color:var(--vz-brand);margin-bottom:.35rem;font-size:1rem}
+.bt-cover-head>span:first-child{font-weight:600;color:var(--vz-dim)}
+.bt-cover-row b{display:block;font-size:.9375rem;font-weight:650;color:var(--vz-ink);line-height:1.3}
+.bt-cover-row small{display:block;font-size:.75rem;color:var(--vz-dim);margin-top:.15rem;line-height:1.35}
+.bt-c{display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:50%;font-size:.75rem;box-sizing:border-box}
+.bt-c.y{background:var(--vz-brand);color:#fff}
+.bt-c.p{border:2px solid var(--vz-brand);color:var(--vz-brand);font-size:.6rem}
+.bt-c.n{color:var(--vz-dim);font-size:.95rem}
+.bt-cover-row.us{background:rgba(109,71,217,.07)}
+.bt-cover-row.us b{color:var(--vz-brand)}
+.bt-cover-key{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;padding:.8rem 1.15rem;border-top:1px solid var(--vz-rule);font-size:.75rem;color:var(--vz-dim)}
+.bt-cover-key>span{display:inline-flex;align-items:center;gap:.45rem}
+.bt-cover-key .bt-c{width:1.1rem;height:1.1rem;font-size:.55rem}
+.bt-cover-key .bt-c.p{font-size:.45rem;border-width:1.5px}
+@media(max-width:600px){
+  .bt-cover-row{grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr))}
+  .bt-cover-row>*{padding:.7rem .2rem}
+  .bt-cover-row>:first-child{padding-left:.75rem}
+  .bt-cover-head>span{font-size:.625rem}
+  .bt-cover-head>span i{font-size:.85rem}
+  .bt-cover-row b{font-size:.8125rem}
+  .bt-cover-row small{display:none}
+  .bt-c{width:1.3rem;height:1.3rem;font-size:.625rem}
+}
+
+.bt-list{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1rem;counter-reset:bt}
+.bt-tool{counter-increment:bt;background:var(--vz-surface);border:1px solid var(--vz-rule);border-radius:16px;padding:1.25rem 1.25rem 1.15rem;display:grid;gap:.8rem}
+.bt-tool.us{border-color:rgba(109,71,217,.55);box-shadow:0 0 0 4px rgba(109,71,217,.08)}
+.bt-top{display:flex;align-items:flex-start;gap:.85rem}
+.bt-top::before{content:counter(bt);flex:none;width:2rem;height:2rem;border-radius:50%;background:var(--vz-ink);color:#fff;display:grid;place-items:center;font-family:var(--vz-title);font-weight:600;font-size:.95rem}
+.bt-tool.us .bt-top::before{background:var(--vz-brand)}
+.bt-top h3{font-family:var(--vz-title);font-size:1.25rem;font-weight:600;letter-spacing:-.01em;margin:0;color:var(--vz-ink);line-height:1.2}
+.bt-top h3 a{color:inherit;text-decoration:none}
+.bt-top h3 a:hover{color:var(--vz-brand)}
+.bt-best{display:block;font-size:.8125rem;font-weight:600;color:var(--vz-brand);margin-top:.25rem;line-height:1.35}
+.bt-tool>p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--vz-mute)}
+.bt-gw{display:grid;gap:.4rem;margin:0;padding:0;list-style:none}
+.bt-gw li{font-size:.875rem;line-height:1.5;color:var(--vz-mute);padding-left:1.4rem;position:relative}
+.bt-gw li::before{position:absolute;left:0;top:.1rem;font-family:'Font Awesome 6 Free';font-weight:900;font-size:.75rem}
+.bt-gw li.g::before{content:"\f00c";color:var(--vz-green)}
+.bt-gw li.w::before{content:"\f071";color:var(--vz-amber)}
+.bt-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem 1rem;margin:0;padding:.85rem 0 0;border-top:1px solid var(--vz-rule)}
+@media(min-width:768px){.bt-meta{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.bt-meta div{min-width:0}
+.bt-meta dt{font-size:.6875rem;font-weight:600;color:var(--vz-dim);margin:0 0 .15rem}
+.bt-meta dd{margin:0;font-size:.875rem;line-height:1.45;color:var(--vz-ink);overflow-wrap:anywhere}
+.bt-meta dd a{color:var(--vz-dim);font-size:.75rem;text-decoration:underline;text-underline-offset:2px}
+.bt-tool .bt-more{font-size:.875rem;font-weight:600;color:var(--vz-brand);text-decoration:none}
+.v3-table.bt-t tr.us{background:rgba(109,71,217,.06)}
+.v3-table.bt-t tr.us th{color:var(--brand)}
+.v3-table.bt-t th,.v3-table.bt-t td{padding-left:.65rem}
+@media(max-width:767px){.v3-table.bt-t tr{padding-left:.65rem;padding-right:.65rem}.v3-table.bt-t th,.v3-table.bt-t td{padding-left:0}}
+
+/* Hubs round 2 (2026-11-07): how WhyUser builds its buyers. Evidence
+   before and after buyers engage -> one compiled buyer -> one buyer or
+   the whole committee. Three stages across from 1000px, stacked below. */
+.bt-ev{margin-top:2rem;display:grid;gap:.85rem;align-items:center}
+@media(min-width:1000px){.bt-ev{grid-template-columns:minmax(0,1.4fr) 2rem minmax(0,1fr) 2rem minmax(0,1fr);gap:.75rem}}
+.bt-ev-src{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.bt-ev-col,.bt-ev-buyer,.bt-ev-modes>div{background:var(--vz-surface);border:1px solid var(--vz-rule);border-radius:14px;padding:1rem}
+.bt-ev-k{display:block;font-size:.75rem;font-weight:650;color:var(--vz-brand);margin:0 0 .65rem;line-height:1.3}
+.bt-ev-col ul,.bt-ev-buyer ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.bt-ev-col li{display:flex;align-items:center;gap:.55rem;font-size:.875rem;font-weight:600;color:var(--vz-ink);line-height:1.25}
+.bt-ev-col li i{width:1.7rem;height:1.7rem;border-radius:8px;background:var(--vz-soft);color:var(--vz-brand);display:grid;place-items:center;font-size:.72rem;flex:none}
+.bt-ev-col.after li i{background:var(--vz-ink);color:#fff}
+.bt-ev-to{justify-self:center;width:1px;height:1.5rem;background:rgba(9,9,11,.25);position:relative}
+.bt-ev-to::after{content:"";position:absolute;bottom:-1px;left:-3.5px;border:4px solid transparent;border-top:6px solid rgba(9,9,11,.4);border-bottom:0}
+@media(min-width:1000px){.bt-ev-to{width:100%;height:1px}.bt-ev-to::after{bottom:auto;left:auto;right:-1px;top:-3.5px;border:4px solid transparent;border-left:6px solid rgba(9,9,11,.4);border-right:0}}
+.bt-ev-buyer{box-shadow:0 0 0 4px rgba(109,71,217,.08);border-color:rgba(109,71,217,.45)}
+.bt-ev-buyer b{display:flex;align-items:center;gap:.5rem;font-family:var(--vz-title);font-size:1.0625rem;font-weight:600;color:var(--vz-ink);margin:0 0 .75rem}
+.bt-ev-buyer b i{width:1.8rem;height:1.8rem;border-radius:50%;background:var(--vz-brand);color:#fff;display:grid;place-items:center;font-size:.75rem}
+.bt-ev-buyer li{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;font-size:.8125rem;line-height:1.35;color:var(--vz-ink);padding:.5rem .6rem;border-radius:8px;background:var(--vz-paper)}
+.bt-ev-buyer li em{font-style:normal;font-size:.6875rem;font-weight:650;color:var(--vz-brand);white-space:nowrap}
+.bt-ev-buyer small{display:block;margin-top:.75rem;font-size:.75rem;line-height:1.4;color:var(--vz-dim)}
+.bt-ev-modes{display:grid;gap:.7rem}
+.bt-ev-modes>div{display:grid;grid-template-columns:2.1rem minmax(0,1fr);column-gap:.75rem;row-gap:.15rem;align-items:start}
+.bt-ev-modes .ic{grid-row:span 2;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--vz-soft);color:var(--vz-brand);display:grid;place-items:center;font-size:.85rem}
+.bt-ev-modes>div:last-child .ic{background:var(--vz-brand);color:#fff}
+.bt-ev-modes b{font-size:.9375rem;font-weight:650;color:var(--vz-ink);line-height:1.3}
+.bt-ev-modes>div>span:last-child{font-size:.8125rem;line-height:1.45;color:var(--vz-mute)}
+
+/* Compare: what simulated buyers are built from (2026-11-07). Four kinds of
+   sourcing, left to right from made up to compiled from evidence. The meter
+   shows how much buyer evidence each kind draws on. */
+.vz-src{margin-top:2rem;display:grid;grid-template-columns:1fr;gap:.75rem}
+@media(min-width:640px){.vz-src{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1000px){.vz-src{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.vz-src>div{background:var(--vz-surface);border:1px solid var(--vz-rule);border-radius:14px;padding:1rem 1.05rem 1.05rem;display:flex;flex-direction:column;gap:.5rem}
+.vz-src>div.us{border-color:rgba(109,71,217,.55);box-shadow:0 0 0 4px rgba(109,71,217,.08)}
+.vz-src-m{display:flex;gap:4px}
+.vz-src-m i{width:1.4rem;height:5px;border-radius:3px;background:rgba(9,9,11,.1)}
+.vz-src-m i.on{background:var(--vz-brand)}
+.vz-src p{font-size:.8125rem;line-height:1.5;color:var(--vz-mute);margin:0}
+.vz-src .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto;padding-top:.3rem}
+.vz-src .tags a{font-size:.8125rem;font-weight:600;color:var(--vz-brand);text-decoration:none}
+.vz-src .tags a:not(:last-child)::after{content:"·";color:var(--vz-dim);margin-left:.35rem}
+.vz-src .tags span{font-size:.8125rem;font-weight:650;color:var(--vz-ink)}

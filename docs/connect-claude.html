@@ -25,7 +25,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="Connect WhyUser to Claude Code, the Claude desktop app for macOS and claude.ai. Create a key, add the MCP server and skill, then run a workflow.">
 <link rel="canonical" href="https://whyuser.com/docs/connect-claude.html">
 <meta property="article:published_time" content="2026-10-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2026-10-12T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-11-07T00:00:00+00:00">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="WhyUser">
@@ -256,7 +256,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   ],
   "proficiencyLevel": "Beginner",
-  "dateModified": "2026-10-12",
+  "dateModified": "2026-11-07",
   "datePublished": "2026-10-11",
   "inLanguage": "en"
 }
@@ -825,7 +825,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Fill in steps 2&ndash;4 above.</li>
           <li>Use a key made for this connector. Everyone who uses it acts with that key's access, and WhyUser records the key's owner for every call. Make it <strong>Read only</strong> unless everyone should be able to start simulations, which use credits.</li>
         </ol>
-        <p>Members then open <strong>Customize &rarr; Connectors</strong>, find WhyUser (labelled &ldquo;Custom&rdquo;) and click <strong>Connect</strong>. A member who needs a key of their own can use the <a href="#desktop">desktop config file</a> or <a href="#claude-code">Claude Code</a>.</p>
+        <p>Members then open <strong>Customize &rarr; Connectors</strong>, find WhyUser (labeled &ldquo;Custom&rdquo;) and click <strong>Connect</strong>. A member who needs a key of their own can use the <a href="#desktop">desktop config file</a> or <a href="#claude-code">Claude Code</a>.</p>
 
         <h3 class="cc-h3">Turn it on in a chat</h3>
         <p>Click <strong>+</strong> at the lower left of the chat box, open <strong>Connectors</strong> and turn on WhyUser.</p>
@@ -869,7 +869,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- ═════ TROUBLESHOOTING ═════ -->
       <section id="troubleshooting">
         <h2 class="cc-h2">Troubleshooting</h2>
-        <p class="cc-lead">Find the message or behaviour you see. Each one has the cause and the fix.</p>
+        <p class="cc-lead">Find the message or behavior you see. Each one has the cause and the fix.</p>
         <div class="cc-fixes">
           <div class="cc-fix"><p class="cc-fix-q">&ldquo;This MCP key is unknown or revoked, or its owner's AI assistant access is off&rdquo;</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The key was revoked or mistyped, or a workspace admin set your access to Off.</span></p><p><span class="cc-k">Fix</span><span>Create a new key, or ask an admin to turn your access on (Team page).</span></p></div></div>
           <div class="cc-fix"><p class="cc-fix-q">&ldquo;Missing credential&rdquo; or &ldquo;This server accepts WhyUser MCP keys only&rdquo;</p><div class="cc-fix-a"><p><span class="cc-k">Why</span><span>The header is missing <code class="cc-c">Bearer&nbsp;</code>, or the value isn't a WhyUser key.</span></p><p><span class="cc-k">Fix</span><span>Enter <code class="cc-c">Bearer wu-mcp-&hellip;</code>: the word Bearer, a space, then the key.</span></p></div></div>

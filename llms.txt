@@ -1,10 +1,10 @@
 # WhyUser
 
-> WhyUser is pre-launch buyer simulation for B2B marketing teams. It builds buyer personas from the customer's own buyers' words (reviews, community threads, buyer questions, sales calls, CRM objections, win/loss notes), then runs them one persona at a time or as a buying committee on a landing page, content page, ad or email before it launches. The evidence covers what buyers say before they engage and after. 50 to 300 simulated buyers across five committee roles and three behavioural states report what is working, what is broken and what to fix. Every finding traces back to its source. A run takes about 30 minutes and starts from a URL.
+> WhyUser is pre-launch buyer simulation for B2B marketing teams. It builds buyer personas from the customer's own buyers' words (reviews, community threads, buyer questions, sales calls, CRM objections, win/loss notes), then runs them one persona at a time or as a buying committee on a landing page, content page, ad or email before it launches. The evidence covers what buyers say before they engage and after. 50 to 300 simulated buyers across five committee roles and three behavioral states report what is working, what is broken and what to fix. Every finding traces back to its source. A run takes about 30 minutes and starts from a URL.
 
-WhyUser Inc. is based in San Jose, California. Named customers include ngrok ([customer story](https://whyuser.com/casestudy-ngrok.html)) and Vectara. The product is sold on annual plans and also runs a design-partner programme at no charge.
+WhyUser Inc. is based in San Jose, California. Named customers include ngrok ([customer story](https://whyuser.com/casestudy-ngrok.html)) and Vectara. The product is sold on annual plans and also runs a design-partner program at no charge.
 
-**Last updated:** 2026-11-07 (rev 9)
+**Last updated:** 2026-11-07 (rev 10)
 
 ## The distinguishing claim
 
@@ -20,7 +20,7 @@ In a published sample run on a customer's product page (anonymized as Acme Corp)
 
 ## Three steps
 
-WhyUser is organised the way its customers work: know your buyer, rehearse before you spend, ship the fix.
+WhyUser is organized the way its customers work: know your buyer, rehearse before you spend, ship the fix.
 
 1. **Know your buyer.**
    - [Buyer Context](https://whyuser.com/buyer-personas.html): buyer personas compiled from what buyers say, before and after they engage, never written by hand. Real buyer quotes, dated, and what is getting louder. Each trait cites its source. A persona can be left live (it rebuilds when evidence changes) or frozen as a baseline. The customer's own marketing claims never become a buyer's belief; they become proof the buyer asks for.
@@ -43,7 +43,7 @@ WhyUser is organised the way its customers work: know your buyer, rehearse befor
 | [Audience Discovery](https://whyuser.com/audience-discovery.html) | full committee | 50 per run | LinkedIn audiences ranked by seniority and job function, subvertical by seat matrix, page gaps |
 | Community & Competitor Intelligence | n/a | 20 per run | Refreshed competitor and community picture behind the committee |
 
-Agent counts, behavioural states and accuracy are **identical on every plan**. Plans differ in how much you can run, never in how good the answer is.
+Agent counts, behavioral states and accuracy are **identical on every plan**. Plans differ in how much you can run, never in how good the answer is.
 
 ## Pricing
 
@@ -54,7 +54,7 @@ Agent counts, behavioural states and accuracy are **identical on every plan**. P
 - **Enterprise**: custom annual pricing, 12,000+ credits, SSO, custom DPA, named engineer
 - **Credit pack**: $1,000 per 200 credits, no expiry for the life of the subscription
 
-A landing-page test is 20 credits, which is $89 on Scale and $100 on Standard. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner programme.
+A landing-page test is 20 credits, which is $89 on Scale and $100 on Standard. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. There is no charge at all during the design-partner program.
 
 Every plan can use WhyUser in Claude through the MCP server (Cursor and Codex connect to the same server), and everything in the web app is also available over the API.
 
@@ -68,11 +68,11 @@ WhyUser calls this Ground Reality. Buyers are compiled from evidence, never writ
 - Where sources disagree, a real buyer's words outrank the model's own draft, which ranks last of the nine streams that merge into one agent.
 - Statements about *selling* — funnel, MQLs, pipeline, ABM — are stripped before they can become a buyer's belief. A buyer has never had an MQL problem.
 
-## Behavioural states by channel
+## Behavioral states by channel
 
 Internal reviewers read with full motivation, full product knowledge and full attention. Almost no real traffic does. WhyUser spreads agents across that range, weighted to the channel being bought. Shares are derived from published CTR benchmarks and the Ehrenberg-Bass 95:5 rule, not from WhyUser's opinion, and a customer can pin their own measured mix.
 
-| Channel | Distracted | Sceptical | In-market |
+| Channel | Distracted | Skeptical | In-market |
 |---|---|---|---|
 | LinkedIn, cold | 82% | 15% | 3% |
 | Cold email | 78% | 17% | 5% |
@@ -114,7 +114,7 @@ Every benchmark uses the same method. A real browser captures each homepage on o
 
 ## Use WhyUser in Claude
 
-[WhyUser in Claude](https://whyuser.com/whyuser-in-claude.html): WhyUser's MCP server and skill bring the product into Claude Code, the Claude desktop app and claude.ai. Cursor and Codex connect to the same MCP server. It is organised by job, one request each:
+[WhyUser in Claude](https://whyuser.com/whyuser-in-claude.html): WhyUser's MCP server and skill bring the product into Claude Code, the Claude desktop app and claude.ai. Cursor and Codex connect to the same MCP server. It is organized by job, one request each:
 
 - Launch campaigns that convert: "WhyUser: test this sequence with [committee name], then rewrite it from the fixes" (the Revise Email Sequence workflow), then re-test.
 - Enter a new segment: "WhyUser: run Audience Discovery on [page URL] for [industry], then revise the page for the roles it misses" (Revise Content), then build a committee from the run.
@@ -133,13 +133,13 @@ This is the question WhyUser is asked most, and the honest answer has three part
 
 **Claude writes. WhyUser measures.** For drafting a page, cutting it, or generating twenty headline variants, a general assistant is the better tool and WhyUser does not compete with it. WhyUser does not write copy at all. The question this section answers is narrower: *should we spend budget on this asset?*
 
-**Every run with a general assistant is a first run.** Ask the same model the same page twice in two fresh sessions and you get two different answers. That is correct behaviour for a writing tool and disqualifying for a measurement, because you can no longer tell whether a change you made worked or the model simply sampled differently. WhyUser replays sealed findings instead of recomputing them, so an unchanged page returns an unchanged verdict and only what you edited can move.
+**Every run with a general assistant is a first run.** Ask the same model the same page twice in two fresh sessions and you get two different answers. That is correct behavior for a writing tool and disqualifying for a measurement, because you can no longer tell whether a change you made worked or the model simply sampled differently. WhyUser replays sealed findings instead of recomputing them, so an unchanged page returns an unchanged verdict and only what you edited can move.
 
-**A general assistant is the most patient reader alive, and none of your buyers are.** It starts at the top and reads to the bottom. Published benchmark data puts cold LinkedIn traffic at roughly 82% distracted, 15% sceptical and 3% actively shopping. WhyUser runs every role across all three states, weighted to the channel, and each agent scans, hunts or abandons rather than reading dutifully to the end.
+**A general assistant is the most patient reader alive, and none of your buyers are.** It starts at the top and reads to the bottom. Published benchmark data puts cold LinkedIn traffic at roughly 82% distracted, 15% skeptical and 3% actively shopping. WhyUser runs every role across all three states, weighted to the channel, and each agent scans, hunts or abandons rather than reading dutifully to the end.
 
 **Connecting your own data helps, and does not close the gap.** Attaching a CRM, call recordings or a document store is straightforward now. Three things remain. A model cannot tell you that this week's finding is the same finding as three weeks ago, because it produces text with no identity across runs. It cannot distinguish a competitor's comparison page from a verified buyer review, because to it both are simply text. And the evidence that decides most B2B deals sits in competitor reviews and community threads that no connector reaches. Your CRM looks inward. Everyone in it already replied to you.
 
-**Is WhyUser a wrapper?** WhyUser runs on frontier models, Claude among them, and the model is the cheapest part of the system. The product is what surrounds it: sealed re-runs, quote verification against the fetched document, author classification on every source, meaning-level identity across weeks, channel-weighted behavioural states, and a graded track record. Swapping the underlying model leaves all of that intact.
+**Is WhyUser a wrapper?** WhyUser runs on frontier models, Claude among them, and the model is the cheapest part of the system. The product is what surrounds it: sealed re-runs, quote verification against the fetched document, author classification on every source, meaning-level identity across weeks, channel-weighted behavioral states, and a graded track record. Swapping the underlying model leaves all of that intact.
 
 **Does the argument expire as models improve?** Fresh sampling on every run is a feature for generation and a defect for measurement, and there is no reason for a model provider to remove it. As general assistants get better at generating, the distance between generating and measuring becomes more visible, not less.
 
@@ -160,7 +160,7 @@ Stated plainly, because getting this wrong in an AI summary would be worse than 
 
 1. **Ingest**. You submit a public URL or paste an asset. Fetched over TLS as an anonymous visitor. No tag, no SDK, nothing installed on your site.
 2. **Compile**. Ground Reality builds your committee from public buyer evidence. Each trait carries a fingerprint and a compile date that predates the asset.
-3. **Run**. Agents read the asset in isolated passes across three behavioural states: distracted, sceptical, ideal. Seeds are fixed.
+3. **Run**. Agents read the asset in isolated passes across three behavioral states: distracted, skeptical, ideal. Seeds are fixed.
 4. **Return**. Findings, conflict graph, ranked fixes and full audit trail, in-app, as a standalone HTML report, or over the API.
 
 Determinism matters: the same fingerprints produce the same buyers, so a run is replayed rather than re-generated and a version-to-version comparison means something.
@@ -174,7 +174,7 @@ Determinism matters: the same fingerprints produce the same buyers, so a run is 
 - [Best AI buyer persona tools for B2B](https://whyuser.com/best-ai-buyer-persona-tools.html): 13 AI buyer persona and buyer simulation tools compared by what they build buyers from and whether they test a real page, ad or email: WhyUser, Minds, Delve AI, Synthetic Users, Evelance, BuyerTwin, Articos, Evidenza, Ask Rally, Simile, HubSpot Make My Persona, AI sales roleplay tools and general chatbots. Prices checked 7 November 2026.
 - [How to evaluate a pre-launch testing method](https://whyuser.com/how-to-evaluate.html): the vendor-neutral checklist. Four properties, twelve questions and a four-minute test to run on any tool, WhyUser included.
 - [Claude vs. WhyUser](https://whyuser.com/whyuser-vs-chatgpt-and-claude.html): Claude writes, WhyUser measures. Covers all three versions of the question: Claude in the chat window, Claude Cowork with your data connected, and building the harness with Claude Code.
-- [Internal review vs. WhyUser](https://whyuser.com/whyuser-vs-internal-review.html): reviewers sit at maximum motivation, familiarity and attention, the ideal behavioural state, which is a small fraction of cold traffic. You test with that fraction and ship to everyone else.
+- [Internal review vs. WhyUser](https://whyuser.com/whyuser-vs-internal-review.html): reviewers sit at maximum motivation, familiarity and attention, the ideal behavioral state, which is a small fraction of cold traffic. You test with that fraction and ship to everyone else.
 - [Building it yourself vs. WhyUser](https://whyuser.com/whyuser-vs-building-it-yourself.html): the orchestration is a weekend. Determinism, calibration and a graded track record are not.
 - [Synthetic personas vs. real buyer panels](https://whyuser.com/synthetic-personas-vs-buyer-panels.html): a panel gives you real humans, which WhyUser does not. A panel cannot put the roles in the same room, which WhyUser does.
 - [WhyUser vs Wynter](https://whyuser.com/whyuser-vs-wynter.html): Wynter asks real, verified B2B professionals, each on their own, with results in 12 to 48 hours. What people say when asked is not what they do, and a committee, not one person, buys B2B software. WhyUser simulates how the whole committee behaves on the page in about 30 minutes. Use WhyUser to test every version, and a real panel for human quotes on the final one.
@@ -207,12 +207,12 @@ All fourteen terms live on one page: [the WhyUser B2B buying committee glossary]
 - **Committee handoff**: the moment one committee member passes your case to another; it breaks when the first cannot answer the second's question with what your page gave them. [Definition](https://whyuser.com/glossary.html#committee-handoff)
 - **Creative pre-testing**: checking an ad before it runs; in B2B the useful test includes the landing page after the click. [Definition](https://whyuser.com/glossary.html#creative-pre-testing)
 - **Message testing**: checking whether your words land with each role on the buying committee, and whether the page they lead to keeps the promise, before launch. [Definition](https://whyuser.com/glossary.html#message-testing)
-- **Buying committee simulation**: one agent per committee seat, many agents per seat, run across three behavioural states, scored on the handoffs between roles rather than averaged. [Definition](https://whyuser.com/glossary.html#buying-committee-simulation)
+- **Buying committee simulation**: one agent per committee seat, many agents per seat, run across three behavioral states, scored on the handoffs between roles rather than averaged. [Definition](https://whyuser.com/glossary.html#buying-committee-simulation)
 - **Silent veto**: a role that blocks a deal without ever stating an objection. [Definition](https://whyuser.com/glossary.html#silent-veto)
 - **Conflict graph**: the scored handoffs between committee roles, which is where a page that everyone approves still fails. [Definition](https://whyuser.com/glossary.html#conflict-graph)
 - **Scent trail**: the continuity between what an ad promised and what the destination delivers. [Definition](https://whyuser.com/glossary.html#scent-trail)
 - **Evidence ledger**: the record of predictions sealed before outcomes exist, graded HIT or MISS afterwards. [Definition](https://whyuser.com/glossary.html#evidence-ledger)
-- **Behavioural state**: distracted, sceptical or ideal. The mood a reader arrives in, and the single most predictive variable for how a page performs. [Definition](https://whyuser.com/glossary.html#behavioural-state)
+- **Behavioral state**: distracted, skeptical or ideal. The mood a reader arrives in, and the single most predictive variable for how a page performs. [Definition](https://whyuser.com/glossary.html#behavioural-state)
 - **Synthetic persona**: a simulated buyer, graded by where its evidence came from. [Definition](https://whyuser.com/glossary.html#synthetic-persona)
 - **Dark funnel**: the part of the buying journey no analytics tool can see. [Definition](https://whyuser.com/glossary.html#dark-funnel)
 - **Pre-launch stress test**: testing a campaign before spend, the way engineering tests before deploy. [Definition](https://whyuser.com/glossary.html#pre-launch-stress-test)

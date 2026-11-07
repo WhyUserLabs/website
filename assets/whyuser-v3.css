@@ -264,13 +264,17 @@
 @media(min-width:1200px){.v3-get-items.c4{grid-template-columns:repeat(4,minmax(0,1fr))}}
 /* Each product: a small inline picture of its output, then the words. No boxes. */
 .v3-get-items{gap:1.5rem 2.25rem}
-.v3-get-item{display:flex;flex-direction:column;gap:.25rem;min-width:0;text-decoration:none}
-.v3-get-item:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:6px}
+.v3-get-item{display:flex;flex-direction:column;gap:.25rem;min-width:0;text-decoration:none;margin:-.75rem;padding:.75rem;border-radius:14px;transition:background-color .15s ease;-webkit-tap-highlight-color:transparent}
+.v3-get-item:hover,.v3-get-item:active{background:rgba(109,40,217,.05)}
+.v3-get-item:focus-visible{outline:2px solid var(--brand);outline-offset:0}
 .v3-get-item>b,.v3-get-item .gv-txt>b{font-size:1rem;font-weight:650;color:var(--ink);margin-top:.7rem;transition:color .15s ease}
+.v3-get-item>b::after,.v3-get-item .gv-txt>b::after{content:"\2192";display:inline-block;margin-left:.4rem;color:var(--faint,#a1a1aa);font-weight:500;transition:transform .15s ease,color .15s ease}
+.v3-get-item:hover b::after,.v3-get-item:focus-visible b::after{color:var(--brand);transform:translateX(3px)}
 .v3-get-item:hover b{color:var(--brand)}
 .v3-get-item>span,.v3-get-item .gv-txt>span{font-size:.875rem;line-height:1.5;color:var(--mute)}
 .v3-get-item .t{font-weight:500;color:var(--ink-soft)}
 .v3-get-item .o{font-family:'Geist Mono',monospace;font-size:11px;line-height:1.5;color:var(--brand);margin-top:.3rem}
+@media(prefers-reduced-motion:reduce){.v3-get-item b::after{transition:none}}
 .v3-gv{display:flex;align-items:center;justify-content:flex-start;gap:.4rem;min-height:3.25rem}
 .v3-get-items.c2 .v3-gv{min-height:5.6rem;align-items:flex-start}
 .v3-get-items.c4 .v3-gv{height:3.4rem;min-height:0;flex-wrap:wrap;align-content:flex-start;align-items:center}
@@ -334,10 +338,10 @@
 @media(min-width:900px){.v3-get-k::after{content:"";position:absolute;right:-1.25rem;top:12%;bottom:12%;width:1px;background:var(--rule-strong,rgba(9,9,11,.15))}}
 @media(min-width:700px){
   .v3-get-items.c2>.v3-get-item:nth-child(2)::before,
-  .v3-get-items.c4>.v3-get-item:nth-child(2n)::before{content:"";position:absolute;left:-1.125rem;top:12%;bottom:12%;width:1px;background:var(--rule)}
+  .v3-get-items.c4>.v3-get-item:nth-child(2n)::before{content:"";position:absolute;left:-.375rem;top:12%;bottom:12%;width:1px;background:var(--rule)}
 }
 @media(min-width:1200px){
-  .v3-get-items.c4>.v3-get-item:nth-child(3)::before{content:"";position:absolute;left:-1.125rem;top:12%;bottom:12%;width:1px;background:var(--rule)}
+  .v3-get-items.c4>.v3-get-item:nth-child(3)::before{content:"";position:absolute;left:-.375rem;top:12%;bottom:12%;width:1px;background:var(--rule)}
 }
 
 /* ── Small headings, trust titles, the trade, the kicker ────────────── */

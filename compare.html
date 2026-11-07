@@ -24,10 +24,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="color-scheme" content="dark">
 <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-08-12T00:00:00+00:00">
-<meta property="article:modified_time" content="2026-08-29T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-11-06T00:00:00+00:00">
 
 <title>Compare WhyUser: ChatGPT, internal review, buyer panels and A/B testing</title>
-<meta name="description" content="Honest comparisons of WhyUser against general AI assistants, internal review, buyer panels and A/B testing. What each method answers, where WhyUser is the wrong tool, and the order that costs least.">
+<meta name="description" content="Honest comparisons of WhyUser with Wynter, Synthetic Users, Delve AI, ChatGPT and Claude, internal review, buyer panels and A/B tests. What each is best at, including the rows WhyUser loses.">
 <link rel="canonical" href="https://whyuser.com/compare.html">
 
 <meta property="og:type" content="article">
@@ -66,13 +66,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "CollectionPage",
       "@id": "https://whyuser.com/compare.html#hub",
       "name": "Compare WhyUser",
-      "description": "Honest comparisons of WhyUser against general AI assistants, internal review, buyer panels and A/B testing.",
+      "description": "Honest comparisons of WhyUser against Wynter, Synthetic Users, Delve AI, general AI assistants, internal review, buyer panels and A/B testing.",
       "url": "https://whyuser.com/compare.html",
       "hasPart": [
         {
           "@type": "Article",
+          "@id": "https://whyuser.com/whyuser-vs-delve-ai.html#article",
+          "headline": "WhyUser vs Delve AI",
+          "url": "https://whyuser.com/whyuser-vs-delve-ai.html"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://whyuser.com/whyuser-vs-synthetic-users.html#article",
+          "headline": "WhyUser vs Synthetic Users",
+          "url": "https://whyuser.com/whyuser-vs-synthetic-users.html"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://whyuser.com/whyuser-vs-wynter.html#article",
+          "headline": "WhyUser vs Wynter",
+          "url": "https://whyuser.com/whyuser-vs-wynter.html"
+        },
+        {
+          "@type": "Article",
           "@id": "https://whyuser.com/whyuser-vs-chatgpt-and-claude.html#article",
-          "headline": "Can you just use ChatGPT or Claude to review your landing page?",
+          "headline": "Buyer simulation tools vs ChatGPT and Claude: what is the difference?",
           "url": "https://whyuser.com/whyuser-vs-chatgpt-and-claude.html"
         },
         {
@@ -94,7 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "url": "https://whyuser.com/synthetic-personas-vs-buyer-panels.html"
         }
       ],
-      "dateModified": "2026-08-29",
+      "dateModified": "2026-11-06",
       "datePublished": "2026-08-12",
       "inLanguage": "en"
     },
@@ -169,39 +187,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 <!-- WHYUSER:NAV:START -->
-<!-- ═══════════════════════════════════════════════════════════════════
-     WHYUSER GLOBAL NAV  ·  v2
-     Replaces the old site-nav block (nav.nav#site-nav) on
-     EVERY page. Paste directly after the opening body tag, before the
-     first header or main element.
-
-     WHY THIS SHAPE
-     Your own committee simulation of whyuser.com (EXP AN-90670518)
-     returned five ranked fixes. Three of them are nav fixes:
-       fix 2 — add a first-class technical/Docs entry     (closes B3, B2)
-       fix 4 — collapse to 4–6 scannable buckets          (closes B2)
-       fix 5 — surface Security and Pricing in the nav    (closes B5, B2)
-     This block closes all three. It is 5 buckets, down from the old
-     ~15 top-level links, and every label is a noun a buyer scans for.
-
-     COMPATIBILITY
-     Uses the exact class names already in your stylesheet
-     (.nav / .nav-dd / .nav-dd-trigger / .nav-dd-panel / .nav-dd-item /
-      .nav-dd-name / .nav-dd-desc / .nav-mobile / .nav-m-*).
-     Your existing nav script iterates every `.nav-dd` and reads the
-     `.nav-dd-trigger` inside it, so five dropdowns work with ZERO
-     JavaScript changes.
-
-     PATHS
-     Every page now sits at the site ROOT. glossary/ and compare/ were
-     both flattened, so no href needs a ../ prefix any more. 301 rules
-     for the retired URLs live in vercel.json and netlify.toml.
-
-     OPTIONAL
-     • The "Log in" link assumes app.whyuser.com. Delete the <a> if the
-       app is not public yet — but keep the slot, because the committee
-       read repeated "Request Access" as a dead end (finding B4).
-     ═══════════════════════════════════════════════════════════════════ -->
+<!-- WHYUSER GLOBAL NAV · v3 (2026-11-06)
+     Product follows the three steps on the one-pager and first-call deck:
+     Know your buyer · Rehearse the launch · Ship the fix. Labels changed,
+     file names did not, so every existing URL keeps its rankings.
+     Same class names as v2, so the nav script needs no change. -->
 <nav class="nav" id="site-nav">
     <div class="wrap nav-inner">
         <a href="./" class="nav-brand">
@@ -210,11 +200,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </a>
 
         <div class="nav-links">
-
-            <!-- 1 · PRODUCT ─────────────────────────────────────────
-                 Labels lead with the job people search for. The engine
-                 name moves into the description so you keep the brand
-                 vocabulary without charging admission for it. -->
             <div class="nav-dd" id="nav-dd-product">
                 <button type="button" class="nav-dd-trigger" id="nav-dd-product-trigger"
                         aria-expanded="false" aria-controls="nav-dd-product-panel" aria-haspopup="true">
@@ -222,179 +207,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
-                    <span class="nav-dd-label">Test before you spend</span>
+                    <span class="nav-dd-label">Know your buyer</span>
+                    <a href="buyer-personas.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-id-card" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Buyer Context</span>
+                            <span class="nav-dd-desc">Personas from real buyer quotes, dated.</span>
+                        </span>
+                    </a>
+                    <a href="buyer-questions.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Buyer Questions</span>
+                            <span class="nav-dd-desc">What they ask, and if you answer.</span>
+                        </span>
+                    </a>
+                    <span class="nav-dd-label">Rehearse before you spend</span>
                     <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Landing Page Testing</span>
-                            <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
+                            <span class="nav-dd-name">Pages &amp; Content</span>
+                            <span class="nav-dd-desc">Who stalls on your page, and who blocks whom.</span>
                         </span>
                     </a>
                     <a href="ad-campaign-simulation.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Ad Campaign Testing</span>
-                            <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
+                            <span class="nav-dd-name">Ad Funnels</span>
+                            <span class="nav-dd-desc">LinkedIn and Google ads, feed to page.</span>
                         </span>
                     </a>
                     <a href="email-campaign-simulation.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Email Sequence Testing</span>
-                            <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
+                            <span class="nav-dd-name">Email Sequences</span>
+                            <span class="nav-dd-desc">Up to five emails, read in order.</span>
                         </span>
                     </a>
                     <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Audience Research</span>
-                            <span class="nav-dd-desc">The job titles your content actually fits.</span>
+                            <span class="nav-dd-name">Audience Discovery</span>
+                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
-                </div>
-            </div>
-
-            <!-- 2 · USE IN CLAUDE ─────────────────────────────────────
-                 Organised by job, not by tool. Every job links to its card on
-                 whyuser-in-claude.html. Added 27 Oct 2026. -->
-            <div class="nav-dd" id="nav-dd-claude">
-                <button type="button" class="nav-dd-trigger" id="nav-dd-claude-trigger"
-                        aria-expanded="false" aria-controls="nav-dd-claude-panel" aria-haspopup="true">
-                    Use in Claude
-                    <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
-                </button>
-                <div class="nav-dd-panel" id="nav-dd-claude-panel" role="menu" aria-labelledby="nav-dd-claude-trigger">
-                    <span class="nav-dd-label">Jobs</span>
-                    <a href="whyuser-in-claude.html#launch" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span>
+                    <span class="nav-dd-label">Ship the fix</span>
+                    <a href="workflows.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Launch campaigns that convert</span>
-                            <span class="nav-dd-desc">Test, rewrite and re-test a sequence.</span>
+                            <span class="nav-dd-name">Workflows &amp; MCP</span>
+                            <span class="nav-dd-desc">In Claude, Cursor or Codex.</span>
                         </span>
                     </a>
-                    <a href="whyuser-in-claude.html#segment" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Enter a new segment</span>
-                            <span class="nav-dd-desc">New roles to a tested committee.</span>
-                        </span>
-                    </a>
-                    <a href="whyuser-in-claude.html#messaging" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Write messaging buyers believe</span>
-                            <span class="nav-dd-desc">Per persona. Every line sourced.</span>
-                        </span>
-                    </a>
-                    <a href="whyuser-in-claude.html#page" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Fix a page. Prove it landed.</span>
-                            <span class="nav-dd-desc">Tickets, then a re-test.</span>
-                        </span>
-                    </a>
-                    <a href="whyuser-in-claude.html#buyers" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-wave-square" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Track what buyers say</span>
-                            <span class="nav-dd-desc">What changed, and since when.</span>
-                        </span>
-                    </a>
-                    <a href="whyuser-in-claude.html#team" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-chess-knight" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Run the team on evidence</span>
-                            <span class="nav-dd-desc">Patterns across every run.</span>
-                        </span>
-                    </a>
-                    <span class="nav-dd-label">Get started</span>
-                    <a href="whyuser-in-claude.html#controls" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-user-lock" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Team controls</span>
-                            <span class="nav-dd-desc">Access and a credit cap per person.</span>
-                        </span>
-                    </a>
-                    <a href="docs/connect-claude.html" class="nav-dd-item" role="menuitem">
+                    <a href="whyuser-in-claude.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-plug" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Set up in 5 minutes</span>
-                            <span class="nav-dd-desc">Claude Code, the desktop app and claude.ai.</span>
+                            <span class="nav-dd-name">Use in Claude</span>
+                            <span class="nav-dd-desc">Set up in 5 minutes.</span>
                         </span>
                     </a>
                 </div>
             </div>
-
-            <!-- 3 · PRICING ──────────────────────────────────────────
-                 First-class, per fix 5. Was previously nowhere on the
-                 site: the Economic Buyer looked for it and did not
-                 find a model. -->
-            <a href="pricing.html">Pricing</a>
-
-            <!-- 4 · WHY WHYUSER ─────────────────────────────────────
-                 Was "Proof", which is a defensive label nobody scans
-                 for. Now also carries the technical material.
-
-                 WHY THERE IS NO "DEVELOPERS" BUCKET
-                 Your own run flagged B3 at HIGH severity: the Technical
-                 Decision Maker could not find a Developers or Docs link
-                 and the End User → TDM handoff snapped. The obvious fix
-                 was a top-level Developers item.
-
-                 But the TDM is not who you sell to. The ICP is demand
-                 gen, growth marketing and heads of marketing, and a
-                 marketer scanning a five-item nav reads "Developers" as
-                 "this is a dev tool, not for me" — which costs more at
-                 the top of the funnel than it recovers deeper in.
-
-                 So the material stays, one click from the same place,
-                 under a label written for the champion who has to
-                 forward it rather than the engineer who reads it. The
-                 champion is the one doing the finding; the TDM only
-                 needs to receive the link. -->
-            <div class="nav-dd" id="nav-dd-why">
-                <button type="button" class="nav-dd-trigger" id="nav-dd-why-trigger"
-                        aria-expanded="false" aria-controls="nav-dd-why-panel" aria-haspopup="true">
-                    Why WhyUser
+            <div class="nav-dd" id="nav-dd-proof">
+                <button type="button" class="nav-dd-trigger" id="nav-dd-proof-trigger"
+                        aria-expanded="false" aria-controls="nav-dd-proof-panel" aria-haspopup="true">
+                    Proof
                     <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
                 </button>
-                <div class="nav-dd-panel" id="nav-dd-why-panel" role="menu" aria-labelledby="nav-dd-why-trigger">
-                    <span class="nav-dd-label">Evidence, not opinion</span>
+                <div class="nav-dd-panel" id="nav-dd-proof-panel" role="menu" aria-labelledby="nav-dd-proof-trigger">
+                    <span class="nav-dd-label">Evidence</span>
+                    <a href="accuracy.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Accuracy</span>
+                            <span class="nav-dd-desc">473 sealed claims, 84% held up. Graded by you.</span>
+                        </span>
+                    </a>
                     <a href="casestudy-ngrok.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Customer Story: ngrok</span>
-                            <span class="nav-dd-desc">A missing buyer role and a HIPAA blocker, found before launch.</span>
+                            <span class="nav-dd-desc">A missing buyer role and a HIPAA blocker.</span>
                         </span>
                     </a>
+                    <a href="sample-report.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Sample Reports</span>
+                            <span class="nav-dd-desc">Real runs, unedited. No login.</span>
+                        </span>
+                    </a>
+                    <span class="nav-dd-label">Compare</span>
                     <a href="compare.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Compare</span>
-                            <span class="nav-dd-desc">Next to panels, chatbots, internal review and A/B.</span>
+                            <span class="nav-dd-name">All comparisons</span>
+                            <span class="nav-dd-desc">Tools and methods, side by side.</span>
+                        </span>
+                    </a>
+                    <a href="whyuser-vs-wynter.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">WhyUser vs Wynter</span>
+                            <span class="nav-dd-desc">Real panels or a simulated committee.</span>
                         </span>
                     </a>
                     <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-code-compare" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Claude vs WhyUser</span>
-                            <span class="nav-dd-desc">Where Claude helps, and where it cannot decide.</span>
-                        </span>
-                    </a>
-                    <a href="about.html#why" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Why We Built This</span>
-                            <span class="nav-dd-desc">Marketing is the last function testing in production.</span>
+                            <span class="nav-dd-name">vs ChatGPT and Claude</span>
+                            <span class="nav-dd-desc">Where a chatbot helps, and where it cannot.</span>
                         </span>
                     </a>
                 </div>
             </div>
-
-            <!-- 5 · RESOURCES ───────────────────────────────────────
-                 The old "Company" junk drawer, renamed to what it
-                 actually holds. Manifesto and Glossary keep their SEO
-                 value without taxing the main scan path. -->
+            <a href="pricing.html">Pricing</a>
             <div class="nav-dd" id="nav-dd-res">
                 <button type="button" class="nav-dd-trigger" id="nav-dd-res-trigger"
                         aria-expanded="false" aria-controls="nav-dd-res-panel" aria-haspopup="true">
@@ -402,107 +329,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <i class="fa-solid fa-chevron-down nav-dd-caret" aria-hidden="true"></i>
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-res-panel" role="menu" aria-labelledby="nav-dd-res-trigger">
-                    <span class="nav-dd-label">Benchmarks</span>
+                    <span class="nav-dd-label">Learn</span>
                     <a href="benchmarks/" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">All Benchmarks</span>
-                            <span class="nav-dd-desc">Every category we have measured, and how.</span>
-                        </span>
-                    </a>
-                    <span class="nav-dd-label">Buyer&rsquo;s Guide</span>
-                    <a href="accuracy.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Accuracy</span>
-                            <span class="nav-dd-desc">473 sealed claims. 84% hit rate. Graded by you.</span>
-                        </span>
-                    </a>
-                    <a href="how-to-evaluate.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">How to Evaluate It</span>
-                            <span class="nav-dd-desc">The test to run before you buy anything here.</span>
-                        </span>
-                    </a>
-                    <a href="roi.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-calculator" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">ROI Calculator</span>
-                            <span class="nav-dd-desc">Build the one-page business case for your CFO.</span>
-                        </span>
-                    </a>
-                    <a href="faq.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">FAQ</span>
-                            <span class="nav-dd-desc">Accuracy, data, pricing, and what we will not do.</span>
-                        </span>
-                    </a>
-                    <a href="sample-report.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Sample Reports</span>
-                            <span class="nav-dd-desc">Four real runs, unedited. No login.</span>
+                            <span class="nav-dd-name">Benchmarks</span>
+                            <span class="nav-dd-desc">Every category we have measured.</span>
                         </span>
                     </a>
                     <a href="glossary.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Glossary</span>
-                            <span class="nav-dd-desc">Plain definitions for every term we use.</span>
+                            <span class="nav-dd-desc">Plain definitions for every term.</span>
                         </span>
                     </a>
-                    <span class="nav-dd-label">Docs</span>
+                    <a href="faq.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">FAQ</span>
+                            <span class="nav-dd-desc">Accuracy, data, pricing, limits.</span>
+                        </span>
+                    </a>
+                    <a href="how-to-evaluate.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-flag" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">How to Evaluate It</span>
+                            <span class="nav-dd-desc">The test to run before you buy.</span>
+                        </span>
+                    </a>
+                    <a href="roi.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-calculator" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">ROI Calculator</span>
+                            <span class="nav-dd-desc">The one-page case for your CFO.</span>
+                        </span>
+                    </a>
+                    <a href="about.html#why" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Why We Built This</span>
+                            <span class="nav-dd-desc">Marketing still tests in production.</span>
+                        </span>
+                    </a>
+                    <span class="nav-dd-label">Docs &amp; security</span>
                     <a href="docs/connect-claude.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-plug" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Connect to Claude</span>
-                            <span class="nav-dd-desc">Claude Code, the desktop app and claude.ai.</span>
+                            <span class="nav-dd-desc">Claude Code, desktop app, claude.ai.</span>
                         </span>
                     </a>
-                    <span class="nav-dd-label">Security</span>
                     <a href="developers.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></span>
                         <span>
                             <span class="nav-dd-name">Architecture &amp; Data Flow</span>
-                            <span class="nav-dd-desc">What we read, what we never touch, where it runs.</span>
+                            <span class="nav-dd-desc">What we read and never touch.</span>
                         </span>
                     </a>
                     <a href="security.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Security</span>
-                            <span class="nav-dd-desc">Encryption, retention, sub-processors.</span>
-                        </span>
-                    </a>
-                    <a href="dpa.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">DPA</span>
-                            <span class="nav-dd-desc">Data processing agreement, ready to sign.</span>
-                        </span>
-                    </a>
-                    <a href="privacy.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Privacy</span>
-                            <span class="nav-dd-desc">What we collect, and what we never keep.</span>
+                            <span class="nav-dd-name">Security &amp; DPA</span>
+                            <span class="nav-dd-desc">Encryption, retention, the DPA.</span>
                         </span>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- CTA ROW ─────────────────────────────────────────────────
-             Fix 1: one primary, one secondary. The old bar had "ROI"
-             and "Request Access" and the page repeated "Request Access"
-             a further four times. The committee clicked 45 of 50 times
-             and submitted zero. They did not need another ask; they
-             needed something to look at. -->
         <div class="nav-cta-row">
-            <a href="https://app.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
-            <a href="./#access" class="btn btn-primary">Request access</a>
+            <a href="https://beta.whyuser.com/login" class="btn btn-ghost nav-roi">Log in</a>
+            <a href="./#access" class="btn btn-primary">Become a design partner</a>
             <button type="button" class="nav-burger" id="nav-burger"
                     aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
                 <span></span><span></span><span></span>
@@ -510,79 +408,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </div>
 
-    <!-- MOBILE / TABLET ───────────────────────────────────────────── -->
     <div class="nav-mobile" id="nav-mobile">
         <div class="nav-mobile-inner">
-            <span class="nav-m-label">Product</span>
-            <a href="committee-simulation.html" class="nav-m-eng">
-                <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
-                <span>
-                    <span class="nav-dd-name">Landing Page Testing</span>
-                    <span class="nav-dd-desc">Committee Simulation &middot; which role kills the page.</span>
-                </span>
-            </a>
-            <a href="ad-campaign-simulation.html" class="nav-m-eng">
-                <span class="nav-dd-ico"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
-                <span>
-                    <span class="nav-dd-name">Ad Campaign Testing</span>
-                    <span class="nav-dd-desc">The ad-to-page gap, caught before you spend.</span>
-                </span>
-            </a>
-            <a href="email-campaign-simulation.html" class="nav-m-eng">
-                <span class="nav-dd-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-                <span>
-                    <span class="nav-dd-name">Email Sequence Testing</span>
-                    <span class="nav-dd-desc">The subject and CTA that win for each role.</span>
-                </span>
-            </a>
-            <a href="audience-discovery.html" class="nav-m-eng">
-                <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                <span>
-                    <span class="nav-dd-name">Audience Research</span>
-                    <span class="nav-dd-desc">The job titles your content actually fits.</span>
-                </span>
-            </a>
-
             <div class="nav-m-group">
-                <span class="nav-m-label">Use in Claude</span>
-                <a href="whyuser-in-claude.html#jobs" class="nav-m-link">Jobs</a>
-                <a href="whyuser-in-claude.html#controls" class="nav-m-link">Team controls</a>
-                <a href="docs/connect-claude.html" class="nav-m-link">Set up in 5 minutes</a>
+                <span class="nav-m-label">Know your buyer</span>
+                <a href="buyer-personas.html" class="nav-m-link">Buyer Context</a>
+                <a href="buyer-questions.html" class="nav-m-link">Buyer Questions</a>
             </div>
-
+            <div class="nav-m-group">
+                <span class="nav-m-label">Rehearse before you spend</span>
+                <a href="committee-simulation.html" class="nav-m-link">Pages &amp; Content</a>
+                <a href="ad-campaign-simulation.html" class="nav-m-link">Ad Funnels</a>
+                <a href="email-campaign-simulation.html" class="nav-m-link">Email Sequences</a>
+                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
+            </div>
+            <div class="nav-m-group">
+                <span class="nav-m-label">Ship the fix</span>
+                <a href="workflows.html" class="nav-m-link">Workflows &amp; MCP</a>
+                <a href="whyuser-in-claude.html" class="nav-m-link">Use in Claude</a>
+            </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Pricing</span>
                 <a href="pricing.html" class="nav-m-link">Plans &amp; credits</a>
             </div>
-
             <div class="nav-m-group">
-                <span class="nav-m-label">Why WhyUser</span>
-                
+                <span class="nav-m-label">Proof</span>
+                <span class="nav-m-label">Evidence</span>
+                <a href="accuracy.html" class="nav-m-link">Accuracy</a>
                 <a href="casestudy-ngrok.html" class="nav-m-link">Customer Story: ngrok</a>
-                <a href="compare.html" class="nav-m-link">Compare</a>
-                <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">Claude vs WhyUser</a>
-                <a href="about.html#why" class="nav-m-link">Why We Built This</a>
-                </div>
-
+                <a href="sample-report.html" class="nav-m-link">Sample Reports</a>
+                <span class="nav-m-label">Compare</span>
+                <a href="compare.html" class="nav-m-link">All comparisons</a>
+                <a href="whyuser-vs-wynter.html" class="nav-m-link">WhyUser vs Wynter</a>
+                <a href="whyuser-vs-chatgpt-and-claude.html" class="nav-m-link">vs ChatGPT and Claude</a>
+            </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Resources</span>
-                
-                <a href="benchmarks/" class="nav-m-link">All Benchmarks</a>
-                <a href="accuracy.html" class="nav-m-link">Accuracy</a>
+                <span class="nav-m-label">Learn</span>
+                <a href="benchmarks/" class="nav-m-link">Benchmarks</a>
+                <a href="glossary.html" class="nav-m-link">Glossary</a>
+                <a href="faq.html" class="nav-m-link">FAQ</a>
                 <a href="how-to-evaluate.html" class="nav-m-link">How to Evaluate It</a>
                 <a href="roi.html" class="nav-m-link">ROI Calculator</a>
-                <a href="faq.html" class="nav-m-link">FAQ</a>
-                <a href="sample-report.html" class="nav-m-link">Sample Reports</a>
-                <a href="glossary.html" class="nav-m-link">Glossary</a>
-                <span class="nav-m-label">Docs</span>
+                <a href="about.html#why" class="nav-m-link">Why We Built This</a>
+                <span class="nav-m-label">Docs &amp; security</span>
                 <a href="docs/connect-claude.html" class="nav-m-link">Connect to Claude</a>
-                <span class="nav-m-label">Security</span>
                 <a href="developers.html" class="nav-m-link">Architecture &amp; Data Flow</a>
-                <a href="security.html" class="nav-m-link">Security</a>
-                <a href="dpa.html" class="nav-m-link">DPA</a>
-                <a href="privacy.html" class="nav-m-link">Privacy</a>
+                <a href="security.html" class="nav-m-link">Security &amp; DPA</a>
+            </div>
             <div class="nav-m-ctas">
-                <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
+                <a href="./#access" class="btn btn-primary btn-lg">Become a design partner</a>
                 <a href="sample-report.html" class="btn btn-ghost btn-lg">See sample reports</a>
             </div>
         </div>
@@ -677,7 +552,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="wrap">
     <nav class="lp-crumb" aria-label="Breadcrumb"><a href="./">WhyUser</a> / Compare</nav>
     <h1 class="lp-h1">Six ways to pressure-test<br>a B2B campaign.</h1>
-    <p class="lp-sub">WhyUser is one of them, and it does not win every row. Here is what each method is best at.</p>
+    <p class="lp-sub">WhyUser is one of them, and it does not win every row. Here is what each method and each named tool is best at.</p>
     <div class="lp-ctas">
       <a href="./#access" class="btn btn-primary btn-lg">Request access</a>
       <a href="how-to-evaluate.html" class="btn btn-ghost btn-lg">How to evaluate a method</a>
@@ -690,6 +565,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="lp-cell"><span class="lp-k">Internal review</span><div class="lp-v">~2 weeks</div><p>On-brand, legal and typo-free. Not why a stranger leaves.</p></div>
   <div class="lp-cell"><span class="lp-k">A/B test</span><div class="lp-v">4 to 6 weeks</div><p>What actually happened, after the budget is spent.</p></div>
 </div></div>
+
+<section class="lp-sec" id="tools">
+  <div class="wrap">
+    <span class="lp-eyebrow">Named tools</span>
+    <h2 class="lp-h2">WhyUser next to the tools buyers shortlist.</h2>
+    <p class="lp-lead">Each page shows what the other tool does better, with every claim linked to its own site.</p>
+    <div class="lp-cards c3">
+      <a class="lp-card" href="whyuser-vs-wynter.html" style="text-decoration:none;color:inherit"><div class="lp-card-k">Real buyer panels</div><h3>WhyUser vs Wynter</h3><p>What people say versus how a committee behaves. Real voices, or every version tested first.</p></a>
+      <a class="lp-card" href="whyuser-vs-synthetic-users.html" style="text-decoration:none;color:inherit"><div class="lp-card-k">AI user interviews</div><h3>WhyUser vs Synthetic Users</h3><p>Interviews with one AI user at a time, or the whole buying committee on your page.</p></a>
+      <a class="lp-card" href="whyuser-vs-delve-ai.html" style="text-decoration:none;color:inherit"><div class="lp-card-k">Persona generators</div><h3>WhyUser vs Delve AI</h3><p>Personas from your CRM and analytics, or a committee that tests your launch.</p></a>
+    </div>
+  </div>
+</section>
 
 <section class="lp-sec">
   <div class="wrap">
@@ -767,26 +655,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </main>
 
 <!-- WHYUSER:FOOTER:START -->
-<!-- ═══════════════════════════════════════════════════════════════════
-     WHYUSER GLOBAL FOOTER  ·  v2
-     Replaces the old site footer block (footer.footer) on every page.
-
-     WHAT CHANGED AND WHY
-     1. Numbers reconciled. The old site shipped TWO different headline
-        proof numbers: "473 claims graded, 84% accurate" on the root
-        pages and "473 claims graded, 84% accurate" in the glossary
-        footer. Two numbers for the same claim reads worse than no
-        number. Everything is now 473 / 84%.
-     2. "Engines" → "Product", with plain-language labels first.
-     3. "Proof" → "Why WhyUser". Same reason as the nav.
-     4. New Pricing and Developers columns. Your Economic Buyer and
-        Security Guardian both reached the footer looking for exactly
-        these; Security and DPA in the footer was one of only four
-        things the run marked as WORKING (finding W3). Keep it, and
-        give it company.
-     5. Sample report added. It is the artifact the committee said it
-        needed to forward internally (finding B1).
-     ═══════════════════════════════════════════════════════════════════ -->
+<!-- WHYUSER GLOBAL FOOTER · v3 (2026-11-06). Mirrors the nav. -->
 <footer class="footer">
     <div class="wrap">
         <div class="footer-grid">
@@ -795,44 +664,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <span class="nav-mark"><img src="images/whyuser-dog-badge.png" alt=""></span>
                     <span class="footer-brand-name">Why<span class="wu-wordmark-user">User</span> Inc.</span>
                 </div>
-                <p class="footer-tagline">WhyUser is the pre-launch test for B2B campaigns. See how your buying committee reacts to an ad, email, or landing page before you spend the budget. Every finding is sourced to real buyer evidence.</p>
+                <p class="footer-tagline">WhyUser is pre-launch buyer simulation for B2B marketing. Know your buyer, rehearse the launch with your buying committee, and ship the fix before you spend. Every finding cites a buyer.</p>
             </div>
 
             <div><h4>Product</h4><ul>
-                <li><a href="committee-simulation.html">Landing Page Testing</a></li>
-                <li><a href="ad-campaign-simulation.html">Ad Campaign Testing</a></li>
-                <li><a href="email-campaign-simulation.html">Email Sequence Testing</a></li>
-                <li><a href="audience-discovery.html">Audience Research</a></li>
+                <li><a href="buyer-personas.html">Buyer Context</a></li>
+                <li><a href="buyer-questions.html">Buyer Questions</a></li>
+                <li><a href="committee-simulation.html">Pages &amp; Content</a></li>
+                <li><a href="ad-campaign-simulation.html">Ad Funnels</a></li>
+                <li><a href="email-campaign-simulation.html">Email Sequences</a></li>
+                <li><a href="audience-discovery.html">Audience Discovery</a></li>
+                <li><a href="workflows.html">Workflows &amp; MCP</a></li>
                 <li><a href="whyuser-in-claude.html">Use in Claude</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
             </ul></div>
 
-            <div><h4>Why WhyUser</h4><ul>
-     <li><a href="casestudy-ngrok.html">Customer Story: ngrok</a></li>
-     <li><a href="compare.html">Compare</a></li>
-     <li><a href="whyuser-vs-chatgpt-and-claude.html">Claude vs WhyUser</a></li>
-     <li><a href="about.html#why">Why We Built This</a></li>
-    </ul></div>
+            <div><h4>Proof</h4><ul>
+                <li><a href="accuracy.html">Accuracy</a></li>
+                <li><a href="casestudy-ngrok.html">Customer Story: ngrok</a></li>
+                <li><a href="sample-report.html">Sample Reports</a></li>
+                <li><a href="compare.html">All comparisons</a></li>
+                <li><a href="whyuser-vs-wynter.html">WhyUser vs Wynter</a></li>
+                <li><a href="whyuser-vs-synthetic-users.html">WhyUser vs Synthetic Users</a></li>
+                <li><a href="whyuser-vs-delve-ai.html">WhyUser vs Delve AI</a></li>
+                <li><a href="whyuser-vs-chatgpt-and-claude.html">vs ChatGPT and Claude</a></li>
+            </ul></div>
 
-            <div><h4>Resources</h4>
-    <ul>
-     <li><a href="benchmarks/">Benchmarks</a></li>
-     <li><a href="accuracy.html">Accuracy</a></li>
-     <li><a href="how-to-evaluate.html">How to Evaluate It</a></li>
-     <li><a href="roi.html">ROI Calculator</a></li>
-     <li><a href="faq.html">FAQ</a></li>
-     <li><a href="sample-report.html">Sample Reports</a></li>
-     <li><a href="glossary.html">Glossary</a></li>
-     <li><a href="docs/connect-claude.html">Connect to Claude</a></li>
-    </ul>
-   </div>
+            <div><h4>Resources</h4><ul>
+                <li><a href="benchmarks/">Benchmarks</a></li>
+                <li><a href="glossary.html">Glossary</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="how-to-evaluate.html">How to Evaluate It</a></li>
+                <li><a href="roi.html">ROI Calculator</a></li>
+                <li><a href="docs/connect-claude.html">Connect to Claude</a></li>
+            </ul></div>
 
             <div><h4>Company</h4><ul>
                 <li><a href="about.html">About</a></li>
-                
-                
+                <li><a href="about.html#why">Why We Built This</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="./#access">Request access</a></li>
+                <li><a href="./#access">Become a design partner</a></li>
             </ul></div>
         </div>
 

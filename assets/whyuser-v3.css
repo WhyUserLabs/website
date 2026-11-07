@@ -1,0 +1,402 @@
+/* ═══════════════════════════════════════════════════════════════════
+   WhyUser v3 components · added 2026-11-06
+   Shared by the homepage and the pages added in the three-step refresh
+   (Know your buyer · Rehearse the launch · Ship the fix).
+
+   Load LAST, after whyuser-fonts.css. Uses only tokens that already
+   exist (readability.css for paper/ink/brand, shell.css for --frame*).
+   Declares no tokens of its own and no !important.
+   Borderless by design: hairline rules separate things, not boxes.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Landing layout (.lp) for new pages ─────────────────────────────
+   Same rules the compare pages carry inline, moved here so new pages
+   cache one file instead of repeating 70 lines each. */
+.lp{--lp-rule:var(--rule,rgba(0,0,0,.09));--lp-bold:var(--rule-bold,rgba(0,0,0,.2));
+    --lp-mute:var(--mute,#52525b);--lp-brand:var(--brand,#6d47d9);--lp-surface:var(--surface,#fff)}
+.lp .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+.lp-hero{text-align:center;padding:3.5rem 0 2.75rem}
+.lp-crumb{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
+.lp-crumb a{color:inherit;text-decoration:none}
+.lp-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin:0 auto 1.1rem;max-width:52rem}
+.lp-sub{font-size:1.125rem;line-height:1.55;color:var(--lp-mute);max-width:42rem;margin:0 auto 2rem}
+.lp-ctas{display:flex;flex-direction:column;gap:.7rem;align-items:center;justify-content:center}
+@media(min-width:480px){.lp-ctas{flex-direction:row}}
+.lp-strip{display:grid;grid-template-columns:1fr;border-top:1px solid var(--lp-rule);border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-strip{grid-template-columns:repeat(3,1fr)}}
+.lp-cell{padding:1.6rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
+@media(min-width:720px){.lp-cell{border-bottom:0;border-right:1px solid var(--lp-rule)}.lp-cell:last-child{border-right:0}}
+.lp-cell:last-child{border-bottom:0}
+.lp-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
+.lp-v{font-family:'Geist Mono',monospace;font-size:1.6rem;font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:.5rem;color:var(--ink)}
+.lp-cell p{margin:0;font-size:.875rem;line-height:1.5;color:var(--lp-mute)}
+.lp-sec{padding:3.25rem 0}
+.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
+.lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
+.lp-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:0 0 .7rem}
+.lp-lead{font-size:1.0625rem;line-height:1.6;color:var(--lp-mute);max-width:44rem;margin:0}
+.lp-lead a,.lp-q p a,.v3-note a{color:var(--lp-brand);font-weight:600;text-decoration:none}
+.lp-split{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
+@media(min-width:800px){.lp-split{grid-template-columns:1fr 1fr;gap:2.5rem}}
+.lp-panel{border-top:1px solid var(--lp-rule);padding:1.4rem 0 0}
+.lp-panel.us{border-top-color:var(--lp-brand)}
+.lp-panel h3{font-size:1.0625rem;font-weight:600;margin:0 0 1rem}
+.lp-panel ul{list-style:none;margin:0;padding:0}
+.lp-panel li{position:relative;padding-left:1.4rem;margin-bottom:.7rem;font-size:.9375rem;line-height:1.5;color:var(--lp-mute)}
+.lp-panel li:last-child{margin-bottom:0}
+.lp-panel li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--lp-mute)}
+.lp-panel.us li::before{background:var(--lp-brand)}
+.lp-panel li strong{color:var(--ink);font-weight:600}
+.lp-faq{margin-top:1.75rem;border-top:1px solid var(--lp-rule)}
+.lp-q{border-bottom:1px solid var(--lp-rule);padding:1.35rem 0}
+.lp-q h3{font-size:1.0625rem;font-weight:600;margin:0 0 .45rem}
+.lp-q p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute);max-width:50rem}
+.lp-more{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;padding:1.6rem 0 0;border-top:1px solid var(--lp-rule);margin-top:1rem}
+.lp-more span{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
+.lp-more a{font-size:.9375rem;font-weight:600;color:var(--lp-brand);text-decoration:none}
+.lp .wu-close{text-align:center;padding:4.5rem 0 5rem}
+.lp .wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);margin-bottom:1.4rem}
+.lp .wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--brand)}
+.lp .wu-close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-.03em;line-height:1.06;margin:0 0 1.3rem}
+.lp .wu-close h2 .fail{color:var(--signal-red)} .lp .wu-close h2 .win{color:var(--signal-green-bright)}
+.wu-close-line{font-size:1.0625rem;line-height:1.6;color:var(--mute);max-width:34rem;margin:0 auto 2.25rem}
+.wu-close-ctas{display:flex;flex-direction:column;gap:.75rem;align-items:center;justify-content:center}
+@media(min-width:480px){.wu-close-ctas{flex-direction:row}}
+
+/* ── Answer-first block. The one paragraph an answer engine lifts. ── */
+.v3-answer{max-width:46rem;margin:0 auto;padding:1.25rem 0 0;border-top:1px solid var(--rule);
+  font-size:1rem;line-height:1.65;color:var(--ink-soft);text-align:left}
+.v3-answer strong{color:var(--ink);font-weight:600}
+.v3-note{font-size:.8125rem;line-height:1.55;color:var(--dim);margin:1rem 0 0;max-width:46rem}
+
+/* ── Three steps (homepage #how and pillar pages) ─────────────────── */
+.v3-pillars{display:grid;grid-template-columns:1fr;gap:0;margin-top:2.25rem}
+@media(min-width:880px){.v3-pillars{grid-template-columns:repeat(3,1fr);gap:0 2.5rem}}
+.v3-pillar{border-top:1px solid var(--rule);padding:1.4rem 0 1.75rem;display:flex;flex-direction:column}
+.v3-pillar.on{border-top-color:var(--brand)}
+.v3-pillar-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:.75rem}
+.v3-pillar h3{font-family:var(--font-title);font-size:1.375rem;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0 0 .5rem;color:var(--ink)}
+.v3-pillar p{margin:0 0 1rem;font-size:.9375rem;line-height:1.55;color:var(--mute)}
+.v3-pillar ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.v3-pillar li a{font-size:.9375rem;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;gap:.45rem;align-items:baseline}
+.v3-pillar li a::after{content:"\2192";color:var(--brand);font-weight:500}
+.v3-pillar li a:hover{color:var(--brand)}
+.v3-pillar li span{display:block;font-size:.8125rem;color:var(--dim);font-weight:400}
+
+/* ── One rate, five buyers (problem card, dark band) ──────────────── */
+.v3-rate{display:flex;flex-direction:column;gap:.9rem}
+.v3-rate-top{display:flex;align-items:baseline;gap:.6rem}
+.v3-rate-v{font-family:var(--font-text);font-size:2.4rem;font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--frame-text)}
+.v3-rate-l{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--frame-mute)}
+.v3-rate-roles{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}
+.v3-rate-role{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.55rem .2rem;border-radius:8px;background:var(--frame-surface,#1c1c23)}
+.v3-rate-q{font-family:'Geist Mono',monospace;font-size:1rem;font-weight:700;color:#c4b5fd;line-height:1}
+.v3-rate-n{font-size:.6875rem;line-height:1.2;color:var(--frame-mute);text-align:center}
+
+/* ── Three reads before sales joins (problem card, dark band) ─────── */
+.v3-reads{display:flex;flex-direction:column;gap:.55rem}
+.v3-read{display:grid;grid-template-columns:3.4rem 1fr;gap:.75rem;align-items:baseline;padding:.45rem 0;border-bottom:1px solid var(--frame-rule)}
+.v3-read:last-of-type{border-bottom:0}
+.v3-read-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd}
+.v3-read-t{font-size:.875rem;color:var(--frame-text);line-height:1.35}
+.v3-read-t small{display:block;font-size:.75rem;color:var(--frame-mute)}
+.v3-read-stats{display:flex;gap:1.25rem;margin-top:.4rem}
+.v3-read-stat b{display:block;font-family:var(--font-text);font-size:1.35rem;font-weight:700;color:var(--frame-text);line-height:1.1}
+.v3-read-stat span{font-size:.6875rem;line-height:1.3;color:var(--frame-mute);display:block;max-width:9rem}
+.v3-src{font-size:.6875rem;color:var(--frame-dim);margin:.35rem 0 0}
+
+/* ── Role-by-role read (homepage #rehearse) ───────────────────────── */
+.v3-two{display:grid;grid-template-columns:1fr;gap:2.25rem;margin-top:2.25rem;align-items:start}
+@media(min-width:960px){.v3-two{grid-template-columns:5fr 7fr;gap:3.5rem}}
+.v3-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;margin:0}
+.v3-fact{border-top:1px solid var(--rule);padding:.9rem 0 1rem}
+.v3-fact dt{font-family:'Geist Mono',monospace;font-size:1.375rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1}
+.v3-fact dd{margin:.25rem 0 0;font-size:.8125rem;line-height:1.45;color:var(--mute)}
+.v3-verdicts{border-top:1px solid var(--ink);margin:0}
+.v3-vrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem 1rem;align-items:center;padding:.85rem 0;border-bottom:1px solid var(--rule)}
+.v3-vrole{font-family:var(--font-title);font-size:1.0625rem;font-weight:600;color:var(--ink);line-height:1.2}
+.v3-vrole small{display:block;font-family:var(--font-text);font-size:.8125rem;font-weight:400;color:var(--dim);margin-top:.15rem;font-style:italic}
+.v3-chip{display:inline-flex;align-items:center;gap:.45rem;font-size:.8125rem;font-weight:600;white-space:nowrap;color:var(--ink-soft)}
+.v3-chip::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--dim)}
+.v3-chip.ok::before{background:var(--signal-green-bright)}
+.v3-chip.stall::before{background:var(--rust,#9c4f2c)}
+.v3-chip.no::before{background:var(--signal-red)}
+.v3-chip.no{color:var(--signal-red)}
+.v3-need{margin:1rem 0 0;padding:1rem 0 0;font-size:.9375rem;line-height:1.55;color:var(--ink-soft)}
+.v3-need b{display:block;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--signal-red);margin-bottom:.35rem}
+.v3-cap{font-size:.8125rem;line-height:1.5;color:var(--dim);margin:.9rem 0 0}
+.v3-cap a{color:var(--brand);font-weight:600;text-decoration:none}
+
+/* ── Ask in plain words (homepage #ship, workflows page) ─────────── */
+.v3-chat{border-top:1px solid var(--ink);padding:1.1rem 0 0}
+.v3-chat-ask{display:flex;gap:.75rem;align-items:flex-start;font-size:.9375rem;line-height:1.5;color:var(--ink)}
+.v3-chat-ask i{color:var(--brand);margin-top:.3rem;font-size:.8rem}
+.v3-chat-ask code{font-family:'Geist Mono',monospace;font-size:.84rem;background:none;padding:0;color:var(--ink)}
+.v3-chat-out{list-style:none;margin:1rem 0 0 1.55rem;padding:0;display:flex;flex-direction:column;gap:.45rem}
+.v3-chat-out li{display:flex;gap:.6rem;align-items:baseline;font-size:.875rem;color:var(--ink-soft)}
+.v3-chat-out li::before{content:"\2713";color:var(--signal-green-bright);font-weight:700}
+.v3-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.5rem 0 0;padding:0;list-style:none}
+.v3-tags li{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.02em;padding:.35rem .65rem;border-radius:999px;background:var(--paper-warm);color:var(--ink-soft)}
+.v3-tags li.k{background:none;padding-left:0;color:var(--dim)}
+
+/* ── Where it fits: use cases under the rails ─────────────────────── */
+.v3-uses{display:grid;grid-template-columns:1fr;gap:0;margin-top:2.5rem}
+@media(min-width:760px){.v3-uses{grid-template-columns:repeat(3,1fr);gap:0 2.5rem}}
+.v3-use{border-top:1px solid var(--rule);padding:1.1rem 0}
+.v3-use h3{font-family:var(--font-title);font-size:1.0625rem;font-weight:600;margin:0 0 .25rem;color:var(--ink)}
+.v3-use p{margin:0;font-size:.875rem;line-height:1.5;color:var(--mute)}
+
+/* ── Trust numbers ───────────────────────────────────────────────── */
+.v3-stats{display:grid;grid-template-columns:1fr;gap:0;margin-top:2.25rem}
+@media(min-width:760px){.v3-stats{grid-template-columns:repeat(3,1fr);gap:0 2.5rem}}
+.v3-stat{border-top:1px solid var(--rule);padding:1.25rem 0 1.4rem}
+.v3-stat-v{font-family:'Geist Mono',monospace;font-size:2.25rem;font-weight:700;letter-spacing:0;line-height:1;color:var(--ink)}
+.v3-stat-v.g{color:var(--signal-green)}
+.v3-stat p{margin:.55rem 0 0;font-size:.875rem;line-height:1.5;color:var(--mute);max-width:20rem}
+.v3-stat p b{color:var(--ink);font-weight:600}
+.v3-quotes{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:2.5rem}
+@media(min-width:880px){.v3-quotes{grid-template-columns:1fr 1fr;gap:3rem}}
+.v3-quote{margin:0;border-left:2px solid var(--brand);padding:.1rem 0 .1rem 1.25rem}
+.v3-quote blockquote{margin:0;font-family:var(--font-title);font-size:1.125rem;line-height:1.45;color:var(--ink);font-weight:400}
+.v3-quote figcaption{margin-top:.7rem;font-size:.8125rem;color:var(--dim)}
+.v3-links{display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;margin-top:2.25rem;padding-top:1.25rem;border-top:1px solid var(--rule)}
+.v3-links span{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);align-self:center}
+.v3-links a{font-size:.9375rem;font-weight:600;color:var(--brand);text-decoration:none}
+
+/* ── Design partnership weeks ─────────────────────────────────────── */
+.v3-weeks{display:grid;grid-template-columns:1fr;gap:0;margin:1.75rem 0 0;padding:0;list-style:none;text-align:left}
+@media(min-width:760px){.v3-weeks{grid-template-columns:repeat(4,1fr);gap:0 1.75rem}}
+.v3-week{border-top:1px solid var(--rule);padding:1rem 0 1.1rem}
+.v3-week b{display:block;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:.4rem}
+.v3-week span{font-size:.9375rem;line-height:1.45;color:var(--ink);font-weight:500}
+.v3-terms{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:1.25rem 0 0;text-align:center}
+
+/* ── Rows: role questions, workflows, filters (pillar pages) ─────── */
+.v3-rows{margin-top:2rem;border-top:1px solid var(--ink)}
+.v3-row{display:grid;grid-template-columns:1fr;gap:.35rem 2rem;padding:1.15rem 0;border-bottom:1px solid var(--rule)}
+@media(min-width:800px){.v3-row{grid-template-columns:14rem 1fr}}
+@media(min-width:800px){.v3-row.w3{grid-template-columns:14rem 1fr 1fr}}
+.v3-row-h{font-family:var(--font-title);font-size:1.0625rem;font-weight:600;color:var(--ink);line-height:1.25}
+.v3-row-h small{display:block;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:.3rem}
+.v3-row p{margin:0;font-size:.9375rem;line-height:1.55;color:var(--mute)}
+.v3-row p b{color:var(--ink);font-weight:600}
+.v3-row code{font-family:'Geist Mono',monospace;font-size:.8rem;color:var(--ink-soft);line-height:1.5;display:block}
+
+/* ── One question, in full (buyer questions page) ─────────────────── */
+.v3-qcard{max-width:46rem;margin:2rem auto 0;border-top:1px solid var(--ink)}
+.v3-qcard-q{font-family:var(--font-title);font-size:1.375rem;font-weight:600;line-height:1.3;color:var(--ink);padding:1.25rem 0 1rem;margin:0}
+.v3-qcard dl{display:grid;grid-template-columns:9rem 1fr;gap:0;margin:0}
+.v3-qcard dt,.v3-qcard dd{border-top:1px solid var(--rule);padding:.65rem 0;margin:0;font-size:.875rem;line-height:1.5}
+.v3-qcard dt{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding-top:.85rem}
+.v3-qcard dd{color:var(--ink-soft)}
+.v3-qcard dd .no{color:var(--signal-red);font-weight:600}
+.v3-qcard dd .up{color:var(--signal-green);font-weight:600}
+
+/* ── Rival compare table ─────────────────────────────────────────── */
+.v3-table{width:100%;border-collapse:collapse;margin-top:2rem;font-size:.9rem}
+.v3-table th,.v3-table td{text-align:left;vertical-align:top;padding:.85rem .9rem .85rem 0;border-bottom:1px solid var(--rule);line-height:1.5}
+.v3-table thead th{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--ink)}
+.v3-table thead th.us{color:var(--brand)}
+.v3-table tbody th{font-weight:600;color:var(--ink);width:24%}
+.v3-table td{color:var(--mute)}
+.v3-table td.us{color:var(--ink-soft)}
+.v3-table td a{color:var(--dim);font-size:.75rem;text-decoration:underline;text-underline-offset:2px}
+.v3-table tr.lose td.us{color:var(--rust,#9c4f2c)}
+@media(max-width:640px){.v3-table thead{display:none}.v3-table,.v3-table tbody,.v3-table tr,.v3-table th,.v3-table td{display:block;width:100%}
+  .v3-table tbody th{padding-bottom:.2rem;border-bottom:0}.v3-table td{padding:.2rem 0;border-bottom:0}
+  .v3-table td::before{content:attr(data-l);display:block;font-family:'Geist Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+  .v3-table tr{border-bottom:1px solid var(--rule);padding:.6rem 0}}
+
+/* ── Vendor cards on the compare hub ─────────────────────────────── */
+.v3-vendors{display:grid;grid-template-columns:1fr;gap:0;margin-top:1.75rem}
+@media(min-width:760px){.v3-vendors{grid-template-columns:repeat(2,1fr);gap:0 2.5rem}}
+@media(min-width:1040px){.v3-vendors{grid-template-columns:repeat(4,1fr)}}
+.v3-vendor{display:flex;flex-direction:column;gap:.3rem;border-top:1px solid var(--rule);padding:1.1rem 0 1.25rem;text-decoration:none}
+.v3-vendor:hover{border-top-color:var(--brand)}
+.v3-vendor b{font-family:var(--font-title);font-size:1.0625rem;font-weight:600;color:var(--ink)}
+.v3-vendor span{font-size:.875rem;line-height:1.5;color:var(--mute)}
+
+/* ── Figures on pillar pages ─────────────────────────────────────── */
+.v3-fig{margin:2rem auto 0;max-width:40rem}
+.v3-fig img{width:100%;height:auto;display:block}
+.v3-fig figcaption{font-size:.8125rem;color:var(--dim);text-align:center;margin-top:.75rem}
+.v3-chips{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin:1.5rem 0 0;padding:0;list-style:none}
+.v3-chips li{font-size:.8125rem;font-weight:500;padding:.4rem .75rem;border-radius:999px;background:var(--paper-warm);color:var(--ink-soft)}
+
+/* Homepage form band: no empty strip above the form */
+#access .wu-band .wu-dp-form{margin-top:0;padding-top:0;border-top:0}
+
+/* ── Problem card 3: your team, AI, your buyer ─────────────────────── */
+.v3-readers{grid-template-columns:repeat(3,1fr);gap:.6rem}
+.v3-readers .wu-read-h{font-size:.75rem;white-space:nowrap}
+.v3-readers .wu-read-lines{padding:.75rem .6rem}
+
+/* ── The funnel (one-pager row 2, deck slide 4), on the dark band ─── */
+.v3-funnel-row{margin-top:2.75rem;padding-top:2rem;border-top:1px solid var(--frame-rule)}
+.v3-funnel-h{font-family:var(--font-title);font-size:clamp(1.25rem,2.2vw,1.5rem);font-weight:600;line-height:1.25;color:var(--frame-text);margin:0 0 1.75rem;letter-spacing:-.01em}
+.v3-funnel-h span{color:#c4b5fd}
+.v3-funnels{display:grid;grid-template-columns:1fr;gap:2.25rem}
+@media(min-width:880px){.v3-funnels{grid-template-columns:1fr 1fr 1fr;gap:0 2.5rem;align-items:start}}
+.v3-funnel{margin:0}
+.v3-funnel-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#c4b5fd;margin-bottom:1rem}
+.v3-fn{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.v3-fn-stage{width:100%;height:2.4rem;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 1rem;
+  background:var(--frame-surface,#1c1c23);color:var(--frame-mute);font-size:.8125rem;font-weight:500;
+  clip-path:polygon(0 0,100% 0,94% 100%,6% 100%)}
+.v3-fn-stage.s2{width:80%}
+.v3-fn-stage.s3{width:60%}
+.v3-fn-stage.in{background:rgba(196,181,253,.24);color:#fff;font-weight:600}
+.v3-fn-stage.ghost{background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 8px,transparent 8px 14px);color:var(--frame-dim);font-style:italic}
+.v3-fn-tag{font-size:.75rem;line-height:1.35;color:#c4b5fd;text-align:center;margin:.1rem 0 .3rem}
+.v3-funnel-note{font-size:.8125rem;line-height:1.5;color:var(--frame-mute);margin:1rem 0 0;text-align:center}
+.v3-funnel-say p{margin:0 0 .8rem;font-size:.9375rem;line-height:1.55;color:var(--frame-mute)}
+.v3-funnel-say .v3-funnel-big{font-family:var(--font-title);font-size:1.25rem;font-weight:600;line-height:1.3;color:var(--frame-text)}
+@media(min-width:880px){.v3-funnel-say{padding-top:1.75rem}}
+
+/* ── What you get (one-pager grid) ─────────────────────────────────── */
+.v3-get{margin-top:2.25rem;border-top:1px solid var(--ink)}
+.v3-get-row{display:grid;grid-template-columns:1fr;gap:1rem 2.5rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
+@media(min-width:900px){.v3-get-row{grid-template-columns:12rem 1fr}}
+.v3-get-k{font-family:var(--font-title);font-size:1.25rem;font-weight:600;line-height:1.2;color:var(--ink)}
+.v3-get-k b{display:block;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--brand);margin-bottom:.4rem}
+.v3-get-items{display:grid;grid-template-columns:1fr;gap:1.25rem 2rem}
+@media(min-width:700px){.v3-get-items.c2,.v3-get-items.c4{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.v3-get-items.c4{grid-template-columns:repeat(4,1fr)}}
+.v3-get-item{display:flex;flex-direction:column;gap:.25rem;text-decoration:none}
+.v3-get-item b{font-size:1rem;font-weight:650;color:var(--ink);transition:color .15s ease}
+.v3-get-item:hover b{color:var(--brand)}
+.v3-get-item .t{font-size:.875rem;font-weight:500;color:var(--ink-soft)}
+.v3-get-item span{font-size:.875rem;line-height:1.5;color:var(--mute)}
+.v3-get-item .o{font-family:'Geist Mono',monospace;font-size:11px;line-height:1.5;color:var(--brand);margin-top:.3rem}
+
+/* ── Small headings, trust titles, the trade, the kicker ────────────── */
+.v3-sub-h{font-family:var(--font-title);font-size:1.375rem;font-weight:600;line-height:1.25;letter-spacing:-.01em;color:var(--ink);margin:2.75rem 0 0}
+.v3-stat-h{font-family:var(--font-title);font-size:1.375rem;font-weight:600;line-height:1.15;color:var(--ink);min-height:2.25rem;display:flex;align-items:flex-end}
+.v3-trade{display:grid;grid-template-columns:1fr;gap:1.5rem 3rem;margin:2.25rem auto 0;max-width:52rem;text-align:left}
+@media(min-width:760px){.v3-trade{grid-template-columns:1fr 1fr}}
+.v3-trade h3{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin:0 0 .6rem}
+.v3-trade dl{margin:0}
+.v3-trade dt{font-size:.9375rem;font-weight:600;color:var(--ink);border-top:1px solid var(--rule);padding-top:.7rem}
+.v3-trade dd{margin:.15rem 0 .85rem;font-size:.875rem;line-height:1.5;color:var(--mute)}
+.v3-kicker{font-family:var(--font-title);font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.02em;text-align:center;color:var(--ink);margin:2.5rem 0 0}
+
+/* Rehearse flow: the ranked-fixes line is a caption, not a headline */
+#rehearse .wu-sol-time{font-family:var(--font-text);font-size:.9375rem;font-weight:600;letter-spacing:0;color:var(--ink-soft)}
+#rehearse .wu-sol-time i{color:var(--brand)}
+
+/* ── Headline rule ─────────────────────────────────────────────────────
+   Never more than two lines.
+   One-part headline: all ink. Two or more parts: the last part gets its
+   own line, in the accent; earlier parts share the first line. On the
+   dark band the accent is lilac.
+   Sole exception: the red/green "Fail in the test. Win in the market." */
+.v3-accent{color:var(--brand)}
+.wu-band .v3-accent,.v3-funnel-h .v3-accent{color:#c4b5fd}
+/* Two-line fit. A multi-part headline carries .v3-fit and --fit: the em
+   width of its longest line, measured at build time. It keeps its normal
+   size when that line fits, and shrinks just enough when it would not,
+   down to a floor. Its parent becomes the size container. */
+:has(> .v3-fit){container-type:inline-size}
+.h1.v3-fit{font-size:min(clamp(2.125rem,3.5vw,3.125rem),max(1.625rem,calc(97cqi / var(--fit))))}
+.h2.v3-fit{font-size:min(clamp(1.875rem,3.5vw,2.75rem),max(1.375rem,calc(97cqi / var(--fit))))}
+.lp-h1.v3-fit{font-size:min(clamp(2.1rem,5vw,3.4rem),max(1.625rem,calc(97cqi / var(--fit))))}
+.lp-h2.v3-fit{font-size:min(clamp(1.5rem,3vw,2rem),max(1.375rem,calc(97cqi / var(--fit))))}
+.v3-sub-h.v3-fit{font-size:min(1.375rem,max(1.125rem,calc(97cqi / var(--fit))))}
+.v3-funnel-h.v3-fit{font-size:min(clamp(1.25rem,2.2vw,1.5rem),max(1.0625rem,calc(97cqi / var(--fit))))}
+.cta-h.v3-fit{font-size:min(clamp(1.625rem,3vw,2.375rem),max(1.375rem,calc(97cqi / var(--fit)))) !important}
+/* Even line lengths inside each part, so no single word sits alone. */
+.h1,.h2,.lp-h1,.lp-h2,.cta-h,.v3-sub-h,.v3-funnel-h,.wu-prob-claim{text-wrap:balance}
+
+/* ═════ Pass 3 · visual sections ═════════════════════════════════════ */
+
+/* SHIP · workflows and an assistant window */
+.v3-ship{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:2.25rem;align-items:start}
+@media(min-width:960px){.v3-ship{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:3.5rem}}
+.v3-wf{list-style:none;margin:0;padding:0}
+.v3-wf li{display:grid;grid-template-columns:2.6rem 1fr;column-gap:.9rem;align-items:center;padding:.75rem 0;border-bottom:1px solid var(--rule)}
+.v3-wf li:first-child{padding-top:0}
+.v3-wf-ic{grid-row:1/3;width:2.6rem;height:2.6rem;border-radius:12px;display:grid;place-items:center;background:rgba(109,71,217,.09);color:var(--brand);font-size:1rem}
+.v3-wf b{font-size:1rem;font-weight:650;color:var(--ink)}
+.v3-wf li>span:last-child{font-size:.875rem;color:var(--mute)}
+.v3-win{margin:0}
+.v3-win-bar{display:flex;align-items:center;gap:6px;height:36px;padding:0 14px;background:#1d1d24;border-radius:14px 14px 0 0}
+.v3-win-bar span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2)}
+.v3-win-bar em{font-style:normal;margin-left:10px;font-size:12px;color:rgba(255,255,255,.6)}
+.v3-win-body{background:#fff;border:1px solid var(--rule);border-top:0;border-radius:0 0 14px 14px;padding:1.25rem 1.25rem 1.4rem;box-shadow:0 30px 60px -38px rgba(24,24,27,.45)}
+.v3-bubble{margin:0 0 1.1rem auto;max-width:86%;background:var(--paper-warm,#f2f1ee);border-radius:14px 14px 4px 14px;padding:.75rem .95rem;font-size:.9rem;line-height:1.45;color:var(--ink)}
+.v3-reply{border-left:2px solid var(--brand);padding-left:1rem}
+.v3-reply-h{margin:0 0 .75rem;font-size:.8125rem;font-weight:600;color:var(--brand)}
+.v3-diff{border-radius:10px;overflow:hidden;font-family:var(--font-title);font-size:1.0625rem;line-height:1.35}
+.v3-diff p{margin:0;padding:.55rem .85rem}
+.v3-del{background:rgba(220,38,38,.07);color:#991b1b;text-decoration:line-through;text-decoration-thickness:1.5px}
+.v3-ins{background:rgba(16,185,129,.1);color:#065f46}
+.v3-fixlist{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.5rem}
+.v3-fixlist li{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.875rem;color:var(--ink-soft)}
+.v3-fixlist li span::before{content:"\2713";color:var(--signal-green-bright,#10b981);font-weight:700;margin-right:.5rem}
+.v3-fixlist em{font-style:normal;font-size:.75rem;color:var(--mute);white-space:nowrap;padding:.15rem .55rem;border-radius:999px;background:var(--paper-warm,#f2f1ee)}
+.v3-saved{margin:1rem 0 0;font-size:.8125rem;color:var(--mute)}
+.v3-saved i{color:var(--signal-green-bright,#10b981)}
+.v3-win .v3-cap a{margin-right:.75rem}
+
+/* TRUST · hits and misses, graded by you */
+.v3-trust{display:grid;grid-template-columns:1fr;gap:2.75rem;margin-top:2.25rem;align-items:start}
+@media(min-width:960px){.v3-trust{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:4rem}}
+.v3-dots{margin:0}
+.v3-dotgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;max-width:15.5rem}
+.v3-dotgrid i{aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(24,24,27,.28)}
+.v3-dotgrid i.h{background:var(--brand);border-color:var(--brand)}
+.v3-dots figcaption{margin-top:1.2rem;font-size:1rem;line-height:1.5;color:var(--mute);max-width:18rem}
+.v3-dots figcaption b{display:block;font-family:var(--font-title);font-size:2.75rem;font-weight:600;line-height:1;color:var(--ink);margin-bottom:.35rem}
+.miss-key{white-space:nowrap}
+.miss-key::before{content:"";display:inline-block;width:.7em;height:.7em;border-radius:50%;border:1.5px solid rgba(24,24,27,.35);margin-right:.35rem;vertical-align:-.04em}
+.v3-grade{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.v3-grade li{display:flex;flex-direction:column;gap:.2rem;position:relative}
+.v3-grade li:not(:last-child)::after{content:"";position:absolute;top:1.3rem;left:3.1rem;right:-.6rem;border-top:1.5px dashed rgba(24,24,27,.25)}
+.v3-grade-ic{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:.9rem;margin-bottom:.55rem}
+.v3-grade li:last-child .v3-grade-ic{background:var(--brand)}
+.v3-grade b{font-size:.9375rem;font-weight:650;color:var(--ink)}
+.v3-grade li>span:last-child{font-size:.8125rem;line-height:1.4;color:var(--mute)}
+.v3-rings{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2.25rem;padding-top:1.75rem;border-top:1px solid var(--rule)}
+@media(min-width:640px){.v3-rings{grid-template-columns:1fr 1fr}}
+.v3-ring{display:grid;grid-template-columns:4.75rem 1fr;column-gap:1rem;align-items:center}
+.v3-ring svg{grid-row:1/3;width:4.75rem;height:4.75rem;transform:rotate(-90deg)}
+.v3-ring .t{fill:none;stroke:rgba(109,71,217,.12);stroke-width:8}
+.v3-ring .v{fill:none;stroke:var(--brand);stroke-width:8;stroke-linecap:round}
+.v3-ring b{font-family:var(--font-title);font-size:1.6rem;font-weight:600;line-height:1;color:var(--ink);align-self:end}
+.v3-ring span{font-size:.8125rem;line-height:1.4;color:var(--mute);align-self:start;margin-top:.3rem}
+.v3-quote-logo{height:22px;width:auto;display:block;margin-bottom:.9rem;opacity:.9}
+.v3-quote figcaption a{color:var(--brand);font-weight:600;text-decoration:none}
+
+/* DESIGN PARTNERSHIP · the trade and the five weeks */
+.v3-swap{display:grid;grid-template-columns:1fr;gap:1rem;margin:2.25rem auto 0;max-width:60rem;text-align:left;align-items:center}
+@media(min-width:800px){.v3-swap{grid-template-columns:1fr auto 1fr;gap:1.75rem}}
+.v3-swap-side{background:#fff;border:1px solid var(--rule);border-radius:16px;padding:1.4rem 1.5rem 1.5rem}
+.v3-swap-side:last-child{background:var(--paper-warm,#f2f1ee);border-color:transparent}
+.v3-swap-side h3{font-family:var(--font-title);font-size:1.3rem;font-weight:600;margin:0 0 1.1rem;color:var(--ink)}
+.v3-swap-side ul{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.v3-swap-side li{display:flex;gap:.85rem;align-items:flex-start}
+.v3-swap-side li>i{width:2.2rem;height:2.2rem;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(109,71,217,.1);color:var(--brand);font-size:.85rem}
+.v3-swap-side li span{display:flex;flex-direction:column;font-size:.875rem;line-height:1.4;color:var(--mute)}
+.v3-swap-side li b{font-size:.9375rem;font-weight:600;color:var(--ink)}
+.v3-swap-mid{width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;justify-self:center;font-size:1rem}
+@media(max-width:799px){.v3-swap-mid{transform:rotate(90deg)}}
+.v3-tl{list-style:none;margin:3rem auto 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:60rem;position:relative;text-align:center}
+.v3-tl::before{content:"";position:absolute;top:1.25rem;left:12.5%;right:12.5%;border-top:2px solid rgba(109,71,217,.25)}
+.v3-tl li{position:relative;display:flex;flex-direction:column;align-items:center;gap:.25rem}
+.v3-tl b{width:2.5rem;height:2.5rem;border-radius:50%;display:grid;place-items:center;background:var(--paper,#faf9f7);border:2px solid var(--brand);color:var(--brand);font-family:var(--font-title);font-size:1.05rem;font-weight:600;position:relative;z-index:1;margin-bottom:.5rem}
+.v3-tl li:last-child b{background:var(--brand);color:#fff}
+.v3-tl .w{font-size:.8125rem;font-weight:600;color:var(--brand)}
+.v3-tl li>span:last-child{font-size:.9375rem;line-height:1.35;color:var(--ink);max-width:12rem}
+@media(max-width:640px){.v3-tl{grid-template-columns:1fr;gap:1.1rem;text-align:left}
+  .v3-tl::before{top:1rem;bottom:1rem;left:1.25rem;right:auto;border-top:0;border-left:2px solid rgba(109,71,217,.25)}
+  .v3-tl li{display:grid;grid-template-columns:2.5rem 1fr;column-gap:1rem;align-items:center}
+  .v3-tl b{grid-row:1/3;margin:0}.v3-tl li>span:last-child{max-width:none}}
+.v3-chips2{list-style:none;margin:2.25rem 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem}
+.v3-chips2 li{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .95rem;border-radius:999px;background:#fff;border:1px solid var(--rule);font-size:.875rem;font-weight:500;color:var(--ink)}
+.v3-chips2 i{color:var(--brand)}
+
+@media(max-width:560px){.v3-grade{grid-template-columns:1fr;gap:.9rem}
+  .v3-grade li{display:grid;grid-template-columns:2.6rem 1fr;column-gap:.85rem;align-items:center}
+  .v3-grade-ic{grid-row:1/3;margin:0}.v3-grade li:not(:last-child)::after{display:none}}
+
+@media print{.v3-rate-role{background:none;border:1px solid #999}}

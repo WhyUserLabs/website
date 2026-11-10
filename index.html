@@ -3404,16 +3404,33 @@ body { background-image: none; }
 <style>
 /* ── 10 Nov 2026 · homepage additions ─────────────────────────────────
    Sits after whyuser-v3.css on purpose so these rules win. Every class
-   is new (trust-story, hero-follow, wu-story*, wu-sc*, wu-tools*,
+   is new (trust-story, hero-proof-one, wu-story*, wu-sc*, wu-tools*,
    wu-flow*) except .hero-eyebrow, which only gets a centred margin. */
 
 /* Hero: the category is now the label above the headline. */
 .v3-hero-c .hero-eyebrow{margin:0 0 1.25rem;text-align:center}
-.hero-follow{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
-  padding:.75rem .5rem;font-size:.9375rem;font-weight:600;color:var(--ink);text-decoration:none}
-.hero-follow i{font-size:12px;color:var(--brand);transition:transform .18s ease}
-.hero-follow:hover i,.hero-follow:focus-visible i{transform:translateY(3px)}
-.hero-follow:hover,.hero-follow:focus-visible{color:var(--brand)}
+/* Hero: two buttons, one proof link (10 Nov 2026). The proof line is a
+   single link to accuracy.html, so the hero has three clickable things. */
+.hero-proof-one{text-decoration:none;transition:color .18s ease}
+.hero-proof-arr{color:var(--brand);margin-left:.2rem;display:inline-block;transition:transform .18s ease}
+.hero-proof-one:hover,.hero-proof-one:focus-visible{color:var(--ink)}
+.hero-proof-one:hover .hero-proof-arr,.hero-proof-one:focus-visible .hero-proof-arr{transform:translateX(3px)}
+
+/* Hero: more air. On wider screens the hero and logo strip together fill
+   the first screen (9.75rem = 60px nav + 96px logo strip), with the hero
+   content centred, so the logos sit at the bottom of the first screen and
+   "What WhyUser is" starts below the fold. Capped so tall screens do not
+   get a hollow hero. */
+@media (min-width:768px){
+  header.hero.v3-hero-text{display:flex;flex-direction:column;justify-content:center;
+    min-height:min(calc(100vh - 9.75rem),52rem);min-height:min(calc(100svh - 9.75rem),52rem)}
+  /* A flex item with auto side margins shrinks to fit; keep the wrap at
+     full width so the headline's container-sized fit still works. */
+  header.hero.v3-hero-text > .wrap{width:100%;box-sizing:border-box}
+  .v3-hero-c .hero-eyebrow{margin-bottom:1.5rem}
+  .v3-hero-c .hero-ctas{margin-top:.5rem}
+  .v3-hero-c .hero-proof{margin-top:1.75rem}
+}
 
 /* Logo strip: a linked logo says it is a link. */
 /* The label hangs below the logo, out of the flex row, so the ngrok and
@@ -3899,16 +3916,14 @@ body { background-image: none; }
         <div class="wrap">
             <div class="v3-hero-c">
                 <p class="hero-eyebrow">Pre-launch buyer simulation for B2B&nbsp;marketing</p>
-                <h1 class="h1 v3-fit" style="--fit:14.1">Find the buyers your page loses.<br><span class="v3-accent">Fix it before&nbsp;launch.</span></h1>
+                <h1 class="h1 v3-fit" style="--fit:16.36">Find the buyers your campaign loses.<br><span class="v3-accent">Fix it before you&nbsp;spend.</span></h1>
                 <p class="hero-sub">Test your landing page, ad or email on AI buyer personas and buying committees, built from what your buyers say before and after they talk to you. Get the fixes, role by role, <strong>before you pay to find&nbsp;out.</strong></p>
                 <div class="hero-ctas">
                     <a href="#access" class="btn btn-primary btn-lg">Become a design partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
                     <a href="sample-report.html" class="btn btn-ghost btn-lg"><i class="fa-solid fa-file-lines" style="font-size:13px;color:var(--brand)"></i> See sample reports</a>
-                    <a href="#story" class="hero-follow">Follow one launch <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
                 </div>
                 <p class="hero-proof">
-                    <span class="hero-proof-k"><span class="hero-proof-dot" aria-hidden="true"></span><strong>84%</strong> accurate &middot; 473 graded claims</span>
-                    <a href="accuracy.html" class="hero-proof-link">How we measure <span aria-hidden="true">&rarr;</span></a>
+                    <a href="accuracy.html" class="hero-proof-k hero-proof-one" aria-label="84% accurate across 473 graded claims. How we measure"><span class="hero-proof-dot" aria-hidden="true"></span><strong>84%</strong> accurate &middot; 473 graded claims <span class="hero-proof-arr" aria-hidden="true">&rarr;</span></a>
                 </p>
             </div>
         </div>

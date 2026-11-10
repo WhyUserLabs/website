@@ -140,6 +140,7 @@
         "Email Sequences: up to five emails read in order; who replies, who books",
         "Audience Discovery: the titles your content pulls, ready to target",
         "Workflows & MCP: revise pages, emails and persona messaging from the fixes, in Claude, Cursor or Codex",
+        "Integrations: Gong and Chorus call transcripts in; fixes out to Claude, Cursor or Codex, a daily Slack digest, and your CRM, docs and issue tracker through the assistant's own connectors",
         "Conflict graph: which handoff between roles breaks the deal"
       ],
       "offers": [
@@ -402,7 +403,7 @@
           "name": "What is WhyUser?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "WhyUser is pre-launch buyer simulation for B2B marketing teams. It builds buyer personas from your calls, reviews and buyer questions, then runs them as a buying committee on your pages, ads and emails. In about 30 minutes you see who drops off, why, and what to fix."
+            "text": "WhyUser is pre-launch buyer simulation for B2B marketing teams. It builds buyer personas from what buyers say before they engage you, in communities, reviews and the questions they ask, and after they engage you, on your sales calls. Then it runs them as a buying committee on your pages, ads and emails. In about 30 minutes you see who drops off, why, and what to fix."
           }
         },
         {
@@ -3400,6 +3401,203 @@ body { background-image: none; }
 </style>
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <link rel="stylesheet" href="assets/whyuser-v3.css">
+<style>
+/* ── 10 Nov 2026 · homepage additions ─────────────────────────────────
+   Sits after whyuser-v3.css on purpose so these rules win. Every class
+   is new (trust-story, hero-follow, wu-story*, wu-sc*, wu-tools*,
+   wu-flow*) except .hero-eyebrow, which only gets a centred margin. */
+
+/* Hero: the category is now the label above the headline. */
+.v3-hero-c .hero-eyebrow{margin:0 0 1.25rem;text-align:center}
+.hero-follow{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  padding:.75rem .5rem;font-size:.9375rem;font-weight:600;color:var(--ink);text-decoration:none}
+.hero-follow i{font-size:12px;color:var(--brand);transition:transform .18s ease}
+.hero-follow:hover i,.hero-follow:focus-visible i{transform:translateY(3px)}
+.hero-follow:hover,.hero-follow:focus-visible{color:var(--brand)}
+
+/* Logo strip: a linked logo says it is a link. */
+/* The label hangs below the logo, out of the flex row, so the ngrok and
+   Vectara logos still share one centre line. */
+.trust-story{position:relative;display:inline-flex;text-decoration:none}
+.trust-story-k{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;
+  font-family:'Geist Mono',ui-monospace,monospace;font-size:9px;font-weight:600;line-height:1.2;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--brand);white-space:nowrap;
+  border-bottom:1px solid color-mix(in srgb,var(--brand) 40%,transparent);padding-bottom:1px}
+.trust-story-arr{display:inline-block;transition:transform .18s ease}
+.trust-story:hover .trust-logo,.trust-story:focus-visible .trust-logo{opacity:1 !important}
+.trust-story:hover .trust-story-arr,.trust-story:focus-visible .trust-story-arr{transform:translateX(3px)}
+.trust-story:focus-visible{outline:2px solid var(--brand);outline-offset:4px;border-radius:4px}
+
+/* Shared: two-part section head, title left and copy right. */
+.wu-story-head,.wu-tools-head{display:grid;grid-template-columns:1fr;gap:1rem 3rem;align-items:end;margin-bottom:2.5rem}
+.wu-story-head .section-head,.wu-tools-head .section-head{margin-bottom:0}
+@media(min-width:900px){.wu-story-head,.wu-tools-head{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);margin-bottom:3rem}}
+.wu-story-intro{margin:0;color:var(--ink-soft);font-size:1.0625rem;line-height:1.6;max-width:34rem}
+
+/* ── PROBLEM band: the claim now sits above its diagram, so the reader
+   gets the point first and the picture proves it. whyuser-slides.css set
+   the opposite order (fig, then claim); these rules restate the spacing. */
+.wu-prob-k{margin-bottom:.65rem}
+.wu-prob-claim{margin:0 0 1.25rem;font-size:1.125rem;line-height:1.35}
+.wu-prob-fig{margin:0}
+/* The bridge from the three cards to the funnel: a pill on the divider. */
+.v3-funnel-row{position:relative}
+.v3-means{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);margin:0;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .95rem;border-radius:999px;
+  background:var(--frame);border:1px solid var(--frame-rule-strong);
+  font-family:'Geist Mono',ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#c4b5fd}
+.v3-means i{font-size:11px}
+.v3-funnel-row .v3-funnel-h{margin-top:.75rem}
+
+/* ── WHAT YOU GET, compact (10 Nov 2026): the small pictures are gone,
+   so the title needs no top gap and the rows sit closer together. */
+#how .v3-get-row{padding:1.25rem 0}
+#how .v3-get-item>b,#how .v3-get-item .gv-txt>b{margin-top:0}
+#how .v3-get-items{gap:1rem 2.25rem}
+
+/* ── STORY · follow one launch ── */
+#story{scroll-margin-top:4.5rem}
+.wu-story{list-style:none;margin:0;padding:0;position:relative}
+.wu-story::before{content:"";position:absolute;left:13px;top:14px;bottom:14px;width:1px;background:var(--rule-strong)}
+.wu-story-step{position:relative;display:grid;grid-template-columns:1fr;gap:1.25rem;padding:0 0 2.75rem 3rem}
+.wu-story-step:last-child{padding-bottom:0}
+@media(min-width:900px){.wu-story-step{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3rem;align-items:center;padding-bottom:3.5rem}}
+.wu-story-n{position:absolute;left:0;top:0;width:27px;height:27px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:var(--paper);
+  border:1px solid var(--rule-bold);font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;color:var(--ink)}
+.wu-story-step:last-child .wu-story-n{background:var(--brand);border-color:var(--brand);color:#fff}
+@media(min-width:900px){.wu-story-n{top:50%;margin-top:-13.5px}}
+.wu-story-k{display:block;font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:.6rem}
+.wu-story-txt h3{font-size:clamp(1.375rem,2.3vw,1.75rem);line-height:1.15;color:var(--ink);margin:0 0 .6rem}
+.wu-story-txt p{margin:0;color:var(--mute);font-size:1rem;line-height:1.6;max-width:30rem}
+.wu-story-tags{list-style:none;margin:1rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.wu-story-tags a{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:999px;
+  background:var(--surface);border:1px solid var(--rule-strong);font-size:.8125rem;font-weight:600;
+  color:var(--ink-soft);text-decoration:none;transition:border-color .18s ease,color .18s ease}
+.wu-story-tags a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand)}
+.wu-story-tags a:hover,.wu-story-tags a:focus-visible{border-color:var(--brand);color:var(--brand)}
+
+/* The small product cards beside each step. */
+.wu-sc{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:1rem 1.1rem;
+  box-shadow:0 1px 2px rgba(9,9,11,.04),0 12px 32px -18px rgba(9,9,11,.18);max-width:32rem}
+.wu-sc-bar{display:flex;align-items:center;gap:.5rem;margin:0 0 .85rem;font-size:.8125rem;font-weight:600;color:var(--ink)}
+.wu-sc-bar i{color:var(--brand);font-size:13px}
+.wu-sc-bar span{margin-left:auto;font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;color:var(--dim)}
+.wu-sc-ev,.wu-sc-finds,.wu-sc-checks{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.wu-sc-ev li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;column-gap:.6rem;align-items:center;
+  padding:.5rem .7rem;border-radius:9px;background:var(--paper-cool)}
+.wu-sc-ev small{grid-column:1 / -1;font-family:'Geist Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:.15rem}
+.wu-sc-ev b{font-size:.875rem;font-weight:500;color:var(--ink-soft);line-height:1.4}
+.wu-sc-ev li:nth-child(-n+2) b{grid-column:1 / 3}
+.wu-sc-ev span{font-size:11px;font-weight:700;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+.wu-sc .up{color:#6d28d9;background:var(--brand-soft)}
+.wu-sc-pages{display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;margin:0 0 .9rem}
+.wu-sc-pages span{text-align:center;padding:.55rem .25rem;border-radius:8px;font-size:12px;font-weight:600;color:#065f46;background:rgba(16,185,129,.12)}
+.wu-sc-pages span.warn{color:#92400e;background:rgba(245,158,11,.14)}
+.wu-sc-pages span.no{color:#991b1b;background:rgba(220,38,38,.09)}
+.wu-sc em{font-style:normal;font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;color:var(--dim)}
+.wu-sc .ok{color:#065f46;background:rgba(16,185,129,.12)}
+.wu-sc .part{color:#92400e;background:rgba(245,158,11,.14)}
+.wu-sc .no,.wu-sc .miss{color:#991b1b;background:rgba(220,38,38,.09)}
+.wu-sc-url{display:flex;align-items:center;gap:.3rem;margin:0 0 .9rem;padding:.45rem .6rem;border-radius:8px;background:var(--paper-cool)}
+.wu-sc-url i{width:7px;height:7px;border-radius:50%;background:var(--rule-bold)}
+.wu-sc-url span{margin-left:.5rem;font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wu-sc-finds li{font-size:.875rem;line-height:1.45;color:var(--ink-soft);padding:.5rem .7rem;border-left:2px solid var(--signal-red);background:rgba(220,38,38,.04);border-radius:0 8px 8px 0}
+.wu-sc-finds li:nth-child(2){border-left-color:var(--signal-amber);background:rgba(245,158,11,.06)}
+.wu-sc-finds li:nth-child(2) em{color:#92400e}
+.wu-sc-finds em{display:block;margin-bottom:.1rem;color:#991b1b}
+.wu-sc-ask{margin:0 0 .8rem;font-size:.875rem;line-height:1.45;color:var(--ink);padding:.6rem .75rem;border-radius:10px;background:var(--brand-soft)}
+.wu-sc-ask span{display:block;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:.2rem}
+.wu-sc .v3-diff{margin-bottom:.8rem}
+.wu-sc-checks li{display:flex;align-items:center;gap:.55rem;font-size:.875rem;color:var(--ink-soft)}
+.wu-sc-checks i{color:var(--signal-green);font-size:12px}
+.wu-sc-checks em{margin-left:auto}
+.wu-sc-done{margin:.85rem 0 0;padding-top:.75rem;border-top:1px solid var(--rule);font-size:.8125rem;font-weight:600;color:#065f46}
+.wu-sc .v3-cmp{margin-bottom:.9rem}
+.wu-sc-grade{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:0;padding-top:.8rem;border-top:1px solid var(--rule)}
+.wu-sc-grade span{font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-right:.25rem}
+.wu-sc-grade b{font-size:11px;font-weight:700;padding:.15rem .55rem;border-radius:999px}
+.wu-sc-grade small{margin-left:auto;font-size:.75rem;color:var(--mute)}
+.wu-story-end{margin-top:2.75rem;display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem;
+  padding:1.75rem 1.75rem;border-radius:18px;background:var(--frame);color:var(--frame-text)}
+@media(min-width:760px){.wu-story-end{flex-direction:row;align-items:center;justify-content:space-between;padding:2rem 2.5rem}}
+.wu-story-end-h{margin:0;font-family:var(--font-title);font-size:clamp(1.375rem,2.4vw,1.875rem);font-weight:600;line-height:1.15;letter-spacing:-.015em;color:var(--frame-text)}
+.wu-story-end-h span{color:#c4b5fd}
+.wu-story-end .btn-primary{background:#fafafa !important;color:#131318 !important;border-color:#fafafa !important;flex-shrink:0}
+.wu-story-end .btn-primary:hover{background:#e4e4e7 !important;border-color:#e4e4e7 !important}
+.wu-story-cap{margin-top:.85rem}
+
+/* ── TOOLS · integrations and MCP ── */
+.wu-tools-side{display:flex;flex-direction:column;gap:1.1rem}
+.wu-tools-promo{position:relative;display:grid;gap:.3rem;padding:1rem 3rem 1rem 1.15rem;border-radius:14px;
+  background:var(--surface);border:1px solid var(--rule);text-decoration:none;
+  box-shadow:0 1px 2px rgba(9,9,11,.04),0 10px 28px -18px rgba(9,9,11,.2);transition:border-color .18s ease}
+.wu-tools-promo-k{display:inline-flex;align-items:center;gap:.5rem;font-size:.9375rem;font-weight:700;color:var(--brand)}
+.wu-tools-promo-k i{font-size:13px}
+.wu-tools-promo-t{font-size:.9375rem;color:var(--ink-soft);line-height:1.45}
+.wu-tools-promo-arr{position:absolute;right:1.15rem;top:50%;margin-top:-8px;font-size:16px;color:var(--brand);transition:transform .18s ease}
+.wu-tools-promo:hover,.wu-tools-promo:focus-visible{border-color:var(--brand)}
+.wu-tools-promo:hover .wu-tools-promo-arr,.wu-tools-promo:focus-visible .wu-tools-promo-arr{transform:translateX(3px)}
+
+.wu-tools-card{display:grid;grid-template-columns:1fr;gap:2rem;padding:1.5rem;border-radius:20px;
+  background:var(--surface);border:1px solid var(--rule)}
+@media(min-width:1000px){.wu-tools-card{grid-template-columns:minmax(0,.75fr) minmax(0,1.6fr);gap:2.5rem;align-items:center;padding:2.25rem 2.25rem 2.25rem 2.75rem}}
+.wu-tools-left h3{font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.12;color:var(--ink);margin:0 0 .7rem}
+.wu-tools-left p{margin:0 0 1.1rem;color:var(--mute);font-size:1rem;line-height:1.6}
+.wu-tools-chips{list-style:none;margin:0 0 1.25rem;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.wu-tools-chips li{padding:.35rem .7rem;border-radius:9px;border:1px solid var(--rule-strong);background:var(--paper);
+  font-size:.8125rem;font-weight:600;color:var(--ink-soft)}
+
+/* Evidence in -> WhyUser -> work out. On wide screens the middle column
+   draws the links with one SVG; the rows are equal height, so the curves
+   meet each card at its centre (1/6, 3/6, 5/6 of the column). */
+.wu-flow{display:grid;grid-template-columns:1fr;gap:.75rem;padding:1rem;border-radius:14px;
+  background-color:var(--paper-cool);
+  background-image:linear-gradient(rgba(9,9,11,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(9,9,11,.045) 1px,transparent 1px);
+  background-size:22px 22px;border:1px solid var(--rule)}
+.wu-flow-k{font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.wu-flow-k-hub{display:none}
+/* Phone: label, list, hub, label, list. */
+.wu-flow-k-in{order:1}.wu-flow-in{order:2}.wu-flow-mid{order:3}.wu-flow-k-out{order:4;margin-top:.25rem}.wu-flow-out{order:5}
+.wu-flow-col{display:grid;gap:.6rem}
+.wu-flow-i{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:.65rem;align-items:center;
+  padding:.7rem .85rem;border-radius:11px;background:var(--surface);border:1px solid var(--rule-strong);min-height:3.6rem}
+.wu-flow-i i{grid-row:span 2;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  background:var(--paper-warm);color:var(--ink-soft);font-size:13px}
+.wu-flow-i b{font-size:.875rem;font-weight:700;color:var(--ink);line-height:1.25}
+.wu-flow-i span{font-size:.8125rem;color:var(--mute);line-height:1.35}
+.wu-flow-i em{position:absolute;top:.55rem;right:.6rem;font-style:normal;font-family:'Geist Mono',monospace;font-size:9.5px;
+  font-weight:700;letter-spacing:.12em;color:var(--brand);background:var(--brand-soft);padding:.1rem .4rem;border-radius:5px}
+.wu-flow-i.on{padding-right:3.4rem;border:1.5px solid var(--brand);background:color-mix(in srgb,var(--brand-soft) 45%,var(--surface));
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 8%,transparent)}
+.wu-flow-i.on i{background:var(--brand);color:#fff}
+.wu-flow-mid{position:relative;display:flex;justify-content:center;padding:.25rem 0}
+.wu-flow-lines{display:none}
+.wu-flow-hub{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:18px;
+  background:var(--surface);border:1px solid var(--rule-strong);
+  box-shadow:0 0 0 8px color-mix(in srgb,var(--brand) 9%,transparent),0 14px 30px -12px rgba(109,40,217,.45)}
+.wu-flow-hub img{width:44px;height:44px;border-radius:50%;display:block}
+@media(min-width:700px){
+  .wu-flow{grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:0;row-gap:.75rem;padding:1.1rem 1.1rem 1.25rem}
+  .wu-flow-k-in,.wu-flow-in,.wu-flow-mid,.wu-flow-k-out,.wu-flow-out{order:0}
+  .wu-flow-k-out{margin-top:0}
+  .wu-flow-k-in{grid-column:1;grid-row:1}
+  .wu-flow-k-hub{display:block;grid-column:2;grid-row:1;text-align:center}
+  .wu-flow-k-out{grid-column:3;grid-row:1}
+  .wu-flow-in{grid-column:1;grid-row:2;grid-template-rows:repeat(3,1fr)}
+  .wu-flow-out{grid-column:3;grid-row:2;grid-template-rows:repeat(3,1fr)}
+  .wu-flow-mid{grid-column:2;grid-row:2;align-items:center;padding:0}
+  .wu-flow-lines{display:block;position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .wu-flow-lines path{fill:none;stroke:var(--faint);stroke-width:1.25;stroke-dasharray:4 4;vector-effect:non-scaling-stroke}
+  .wu-flow-lines path.on{stroke:var(--brand);stroke-width:2;stroke-dasharray:none}
+  .wu-flow-hub{position:relative;z-index:1}
+}
+@media(prefers-reduced-motion:no-preference) and (min-width:700px){
+  .wu-flow-lines path:not(.on){animation:wuflow 1.6s linear infinite}
+}
+@keyframes wuflow{to{stroke-dashoffset:-16}}
+</style>
 </head>
 <body class="grain">
     <!-- Google Tag Manager (noscript) -->
@@ -3691,15 +3889,20 @@ body { background-image: none; }
 <!-- WHYUSER:NAV:END -->
 <main id="main">
 
-    <!-- HERO · text only (2026-11-06): the headline does the job; the visuals start in the problem band -->
+    <!-- HERO · text only (2026-11-06): the headline does the job; the visuals start in the problem band.
+         10 Nov 2026: the category moved to the label above the headline, and
+         the headline now states the outcome. The category phrase still lives
+         in the <title>, the meta description and the definition band below. -->
     <header class="hero dotgrid v3-hero-text">
         <div class="wrap">
             <div class="v3-hero-c">
-                <h1 class="h1 v3-fit" style="--fit:13.12">Pre-launch buyer simulation<br><span class="v3-accent">for B2B&nbsp;marketing.</span></h1>
-                <p class="hero-sub">Test your landing page, ad or email on AI buyer personas and buying committees, built from what your buyers say before and after they talk to you. See who drops off, why, and what to fix <strong>before you pay to find&nbsp;out.</strong></p>
+                <p class="hero-eyebrow">Pre-launch buyer simulation for B2B&nbsp;marketing</p>
+                <h1 class="h1 v3-fit" style="--fit:14.1">Find the buyers your page loses.<br><span class="v3-accent">Fix it before&nbsp;launch.</span></h1>
+                <p class="hero-sub">Test your landing page, ad or email on AI buyer personas and buying committees, built from what your buyers say before and after they talk to you. Get the fixes, role by role, <strong>before you pay to find&nbsp;out.</strong></p>
                 <div class="hero-ctas">
                     <a href="#access" class="btn btn-primary btn-lg">Become a design partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
                     <a href="sample-report.html" class="btn btn-ghost btn-lg"><i class="fa-solid fa-file-lines" style="font-size:13px;color:var(--brand)"></i> See sample reports</a>
+                    <a href="#story" class="hero-follow">Follow one launch <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
                 </div>
                 <p class="hero-proof">
                     <span class="hero-proof-k"><span class="hero-proof-dot" aria-hidden="true"></span><strong>84%</strong> accurate &middot; 473 graded claims</span>
@@ -3714,7 +3917,7 @@ body { background-image: none; }
             <div class="trust-strip">
                 <h2 class="trust-label">Trusted By</h2>
                 <div class="trust-logos">
-                    <a href="casestudy-ngrok.html" title="Read the ngrok customer story" style="display:inline-flex"><img src="images/ngrok-logo.svg" alt="ngrok customer story" class="trust-logo"></a>
+                    <a href="casestudy-ngrok.html" class="trust-story"><img src="images/ngrok-logo.svg" alt="ngrok" class="trust-logo"><span class="trust-story-k">Read story <span class="trust-story-arr" aria-hidden="true">&rarr;</span></span></a>
                     <span class="trust-divider"></span>
                     <img src="images/vectara-logo.svg" alt="Vectara" class="trust-logo">
                     <span class="trust-divider"></span>
@@ -3730,7 +3933,7 @@ body { background-image: none; }
             <span class="def-rule" aria-hidden="true"></span>
             <div class="def-grid">
                 <span class="mono-eyebrow">What WhyUser is</span>
-                <p class="def-text">WhyUser is <a href="glossary.html#pre-launch-buyer-simulation">pre-launch buyer simulation</a> for B2B marketing teams. It builds buyer personas from your sales calls, reviews and buyer questions, then runs them as a buying committee on your pages, ads and emails. In about 30 minutes you see who drops off, why, and what to fix.</p>
+                <p class="def-text">WhyUser is <a href="glossary.html#pre-launch-buyer-simulation">pre-launch buyer simulation</a> for B2B marketing teams. It builds buyer personas from what buyers say before they engage you, in communities, reviews and the questions they ask, and after they engage you, on your sales calls. Then it runs them as a buying committee on your pages, ads and emails. In about 30 minutes you see who drops off, why, and what to fix.</p>
             </div>
         </div>
     </section>
@@ -3747,6 +3950,7 @@ body { background-image: none; }
                 <div class="wu-prob-grid">
                     <div class="wu-prob-card">
                         <span class="wu-prob-k">One rate. Five buyers inside it.</span>
+                        <p class="wu-prob-claim">The rate says you missed.<br>Not who left, or why.</p>
                         <div class="wu-prob-fig">
                             <div class="v3-rate" aria-hidden="true">
                                 <div class="v3-rate-roles">
@@ -3760,11 +3964,11 @@ body { background-image: none; }
                             </div>
                             <p class="sr-only">One blended conversion rate, such as 2.4%, holds five buyers: champion, end user, technical lead, budget owner and security. It says the page missed, never which buyer left or why.</p>
                         </div>
-                        <p class="wu-prob-claim">The rate says you missed.<br>Not who left, or why.</p>
                     </div>
 
                     <div class="wu-prob-card">
                         <span class="wu-prob-k">Buyers research with AI first</span>
+                        <p class="wu-prob-claim">Your page makes the case first.</p>
                         <div class="wu-prob-fig">
                             <div class="v3-reads">
                                 <div class="v3-read"><span class="v3-read-k">Read 1</span><span class="v3-read-t">AI reads your page<small>Before anyone asks</small></span></div>
@@ -3777,11 +3981,11 @@ body { background-image: none; }
                                 <p class="v3-src">6sense, 2025 B2B Buyer Experience Report</p>
                             </div>
                         </div>
-                        <p class="wu-prob-claim">Your page makes the case first.</p>
                     </div>
 
                     <div class="wu-prob-card">
                         <span class="wu-prob-k">Every team rehearses but one</span>
+                        <p class="wu-prob-claim">You and AI read every word.<br>Buyers scan and leave.</p>
                         <div class="wu-prob-fig">
                             <div class="wu-read-pair v3-readers" aria-hidden="true">
                                 <div class="wu-read-col">
@@ -3799,12 +4003,12 @@ body { background-image: none; }
                             </div>
                             <p class="sr-only">Engineering has staging and operations has a dry run. Marketing&rsquo;s rehearsal is a review by its own team and an AI assistant, and both read every line. A real buyer reads the headline, skips around and leaves part way down.</p>
                         </div>
-                        <p class="wu-prob-claim">You and AI read every word.<br>Buyers scan and leave.</p>
                     </div>
                 </div>
 
                 <!-- THE FUNNEL · one-pager row 2 and deck slide 4 -->
                 <div class="v3-funnel-row">
+                    <p class="v3-means">What this means <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></p>
                     <h3 class="v3-funnel-h v3-fit" style="--fit:16.04">Buyers skip the top of your funnel.<br><span class="v3-accent">Your reports still start there.</span></h3>
                     <div class="v3-funnels">
                         <figure class="v3-funnel">
@@ -3839,30 +4043,153 @@ body { background-image: none; }
         </div>
     </section>
 
+    <!-- STORY · follow one launch (10 Nov 2026). One fictional PMM, one
+         website refresh (the first job under #jobs), four moments: know,
+         rehearse, fix, re-test. The hero's "Follow one launch" link lands
+         here. Roles are written out in full, and the example leans on the
+         budget owner, technical lead and champion. Figures are labelled
+         as example data. -->
+    <section id="story" class="section-rule">
+        <div class="wrap">
+            <div class="wu-story-head">
+                <div class="section-head">
+                    <span class="section-eyebrow">The story of a launch</span>
+                    <h2 class="h2 v3-fit" style="--fit:10.7">One website refresh,<br><span class="v3-accent">from staging to launch.</span></h2>
+                </div>
+                <p class="wu-story-intro">Sarah is the PMM at CodeDeploy, a fictional company. Her new website goes live in two weeks. Follow the four moments where a refresh loses buyers.</p>
+            </div>
+
+            <ol class="wu-story">
+                <li class="wu-story-step">
+                    <span class="wu-story-n" aria-hidden="true">1</span>
+                    <div class="wu-story-txt">
+                        <span class="wu-story-k">01 &middot; Before they write</span>
+                        <h3>Sarah starts from what buyers say.</h3>
+                        <p>Communities, reviews of rivals, the questions buyers ask, and what is getting louder. Three things keep coming up: the price, the setup, and proof a champion can forward. The old site answers none of them.</p>
+                        <ul class="wu-story-tags">
+                            <li><a href="buyer-personas.html#buyer-context">Buyer Context</a></li>
+                            <li><a href="buyer-questions.html">Buyer Questions</a></li>
+                        </ul>
+                    </div>
+                    <div class="wu-story-fig" aria-hidden="true">
+                        <div class="wu-sc">
+                            <p class="wu-sc-bar"><i class="fa-solid fa-users"></i>Buyer Context <span>codedeploy.com</span></p>
+                            <ul class="wu-sc-ev">
+                                <li><small>Communities</small><b>&ldquo;If I can&rsquo;t see a price, I close the tab.&rdquo;</b><em>Budget owner</em></li>
+                                <li><small>Competitor reviews</small><b>&ldquo;Their docs showed the GitHub setup. Ten minutes.&rdquo;</b><em>Technical lead</em></li>
+                                <li><small>Buyer questions</small><b>Who like us uses it?</b><em>Champion</em><span class="no">Gap</span></li>
+                                <li><small>Over time</small><b>Price questions</b><em>Budget owner</em><span class="up">&uarr; Louder</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="sr-only">Example Buyer Context for codedeploy.com. From communities, a budget owner says they close the tab if they can't see a price. From competitor reviews, a technical lead praises a rival's docs for showing the GitHub setup in ten minutes. From buyer questions, champions ask who like them uses it, and the site does not answer. Over time, price questions from budget owners are getting louder.</p>
+                </li>
+
+                <li class="wu-story-step">
+                    <span class="wu-story-n" aria-hidden="true">2</span>
+                    <div class="wu-story-txt">
+                        <span class="wu-story-k">02 &middot; On staging</span>
+                        <h3>The committee reads all four pages.</h3>
+                        <p>Five roles read Home, Product, Pricing and Solutions as ideal, skeptical and distracted buyers. In about 30 minutes she sees which page loses which role.</p>
+                        <ul class="wu-story-tags">
+                            <li><a href="committee-simulation.html">Pages &amp; Content</a></li>
+                            <li><a href="#jobs">Refresh the website</a></li>
+                        </ul>
+                    </div>
+                    <div class="wu-story-fig" aria-hidden="true">
+                        <div class="wu-sc">
+                            <p class="wu-sc-url"><i></i><i></i><i></i><span>staging.codedeploy.com</span></p>
+                            <div class="wu-sc-pages">
+                                <span>Home</span><span class="warn">Product</span><span class="no">Pricing</span><span class="warn">Solutions</span>
+                            </div>
+                            <ul class="wu-sc-finds">
+                                <li><em>Budget owner &middot; Pricing</em>Leaves at &ldquo;Talk to sales&rdquo;. No price band.</li>
+                                <li><em>Technical lead &middot; Product</em>Stalls. No setup steps, no integrations named.</li>
+                                <li><em>Champion &middot; Solutions</em>Stalls. No customer proof to forward.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="sr-only">Example: the committee reads four staging pages. Home holds every role. The budget owner leaves at Pricing because there is no price band. The technical lead stalls on Product because there are no setup steps and no integrations named. The champion stalls on Solutions because there is no customer proof to forward.</p>
+                </li>
+
+                <li class="wu-story-step">
+                    <span class="wu-story-n" aria-hidden="true">3</span>
+                    <div class="wu-story-txt">
+                        <span class="wu-story-k">03 &middot; In Claude</span>
+                        <h3>She asks. Claude makes the fixes.</h3>
+                        <p>One request in plain words. A workflow reads the fixes, rewrites the pages and checks every change. Sarah reviews them and ships.</p>
+                        <ul class="wu-story-tags">
+                            <li><a href="workflows.html#revise-content">Revise Content</a></li>
+                            <li><a href="#tools">Works in Claude, Cursor or Codex</a></li>
+                        </ul>
+                    </div>
+                    <div class="wu-story-fig" aria-hidden="true">
+                        <div class="wu-sc">
+                            <p class="wu-sc-ask"><span>Sarah asks</span>WhyUser: revise the four staging pages from the fixes</p>
+                            <div class="v3-diff">
+                                <p class="v3-del">Talk to sales for pricing</p>
+                                <p class="v3-ins">Plans from $40 a seat, with the ROI on one screen</p>
+                            </div>
+                            <ul class="wu-sc-checks">
+                                <li><i class="fa-solid fa-check"></i>Price band on Pricing, above the fold<em>Budget owner</em></li>
+                                <li><i class="fa-solid fa-check"></i>Setup steps and integrations on Product<em>Technical lead</em></li>
+                                <li><i class="fa-solid fa-check"></i>A customer result on Solutions<em>Champion</em></li>
+                            </ul>
+                            <p class="wu-sc-done"><i class="fa-solid fa-circle-check"></i> 3 of 3 fixes made across 4 pages. Saved for her team.</p>
+                        </div>
+                    </div>
+                    <p class="sr-only">Example: Sarah asks WhyUser in Claude to revise the four staging pages from the fixes. The pricing headline changes from Talk to sales for pricing to Plans from $40 a seat, with the ROI on one screen. Three of three fixes are made: a price band above the fold on Pricing for the budget owner, setup steps and integrations on Product for the technical lead, and a customer result on Solutions for the champion.</p>
+                </li>
+
+                <li class="wu-story-step">
+                    <span class="wu-story-n" aria-hidden="true">4</span>
+                    <div class="wu-story-txt">
+                        <span class="wu-story-k">04 &middot; Before launch, and after</span>
+                        <h3>She re-tests, launches, then grades it.</h3>
+                        <p>All four pages go back to the same committee. The budget owner, technical lead and champion now move forward. After launch, Sarah marks each finding hit or miss against real results.</p>
+                        <ul class="wu-story-tags">
+                            <li><a href="workflows.html#compare">Compare</a></li>
+                            <li><a href="accuracy.html">How grading works</a></li>
+                        </ul>
+                    </div>
+                    <div class="wu-story-fig" aria-hidden="true">
+                        <div class="wu-sc">
+                            <p class="wu-sc-bar"><i class="fa-solid fa-code-compare"></i>Moved forward, of 10 per role <span>4 pages</span></p>
+                            <ul class="v3-cmp">
+                                <li><b>Budget owner</b><span class="tr" style="--a:30%;--b:70%"><i class="a"></i><i class="b"></i></span><em>3 &rarr; 7</em></li>
+                                <li><b>Technical lead</b><span class="tr" style="--a:50%;--b:80%"><i class="a"></i><i class="b"></i></span><em>5 &rarr; 8</em></li>
+                                <li><b>Champion</b><span class="tr" style="--a:60%;--b:90%"><i class="a"></i><i class="b"></i></span><em>6 &rarr; 9</em></li>
+                            </ul>
+                            <p class="wu-sc-grade"><span>After launch</span><b class="ok">Hit</b><b class="ok">Hit</b><b class="miss">Miss</b><small>Every grade is hers.</small></p>
+                        </div>
+                    </div>
+                    <p class="sr-only">Example: on the re-test of all four pages, budget owners who move forward go from 3 to 7 of 10, technical leads from 5 to 8, and champions from 6 to 9. After launch, Sarah grades each finding hit or miss against real results.</p>
+                </li>
+            </ol>
+
+            <div class="wu-story-end">
+                <p class="wu-story-end-h">Sarah&rsquo;s new site went live fixed. <span>Now rehearse yours.</span></p>
+                <a href="#access" class="btn btn-primary btn-lg">Become a design partner <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+            </div>
+            <p class="v3-cap wu-story-cap">Fictional company. Example data.</p>
+        </div>
+    </section>
+
     <!-- WHAT YOU GET · the one-pager grid, item for item -->
     <section id="how" class="section-rule">
         <div class="wrap">
             <div class="section-head" style="max-width: 50rem">
                 <span class="section-eyebrow">What you get</span>
-                <h2 class="h2 v3-fit" style="--fit:18.05">Know your buyer. Rehearse the launch.<br><span class="v3-accent">Ship the fix.</span></h2>
+                <h2 class="h2 v3-fit" style="--fit:18.05"><span class="v3-accent">Know</span> your buyer. <span class="v3-accent">Rehearse</span> the launch.<br><span class="v3-accent">Ship</span> the fix.</h2>
             </div>
             <div class="v3-get">
                 <div class="v3-get-row">
                     <div class="v3-get-k"><b>01</b>Know your buyer</div>
                     <div class="v3-get-items c2">
                         <a class="v3-get-item" href="buyer-personas.html#buyer-context">
-                            <div class="v3-gv gv-ctx" aria-hidden="true">
-                                <div class="gv-q"><span class="gv-when">Before</span><p>&ldquo;We need SOC&nbsp;2 before we trial.&rdquo;</p><small>Review, Oct</small></div>
-                                <div class="gv-q b"><span class="gv-when">After</span><p>&ldquo;The seat price was buried.&rdquo;</p><small>Sales call, Nov <em><i class="fa-solid fa-arrow-trend-up"></i> louder</em></small></div>
-                            </div>
                             <b>Buyer Context</b><span class="t">Before and after they engage</span><span>Real buyer quotes, dated. See what&rsquo;s getting louder.</span>
                         </a>
                         <a class="v3-get-item" href="buyer-questions.html">
-                            <div class="v3-gv gv-qs" aria-hidden="true">
-                                <div class="gv-qr no"><i></i><p>Does it work with Okta?</p><span style="--w:92%"></span><em>Gap</em></div>
-                                <div class="gv-qr part"><i></i><p>What does a seat cost?</p><span style="--w:74%"></span><em>Partly</em></div>
-                                <div class="gv-qr ok"><i></i><p>Where is our data stored?</p><span style="--w:55%"></span><em>Answered</em></div>
-                            </div>
                             <b>Buyer Questions</b><span class="t">What they ask, and if you answer</span><span>Ranked by who asks. Find gaps before sales does.</span>
                         </a>
                     </div>
@@ -3871,40 +4198,15 @@ body { background-image: none; }
                     <div class="v3-get-k"><b>02</b>Rehearse before you spend</div>
                     <div class="v3-get-items c4">
                         <a class="v3-get-item" href="committee-simulation.html">
-                            <div class="v3-gv gv-page" aria-hidden="true">
-                                <span class="gv-file"><i class="fa-solid fa-file-lines"></i></span><span class="v3-job-to"></span>
-                                <div class="gv-roles"><span class="ok">CH</span><span class="ok">TD</span><span class="ok">EU</span><span class="no">EB</span><span class="no">GR</span></div>
-                            </div>
                             <b>Pages &amp; Content</b><span>See who stalls on your page, and who blocks whom.</span><span class="o">Verdict + ranked fixes</span>
                         </a>
                         <a class="v3-get-item" href="ad-campaign-simulation.html">
-                            <div class="v3-gv gv-ad" aria-hidden="true">
-                                <div class="gv-st"><small>Feed</small><span><i></i><i></i><i></i><i></i><i></i></span></div>
-                                <span class="v3-job-to"></span>
-                                <div class="gv-st"><small>Click</small><span><i></i><i></i><i></i><i class="x"></i><i class="x"></i></span></div>
-                                <span class="v3-job-to"></span>
-                                <div class="gv-st"><small>Page</small><span><i></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i></span></div>
-                            </div>
                             <b>Ad Funnels</b><span>LinkedIn and Google ads, from feed to landing page.</span><span class="o">Who clicks, who bounces</span>
                         </a>
                         <a class="v3-get-item" href="email-campaign-simulation.html">
-                            <div class="v3-gv gv-em" aria-hidden="true">
-                                <ol>
-                                    <li><span><i class="fa-solid fa-envelope-open"></i></span><small>Open</small></li>
-                                    <li><span><i class="fa-solid fa-envelope-open"></i></span><small>Open</small></li>
-                                    <li class="ok"><span><i class="fa-solid fa-reply"></i></span><small>Reply</small></li>
-                                    <li class="off"><span><i class="fa-solid fa-envelope"></i></span><small>Skip</small></li>
-                                    <li class="ok"><span><i class="fa-solid fa-calendar-check"></i></span><small>Book</small></li>
-                                </ol>
-                            </div>
                             <b>Email Sequences</b><span>Up to five emails, read in order.</span><span class="o">Who replies, who books</span>
                         </a>
                         <a class="v3-get-item" href="audience-discovery.html">
-                            <div class="v3-gv gv-aud" aria-hidden="true">
-                                <span class="add">+ Head of Platform</span>
-                                <span class="add">+ VP Data</span>
-                                <span class="cut">&minus; Founder</span>
-                            </div>
                             <b>Audience Discovery</b><span>The titles your content pulls, ready to target.</span><span class="o">Who to add, who to cut</span>
                         </a>
                     </div>
@@ -3913,13 +4215,6 @@ body { background-image: none; }
                     <div class="v3-get-k"><b>03</b>Ship the fix</div>
                     <div class="v3-get-items">
                         <a class="v3-get-item wide" href="workflows.html">
-                            <div class="v3-gv gv-wf" aria-hidden="true">
-                                <span class="gv-ask">Revise /pricing</span>
-                                <span class="v3-job-to"></span>
-                                <span class="gv-tools"><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-envelope-open-text"></i><i class="fa-solid fa-user-pen"></i><i class="fa-solid fa-layer-group"></i><i class="fa-solid fa-code-compare"></i></span>
-                                <span class="v3-job-to"></span>
-                                <span class="gv-done"><i class="fa-solid fa-circle-check"></i> 3 of 3 fixes made</span>
-                            </div>
                             <div class="gv-txt"><b>Workflows &amp; MCP</b><span class="t">In Claude, Cursor or Codex</span><span>Ask in plain words. Get finished work back, every fix checked.</span><span class="o">Revise Content &middot; Revise Emails &middot; Persona Messaging &middot; Patterns &middot; Compare</span></div>
                         </a>
                     </div>
@@ -4151,7 +4446,7 @@ body { background-image: none; }
                                 </div>
                                 <ul class="v3-fixlist">
                                     <li><span>Price range above the fold</span><em>Budget owner</em></li>
-                                    <li><span>Security page linked by the button</span><em>Security</em></li>
+                                    <li><span>A customer result by the button</span><em>Champion</em></li>
                                     <li><span>Integrations listed by name</span><em>Technical lead</em></li>
                                 </ul>
                                 <p class="v3-saved"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 3 of 3 fixes made. Saved for your team to mark.</p>
@@ -4164,12 +4459,12 @@ body { background-image: none; }
                                 <p class="v3-reply-h"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Revise Emails</p>
                                 <ol class="v3-mails">
                                     <li><span class="n">1</span><div class="v3-diff s"><p class="v3-del">Quick question</p><p class="v3-ins">Cut your platform team&rsquo;s eval time in half</p></div></li>
-                                    <li><span class="n">3</span><div class="v3-diff s"><p class="v3-del">Following up again</p><p class="v3-ins">The two-minute security answer</p></div></li>
+                                    <li><span class="n">3</span><div class="v3-diff s"><p class="v3-del">Following up again</p><p class="v3-ins">How setup works, in two minutes</p></div></li>
                                     <li class="same"><span class="n ok"><i class="fa-solid fa-check" aria-hidden="true"></i></span><p>Emails 2, 4 and 5 kept. One meeting ask, moved to email 5.</p></li>
                                 </ol>
                                 <ul class="v3-fixlist">
                                     <li><span>One meeting ask, not three</span><em>Budget owner</em></li>
-                                    <li><span>Security answer before the ask</span><em>Security</em></li>
+                                    <li><span>Setup answer before the ask</span><em>Technical lead</em></li>
                                     <li><span>Each email links the page it promises</span><em>Champion</em></li>
                                 </ul>
                                 <p class="v3-saved"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 5 emails checked, 3 fixes made. Saved for your team to mark.</p>
@@ -4198,7 +4493,7 @@ body { background-image: none; }
                                 <p class="v3-reply-h"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Patterns</p>
                                 <ol class="v3-pat">
                                     <li><p><span>Price hidden below the fold</span><em>Budget owner</em></p><i style="--w:75%"></i><b>9 of 12</b></li>
-                                    <li><p><span>Security proof two clicks deep</span><em>Security</em></p><i style="--w:58%"></i><b>7 of 12</b></li>
+                                    <li><p><span>No customer proof to forward</span><em>Champion</em></p><i style="--w:58%"></i><b>7 of 12</b></li>
                                     <li><p><span>Integrations not named</span><em>Technical lead</em></p><i style="--w:42%"></i><b>5 of 12</b></li>
                                     <li><p><span>Setup time never stated</span><em>End user</em></p><i style="--w:33%"></i><b>4 of 12</b></li>
                                 </ol>
@@ -4213,9 +4508,9 @@ body { background-image: none; }
                                 <p class="v3-cmp-k">Buyers who moved forward, of 10 per role <span><i class="a"></i>Before <i class="b"></i>After</span></p>
                                 <ul class="v3-cmp">
                                     <li><b>Budget owner</b><span class="tr" style="--a:30%;--b:70%"><i class="a"></i><i class="b"></i></span><em>3 &rarr; 7</em></li>
-                                    <li><b>Security</b><span class="tr" style="--a:40%;--b:80%"><i class="a"></i><i class="b"></i></span><em>4 &rarr; 8</em></li>
                                     <li><b>Technical lead</b><span class="tr" style="--a:50%;--b:80%"><i class="a"></i><i class="b"></i></span><em>5 &rarr; 8</em></li>
-                                    <li><b>Champion</b><span class="tr" style="--a:80%;--b:90%"><i class="a"></i><i class="b"></i></span><em>8 &rarr; 9</em></li>
+                                    <li><b>Champion</b><span class="tr" style="--a:60%;--b:90%"><i class="a"></i><i class="b"></i></span><em>6 &rarr; 9</em></li>
+                                    <li><b>Security</b><span class="tr" style="--a:70%;--b:80%"><i class="a"></i><i class="b"></i></span><em>7 &rarr; 8</em></li>
                                     <li class="flat"><b>End user</b><span class="tr" style="--a:60%;--b:60%"><i class="a"></i><i class="b"></i></span><em>6 &rarr; 6</em></li>
                                 </ul>
                                 <p class="v3-saved"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 4 of 5 roles moved forward. End user unchanged.</p>
@@ -4248,6 +4543,71 @@ body { background-image: none; }
               });
             })();
             </script>
+        </div>
+    </section>
+
+    <!-- TOOLS · integrations and MCP (10 Nov 2026). Every tile is a claim
+         the site already makes: Gong/Chorus ingestion (security.html), the
+         Slack digest (#fits), Claude, Cursor and Codex (workflows.html), and
+         CRM, docs and tracker through the assistant's own connectors
+         (workflows.html "Where it runs"). Add a tile only when that holds. -->
+    <section id="tools" class="section-rule">
+        <div class="wrap">
+            <div class="wu-tools-head">
+                <div class="section-head">
+                    <span class="section-eyebrow">Integrations</span>
+                    <h2 class="h2 v3-fit" style="--fit:9.55">Works with the tools<br><span class="v3-accent">you already run.</span></h2>
+                </div>
+                <div class="wu-tools-side">
+                    <a class="wu-tools-promo" href="docs/connect-claude.html">
+                        <span class="wu-tools-promo-k"><i class="fa-solid fa-plug" aria-hidden="true"></i>WhyUser MCP server</span>
+                        <span class="wu-tools-promo-t">Run WhyUser from Claude, Cursor or Codex. Set up in 5 minutes.</span>
+                        <i class="fa-solid fa-arrow-right wu-tools-promo-arr" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="wu-tools-card">
+                <div class="wu-tools-left">
+                    <h3>Run WhyUser from your&nbsp;AI.</h3>
+                    <p>Ask in plain words. Test a page, rewrite a sequence or pull the fixes, without opening another app.</p>
+                    <ul class="wu-tools-chips" aria-label="AI assistants that run WhyUser">
+                        <li>Claude Code</li><li>Claude desktop</li><li>claude.ai</li><li>Cursor</li><li>Codex</li>
+                    </ul>
+                    <a class="wu-inline-cta" href="workflows.html">See what you can do with the MCP <span class="wu-arr" aria-hidden="true">&rarr;</span></a>
+                </div>
+
+                <div class="wu-flow" aria-hidden="true">
+                    <span class="wu-flow-k wu-flow-k-in">Evidence in</span>
+                    <span class="wu-flow-k wu-flow-k-hub">WhyUser</span>
+                    <span class="wu-flow-k wu-flow-k-out">Work out</span>
+
+                    <div class="wu-flow-col wu-flow-in">
+                        <div class="wu-flow-i"><i class="fa-solid fa-globe"></i><b>Your site</b><span>Live and staging pages</span></div>
+                        <div class="wu-flow-i"><i class="fa-solid fa-phone"></i><b>Gong &middot; Chorus</b><span>Sales calls, redacted on the way in</span></div>
+                        <div class="wu-flow-i"><i class="fa-solid fa-star"></i><b>Reviews &middot; communities</b><span>What buyers ask in public</span></div>
+                    </div>
+
+                    <div class="wu-flow-mid">
+                        <svg class="wu-flow-lines" viewBox="0 0 160 300" preserveAspectRatio="none">
+                            <path d="M0 50 C45 50 45 150 80 150"/>
+                            <path d="M0 150 H80"/>
+                            <path d="M0 250 C45 250 45 150 80 150"/>
+                            <path class="on" d="M80 150 C115 150 115 50 160 50"/>
+                            <path d="M80 150 H160"/>
+                            <path d="M80 150 C115 150 115 250 160 250"/>
+                        </svg>
+                        <span class="wu-flow-hub"><img src="images/whyuser-dog-badge.png" alt="" width="44" height="44"></span>
+                    </div>
+
+                    <div class="wu-flow-col wu-flow-out">
+                        <div class="wu-flow-i on"><i class="fa-solid fa-terminal"></i><b>Claude &middot; Cursor &middot; Codex</b><span>Fixes made, each one checked</span><em>MCP</em></div>
+                        <div class="wu-flow-i"><i class="fa-brands fa-slack"></i><b>Slack</b><span>Daily digest: what to fix</span></div>
+                        <div class="wu-flow-i"><i class="fa-solid fa-diagram-project"></i><b>CRM &middot; docs &middot; tracker</b><span>Through your assistant&rsquo;s connectors</span></div>
+                    </div>
+                </div>
+                <p class="sr-only">Evidence comes into WhyUser from your live and staging pages, from Gong and Chorus sales calls, which are redacted on the way in, and from what buyers ask in reviews and communities. Work goes out through the WhyUser MCP server to Claude, Cursor or Codex, which make the fixes and check each one; as a daily Slack digest of what to fix; and to your CRM, docs and issue tracker through your assistant's own connectors.</p>
+            </div>
         </div>
     </section>
 
@@ -4588,7 +4948,7 @@ body { background-image: none; }
             <div class="wu-faq">
                 <details class="wu-faq-item">
                     <summary class="wu-faq-q">What is WhyUser?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>
-                    <p class="wu-faq-a">WhyUser is pre-launch buyer simulation for B2B marketing teams. It builds buyer personas from your calls, reviews and buyer questions, then runs them as a buying committee on your pages, ads and emails. In about 30 minutes you see who drops off, why, and what to fix.</p>
+                    <p class="wu-faq-a">WhyUser is pre-launch buyer simulation for B2B marketing teams. It builds buyer personas from what buyers say before they engage you, in communities, reviews and the questions they ask, and after they engage you, on your sales calls. Then it runs them as a buying committee on your pages, ads and emails. In about 30 minutes you see who drops off, why, and what to fix.</p>
                 </details>
                 <details class="wu-faq-item">
                     <summary class="wu-faq-q">How does WhyUser build buyer personas?<i class="fa-solid fa-plus" aria-hidden="true"></i></summary>

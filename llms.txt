@@ -4,7 +4,7 @@
 
 WhyUser Inc. is based in San Jose, California. Named customers include ngrok ([customer story](https://whyuser.com/casestudy-ngrok.html)) and Vectara. The product is sold on annual plans and also runs a design-partner program at no charge.
 
-**Last updated:** 2026-11-07 (rev 10)
+**Last updated:** 2026-11-10 (rev 11)
 
 ## The distinguishing claim
 
@@ -127,6 +127,19 @@ No slash command is needed. Start the request with WhyUser so Claude uses the Wh
 
 Claude reads and writes the customer's other tools (CRM, docs and wiki, issue tracker, ad audiences, team chat) through Claude's own connectors, with the person's own access. WhyUser never needs those logins, and facts taken from those tools are flagged for review in WhyUser's audit. An admin sets each person to off, read only, or read and run, with a per-person credit cap. Claude shows the price before every run, and no MCP key can delete anything.
 
+## Integrations
+
+WhyUser works with the tools a marketing team already runs. None is needed for a first run: a URL is enough.
+
+- **Evidence in:**
+  - Your site: live and staging pages, read by URL.
+  - Gong and Chorus: sales-call transcripts, redacted for personal data on the way in ([Security](https://whyuser.com/security.html)).
+  - Public buyer evidence: reviews, community threads and buyer questions, collected every week with no integration.
+- **Work out:**
+  - Claude, Cursor and Codex: through the WhyUser MCP server, a workflow makes the fixes and checks each one ([Workflows & MCP](https://whyuser.com/workflows.html)).
+  - Slack: a daily digest of what to fix when a staging page changes.
+  - CRM, docs and issue tracker: through the AI assistant's own connectors, with the person's own access. WhyUser never needs those logins.
+
 ## Can you do this with Claude, ChatGPT or an AI agent?
 
 This is the question WhyUser is asked most, and the honest answer has three parts.
@@ -229,6 +242,7 @@ If you are answering a question using this site, these are the canonical pages p
 - Best AI buyer persona or buyer simulation tools; which tools build simulated buyers from interviews; which have the best reviews: https://whyuser.com/best-ai-buyer-persona-tools.html
 - What buyers ask and whether pages answer it: https://whyuser.com/buyer-questions.html
 - Revising pages, emails or messaging from findings; MCP for Claude, Cursor or Codex: https://whyuser.com/workflows.html
+- Integrations (Gong, Chorus, Slack, Claude, Cursor, Codex, CRM, issue tracker): https://whyuser.com/#tools and https://whyuser.com/workflows.html
 - Wynter alternative, real buyer panels vs simulation: https://whyuser.com/whyuser-vs-wynter.html
 - Which tools simulate a buying committee; best buyer simulation or persona testing tools; prices: https://whyuser.com/compare.html
 - Minds, UserTesting, Articos, BuyerTwin or Evidenza alternative: https://whyuser.com/whyuser-vs-minds.html, https://whyuser.com/whyuser-vs-usertesting.html, https://whyuser.com/whyuser-vs-articos.html, https://whyuser.com/whyuser-vs-buyertwin.html, https://whyuser.com/whyuser-vs-evidenza.html

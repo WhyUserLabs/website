@@ -19,8 +19,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-2JWLP7NZVG');
 </script>
 <!-- End Google tag (gtag.js) -->
-<meta name="theme-color" content="#fdfdfd">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
 <title>WhyUser docs: setup guides for WhyUser | WhyUser</title>
 <meta name="description" content="Setup guides for WhyUser: connect WhyUser to Claude Code, the Claude desktop app and claude.ai.">
 <link rel="canonical" href="https://whyuser.com/docs/">
@@ -51,7 +52,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      dark theme LAST so its token overrides win. -->
 <link rel="stylesheet" href="../assets/whyuser-shell.css">
 <link rel="stylesheet" href="../assets/whyuser-core.css">
-<link rel="stylesheet" href="../assets/dark-theme.css">
 <link rel="stylesheet" href="../assets/whyuser-readability.css">
 <style>
   /* Connect to Claude: docs layout. Existing tokens only; no !important. */
@@ -306,6 +306,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- WHYUSER:SEO-SUPPLEMENT:END -->
 <link rel="stylesheet" href="../assets/whyuser-fonts.css">
+<script src="../assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="../assets/dark-theme.css">
 </head>
 <body class="grain">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
@@ -593,7 +595,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main>
 
-<section class="page-head">
+<section id="whyuser-docs" class="page-head">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb">
       <a href="../">WhyUser</a> <span aria-hidden="true">/</span> <span>Docs</span>
@@ -604,7 +606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="cc-docs">
+<section id="setup-guides" class="cc-docs">
   <div class="wrap">
     <div class="cc-hub">
       <h2 class="cc-h2">Setup guides</h2>

@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+    <meta name="color-scheme" content="dark light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -20,7 +21,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End Google tag (gtag.js) -->
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta name="theme-color" content="#faf9f7">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
 <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-11-06T00:00:00+00:00">
 <meta property="article:modified_time" content="2026-11-07T00:00:00+00:00">
@@ -181,6 +183,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <link rel="stylesheet" href="assets/whyuser-v3.css">
 <link rel="stylesheet" href="assets/whyuser-viz.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -468,7 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- WHYUSER:NAV:END -->
 <main class="lp" id="main">
-<section class="lp-hero">
+<section id="pre-launch-testing-vs" class="lp-hero">
   <div class="wrap">
     <nav class="lp-crumb" aria-label="Breadcrumb"><a href="./">WhyUser</a> / <a href="compare.html">Compare</a> / Pre-launch vs A/B testing</nav>
     <h1 class="lp-h1 v3-fit" style="--fit:8.47">Pre-launch testing<br><span class="v3-accent">vs A/B testing.</span></h1>
@@ -486,7 +490,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="lp-cell"><span class="lp-k">Best order</span><div class="lp-v">Both</div><p>Fix first. Then A/B test the close calls.</p></div>
 </div></div>
 
-<section class="lp-sec">
+<section id="how-long-until-you-know" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">Time to an answer</span>
     <h2 class="lp-h2">How long until you know.</h2>
@@ -501,7 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="what-won-or-why" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">What each one tells you</span>
     <h2 class="lp-h2 v3-fit" style="--fit:8.59">What won, or why.<br><span class="v3-accent">You need both.</span></h2>
@@ -527,7 +531,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="pre-launch-testing" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">Side by side</span>
     <h2 class="lp-h2">Pre-launch testing and A/B testing, row by row.</h2>
@@ -548,7 +552,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="fix-it-first" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">Use both</span>
     <h2 class="lp-h2">Fix it first. Then test what is left.</h2>
@@ -585,7 +589,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<section class="wu-close">
+<section id="access" class="wu-close">
   <div class="wrap">
     <span class="wu-eyebrow">Before you spend</span>
     <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>

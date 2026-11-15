@@ -175,7 +175,7 @@
 .wu-stage-row-bad .wu-stage-team { color: var(--frame-text); font-weight: 500; }
 .wu-stage-chip-bad {
   background: transparent;
-  border: 1px solid #c4b5fd;
+  border: 1px solid var(--dk-l-c4b5fd, #c4b5fd);
   color: #c4b5fd;
   font-weight: 600;
 }
@@ -338,7 +338,7 @@
   margin-bottom: 0.625rem;
 }
 .wu-sol-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--frame-dim); }
-.wu-sol-dot-ideal { background: #fafafa; }
+.wu-sol-dot-ideal { background: var(--dk-b-fafafa, #fafafa); }
 .wu-sol-dot-skept { background: #9fc0a9; }
 .wu-sol-role-n {
   display: block;
@@ -364,7 +364,7 @@
   color: var(--frame-mute);
 }
 .wu-sol-key::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--frame-dim); }
-.wu-sol-key-ideal::before { background: #fafafa; }
+.wu-sol-key-ideal::before { background: var(--dk-b-fafafa, #fafafa); }
 .wu-sol-key-skept::before { background: #9fc0a9; }
 
 /* Right: what comes back */
@@ -599,7 +599,7 @@ a.wu-sol-plat:focus-visible { outline: 2px solid var(--brand); outline-offset: 3
   width: 1.75rem; height: 1.75rem;
   border-radius: 6px;
   background: var(--brand);
-  color: #fff;
+  color: var(--dk-on-brand, #fff);
   font-size: 12px;
   font-weight: 700;
   flex: none;
@@ -927,7 +927,7 @@ a.wu-sol-plat:focus-visible { outline: 2px solid var(--brand); outline-offset: 3
 }
 .wu-dp-opt-on {
   background: #3f6b52;
-  border-color: #3f6b52;
+  border-color: var(--dk-l-3f6b52, #3f6b52);
   color: #fff;
   font-weight: 600;
   display: flex;
@@ -1292,12 +1292,12 @@ a.wu-sol-plat:focus-visible .wu-sol-plat-s { color: var(--dim); }
    ═══════════════════════════════════════════════════════════════════ */
 @media print {
   .wu-band, .wu-kicker, .wu-sol-core, .wu-teams-src {
-    background: #fff;
-    color: #000;
-    border: 1px solid #000;
+    background: var(--dk-b-ffffff, #fff);
+    color: var(--dk-t-000000, #000);
+    border: 1px solid var(--dk-l-000000, #000);
   }
   .wu-band .h2, .wu-band h2, .wu-band h3,
   .wu-band .section-head p, .wu-band .wu-answer,
-  .wu-prob-claim, .wu-dp-h, .wu-dp-p, .wu-dp-term-v, .wu-dp-term-l { color: #000; }
+  .wu-prob-claim, .wu-dp-h, .wu-dp-p, .wu-dp-term-v, .wu-dp-term-l { color: var(--dk-t-000000, #000); }
   .wu-faq-item[open] .wu-faq-a { display: block; }
 }

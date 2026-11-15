@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+    <meta name="color-scheme" content="dark light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -20,7 +21,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End Google tag (gtag.js) -->
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta name="theme-color" content="#faf9f7">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
 <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-11-06T00:00:00+00:00">
 <meta property="article:modified_time" content="2026-11-07T00:00:00+00:00">
@@ -187,6 +189,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <link rel="stylesheet" href="assets/whyuser-v3.css">
 <link rel="stylesheet" href="assets/whyuser-viz.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -474,7 +478,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- WHYUSER:NAV:END -->
 <main class="lp" id="main">
-<section class="lp-hero">
+<section id="buyer-personas-built-from" class="lp-hero">
   <div class="wrap">
     <nav class="lp-crumb" aria-label="Breadcrumb"><a href="./">WhyUser</a> / Know your buyer / Buyer Context</nav>
     <h1 class="lp-h1 v3-fit" style="--fit:12.21">Buyer personas, built from<br>what your buyers say.</h1>
@@ -492,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="lp-cell"><span class="lp-k">Checked on calls</span><div class="lp-v">87.5%</div><p>Of proof needs confirmed on 42 real sales calls at one account.</p></div>
 </div></div>
 
-<section class="lp-sec">
+<section id="six-sources" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">How a persona is built</span>
     <h2 class="lp-h2 v3-fit" style="--fit:5.44">Six sources.<br><span class="v3-accent">One buyer.</span></h2>
@@ -598,7 +602,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="every-trait-has-a-source" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">Inside one buyer</span>
     <h2 class="lp-h2">Every trait has a source and a date.</h2>
@@ -613,7 +617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="five-roles" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">From personas to a committee</span>
     <h2 class="lp-h2 v3-fit" style="--fit:6.35">Five roles.<br><span class="v3-accent">Three moods.</span></h2>
@@ -640,7 +644,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="persona-document-a-chatbot-persona" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">Compared</span>
     <h2 class="lp-h2">A persona document, a chatbot persona, or WhyUser.</h2>
@@ -658,7 +662,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="did-buyers-ask" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">Checked on real calls</span>
     <h2 class="lp-h2">Did buyers ask for what the personas said?</h2>
@@ -672,7 +676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="lp-sec">
+<section id="put-your-buyers-to-work" class="lp-sec">
   <div class="wrap">
     <span class="lp-eyebrow">Use them</span>
     <h2 class="lp-h2">Put your buyers to work.</h2>
@@ -710,7 +714,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<section class="wu-close">
+<section id="access" class="wu-close">
   <div class="wrap">
     <span class="wu-eyebrow">Know your buyer</span>
     <h2><span class="fail">Fail</span> in the test.<br><span class="win">Win</span> in the market.</h2>

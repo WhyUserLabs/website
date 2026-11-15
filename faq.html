@@ -19,8 +19,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-2JWLP7NZVG');
 </script>
 <!-- End Google tag (gtag.js) -->
-<meta name="theme-color" content="#08080b">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#08080b" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
 <title>FAQ &middot; WhyUser | Committee simulation, accuracy, pricing</title>
 <meta name="description" content="Answers on what WhyUser is, whether the simulated buyers are real, how it differs from research panels and chatbots, how accuracy is graded, what it does not do, who it is for, what data it needs, and pricing.">
 <link rel="canonical" href="https://whyuser.com/faq.html">
@@ -183,48 +184,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             /* Surface */
             /* One flat page colour. Sections are separated by spacing and
                typography, never by a change of background. */
-            --paper: #fdfdfd;        /* the whole page, soft white */
-            --paper-warm: #f2f2f2;   /* NOT a section colour. Tint for chips,
+            --paper: var(--dk-paper, #fdfdfd);        /* the whole page, soft white */
+            --paper-warm: var(--dk-paper-warm, #f2f2f2);   /* NOT a section colour. Tint for chips,
                                         icons, hover states, highlighted cells. */
-            --paper-cool: #f8f8f8;
-            --surface: #ffffff;      /* cards sit above the page */
+            --paper-cool: var(--dk-paper-cool, #f8f8f8);
+            --surface: var(--dk-surface, #ffffff);      /* cards sit above the page */
 
             /* Ink */
-            --ink: #09090b;
-            --ink-soft: #27272a;
-            --mute: #52525b;
-            --dim: #71717a;
-            --faint: #a1a1aa;
+            --ink: var(--dk-ink, #09090b);
+            --ink-soft: var(--dk-ink-soft, #27272a);
+            --mute: var(--dk-mute, #52525b);
+            --dim: var(--dk-dim, #71717a);
+            --faint: var(--dk-faint, #a1a1aa);
 
             /* Hairlines */
-            --rule: rgba(9, 9, 11, 0.09);
-            --rule-strong: rgba(9, 9, 11, 0.15);
-            --rule-bold: rgba(9, 9, 11, 0.24);
+            --rule: var(--dk-rule, rgba(9, 9, 11, 0.09));
+            --rule-strong: var(--dk-rule-strong, rgba(9, 9, 11, 0.15));
+            --rule-bold: var(--dk-rule-bold, rgba(9, 9, 11, 0.24));
 
             /* Dark product frame */
-            --frame: #08080b;
-            --frame-surface: #111114;
-            --frame-elevated: #18181c;
-            --frame-rule: rgba(255, 255, 255, 0.08);
-            --frame-rule-strong: rgba(255, 255, 255, 0.16);
-            --frame-text: #fafafa;
-            --frame-mute: #a1a1aa;
-            --frame-dim: #71717a;
+            --frame: var(--dk-frame, #08080b);
+            --frame-surface: var(--dk-frame-surface, #111114);
+            --frame-elevated: var(--dk-frame-elevated, #18181c);
+            --frame-rule: var(--dk-frame-rule, rgba(255, 255, 255, 0.08));
+            --frame-rule-strong: var(--dk-frame-rule-strong, rgba(255, 255, 255, 0.16));
+            --frame-text: var(--dk-frame-text, #fafafa);
+            --frame-mute: var(--dk-frame-mute, #a1a1aa);
+            --frame-dim: var(--dk-frame-dim, #71717a);
 
             /* Brand & semantic accents */
-            --brand: #6d28d9;
-            --brand-soft: #ede9fe;
-            --quote-ink: #334155;
-            --signal-green: #059669;
-            --signal-green-bright: #10b981;
-            --signal-red: #dc2626;
-            --signal-red-bright: #ef4444;
-            --signal-amber: #d97706;
-            --signal-amber-bright: #f59e0b;
-            --signal-blue: #2563eb;
+            --brand: var(--dk-brand, #6d28d9);
+            --brand-soft: var(--dk-brand-soft, #ede9fe);
+            --quote-ink: var(--dk-quote-ink, #334155);
+            --signal-green: var(--dk-signal-green, #059669);
+            --signal-green-bright: var(--dk-signal-green-bright, #10b981);
+            --signal-red: var(--dk-signal-red, #dc2626);
+            --signal-red-bright: var(--dk-signal-red-bright, #ef4444);
+            --signal-amber: var(--dk-signal-amber, #d97706);
+            --signal-amber-bright: var(--dk-signal-amber-bright, #f59e0b);
+            --signal-blue: var(--dk-signal-blue, #2563eb);
 
             /* Quote body, lighter slate, distinct from ink, signals "different voice" */
-            --quote-ink: #64748b;
+            --quote-ink: var(--dk-quote-ink, #64748b);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -357,7 +358,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         /* Ultra-subtle dot grid, replaces pastel gradient backgrounds */
         .dotgrid {
-            background-image: radial-gradient(circle, rgba(9,9,11,0.05) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(var(--dk-ov, 9,9,11),0.05) 1px, transparent 1px);
             background-size: 24px 24px;
             background-position: 0 0;
         }
@@ -367,7 +368,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            ───────────────────────────────────────────────────────────── */
         .meta-strip {
             background: var(--ink);
-            color: rgba(255,255,255,0.78);
+            color: var(--dk-on-ink, rgba(255,255,255,0.78));
             border-bottom: 1px solid rgba(255,255,255,0.08);
             font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
@@ -404,7 +405,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(253, 253, 253, 0.82);
+            background: var(--dk-b-fdfdfdd1, rgba(253, 253, 253, 0.82));
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);
@@ -596,12 +597,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .btn-primary {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             border-color: var(--ink);
             box-shadow: 0 1px 0 0 rgba(255,255,255,0.08) inset, 0 1px 2px rgba(9,9,11,0.12), 0 8px 24px -10px rgba(9,9,11,0.32);
         }
         .btn-primary:hover {
-            background: #18181c;
+            background: var(--dk-ink-hover, #18181c);
             box-shadow: 0 1px 0 0 rgba(255,255,255,0.1) inset, 0 1px 2px rgba(9,9,11,0.16), 0 12px 32px -10px rgba(9,9,11,0.42);
         }
         .btn-ghost {
@@ -1266,7 +1267,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: block;
             width: 100%;
             height: auto;
-            background: white;
+            background: var(--dk-b-ffffff, white);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -2015,7 +2016,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .diff-side {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             padding: 1.5rem 1.75rem;
             display: flex;
             flex-direction: column;
@@ -2134,7 +2135,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            ───────────────────────────────────────────────────────────── */
         .anti-block {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             border-radius: 16px;
             padding: 3rem 2rem;
         }
@@ -2151,8 +2152,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .anti-block .section-eyebrow { color: #c4b5fd; }
         .anti-block .section-eyebrow::before { background: #c4b5fd; }
-        .anti-block h2 { color: white; }
-        .anti-block .section-head p { color: rgba(255,255,255,0.65); }
+        .anti-block h2 { color: var(--dk-on-ink, white); }
+        .anti-block .section-head p { color: var(--dk-on-ink, rgba(255,255,255,0.65)); }
         .anti-list {
             display: flex;
             flex-direction: column;
@@ -2302,7 +2303,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            FOOTER
            ───────────────────────────────────────────────────────────── */
         .footer {
-            background: var(--ink);
+            background: var(--dk-band, var(--ink));
             color: rgba(255,255,255,0.7);
             padding: 4rem 0 2.5rem;
             border-top: 1px solid var(--rule);
@@ -2333,7 +2334,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gap: 9px;
             margin-bottom: 0.875rem;
         }
-        .footer-brand-mark .nav-mark { background: #fff; padding: 3px; }
+        .footer-brand-mark .nav-mark { background: var(--dk-b-ffffff, #fff); padding: 3px; }
         .footer-brand-name { color: white; font-weight: 600; }
         .footer-tagline { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
         .footer-bottom {
@@ -2475,7 +2476,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .etile.active{border-color:var(--brand);background:var(--brand-soft)}
         .etile.active:hover{transform:none}
         .etile-ic{width:34px;height:34px;border-radius:8px;background:var(--paper-warm);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px}
-        .etile.active .etile-ic{background:#fff}
+        .etile.active .etile-ic{background:var(--dk-b-ffffff, #fff)}
         .etile-n{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--dim);text-transform:uppercase}
         .etile-name{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;line-height:1.2}
         .etile-chip{font-family:'Geist Mono',monospace;font-size:9px;color:var(--mute);margin-top:auto;display:flex;align-items:center;gap:0.35rem}
@@ -2544,7 +2545,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </style>
 
-<link rel="stylesheet" href="assets/dark-theme.css">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
   <link rel="stylesheet" href="assets/whyuser-r3.css">
@@ -2606,6 +2606,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- WHYUSER:SEO-SUPPLEMENT:END -->
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body class="grain">
       <!-- Google Tag Manager (noscript) -->
@@ -2897,7 +2899,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h1 class="h1" style="max-width:24rem">Questions, answered.</h1>
       <p class="hero-sub" style="max-width:36rem">What it is. Whether the buyers are real. How it compares to a panel and to a chatbot. How accuracy gets graded, and what it will not do. What it costs. If yours is not here, just ask.</p>
     </div></header>
-<section class="section-rule"><div class="wrap"><div class="faq-grid"><div class="faq-side"><span class="section-eyebrow">FAQ</span><h2 class="h2" style="margin-bottom:1rem">Still deciding?</h2><p class="body" style="margin-bottom:1.5rem">The fastest way to settle accuracy: run WhyUser on a campaign you already know, and grade it yourself.</p><a href="./#access" class="btn btn-primary">Request access</a></div><div><div class="faqcat">The basics</div><details class="faq-item"><summary><span class="faq-num">01</span><span class="faq-q">What is WhyUser, in one line?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">WhyUser is pre-launch buyer simulation for B2B marketing. Engineering has staging to catch bugs before production, and this is the same idea for campaigns. It works in three steps: know your buyer, rehearse the launch on a simulated buying committee, and ship the fix. You get back the role that stalls, the proof that is missing, and what to change. It tests pages and content, LinkedIn and Google ads, email sequences, and which job titles a page reaches (Audience Discovery).</div></details><details class="faq-item"><summary><span class="faq-num">02</span><span class="faq-q">What is buying committee simulation?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">B2B deals are decided by groups, not individuals. The champion approves, the CFO vetoes, the technical lead raises a doubt that makes the budget holder walk away. Committee simulation models that chain reaction. WhyUser runs a separate agent for every seat on the committee, 10 to 60 per seat, spread across a designed range of moods and intent stages, all reading the same asset. The output is a Conflict Graph showing which role killed it and why.</div></details><details class="faq-item"><summary><span class="faq-num">03</span><span class="faq-q">What do I need to get started, and how long does a run take?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">A URL is enough to begin. The Ground Reality step reads your site, the public voice of your buyers in reviews and community threads, and your campaign context, then compiles your committee from that evidence. No prompt writing, no weeks of data mapping. A run takes about 30 minutes, against the review rounds that usually take weeks.</div></details><div class="faqcat">How it compares</div><details class="faq-item"><summary><span class="faq-num">04</span><span class="faq-q">Are these real people?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">No, and we will never imply otherwise. The agents are simulated. What is real is the evidence they are built from: your buyers&rsquo; own words in reviews, community threads, and your call transcripts, with every finding traceable back to its source. So the honest description of a WhyUser output is a grounded hypothesis, not a survey result. If that distinction matters to you, grade us on it. Run a campaign whose ending you already know and see whether the simulation catches what actually happened.</div></details><details class="faq-item"><summary><span class="faq-num">05</span><span class="faq-q">How is this different from a research panel like Wynter or UserTesting?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">A panel&rsquo;s unit is the individual respondent. It shows your page to forty people separately and returns forty opinions. That is genuinely useful, and those are real humans, which ours are not. What a panel cannot do at any price is put the roles in the same room. It never sees the CFO&rsquo;s veto land on the champion&rsquo;s enthusiasm, because those two were surveyed independently and never interacted. That chain reaction is what WhyUser models, and the gap is structural, not a matter of panel size. Use a panel to hear real voices. Use WhyUser to watch the committee decide.</div></details><details class="faq-item"><summary><span class="faq-num">06</span><span class="faq-q">Why not just use Claude or ChatGPT?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Claude writes. WhyUser measures. Keep the assistant for drafting, where it beats us outright. For a spend decision, the problem is that every run with it is a first run: ask the same page twice in two fresh sessions and you get two different answers, so you cannot tell a real fix from model drift. It is also the most patient reader alive, and none of your buyers are. It reads to the bottom, while for roughly 82% of cold LinkedIn traffic the first screen is the whole page. And single-persona roleplay is the easy half; veto propagation across a committee is the hard half. Full treatment on <a href="whyuser-vs-chatgpt-and-claude.html" style="color:var(--brand);font-weight:600">Claude vs WhyUser</a>.</div></details><div class="faqcat">Trust and accuracy</div><details class="faq-item"><summary><span class="faq-num">07</span><span class="faq-q">How accurate is it?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Here is the honest boundary. WhyUser predicts direction and rank order: which role disengages, where on the page, and which of two variants wins. It does not predict your conversion rate to a number, and any vendor promising that is guessing at variables nobody controls. Every finding ships as a hypothesis with its evidence attached, and every finding is gradeable. So the way to settle accuracy is not our claim, it is your test. Run it on a campaign you already know the ending to.</div></details><details class="faq-item"><summary><span class="faq-num">08</span><span class="faq-q">What does WhyUser not do?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Worth knowing before you buy. It does not predict absolute conversion or bounce rates. It does not replace a live A/B test; it tells you which variant deserves the traffic. It does not audit SEO or accessibility, which need dedicated tooling. It cannot see your paid targeting settings, so it diagnoses the message, not the audience it was served to. And it will not reach content behind a login or an interaction it cannot perform, which is usually content your buyer would also fail to find.</div></details><details class="faq-item"><summary><span class="faq-num">09</span><span class="faq-q">How does it get smarter over time?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Two mechanisms. The Evidence Tracker seals every finding as a claim you grade HIT or MISS against what actually happened, so you can see the hit rate and whether the confident calls beat the tentative ones. Lineage links each re-run to the run you fixed: change one element, re-run, and only that element re-simulates while the rest carries forward, so you see what Resolved, Persisted, or Regressed. The model holds weighted state about your committee, so run 10 is sharper than run 1.</div></details><details class="faq-item"><summary><span class="faq-num">10</span><span class="faq-q">Will Brand and Content take this as a critique of their work?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Every finding is framed as a hypothesis and attributed to a buyer role, never to a person. The output reads &ldquo;the simulation suggests the economic buyer disengaged at the ROI section because&hellip;&rdquo; rather than &ldquo;your page is wrong.&rdquo; That is what makes the report forwardable. It moves the room from whose opinion wins to what the evidence says, which is usually the thing that unsticks a cross-functional review.</div></details><div class="faqcat">Building it yourself</div><details class="faq-item"><summary><span class="faq-num">11</span><span class="faq-q">Can I just build this myself with Claude Code and agents?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Probably. The orchestration is a weekend. The gap is everything after it. A seal store, so an untouched finding replays instead of being recomputed into a slightly different one. A verifier that proves each quote exists in the document it cites. Author classification, so a rival&rsquo;s comparison page never gets read as a buyer&rsquo;s words. Meaning-level identity, so this week&rsquo;s finding can be matched to last month&rsquo;s. None of that is exotic and none of it shows up in a demo, which is exactly why it gets skipped. And the part that compounds is not the architecture, it is the per-customer calibration: after roughly thirty graded runs the model holds about 150 fingerprints tuned to your committee, each with provenance. You can copy a sprint. You cannot copy a quarter of graded outcomes.</div></details><div class="faqcat">Fit, data, and pricing</div><details class="faq-item"><summary><span class="faq-num">12</span><span class="faq-q">Who is WhyUser for, and who is it not for?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Built for demand gen, marketing ops, and revenue ops leaders at technical B2B SaaS companies who own paid distribution and carry a pipeline number. Not a fit for B2C or e-commerce, where the committee is shallow and the evidence carries less weight. Not a fit for CMOs at large companies, who need the artifact rather than the tool, so we work with their VP of Demand Gen instead. And not a fit for teams who believe more AI throughput alone will fix conversion, because it will not.</div></details><details class="faq-item"><summary><span class="faq-num">13</span><span class="faq-q">What data do you need, and where does it go?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">To start, a public URL. Simulating your own live page needs nothing from your systems, which is why we can usually show you something real on the first call. Deeper calibration is optional and comes later: call transcripts sharpen the committee, and analytics access lets us grade past findings against what actually happened. Both are opt-in, both come after you are a customer, and the product is built to be fully useful without either. The details are on our <a href="security.html" style="color:var(--brand);font-weight:600">security page</a>.</div></details><details class="faq-item"><summary><span class="faq-num">14</span><span class="faq-q">What does it cost?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">There is no charge during the access program. What we ask for instead is a 30 minute call each week to help steer product direction. After the program, plans are annual: Standard is $1,000 a month for 2,400 credits a year, and Scale is $2,000 a month for 5,400 credits a year. A landing page test is 20 credits, or $89 on Scale. The ROI Calculator models that against the budget a single caught campaign saves.</div></details><details class="faq-item"><summary><span class="faq-num">15</span><span class="faq-q">Can I cap what each person spends?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Yes. An admin sets each person to read only or read and run, with a credit cap. Claude shows the price before every run. <a href="whyuser-in-claude.html#controls" style="color:var(--brand);font-weight:600">Team controls</a>.</div></details><details class="faq-item"><summary><span class="faq-num">16</span><span class="faq-q">Can I use WhyUser in Claude, or through an API?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Yes, on every plan. The WhyUser MCP server brings it into Claude Code, the Claude desktop app and claude.ai, and Cursor and Codex connect to the same server. Everything you see in the web app is also available over the API. <a href="docs/connect-claude.html" style="color:var(--brand);font-weight:600">Connect to Claude</a>.</div></details></div></div></div></section>  </main>
+<section id="still-deciding" class="section-rule"><div class="wrap"><div class="faq-grid"><div class="faq-side"><span class="section-eyebrow">FAQ</span><h2 class="h2" style="margin-bottom:1rem">Still deciding?</h2><p class="body" style="margin-bottom:1.5rem">The fastest way to settle accuracy: run WhyUser on a campaign you already know, and grade it yourself.</p><a href="./#access" class="btn btn-primary">Request access</a></div><div><div class="faqcat">The basics</div><details class="faq-item"><summary><span class="faq-num">01</span><span class="faq-q">What is WhyUser, in one line?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">WhyUser is pre-launch buyer simulation for B2B marketing. Engineering has staging to catch bugs before production, and this is the same idea for campaigns. It works in three steps: know your buyer, rehearse the launch on a simulated buying committee, and ship the fix. You get back the role that stalls, the proof that is missing, and what to change. It tests pages and content, LinkedIn and Google ads, email sequences, and which job titles a page reaches (Audience Discovery).</div></details><details class="faq-item"><summary><span class="faq-num">02</span><span class="faq-q">What is buying committee simulation?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">B2B deals are decided by groups, not individuals. The champion approves, the CFO vetoes, the technical lead raises a doubt that makes the budget holder walk away. Committee simulation models that chain reaction. WhyUser runs a separate agent for every seat on the committee, 10 to 60 per seat, spread across a designed range of moods and intent stages, all reading the same asset. The output is a Conflict Graph showing which role killed it and why.</div></details><details class="faq-item"><summary><span class="faq-num">03</span><span class="faq-q">What do I need to get started, and how long does a run take?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">A URL is enough to begin. The Ground Reality step reads your site, the public voice of your buyers in reviews and community threads, and your campaign context, then compiles your committee from that evidence. No prompt writing, no weeks of data mapping. A run takes about 30 minutes, against the review rounds that usually take weeks.</div></details><div class="faqcat">How it compares</div><details class="faq-item"><summary><span class="faq-num">04</span><span class="faq-q">Are these real people?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">No, and we will never imply otherwise. The agents are simulated. What is real is the evidence they are built from: your buyers&rsquo; own words in reviews, community threads, and your call transcripts, with every finding traceable back to its source. So the honest description of a WhyUser output is a grounded hypothesis, not a survey result. If that distinction matters to you, grade us on it. Run a campaign whose ending you already know and see whether the simulation catches what actually happened.</div></details><details class="faq-item"><summary><span class="faq-num">05</span><span class="faq-q">How is this different from a research panel like Wynter or UserTesting?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">A panel&rsquo;s unit is the individual respondent. It shows your page to forty people separately and returns forty opinions. That is genuinely useful, and those are real humans, which ours are not. What a panel cannot do at any price is put the roles in the same room. It never sees the CFO&rsquo;s veto land on the champion&rsquo;s enthusiasm, because those two were surveyed independently and never interacted. That chain reaction is what WhyUser models, and the gap is structural, not a matter of panel size. Use a panel to hear real voices. Use WhyUser to watch the committee decide.</div></details><details class="faq-item"><summary><span class="faq-num">06</span><span class="faq-q">Why not just use Claude or ChatGPT?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Claude writes. WhyUser measures. Keep the assistant for drafting, where it beats us outright. For a spend decision, the problem is that every run with it is a first run: ask the same page twice in two fresh sessions and you get two different answers, so you cannot tell a real fix from model drift. It is also the most patient reader alive, and none of your buyers are. It reads to the bottom, while for roughly 82% of cold LinkedIn traffic the first screen is the whole page. And single-persona roleplay is the easy half; veto propagation across a committee is the hard half. Full treatment on <a href="whyuser-vs-chatgpt-and-claude.html" style="color:var(--brand);font-weight:600">Claude vs WhyUser</a>.</div></details><div class="faqcat">Trust and accuracy</div><details class="faq-item"><summary><span class="faq-num">07</span><span class="faq-q">How accurate is it?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Here is the honest boundary. WhyUser predicts direction and rank order: which role disengages, where on the page, and which of two variants wins. It does not predict your conversion rate to a number, and any vendor promising that is guessing at variables nobody controls. Every finding ships as a hypothesis with its evidence attached, and every finding is gradeable. So the way to settle accuracy is not our claim, it is your test. Run it on a campaign you already know the ending to.</div></details><details class="faq-item"><summary><span class="faq-num">08</span><span class="faq-q">What does WhyUser not do?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Worth knowing before you buy. It does not predict absolute conversion or bounce rates. It does not replace a live A/B test; it tells you which variant deserves the traffic. It does not audit SEO or accessibility, which need dedicated tooling. It cannot see your paid targeting settings, so it diagnoses the message, not the audience it was served to. And it will not reach content behind a login or an interaction it cannot perform, which is usually content your buyer would also fail to find.</div></details><details class="faq-item"><summary><span class="faq-num">09</span><span class="faq-q">How does it get smarter over time?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Two mechanisms. The Evidence Tracker seals every finding as a claim you grade HIT or MISS against what actually happened, so you can see the hit rate and whether the confident calls beat the tentative ones. Lineage links each re-run to the run you fixed: change one element, re-run, and only that element re-simulates while the rest carries forward, so you see what Resolved, Persisted, or Regressed. The model holds weighted state about your committee, so run 10 is sharper than run 1.</div></details><details class="faq-item"><summary><span class="faq-num">10</span><span class="faq-q">Will Brand and Content take this as a critique of their work?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Every finding is framed as a hypothesis and attributed to a buyer role, never to a person. The output reads &ldquo;the simulation suggests the economic buyer disengaged at the ROI section because&hellip;&rdquo; rather than &ldquo;your page is wrong.&rdquo; That is what makes the report forwardable. It moves the room from whose opinion wins to what the evidence says, which is usually the thing that unsticks a cross-functional review.</div></details><div class="faqcat">Building it yourself</div><details class="faq-item"><summary><span class="faq-num">11</span><span class="faq-q">Can I just build this myself with Claude Code and agents?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Probably. The orchestration is a weekend. The gap is everything after it. A seal store, so an untouched finding replays instead of being recomputed into a slightly different one. A verifier that proves each quote exists in the document it cites. Author classification, so a rival&rsquo;s comparison page never gets read as a buyer&rsquo;s words. Meaning-level identity, so this week&rsquo;s finding can be matched to last month&rsquo;s. None of that is exotic and none of it shows up in a demo, which is exactly why it gets skipped. And the part that compounds is not the architecture, it is the per-customer calibration: after roughly thirty graded runs the model holds about 150 fingerprints tuned to your committee, each with provenance. You can copy a sprint. You cannot copy a quarter of graded outcomes.</div></details><div class="faqcat">Fit, data, and pricing</div><details class="faq-item"><summary><span class="faq-num">12</span><span class="faq-q">Who is WhyUser for, and who is it not for?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Built for demand gen, marketing ops, and revenue ops leaders at technical B2B SaaS companies who own paid distribution and carry a pipeline number. Not a fit for B2C or e-commerce, where the committee is shallow and the evidence carries less weight. Not a fit for CMOs at large companies, who need the artifact rather than the tool, so we work with their VP of Demand Gen instead. And not a fit for teams who believe more AI throughput alone will fix conversion, because it will not.</div></details><details class="faq-item"><summary><span class="faq-num">13</span><span class="faq-q">What data do you need, and where does it go?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">To start, a public URL. Simulating your own live page needs nothing from your systems, which is why we can usually show you something real on the first call. Deeper calibration is optional and comes later: call transcripts sharpen the committee, and analytics access lets us grade past findings against what actually happened. Both are opt-in, both come after you are a customer, and the product is built to be fully useful without either. The details are on our <a href="security.html" style="color:var(--brand);font-weight:600">security page</a>.</div></details><details class="faq-item"><summary><span class="faq-num">14</span><span class="faq-q">What does it cost?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">There is no charge during the access program. What we ask for instead is a 30 minute call each week to help steer product direction. After the program, plans are annual: Standard is $1,000 a month for 2,400 credits a year, and Scale is $2,000 a month for 5,400 credits a year. A landing page test is 20 credits, or $89 on Scale. The ROI Calculator models that against the budget a single caught campaign saves.</div></details><details class="faq-item"><summary><span class="faq-num">15</span><span class="faq-q">Can I cap what each person spends?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Yes. An admin sets each person to read only or read and run, with a credit cap. Claude shows the price before every run. <a href="whyuser-in-claude.html#controls" style="color:var(--brand);font-weight:600">Team controls</a>.</div></details><details class="faq-item"><summary><span class="faq-num">16</span><span class="faq-q">Can I use WhyUser in Claude, or through an API?</span><span class="faq-toggle"><i class="fa-solid fa-plus"></i></span></summary><div class="faq-a">Yes, on every plan. The WhyUser MCP server brings it into Claude Code, the Claude desktop app and claude.ai, and Cursor and Codex connect to the same server. Everything you see in the web app is also available over the API. <a href="docs/connect-claude.html" style="color:var(--brand);font-weight:600">Connect to Claude</a>.</div></details></div></div></div></section>  </main>
 <!-- WHYUSER:FOOTER:START -->
 <!-- WHYUSER GLOBAL FOOTER · v3 (2026-11-06). Mirrors the nav. -->
 <footer class="footer">

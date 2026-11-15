@@ -19,8 +19,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-2JWLP7NZVG');
 </script>
 <!-- End Google tag (gtag.js) -->
-<meta name="theme-color" content="#08080b">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#08080b" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
 <title>How we measure accuracy &middot; WhyUser</title>
 <meta name="description" content="WhyUser's accuracy method in full. Claims are sealed before launch, graded by the customer against their own data. Includes buyer-proof checks against real sales calls at two accounts: 87.5% and 86.8%.">
 <link rel="canonical" href="https://whyuser.com/accuracy.html">
@@ -61,48 +62,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             /* Surface */
             /* One flat page colour. Sections are separated by spacing and
                typography, never by a change of background. */
-            --paper: #fdfdfd;        /* the whole page, soft white */
-            --paper-warm: #f2f2f2;   /* NOT a section colour. Tint for chips,
+            --paper: var(--dk-paper, #fdfdfd);        /* the whole page, soft white */
+            --paper-warm: var(--dk-paper-warm, #f2f2f2);   /* NOT a section colour. Tint for chips,
                                         icons, hover states, highlighted cells. */
-            --paper-cool: #f8f8f8;
-            --surface: #ffffff;      /* cards sit above the page */
+            --paper-cool: var(--dk-paper-cool, #f8f8f8);
+            --surface: var(--dk-surface, #ffffff);      /* cards sit above the page */
 
             /* Ink */
-            --ink: #09090b;
-            --ink-soft: #27272a;
-            --mute: #52525b;
-            --dim: #71717a;
-            --faint: #a1a1aa;
+            --ink: var(--dk-ink, #09090b);
+            --ink-soft: var(--dk-ink-soft, #27272a);
+            --mute: var(--dk-mute, #52525b);
+            --dim: var(--dk-dim, #71717a);
+            --faint: var(--dk-faint, #a1a1aa);
 
             /* Hairlines */
-            --rule: rgba(9, 9, 11, 0.09);
-            --rule-strong: rgba(9, 9, 11, 0.15);
-            --rule-bold: rgba(9, 9, 11, 0.24);
+            --rule: var(--dk-rule, rgba(9, 9, 11, 0.09));
+            --rule-strong: var(--dk-rule-strong, rgba(9, 9, 11, 0.15));
+            --rule-bold: var(--dk-rule-bold, rgba(9, 9, 11, 0.24));
 
             /* Dark product frame */
-            --frame: #08080b;
-            --frame-surface: #111114;
-            --frame-elevated: #18181c;
-            --frame-rule: rgba(255, 255, 255, 0.08);
-            --frame-rule-strong: rgba(255, 255, 255, 0.16);
-            --frame-text: #fafafa;
-            --frame-mute: #a1a1aa;
-            --frame-dim: #71717a;
+            --frame: var(--dk-frame, #08080b);
+            --frame-surface: var(--dk-frame-surface, #111114);
+            --frame-elevated: var(--dk-frame-elevated, #18181c);
+            --frame-rule: var(--dk-frame-rule, rgba(255, 255, 255, 0.08));
+            --frame-rule-strong: var(--dk-frame-rule-strong, rgba(255, 255, 255, 0.16));
+            --frame-text: var(--dk-frame-text, #fafafa);
+            --frame-mute: var(--dk-frame-mute, #a1a1aa);
+            --frame-dim: var(--dk-frame-dim, #71717a);
 
             /* Brand & semantic accents */
-            --brand: #6d28d9;
-            --brand-soft: #ede9fe;
-            --quote-ink: #334155;
-            --signal-green: #059669;
-            --signal-green-bright: #10b981;
-            --signal-red: #dc2626;
-            --signal-red-bright: #ef4444;
-            --signal-amber: #d97706;
-            --signal-amber-bright: #f59e0b;
-            --signal-blue: #2563eb;
+            --brand: var(--dk-brand, #6d28d9);
+            --brand-soft: var(--dk-brand-soft, #ede9fe);
+            --quote-ink: var(--dk-quote-ink, #334155);
+            --signal-green: var(--dk-signal-green, #059669);
+            --signal-green-bright: var(--dk-signal-green-bright, #10b981);
+            --signal-red: var(--dk-signal-red, #dc2626);
+            --signal-red-bright: var(--dk-signal-red-bright, #ef4444);
+            --signal-amber: var(--dk-signal-amber, #d97706);
+            --signal-amber-bright: var(--dk-signal-amber-bright, #f59e0b);
+            --signal-blue: var(--dk-signal-blue, #2563eb);
 
             /* Quote body, lighter slate, distinct from ink, signals "different voice" */
-            --quote-ink: #64748b;
+            --quote-ink: var(--dk-quote-ink, #64748b);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -235,7 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         /* Ultra-subtle dot grid, replaces pastel gradient backgrounds */
         .dotgrid {
-            background-image: radial-gradient(circle, rgba(9,9,11,0.05) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(var(--dk-ov, 9,9,11),0.05) 1px, transparent 1px);
             background-size: 24px 24px;
             background-position: 0 0;
         }
@@ -245,7 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            ───────────────────────────────────────────────────────────── */
         .meta-strip {
             background: var(--ink);
-            color: rgba(255,255,255,0.78);
+            color: var(--dk-on-ink, rgba(255,255,255,0.78));
             border-bottom: 1px solid rgba(255,255,255,0.08);
             font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
@@ -282,7 +283,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(253, 253, 253, 0.82);
+            background: var(--dk-b-fdfdfdd1, rgba(253, 253, 253, 0.82));
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);
@@ -474,12 +475,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .btn-primary {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             border-color: var(--ink);
             box-shadow: 0 1px 0 0 rgba(255,255,255,0.08) inset, 0 1px 2px rgba(9,9,11,0.12), 0 8px 24px -10px rgba(9,9,11,0.32);
         }
         .btn-primary:hover {
-            background: #18181c;
+            background: var(--dk-ink-hover, #18181c);
             box-shadow: 0 1px 0 0 rgba(255,255,255,0.1) inset, 0 1px 2px rgba(9,9,11,0.16), 0 12px 32px -10px rgba(9,9,11,0.42);
         }
         .btn-ghost {
@@ -1144,7 +1145,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: block;
             width: 100%;
             height: auto;
-            background: white;
+            background: var(--dk-b-ffffff, white);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -1893,7 +1894,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .diff-side {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             padding: 1.5rem 1.75rem;
             display: flex;
             flex-direction: column;
@@ -2012,7 +2013,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            ───────────────────────────────────────────────────────────── */
         .anti-block {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             border-radius: 16px;
             padding: 3rem 2rem;
         }
@@ -2029,8 +2030,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .anti-block .section-eyebrow { color: #c4b5fd; }
         .anti-block .section-eyebrow::before { background: #c4b5fd; }
-        .anti-block h2 { color: white; }
-        .anti-block .section-head p { color: rgba(255,255,255,0.65); }
+        .anti-block h2 { color: var(--dk-on-ink, white); }
+        .anti-block .section-head p { color: var(--dk-on-ink, rgba(255,255,255,0.65)); }
         .anti-list {
             display: flex;
             flex-direction: column;
@@ -2180,7 +2181,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            FOOTER
            ───────────────────────────────────────────────────────────── */
         .footer {
-            background: var(--ink);
+            background: var(--dk-band, var(--ink));
             color: rgba(255,255,255,0.7);
             padding: 4rem 0 2.5rem;
             border-top: 1px solid var(--rule);
@@ -2211,7 +2212,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gap: 9px;
             margin-bottom: 0.875rem;
         }
-        .footer-brand-mark .nav-mark { background: #fff; padding: 3px; }
+        .footer-brand-mark .nav-mark { background: var(--dk-b-ffffff, #fff); padding: 3px; }
         .footer-brand-name { color: white; font-weight: 600; }
         .footer-tagline { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
         .footer-bottom {
@@ -2353,7 +2354,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .etile.active{border-color:var(--brand);background:var(--brand-soft)}
         .etile.active:hover{transform:none}
         .etile-ic{width:34px;height:34px;border-radius:8px;background:var(--paper-warm);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:14px}
-        .etile.active .etile-ic{background:#fff}
+        .etile.active .etile-ic{background:var(--dk-b-ffffff, #fff)}
         .etile-n{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--dim);text-transform:uppercase}
         .etile-name{font-size:0.9375rem;font-weight:600;color:var(--ink);letter-spacing:-0.015em;line-height:1.2}
         .etile-chip{font-family:'Geist Mono',monospace;font-size:9px;color:var(--mute);margin-top:auto;display:flex;align-items:center;gap:0.35rem}
@@ -2586,7 +2587,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </style>
 
-<link rel="stylesheet" href="assets/dark-theme.css">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
   <link rel="stylesheet" href="assets/whyuser-r3.css">
@@ -2741,6 +2741,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- WHYUSER:SEO-SUPPLEMENT-2:END -->
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <link rel="stylesheet" href="assets/whyuser-v3.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body class="grain doc">
       <!-- Google Tag Manager (noscript) -->
@@ -3106,7 +3108,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div></section>
 
   <!-- THE TWO RULES -->
-  <section class="section-rule"><div class="wrap">
+  <section id="sealed-before-launch" class="section-rule"><div class="wrap">
     <span class="section-eyebrow">The method</span>
     <h2 class="h2" style="margin-bottom:1rem">Sealed before launch. Graded by your team.</h2>
     <p class="sec-lead">A number is only as good as the rules behind it. Here are ours. <strong>They do not change after the fact.</strong></p>
@@ -3118,7 +3120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div></section>
 
   <!-- WHAT A GRADE MEANS -->
-  <section class="section-rule"><div class="wrap">
+  <section id="what-each-grade-means" class="section-rule"><div class="wrap">
     <span class="section-eyebrow">Definitions</span>
     <h2 class="h2" style="margin-bottom:1rem">What each grade means</h2>
     <p class="sec-lead">Four outcomes. Only two of them count toward the hit rate.</p>
@@ -3148,7 +3150,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div></section>
 
   <!-- WHAT WE DO NOT CLAIM -->
-  <section class="section-rule"><div class="wrap">
+  <section id="what-we-do-not-claim" class="section-rule"><div class="wrap">
     <span class="section-eyebrow">The boundary</span>
     <h2 class="h2" style="margin-bottom:1rem">What we do not claim</h2>
     <p class="sec-lead">WhyUser predicts direction and rank order. Which role disengages, where on the page, and which of two variants wins. It does not do these things, and any vendor who says otherwise is guessing.</p>
@@ -3162,7 +3164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div></section>
 
   <!-- CHECK US -->
-  <section class="section-rule"><div class="wrap">
+  <section id="do-not-take-our-word" class="section-rule"><div class="wrap">
     <div class="faq-grid">
       <div class="faq-side">
         <span class="section-eyebrow">Check us</span>

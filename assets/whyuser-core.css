@@ -109,12 +109,12 @@ img { max-width: 100%; }
     text-wrap: balance;
   }
 }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: #000; transform: translateY(-1px); }
+.btn-primary { background: var(--ink); color: var(--dk-on-ink, #fff); }
+.btn-primary:hover { background: var(--dk-ink-hover, #000); transform: translateY(-1px); }
 .btn-ghost { background: var(--surface); border-color: var(--rule-strong); color: var(--ink); }
 .btn-ghost:hover { border-color: var(--rule-bold); }
-.btn-brand { background: var(--brand); color: #fff; }
-.btn-brand:hover { background: #5b21b6; transform: translateY(-1px); }
+.btn-brand { background: var(--brand); color: var(--dk-on-brand, #fff); }
+.btn-brand:hover { background: var(--dk-brand-hover, #5b21b6); transform: translateY(-1px); }
 .btn-lg { padding: 0.8125rem 1.5rem; font-size: 1rem; }
 
 /* ── PAGE HEAD ───────────────────────────────────────────────────── */
@@ -213,7 +213,7 @@ img { max-width: 100%; }
 .plan.featured { border-color: var(--brand); box-shadow: 0 10px 34px -22px rgba(109,40,217,0.5); }
 .plan-flag {
   position: absolute; top: -10px; left: 1.5rem;
-  background: var(--brand); color: #fff;
+  background: var(--brand); color: var(--dk-on-brand, #fff);
   font-family: var(--mono); font-size: 9px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
   padding: 4px 9px; border-radius: 5px;

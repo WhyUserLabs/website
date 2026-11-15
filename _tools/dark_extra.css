@@ -1,0 +1,42 @@
+  /* ── hand-written dark rules ──────────────────────────────────────
+     Elements whose fill stays bright in dark mode (yellow, pink) but
+     whose text uses --ink, which turns light. Keep their text dark. */
+  p.bub      { color: #18181b; }          /* 404.html speech bubbles */
+  .btn-accent { color: #131a1b; }          /* benchmark pages, pink button */
+  .vz-mix .m  { --t: #0b0b0e; }            /* brand-filled share chips */
+
+  /* Customer logos are dark SVG files loaded as <img>: show them as
+     white silhouettes, the usual treatment on a dark logo strip. */
+  img[src$="ngrok-logo.svg"],
+  img[src$="vectara-logo.svg"] { filter: brightness(0) invert(1) !important; }
+
+  /* one-page-two-answers.html draws its committee graph in JavaScript
+     with fill attributes, so it is styled here instead of in the page. */
+  #m2-graph-svg text[fill="#27272a"] { fill: #e4e4e7; }
+  #m2-graph-svg circle[fill="#fff"]  { fill: #131317; }
+
+  /* Homepage story tabs. In light the selected tab is a black tile; in
+     dark that colour (--frame) almost matches the row, so the tabs stop
+     reading as tabs. Give the selected one a brand tint and edge. */
+  .wu-story-tab[aria-selected="true"] {
+    background: rgba(167,139,250,.18);
+    box-shadow: inset 0 0 0 1px rgba(167,139,250,.5);
+  }
+  .wu-story-tab:hover                         { background: rgba(255,255,255,.06); }
+  .wu-story-tab[aria-selected="true"]:hover { background: rgba(167,139,250,.24); }
+
+  /* Homepage "What you get" items: the light hover tint (7% dark purple)
+     is invisible on near-black. Same treatment as the story tabs. */
+  .v3-get-item:hover,
+  .v3-get-item:active {
+    background: rgba(167,139,250,.14);
+    box-shadow: inset 0 0 0 1px rgba(167,139,250,.45);
+  }
+
+  /* Homepage "Ask in plain words" workflow tabs: same problem, same fix.
+     Hover lifts the row; the selected tab gets the tint and an edge. */
+  .v3-wf-t:hover                         { background: rgba(255,255,255,.06); }
+  .v3-wf-t[aria-selected="true"]         { background: rgba(167,139,250,.14);
+                                           border-color: rgba(167,139,250,.45); }
+  .v3-wf-t[aria-selected="true"]:hover   { background: rgba(167,139,250,.20); }
+  .v3-wf-ic                              { background: rgba(167,139,250,.14); }

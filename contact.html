@@ -19,8 +19,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-2JWLP7NZVG');
 </script>
 <!-- End Google tag (gtag.js) -->
-<meta name="theme-color" content="#08080b">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#08080b" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
 <title>Contact | WhyUser</title>
 <meta name="description" content="Email hello@whyuser.com, or request access and tell us about the next campaign you have going live. We reply within 24 hours.">
 <link rel="canonical" href="https://whyuser.com/contact.html">
@@ -52,7 +53,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      theme LAST so its token overrides win. -->
 <link rel="stylesheet" href="assets/whyuser-shell.css">
 <link rel="stylesheet" href="assets/whyuser-core.css">
-<link rel="stylesheet" href="assets/dark-theme.css">
 <link rel="stylesheet" href="assets/whyuser-type-fix.css">
 <link rel="stylesheet" href="assets/whyuser-readability.css">
   <link rel="stylesheet" href="assets/whyuser-r3.css">
@@ -127,6 +127,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .cta-section, .wu-close, .close, .page-cta { border-top: 0 !important; }
 </style>
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6Q5V2WZ"
@@ -413,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- WHYUSER:NAV:END -->
 
 <main>
-<section class="page-head">
+<section id="talk-to-us-about" class="page-head">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb">
       <a href="./">WhyUser</a> <span aria-hidden="true">/</span> <span>Talk to us about your buyers</span>
@@ -425,7 +427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="section-rule">
+<section id="email-us" class="section-rule">
   <div class="wrap">
     <div class="legal">
       <p>Two ways in. Both reach a person, not a queue.</p>

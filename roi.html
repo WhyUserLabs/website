@@ -21,7 +21,8 @@
 </script>
 <!-- End Google tag (gtag.js) -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#faf9f7">
+    <meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
     <meta name="color-scheme" content="dark light">
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
@@ -79,44 +80,44 @@
             /* Surface */
             /* One flat page colour. Sections are separated by spacing and
                typography, never by a change of background. */
-            --paper: #fdfdfd;        /* the whole page, soft white */
-            --paper-warm: #f2f2f2;   /* NOT a section colour. Tint for chips,
+            --paper: var(--dk-paper, #fdfdfd);        /* the whole page, soft white */
+            --paper-warm: var(--dk-paper-warm, #f2f2f2);   /* NOT a section colour. Tint for chips,
                                         icons, hover states, highlighted cells. */
-            --paper-cool: #f8f8f8;
-            --surface: #ffffff;      /* cards sit above the page */
+            --paper-cool: var(--dk-paper-cool, #f8f8f8);
+            --surface: var(--dk-surface, #ffffff);      /* cards sit above the page */
 
             /* Ink */
-            --ink: #09090b;
-            --ink-soft: #27272a;
-            --mute: #52525b;
-            --dim: #71717a;
-            --faint: #a1a1aa;
+            --ink: var(--dk-ink, #09090b);
+            --ink-soft: var(--dk-ink-soft, #27272a);
+            --mute: var(--dk-mute, #52525b);
+            --dim: var(--dk-dim, #71717a);
+            --faint: var(--dk-faint, #a1a1aa);
 
             /* Hairlines */
-            --rule: rgba(9, 9, 11, 0.09);
-            --rule-strong: rgba(9, 9, 11, 0.15);
-            --rule-bold: rgba(9, 9, 11, 0.24);
+            --rule: var(--dk-rule, rgba(9, 9, 11, 0.09));
+            --rule-strong: var(--dk-rule-strong, rgba(9, 9, 11, 0.15));
+            --rule-bold: var(--dk-rule-bold, rgba(9, 9, 11, 0.24));
 
             /* Dark product frame */
-            --frame: #08080b;
-            --frame-surface: #111114;
-            --frame-elevated: #18181c;
-            --frame-rule: rgba(255, 255, 255, 0.08);
-            --frame-rule-strong: rgba(255, 255, 255, 0.16);
-            --frame-text: #fafafa;
-            --frame-mute: #a1a1aa;
-            --frame-dim: #71717a;
+            --frame: var(--dk-frame, #08080b);
+            --frame-surface: var(--dk-frame-surface, #111114);
+            --frame-elevated: var(--dk-frame-elevated, #18181c);
+            --frame-rule: var(--dk-frame-rule, rgba(255, 255, 255, 0.08));
+            --frame-rule-strong: var(--dk-frame-rule-strong, rgba(255, 255, 255, 0.16));
+            --frame-text: var(--dk-frame-text, #fafafa);
+            --frame-mute: var(--dk-frame-mute, #a1a1aa);
+            --frame-dim: var(--dk-frame-dim, #71717a);
 
             /* Brand & semantic accents */
-            --brand: #6d28d9;
-            --brand-soft: #ede9fe;
-            --signal-green: #059669;
-            --signal-green-bright: #10b981;
-            --signal-red: #dc2626;
-            --signal-red-bright: #ef4444;
-            --signal-amber: #d97706;
-            --signal-amber-bright: #f59e0b;
-            --signal-blue: #2563eb;
+            --brand: var(--dk-brand, #6d28d9);
+            --brand-soft: var(--dk-brand-soft, #ede9fe);
+            --signal-green: var(--dk-signal-green, #059669);
+            --signal-green-bright: var(--dk-signal-green-bright, #10b981);
+            --signal-red: var(--dk-signal-red, #dc2626);
+            --signal-red-bright: var(--dk-signal-red-bright, #ef4444);
+            --signal-amber: var(--dk-signal-amber, #d97706);
+            --signal-amber-bright: var(--dk-signal-amber-bright, #f59e0b);
+            --signal-blue: var(--dk-signal-blue, #2563eb);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -249,7 +250,7 @@
 
         /* Ultra-subtle dot grid — replaces pastel gradient backgrounds */
         .dotgrid {
-            background-image: radial-gradient(circle, rgba(9,9,11,0.05) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(var(--dk-ov, 9,9,11),0.05) 1px, transparent 1px);
             background-size: 24px 24px;
             background-position: 0 0;
         }
@@ -259,7 +260,7 @@
            ───────────────────────────────────────────────────────────── */
         .meta-strip {
             background: var(--ink);
-            color: rgba(255,255,255,0.78);
+            color: var(--dk-on-ink, rgba(255,255,255,0.78));
             border-bottom: 1px solid rgba(255,255,255,0.08);
             font-family: 'Geist Mono', monospace;
             font-size: 10.5px;
@@ -296,7 +297,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(253, 253, 253, 0.82);
+            background: var(--dk-b-fdfdfdd1, rgba(253, 253, 253, 0.82));
             backdrop-filter: blur(20px) saturate(1.6);
             -webkit-backdrop-filter: blur(20px) saturate(1.6);
             border-bottom: 1px solid var(--rule);
@@ -488,12 +489,12 @@
         }
         .btn-primary {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             border-color: var(--ink);
             box-shadow: 0 1px 0 0 rgba(255,255,255,0.08) inset, 0 1px 2px rgba(9,9,11,0.12), 0 8px 24px -10px rgba(9,9,11,0.32);
         }
         .btn-primary:hover {
-            background: #18181c;
+            background: var(--dk-ink-hover, #18181c);
             box-shadow: 0 1px 0 0 rgba(255,255,255,0.1) inset, 0 1px 2px rgba(9,9,11,0.16), 0 12px 32px -10px rgba(9,9,11,0.42);
         }
         .btn-ghost {
@@ -833,7 +834,7 @@
            ───────────────────────────────────────────────────────────── */
         .stat-bar {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             border-top: 1px solid rgba(255,255,255,0.08);
             border-bottom: 1px solid rgba(255,255,255,0.08);
             padding: 1.75rem 0;
@@ -1214,7 +1215,7 @@
             display: block;
             width: 100%;
             height: auto;
-            background: white;
+            background: var(--dk-b-ffffff, white);
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -1246,7 +1247,7 @@
         }
         .dyad-pain {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             padding: 1.375rem 1.5rem;
             position: relative;
             overflow: hidden;
@@ -2013,7 +2014,7 @@
         }
         .diff-side {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             padding: 1.5rem 1.75rem;
             display: flex;
             flex-direction: column;
@@ -2132,7 +2133,7 @@
            ───────────────────────────────────────────────────────────── */
         .anti-block {
             background: var(--ink);
-            color: white;
+            color: var(--dk-on-ink, white);
             border-radius: 16px;
             padding: 3rem 2rem;
         }
@@ -2149,8 +2150,8 @@
         }
         .anti-block .section-eyebrow { color: #c4b5fd; }
         .anti-block .section-eyebrow::before { background: #c4b5fd; }
-        .anti-block h2 { color: white; }
-        .anti-block .section-head p { color: rgba(255,255,255,0.65); }
+        .anti-block h2 { color: var(--dk-on-ink, white); }
+        .anti-block .section-head p { color: var(--dk-on-ink, rgba(255,255,255,0.65)); }
         .anti-list {
             display: flex;
             flex-direction: column;
@@ -2300,7 +2301,7 @@
            FOOTER
            ───────────────────────────────────────────────────────────── */
         .footer {
-            background: var(--ink);
+            background: var(--dk-band, var(--ink));
             color: rgba(255,255,255,0.7);
             padding: 4rem 0 2.5rem;
             border-top: 1px solid var(--rule);
@@ -2331,7 +2332,7 @@
             gap: 9px;
             margin-bottom: 0.875rem;
         }
-        .footer-brand-mark .nav-mark { background: #fff; padding: 3px; }
+        .footer-brand-mark .nav-mark { background: var(--dk-b-ffffff, #fff); padding: 3px; }
         .footer-brand-name { color: white; font-weight: 600; }
         .footer-tagline { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
         .footer-bottom {
@@ -2377,27 +2378,27 @@
      the original ROI tokens to bring this page in line with the
      rest of the site while preserving all variable names so the
      existing component CSS still works. */
-  --paper: #fdfdfd;
-  --paper-light: #ffffff;
-  --card: #ffffff;
-  --ink: #09090b;
-  --ink-muted: #27272a;  /* darker for legibility */
-  --ink-faint: #71717a;
-  --line: rgba(9, 9, 11, 0.09);
-  --line-soft: rgba(9, 9, 11, 0.05);
+  --paper: var(--dk-paper, #fdfdfd);
+  --paper-light: var(--dk-paper-light, #ffffff);
+  --card: var(--dk-card, #ffffff);
+  --ink: var(--dk-ink, #09090b);
+  --ink-muted: var(--dk-ink-muted, #27272a);  /* darker for legibility */
+  --ink-faint: var(--dk-ink-faint, #71717a);
+  --line: var(--dk-line, rgba(9, 9, 11, 0.09));
+  --line-soft: var(--dk-line-soft, rgba(9, 9, 11, 0.05));
   /* Semantic accents — repurposed: emerald → green-success,
      rust → red-warning, gold → amber-upside */
-  --emerald: #059669;
-  --emerald-tint: #d1fae5;
-  --rust: #dc2626;
-  --rust-tint: #fee2e2;
-  --gold: #d97706;
-  --gold-tint: #fef3c7;
-  --silver-tint: #f4f4f5;
-  --bronze-tint: #fef3c7;
+  --emerald: var(--dk-emerald, #059669);
+  --emerald-tint: var(--dk-b-d1fae5, #d1fae5);
+  --rust: var(--dk-a-dc2626, #dc2626);
+  --rust-tint: var(--dk-b-fee2e2, #fee2e2);
+  --gold: var(--dk-gold, #d97706);
+  --gold-tint: var(--dk-b-fef3c7, #fef3c7);
+  --silver-tint: var(--dk-b-f4f4f5, #f4f4f5);
+  --bronze-tint: var(--dk-b-fef3c7, #fef3c7);
   --highlight: rgba(245, 158, 11, 0.32);
-  --shadow-soft: 0 1px 2px rgba(9, 9, 11, 0.04), 0 4px 12px rgba(9, 9, 11, 0.04);
-  --shadow-card: 0 2px 4px rgba(9, 9, 11, 0.04), 0 18px 36px -22px rgba(9, 9, 11, 0.16);
+  --shadow-soft: 0 1px 2px rgba(var(--dk-ov, 9, 9, 11), 0.04), 0 4px 12px rgba(var(--dk-ov, 9, 9, 11), 0.04);
+  --shadow-card: 0 2px 4px rgba(var(--dk-ov, 9, 9, 11), 0.04), 0 18px 36px -22px rgba(var(--dk-ov, 9, 9, 11), 0.16);
   --radius: 6px;
   --radius-lg: 10px;
   --serif: 'Instrument Serif', Georgia, serif;
@@ -2787,7 +2788,7 @@ select.field-input {
   margin-top: 12px;
   font-size: 12px;
   line-height: 1.5;
-  color: #6B5510;
+  color: var(--dk-t-6b5510, #6B5510);
 }
 .dedup-notice strong {
   font-family: var(--mono);
@@ -3331,7 +3332,7 @@ select.field-input {
 .formula-body p.formula-silver { border-top: 1px solid var(--line-soft); padding-top: 8px; margin-top: 10px; }
 .formula-body p.formula-bronze { border-top: 1px solid var(--line-soft); padding-top: 8px; margin-top: 10px; }
 @media print {
-  .formula-block { page-break-inside: avoid; background: white; border: 1px solid #000; border-left: 3px solid #000; }
+  .formula-block { page-break-inside: avoid; background: var(--dk-b-ffffff, white); border: 1px solid var(--dk-l-000000, #000); border-left: 3px solid var(--dk-l-000000, #000); }
 }
 
 /* ============================================================ */
@@ -3433,7 +3434,7 @@ select.field-input {
 
 @media print {
   @page { margin: 0.5in; size: letter; }
-  body { background: white; font-size: 11px; }
+  body { background: var(--dk-b-ffffff, white); font-size: 11px; }
   .page { padding: 0; max-width: 100%; }
   /* Hide only the interactive chrome: on-screen masthead with input fields,
      action buttons, and page footer. Keep ALL content sections (i–vii).
@@ -3444,14 +3445,14 @@ select.field-input {
   .main-grid { display: block; }
   .cfo-card-wrap { position: static; }
   .cfo-card {
-    border: 1px solid #000;
+    border: 1px solid var(--dk-l-000000, #000);
     box-shadow: none;
     padding: 24px;
     page-break-before: always;
     page-break-inside: avoid;
   }
-  .kpi-value { color: #000 !important; }
-  .cfo-card-title em { color: #000 !important; }
+  .kpi-value { color: var(--dk-t-000000, #000) !important; }
+  .cfo-card-title em { color: var(--dk-t-000000, #000) !important; }
 
   /* Show the print-only page header (page 1) */
   .print-page-header {
@@ -3460,7 +3461,7 @@ select.field-input {
     align-items: flex-start;
     padding-bottom: 14px;
     margin-bottom: 24px;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid var(--dk-l-000000, #000);
     gap: 20px;
   }
 
@@ -3471,7 +3472,7 @@ select.field-input {
     align-items: flex-start;
     padding-bottom: 14px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid var(--dk-l-000000, #000);
     gap: 20px;
   }
   .cfo-card-eyebrow {
@@ -3487,7 +3488,7 @@ select.field-input {
   input[type="number"], input[type="text"], .meta-input {
     border: none !important;
     background: transparent !important;
-    color: #000 !important;
+    color: var(--dk-t-000000, #000) !important;
     padding: 0 !important;
     font-weight: 500;
   }
@@ -3619,28 +3620,28 @@ body {
 @media print {
   /* Hide homepage chrome that shouldn't appear in PDF export */
   .meta-strip, .nav, .footer, .grain::after, [aria-label="Breadcrumb"] { display: none !important; }
-  body.grain { background: white !important; }
+  body.grain { background: var(--dk-b-ffffff, white) !important; }
   /* Use darker text everywhere for print legibility */
-  body { color: #000 !important; }
+  body { color: var(--dk-t-000000, #000) !important; }
   .section-kicker, .field-label, .field-help, .feature-desc, .feature-team,
-  .stream-desc, .stream-cfo { color: #000 !important; }
+  .stream-desc, .stream-cfo { color: var(--dk-t-000000, #000) !important; }
 }
 /* ============================================================ */
 /* TEXT LEGIBILITY OVERRIDES — darker body for screen reading   */
 /* ============================================================ */
-.section-kicker { color: #3f3f46 !important; font-size: 14.5px !important; line-height: 1.6 !important; }
-.feature-desc { color: #3f3f46 !important; font-size: 13.5px !important; line-height: 1.55 !important; }
-.feature-team { color: #6d28d9 !important; font-weight: 600 !important; }
-.field-help { color: #52525b !important; }
-.field-label { color: #18181b !important; font-weight: 500 !important; }
-.stream-desc { color: #3f3f46 !important; font-size: 13.5px !important; line-height: 1.55 !important; }
-.stream-cfo { color: #18181b !important; }
-.stream-cfo strong { color: #18181b !important; }
-.stream-name { color: #09090b !important; font-weight: 600 !important; }
-.field-input { color: #09090b !important; font-weight: 500 !important; }
-.results-num, .kpi-value { color: #09090b !important; }
-.results-label, .kpi-label { color: #3f3f46 !important; }
-.formula-body { color: #27272a !important; line-height: 1.65 !important; }
+.section-kicker { color: var(--dk-t-3f3f46, #3f3f46) !important; font-size: 14.5px !important; line-height: 1.6 !important; }
+.feature-desc { color: var(--dk-t-3f3f46, #3f3f46) !important; font-size: 13.5px !important; line-height: 1.55 !important; }
+.feature-team { color: var(--dk-t-6d28d9, #6d28d9) !important; font-weight: 600 !important; }
+.field-help { color: var(--dk-t-52525b, #52525b) !important; }
+.field-label { color: var(--dk-t-18181b, #18181b) !important; font-weight: 500 !important; }
+.stream-desc { color: var(--dk-t-3f3f46, #3f3f46) !important; font-size: 13.5px !important; line-height: 1.55 !important; }
+.stream-cfo { color: var(--dk-t-18181b, #18181b) !important; }
+.stream-cfo strong { color: var(--dk-t-18181b, #18181b) !important; }
+.stream-name { color: var(--dk-t-09090b, #09090b) !important; font-weight: 600 !important; }
+.field-input { color: var(--dk-t-09090b, #09090b) !important; font-weight: 500 !important; }
+.results-num, .kpi-value { color: var(--dk-t-09090b, #09090b) !important; }
+.results-label, .kpi-label { color: var(--dk-t-3f3f46, #3f3f46) !important; }
+.formula-body { color: var(--dk-t-27272a, #27272a) !important; line-height: 1.65 !important; }
 
 /* Print styles still apply for the calculator's PDF export */
     
@@ -3681,7 +3682,7 @@ body {
    instrument frame. The shared sheet sets frame ink on .calc-out for that
    case, so it is reset here. This block loads after the shared sheets. */
 .calc-out {
-  --ink: #18181b; --ink-soft: #27272a; --mute: #52525b; --dim: #6b6b75;
+  --ink: var(--dk-t-18181b, #18181b); --ink-soft: var(--dk-t-27272a, #27272a); --mute: var(--dk-t-52525b, #52525b); --dim: var(--dk-t-6b6b75, #6b6b75);
   background: transparent !important; border: none !important;
 }
 .calc-out .calc-big  { color: var(--ink) !important; }
@@ -3894,7 +3895,7 @@ body {
 .math b { color: var(--ink); font-weight: 700; }
 .math .mh {
   display: block; color: var(--ink); font-weight: 700; letter-spacing: .04em;
-  margin-top: 12px; padding-bottom: 3px; border-bottom: 1px solid rgba(0,0,0,.09);
+  margin-top: 12px; padding-bottom: 3px; border-bottom: 1px solid rgba(var(--dk-ov, 0,0,0),.09);
 }
 .math .mh:first-child { margin-top: 0; }
 .math .mh .mg { float: right; font-weight: 400; color: var(--ink-faint); letter-spacing: 0; }
@@ -3911,7 +3912,7 @@ body {
 .math-toggle:hover { color: var(--ink); }
 @media print {
   .math.collapsed .mr { display: block; }
-  .math.collapsed .mh { margin-top: 12px; border-bottom: 1px solid rgba(0,0,0,.09); padding-bottom: 3px; }
+  .math.collapsed .mh { margin-top: 12px; border-bottom: 1px solid rgba(var(--dk-ov, 0,0,0),.09); padding-bottom: 3px; }
 }
 .line-note { font-size: 11px; line-height: 1.45; color: var(--ink-faint); margin-top: 8px; }
 
@@ -3994,23 +3995,23 @@ body {
      print as near-invisible. Re-declaring the light values here fixes
      every token-driven colour at once, whichever theme is on screen. */
   :root {
-    --paper:        #ffffff;
-    --card:         #ffffff;
-    --ink:          #09090b;
-    --ink-muted:    #3f3f46;
-    --ink-faint:    #71717a;
-    --line:         rgba(9, 9, 11, 0.14);
-    --line-soft:    rgba(9, 9, 11, 0.08);
-    --emerald:      #059669;
-    --emerald-tint: #d1fae5;
-    --gold:         #d97706;
-    --gold-tint:    #fef3c7;
-    --rust:         #dc2626;
-    --silver-tint:  #f4f4f5;
+    --paper:        var(--dk-paper, #ffffff);
+    --card:         var(--dk-card, #ffffff);
+    --ink:          var(--dk-ink, #09090b);
+    --ink-muted:    var(--dk-ink-muted, #3f3f46);
+    --ink-faint:    var(--dk-ink-faint, #71717a);
+    --line:         var(--dk-line, rgba(9, 9, 11, 0.14));
+    --line-soft:    var(--dk-line-soft, rgba(9, 9, 11, 0.08));
+    --emerald:      var(--dk-emerald, #059669);
+    --emerald-tint: var(--dk-b-d1fae5, #d1fae5);
+    --gold:         var(--dk-gold, #d97706);
+    --gold-tint:    var(--dk-b-fef3c7, #fef3c7);
+    --rust:         var(--dk-a-dc2626, #dc2626);
+    --silver-tint:  var(--dk-b-f4f4f5, #f4f4f5);
   }
 
   html, body {
-    background: #fff !important;
+    background: var(--dk-b-ffffff, #fff) !important;
     margin: 0 !important; padding: 0 !important;
   }
   body { font-size: 12px; }
@@ -4028,11 +4029,11 @@ body {
   /* Keep the card frame. On paper an unbordered block reads as a browser
      printout that lost its styling; the border makes it a one-pager. */
   #slide {
-    border: 1px solid rgba(9, 9, 11, 0.22) !important;
+    border: 1px solid rgba(var(--dk-ov, 9, 9, 11), 0.22) !important;
     border-radius: 10px !important;
     box-shadow: none !important;
     padding: 26px 28px !important;
-    background: #fff !important;
+    background: var(--dk-b-ffffff, #fff) !important;
     max-width: 100%;
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
@@ -4043,20 +4044,22 @@ body {
   #slide .print-brand img { width: 18px; height: 18px; object-fit: contain; }
   #slide .print-brand span {
     font-family: var(--sans); font-size: 14px; font-weight: 700;
-    letter-spacing: -0.01em; color: #09090b;
+    letter-spacing: -0.01em; color: var(--dk-t-09090b, #09090b);
   }
   #slide .slide-top { padding-bottom: 10px; }
   #slide .line { padding: 12px 0; page-break-inside: avoid; }
   #slide .line-lead { font-size: 13px; }
-  #slide .math { background: #f4f4f5 !important; color: #3f3f46 !important; font-size: 10px; }
-  #slide .math b { color: #09090b !important; }
-  #slide, #slide .line-lead, #slide .slide-co { color: #09090b !important; }
+  #slide .math { background: var(--dk-b-f4f4f5, #f4f4f5) !important; color: var(--dk-t-3f3f46, #3f3f46) !important; font-size: 10px; }
+  #slide .math b { color: var(--dk-t-09090b, #09090b) !important; }
+  #slide, #slide .line-lead, #slide .slide-co { color: var(--dk-t-09090b, #09090b) !important; }
   #slide .ask { page-break-inside: avoid; }
   #slide .ask-ratio { font-size: 32px; }
 }
 
 </style>
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body class="grain">
     <!-- Google Tag Manager (noscript) -->
@@ -4368,7 +4371,7 @@ body {
 <div class="calc-in">
 
   <!-- SETUP -->
-  <section class="sec">
+  <section id="calculator" class="sec">
     <div class="sec-h">
       <span class="sec-t">Setup</span>
       <span class="sec-v" id="acc-rate">—</span>

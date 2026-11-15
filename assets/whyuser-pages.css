@@ -56,8 +56,8 @@
     -webkit-overflow-scrolling: touch;
     margin: 1.75rem 0 2rem;
     border: 0;
-    border-top: 1px solid var(--rule-strong, #d6d3ce);
-    border-bottom: 1px solid var(--rule-strong, #d6d3ce);
+    border-top: 1px solid var(--rule-strong, var(--dk-l-d6d3ce, #d6d3ce));
+    border-bottom: 1px solid var(--rule-strong, var(--dk-l-d6d3ce, #d6d3ce));
     border-radius: 0;
     background: none;
 }
@@ -76,27 +76,27 @@
     z-index: 1;
     text-align: left;
     padding: 0.85rem 1rem;
-    background: var(--paper, #fff);
-    border-bottom: 1px solid var(--rule-strong, #d6d3ce);
+    background: var(--paper, var(--dk-b-ffffff, #fff));
+    border-bottom: 1px solid var(--rule-strong, var(--dk-l-d6d3ce, #d6d3ce));
     font-weight: 600;
     font-size: 0.8125rem;
     letter-spacing: 0.01em;
-    color: var(--ink, #16151a);
+    color: var(--ink, var(--dk-t-16151a, #16151a));
     white-space: nowrap;
 }
 
 .cmp-wrap tbody td,
 .cmp-wrap tbody th {
     padding: 0.85rem 1rem;
-    border-bottom: 1px solid var(--rule, #e3e1dd);
+    border-bottom: 1px solid var(--rule, var(--dk-l-e3e1dd, #e3e1dd));
     vertical-align: top;
-    color: var(--ink-soft, #3a3840);
+    color: var(--ink-soft, var(--dk-t-3a3840, #3a3840));
 }
 
 .cmp-wrap tbody th {
     text-align: left;
     font-weight: 600;
-    color: var(--ink, #16151a);
+    color: var(--ink, var(--dk-t-16151a, #16151a));
     white-space: nowrap;
 }
 
@@ -110,7 +110,7 @@
 /* The WhyUser column, when a page marks one. */
 .cmp-wrap .is-us,
 .cmp-wrap [data-col="whyuser"] {
-    color: var(--ink, #16151a);
+    color: var(--ink, var(--dk-t-16151a, #16151a));
     font-weight: 600;
     box-shadow: inset 2px 0 0 0 var(--brand, #5b4bd6);
 }
@@ -121,7 +121,7 @@
         content: "Scroll for more \2192";
         display: block;
         padding: 0.5rem 1rem;
-        border-top: 1px solid var(--rule, #e3e1dd);
+        border-top: 1px solid var(--rule, var(--dk-l-e3e1dd, #e3e1dd));
         font-family: var(--mono, ui-monospace, monospace);
         font-size: 10px;
         letter-spacing: 0.08em;
@@ -134,7 +134,7 @@
 
 .cmp-sec {
     padding: 3.5rem 0;
-    border-top: 1px solid var(--rule, #e3e1dd);
+    border-top: 1px solid var(--rule, var(--dk-l-e3e1dd, #e3e1dd));
 }
 
 .cmp-sec:first-of-type {
@@ -148,7 +148,7 @@
 
 .cmp-sec > p {
     max-width: 68ch;
-    color: var(--ink-soft, #3a3840);
+    color: var(--ink-soft, var(--dk-t-3a3840, #3a3840));
 }
 
 @media (max-width: 46rem) {
@@ -168,7 +168,7 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--brand, #5b4bd6);
+    color: var(--brand, var(--dk-t-5b4bd6, #5b4bd6));
 }
 
 /* ── Glossary: related terms rail ────────────────────────────────── */
@@ -176,14 +176,14 @@
 .related {
     margin: 1.1rem 0 0;
     padding-top: 0.9rem;
-    border-top: 1px solid var(--rule, #e3e1dd);
+    border-top: 1px solid var(--rule, var(--dk-l-e3e1dd, #e3e1dd));
     font-size: 0.875rem;
     line-height: 1.7;
-    color: var(--dim, #66636e);
+    color: var(--dim, var(--dk-t-66636e, #66636e));
 }
 
 .related a {
-    color: var(--brand, #5b4bd6);
+    color: var(--brand, var(--dk-t-5b4bd6, #5b4bd6));
     font-weight: 500;
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -202,12 +202,12 @@
     margin: 1.6rem 0;
     padding: 1.1rem 0;
     background: none;
-    border-top: 1px solid var(--rule, #e3e1dd);
-    border-bottom: 1px solid var(--rule, #e3e1dd);
+    border-top: 1px solid var(--rule, var(--dk-l-e3e1dd, #e3e1dd));
+    border-bottom: 1px solid var(--rule, var(--dk-l-e3e1dd, #e3e1dd));
     border-radius: 0;
     font-size: 0.9375rem;
     line-height: 1.65;
-    color: var(--ink-soft, #3a3840);
+    color: var(--ink-soft, var(--dk-t-3a3840, #3a3840));
 }
 
 .eg > :first-child {
@@ -226,17 +226,17 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--brand, #5b4bd6);
+    color: var(--brand, var(--dk-t-5b4bd6, #5b4bd6));
 }
 
 .eg strong {
-    color: var(--ink, #16151a);
+    color: var(--ink, var(--dk-t-16151a, #16151a));
 }
 
 /* ── Accessibility floor ─────────────────────────────────────────── */
 
 .cmp-wrap:focus-visible,
 .related a:focus-visible {
-    outline: 2px solid var(--brand, #5b4bd6);
+    outline: 2px solid var(--brand, var(--dk-l-5b4bd6, #5b4bd6));
     outline-offset: 2px;
 }

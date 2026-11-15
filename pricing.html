@@ -19,8 +19,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-2JWLP7NZVG');
 </script>
 <!-- End Google tag (gtag.js) -->
-<meta name="theme-color" content="#fdfdfd">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
 <title>Pricing: plans and credits | WhyUser</title>
 <meta name="description" content="WhyUser pricing. Plans from $1,000 a month with 2,400 credits a year. A landing page test is 20 credits. See what every run costs and size your plan with the credit calculator.">
 <link rel="canonical" href="https://whyuser.com/pricing.html">
@@ -53,7 +54,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  dark theme LAST so its token overrides win. -->
 <link rel="stylesheet" href="assets/whyuser-shell.css">
 <link rel="stylesheet" href="assets/whyuser-core.css">
-<link rel="stylesheet" href="assets/dark-theme.css">
 <link rel="stylesheet" href="assets/whyuser-readability.css">
 
 <script type="application/ld+json">
@@ -291,6 +291,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- WHYUSER:SEO-SUPPLEMENT:END -->
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body class="grain">
 <!-- Google Tag Manager (noscript) -->
@@ -590,7 +592,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  during the program), but I didn't get a clear pricing model or
  guardrails on this page." This page is that model.
  ═════════════════════════════════════════════════════════════════ -->
-<section class="page-head">
+<section id="every-run-has-a-price" class="page-head">
   <div class="wrap">
   <nav class="crumb" aria-label="Breadcrumb">
   <a href="./">WhyUser</a> <span aria-hidden="true">/</span> <span>Pricing</span>
@@ -633,7 +635,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ═════ PROOF STRIP ═════ -->
-<section class="proofstrip">
+<section id="annual-plans" class="proofstrip">
   <div class="wrap" style="padding-top:0;padding-bottom:0">
   <div class="proofstrip-inner">
   <div class="proofstrip-cell">
@@ -738,7 +740,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═════════════════════════════════════════════════════════════════
  WHAT A YEAR LOOKS LIKE
  ═════════════════════════════════════════════════════════════════ -->
-<section class="section-rule">
+<section id="what-a-year-looks-like" class="section-rule">
   <div class="wrap">
   <div class="section-head">
   <span class="section-eyebrow">In practice</span>
@@ -954,7 +956,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═════════════════════════════════════════════════════════════════
  INCLUDED EVERYWHERE
  ═════════════════════════════════════════════════════════════════ -->
-<section class="section-rule">
+<section id="not-gated-behind-the-top" class="section-rule">
   <div class="wrap">
   <div class="section-head">
   <span class="section-eyebrow">Every plan</span>
@@ -989,7 +991,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═════════════════════════════════════════════════════════════════
  DESIGN PARTNER
  ═════════════════════════════════════════════════════════════════ -->
-<section class="section-rule">
+<section id="design-partner-program-is-still" class="section-rule">
   <div class="wrap">
   <div style="max-width:46rem">
   <span class="section-eyebrow">Before you pay anything</span>
@@ -1006,7 +1008,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═════════════════════════════════════════════════════════════════
  FAQ
  ═════════════════════════════════════════════════════════════════ -->
-<section class="section-rule">
+<section id="questions-procurement-asks" class="section-rule">
   <div class="wrap">
   <div class="section-head">
   <span class="section-eyebrow">Pricing FAQ</span>
@@ -1068,7 +1070,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ═════ CTA ═════ -->
-<section class="cta-section">
+<section id="access" class="cta-section">
   <div class="wrap" style="padding-top:4.5rem;padding-bottom:4.5rem">
   <div class="cta-card">
   <span class="section-eyebrow" style="justify-content:center">Get started</span>

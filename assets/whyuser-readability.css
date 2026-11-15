@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════════
    WHYUSER — SOFT WHITE + EDITORIAL LAYOUT
-   Loads last, on all 27 pages. Requires dark-theme.css to be the empty
-   stub that ships alongside this file.
+   Loads on all 27 pages. dark-theme.css loads after it and only adds
+   the dark-mode tokens; with the system set to light it changes nothing.
 
    THREE JOBS
    1. Canvas    soften the white, and fix the assets that assumed dark.
@@ -29,20 +29,20 @@
    screen. background-attachment: fixed is a known scroll-jank source
    on iOS, so below 900px it scrolls with the page instead. */
 :root {
-  --paper:        #faf9f7;
-  --paper-cool:   #f4f3f0;
-  --paper-warm:   #eeedea;
-  --surface:      #ffffff;
+  --paper:        var(--dk-paper, #faf9f7);
+  --paper-cool:   var(--dk-paper-cool, #f4f3f0);
+  --paper-warm:   var(--dk-paper-warm, #eeedea);
+  --surface:      var(--dk-surface, #ffffff);
 
-  --ink:          #18181b;   /* 16.6:1 on milk */
-  --ink-soft:     #27272a;   /* 14.4:1 */
-  --mute:         #52525b;   /*  7.4:1 */
-  --dim:          #6b6b75;   /*  5.1:1 */
-  --faint:        #83838d;   /*  3.6:1, large text and rules only */
+  --ink:          var(--dk-ink, #18181b);   /* 16.6:1 on milk */
+  --ink-soft:     var(--dk-ink-soft, #27272a);   /* 14.4:1 */
+  --mute:         var(--dk-mute, #52525b);   /*  7.4:1 */
+  --dim:          var(--dk-dim, #6b6b75);   /*  5.1:1 */
+  --faint:        var(--dk-faint, #83838d);   /*  3.6:1, large text and rules only */
 
-  --rule:         rgba(24, 24, 27, 0.10);
-  --rule-strong:  rgba(24, 24, 27, 0.15);
-  --rule-bold:    rgba(24, 24, 27, 0.15);
+  --rule:         var(--dk-rule, rgba(24, 24, 27, 0.10));
+  --rule-strong:  var(--dk-rule-strong, rgba(24, 24, 27, 0.15));
+  --rule-bold:    var(--dk-rule-bold, rgba(24, 24, 27, 0.15));
 }
 
 
@@ -53,17 +53,17 @@
    tokens are correct inside a dark product frame and fail on the page,
    so they are set per-context rather than globally. */
 :root {
-  --brand:               #6d47d9;
-  --brand-soft:          rgba(109, 71, 217, 0.10);
-  --signal-green:        #047857;
-  --signal-green-bright: #059669;
-  --signal-red:          #dc2626;
-  --signal-red-bright:   #dc2626;
-  --quote-ink:           #27272a;
-  --card:                #ffffff;
-  --red:                 #dc2626;
-  --green-b:             #047857;
-  --lp-brand:            #6d47d9;
+  --brand:               var(--dk-brand, #6d47d9);
+  --brand-soft:          var(--dk-brand-soft, rgba(109, 71, 217, 0.10));
+  --signal-green:        var(--dk-signal-green, #047857);
+  --signal-green-bright: var(--dk-signal-green-bright, #059669);
+  --signal-red:          var(--dk-signal-red, #dc2626);
+  --signal-red-bright:   var(--dk-signal-red-bright, #dc2626);
+  --quote-ink:           var(--dk-quote-ink, #27272a);
+  --card:                var(--dk-card, #ffffff);
+  --red:                 var(--dk-red, #dc2626);
+  --green-b:             var(--dk-green-b, #047857);
+  --lp-brand:            var(--dk-lp-brand, #6d47d9);
 }
 
 /* Dark instrument chrome keeps the glow it was designed for. */
@@ -83,12 +83,12 @@
 /* Elements that sit on the page and were reading at 1.0-2.6:1. */
 .cflow-stat-ok, .mono-label.win, .win { color: var(--signal-green) !important; }
 .cflow-stat-veto { color: var(--signal-red) !important; }
-.ps-pain-tag, .ps-item .ps-pain-tag { color: #dc2626 !important; }
-.wu-close h2 .fail { color: #dc2626 !important; }
-.wu-close h2 .win  { color: #047857 !important; }
-.hub-core-orb-label { color: #2e1065 !important; }
+.ps-pain-tag, .ps-item .ps-pain-tag { color: var(--dk-t-dc2626, #dc2626) !important; }
+.wu-close h2 .fail { color: var(--dk-t-dc2626, #dc2626) !important; }
+.wu-close h2 .win  { color: var(--dk-t-047857, #047857) !important; }
+.hub-core-orb-label { color: var(--dk-t-2e1065, #2e1065) !important; }
 .hub-core-orb-meta  { color: rgba(46, 16, 101, 0.72) !important; }
-.hub-core-orb > i   { color: #2e1065 !important; }
+.hub-core-orb > i   { color: var(--dk-t-2e1065, #2e1065) !important; }
 
 /* Comparison-page column tint was a violet wash tuned for black. */
 td.col-us, .cmp td.col-us, .compare-table td.col-us {
@@ -116,8 +116,8 @@ td.col-us, .cmp td.col-us, .compare-table td.col-us {
 body {
   background-color: var(--paper);
   background-image: radial-gradient(90rem 52rem at 50% -8rem,
-                      #ffffff 0%,
-                      rgba(255, 255, 255, 0.55) 34%,
+                      var(--dk-b-ffffff, #ffffff) 0%,
+                      var(--dk-b-ffffff8c, rgba(255, 255, 255, 0.55)) 34%,
                       rgba(255, 255, 255, 0) 72%);
   background-repeat: no-repeat;
   color: var(--ink);
@@ -148,13 +148,13 @@ body {
 
 /* WhyUser wordmark: "User" in sky blue, as on the benchmark pages and cards.
    Lighter sky on the dark footer so it keeps its contrast. */
-.wu-wordmark-user { color: #0284c7; }
+.wu-wordmark-user { color: var(--dk-t-0284c7, #0284c7); }
 .footer .wu-wordmark-user { color: #38bdf8; }
 .trust-logo { filter: brightness(0) !important; opacity: 0.72 !important; }
 .trust-logo:hover { opacity: 1 !important; }
 
 /* The footer is an ink slab, so its mark keeps a white tile. */
-.footer-brand-mark .nav-mark { background: #ffffff !important; padding: 3px !important; }
+.footer-brand-mark .nav-mark { background: var(--dk-b-ffffff, #ffffff) !important; padding: 3px !important; }
 
 /* persona-graph.svg carries its own dark ground. Framed like the other
    product screenshots it reads as instrument chrome rather than a black
@@ -201,7 +201,7 @@ body {
 .ps-item {
   background: transparent !important;
   border: none !important;
-  border-left: 2px solid var(--signal-red, #dc2626) !important;
+  border-left: 2px solid var(--signal-red, var(--dk-l-dc2626, #dc2626)) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   padding: 0.25rem 1.25rem 0.25rem 1.25rem !important;
@@ -269,15 +269,15 @@ body {
 /* Buttons need their shape back after the de-box, so they are restated
    here rather than inheriting a stripped border. */
 .btn-primary {
-  background: var(--ink) !important; color: #ffffff !important;
+  background: var(--ink) !important; color: var(--dk-on-ink, #ffffff) !important;
   border: 1px solid var(--ink) !important;
 }
-.btn-primary:hover { background: #000000 !important; border-color: #000000 !important; }
+.btn-primary:hover { background: var(--dk-ink-hover, #000000) !important; border-color: var(--dk-ink-hover, #000000) !important; }
 .btn-ghost {
   background: transparent !important; color: var(--ink) !important;
   border: 1px solid var(--rule-strong) !important;
 }
-.btn-ghost:hover { background: rgba(24, 24, 27, 0.04) !important; }
+.btn-ghost:hover { background: rgba(var(--dk-ov, 24, 24, 27), 0.04) !important; }
 .artframe .btn-ghost, .product-frame .btn-ghost {
   color: #f4f4f5 !important; border-color: rgba(255, 255, 255, 0.22) !important;
 }
@@ -420,7 +420,7 @@ body {
 }
 
 @media print {
-  body { background: #fff !important; color: #000 !important; }
+  body { background: var(--dk-b-ffffff, #fff) !important; color: var(--dk-t-000000, #000) !important; }
   .nav, .nav-mobile { display: none !important; }
 }
 

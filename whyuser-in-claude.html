@@ -20,8 +20,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End Google tag (gtag.js) -->
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta name="theme-color" content="#08080b">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#08080b" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
 <meta name="author" content="WhyUser Inc.">
 
 <title>WhyUser in Claude: test, fix and ship campaigns | WhyUser</title>
@@ -198,7 +199,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
-<link rel="stylesheet" href="assets/dark-theme.css">
   <link rel="stylesheet" href="assets/whyuser-type-fix.css">
   <link rel="stylesheet" href="assets/whyuser-readability.css">
   <link rel="stylesheet" href="assets/whyuser-r3.css">
@@ -219,6 +219,8 @@ body { background-image: none; }
 .nav-mark img, .footer-brand-mark img, .footer-mark img { content: url("images/whyuser-dog-badge.png"); }
 </style>
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
+<script src="assets/whyuser-anchors.js" defer></script>
+<link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body>
         <!-- Google Tag Manager (noscript) -->
@@ -514,10 +516,10 @@ body { background-image: none; }
    Tool categories only (CRM, Docs & wiki...). Name a vendor only after
    that flow is tested end to end. Scoped to .wc. No shared CSS changes. */
 .wc{
-  --wc-paper:var(--paper,#faf9f7); --wc-card:#fff; --wc-line:rgba(24,24,27,.09); --wc-line-2:rgba(24,24,27,.16);
-  --wc-ink:#18181b; --wc-soft:#3f3f46; --wc-mute:#52525b; --wc-dim:#71717a;
-  --wc-wu:#6d47d9; --wc-wu-soft:#efeafc; --wc-tl:#0e7490; --wc-tl-soft:#e4f3f7; --wc-or:#c2410c; --wc-or-hi:#ea5a2a; --wc-or-soft:#fdeee7;
-  --wc-ok:#047857; --wc-ok-soft:#e7f4ee;
+  --wc-paper:var(--paper,var(--dk-b-faf9f7, #faf9f7)); --wc-card:var(--dk-b-ffffff, #fff); --wc-line:rgba(var(--dk-ov, 24,24,27),.09); --wc-line-2:rgba(var(--dk-ov, 24,24,27),.16);
+  --wc-ink:var(--dk-t-18181b, #18181b); --wc-soft:var(--dk-t-3f3f46, #3f3f46); --wc-mute:var(--dk-t-52525b, #52525b); --wc-dim:var(--dk-t-71717a, #71717a);
+  --wc-wu:var(--dk-a-6d47d9, #6d47d9); --wc-wu-soft:var(--dk-b-efeafc, #efeafc); --wc-tl:var(--dk-a-0e7490, #0e7490); --wc-tl-soft:var(--dk-b-e4f3f7, #e4f3f7); --wc-or:var(--dk-a-c2410c, #c2410c); --wc-or-hi:#ea5a2a; --wc-or-soft:var(--dk-b-fdeee7, #fdeee7);
+  --wc-ok:var(--dk-a-047857, #047857); --wc-ok-soft:var(--dk-b-e7f4ee, #e7f4ee);
   --wc-mono:'Geist Mono',ui-monospace,'SF Mono',monospace;
   font-family:'Inter',system-ui,sans-serif; color:var(--wc-ink); background:var(--wc-paper);
 }
@@ -537,8 +539,8 @@ body { background-image: none; }
 .wc-head{display:grid;gap:12px;max-width:720px}
 .wc .btn-row{display:flex;flex-wrap:wrap;gap:10px}
 .wc .wc-btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--wc-ink);transition:background .15s ease,color .15s ease}
-.wc .wc-btn.pri{background:var(--wc-ink);color:#fff}
-.wc .wc-btn.pri:hover{background:var(--wc-wu);border-color:var(--wc-wu);color:#fff}
+.wc .wc-btn.pri{background:var(--wc-ink);color:var(--dk-on-ink, #fff)}
+.wc .wc-btn.pri:hover{background:var(--wc-wu);border-color:var(--wc-wu);color:var(--dk-on-brand, #fff)}
 .wc .wc-btn.sec{background:transparent;color:var(--wc-ink);border-color:var(--wc-line-2)}
 .wc .wc-btn.sec:hover{border-color:var(--wc-ink)}
 .wc .wc-btn:focus-visible{outline:2px solid var(--wc-wu);outline-offset:3px}
@@ -604,7 +606,7 @@ body { background-image: none; }
 .wc-flow{display:grid;grid-template-columns:1fr 14px 1fr 14px 1fr;align-items:start;gap:4px}
 .wc-flow span{display:grid;justify-items:center;gap:6px;text-align:center;font-size:12.5px;font-weight:600;line-height:1.25;color:var(--wc-soft)}
 .wc-flow span i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--wc-card);color:var(--wc-wu);font-size:12px;box-shadow:inset 0 0 0 1px var(--wc-line-2)}
-.wc-flow span:nth-child(3) i{background:var(--wc-wu);color:#fff;box-shadow:none}
+.wc-flow span:nth-child(3) i{background:var(--wc-wu);color:var(--dk-on-brand, #fff);box-shadow:none}
 .wc-flow b{height:2px;background:var(--wc-line-2);margin-top:15px}
 .wc-io{display:grid;gap:8px}
 .wc-io div{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
@@ -621,12 +623,12 @@ body { background-image: none; }
 .wc-arrows{display:grid;justify-items:center;color:var(--wc-dim)}
 .wc-arrows svg{display:block}
 .wc-node{border-radius:20px;padding:28px 20px;display:grid;justify-items:center;gap:10px;text-align:center}
-.wc-node.claude{background:var(--wc-ink);color:#fff}
-.wc-node.wu{background:var(--wc-wu);color:#fff}
+.wc-node.claude{background:var(--wc-ink);color:var(--dk-on-ink, #fff)}
+.wc-node.wu{background:var(--wc-wu);color:var(--dk-on-brand, #fff)}
 .wc-node b{font-size:22px;letter-spacing:-.02em}
 .wc-node span{font-size:13px;opacity:.82;line-height:1.4}
 .wc-node .glyph{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.12);font-size:20px}
-.wc-node img{width:48px;height:48px;border-radius:14px;background:#fff;object-fit:contain;padding:4px}
+.wc-node img{width:48px;height:48px;border-radius:14px;background:var(--dk-b-ffffff, #fff);object-fit:contain;padding:4px}
 .wc-flat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:0 40px}
 .wc-flat li{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0;border-top:1px solid var(--wc-line);font-size:16px;font-weight:600;line-height:1.35}
 .wc-flat li i{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--wc-wu-soft);color:var(--wc-wu);flex:none}
@@ -651,11 +653,11 @@ body { background-image: none; }
 /* ── setup: three columns typeset on the page ── */
 .wc-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:20px 40px;counter-reset:st}
 .wc-steps li{display:grid;gap:12px;align-content:start;margin:0;padding-top:20px;border-top:2px solid var(--wc-ink);counter-increment:st}
-.wc-steps li::before{content:counter(st);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--wc-wu);color:#fff;font-weight:700;font-size:15px}
+.wc-steps li::before{content:counter(st);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--wc-wu);color:var(--dk-on-brand, #fff);font-weight:700;font-size:15px}
 .wc-steps b{font-size:19px;letter-spacing:-.02em}
 .wc-steps span{font-size:14.5px;color:var(--wc-mute);line-height:1.5}
 .wc-steps .wc-say{color:#fff;font-size:15px}
-.wc-code{display:grid;gap:6px;background:var(--wc-ink);border-radius:12px;padding:14px 16px;font:500 12.5px/1.5 var(--wc-mono)}
+.wc-code{display:grid;gap:6px;background:var(--dk-band, var(--wc-ink));border-radius:12px;padding:14px 16px;font:500 12.5px/1.5 var(--wc-mono)}
 .wc .wc-code span{color:#e4e4e7;overflow-wrap:anywhere}
 
 /* ── FAQ: collapsed, so the page stays visual ── */
@@ -671,13 +673,13 @@ body { background-image: none; }
 
 /* ── close ── */
 .wc-close{padding:0 24px 80px}
-.wc-close-card{max-width:1120px;margin:0 auto;background:var(--wc-ink);color:#fafafa;border-radius:28px;padding:clamp(32px,5vw,64px);display:grid;gap:24px;justify-items:start}
+.wc-close-card{max-width:1120px;margin:0 auto;background:var(--dk-band, var(--wc-ink));color:#fafafa;border-radius:28px;padding:clamp(32px,5vw,64px);display:grid;gap:24px;justify-items:start}
 .wc-close-card h2.h{color:#fafafa}
 .wc-close-card .h .t{color:#a78bfa}
-.wc .wc-close-card .wc-btn.pri{background:#8b5cf6;border-color:#8b5cf6}
-.wc .wc-close-card .wc-btn.pri:hover{background:#7c3aed;border-color:#7c3aed}
+.wc .wc-close-card .wc-btn.pri{background:#8b5cf6;border-color:var(--dk-l-8b5cf6, #8b5cf6)}
+.wc .wc-close-card .wc-btn.pri:hover{background:#7c3aed;border-color:var(--dk-l-7c3aed, #7c3aed)}
 .wc .wc-close-card .wc-btn.sec{color:#fafafa;border-color:rgba(255,255,255,.3)}
-.wc .wc-close-card .wc-btn.sec:hover{border-color:#fff}
+.wc .wc-close-card .wc-btn.sec:hover{border-color:var(--dk-l-ffffff, #fff)}
 
 @media(max-width:900px){
   .wc-jobs-h{display:none}
@@ -745,7 +747,7 @@ body { background-image: none; }
 </header>
 
 <!-- ═════ DEFINITION: the one sentence an answer engine should quote ═════ -->
-<section class="wc-def" aria-label="What WhyUser in Claude is">
+<section id="what-whyuser-in-claude" class="wc-def" aria-label="What WhyUser in Claude is">
   <div class="wc-in">
     <span class="k k-dim">What it is</span>
     <p><strong>WhyUser in Claude</strong> is WhyUser&rsquo;s MCP server and skill. Marketers ask Claude to test, fix and ship campaigns, and every run is saved in WhyUser.</p>

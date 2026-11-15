@@ -15,11 +15,11 @@
   /* The deck marks the "today" path in a rust that reads as a warning
      without shouting. The site had no warm accent; --signal-red is an
      error colour and too loud for a process step. */
-  --rust: #9c4f2c;
+  --rust: var(--dk-a-9c4f2c, #9c4f2c);
   --rust-soft: #c4714a;
   /* Dashed "not connected yet" outline for the Ground Reality inputs
      you have not wired up. */
-  --pending: rgba(9, 9, 11, 0.28);
+  --pending: rgba(var(--dk-ov, 9, 9, 11), 0.28);
 }
 
 
@@ -354,14 +354,14 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
    that IS the diagram. These are structure, not separation, so they
    step up to roughly a third ink and the dots get a real edge.
    ────────────────────────────────────────────────────────────────── */
-.wu-rail-track::before { background: rgba(9, 9, 11, 0.34); height: 1.5px; }
-.wu-rail-dot { border-width: 2px; border-color: rgba(9, 9, 11, 0.42); }
-.wu-rail-split { background: rgba(9, 9, 11, 0.16); }
-.wu-gr-line { border-top-color: rgba(9, 9, 11, 0.36); }
-.wu-gr-ring { border-color: rgba(9, 9, 11, 0.26); }
-.wu-gr-ic-pending { border-color: rgba(9, 9, 11, 0.38); }
+.wu-rail-track::before { background: rgba(var(--dk-ov, 9, 9, 11), 0.34); height: 1.5px; }
+.wu-rail-dot { border-width: 2px; border-color: rgba(var(--dk-ov, 9, 9, 11), 0.42); }
+.wu-rail-split { background: rgba(var(--dk-ov, 9, 9, 11), 0.16); }
+.wu-gr-line { border-top-color: rgba(var(--dk-ov, 9, 9, 11), 0.36); }
+.wu-gr-ring { border-color: rgba(var(--dk-ov, 9, 9, 11), 0.26); }
+.wu-gr-ic-pending { border-color: rgba(var(--dk-ov, 9, 9, 11), 0.38); }
 .wu-conn-line { border-left-width: 1.5px; }
-.wu-branch-line { background: rgba(9, 9, 11, 0.38); }
+.wu-branch-line { background: rgba(var(--dk-ov, 9, 9, 11), 0.38); }
 
 /* Rust replaces the blue flag on the two guessing stops. */
 .wu-rail-stop-flag .wu-rail-dot { background: var(--rust); border-color: var(--rust); }
@@ -740,8 +740,8 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
    ═══════════════════════════════════════════════════════════════════ */
 @media print {
   .wu-box-run, .wu-runbar, .wu-gr-orb {
-    background: #fff; color: #000; border: 1px solid #000;
+    background: var(--dk-b-ffffff, #fff); color: var(--dk-t-000000, #000); border: 1px solid var(--dk-l-000000, #000);
   }
   .wu-box-run .wu-box-h, .wu-box-run .wu-box-p,
-  .wu-gr-orb-t, .wu-gr-orb-s, .wu-runfact-h, .wu-runfact-p { color: #000; }
+  .wu-gr-orb-t, .wu-gr-orb-s, .wu-runfact-h, .wu-runfact-p { color: var(--dk-t-000000, #000); }
 }

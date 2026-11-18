@@ -20,7 +20,7 @@ import re, sys, glob, os, colorsys, collections
 
 ROOT = sys.argv[1]
 WRITE = '--write' in sys.argv
-PAGE = (0x0b, 0x0b, 0x0e)          # dark page colour all contrast is measured against
+PAGE = (0x0b, 0x0d, 0x12)          # dark page colour all contrast is measured against
 
 # ── colour maths ──────────────────────────────────────────────────────
 def parse_hex(h):
@@ -48,7 +48,7 @@ def hls(rgb):
     return colorsys.rgb_to_hls(*(c / 255 for c in rgb))
 
 def from_hls(h, l, s, gray=False):
-    if gray: h, s = 240 / 360, min(s, 0.06)
+    if gray: h, s = 222 / 360, min(s, 0.08)   # cool grey, leaning to the cobalt brand
     return tuple(c * 255 for c in colorsys.hls_to_rgb(h, max(0, min(1, l)), max(0, min(1, s))))
 
 def neutral(rgb):
@@ -96,23 +96,54 @@ def map_accent(rgb):
     if l > 0.85: return map_bg(rgb)
     return map_text(rgb)
 
-ROLE_FN = {'t': map_text, 'b': map_bg, 'l': map_line, 'a': map_accent}
+# Cobalt (Nov 2026): the light site is violet; dark mode is cobalt. Every
+# violet or indigo colour (hue 240-300) is turned to the cobalt hue before its
+# role mapping, and is always given a dark token, even where the colour would
+# otherwise be kept as it is (readable text, mid fills, coloured washes).
+COBALT_HUE = 223 / 360
+
+def is_violet(rgb):
+    if neutral(rgb): return False
+    return 240 <= hls(rgb)[0] * 360 <= 300
+
+def to_cobalt(rgb):
+    h, l, s = hls(rgb)
+    return tuple(c * 255 for c in colorsys.hls_to_rgb(COBALT_HUE, l, s))
+
+FILL = (0x3d, 0x6b, 0xe0)             # --dk-brand-fill: white text on it is 4.8:1
+
+def cobalt_role(fn, fill=False):
+    def mapped(rgb):
+        if not is_violet(rgb): return fn(rgb)
+        c = to_cobalt(rgb)
+        d = fn(c)
+        if d: return d
+        if fill:                          # a kept mid fill: no lighter than the brand fill,
+            h, l, s = hls(c)              # so white text on it stays readable
+            while lum(c) > lum(FILL) and l > 0.3:
+                l -= 0.01; c = tuple(x * 255 for x in colorsys.hls_to_rgb(h, l, s))
+        return to_hex(c)
+    return mapped
+
+ROLE_FN = {'t': cobalt_role(map_text), 'b': cobalt_role(map_bg, fill=True),
+           'l': cobalt_role(map_line), 'a': cobalt_role(map_accent)}
 
 # ── curated core palette (only for tokens declared on :root / html / body) ──
 CORE = {
-    'paper': '#0b0b0e', 'paper-cool': '#111115', 'paper-warm': '#18181d', 'paper-light': '#141418',
-    'surface': '#131317', 'card': '#131317',
-    'ink': '#f4f4f5', 'ink-soft': '#e4e4e7', 'ink-muted': '#d4d4d8', 'ink-faint': '#9a9aa4',
-    'mute': '#b4b4bd', 'dim': '#9a9aa4', 'faint': '#71717a', 'quote-ink': '#d4d4d8',
+    'paper': '#0b0d12', 'paper-cool': '#10131a', 'paper-warm': '#171b24', 'paper-light': '#12151d',
+    'surface': '#13161e', 'card': '#13161e',
+    'ink': '#f2f4f8', 'ink-soft': '#e3e7ee', 'ink-muted': '#d1d6df', 'ink-faint': '#9ca3b4',
+    'mute': '#b0b6c4', 'dim': '#9ca3b4', 'faint': '#7d8496', 'quote-ink': '#d1d6df',
     'rule': 'rgba(255,255,255,.10)', 'rule-strong': 'rgba(255,255,255,.16)', 'rule-bold': 'rgba(255,255,255,.24)',
     'line': 'rgba(255,255,255,.10)', 'line-soft': 'rgba(255,255,255,.06)',
-    'brand': '#a78bfa', 'brand-soft': 'rgba(167,139,250,.16)', 'lp-brand': '#a78bfa',
-    'frame': '#141419', 'frame-surface': '#1b1b21', 'frame-elevated': '#22222a',
+    'brand': '#8aa8ff', 'brand-soft': 'rgba(61,107,224,.22)', 'lp-brand': '#8aa8ff',
+    'frame': '#12151d', 'frame-surface': '#191d27', 'frame-elevated': '#212632',
     'frame-rule': 'rgba(255,255,255,.09)', 'frame-rule-strong': 'rgba(255,255,255,.18)',
-    'frame-text': '#fafafa', 'frame-mute': '#a8a8b3', 'frame-dim': '#7d7d88',
+    'frame-text': '#f5f7fb', 'frame-mute': '#a7aebd', 'frame-dim': '#7f8798',
     'signal-green': '#34d399', 'signal-green-bright': '#34d399', 'signal-red': '#f87171',
     'signal-red-bright': '#fb7185', 'signal-amber': '#fbbf24', 'signal-amber-bright': '#fbbf24',
-    'signal-blue': '#60a5fa', 'emerald': '#34d399', 'green': '#34d399', 'green-b': '#34d399',
+    # signal-blue is teal in dark, so charts do not blur with the cobalt brand
+    'signal-blue': '#2dd4bf', 'emerald': '#34d399', 'green': '#34d399', 'green-b': '#34d399',
     'red': '#f87171', 'amber': '#fbbf24', 'gold': '#fbbf24',
 }
 CORE_SEL = re.compile(r'^\s*(:root|html|body|html:root)(\s*,\s*(:root|html|body))*\s*$')
@@ -167,7 +198,7 @@ def rewrite_value(val, role):
             trip = re.match(r'\s*\d+(?:\s*,\s*|\s+)\d+(?:\s*,\s*|\s+)\d+', full[o:]).group(0)
             ov = '--dk-ovs' if ',' not in trip else '--dk-ov'
             return full[:o] + f'var({ov}, {trip.strip()})' + full[o + len(trip):]
-        if alpha < 1 and not (role == 'b' and alpha >= 0.5 and lum(rgb) > 0.8):
+        if alpha < 1 and not (role == 'b' and alpha >= 0.5 and lum(rgb) > 0.8) and not is_violet(rgb):
             stats['kept'] += 1; return m.group(0)       # coloured washes and white glints stay
         if alpha < 1:
             t = tok_for(role, rgb, alpha)
@@ -301,6 +332,14 @@ def rewrite_block(sel, body):
             v, imp = split_imp(m.group(2))
             return m.group(1) + f'var(--dk-band, {v}){imp}'
         return re.sub(r'(background(?:-color)?\s*:\s*)([^;]*var\(--[a-z-]*ink[^;]*)', band, body)
+    if on_brand and '--dk-brand-fill' not in body:
+        def fill(m):
+            v, imp = split_imp(m.group(3))
+            stats['brand-fill'] += 1
+            return f'{m.group(1)}{m.group(2)}var(--dk-brand-fill, {v}){imp}'
+        # only a plain brand fill (var(--brand) or var(--brand, #hex)); tints such as
+        # var(--brand-soft), gradients and var(--c, var(--brand)) keep their colour
+        body = re.sub(r'((?:^|;)\s*)(background(?:-color)?\s*:\s*)(var\(--(?:brand|vz-brand|lp-brand|ab-brand|sq-wu|wc-wu)(?:\s*,\s*[^();]*)?\)\s*(?:!\s*important)?\s*)(?=;|$)', fill, body)
     hov = hover_kind(sel)
     if hov:
         body = rewrite_hover(body, hov)
@@ -411,9 +450,9 @@ for p in targets():
         if WRITE: open(p, 'w', encoding='utf-8').write(n)
 
 # ── rebuild dark-theme.css from every --dk-* token the site references ──
-FIXED = {'ink-hover': '#c4b5fd', 'brand-hover': '#c4b5fd',
-         'ov': '255, 255, 255', 'ovs': '255 255 255', 'on-ink': '#0b0b0e',
-         'on-brand': '#0b0b0e', 'band': '#141419'}
+FIXED = {'ink-hover': '#dbe3ff', 'brand-hover': '#a9c1ff', 'brand-fill': '#8aa8ff',
+         'ov': '255, 255, 255', 'ovs': '255 255 255', 'on-ink': '#0b0d12',
+         'on-brand': '#0b0d12', 'band': '#12151d'}   # light cobalt fills, dark text (8.5:1)
 def value_for(name):
     if name in FIXED: return FIXED[name]
     if name in CORE: return CORE[name]
@@ -432,7 +471,7 @@ used = set()
 for p in targets():
     used |= set(re.findall(r'var\(--dk-([a-z0-9-]+)', open(p, encoding='utf-8').read()))
 missing = sorted(n for n in used if value_for(n) is None)
-fixed = [n for n in ('ov', 'ovs', 'on-ink', 'on-brand', 'band', 'ink-hover', 'brand-hover') if n in used or n in ('ov', 'ovs')]
+fixed = [n for n in ('ov', 'ovs', 'on-ink', 'on-brand', 'band', 'ink-hover', 'brand-hover', 'brand-fill') if n in used or n in ('ov', 'ovs')]
 core = sorted(n for n in used if n in CORE)
 gen = sorted(n for n in used if n not in CORE and n not in FIXED and value_for(n))
 HEADER = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dark_header.css')).read()

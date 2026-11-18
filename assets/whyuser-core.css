@@ -67,7 +67,7 @@ img { max-width: 100%; }
   align-items: center;
   gap: 0.5rem;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -113,7 +113,7 @@ img { max-width: 100%; }
 .btn-primary:hover { background: var(--dk-ink-hover, #000); transform: translateY(-1px); }
 .btn-ghost { background: var(--surface); border-color: var(--rule-strong); color: var(--ink); }
 .btn-ghost:hover { border-color: var(--rule-bold); }
-.btn-brand { background: var(--brand); color: var(--dk-on-brand, #fff); }
+.btn-brand { background: var(--dk-brand-fill, var(--brand)); color: var(--dk-on-brand, #fff); }
 .btn-brand:hover { background: var(--dk-brand-hover, #5b21b6); transform: translateY(-1px); }
 .btn-lg { padding: 0.8125rem 1.5rem; font-size: 1rem; }
 
@@ -122,7 +122,7 @@ img { max-width: 100%; }
 @media (min-width: 768px) { .page-head { padding: 5.5rem 0 3rem; } }
 .crumb {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--dim);
   margin-bottom: 1.5rem;
@@ -151,14 +151,14 @@ img { max-width: 100%; }
 .proofstrip-v { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
 .proofstrip-k {
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--dim);
   margin-bottom: 0.4rem;
 }
-.proofstrip-n { font-size: 0.8125rem; color: var(--mute); margin: 0.35rem 0 0; line-height: 1.4; }
+.proofstrip-n { font-size: 0.875rem; color: var(--mute); margin: 0.35rem 0 0; line-height: 1.4; }
 
 /* Above-fold micro-row: security + pricing, one line (closes B5) */
 .microrow {
@@ -188,7 +188,7 @@ img { max-width: 100%; }
   padding: 1.5rem;
   box-shadow: 0 1px 2px rgba(9,9,11,0.035), 0 1px 1px rgba(9,9,11,0.02);
 }
-.card p { color: var(--mute); font-size: 0.9375rem; line-height: 1.55; margin: 0; }
+.card p { color: var(--mute); font-size: 1rem; line-height: 1.55; margin: 0; }
 .card-ic {
   width: 38px; height: 38px; border-radius: 10px;
   background: var(--paper-warm); color: var(--brand);
@@ -213,8 +213,8 @@ img { max-width: 100%; }
 .plan.featured { border-color: var(--brand); box-shadow: 0 10px 34px -22px rgba(109,40,217,0.5); }
 .plan-flag {
   position: absolute; top: -10px; left: 1.5rem;
-  background: var(--brand); color: var(--dk-on-brand, #fff);
-  font-family: var(--mono); font-size: 9px; font-weight: 700;
+  background: var(--dk-brand-fill, var(--brand)); color: var(--dk-on-brand, #fff);
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
   padding: 4px 9px; border-radius: 5px;
 }
@@ -223,11 +223,11 @@ img { max-width: 100%; }
 .plan-price { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.04em; line-height: 1; }
 .plan-per { font-size: 0.875rem; color: var(--dim); font-weight: 500; letter-spacing: 0; }
 .plan-credits {
-  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
   letter-spacing: 0.08em; color: var(--brand);
   margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid var(--rule);
 }
-.plan-unit { font-family: var(--mono); font-size: 10.5px; color: var(--dim); margin-top: 0.25rem; letter-spacing: 0.04em; }
+.plan-unit { font-family: var(--mono); font-size: 12px; color: var(--dim); margin-top: 0.25rem; letter-spacing: 0.04em; }
 .plan-list { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
 .plan-list li { position: relative; padding-left: 1.4rem; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.45; }
 .plan-list li::before {
@@ -260,7 +260,7 @@ img { max-width: 100%; }
 table.cmp { width: 100%; border-collapse: collapse; font-size: 0.9375rem; min-width: 620px; }
 table.cmp th, table.cmp td { text-align: left; padding: 0.875rem 1.125rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
 table.cmp thead th {
-  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
   background: var(--paper-cool);
 }
@@ -268,7 +268,7 @@ table.cmp tbody th { font-weight: 600; color: var(--ink); }
 table.cmp td { color: var(--mute); }
 table.cmp tr:last-child th, table.cmp tr:last-child td { border-bottom: none; }
 table.cmp .num { font-family: var(--mono); font-size: 0.875rem; color: var(--ink); }
-table.cmp .col-us { background: rgba(109,40,217,0.035); color: var(--ink); }
+table.cmp .col-us { background: var(--dk-b-6d28d909, rgba(109,40,217,0.035)); color: var(--ink); }
 
 /* ── CALCULATOR ──────────────────────────────────────────────────── */
 .calc { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
@@ -277,7 +277,7 @@ table.cmp .col-us { background: rgba(109,40,217,0.035); color: var(--ink); }
 .calc-row { display: grid; grid-template-columns: 1fr 92px; gap: 1rem; align-items: center; padding: 0.875rem 0; border-bottom: 1px solid var(--rule); }
 .calc-row:last-of-type { border-bottom: none; }
 .calc-label { font-size: 0.9375rem; font-weight: 600; color: var(--ink); }
-.calc-sub { font-family: var(--mono); font-size: 10.5px; color: var(--dim); margin-top: 2px; letter-spacing: 0.04em; }
+.calc-sub { font-family: var(--mono); font-size: 12px; color: var(--dim); margin-top: 2px; letter-spacing: 0.04em; }
 .calc-input {
   width: 100%; padding: 0.5rem 0.625rem;
   border: 1px solid var(--rule-strong); border-radius: 7px;
@@ -288,7 +288,7 @@ table.cmp .col-us { background: rgba(109,40,217,0.035); color: var(--ink); }
 .calc-out { background: var(--frame); border-radius: 14px; padding: 1.75rem 1.5rem; color: var(--frame-text); position: sticky; top: 5.5rem; }
 .calc-out .mono-label { color: var(--frame-dim); }
 .calc-big { font-size: 3rem; font-weight: 600; letter-spacing: -0.045em; line-height: 1; }
-.calc-note { color: var(--frame-mute); font-size: 0.875rem; line-height: 1.5; margin: 0.5rem 0 0; }
+.calc-note { color: var(--frame-mute); font-size: 0.9375rem; line-height: 1.5; margin: 0.5rem 0 0; }
 .calc-rec {
   margin-top: 1.5rem; padding-top: 1.25rem;
   border-top: 1px solid var(--frame-rule);
@@ -305,7 +305,7 @@ table.cmp .col-us { background: rgba(109,40,217,0.035); color: var(--ink); }
   padding: 1.125rem 0; font-weight: 600; font-size: 1rem; color: var(--ink);
 }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-num { font-family: var(--mono); font-size: 10.5px; color: var(--brand); padding-top: 4px; }
+.faq-num { font-family: var(--mono); font-size: 12px; color: var(--brand); padding-top: 4px; }
 .faq-q { flex: 1; }
 .faq-toggle { color: var(--dim); font-size: 12px; padding-top: 4px; }
 .faq-item[open] .faq-toggle { transform: rotate(45deg); }
@@ -354,25 +354,25 @@ table.cmp .col-us { background: rgba(109,40,217,0.035); color: var(--ink); }
   border-bottom: 1px solid var(--frame-rule);
   background: var(--frame-surface);
 }
-.frame-tag { font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--frame-mute); }
+.frame-tag { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--frame-mute); }
 .frame-pill {
   display: inline-flex; align-items: center; gap: 0.4rem;
   padding: 2.5px 7px; border-radius: 4px;
   background: rgba(16,185,129,0.10); border: 1px solid rgba(16,185,129,0.28);
   color: var(--signal-green-bright);
-  font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
 }
 .frame-pill::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--signal-green-bright); }
 .frame-body { padding: 1.5rem; color: var(--frame-text); }
-.frame-body .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--frame-dim); }
+.frame-body .k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--frame-dim); }
 .frame-row {
   display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
   padding: 0.7rem 0.85rem; margin-bottom: 0.5rem;
   background: var(--frame-surface); border: 1px solid var(--frame-rule); border-radius: 7px;
-  font-family: var(--mono); font-size: 11px;
+  font-family: var(--mono); font-size: 12px;
 }
-.chip-red { color: #f87171; font-weight: 700; font-size: 9px; letter-spacing: 0.1em; }
-.chip-green { color: var(--signal-green-bright); font-weight: 700; font-size: 9px; letter-spacing: 0.1em; }
+.chip-red { color: #f87171; font-weight: 700; font-size: 12.5px; letter-spacing: 0.1em; }
+.chip-green { color: var(--signal-green-bright); font-weight: 700; font-size: 12.5px; letter-spacing: 0.1em; }
 
 .sr-only {
   position: absolute !important; width: 1px; height: 1px;
@@ -431,7 +431,7 @@ table.cmp .col-us { background: rgba(109,40,217,0.035); color: var(--ink); }
 .legal hr { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
 
 .last-updated {
-  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--dim); margin-top: 0.75rem;
 }
 
@@ -444,14 +444,14 @@ table.cmp .col-us { background: rgba(109,40,217,0.035); color: var(--ink); }
 a.info-card:hover { border-color: var(--rule-bold); transform: translateY(-1px); }
 .info-card .card-ic { margin-bottom: 0.875rem; }
 .info-card h3 { font-size: 1.0625rem; font-weight: 600; margin: 0 0 0.3rem; color: var(--ink); letter-spacing: -0.01em; }
-.info-card p { color: var(--mute); font-size: 0.9375rem; line-height: 1.55; margin: 0; }
+.info-card p { color: var(--mute); font-size: 1rem; line-height: 1.55; margin: 0; }
 .info-card .val { color: var(--brand); font-weight: 600; font-size: 0.9375rem; }
 
 /* Unit tag on a calculator row label — "per month" / "per year".
    Mixed units are only safe if every row states its own. */
 .calc-unit {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -501,7 +501,7 @@ a.info-card:hover { border-color: var(--rule-bold); transform: translateY(-1px);
 }
 .term-card .t-def { font-size: 0.9063rem; line-height: 1.55; color: var(--mute); }
 .term-card .t-more {
-  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
   letter-spacing: 0.06em; color: var(--brand); margin-top: 0.25rem;
 }
 

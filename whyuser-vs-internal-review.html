@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End Google tag (gtag.js) -->
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+<meta name="theme-color" content="#0b0d12" media="(not (prefers-color-scheme: light))">
     <meta name="theme-color" content="#08080b" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
 <meta name="author" content="WhyUser Inc.">
@@ -459,11 +459,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ── Compare page: landing-page layout. Scoped, self-contained, with
       colour fallbacks so it does not depend on whyuser-pages.css. ── */
 .lp{--lp-rule:var(--rule,rgba(255,255,255,.12));--lp-bold:var(--rule-bold,rgba(255,255,255,.2));
-    --lp-mute:var(--mute,#a1a1aa);--lp-brand:var(--brand,#8b7cf6);--lp-surface:var(--surface,rgba(255,255,255,.03))}
+    --lp-mute:var(--mute,#a1a1aa);--lp-brand:var(--brand,var(--dk-a-8b7cf6, #8b7cf6));--lp-surface:var(--surface,rgba(255,255,255,.03))}
 .lp .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
 
 .lp-hero{text-align:center;padding:3.5rem 0 2.75rem}
-.lp-crumb{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
+.lp-crumb{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lp-mute);margin-bottom:1.6rem}
 .lp-crumb a{color:inherit;text-decoration:none}
 .lp-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:600;letter-spacing:-.04em;line-height:1.04;margin:0 0 1.1rem}
 .lp-sub{font-size:1.125rem;line-height:1.55;color:var(--lp-mute);max-width:40rem;margin:0 auto 2rem}
@@ -475,13 +475,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .lp-cell{padding:1.75rem 1.5rem;border-bottom:1px solid var(--lp-rule)}
 @media(min-width:720px){.lp-cell{border-bottom:0;border-right:1px solid var(--lp-rule)}.lp-cell:last-child{border-right:0}}
 .lp-cell:last-child{border-bottom:0}
-.lp-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
+.lp-k{font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute);display:block;margin-bottom:.5rem}
 .lp-v{font-family:'Geist Mono',monospace;font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:.5rem}
-.lp-cell p{margin:0;font-size:.875rem;line-height:1.5;color:var(--lp-mute)}
+.lp-cell p{margin:0;font-size:0.9375rem;line-height:1.5;color:var(--lp-mute)}
 
 .lp-sec{padding:3.25rem 0}
-.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
-.lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--lp-brand)}
+.lp-eyebrow{display:flex;align-items:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.9rem}
+.lp-eyebrow::before{content:"";width:22px;height:1px;background:var(--dk-brand-fill, var(--lp-brand))}
 .lp-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin:0 0 .7rem}
 .lp-lead{font-size:1.0625rem;line-height:1.55;color:var(--lp-mute);max-width:44rem;margin:0}
 
@@ -491,38 +491,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .lp-panel.us{border-color:var(--lp-bold);background:var(--lp-surface)}
 .lp-panel h3{font-size:1.0625rem;font-weight:650;margin:0 0 1rem}
 .lp-panel ul{list-style:none;margin:0;padding:0}
-.lp-panel li{position:relative;padding-left:1.4rem;margin-bottom:.7rem;font-size:.9375rem;line-height:1.5;color:var(--lp-mute)}
+.lp-panel li{position:relative;padding-left:1.4rem;margin-bottom:.7rem;font-size:1rem;line-height:1.5;color:var(--lp-mute)}
 .lp-panel li:last-child{margin-bottom:0}
 .lp-panel li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--lp-mute)}
-.lp-panel.us li::before{background:var(--lp-brand)}
+.lp-panel.us li::before{background:var(--dk-brand-fill, var(--lp-brand))}
 .lp-panel li strong{color:var(--ink,#fff);font-weight:600}
 
 .lp-cards{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
 @media(min-width:700px){.lp-cards{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.lp-cards.c3{grid-template-columns:repeat(3,1fr)}}
 .lp-card{border:1px solid var(--lp-rule);border-radius:14px;padding:1.5rem 1.6rem}
-.lp-card-k{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
+.lp-card-k{font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-brand);margin-bottom:.55rem}
 .lp-card h3{font-size:1.0625rem;font-weight:650;margin:0 0 .4rem;line-height:1.35}
-.lp-card p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+.lp-card p{margin:0;font-size:1rem;line-height:1.6;color:var(--lp-mute)}
 
 .lp-test{border:1px solid var(--lp-bold);border-radius:14px;padding:1.9rem 2rem;margin-top:2rem;background:var(--lp-surface)}
 .lp-test-row{display:grid;grid-template-columns:1fr;gap:1.4rem}
 @media(min-width:760px){.lp-test-row{grid-template-columns:1fr 1fr;gap:2.5rem}}
 .lp-test h3{font-size:1rem;font-weight:650;margin:0 0 .4rem}
-.lp-test p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute)}
+.lp-test p{margin:0;font-size:1rem;line-height:1.6;color:var(--lp-mute)}
 
 .lp-faq{margin-top:1.75rem;border-top:1px solid var(--lp-rule)}
 .lp-q{border-bottom:1px solid var(--lp-rule);padding:1.35rem 0}
 .lp-q h3{font-size:1rem;font-weight:650;margin:0 0 .45rem}
-.lp-q p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--lp-mute);max-width:48rem}
+.lp-q p{margin:0;font-size:1rem;line-height:1.6;color:var(--lp-mute);max-width:48rem}
 
 .lp-more{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;align-items:center;padding:1.6rem 0 0;border-top:1px solid var(--lp-rule);margin-top:2.5rem}
-.lp-more span{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
+.lp-more span{font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-mute)}
 .lp-more a{font-size:.9375rem;font-weight:600;color:var(--lp-brand);text-decoration:none}
 
 .wu-close{text-align:center;padding:4.5rem 0 5rem}
-.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand,#8b7cf6);margin-bottom:1.4rem}
-.wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--brand,#8b7cf6)}
+.wu-close .wu-eyebrow{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand,var(--dk-t-8b7cf6, #8b7cf6));margin-bottom:1.4rem}
+.wu-close .wu-eyebrow::before{content:"";width:22px;height:1px;background:var(--dk-brand-fill, var(--brand,#8b7cf6))}
 .wu-close h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;letter-spacing:-.04em;line-height:1.06;margin:0 0 1.3rem}
 .wu-close h2 .fail{color:var(--red,#f87171)} .wu-close h2 .win{color:var(--green-b,#34d399)}
 .wu-close-line{font-size:1.0625rem;line-height:1.6;color:var(--mute,#a1a1aa);max-width:34rem;margin:0 auto 2.25rem}
@@ -583,7 +583,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h2 class="lp-h2">Your channel decides who shows up.</h2>
     <p class="lp-lead">The 3% above is LinkedIn cold. Buy search instead and the room changes completely. Derived from published CTR benchmarks and the Ehrenberg-Bass 95:5 rule. Pin your own measured mix if you have one.</p>
     <figure class="vz vz-mix">
-      <div class="vz-mix-key" aria-hidden="true"><span style="--c:rgba(var(--dk-ov, 24,24,27),.13)">Distracted</span><span style="--c:rgba(109,71,217,.32)">Skeptical</span><span style="--c:var(--dk-a-6d47d9, #6d47d9)">In-market</span></div>
+      <div class="vz-mix-key" aria-hidden="true"><span style="--c:rgba(var(--dk-ov, 24,24,27),.13)">Distracted</span><span style="--c:var(--dk-a-6d47d952, rgba(109,71,217,.32))">Skeptical</span><span style="--c:var(--dk-a-6d47d9, #6d47d9)">In-market</span></div>
       <div class="vz-mix-row"><b>LinkedIn, cold</b><div class="vz-mix-bar" role="img" aria-label="LinkedIn, cold: 82% distracted, 15% skeptical, 3% in-market"><i class="d" style="width:82%">82%</i><i class="s" style="width:15%">15%</i><i class="m" style="width:3%"></i></div><span class="n">3%<small>in-market</small></span></div>
       <div class="vz-mix-row"><b>Cold email</b><div class="vz-mix-bar" role="img" aria-label="Cold email: 78% distracted, 17% skeptical, 5% in-market"><i class="d" style="width:78%">78%</i><i class="s" style="width:17%">17%</i><i class="m" style="width:5%"></i></div><span class="n">5%<small>in-market</small></span></div>
       <div class="vz-mix-row"><b>Google Search, cold</b><div class="vz-mix-bar" role="img" aria-label="Google Search, cold: 30% distracted, 25% skeptical, 45% in-market"><i class="d" style="width:30%">30%</i><i class="s" style="width:25%">25%</i><i class="m" style="width:45%">45%</i></div><span class="n">45%<small>in-market</small></span></div>

@@ -20,7 +20,7 @@
 </script>
 <!-- End Google tag (gtag.js) -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+    <meta name="theme-color" content="#0b0d12" media="(not (prefers-color-scheme: light))">
     <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)">
     <meta name="color-scheme" content="dark light">
     <meta name="format-detection" content="telephone=no">
@@ -517,7 +517,7 @@
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             background: var(--paper);
             color: var(--ink);
             font-size: 16px;
@@ -532,17 +532,17 @@
         /* ─────────────────────────────────────────────────────────────
            TYPE
            Geist sans + JetBrains Mono for technical signatures.
-           Instrument Serif italic used ONCE for an editorial moment.
+           Fraunces italic used ONCE for an editorial moment.
            No italic-keyword pattern in every H2.
            ───────────────────────────────────────────────────────────── */
         .display {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-weight: 600;
             letter-spacing: -0.04em;
             line-height: 1.0;
         }
         .h1 {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-weight: 600;
             font-size: clamp(2.5rem, 5vw, 4.25rem);
             /* Was 0.98. At four lines that put descenders ~6px from the next
@@ -552,7 +552,7 @@
             text-wrap: balance;
         }
         .h2 {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-weight: 600;
             font-size: clamp(1.875rem, 3.6vw, 2.875rem);
             line-height: 1.05;
@@ -560,7 +560,7 @@
             text-wrap: balance;
         }
         .h3 {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-weight: 600;
             font-size: clamp(1.25rem, 2vw, 1.625rem);
             line-height: 1.15;
@@ -583,7 +583,7 @@
         }
         .mono-eyebrow {
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -591,7 +591,7 @@
         }
         .mono-label {
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -599,7 +599,7 @@
         }
         .mono-tab {
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -607,7 +607,7 @@
 
         /* Editorial italic, used SPARINGLY for one moment */
         .editorial {
-            font-family: 'Instrument Serif', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-style: italic;
             font-weight: 400;
             letter-spacing: -0.005em;
@@ -654,7 +654,7 @@
             color: var(--dk-on-ink, rgba(255,255,255,0.78));
             border-bottom: 1px solid rgba(255,255,255,0.08);
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.14em;
             text-transform: uppercase;
@@ -763,7 +763,7 @@
         .nav-dd-label {
             display: block;
             font-family: 'Geist Mono', monospace;
-            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.4rem 0.625rem 0.5rem;
         }
@@ -786,7 +786,7 @@
             color: var(--ink); letter-spacing: -0.012em;
         }
         .nav-dd-desc {
-            display: block; font-size: 11.75px; color: var(--dim);
+            display: block; font-size: 12.5px; color: var(--dim);
             line-height: 1.42; margin-top: 2px;
         }
         .nav-dd-sep { display: block; height: 1px; background: var(--rule); margin: 0.5rem 0.625rem; }
@@ -828,7 +828,7 @@
         .nav-m-label {
             display: block;
             font-family: 'Geist Mono', monospace;
-            font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em;
+            font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--faint);
             padding: 0.25rem 0 0.6rem;
         }
@@ -932,7 +932,7 @@
         .hero-eyebrow {
             display: block;
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 11.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -943,10 +943,10 @@
            from 1024 to 1279, so the size steps down there to keep the
            kicker on one line. */
         @media (min-width: 1024px) and (max-width: 1279px) {
-            .hero-eyebrow { font-size: 11px; }
+            .hero-eyebrow { font-size: 12.5px; }
         }
         @media (max-width: 520px) {
-            .hero-eyebrow { font-size: 10px; letter-spacing: 0.14em; line-height: 1.7; margin-bottom: 1.25rem; }
+            .hero-eyebrow { font-size: 12.5px; letter-spacing: 0.14em; line-height: 1.7; margin-bottom: 1.25rem; }
         }
 
         .hero h1 {
@@ -1035,7 +1035,7 @@
         .trust-label {
             margin: 0;
             font-family: 'Geist Mono', monospace;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.24em;
             text-transform: uppercase;
@@ -1063,7 +1063,7 @@
         }
         .trust-aux {
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -1098,7 +1098,7 @@
         .frame-bar-left {
             display: flex; align-items: center; gap: 0.875rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -1113,7 +1113,7 @@
             border: 1px solid rgba(16,185,129,0.32);
             border-radius: 4px;
             color: var(--signal-green-bright);
-            font-size: 9.5px;
+            font-size: 12.5px;
         }
         .frame-bar-dot {
             width: 5px; height: 5px;
@@ -1140,7 +1140,7 @@
 
         .frame-h {
             color: var(--frame-text);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -1149,7 +1149,7 @@
         }
         .frame-sub {
             color: var(--frame-mute);
-            font-size: 12.5px;
+            font-size: 14px;
             line-height: 1.45;
             margin: 0 0 1.25rem;
         }
@@ -1158,7 +1158,7 @@
         .graph-wrap {
             position: relative;
             background:
-                radial-gradient(ellipse 80% 60% at 50% 50%, rgba(109,40,217,0.06), transparent 70%),
+                radial-gradient(ellipse 80% 60% at 50% 50%, var(--dk-b-6d28d90f, rgba(109,40,217,0.06)), transparent 70%),
                 var(--frame-elevated);
             border: 1px solid var(--frame-rule);
             border-radius: 10px;
@@ -1236,7 +1236,7 @@
         .metric-value-ok { color: var(--signal-green-bright); }
         .metric-label {
             font-family: 'Geist Mono', monospace;
-            font-size: 9.5px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -1252,7 +1252,7 @@
             border-radius: 8px;
             padding: 0.625rem 0.75rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             line-height: 1.4;
             color: var(--frame-text);
             box-shadow: 0 12px 32px -8px rgba(0,0,0,0.5);
@@ -1276,7 +1276,7 @@
             align-items: center;
             gap: 0.625rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -1287,7 +1287,7 @@
             content: '';
             display: inline-block;
             width: 24px; height: 1px;
-            background: var(--brand);
+            background: var(--dk-brand-fill, var(--brand));
         }
         .section-head h2 {
             color: var(--ink);
@@ -1382,7 +1382,7 @@
             padding-bottom: 0.75rem;
             border-bottom: 1px solid var(--rule);
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -1404,7 +1404,7 @@
             letter-spacing: 0.1em;
             text-transform: none;
             font-weight: 500;
-            font-size: 10.5px;
+            font-size: 12.5px;
         }
 
         .cflow-svg { width: 100%; height: auto; display: block; margin: 0.5rem 0 0; overflow: visible; }
@@ -1419,7 +1419,7 @@
            coloured so edges pass cleanly underneath the words. */
         .cf-bg   { fill: var(--paper); }
         .cf-name {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-size: 20px; font-weight: 600;
             letter-spacing: -0.018em;
             fill: var(--ink);
@@ -1427,7 +1427,7 @@
         .cf-name-end { fill: var(--brand); }
         .cf-code {
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 11.5px; font-weight: 600;
+            font-size: 12px; font-weight: 600;
             letter-spacing: 0.16em;
             fill: var(--faint);
         }
@@ -1516,7 +1516,7 @@
         .cflow-key-h {
             display: block;
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -1580,7 +1580,7 @@
         }
         .hero-proof-k {
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 11.5px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1633,7 +1633,7 @@
         }
         .pain-num {
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             color: var(--dim);
@@ -1644,7 +1644,7 @@
             display: inline-flex;
             padding: 2px 7px;
             border-radius: 4px;
-            font-size: 9.5px;
+            font-size: 12.5px;
             letter-spacing: 0.18em;
         }
         .pain-num-tag-red {
@@ -1656,7 +1656,7 @@
             color: var(--signal-amber);
         }
         .pain-num-tag-violet {
-            background: rgba(109,40,217,0.08);
+            background: var(--dk-b-6d28d914, rgba(109,40,217,0.08));
             color: var(--brand);
         }
         .pain-q {
@@ -1707,7 +1707,7 @@
             align-items: center;
             gap: 0.5rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -1721,11 +1721,11 @@
             background: var(--brand-soft);
             color: var(--brand);
             border-radius: 4px;
-            font-size: 10px;
+            font-size: 12.5px;
             text-align: center;
         }
         .engine-h {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-weight: 600;
             font-size: clamp(1.5rem, 2.2vw, 1.875rem);
             line-height: 1.1;
@@ -1755,7 +1755,7 @@
             border: 1px solid var(--rule);
             border-radius: 6px;
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 500;
             color: var(--ink);
             letter-spacing: -0.005em;
@@ -1766,7 +1766,7 @@
            Both engine-quote (inline) and section-quote (full-row) share
            a visual language: Geist sans for body (legible), violet
            accents for signature, paper-warm background for inline. The
-           Instrument Serif glyph appears only as a decorative '"' mark.
+           Fraunces glyph appears only as a decorative '"' mark.
            ───────────────────────────────────────────────────────────── */
 
         /* INLINE variant, sits within engine text column */
@@ -1786,7 +1786,7 @@
             position: absolute;
             top: 0.75rem;
             left: 0.875rem;
-            font-family: 'Instrument Serif', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-style: italic;
             font-size: 2.75rem;
             line-height: 1;
@@ -1796,7 +1796,7 @@
             user-select: none;
         }
         .engine-quote-text {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-style: normal;
             font-size: 1rem;
             line-height: 1.55;
@@ -1812,7 +1812,7 @@
             align-items: center;
             gap: 0.625rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -1823,7 +1823,7 @@
             display: inline-block;
             width: 24px;
             height: 1px;
-            background: var(--brand);
+            background: var(--dk-brand-fill, var(--brand));
         }
 
         /* Engine product frame, dark frame with screenshot */
@@ -1850,7 +1850,7 @@
         }
         .engine-frame-tag {
             font-family: 'Geist Mono', monospace;
-            font-size: 9.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -1866,7 +1866,7 @@
             border-radius: 4px;
             color: var(--signal-green-bright);
             font-family: 'Geist Mono', monospace;
-            font-size: 9px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1947,7 +1947,7 @@
             position: absolute;
             left: 0; top: 0;
             width: 2px; height: 100%;
-            background: var(--brand);
+            background: var(--dk-brand-fill, var(--brand));
             transform: scaleY(0);
             transform-origin: top;
             transition: transform 320ms cubic-bezier(.22,.61,.36,1);
@@ -1965,14 +1965,14 @@
             position: absolute;
             top: 1rem; right: 1.125rem;
             font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.14em;
             color: var(--faint);
         }
-        .ps-item .ps-pain-tag { font-size: 9.5px; letter-spacing: 0.2em; }
+        .ps-item .ps-pain-tag { font-size: 12.5px; letter-spacing: 0.2em; }
         .ps-item .ps-pain-q {
-            font-size: 0.9375rem;
+            font-size: 1rem;
             line-height: 1.42;
             font-weight: 500;
             color: var(--quote-ink);
@@ -1990,7 +1990,7 @@
             margin: 0.5rem 0 0.375rem;
         }
         .ps-item .ps-engine-name {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -2034,7 +2034,7 @@
             }
         }
         .ps-row:hover {
-            background: rgba(109, 40, 217, 0.018);
+            background: var(--dk-b-6d28d905, rgba(109, 40, 217, 0.018));
         }
 
         /* PAIN side, vertical red rule groups two stacked pains */
@@ -2052,14 +2052,14 @@
         }
         .ps-pain-tag {
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--signal-red);
         }
         .ps-pain-q {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-size: 1.0625rem;
             line-height: 1.4;
             font-weight: 500;
@@ -2114,7 +2114,7 @@
             align-items: center;
             gap: 0.625rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.22em;
             text-transform: uppercase;
@@ -2126,10 +2126,10 @@
             display: inline-block;
             width: 22px;
             height: 1px;
-            background: var(--brand);
+            background: var(--dk-brand-fill, var(--brand));
         }
         .ps-engine-name {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-size: clamp(1.375rem, 2.2vw, 1.75rem);
             font-weight: 600;
             color: var(--ink);
@@ -2173,7 +2173,7 @@
             align-self: flex-start;
             margin-top: 0.125rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.04em;
             color: var(--brand);
@@ -2187,7 +2187,7 @@
         .ps-engine-out .out-arrow { font-size: 10px; transition: transform 160ms ease; }
         /* the pill is no longer its own link: the whole card is. It pins to
            the bottom so a row of cards lines up regardless of quote length. */
-        .ps-item .ps-engine-out { margin-top: auto; padding: 0.34rem 0.68rem; font-size: 10.5px; }
+        .ps-item .ps-engine-out { margin-top: auto; padding: 0.34rem 0.68rem; font-size: 12.5px; }
         .ps-item:hover .ps-engine-out,
         .ps-item:focus-visible .ps-engine-out {
             border-color: var(--brand);
@@ -2295,7 +2295,7 @@
         }
         .flow-stop-num {
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             color: var(--dim);
@@ -2319,7 +2319,7 @@
         /* WhyUser stop, same dot size as others (so rail aligns)
            but with a multi-ring glow that emphasizes it. */
         .flow-stop-whyuser .flow-stop-dot {
-            background: var(--brand);
+            background: var(--dk-brand-fill, var(--brand));
             border-color: var(--brand);
             box-shadow:
                 0 0 0 4px rgba(109,40,217,0.20),
@@ -2331,7 +2331,7 @@
         /* Desktop: card sits ABOVE the stop, anchored to column center */
         .flow-card {
             background: var(--frame);
-            border: 1px solid rgba(196,181,253,0.32);
+            border: 1px solid var(--dk-l-c4b5fd52, rgba(196,181,253,0.32));
             border-radius: 10px;
             padding: 1rem 1.125rem 1.125rem;
             color: var(--frame-text);
@@ -2388,10 +2388,10 @@
             align-items: center;
             gap: 0.4rem;
             padding: 3px 7px;
-            background: rgba(196,181,253,0.14);
-            color: #c4b5fd;
+            background: var(--dk-b-c4b5fd24, rgba(196,181,253,0.14));
+            color: var(--dk-t-c4b5fd, #c4b5fd);
             font-family: 'Geist Mono', monospace;
-            font-size: 9.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -2402,10 +2402,10 @@
             content: '';
             width: 4px; height: 4px;
             border-radius: 50%;
-            background: #c4b5fd;
+            background: var(--dk-b-c4b5fd, #c4b5fd);
         }
         .flow-card-h {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-size: 1rem;
             font-weight: 600;
             letter-spacing: -0.022em;
@@ -2414,7 +2414,7 @@
             line-height: 1.2;
         }
         .flow-card-desc {
-            font-size: 12.5px;
+            font-size: 14px;
             line-height: 1.5;
             color: rgba(255,255,255,0.72);
             margin: 0 0 0.875rem;
@@ -2431,12 +2431,12 @@
             align-items: center;
             gap: 0.4rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 500;
             color: rgba(255,255,255,0.65);
             letter-spacing: 0.04em;
         }
-        .flow-card-meta i { color: #c4b5fd; font-size: 10px; }
+        .flow-card-meta i { color: var(--dk-t-c4b5fd, #c4b5fd); font-size: 10px; }
 
         .flow-tagline {
             margin: 3rem auto 0;
@@ -2514,7 +2514,7 @@
         .wu-form .btn-primary { background: var(--dk-b-fafafa, #fafafa) !important; color: var(--dk-t-131318, #131318) !important; border-color: var(--dk-l-fafafa, #fafafa) !important; }
         .wu-form .btn-primary:hover { background: var(--dk-b-e4e4e7, #e4e4e7) !important; border-color: var(--dk-l-e4e4e7, #e4e4e7) !important; }
         .wu-form .btn-primary:disabled { opacity: .6; cursor: wait; }
-        .wu-form-note { margin: 0; font-size: .8125rem; line-height: 1.5; color: var(--frame-dim); }
+        .wu-form-note { margin: 0; font-size: 0.875rem; line-height: 1.5; color: var(--frame-dim); }
         .wu-form-done p { margin: 0 0 .5rem; color: rgba(255,255,255,.66); }
         .wu-form[hidden], .wu-form-done[hidden] { display: none !important; }
 
@@ -2620,7 +2620,7 @@
             flex-shrink: 0;
         }
         .hub-source-name {
-            font-size: 13.5px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--ink);
             line-height: 1.2;
@@ -2629,7 +2629,7 @@
         }
         .hub-source-meta {
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             color: var(--dim);
             line-height: 1.35;
             letter-spacing: -0.005em;
@@ -2655,8 +2655,8 @@
             height: 320px;
             border-radius: 50%;
             background: radial-gradient(circle,
-                rgba(109, 40, 217, 0.32) 0%,
-                rgba(167, 139, 250, 0.14) 35%,
+                var(--dk-b-6d28d952, rgba(109, 40, 217, 0.32)) 0%,
+                var(--dk-b-a78bfa24, rgba(167, 139, 250, 0.14)) 35%,
                 transparent 65%);
             animation: hub-halo-pulse 4s ease-in-out infinite;
             pointer-events: none;
@@ -2672,7 +2672,7 @@
             width: 244px;
             height: 244px;
             border-radius: 50%;
-            border: 1px dashed rgba(196, 181, 253, 0.32);
+            border: 1px dashed var(--dk-l-c4b5fd52, rgba(196, 181, 253, 0.32));
             animation: hub-ring-rotate 32s linear infinite;
             pointer-events: none;
         }
@@ -2685,7 +2685,7 @@
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: var(--brand);
+            background: var(--dk-brand-fill, var(--brand));
             box-shadow: 0 0 8px 2px rgba(109, 40, 217, 0.6);
         }
         @keyframes hub-ring-rotate {
@@ -2701,10 +2701,10 @@
             border-radius: 50%;
             background:
                 radial-gradient(circle at 35% 30%,
-                    #d8b4fe 0%,
-                    #a78bfa 22%,
-                    #7c3aed 55%,
-                    #4c1d95 90%);
+                    var(--dk-b-d8b4fe, #d8b4fe) 0%,
+                    var(--dk-b-a78bfa, #a78bfa) 22%,
+                    var(--dk-b-7c3aed, #7c3aed) 55%,
+                    var(--dk-b-4c1d95, #4c1d95) 90%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -2729,7 +2729,7 @@
         }
         .hub-core-orb-label {
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.22em;
             text-transform: uppercase;
@@ -2739,7 +2739,7 @@
         }
         .hub-core-orb-meta {
             font-family: 'Geist Mono', monospace;
-            font-size: 9px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
@@ -2767,7 +2767,7 @@
             position: relative;
         }
         .section-quote-mark {
-            font-family: 'Instrument Serif', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-style: italic;
             font-weight: 400;
             font-size: clamp(52px, 5vw, 72px);
@@ -2778,7 +2778,7 @@
             user-select: none;
         }
         .section-quote-text {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Figtree', system-ui, -apple-system, sans-serif;
             font-style: normal;
             font-size: 1.18rem;
             line-height: 1.55;
@@ -2793,7 +2793,7 @@
             align-items: center;
             gap: 0.625rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -2804,7 +2804,7 @@
             display: inline-block;
             width: 24px;
             height: 1px;
-            background: var(--brand);
+            background: var(--dk-brand-fill, var(--brand));
         }
 
         /* ─────────────────────────────────────────────────────────────
@@ -2836,11 +2836,11 @@
         }
         .diff-side-tag {
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: #c4b5fd;
+            color: var(--dk-t-c4b5fd, #c4b5fd);
             margin-bottom: 0.5rem;
         }
         .diff-side-h {
@@ -2866,7 +2866,7 @@
         .diff-col-us { background: var(--paper-warm); }
         .diff-col-h {
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -2908,7 +2908,7 @@
         .compare-table th {
             padding: 1rem 0.75rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -2934,7 +2934,7 @@
             font-weight: 500;
         }
         .compare-table td.col-us {
-            background: rgba(109,40,217,0.04);
+            background: var(--dk-b-6d28d90a, rgba(109,40,217,0.04));
             color: var(--brand);
             font-weight: 600;
         }
@@ -2962,8 +2962,8 @@
         @media (min-width: 1024px) {
             .anti-grid { grid-template-columns: 320px 1fr; gap: 4rem; }
         }
-        .anti-block .section-eyebrow { color: #c4b5fd; }
-        .anti-block .section-eyebrow::before { background: #c4b5fd; }
+        .anti-block .section-eyebrow { color: var(--dk-t-c4b5fd, #c4b5fd); }
+        .anti-block .section-eyebrow::before { background: var(--dk-b-c4b5fd, #c4b5fd); }
         .anti-block h2 { color: var(--dk-on-ink, white); }
         .anti-block .section-head p { color: var(--dk-on-ink, rgba(255,255,255,0.65)); }
         .anti-list {
@@ -2992,7 +2992,7 @@
             margin: 0 0 0.375rem;
         }
         .anti-item-p {
-            font-size: 13.5px;
+            font-size: 14px;
             line-height: 1.55;
             color: rgba(255,255,255,0.6);
             margin: 0;
@@ -3026,7 +3026,7 @@
         details.faq-item summary::-webkit-details-marker { display: none; }
         .faq-num {
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.16em;
             color: var(--faint);
@@ -3072,7 +3072,7 @@
             .cta-card { padding: 3.5rem 0 0; }
         }
         .cta-h {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.04em;
@@ -3098,7 +3098,7 @@
         }
         .cta-pill-h {
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -3106,7 +3106,7 @@
             margin-bottom: 0.5rem;
         }
         .cta-pill-p {
-            font-size: 13.5px;
+            font-size: 14px;
             line-height: 1.5;
             color: var(--ink-soft);
             margin: 0;
@@ -3131,7 +3131,7 @@
         }
         .footer h4 {
             font-family: 'Geist Mono', monospace;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0.22em;
             text-transform: uppercase;
@@ -3139,7 +3139,7 @@
             margin: 0 0 1rem;
         }
         .footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem; }
-        .footer ul a { font-size: 13.5px; color: rgba(255,255,255,0.7); }
+        .footer ul a { font-size: 14px; color: rgba(255,255,255,0.7); }
         .footer ul a:hover { color: white; }
         .footer-brand-mark {
             display: flex;
@@ -3149,7 +3149,7 @@
         }
         .footer-brand-mark .nav-mark { background: var(--dk-b-ffffff, #fff); padding: 3px; }
         .footer-brand-name { color: white; font-weight: 600; }
-        .footer-tagline { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
+        .footer-tagline { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.55); margin: 0; }
         .footer-bottom {
             margin-top: 3rem;
             padding-top: 1.5rem;
@@ -3160,7 +3160,7 @@
             flex-wrap: wrap;
             gap: 1rem;
             font-family: 'Geist Mono', monospace;
-            font-size: 10.5px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.14em;
             color: rgba(255,255,255,0.45);
@@ -3184,11 +3184,11 @@
         .solfix-card:hover { border-color: var(--rule-strong); transform: translateY(-2px); box-shadow: 0 1px 0 0 rgba(9,9,11,0.04), 0 14px 34px -18px rgba(9,9,11,0.16); }
         .solfix-head { display: flex; align-items: center; justify-content: space-between; }
         .solfix-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--paper-warm); display: flex; align-items: center; justify-content: center; color: var(--brand); font-size: 15px; }
-        .solfix-pain { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.45; color: var(--signal-red); font-weight: 500; letter-spacing: -0.01em; margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
-        .solfix-name { font-family: 'Inter', sans-serif; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); margin: 0 0 0.4rem; }
-        .solfix-desc { font-size: 0.9375rem; line-height: 1.55; color: var(--mute); margin: 0; }
+        .solfix-pain { font-family: 'Figtree', system-ui, -apple-system, sans-serif; font-size: 0.95rem; line-height: 1.45; color: var(--signal-red); font-weight: 500; letter-spacing: -0.01em; margin: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+        .solfix-name { font-family: 'Figtree', system-ui, -apple-system, sans-serif; font-size: 1.1875rem; font-weight: 600; letter-spacing: -0.022em; color: var(--ink); margin: 0 0 0.4rem; }
+        .solfix-desc { font-size: 1rem; line-height: 1.55; color: var(--mute); margin: 0; }
         .solfix-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-        .solfix-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 6px; font-family: 'Geist Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--ink); }
+        .solfix-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.6rem; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 6px; font-family: 'Geist Mono', monospace; font-size: 12px; font-weight: 500; color: var(--ink); }
         .solfix-chip i { font-size: 9.5px; color: var(--brand); }
         .solfix-arrow { color: var(--faint); font-size: 12px; transition: transform 200ms ease, color 200ms ease; }
         .solfix-card:hover .solfix-arrow { color: var(--brand); transform: translateX(3px); }
@@ -3293,14 +3293,14 @@ body { background-image: none; }
   color:var(--brand);display:flex;align-items:center;justify-content:center;
   font-size:15px;margin-bottom:.875rem}
 .wu-out-h{font-size:1.0625rem;font-weight:600;letter-spacing:-.012em;margin:0 0 .4rem;color:var(--ink)}
-.wu-out-p{color:var(--mute);font-size:.9375rem;line-height:1.55;margin:0}
+.wu-out-p{color:var(--mute);font-size:1rem;line-height:1.55;margin:0}
 
 /* ── "we ran it on ourselves" band ──────────────────────────────── */
 .wu-selfrun{margin-top:2.75rem;background:none;border:0;border-top:1px solid var(--rule);
   border-radius:0;padding:1.75rem 0 0;
   display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center}
 @media(min-width:820px){.wu-selfrun{grid-template-columns:1fr auto;padding:1.9rem 0 0}}
-.wu-selfrun-tag{display:inline-block;font-family:'Geist Mono',monospace;font-size:11px;
+.wu-selfrun-tag{display:inline-block;font-family:'Geist Mono',monospace;font-size:12px;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:.6rem}
 .wu-selfrun-p{margin:0;color:var(--ink-soft);font-size:1rem;line-height:1.6;max-width:44rem}
 .wu-selfrun-p strong{color:var(--ink)}
@@ -3322,7 +3322,7 @@ body { background-image: none; }
 .wu-persona{position:relative;z-index:3;isolation:isolate;margin-top:3.5rem;padding-top:2.5rem;
   border-top:1px solid var(--rule);background:var(--paper)}
 .wu-persona-head{max-width:46rem;margin-bottom:1.75rem}
-.wu-persona-tag{display:inline-block;font-family:'Geist Mono',monospace;font-size:11px;
+.wu-persona-tag{display:inline-block;font-family:'Geist Mono',monospace;font-size:12px;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:.6rem}
 .wu-persona-h{font-size:clamp(1.375rem,2.4vw,1.75rem);font-weight:600;letter-spacing:-.025em;
   line-height:1.15;margin:0 0 .6rem;color:var(--ink)}
@@ -3333,7 +3333,7 @@ body { background-image: none; }
 .wu-persona-fig img{display:block;width:100%;height:auto}
 .wu-persona-fig figcaption{margin-top:.75rem;text-align:center}
 .wu-persona-fig img{display:block;width:100%;height:auto;border-radius:7px}
-.wu-persona-fig figcaption{font-family:'Geist Mono',monospace;font-size:11px;
+.wu-persona-fig figcaption{font-family:'Geist Mono',monospace;font-size:12px;
   letter-spacing:.04em;color:var(--dim);padding:.75rem .25rem 0;line-height:1.5}
 
 /* The timeline card is position:absolute above the rail, with the rail
@@ -3437,7 +3437,7 @@ body { background-image: none; }
    Vectara logos still share one centre line. */
 .trust-story{position:relative;display:inline-flex;text-decoration:none}
 .trust-story-k{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;
-  font-family:'Geist Mono',ui-monospace,monospace;font-size:9px;font-weight:600;line-height:1.2;
+  font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:600;line-height:1.2;
   letter-spacing:.14em;text-transform:uppercase;color:var(--brand);white-space:nowrap;
   border-bottom:1px solid color-mix(in srgb,var(--brand) 40%,transparent);padding-bottom:1px}
 .trust-story-arr{display:inline-block;transition:transform .18s ease}
@@ -3462,7 +3462,7 @@ body { background-image: none; }
 .v3-means{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);margin:0;white-space:nowrap;
   display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .95rem;border-radius:999px;
   background:var(--frame);border:1px solid var(--frame-rule-strong);
-  font-family:'Geist Mono',ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#c4b5fd}
+  font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dk-t-c4b5fd, #c4b5fd)}
 .v3-means i{font-size:11px}
 .v3-funnel-row .v3-funnel-h{margin-top:.75rem}
 
@@ -3484,9 +3484,9 @@ body { background-image: none; }
 .wu-story-n{position:absolute;left:0;top:0;width:27px;height:27px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;background:var(--paper);
   border:1px solid var(--rule-bold);font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;color:var(--ink)}
-.wu-story-step:last-child .wu-story-n{background:var(--brand);border-color:var(--brand);color:var(--dk-on-brand, #fff)}
+.wu-story-step:last-child .wu-story-n{background:var(--dk-brand-fill, var(--brand));border-color:var(--brand);color:var(--dk-on-brand, #fff)}
 @media(min-width:900px){.wu-story-n{top:50%;margin-top:-13.5px}}
-.wu-story-k{display:block;font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;
+.wu-story-k{display:block;font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:.6rem}
 .wu-story-txt h3,.wu-story-txt h4{font-size:clamp(1.375rem,2.3vw,1.75rem);line-height:1.15;color:var(--ink);margin:0 0 .6rem}
 .wu-story-txt p{margin:0;color:var(--mute);font-size:1rem;line-height:1.6;max-width:30rem}
@@ -3494,7 +3494,7 @@ body { background-image: none; }
 .wu-story-tags a{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:999px;
   background:var(--surface);border:1px solid var(--rule-strong);font-size:.8125rem;font-weight:600;
   color:var(--ink-soft);text-decoration:none;transition:border-color .18s ease,color .18s ease}
-.wu-story-tags a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand)}
+.wu-story-tags a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dk-brand-fill, var(--brand))}
 .wu-story-tags a:hover,.wu-story-tags a:focus-visible{border-color:var(--brand);color:var(--brand)}
 
 /* The small product cards beside each step. */
@@ -3502,47 +3502,47 @@ body { background-image: none; }
   box-shadow:0 1px 2px rgba(9,9,11,.04),0 12px 32px -18px rgba(9,9,11,.18);max-width:32rem}
 .wu-sc-bar{display:flex;align-items:center;gap:.5rem;margin:0 0 .85rem;font-size:.8125rem;font-weight:600;color:var(--ink)}
 .wu-sc-bar i{color:var(--brand);font-size:13px}
-.wu-sc-bar span{margin-left:auto;font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;color:var(--dim)}
+.wu-sc-bar span{margin-left:auto;font-family:'Geist Mono',monospace;font-size:12px;font-weight:500;color:var(--dim)}
 .wu-sc-ev,.wu-sc-finds,.wu-sc-checks{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 .wu-sc-ev li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;column-gap:.6rem;align-items:center;
   padding:.5rem .7rem;border-radius:9px;background:var(--paper-cool)}
-.wu-sc-ev small{grid-column:1 / -1;font-family:'Geist Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:.15rem}
+.wu-sc-ev small{grid-column:1 / -1;font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:.15rem}
 .wu-sc-ev b{font-size:.875rem;font-weight:500;color:var(--ink-soft);line-height:1.4}
 .wu-sc-ev li:nth-child(-n+2) b{grid-column:1 / 3}
-.wu-sc-ev span{font-size:11px;font-weight:700;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+.wu-sc-ev span{font-size:12.5px;font-weight:700;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
 .wu-sc .up{color:var(--dk-t-6d28d9, #6d28d9);background:var(--brand-soft)}
 .wu-sc-pages{display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;margin:0 0 .9rem}
 .wu-sc-pages span{text-align:center;padding:.55rem .25rem;border-radius:8px;font-size:12px;font-weight:600;color:var(--dk-t-065f46, #065f46);background:rgba(16,185,129,.12)}
 .wu-sc-pages span.warn{color:var(--dk-t-92400e, #92400e);background:rgba(245,158,11,.14)}
 .wu-sc-pages span.no{color:var(--dk-t-991b1b, #991b1b);background:rgba(220,38,38,.09)}
-.wu-sc em{font-style:normal;font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;color:var(--dim)}
+.wu-sc em{font-style:normal;font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--dim)}
 .wu-sc .ok{color:var(--dk-t-065f46, #065f46);background:rgba(16,185,129,.12)}
 .wu-sc .part{color:var(--dk-t-92400e, #92400e);background:rgba(245,158,11,.14)}
 .wu-sc .no,.wu-sc .miss{color:var(--dk-t-991b1b, #991b1b);background:rgba(220,38,38,.09)}
 .wu-sc-url{display:flex;align-items:center;gap:.3rem;margin:0 0 .9rem;padding:.45rem .6rem;border-radius:8px;background:var(--paper-cool)}
 .wu-sc-url i{width:7px;height:7px;border-radius:50%;background:var(--rule-bold)}
-.wu-sc-url span{margin-left:.5rem;font-family:'Geist Mono',monospace;font-size:11.5px;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.wu-sc-finds li{font-size:.875rem;line-height:1.45;color:var(--ink-soft);padding:.5rem .7rem;border-left:2px solid var(--signal-red);background:rgba(220,38,38,.04);border-radius:0 8px 8px 0}
+.wu-sc-url span{margin-left:.5rem;font-family:'Geist Mono',monospace;font-size:12px;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wu-sc-finds li{font-size:0.9375rem;line-height:1.45;color:var(--ink-soft);padding:.5rem .7rem;border-left:2px solid var(--signal-red);background:rgba(220,38,38,.04);border-radius:0 8px 8px 0}
 .wu-sc-finds li:nth-child(2){border-left-color:var(--signal-amber);background:rgba(245,158,11,.06)}
 .wu-sc-finds li:nth-child(2) em{color:var(--dk-t-92400e, #92400e)}
 .wu-sc-finds em{display:block;margin-bottom:.1rem;color:var(--dk-t-991b1b, #991b1b)}
 .wu-sc-ask{margin:0 0 .8rem;font-size:.875rem;line-height:1.45;color:var(--ink);padding:.6rem .75rem;border-radius:10px;background:var(--brand-soft)}
-.wu-sc-ask span{display:block;font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:.2rem}
+.wu-sc-ask span{display:block;font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:.2rem}
 .wu-sc .v3-diff{margin-bottom:.8rem}
-.wu-sc-checks li{display:flex;align-items:center;gap:.55rem;font-size:.875rem;color:var(--ink-soft)}
+.wu-sc-checks li{display:flex;align-items:center;gap:.55rem;font-size:0.9375rem;color:var(--ink-soft)}
 .wu-sc-checks i{color:var(--signal-green);font-size:12px}
 .wu-sc-checks em{margin-left:auto}
 .wu-sc-done{margin:.85rem 0 0;padding-top:.75rem;border-top:1px solid var(--rule);font-size:.8125rem;font-weight:600;color:var(--dk-t-065f46, #065f46)}
 .wu-sc .v3-cmp{margin-bottom:.9rem}
 .wu-sc-grade{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:0;padding-top:.8rem;border-top:1px solid var(--rule)}
-.wu-sc-grade span{font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-right:.25rem}
-.wu-sc-grade b{font-size:11px;font-weight:700;padding:.15rem .55rem;border-radius:999px}
+.wu-sc-grade span{font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-right:.25rem}
+.wu-sc-grade b{font-size:12.5px;font-weight:700;padding:.15rem .55rem;border-radius:999px}
 .wu-sc-grade small{margin-left:auto;font-size:.75rem;color:var(--mute)}
 .wu-story-end{margin-top:2.75rem;display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem;
   padding:1.75rem 1.75rem;border-radius:18px;background:var(--frame);color:var(--frame-text)}
 @media(min-width:760px){.wu-story-end{flex-direction:row;align-items:center;justify-content:space-between;padding:2rem 2.5rem}}
 .wu-story-end-h{margin:0;font-family:var(--font-title);font-size:clamp(1.375rem,2.4vw,1.875rem);font-weight:600;line-height:1.15;letter-spacing:-.015em;color:var(--frame-text)}
-.wu-story-end-h span{color:#c4b5fd}
+.wu-story-end-h span{color:var(--dk-t-c4b5fd, #c4b5fd)}
 .wu-story-end .btn-primary{background:var(--dk-b-fafafa, #fafafa) !important;color:var(--dk-t-131318, #131318) !important;border-color:var(--dk-l-fafafa, #fafafa) !important;flex-shrink:0}
 .wu-story-end .btn-primary:hover{background:var(--dk-b-e4e4e7, #e4e4e7) !important;border-color:var(--dk-l-e4e4e7, #e4e4e7) !important}
 .wu-story-cap{margin-top:.85rem}
@@ -3552,12 +3552,12 @@ body { background-image: none; }
 .wu-story-tab{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:.2rem;
   padding:.7rem .9rem;border-radius:12px;transition:background-color .15s ease}
 .wu-story-tab b{font-size:.9375rem;font-weight:600;line-height:1.2;color:var(--ink)}
-.wu-story-tab span{font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.wu-story-tab span{font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .wu-story-tab:hover{background:var(--paper-cool)}
 .wu-story-tab:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .wu-story-tab[aria-selected="true"]{background:var(--frame,#131318)}
 .wu-story-tab[aria-selected="true"] b{color:#fff}
-.wu-story-tab[aria-selected="true"] span{color:#c4b5fd}
+.wu-story-tab[aria-selected="true"] span{color:var(--dk-t-c4b5fd, #c4b5fd)}
 /* Phones: four tabs as a 2 x 2 grid, full labels. */
 @media(max-width:640px){.wu-story-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
   .wu-story-tab{padding:.6rem .7rem}.wu-story-tab b{font-size:.875rem}}
@@ -3570,7 +3570,7 @@ body { background-image: none; }
 .wu-story-ttl{font-family:var(--font-title);font-size:clamp(1.375rem,2.4vw,1.75rem);font-weight:600;line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:0 0 .4rem}
 .wu-story-who{margin:0;color:var(--mute);font-size:1rem;line-height:1.6}
 .wu-sc-pages.wu-sc-five{grid-template-columns:repeat(5,1fr)}
-.wu-sc-five span{font-size:11px}
+.wu-sc-five span{font-size:12.5px}
 
 /* ── TOOLS · integrations and MCP ── */
 .wu-tools-side{display:flex;flex-direction:column;gap:1.1rem}
@@ -3579,7 +3579,7 @@ body { background-image: none; }
   box-shadow:0 1px 2px rgba(9,9,11,.04),0 10px 28px -18px rgba(9,9,11,.2);transition:border-color .18s ease}
 .wu-tools-promo-k{display:inline-flex;align-items:center;gap:.5rem;font-size:.9375rem;font-weight:700;color:var(--brand)}
 .wu-tools-promo-k i{font-size:13px}
-.wu-tools-promo-t{font-size:.9375rem;color:var(--ink-soft);line-height:1.45}
+.wu-tools-promo-t{font-size:1rem;color:var(--ink-soft);line-height:1.45}
 .wu-tools-promo-arr{position:absolute;right:1.15rem;top:50%;margin-top:-8px;font-size:16px;color:var(--brand);transition:transform .18s ease}
 .wu-tools-promo:hover,.wu-tools-promo:focus-visible{border-color:var(--brand)}
 .wu-tools-promo:hover .wu-tools-promo-arr,.wu-tools-promo:focus-visible .wu-tools-promo-arr{transform:translateX(3px)}
@@ -3600,7 +3600,7 @@ body { background-image: none; }
   background-color:var(--paper-cool);
   background-image:linear-gradient(rgba(var(--dk-ov, 9,9,11),.045) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--dk-ov, 9,9,11),.045) 1px,transparent 1px);
   background-size:22px 22px;border:1px solid var(--rule)}
-.wu-flow-k{font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.wu-flow-k{font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
 .wu-flow-k-hub{display:none}
 /* Phone: label, list, hub, label, list. */
 .wu-flow-k-in{order:1}.wu-flow-in{order:2}.wu-flow-mid{order:3}.wu-flow-k-out{order:4;margin-top:.25rem}.wu-flow-out{order:5}
@@ -3611,11 +3611,11 @@ body { background-image: none; }
   background:var(--paper-warm);color:var(--ink-soft);font-size:13px}
 .wu-flow-i b{font-size:.875rem;font-weight:700;color:var(--ink);line-height:1.25}
 .wu-flow-i span{font-size:.8125rem;color:var(--mute);line-height:1.35}
-.wu-flow-i em{position:absolute;top:.55rem;right:.6rem;font-style:normal;font-family:'Geist Mono',monospace;font-size:9.5px;
+.wu-flow-i em{position:absolute;top:.55rem;right:.6rem;font-style:normal;font-family:'Geist Mono',monospace;font-size:12px;
   font-weight:700;letter-spacing:.12em;color:var(--brand);background:var(--brand-soft);padding:.1rem .4rem;border-radius:5px}
 .wu-flow-i.on{padding-right:3.4rem;border:1.5px solid var(--brand);background:color-mix(in srgb,var(--brand-soft) 45%,var(--surface));
   box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 8%,transparent)}
-.wu-flow-i.on i{background:var(--brand);color:var(--dk-on-brand, #fff)}
+.wu-flow-i.on i{background:var(--dk-brand-fill, var(--brand));color:var(--dk-on-brand, #fff)}
 .wu-flow-mid{position:relative;display:flex;justify-content:center;padding:.25rem 0}
 .wu-flow-lines{display:none}
 .wu-flow-hub{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:18px;
@@ -3946,7 +3946,7 @@ body { background-image: none; }
                 <h1 class="h1 v3-fit" style="--fit:16.36">Find the buyers your campaign loses.<br><span class="v3-accent">Fix it before you&nbsp;spend.</span></h1>
                 <p class="hero-sub">Test your landing page, ad or email on AI buyer personas and buying committees, built from what your buyers say before and after they talk to you. Get the fixes, role by role, <strong>before you pay to find&nbsp;out.</strong></p>
                 <div class="hero-ctas">
-                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:12.5px"></i></a>
                     <a href="sample-report.html" class="btn btn-ghost btn-lg"><i class="fa-solid fa-file-lines" style="font-size:13px;color:var(--brand)"></i> See sample reports</a>
                 </div>
                 <p class="hero-proof">
@@ -4100,7 +4100,6 @@ body { background-image: none; }
                     <span class="section-eyebrow">The story of a launch</span>
                     <h2 class="h2 v3-fit" style="--fit:9.85">Follow one launch.<br><span class="v3-accent">Pick the one you run.</span></h2>
                 </div>
-                <p class="wu-story-intro">CodeDeploy is a fictional company. Four people on its marketing team each have something going live. Follow the four moments where each one loses buyers.</p>
             </div>
 
             <!-- Tabs (10 Nov 2026). All three stories stay in the HTML, so search
@@ -4229,7 +4228,7 @@ body { background-image: none; }
 
     <div class="wu-story-end">
                     <p class="wu-story-end-h">Sarah&rsquo;s new site went live fixed. <span>Now rehearse yours.</span></p>
-                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:12.5px"></i></a>
                 </div>
             </div>
 
@@ -4349,7 +4348,7 @@ body { background-image: none; }
 
                 <div class="wu-story-end">
                     <p class="wu-story-end-h">Marcus&rsquo;s campaign went live fixed. <span>Now rehearse yours.</span></p>
-                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:12.5px"></i></a>
                 </div>
             </div>
 
@@ -4469,7 +4468,7 @@ body { background-image: none; }
 
                 <div class="wu-story-end">
                     <p class="wu-story-end-h">Nichole&rsquo;s sequence went out fixed. <span>Now rehearse yours.</span></p>
-                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:12.5px"></i></a>
                 </div>
             </div>
 
@@ -4589,7 +4588,7 @@ body { background-image: none; }
 
                 <div class="wu-story-end">
                     <p class="wu-story-end-h">Priya&rsquo;s pivot went live fixed. <span>Now rehearse yours.</span></p>
-                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
+                    <a href="#access" class="btn btn-primary btn-lg">Request access <i class="fa-solid fa-arrow-right" style="font-size:12.5px"></i></a>
                 </div>
             </div>
 

@@ -71,9 +71,9 @@
 .artframe, .artbody, .mk-stat, .wu-persona-fig {
   --signal-green:        #10b981;
   --signal-green-bright: #34d399;
-  --signal-red:          #ef4444;
+  --signal-red:          var(--dk-a-ef4444, #ef4444);
   --signal-red-bright:   #fb7185;
-  --brand:               #a78bfa;
+  --brand:               var(--dk-a-a78bfa, #a78bfa);
   --ink:                 #f4f4f5;
   --ink-soft:            #d6d6da;
   --mute:                #a8a8b2;
@@ -87,12 +87,12 @@
 .wu-close h2 .fail { color: var(--dk-t-dc2626, #dc2626) !important; }
 .wu-close h2 .win  { color: var(--dk-t-047857, #047857) !important; }
 .hub-core-orb-label { color: var(--dk-t-2e1065, #2e1065) !important; }
-.hub-core-orb-meta  { color: rgba(46, 16, 101, 0.72) !important; }
+.hub-core-orb-meta  { color: var(--dk-t-2e1065b8, rgba(46, 16, 101, 0.72)) !important; }
 .hub-core-orb > i   { color: var(--dk-t-2e1065, #2e1065) !important; }
 
 /* Comparison-page column tint was a violet wash tuned for black. */
 td.col-us, .cmp td.col-us, .compare-table td.col-us {
-  background: rgba(109, 71, 217, 0.05) !important;
+  background: var(--dk-b-6d47d90d, rgba(109, 71, 217, 0.05)) !important;
 }
 
 /* .calc-out is a dark instrument frame by design: whyuser-core.css sets
@@ -400,7 +400,7 @@ body {
 }
 .section-quote-cite {
   display: block !important;
-  font-family: 'Inter', system-ui, sans-serif !important;
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif !important;
   font-size: 0.875rem !important; font-weight: 500 !important;
   letter-spacing: 0 !important; text-transform: none !important;
   color: var(--mute) !important;

@@ -57,7 +57,7 @@
 .ps-pain-tag,
 .pain-num,
 .engine-tag {
-  font-size: 11.5px !important;
+  font-size: 12.5px !important;
   letter-spacing: 0.10em !important;
 }
 
@@ -66,14 +66,14 @@
    the words that tell a buyer which bucket to open. */
 .nav-dd-label,
 .nav-m-label {
-  font-size: 11px !important;
+  font-size: 12.5px !important;
   letter-spacing: 0.08em !important;
 }
 
 /* Dropdown descriptions are sentence-case prose, not labels. They
    should be set as prose: no tracking, sentence case, readable size. */
 .nav-dd-desc {
-  font-size: 12.5px !important;
+  font-size: 14px !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
   line-height: 1.45 !important;
@@ -85,7 +85,7 @@
    carries wider tracking comfortably, so it goes back up. */
 .trust-label {
   margin: 0 !important;
-  font-size: 11.5px !important;
+  font-size: 12.5px !important;
   font-weight: 700 !important;
   letter-spacing: 0.22em !important;
   text-align: center !important;
@@ -111,7 +111,7 @@
    customers are too hard-won to set as decoration. */
 .section-quote-cite,
 .engine-quote-cite {
-  font-size: 12.5px !important;
+  font-size: 14px !important;
   letter-spacing: 0.01em !important;
   text-transform: none !important;
 }
@@ -135,7 +135,7 @@
    The Cost / The Trade / The Fit headings sit above the only
    conversion point on the page. */
 .cta-pill-h {
-  font-size: 11.5px !important;
+  font-size: 12.5px !important;
   letter-spacing: 0.08em !important;
 }
 
@@ -145,7 +145,7 @@
 .solfix-chip,
 .out-chip,
 .faq-num {
-  font-size: 11.5px !important;
+  font-size: 12.5px !important;
 }
 
 /* ── Body copy comfort ────────────────────────────────────────────
@@ -299,7 +299,7 @@
 .wu-figure { max-width: 74rem; }
 .wu-figure-tag {
   display: inline-block; font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
   color: var(--brand); margin-bottom: .6rem;
 }
 .wu-figure-h {
@@ -314,7 +314,7 @@
 }
 .wu-figure-fig img { display: block; width: 100%; height: auto; border-radius: 7px; }
 .wu-figure-fig figcaption {
-  font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px;
+  font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px;
   letter-spacing: .04em; color: var(--dim); padding: .75rem .25rem 0; line-height: 1.5;
 }
 
@@ -327,7 +327,7 @@
 .footer-compare h4 { margin-bottom: .55rem; }
 .footer-compare h4 a { color: inherit; }
 .footer-compare h4 a:hover { color: rgba(255,255,255,0.9); }
-.footer-compare p { margin: 0; font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,0.45); max-width: 16rem; }
+.footer-compare p { margin: 0; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.45); max-width: 16rem; }
 .footer .footer-compare ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.625rem 2rem; }
 @media (min-width: 640px) {
   .footer .footer-compare ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -336,3 +336,5 @@
   .footer-compare { grid-template-columns: 1.7fr repeat(4, 1fr); }
   .footer .footer-compare ul { grid-column: 2 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 2.5rem; }
 }
+
+/* type_floor.py applied (Nov 2026). Do not run it again. Smallest text size: 12px. */

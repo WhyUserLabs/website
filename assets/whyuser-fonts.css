@@ -1,9 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════
    WhyUser type system · Fraunces (titles) + Figtree (text)
 
-   Load AFTER whyuser-r3.css. That file sets Inter on the same broad
-   selectors, so this file names them again to win on source order.
-   Geist Mono stays for data, eyebrows and mock UI (untouched here).
+   The source of truth for type. Load AFTER whyuser-r3.css; it names
+   the same broad selectors and wins on source order. No file sets
+   Inter any more (cleaned up Nov 2026). Geist Mono stays for data,
+   eyebrows and mock UI (untouched here).
 
    Needs this <link> in <head>:
    https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Figtree:ital,wght@0,300..800;1,300..800&display=swap
@@ -56,10 +57,10 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
   font-style: italic;
 }
 
-/* Quote text and its cite (readability.css forces Inter with !important). */
+/* Quote cite (readability.css also sets it with !important). */
 .section-quote-cite { font-family: var(--font-text) !important; }
 
-/* SVG diagram labels set Inter in page CSS. */
+/* SVG diagram labels. */
 .cf-name { font-family: var(--font-text); }
 
 /* Pull-quotes read as editorial: title face, regular weight. */

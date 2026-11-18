@@ -3,7 +3,7 @@
      whose text uses --ink, which turns light. Keep their text dark. */
   p.bub      { color: #18181b; }          /* 404.html speech bubbles */
   .btn-accent { color: #131a1b; }          /* benchmark pages, pink button */
-  .vz-mix .m  { --t: #0b0b0e; }            /* brand-filled share chips */
+  .vz-mix .m  { --c: #8aa8ff; --t: #0b0d12; }  /* brand-filled share chips: dark on light cobalt */
 
   /* Customer logos are dark SVG files loaded as <img>: show them as
      white silhouettes, the usual treatment on a dark logo strip. */
@@ -12,31 +12,56 @@
 
   /* one-page-two-answers.html draws its committee graph in JavaScript
      with fill attributes, so it is styled here instead of in the page. */
-  #m2-graph-svg text[fill="#27272a"] { fill: #e4e4e7; }
-  #m2-graph-svg circle[fill="#fff"]  { fill: #131317; }
+  #m2-graph-svg text[fill="#27272a"] { fill: #e3e7ee; }
+  #m2-graph-svg circle[fill="#fff"]  { fill: #13161e; }
 
   /* Homepage story tabs. In light the selected tab is a black tile; in
      dark that colour (--frame) almost matches the row, so the tabs stop
-     reading as tabs. Give the selected one a brand tint and edge. */
+     reading as tabs. Give the selected one a cobalt tint and edge. */
   .wu-story-tab[aria-selected="true"] {
-    background: rgba(167,139,250,.18);
-    box-shadow: inset 0 0 0 1px rgba(167,139,250,.5);
+    background: rgba(61,107,224,.18);
+    box-shadow: inset 0 0 0 1px rgba(138,168,255,.5);
   }
   .wu-story-tab:hover                         { background: rgba(255,255,255,.06); }
-  .wu-story-tab[aria-selected="true"]:hover { background: rgba(167,139,250,.24); }
+  .wu-story-tab[aria-selected="true"]:hover { background: rgba(61,107,224,.24); }
 
   /* Homepage "What you get" items: the light hover tint (7% dark purple)
      is invisible on near-black. Same treatment as the story tabs. */
   .v3-get-item:hover,
   .v3-get-item:active {
-    background: rgba(167,139,250,.14);
-    box-shadow: inset 0 0 0 1px rgba(167,139,250,.45);
+    background: rgba(61,107,224,.14);
+    box-shadow: inset 0 0 0 1px rgba(138,168,255,.45);
   }
 
   /* Homepage "Ask in plain words" workflow tabs: same problem, same fix.
      Hover lifts the row; the selected tab gets the tint and an edge. */
   .v3-wf-t:hover                         { background: rgba(255,255,255,.06); }
-  .v3-wf-t[aria-selected="true"]         { background: rgba(167,139,250,.14);
-                                           border-color: rgba(167,139,250,.45); }
-  .v3-wf-t[aria-selected="true"]:hover   { background: rgba(167,139,250,.20); }
-  .v3-wf-ic                              { background: rgba(167,139,250,.14); }
+  .v3-wf-t[aria-selected="true"]         { background: rgba(61,107,224,.14);
+                                           border-color: rgba(138,168,255,.45); }
+  .v3-wf-t[aria-selected="true"]:hover   { background: rgba(61,107,224,.20); }
+  .v3-wf-ic                              { background: rgba(61,107,224,.14); }
+
+  /* ngrok case study closing CTA: a light cobalt card with dark text,
+     like the primary buttons. */
+  .sq a.sq-cta       { background: #8aa8ff; color: #0b0d12; }
+  .sq a.sq-cta:hover { background: #a9c1ff; color: #0b0d12; }
+  .sq a.sq-cta .s    { color: #24365f; }
+
+  /* whyuser-viz.css depth bars set their alpha through a variable, which the
+     generator cannot read, so the violet wash is restated here in cobalt. */
+  .vz-depth > div:not(.l4) { background: rgba(61,107,224,calc(var(--a) * 2)); }
+
+  /* Primary buttons ("Request access" and the like): light mode's ink tile
+     would turn white here. In dark they are light cobalt with dark text
+     (8.5:1), the one strong colour on the page. */
+  .btn.btn-primary {
+    background: #8aa8ff !important;
+    border-color: #8aa8ff !important;
+    color: #0b0d12 !important;
+  }
+  .btn.btn-primary:hover,
+  .btn.btn-primary:focus-visible {
+    background: #a9c1ff !important;
+    border-color: #a9c1ff !important;
+    color: #0b0d12 !important;
+  }

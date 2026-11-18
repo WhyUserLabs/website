@@ -44,175 +44,235 @@
     color-scheme: dark;
     --dk-ov: 255, 255, 255;
     --dk-ovs: 255 255 255;
-    --dk-on-ink: #0b0b0e;
-    --dk-on-brand: #0b0b0e;
-    --dk-band: #141419;
-    --dk-ink-hover: #c4b5fd;
-    --dk-brand-hover: #c4b5fd;
+    --dk-on-ink: #0b0d12;
+    --dk-on-brand: #0b0d12;
+    --dk-band: #12151d;
+    --dk-ink-hover: #dbe3ff;
+    --dk-brand-hover: #a9c1ff;
+    --dk-brand-fill: #8aa8ff;
 
     /* core palette, hand-picked */
     --dk-amber: #fbbf24;
-    --dk-brand: #a78bfa;
-    --dk-brand-soft: rgba(167,139,250,.16);
-    --dk-card: #131317;
-    --dk-dim: #9a9aa4;
+    --dk-brand: #8aa8ff;
+    --dk-brand-soft: rgba(61,107,224,.22);
+    --dk-card: #13161e;
+    --dk-dim: #9ca3b4;
     --dk-emerald: #34d399;
-    --dk-faint: #71717a;
-    --dk-frame: #141419;
-    --dk-frame-dim: #7d7d88;
-    --dk-frame-elevated: #22222a;
-    --dk-frame-mute: #a8a8b3;
+    --dk-faint: #7d8496;
+    --dk-frame: #12151d;
+    --dk-frame-dim: #7f8798;
+    --dk-frame-elevated: #212632;
+    --dk-frame-mute: #a7aebd;
     --dk-frame-rule: rgba(255,255,255,.09);
     --dk-frame-rule-strong: rgba(255,255,255,.18);
-    --dk-frame-surface: #1b1b21;
-    --dk-frame-text: #fafafa;
+    --dk-frame-surface: #191d27;
+    --dk-frame-text: #f5f7fb;
     --dk-gold: #fbbf24;
     --dk-green: #34d399;
     --dk-green-b: #34d399;
-    --dk-ink: #f4f4f5;
-    --dk-ink-faint: #9a9aa4;
-    --dk-ink-muted: #d4d4d8;
-    --dk-ink-soft: #e4e4e7;
+    --dk-ink: #f2f4f8;
+    --dk-ink-faint: #9ca3b4;
+    --dk-ink-muted: #d1d6df;
+    --dk-ink-soft: #e3e7ee;
     --dk-line: rgba(255,255,255,.10);
     --dk-line-soft: rgba(255,255,255,.06);
-    --dk-lp-brand: #a78bfa;
-    --dk-mute: #b4b4bd;
-    --dk-paper: #0b0b0e;
-    --dk-paper-cool: #111115;
-    --dk-paper-light: #141418;
-    --dk-paper-warm: #18181d;
-    --dk-quote-ink: #d4d4d8;
+    --dk-lp-brand: #8aa8ff;
+    --dk-mute: #b0b6c4;
+    --dk-paper: #0b0d12;
+    --dk-paper-cool: #10131a;
+    --dk-paper-light: #12151d;
+    --dk-paper-warm: #171b24;
+    --dk-quote-ink: #d1d6df;
     --dk-red: #f87171;
     --dk-rule: rgba(255,255,255,.10);
     --dk-rule-bold: rgba(255,255,255,.24);
     --dk-rule-strong: rgba(255,255,255,.16);
     --dk-signal-amber: #fbbf24;
     --dk-signal-amber-bright: #fbbf24;
-    --dk-signal-blue: #60a5fa;
+    --dk-signal-blue: #2dd4bf;
     --dk-signal-green: #34d399;
     --dk-signal-green-bright: #34d399;
     --dk-signal-red: #f87171;
     --dk-signal-red-bright: #fb7185;
-    --dk-surface: #131317;
+    --dk-surface: #13161e;
 
     /* derived: one per original colour and role */
-    --dk-a-047857: #0c8f6a;
+    --dk-a-047857: #0c9871;
+    --dk-a-059669: #0c996d;
     --dk-a-0a0a0c: #f6f6f6;
+    --dk-a-0d9488: #0e9d91;
     --dk-a-0e7490: #1292b5;
     --dk-a-2563eb: #5484ef;
     --dk-a-32632d: #4b9443;
-    --dk-a-4f46e5: #827ced;
-    --dk-a-5f4a8c: #8d79b8;
+    --dk-a-4f46e5: #5881e8;
+    --dk-a-5f4a8c: #7385b5;
     --dk-a-64748b: #79899f;
-    --dk-a-6d28d9: #9c6de5;
-    --dk-a-6d47d9: #8f71e2;
-    --dk-a-7c3aed: #9b69f1;
+    --dk-a-668e60: #6a9464;
+    --dk-a-6d28d9: #5c82e2;
+    --dk-a-6d47d9: #6084de;
+    --dk-a-6d47d952: rgba(96,132,222,0.32);
+    --dk-a-7c3aed: #5682f0;
+    --dk-a-8b7cf6: #7c9ff6;
     --dk-a-9c4f2c: #cb6f45;
     --dk-a-9d3535: #cd6b6b;
+    --dk-a-a78bfa: #8baafa;
     --dk-a-b45309: #d56611;
     --dk-a-be123c: #ee4871;
     --dk-a-c2410c: #ec5415;
-    --dk-a-c9d2ce: #4d4d56;
-    --dk-a-dc2626: #e35252;
-    --dk-b-c9c6d6: #4d4d56;
-    --dk-b-c9c9cf: #4d4d56;
+    --dk-a-c9d2ce: #4d5056;
+    --dk-a-dc2626: #e55b5b;
+    --dk-a-ef4444: #f04d4d;
+    --dk-b-4c1d95: #1d3f95;
+    --dk-b-5b4b8a: #4b5d8a;
+    --dk-b-6d28d9: #285ad9;
+    --dk-b-6d28d905: rgba(40,90,217,0.02);
+    --dk-b-6d28d909: rgba(40,90,217,0.04);
+    --dk-b-6d28d90a: rgba(40,90,217,0.04);
+    --dk-b-6d28d90f: rgba(40,90,217,0.06);
+    --dk-b-6d28d912: rgba(40,90,217,0.07);
+    --dk-b-6d28d914: rgba(40,90,217,0.08);
+    --dk-b-6d28d933: rgba(40,90,217,0.20);
+    --dk-b-6d28d952: rgba(40,90,217,0.32);
+    --dk-b-6d28d980: rgba(40,90,217,0.50);
+    --dk-b-6d47d909: rgba(63,106,215,0.04);
+    --dk-b-6d47d90d: rgba(63,106,215,0.05);
+    --dk-b-6d47d90f: rgba(63,106,215,0.06);
+    --dk-b-6d47d912: rgba(63,106,215,0.07);
+    --dk-b-6d47d914: rgba(63,106,215,0.08);
+    --dk-b-6d47d917: rgba(63,106,215,0.09);
+    --dk-b-6d47d91a: rgba(63,106,215,0.10);
+    --dk-b-6d47d929: rgba(63,106,215,0.16);
+    --dk-b-6d47d933: rgba(63,106,215,0.20);
+    --dk-b-6d47d94c: rgba(63,106,215,0.30);
+    --dk-b-6d47d959: rgba(63,106,215,0.35);
+    --dk-b-6d47d98c: rgba(63,106,215,0.55);
+    --dk-b-6d47d999: rgba(63,106,215,0.60);
+    --dk-b-7c3aed: #3166ec;
+    --dk-b-7c5cff: #2462ff;
+    --dk-b-7c5cff12: rgba(36,98,255,0.07);
+    --dk-b-8b5cf6: #2c64f3;
+    --dk-b-907ab5: #5d71a5;
+    --dk-b-a78bfa: #2e67f6;
+    --dk-b-a78bfa24: rgba(46,103,246,0.14);
+    --dk-b-c4b5fd: #2a65f9;
+    --dk-b-c4b5fd24: rgba(42,101,249,0.14);
+    --dk-b-c9c6d6: #4d5056;
+    --dk-b-c9c9cf: #4d5056;
     --dk-b-d1fae5: #20553a;
-    --dk-b-d4d4d8: #4d4d56;
-    --dk-b-dce3df: #404048;
-    --dk-b-ddd6fe: #241c4b;
-    --dk-b-e1e7e4: #393941;
-    --dk-b-e3ece1: #36363c;
-    --dk-b-e3f4ec: #2e2e34;
-    --dk-b-e4e4e7: #37373e;
-    --dk-b-e4f3f7: #2b2b31;
-    --dk-b-e6e6e3: #393940;
-    --dk-b-e7f4ee: #2b2b31;
-    --dk-b-e8f6f0: #29292e;
-    --dk-b-ecfdf5: #212125;
-    --dk-b-ede9fe: #222226;
-    --dk-b-edf0ee: #2a2a2f;
-    --dk-b-eee9f5: #29292e;
-    --dk-b-efeafc: #232327;
-    --dk-b-eff6ff: #1d1d20;
-    --dk-b-f1f1f0: #27272c;
-    --dk-b-f2f1ee: #27272c;
+    --dk-b-d4d4d8: #4d5056;
+    --dk-b-d8b4fe: #2763fc;
+    --dk-b-dce3df: #404348;
+    --dk-b-ddd6fe: #1c294b;
+    --dk-b-e1e7e4: #393c41;
+    --dk-b-e3ece1: #36383c;
+    --dk-b-e3f4ec: #2e3034;
+    --dk-b-e4e4e7: #37393e;
+    --dk-b-e4f3f7: #2b2d31;
+    --dk-b-e6e6e3: #393b40;
+    --dk-b-e7f4ee: #2b2d31;
+    --dk-b-e8f6f0: #292a2e;
+    --dk-b-ecfdf5: #212225;
+    --dk-b-ede9fe: #222326;
+    --dk-b-edf0ee: #2a2b2f;
+    --dk-b-eee9f5: #292a2e;
+    --dk-b-efeafc: #232427;
+    --dk-b-eff6ff: #1d1e20;
+    --dk-b-f1f1f0: #27282c;
+    --dk-b-f2f1ee: #27292c;
     --dk-b-f3eedd: #4f441e;
-    --dk-b-f4f2ee: #26262b;
-    --dk-b-f4f4f5: #212125;
-    --dk-b-f6f3fe: #1b1b1e;
-    --dk-b-f7f7f6: #1e1e21;
-    --dk-b-faf9f7: #1b1b1e;
-    --dk-b-faf9f78c: rgba(27,27,30,0.55);
-    --dk-b-fafafa: #18181b;
-    --dk-b-fdecec: #212125;
+    --dk-b-f4f2ee: #26272b;
+    --dk-b-f4f4f5: #212225;
+    --dk-b-f6f3fe: #1b1c1e;
+    --dk-b-f7f7f6: #1e1f21;
+    --dk-b-faf9f7: #1b1c1e;
+    --dk-b-faf9f78c: rgba(27,28,30,0.55);
+    --dk-b-fafafa: #18191b;
+    --dk-b-fdecec: #212225;
     --dk-b-fdeee7: #382015;
     --dk-b-fdf4e3: #3d3017;
-    --dk-b-fdf7f7: #18181b;
-    --dk-b-fdfdfdd1: rgba(20,20,22,0.82);
+    --dk-b-fdf7f7: #18191b;
+    --dk-b-fdfdfdd1: rgba(20,21,22,0.82);
     --dk-b-fee2e2: #3d1717;
-    --dk-b-fef2f2: #1b1b1f;
+    --dk-b-fef2f2: #1b1c1f;
     --dk-b-fef3c7: #5c5123;
-    --dk-b-fff1f3: #1b1b1f;
+    --dk-b-fff1f3: #1b1c1f;
     --dk-b-ffffff: #111113;
     --dk-b-ffffff80: rgba(17,17,19,0.50);
     --dk-b-ffffff8c: rgba(17,17,19,0.55);
     --dk-b-ffffff99: rgba(17,17,19,0.60);
-    --dk-l-000000: #9a9aa2;
+    --dk-l-000000: #9a9da2;
     --dk-l-0e7490: #1292b5;
-    --dk-l-18181b: #9a9aa2;
-    --dk-l-2a2a2f: #9a9aa2;
-    --dk-l-2a3334: #9a9aa2;
-    --dk-l-3d4a4c: #9a9aa2;
+    --dk-l-18181b: #9a9da2;
+    --dk-l-2a2a2f: #9a9da2;
+    --dk-l-2a3334: #9a9da2;
+    --dk-l-3d4a4c: #9a9da2;
     --dk-l-3f6b52: #569270;
-    --dk-l-5b4bd6: #887de1;
-    --dk-l-6d28d9: #9c6de5;
-    --dk-l-6d47d9: #8f71e2;
-    --dk-l-7c3aed: #9b69f1;
-    --dk-l-8b5cf6: #9a73f4;
-    --dk-l-c4b5fd: #302265;
-    --dk-l-c9c9cf: #4b4b53;
-    --dk-l-d6d3ce: #46464d;
-    --dk-l-dc2626: #e35252;
-    --dk-l-dddddd: #3d3d43;
-    --dk-l-e2e8e5: #36363b;
-    --dk-l-e3e1dd: #3a3a40;
-    --dk-l-e4e4e7: #35353b;
-    --dk-l-fafafa: #242428;
-    --dk-l-ffffff: #1f1f23;
+    --dk-l-5b4bd6: #6486dc;
+    --dk-l-668e60: #6a9464;
+    --dk-l-6d28d9: #5c82e2;
+    --dk-l-6d47d9: #6084de;
+    --dk-l-6d47d91f: rgba(96,132,222,0.12);
+    --dk-l-6d47d940: rgba(96,132,222,0.25);
+    --dk-l-6d47d959: rgba(96,132,222,0.35);
+    --dk-l-6d47d966: rgba(96,132,222,0.40);
+    --dk-l-6d47d973: rgba(96,132,222,0.45);
+    --dk-l-6d47d980: rgba(96,132,222,0.50);
+    --dk-l-6d47d98c: rgba(96,132,222,0.55);
+    --dk-l-7c3aed: #5682f0;
+    --dk-l-8b5cf6: #5c88f6;
+    --dk-l-c4b5fd: #223565;
+    --dk-l-c4b5fd4c: rgba(34,53,101,0.30);
+    --dk-l-c4b5fd52: rgba(34,53,101,0.32);
+    --dk-l-c9c9cf: #4b4d53;
+    --dk-l-d6d3ce: #46484d;
+    --dk-l-dc2626: #e55b5b;
+    --dk-l-dddddd: #3d3e43;
+    --dk-l-e2e8e5: #36373b;
+    --dk-l-e3e1dd: #3a3c40;
+    --dk-l-e4e4e7: #35373b;
+    --dk-l-fafafa: #242528;
+    --dk-l-ffffff: #1f2023;
     --dk-t-000000: #ffffff;
-    --dk-t-0284c7: #1086c3;
-    --dk-t-047857: #0c8f6a;
+    --dk-t-0284c7: #118dcd;
+    --dk-t-047857: #0c9871;
+    --dk-t-059669: #0c996d;
     --dk-t-065f46: #0c966f;
-    --dk-t-09090b: #f6f6f7;
+    --dk-t-09090b: #f6f7f7;
     --dk-t-0a66c2: #1d85ed;
-    --dk-t-131318: #ececee;
-    --dk-t-131a1b: #ebebed;
+    --dk-t-131318: #ecedee;
+    --dk-t-131a1b: #ebeced;
     --dk-t-16151a: #ebebed;
-    --dk-t-18181b: #e9e9eb;
+    --dk-t-18181b: #e9eaeb;
     --dk-t-1d4ed8: #5d82e9;
-    --dk-t-243030: #dbdbde;
-    --dk-t-27272a: #dcdcdf;
-    --dk-t-2e1065: #996de8;
-    --dk-t-3a3840: #cbcbd0;
-    --dk-t-3f3f46: #c6c6cb;
-    --dk-t-3f4b48: #c4c4c9;
-    --dk-t-52525b: #b5b5bc;
-    --dk-t-5b21b6: #9b6de5;
-    --dk-t-5b4bd6: #887de1;
-    --dk-t-5b6b86: #7484a0;
-    --dk-t-66636e: #a5a5ae;
-    --dk-t-6b5510: #a07f18;
-    --dk-t-6b6b75: #9f9fa8;
+    --dk-t-243030: #dbdcde;
+    --dk-t-27272a: #dcdddf;
+    --dk-t-2e1065: #5c83e5;
+    --dk-t-2e1065b8: rgba(92,131,229,0.72);
+    --dk-t-3a3840: #cbcdd0;
+    --dk-t-3f3f46: #c6c7cb;
+    --dk-t-3f4b48: #c4c5c9;
+    --dk-t-52525b: #b5b7bc;
+    --dk-t-5b21b6: #5c82e1;
+    --dk-t-5b4bd6: #6486dc;
+    --dk-t-5b6b86: #7a8aa4;
+    --dk-t-66636e: #a5a8ae;
+    --dk-t-6b5510: #a98619;
+    --dk-t-6b6b75: #9fa1a8;
     --dk-t-6c550e: #a28015;
-    --dk-t-6d28d9: #9c6de5;
-    --dk-t-71717a: #9a9aa3;
+    --dk-t-6d28d9: #5c82e2;
+    --dk-t-6d47d929: rgba(96,132,222,0.16);
+    --dk-t-6d47d973: rgba(96,132,222,0.45);
+    --dk-t-71717a: #9a9da3;
     --dk-t-78350f: #dc611b;
+    --dk-t-8b7cf6: #7c9ff6;
     --dk-t-92400e: #dc6115;
     --dk-t-991b1b: #e15757;
     --dk-t-9c4f2c: #cb6f45;
+    --dk-t-a78bfa: #8baafa;
     --dk-t-b45309: #d56611;
     --dk-t-b91c1c: #e55656;
-    --dk-t-dc2626: #e35252;
+    --dk-t-c4b5fd: #b5c9fd;
+    --dk-t-dc2626: #e55b5b;
   }
 
   /* ── hand-written dark rules ──────────────────────────────────────
@@ -220,7 +280,7 @@
      whose text uses --ink, which turns light. Keep their text dark. */
   p.bub      { color: #18181b; }          /* 404.html speech bubbles */
   .btn-accent { color: #131a1b; }          /* benchmark pages, pink button */
-  .vz-mix .m  { --t: #0b0b0e; }            /* brand-filled share chips */
+  .vz-mix .m  { --c: #8aa8ff; --t: #0b0d12; }  /* brand-filled share chips: dark on light cobalt */
 
   /* Customer logos are dark SVG files loaded as <img>: show them as
      white silhouettes, the usual treatment on a dark logo strip. */
@@ -229,32 +289,57 @@
 
   /* one-page-two-answers.html draws its committee graph in JavaScript
      with fill attributes, so it is styled here instead of in the page. */
-  #m2-graph-svg text[fill="#27272a"] { fill: #e4e4e7; }
-  #m2-graph-svg circle[fill="#fff"]  { fill: #131317; }
+  #m2-graph-svg text[fill="#27272a"] { fill: #e3e7ee; }
+  #m2-graph-svg circle[fill="#fff"]  { fill: #13161e; }
 
   /* Homepage story tabs. In light the selected tab is a black tile; in
      dark that colour (--frame) almost matches the row, so the tabs stop
-     reading as tabs. Give the selected one a brand tint and edge. */
+     reading as tabs. Give the selected one a cobalt tint and edge. */
   .wu-story-tab[aria-selected="true"] {
-    background: rgba(167,139,250,.18);
-    box-shadow: inset 0 0 0 1px rgba(167,139,250,.5);
+    background: rgba(61,107,224,.18);
+    box-shadow: inset 0 0 0 1px rgba(138,168,255,.5);
   }
   .wu-story-tab:hover                         { background: rgba(255,255,255,.06); }
-  .wu-story-tab[aria-selected="true"]:hover { background: rgba(167,139,250,.24); }
+  .wu-story-tab[aria-selected="true"]:hover { background: rgba(61,107,224,.24); }
 
   /* Homepage "What you get" items: the light hover tint (7% dark purple)
      is invisible on near-black. Same treatment as the story tabs. */
   .v3-get-item:hover,
   .v3-get-item:active {
-    background: rgba(167,139,250,.14);
-    box-shadow: inset 0 0 0 1px rgba(167,139,250,.45);
+    background: rgba(61,107,224,.14);
+    box-shadow: inset 0 0 0 1px rgba(138,168,255,.45);
   }
 
   /* Homepage "Ask in plain words" workflow tabs: same problem, same fix.
      Hover lifts the row; the selected tab gets the tint and an edge. */
   .v3-wf-t:hover                         { background: rgba(255,255,255,.06); }
-  .v3-wf-t[aria-selected="true"]         { background: rgba(167,139,250,.14);
-                                           border-color: rgba(167,139,250,.45); }
-  .v3-wf-t[aria-selected="true"]:hover   { background: rgba(167,139,250,.20); }
-  .v3-wf-ic                              { background: rgba(167,139,250,.14); }
+  .v3-wf-t[aria-selected="true"]         { background: rgba(61,107,224,.14);
+                                           border-color: rgba(138,168,255,.45); }
+  .v3-wf-t[aria-selected="true"]:hover   { background: rgba(61,107,224,.20); }
+  .v3-wf-ic                              { background: rgba(61,107,224,.14); }
+
+  /* ngrok case study closing CTA: a light cobalt card with dark text,
+     like the primary buttons. */
+  .sq a.sq-cta       { background: #8aa8ff; color: #0b0d12; }
+  .sq a.sq-cta:hover { background: #a9c1ff; color: #0b0d12; }
+  .sq a.sq-cta .s    { color: #24365f; }
+
+  /* whyuser-viz.css depth bars set their alpha through a variable, which the
+     generator cannot read, so the violet wash is restated here in cobalt. */
+  .vz-depth > div:not(.l4) { background: rgba(61,107,224,calc(var(--a) * 2)); }
+
+  /* Primary buttons ("Request access" and the like): light mode's ink tile
+     would turn white here. In dark they are light cobalt with dark text
+     (8.5:1), the one strong colour on the page. */
+  .btn.btn-primary {
+    background: #8aa8ff !important;
+    border-color: #8aa8ff !important;
+    color: #0b0d12 !important;
+  }
+  .btn.btn-primary:hover,
+  .btn.btn-primary:focus-visible {
+    background: #a9c1ff !important;
+    border-color: #a9c1ff !important;
+    color: #0b0d12 !important;
+  }
 }

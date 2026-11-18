@@ -19,7 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-2JWLP7NZVG');
 </script>
 <!-- End Google tag (gtag.js) -->
-<meta name="theme-color" content="#0b0b0e" media="(not (prefers-color-scheme: light))">
+<meta name="theme-color" content="#0b0d12" media="(not (prefers-color-scheme: light))">
     <meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
 <title>Connect WhyUser to Claude Code, the desktop app and claude.ai | WhyUser</title>
@@ -62,7 +62,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-family: var(--mono); font-size: 12.5px; line-height: 1.65;
     margin: 0;
   }
-  pre.code .k { color: #c4b5fd; }
+  pre.code .k { color: var(--dk-t-c4b5fd, #c4b5fd); }
   pre.code .s { color: #86efac; }
 
   /* ── Hero ─────────────────────────────────────────────────────── */
@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cc-app-facts { margin: 0; display: flex; flex-direction: column; gap: 0.45rem; flex: 1; }
   .cc-app-facts div { display: grid; grid-template-columns: 6.25rem 1fr; gap: 0.75rem; }
   .cc-app-facts dt { font-size: 0.8125rem; color: var(--dim); }
-  .cc-app-facts dd { margin: 0; font-size: 0.875rem; line-height: 1.45; color: var(--ink-soft); }
+  .cc-app-facts dd { margin: 0; font-size: 0.9375rem; line-height: 1.45; color: var(--ink-soft); }
   .cc-app-go { font-size: 0.875rem; font-weight: 600; color: var(--brand); padding-top: 0.75rem; border-top: 1px solid var(--rule); }
 
   /* ── Docs grid ────────────────────────────────────────────────── */
@@ -148,14 +148,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cc-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.2rem 1.5rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
   @media (min-width: 700px) { .cc-row { grid-template-columns: 11.5rem minmax(0, 1fr); } }
   .cc-row dt { font-size: 0.9375rem; font-weight: 600; color: var(--ink); }
-  .cc-row dd { margin: 0; font-size: 0.9375rem; line-height: 1.6; color: var(--ink-soft); }
+  .cc-row dd { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink-soft); }
 
   /* Troubleshooting: symptom, then why and fix */
   .cc-fixes { border-top: 1px solid var(--rule); margin: 0 0 1.75rem; }
   .cc-fix { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.35rem 1.75rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
   @media (min-width: 760px) { .cc-fix { grid-template-columns: 15rem minmax(0, 1fr); } }
-  .cc-body .cc-fix-q { margin: 0; font-size: 0.9375rem; font-weight: 600; line-height: 1.5; color: var(--ink); }
-  .cc-body .cc-fix-a p { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); margin: 0 0 0.3rem; font-size: 0.9375rem; line-height: 1.55; }
+  .cc-body .cc-fix-q { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.5; color: var(--ink); }
+  .cc-body .cc-fix-a p { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); margin: 0 0 0.3rem; font-size: 1rem; line-height: 1.55; }
   .cc-body .cc-fix-a p:last-child { margin-bottom: 0; }
   .cc-k { font-size: 0.8125rem; font-weight: 600; color: var(--dim); padding-top: 0.1rem; }
 
@@ -194,10 +194,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   a.cc-shot-link { display: block; max-width: 42rem; border-radius: 10px; }
   a.cc-shot-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
   figure.cc-shot img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 28px rgba(9,9,11,0.16), 0 2px 6px rgba(9,9,11,0.08); }
-  figure.cc-shot figcaption { font-size: 0.8125rem; color: var(--dim); margin-top: 0.75rem; }
+  figure.cc-shot figcaption { font-size: 0.875rem; color: var(--dim); margin-top: 0.75rem; }
 
   ul.cc-sources { margin: 0; padding-left: 1.1rem; }
-  ul.cc-sources li { font-size: 0.9375rem; color: var(--mute); margin: 0.25rem 0; }
+  ul.cc-sources li { font-size: 1rem; color: var(--mute); margin: 0.25rem 0; }
 
   /* Docs home */
   .cc-hub { max-width: 46rem; }
@@ -207,9 +207,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cc-hub-item:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
   .cc-hub-text { display: flex; flex-direction: column; gap: 0.3rem; }
   .cc-hub-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); transition: color .15s ease; }
-  .cc-hub-desc { font-size: 0.9375rem; line-height: 1.55; color: var(--mute); }
-  .cc-hub-meta { font-size: 0.8125rem; color: var(--dim); }
-  .cc-hub-note { font-size: 0.9375rem; color: var(--mute); }
+  .cc-hub-desc { font-size: 1rem; line-height: 1.55; color: var(--mute); }
+  .cc-hub-meta { font-size: 0.875rem; color: var(--dim); }
+  .cc-hub-note { font-size: 1rem; color: var(--mute); }
   .cc-hub-note a { color: var(--brand); font-weight: 600; }
 
   @media (max-width: 640px) {

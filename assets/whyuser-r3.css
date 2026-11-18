@@ -24,28 +24,22 @@
 
 
 /* ═══════════════════════════════════════════════════════════════════
-   TYPE · INTER + INTER + GEIST MONO
+   TYPE · FRAUNCES + FIGTREE + GEIST MONO
 
-   One text face doing both jobs, with Geist Mono reserved for data.
+   Fraunces for titles, Figtree for text, Geist Mono for data: the
+   proof numbers, the eyebrow labels and the mock product UI, so data
+   never gets mistaken for prose.
 
-   Inter for everything read as language, at two very different
-   settings: headlines at 800 weight with tight negative tracking,
-   body at 400 and near-normal. Geist Mono still marks anything a
-   reader should treat as a measurement — the proof numbers, the
-   eyebrow labels, the mock product UI — so data never gets mistaken
-   for prose. That mono/text split is now the only typographic
-   contrast on the page, which makes it carry more.
-
-   These selectors are deliberately broad. Every page declares
-   font-family: 'Inter' in its own inline CSS, so the override has to
-   name the same elements.
+   whyuser-fonts.css is the source of truth for families, weights and
+   heading tracking, and loads after this file. The family names here
+   match it so nothing depends on which file wins. (Until Nov 2026 this
+   block set Inter, which whyuser-fonts.css then overrode.)
    ═══════════════════════════════════════════════════════════════════ */
 
 body,
 .btn, button, input, select, textarea,
 .hero-sub, .standfirst, p, li, td, th, figcaption, blockquote {
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  /* Inter's defaults leave a slightly wide fit at body sizes. */
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
   letter-spacing: -0.005em;
 }
 
@@ -63,15 +57,12 @@ h1, h2, h3,
 .wu-digest-find, .wu-gr-n, .wu-sol-plat-n, .wu-prob-claim,
 .wu-faq-q, .wu-cmp-card-h, .tech2-h, .ps-engine-name, .wu-sol-item,
 h1.wu-h1, h2.wu-h2, h3.wu-h3 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-variation-settings: normal;
 }
 
-/* One family, two jobs. With a single face carrying both headlines and
-   body, the separation has to come from weight and tracking instead of
-   from contrast between two designs: headlines go heavy and tight,
-   body stays regular and near-normal. Inter tightens well at display
-   sizes, which is the reason it can do both. */
+/* Older weights and tracking. whyuser-fonts.css overrides all three
+   lines with !important (600 weight, lighter tracking for a serif). */
 .h1, h1 { font-weight: 800; letter-spacing: -0.042em; }
 .h2, .cta-h, .lp-h2 { font-weight: 800; letter-spacing: -0.038em; }
 .h3, h3, .wu-team-h, .wu-vs-k { font-weight: 700; letter-spacing: -0.024em; }
@@ -95,8 +86,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
   letter-spacing: -0.03em;
 }
 
-/* Inter sets close to Geist at the same size, so the display scale
-   stays where the original design had it. */
+/* Display scale for .h1 and .h2. */
 .h1 { font-size: clamp(2.125rem, 3.5vw, 3.125rem); line-height: 1.07; }
 .h2 { font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.08; }
 
@@ -142,7 +132,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
 .wu-gr-lab {
   display: block;
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -269,7 +259,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
 .wu-gr-orb-ic { font-size: 20px; color: #9fc0a9; margin-bottom: 0.625rem; }
 .wu-gr-orb-t {
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -465,7 +455,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
   color: var(--ink);
   line-height: 1.25;
 }
-.wu-box-p { margin: 0.375rem 0 0; font-size: 0.875rem; line-height: 1.45; color: var(--mute); }
+.wu-box-p { margin: 0.375rem 0 0; font-size: 0.9375rem; line-height: 1.45; color: var(--mute); }
 /* The one step that spends credits. */
 .wu-box-run {
   background: var(--frame);
@@ -487,7 +477,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
 .wu-arrowh i { font-size: 12px; }
 .wu-arrowh-k {
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 9.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -517,7 +507,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
 }
 .wu-branch-k {
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 9.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -565,7 +555,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
   color: var(--ink);
 }
 .wu-guard-h i { font-size: 13px; color: var(--signal-green); }
-.wu-guard-p { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: var(--mute); }
+.wu-guard-p { margin: 0; font-size: 0.875rem; line-height: 1.5; color: var(--mute); }
 
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -596,7 +586,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
   top: 0; left: 50%;
   transform: translateX(-50%);
   width: 2.5rem; height: 2px;
-  background: var(--brand);
+  background: var(--dk-brand-fill, var(--brand));
   border-radius: 1px;
 }
 
@@ -629,7 +619,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
 .wu-sol-role { padding: 0 0.25rem; }
 .wu-sol-dots { gap: 6px; }
 .wu-sol-dot { box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.18); }
-.wu-sol-role-n { font-size: 10px; letter-spacing: 0.01em; }
+.wu-sol-role-n { font-size: 12.5px; letter-spacing: 0.01em; }
 
 /* The two flanking lists get a number, so the eye has somewhere to
    land before it reads six labels. */
@@ -637,7 +627,7 @@ h1.wu-h1, h2.wu-h2, h3.wu-h3 {
   display: block;
   margin-top: 0.75rem;
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;

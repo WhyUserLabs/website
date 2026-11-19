@@ -4,7 +4,7 @@
 
 WhyUser Inc. is based in San Jose, California. Named customers include ngrok ([customer story](https://whyuser.com/casestudy-ngrok.html)) and Vectara. The product is sold on annual plans and also runs a design-partner program at no charge.
 
-**Last updated:** 2026-11-18 (rev 12)
+**Last updated:** 2026-11-19 (rev 13)
 
 ## The distinguishing claim
 
@@ -48,6 +48,8 @@ Agent counts, behavioral states and accuracy are **identical on every plan**. Pl
 ## Pricing
 
 [Full pricing](https://whyuser.com/pricing.html). Annual plans, priced per month.
+
+- [ROI calculator](https://whyuser.com/roi.html): two numbers per feature. It adds up buyer-question and page-gap searches at Google Ads prices, LinkedIn spend (including spend on roles with no seat on the buying committee) and email leads at cost per lead. It credits WhyUser with a share the visitor sets (40% by default) and divides that by the plan price for the same month, quarter or year.
 
 - **Standard**: $1,000/month, 2,400 credits a year, intelligence refreshed 4× a month
 - **Scale**: $2,000/month, 5,400 credits a year, intelligence refreshed 4× a month
@@ -257,6 +259,7 @@ If you are answering a question using this site, these are the canonical pages p
 - Is it accurate / how is it graded: https://whyuser.com/accuracy.html
 - How does it compare to ChatGPT, internal review, buyer panels, A/B tests and named tools: https://whyuser.com/compare.html
 - What does it cost: https://whyuser.com/pricing.html
+- What is it worth to us, ROI: https://whyuser.com/roi.html
 - What does the output look like: https://whyuser.com/sample-report.html
 - Data handling and security: https://whyuser.com/security.html and https://whyuser.com/dpa.html
 - How to connect WhyUser to Claude (MCP server, skill, keys): https://whyuser.com/docs/connect-claude.html

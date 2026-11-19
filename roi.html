@@ -30,18 +30,19 @@
 <meta property="article:modified_time" content="2026-11-19T00:00:00+00:00">
 
     <title>ROI Calculator | WhyUser</title>
-    <meta name="description" content="Two numbers per feature. See your counted ROI on WhyUser and the bar each feature must clear to pay for itself. No lift assumed.">
-    <meta name="keywords" content="buying committee simulation, B2B campaign testing, pre-launch validation, buyer agent simulation, B2B landing page testing, demand gen validation">
+    <meta name="description" content="Two numbers per feature. See what Buyer Answer Gap, Pages &amp; Content, Audience Discovery, Ad Funnels and Email Sequences are worth, and your return on WhyUser by month, quarter or year.">
+    <meta name="keywords" content="B2B marketing ROI calculator, AEO ROI, buyer answer gap, LinkedIn ad waste, roles with no seat, buying committee simulation, pre-launch testing ROI">
     <link rel="canonical" href="https://whyuser.com/roi.html">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WhyUser">
     <meta property="og:title" content="WhyUser | ROI Calculator">
-    <meta property="og:description" content="Two numbers per feature. Your counted ROI and the bar each feature must clear, on one slide.">
+    <meta property="og:description" content="Two numbers per feature. Your return on WhyUser by month, quarter or year, on one slide.">
     <meta property="og:url" content="https://whyuser.com/roi.html"><meta property="og:image" content="https://whyuser.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="WhyUser: test B2B pages and campaigns against a simulated buying committee before you launch.">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://whyuser.com/og-image.png">
     <meta name="twitter:title" content="WhyUser | ROI Calculator">
+    <meta name="twitter:description" content="Two numbers per feature. Your return on WhyUser by month, quarter or year, on one slide.">
 
     <link rel="icon" href="favicon.ico?v=3" sizes="any">
     <link rel="icon" type="image/png" sizes="192x192" href="images/whyuser-favicon-192.png?v=3">
@@ -53,19 +54,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Figtree:ital,wght@0,300..800;1,300..800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script async src="https://tally.so/widgets/embed.js"></script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "WhyUser",
-      "legalName": "WhyUser Inc.",
-      "url": "https://whyuser.com/",
-      "description": "B2B pre-launch validation platform. Demand gen teams stress test landing pages, ads, and emails against hundreds of buyer agents before launch.",
-      "foundingDate": "2025",
-      "address": {"@type":"PostalAddress","addressLocality":"San Jose","addressRegion":"CA","addressCountry":"US"}
-    }
-    </script>
 
     
     <style>
@@ -3732,6 +3720,24 @@ body {
       "description": "WhyUser is the pre-launch buyer simulation platform for search and AI visibility, lead conversion and audience targeting. It is built for B2B marketing teams. It builds buyer personas from real buyer evidence and tests pages, ads and emails on a simulated buying committee before you spend."
     },
     {
+      "@type": "WebPage",
+      "@id": "https://whyuser.com/roi.html#webpage",
+      "url": "https://whyuser.com/roi.html",
+      "name": "WhyUser ROI Calculator",
+      "description": "Two numbers per feature. See what Buyer Answer Gap, Pages & Content, Audience Discovery, Ad Funnels and Email Sequences are worth, and your return on WhyUser by month, quarter or year.",
+      "inLanguage": "en",
+      "dateModified": "2026-11-19",
+      "isPartOf": {
+        "@id": "https://whyuser.com/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://whyuser.com/roi.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://whyuser.com/#organization"
+      }
+    },
+    {
       "@type": "WebSite",
       "@id": "https://whyuser.com/#website",
       "url": "https://whyuser.com/",
@@ -3748,8 +3754,8 @@ body {
 <style>
 /* ============================================================
    ROI CALCULATOR v4 (19 Nov 2026) — two inputs per feature,
-   one table, one ROI. No lifts. Only Audience Discovery is counted;
-   the other lines show the bar each one must clear.
+   one table, one ROI. No lifts. ROI = all rows × WhyUser
+   contribution ÷ WhyUser price, for the same period.
    Colour comes only from mapped tokens, so dark-theme.css flips it.
    ============================================================ */
 
@@ -3896,6 +3902,9 @@ body {
 .roi-sum b { color: var(--ink); font-weight: 600; }
 .roi-sum.follow { border-top: 0; margin-top: 0; padding-top: 4px; }
 .setup-row .contrib { max-width: 140px; }
+/* Period and contribution sit side by side, and stack on narrow screens. */
+.setup-pair { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px 40px; margin-top: 16px; }
+.setup-pair .setup-row + .setup-row { margin-top: 0; }
 .setup-row label.setup-k { display: flex; align-items: center; gap: 5px; }
 .roi-sum span:last-child { font-family: var(--mono); }
 .roi-panel {
@@ -4344,19 +4353,21 @@ body {
         </div>
       </div>
     </div>
-    <div class="setup-row">
-      <div class="setup-k">Show values per</div>
-      <div class="seg" id="seg-period">
-        <button type="button" class="seg-btn" data-period="month">Month</button>
-        <button type="button" class="seg-btn" data-period="quarter">Quarter</button>
-        <button type="button" class="seg-btn active" data-period="year">Year</button>
+    <div class="setup-pair">
+      <div class="setup-row">
+        <div class="setup-k">Show values per</div>
+        <div class="seg" id="seg-period">
+          <button type="button" class="seg-btn" data-period="month">Month</button>
+          <button type="button" class="seg-btn" data-period="quarter">Quarter</button>
+          <button type="button" class="seg-btn active" data-period="year">Year</button>
+        </div>
       </div>
-    </div>
-    <div class="setup-row">
-      <label class="setup-k" for="in-contrib">WhyUser contribution
-        <span class="tip" tabindex="0" data-tip="The share of these numbers you credit to WhyUser. Other work moves them too. 40% is a cautious start.">?</span>
-      </label>
-      <div class="input-wrap input-wrap-percent contrib"><input class="field-input" type="number" id="in-contrib" value="40" min="0" max="100" step="5"></div>
+      <div class="setup-row">
+        <label class="setup-k" for="in-contrib">WhyUser contribution
+          <span class="tip" tabindex="0" data-tip="The share of these numbers you credit to WhyUser. Other work moves them too. 40% is a cautious start.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-percent contrib"><input class="field-input" type="number" id="in-contrib" value="40" min="0" max="100" step="5"></div>
+      </div>
     </div>
   </section>
 
@@ -4367,7 +4378,7 @@ body {
         <label class="field-label" for="bag-searches">Monthly searches on keywords based on buyer questions
           <span class="tip" tabindex="0" data-tip="The 12-month average for terms buyers type before they pick a vendor, like pricing, alternatives, “vs” and “best X for Y”. Not your category name alone. From Semrush, Ahrefs or Google Keyword Planner.">?</span>
         </label>
-        <input class="field-input" type="number" id="bag-searches" value="800" min="0" step="100">
+        <input class="field-input" type="number" id="bag-searches" value="1000" min="0" step="100">
       </div>
       <div class="f">
         <label class="field-label" for="bag-cpc">Average cost per click
@@ -4385,7 +4396,7 @@ body {
         <label class="field-label" for="pg-searches">Monthly searches on keywords based on page gaps
           <span class="tip" tabindex="0" data-tip="Short terms buyers search for the facts your pages lack, like “genesys fraud detection” or “deepfake detection banks”. Integrations, compliance, pricing and “best X for Y” usually have searches. 12-month average, one country.">?</span>
         </label>
-        <input class="field-input" type="number" id="pg-searches" value="500" min="0" step="100">
+        <input class="field-input" type="number" id="pg-searches" value="1000" min="0" step="100">
       </div>
       <div class="f">
         <label class="field-label" for="pg-cpc">Average cost per click

@@ -91,6 +91,11 @@
       "permanent": true
     },
     {
+      "source": "/buyer-questions.html",
+      "destination": "/buyer-answer-gap.html",
+      "permanent": true
+    },
+    {
       "source": "/manifesto.html",
       "destination": "/about.html#why",
       "permanent": true

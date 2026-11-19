@@ -27,17 +27,17 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-08-12T00:00:00+00:00">
-<meta property="article:modified_time" content="2026-08-29T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-11-19T00:00:00+00:00">
 
     <title>ROI Calculator | WhyUser</title>
-    <meta name="description" content="Build the one-page WhyUser business case your champion takes to the CFO. One line feeds the ratio, every number is counted or observed, nothing claims a lift.">
+    <meta name="description" content="Two numbers per feature. See your counted ROI on WhyUser and the bar each feature must clear to pay for itself. No lift assumed.">
     <meta name="keywords" content="buying committee simulation, B2B campaign testing, pre-launch validation, buyer agent simulation, B2B landing page testing, demand gen validation">
     <link rel="canonical" href="https://whyuser.com/roi.html">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WhyUser">
     <meta property="og:title" content="WhyUser | ROI Calculator">
-    <meta property="og:description" content="Four lines, one ratio. The business case your champion can defend, built from numbers they counted themselves.">
+    <meta property="og:description" content="Two numbers per feature. Your counted ROI and the bar each feature must clear, on one slide.">
     <meta property="og:url" content="https://whyuser.com/roi.html"><meta property="og:image" content="https://whyuser.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="WhyUser: test B2B pages and campaigns against a simulated buying committee before you launch.">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://whyuser.com/og-image.png">
@@ -3729,7 +3729,7 @@ body {
         "@type": "ImageObject",
         "url": "https://whyuser.com/images/whyuser-logo.png"
       },
-      "description": "WhyUser is pre-launch buyer simulation for B2B marketing. It builds buyer personas from real buyer evidence and tests pages, ads and emails on a simulated buying committee before you spend."
+      "description": "WhyUser is the pre-launch buyer simulation platform for search and AI visibility, lead conversion and audience targeting. It is built for B2B marketing teams. It builds buyer personas from real buyer evidence and tests pages, ads and emails on a simulated buying committee before you spend."
     },
     {
       "@type": "WebSite",
@@ -3747,9 +3747,16 @@ body {
 <!-- WHYUSER:SEO-SUPPLEMENT:END -->
 <style>
 /* ============================================================
-   ROI CALCULATOR — lean UI
-   All colour from mapped tokens, so dark-theme.css flips it.
+   ROI CALCULATOR v4 (19 Nov 2026) — two inputs per feature,
+   one table, one ROI. No lifts. Only Audience Discovery is counted;
+   the other lines show the bar each one must clear.
+   Colour comes only from mapped tokens, so dark-theme.css flips it.
    ============================================================ */
+
+/* This page's old reset underlines every link and tints it emerald. The
+   nav and footer should look the same as on every other page. */
+.nav a, .nav-mobile a, .footer a { text-decoration: none; }
+.nav-brand { color: var(--ink); }
 
 /* --- header ---------------------------------------------------------- */
 .wu-head {
@@ -3762,33 +3769,34 @@ body {
   letter-spacing: -0.028em; line-height: 1.05; color: var(--ink); margin: 0;
 }
 .wu-h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--emerald); }
+.wu-sub { margin-top: 12px; max-width: 34rem; font-size: 15.5px; line-height: 1.55; color: var(--ink-muted); }
 .wu-head-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end; }
+
 /* --- layout ---------------------------------------------------------- */
-.calc { display: grid; grid-template-columns: minmax(320px, 1fr) 440px; gap: 44px; align-items: start; }
+.calc { display: grid; grid-template-columns: minmax(320px, 1fr) 480px; gap: 44px; align-items: start; padding-bottom: 88px; }
 @media (max-width: 1080px) { .calc { grid-template-columns: 1fr; } }
-.calc-out { position: sticky; top: 18px; }
+.calc-out { position: sticky; top: 84px; }
 @media (max-width: 1080px) { .calc-out { position: static; } }
 
-/* --- input sections: inline on the page, no card chrome --------------- */
-.sec { padding: 24px 0; border-top: 1px solid var(--line); }
+/* --- sections -------------------------------------------------------- */
+.sec { padding: 22px 0; border-top: 1px solid var(--line); }
 .sec:first-child { padding-top: 0; border-top: none; }
-.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.sec-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .sec-t {
   font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .16em;
   text-transform: uppercase; color: var(--ink);
 }
-.sec-v { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--emerald); }
+.sec-t a { color: inherit; text-decoration: none; }
+.sec-t a:hover { color: var(--emerald); }
 
 /* --- fields ---------------------------------------------------------- */
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 16px; }
-.grid.two { grid-template-columns: repeat(2, 1fr); }
-.grid + .grid { margin-top: 16px; }
-.f.wide + .grid, .seg + .grid { margin-top: 16px; }
-@media (max-width: 620px) { .grid, .grid.two { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 400px) { .grid, .grid.two { grid-template-columns: 1fr; } }
+/* Scoped: a shared sheet sets .grid to three columns. */
+.calc-in .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+/* A label that wraps keeps its input level with the one beside it. */
+.calc-in .grid { align-items: end; }
+@media (max-width: 460px) { .calc-in .grid { grid-template-columns: 1fr; } }
 .f { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-.f.wide { grid-column: 1 / -1; }
-.f > label.field-label {
+.f > label.field-label, .f > .field-label {
   font-size: 12.5px !important; font-weight: 500 !important; line-height: 1.3;
   display: flex; align-items: center; gap: 5px; color: var(--ink-muted) !important;
 }
@@ -3798,11 +3806,14 @@ body {
   color: var(--ink); outline: none; transition: border-color .12s;
 }
 .f .field-input:focus { border-color: var(--emerald); }
-.f .field-input[type="text"] { font-family: var(--sans); font-size: 13px; }
-/* affixes: the input has to make room for them */
 .f .input-wrap-dollar .field-input { padding-left: 24px; }
 .f .input-wrap-percent .field-input { padding-right: 24px; }
 .f .input-wrap-dollar::before, .f .input-wrap-percent::after { font-size: 12.5px; }
+.f-shared {
+  font-size: 12.5px; line-height: 1.45; color: var(--ink-faint);
+  padding: 9px 10px; border: 1px dashed var(--line); border-radius: var(--radius);
+}
+.f-shared b { font-family: var(--mono); color: var(--ink); font-weight: 600; }
 
 /* --- tooltip --------------------------------------------------------- */
 .tip {
@@ -3816,7 +3827,7 @@ body {
 .tip::after {
   content: attr(data-tip);
   position: absolute; left: -8px; bottom: calc(100% + 8px); z-index: 60;
-  width: max-content; max-width: 250px; padding: 9px 11px;
+  width: max-content; max-width: 260px; padding: 9px 11px;
   background: var(--ink); color: var(--paper);
   font-family: var(--sans); font-size: 12px; font-weight: 400; line-height: 1.45;
   letter-spacing: 0; text-transform: none; text-align: left;
@@ -3836,138 +3847,108 @@ body {
 }
 .seg-btn:hover { border-color: var(--ink-faint); color: var(--ink); }
 .seg-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+/* The plan is a single choice, not a toggle: border only, no fill. */
+#seg-plan .seg-btn.active, #seg-period .seg-btn.active { background: transparent; border-color: var(--emerald); box-shadow: inset 0 0 0 1px var(--emerald); color: var(--ink); font-weight: 600; }
 .seg-price { display: inline-block; }
 .seg-price .field-input {
-  width: 116px; font-family: var(--mono); font-size: 13px; padding: 7px 10px 7px 22px;
+  width: 124px; font-family: var(--mono); font-size: 13px; padding: 7px 10px 7px 22px;
   border: 1px solid var(--line); border-radius: 100px; background: transparent;
   color: var(--ink); outline: none;
 }
 .seg-price .field-input:focus { border-color: var(--emerald); }
 .seg-price.input-wrap-dollar::before { left: 12px; font-size: 12px; }
+.setup-row + .setup-row { margin-top: 16px; }
+.setup-k { font-size: 12.5px; font-weight: 500; color: var(--ink-muted); margin-bottom: 7px; }
+.req-key { font-size: 12.5px; color: var(--ink-faint); margin-top: 14px; }
 
-/* --- inline alert, only when something is actually wrong -------------- */
-.alert {
-  display: flex; gap: 9px; align-items: flex-start; margin-top: 14px; padding: 10px 12px;
-  border-radius: var(--radius); font-size: 12.5px; line-height: 1.5;
-  background: var(--gold-tint); color: var(--ink); border: 1px solid var(--line);
-}
-.alert b { font-weight: 600; }
-.alert::before { content: '!'; font-family: var(--mono); font-weight: 700; color: var(--gold); }
+/* --- the value beside each card title -------------------------------- */
+.sec-v { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--emerald); white-space: nowrap; }
 .hidden { display: none !important; }
 
 /* ============================================================
-   THE SLIDE — horizontal, two columns
+   THE CASE CARD — one sentence, one table, one ROI
    ============================================================ */
 .slide {
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
-  padding: 24px 26px; box-shadow: var(--shadow-card);
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 24px 24px 20px; box-shadow: var(--shadow-card);
 }
 .print-brand { display: none; }
-
-.slide-top {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
-  padding-bottom: 13px; border-bottom: 1px solid var(--line);
-}
+.slide-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .slide-co { font-size: 15px; font-weight: 600; color: var(--ink); }
-.slide-dt { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); }
+.slide-dt { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
+.roi-sent { font-size: 19px; line-height: 1.4; letter-spacing: -.01em; color: var(--ink); margin: 14px 0 18px; }
+.roi-sent b { font-weight: 700; color: var(--emerald); }
+.roi-rows { display: grid; gap: 2px; margin-top: 12px; }
+.roi-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 16px;
+  padding: 10px 0; font-size: 14px; color: var(--ink); border-bottom: 1px solid var(--line-soft);
+}
+.roi-row:last-child { border-bottom: 0; }
+.roi-row .nm { font-weight: 600; }
+.roi-row .v { text-align: right; font-family: var(--mono); font-size: 15px; font-weight: 700; white-space: nowrap; }
+.roi-row.counted .v { color: var(--emerald); }
+.roi-row.none, .roi-row.none .v { color: var(--ink-faint); }
+.roi-row small { display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.45; color: var(--ink-muted); }
+.roi-sum {
+  display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; padding-top: 10px;
+  border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-muted);
+}
+.roi-sum b { color: var(--ink); font-weight: 600; }
+.roi-sum.follow { border-top: 0; margin-top: 0; padding-top: 4px; }
+.setup-row .contrib { max-width: 140px; }
+.setup-row label.setup-k { display: flex; align-items: center; gap: 5px; }
+.roi-sum span:last-child { font-family: var(--mono); }
+.roi-panel {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-top: 16px; padding: 16px 18px; border-radius: 12px; background: var(--emerald-tint);
+}
+.roi-panel .k { display: block; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--emerald); }
+.roi-panel .sub { display: block; margin-top: 4px; font-size: 13px; color: var(--ink-muted); }
+.roi-panel .n { font-family: var(--mono); font-size: 44px; font-weight: 700; letter-spacing: -.03em; line-height: 1; color: var(--emerald); }
+.roi-panel.none { background: var(--silver-tint); }
+.roi-panel[hidden] { display: none; }
+.roi-panel.be { background: var(--silver-tint); }
+.roi-panel.be .k { color: var(--ink-muted); }
+.roi-panel.be .sub { font-size: 15px; font-weight: 600; color: var(--ink); }
+.roi-panel.be .n { display: none; }
+.roi-panel.none .n, .roi-panel.none .k { color: var(--ink-faint); }
 
-.line { padding: 15px 0; border-top: 1px solid var(--line-soft); }
-.slide-top + .line { border-top: none; }
-.line-tag { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; flex-wrap: wrap; }
-.line-n {
-  font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--ink);
-}
-.line-flag {
-  font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase; padding: 2px 6px; border-radius: 3px;
-  background: var(--silver-tint); color: var(--ink-faint);
-}
-.line-flag.on { background: var(--emerald-tint); color: var(--emerald); }
-.line-lead { font-size: 15px; line-height: 1.5; color: var(--ink); }
-.line-lead .ctx { display: block; }
-.line-lead .ctx + .ctx { margin-top: 7px; }
-.math {
-  font-family: var(--mono); font-size: 12px; line-height: 1.75; color: var(--ink-muted);
-  margin-top: 9px; padding: 9px 11px; background: var(--silver-tint);
-  border-radius: var(--radius); white-space: pre-wrap; overflow-x: auto;
-}
-.math b { color: var(--ink); font-weight: 700; }
-.math .mh {
-  display: block; color: var(--ink); font-weight: 700; letter-spacing: .04em;
-  margin-top: 12px; padding-bottom: 3px; border-bottom: 1px solid rgba(var(--dk-ov, 0,0,0),.09);
-}
-.math .mh:first-child { margin-top: 0; }
-.math .mh .mg { float: right; font-weight: 400; color: var(--ink-faint); letter-spacing: 0; }
-.math .mr { display: block; }
-.math .mt { display: block; margin-top: 12px; color: var(--ink); font-weight: 700; }
-.math.collapsed .mr { display: none; }
-.math.collapsed .mh { margin-top: 6px; border-bottom: 0; padding-bottom: 0; }
-.math.collapsed .mh:first-child { margin-top: 0; }
-.math-toggle {
-  font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--ink-faint); background: none; border: 0;
-  padding: 2px 0; cursor: pointer;
-}
-.math-toggle:hover { color: var(--ink); }
-@media print {
-  .math.collapsed .mr { display: block; }
-  .math.collapsed .mh { margin-top: 12px; border-bottom: 1px solid rgba(var(--dk-ov, 0,0,0),.09); padding-bottom: 3px; }
-}
-.line-note { font-size: 12.5px; line-height: 1.45; color: var(--ink-faint); margin-top: 8px; }
-
-.ask { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
-.ask-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
-.ask-cost { font-size: 13px; color: var(--ink-muted); }
-.ask-cost b { color: var(--ink); font-weight: 600; }
-.ask-ratio { font-family: var(--mono); font-size: 38px; font-weight: 700; letter-spacing: -.02em; color: var(--emerald); line-height: 1; }
-.ask-ratio.thin { color: var(--gold); }
-.ask-ratio.none { color: var(--ink-faint); }
-.ask-src { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
-.upside { margin-top: 16px; padding: 12px 14px; border-left: 2px solid var(--gold); background: var(--gold-tint); border-radius: 0 var(--radius) var(--radius) 0; }
-.upside-h { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 5px; }
-.upside-b { font-size: 12px; line-height: 1.5; color: var(--ink); }
-
-.slide-actions { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 16px; }
+/* --- actions and the math ---------------------------------------------- */
+.slide-actions { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
 .btn {
-  font-family: var(--sans); font-size: 12.5px; font-weight: 500; padding: 8px 14px;
-  border: 1px solid var(--line); background: transparent; color: var(--ink);
-  border-radius: var(--radius); cursor: pointer; transition: all .12s;
+  font-family: var(--sans); font-size: 13px; font-weight: 500; padding: 8px 16px;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  border-radius: 99px; cursor: pointer; transition: all .12s;
 }
 .btn:hover { border-color: var(--emerald); color: var(--emerald); }
 .btn.primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .btn.primary:hover { opacity: .86; color: var(--paper); }
-
-/* --- folded reference ------------------------------------------------- */
-.wu-notes { margin-top: 44px; }
-.wu-note { margin-bottom: 30px; }
-.wu-note h3 { margin: 0 0 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); font-weight: 600; }
-.wu-note p { margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink-muted); max-width: 62ch; }
-.wu-note b { color: var(--ink); font-weight: 600; }
-.wu-calc { font-family: var(--mono); font-size: 12px; line-height: 1.85; color: var(--ink-muted); white-space: pre-wrap; margin: 0; }
-.wu-calc b { color: var(--ink); font-weight: 600; }
-.req { color: var(--emerald); font-weight: 600; }
-.req-key { font-size: 12.5px; color: var(--ink-faint); margin-top: 14px; }
-
-.folds { margin-top: 40px; border-bottom: 1px solid var(--line); }
-.fold { border-top: 1px solid var(--line); }
-.fold > summary {
-  list-style: none; cursor: pointer; padding: 15px 0;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--ink-muted);
+.math-toggle {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--ink-muted);
+  background: none; border: 0; padding: 6px 2px; cursor: pointer;
 }
-.fold > summary::-webkit-details-marker { display: none; }
-.fold > summary:hover { color: var(--ink); }
-.fold > summary::after { content: '+'; font-size: 14px; color: var(--ink-faint); }
-.fold[open] > summary::after { content: '–'; }
-.fold-b { padding: 2px 0 24px; }
-.ref { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-.ref td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line-soft); vertical-align: top; line-height: 1.55; color: var(--ink-muted); }
-.ref td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; width: 170px; }
-.ref code { font-family: var(--mono); font-size: 12px; color: var(--ink); }
+.math-toggle:hover { color: var(--emerald); }
+.math-toggle::after {
+  content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform .15s;
+}
+.math-toggle[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+.math-panel {
+  margin-top: 12px; padding: 6px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--card);
+}
+.mrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 11px 0; border-bottom: 1px solid var(--line-soft); }
+.mrow:last-child { border-bottom: 0; }
+.mrow .mn { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.mrow .mv { grid-row: span 2; align-self: center; font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.mrow .mf { font-family: var(--mono); font-size: 12px; color: var(--ink-muted); }
+.mrow .mf em { font-style: normal; color: var(--ink-faint); }
+.mrow.tot .mn, .mrow.tot .mv { color: var(--emerald); }
+.mrow.sum { border-top: 1px solid var(--line); }
+.mrow.sum.follow { border-top: 0; }
+.mrow.sum .mn { font-weight: 500; }
 
-/* --- mobile: keep the answer visible while filling -------------------- */
+/* --- mobile: keep the slide one tap away ------------------------------ */
 .mini { display: none; }
 @media (max-width: 1080px) {
   .mini {
@@ -3976,24 +3957,16 @@ body {
     padding: 11px 16px; border-radius: 100px;
     background: var(--ink); color: var(--paper); box-shadow: 0 10px 30px -10px rgba(0,0,0,.5);
   }
-  .mini-r { font-family: var(--mono); font-size: 17px; font-weight: 700; }
-  .mini-v { font-family: var(--mono); font-size: 12px; opacity: .7; flex: 1; }
+  .mini-v { font-family: var(--mono); font-size: 12.5px; flex: 1; }
   .mini a { font-size: 12.5px; font-weight: 500; color: var(--paper); opacity: .9; white-space: nowrap; }
   body { padding-bottom: 68px; }
 }
 
 /* ============================================================
-   PRINT — the slide, and nothing else
-   Everything outside the slide is display:none rather than hidden, so
-   it stops taking up space. Visibility alone left the page's full
-   height behind and printed blank sheets after the card.
+   PRINT — one landscape slide, nothing else
    ============================================================ */
 @media print {
-  @page { margin: 0.5in; }
-
-  /* The page is dark by default now, and dark tokens on white paper
-     print as near-invisible. Re-declaring the light values here fixes
-     every token-driven colour at once, whichever theme is on screen. */
+  @page { margin: 0.6in; }
   :root {
     --paper:        var(--dk-paper, #ffffff);
     --card:         var(--dk-card, #ffffff);
@@ -4006,57 +3979,31 @@ body {
     --emerald-tint: var(--dk-b-d1fae5, #d1fae5);
     --gold:         var(--dk-gold, #d97706);
     --gold-tint:    var(--dk-b-fef3c7, #fef3c7);
-    --rust:         var(--dk-a-dc2626, #dc2626);
     --silver-tint:  var(--dk-b-f4f4f5, #f4f4f5);
   }
-
-  html, body {
-    background: var(--dk-b-ffffff, #fff) !important;
-    margin: 0 !important; padding: 0 !important;
-  }
-  body { font-size: 12px; }
-
-  /* page chrome and every input */
+  html, body { background: var(--dk-b-ffffff, #fff) !important; margin: 0 !important; padding: 0 !important; }
   .nav, .nav-mobile, .footer, .meta-strip, .grain::after,
-  .wu-head, .calc-in, .folds, .mini, .slide-actions,
+  .wu-head, .calc-in, .mini, .slide-actions, .math,
   [aria-label="Breadcrumb"], .no-print { display: none !important; }
-
-  /* unwind the two-column shell so the card sits at the top of page 1 */
   .page { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
   .calc { display: block !important; }
-  .calc-out { position: static !important; top: auto !important; }
-
-  /* Keep the card frame. On paper an unbordered block reads as a browser
-     printout that lost its styling; the border makes it a one-pager. */
+  .calc-out { position: static !important; }
   #slide {
-    border: 1px solid rgba(var(--dk-ov, 9, 9, 11), 0.22) !important;
-    border-radius: 10px !important;
-    box-shadow: none !important;
-    padding: 26px 28px !important;
-    background: var(--dk-b-ffffff, #fff) !important;
-    max-width: 100%;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    border: 1px solid rgba(var(--dk-ov, 9, 9, 11), 0.22) !important; border-radius: 10px !important;
+    box-shadow: none !important; padding: 28px 32px !important; background: var(--dk-b-ffffff, #fff) !important;
+    page-break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
-  #slide .print-brand {
-    display: flex; align-items: center; gap: 8px;
-    margin-bottom: 16px;
-  }
+  #slide .print-brand { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
   #slide .print-brand img { width: 18px; height: 18px; object-fit: contain; }
-  #slide .print-brand span {
-    font-family: var(--sans); font-size: 14px; font-weight: 700;
-    letter-spacing: -0.01em; color: var(--dk-t-09090b, #09090b);
-  }
-  #slide .slide-top { padding-bottom: 10px; }
-  #slide .line { padding: 12px 0; page-break-inside: avoid; }
-  #slide .line-lead { font-size: 13px; }
-  #slide .math { background: var(--dk-b-f4f4f5, #f4f4f5) !important; color: var(--dk-t-3f3f46, #3f3f46) !important; font-size: 12.5px; }
-  #slide .math b { color: var(--dk-t-09090b, #09090b) !important; }
-  #slide, #slide .line-lead, #slide .slide-co { color: var(--dk-t-09090b, #09090b) !important; }
-  #slide .ask { page-break-inside: avoid; }
-  #slide .ask-ratio { font-size: 32px; }
+  #slide .print-brand span { font-family: var(--sans); font-size: 14px; font-weight: 700; color: var(--dk-t-09090b, #09090b); }
+  #slide { max-width: 560px; margin: 0 auto; }
+  #slide, #slide .roi-row, #slide .roi-sent { color: var(--dk-t-09090b, #09090b) !important; }
+  .math-panel { display: none !important; }
 }
-
 </style>
+
+
+
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <script src="assets/whyuser-anchors.js" defer></script>
 <link rel="stylesheet" href="assets/dark-theme.css">
@@ -4098,11 +4045,11 @@ body {
                             <span class="nav-dd-desc">Personas from real buyer quotes, dated.</span>
                         </span>
                     </a>
-                    <a href="buyer-questions.html" class="nav-dd-item" role="menuitem">
+                    <a href="buyer-answer-gap.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Buyer Questions</span>
-                            <span class="nav-dd-desc">What they ask, and if you answer.</span>
+                            <span class="nav-dd-name">Buyer Answer Gap</span>
+                            <span class="nav-dd-desc">Where rivals out-answer you.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Rehearse before you spend</span>
@@ -4296,7 +4243,7 @@ body {
             <div class="nav-m-group">
                 <span class="nav-m-label">Know your buyer</span>
                 <a href="buyer-personas.html" class="nav-m-link">Buyer Context</a>
-                <a href="buyer-questions.html" class="nav-m-link">Buyer Questions</a>
+                <a href="buyer-answer-gap.html" class="nav-m-link">Buyer Answer Gap</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Rehearse before you spend</span>
@@ -4352,7 +4299,10 @@ body {
 <div class="page">
 
 <header class="wu-head">
-  <h1 class="wu-h1">ROI <em>Calculator</em></h1>
+  <div>
+    <h1 class="wu-h1">ROI <em>Calculator</em></h1>
+    <p class="wu-sub">Enter two numbers for each feature to see your ROI.</p>
+  </div>
   <div class="wu-head-meta no-print">
     <div class="meta-field">
       <label class="meta-label" for="cs-company">Prepared for</label>
@@ -4370,451 +4320,176 @@ body {
 <!-- ============================ INPUTS ============================ -->
 <div class="calc-in">
 
-  <!-- SETUP -->
   <section id="calculator" class="sec">
-    <div class="sec-h">
-      <span class="sec-t">Setup</span>
-      <span class="sec-v" id="acc-rate">—</span>
-    </div>
-
-    <div class="f wide">
-      <label class="field-label">Features
-        <span class="tip" tabindex="0" data-tip="Which WhyUser features you ran for this customer.">?</span>
-      </label>
+    <div class="sec-h"><span class="sec-t">Setup</span></div>
+    <div class="setup-row">
+      <div class="setup-k">Features</div>
       <div class="seg" id="seg-features">
-        <button type="button" class="seg-btn active" data-feat="committee">Pages</button>
-        <button type="button" class="seg-btn" data-feat="ad">Ads</button>
-        <button type="button" class="seg-btn" data-feat="email">Email</button>
-        <button type="button" class="seg-btn" data-feat="audience">Audience</button>
+        <button type="button" class="seg-btn active" data-feat="bag">Buyer Answer Gap</button>
+        <button type="button" class="seg-btn active" data-feat="pages">Pages &amp; Content</button>
+        <button type="button" class="seg-btn active" data-feat="aud">Audience Discovery</button>
+        <button type="button" class="seg-btn active" data-feat="ads">Ad Funnels</button>
+        <button type="button" class="seg-btn active" data-feat="email">Email Sequences</button>
       </div>
     </div>
-
-    <div class="f wide" style="margin-top: 16px;">
-      <label class="field-label">Pricing
-        <span class="tip" tabindex="0" data-tip="The annual price this business case is built against.">?</span>
-      </label>
+    <div class="setup-row">
+      <div class="setup-k">Plan</div>
       <div class="seg" id="seg-plan">
-        <button type="button" class="seg-btn" data-plan="standard">Standard · $12k</button>
-        <button type="button" class="seg-btn active" data-plan="scale">Scale · $24k</button>
+        <button type="button" class="seg-btn" data-plan="standard">Standard &middot; $12k/yr</button>
+        <button type="button" class="seg-btn active" data-plan="scale">Scale &middot; $24k/yr</button>
         <button type="button" class="seg-btn" data-plan="enterprise">Enterprise</button>
         <div class="input-wrap input-wrap-dollar seg-price hidden" id="f-custom-price">
-          <label class="sr-only" for="sh-price">Annual price</label>
-          <input class="field-input" type="number" id="sh-price" value="48000" min="0" step="1000">
+          <label class="sr-only" for="in-price">Annual price</label>
+          <input class="field-input" type="number" id="in-price" value="48000" min="0" step="1000">
         </div>
       </div>
     </div>
-
-    <div class="grid" style="margin-top: 16px;">
-      <div class="f">
-        <label class="field-label" for="sh-rate">Marketing loaded rate <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Hourly cost of one marketer including benefits and overhead. PMM, content and web. This is lower than a sales-loaded rate, and using the sales number here is the first thing a CFO catches.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="sh-rate" value="85" min="0"></div>
+    <div class="setup-row">
+      <div class="setup-k">Show values per</div>
+      <div class="seg" id="seg-period">
+        <button type="button" class="seg-btn" data-period="month">Month</button>
+        <button type="button" class="seg-btn" data-period="quarter">Quarter</button>
+        <button type="button" class="seg-btn active" data-period="year">Year</button>
       </div>
-      <div class="f">
-        <label class="field-label" for="ac-assets">Assets tested <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="How many of their assets you ran blind. Not the same as assets they ship in a year.">?</span>
-        </label>
-        <input class="field-input" type="number" id="ac-assets" value="5" min="0" max="99">
-      </div>
-
     </div>
-    <div class="alert hidden" id="acc-alert"></div>
-    <div class="req-key"><span class="req">*</span> Required. Defaults are shown so the page runs, but replace every starred field with their number before you send this.</div>
+    <div class="setup-row">
+      <label class="setup-k" for="in-contrib">WhyUser contribution
+        <span class="tip" tabindex="0" data-tip="The share of these numbers you credit to WhyUser. Other work moves them too. 40% is a cautious start.">?</span>
+      </label>
+      <div class="input-wrap input-wrap-percent contrib"><input class="field-input" type="number" id="in-contrib" value="40" min="0" max="100" step="5"></div>
+    </div>
   </section>
 
-  <!-- PAGES & CONTENT -->
-  <section class="sec" id="sec-committee">
-    <div class="sec-h"><span class="sec-t">Pages &amp; content</span><span class="sec-v" id="tot-committee">—</span></div>
-
+  <section class="sec" id="sec-bag">
+    <div class="sec-h"><span class="sec-t"><a href="buyer-answer-gap.html">Buyer Answer Gap</a></span><span class="sec-v" id="v-bag">&mdash;</span></div>
     <div class="grid">
       <div class="f">
-        <label class="field-label" for="c-assets">Assets shipped / year <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Landing pages, case studies, blogs and white papers the team ships in a year. Count what goes through review, not every URL on the site.">?</span>
+        <label class="field-label" for="bag-searches">Monthly searches on keywords based on buyer questions
+          <span class="tip" tabindex="0" data-tip="The 12-month average for terms buyers type before they pick a vendor, like pricing, alternatives, “vs” and “best X for Y”. Not your category name alone. From Semrush, Ahrefs or Google Keyword Planner.">?</span>
         </label>
-        <input class="field-input" type="number" id="c-assets" value="60" min="0" step="1">
+        <input class="field-input" type="number" id="bag-searches" value="800" min="0" step="100">
       </div>
       <div class="f">
-        <label class="field-label" for="c-rounds-now">Review rounds today <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Rounds an asset goes through before it ships today. Their number, from their own tracker, not ours.">?</span>
+        <label class="field-label" for="bag-cpc">Average cost per click
+          <span class="tip r" tabindex="0" data-tip="What advertisers pay Google for one click on those terms. Use the low end of Keyword Planner’s bid, or the CPC in Semrush or Ahrefs.">?</span>
         </label>
-        <input class="field-input" type="number" id="c-rounds-now" value="4" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="c-rounds-after">Review rounds after <span class="req">*</span>
-          <span class="tip r" tabindex="0" data-tip="Rounds left once the run answers what the room was arguing about. Two is the honest claim. Claiming one invites the argument.">?</span>
-        </label>
-        <input class="field-input" type="number" id="c-rounds-after" value="2" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="c-learn-cycles">Learning cycles / year <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="How many times a year the team sits down to work out whether a shipped asset is working. A weekly standing call is about 48.">?</span>
-        </label>
-        <input class="field-input" type="number" id="c-learn-cycles" value="48" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="c-hrs">Hours saved / cycle
-          <span class="tip" tabindex="0" data-tip="Team hours one review round or one learning cycle costs, across everyone in it — so removing one gives that back. Eight is a full day spread over four people. Change it only if they tell you their number.">?</span>
-        </label>
-        <input class="field-input" type="number" id="c-hrs" value="8" min="0" step="0.5">
-      </div>
-      <div class="f">
-        <label class="field-label" for="c-acc">Accuracy <span class="req">*</span>
-          <span class="tip " tabindex="0" data-tip="Share of what the run called that your team confirmed. Ask them: of the findings we gave you, how many had you already seen or agreed with? Every dollar in this section is cut by it. Our published rate across all customers is 84%.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="c-acc" value="85" min="0" max="100" step="1"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="c-bounce">Bounce rate</label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="c-bounce" value="72" min="0" max="100" step="1"></div>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="bag-cpc" value="6" min="0" step="0.5"></div>
       </div>
     </div>
-    <div class="req-key">Assumed, so nobody has to answer it: a review round adds <b>5 calendar days</b>, and a post-launch read needs <b>14 days</b> of traffic before it means anything. Both show on the slide.</div>
-    <div class="alert hidden" id="c-alert"></div>
-
   </section>
 
-  <!-- ADS -->
-  <section class="sec hidden" id="sec-ad">
-    <div class="sec-h"><span class="sec-t">Ads</span><span class="sec-v" id="tot-ad">—</span></div>
-
+  <section class="sec" id="sec-pages">
+    <div class="sec-h"><span class="sec-t"><a href="committee-simulation.html">Pages &amp; Content</a></span><span class="sec-v" id="v-pages">&mdash;</span></div>
     <div class="grid">
       <div class="f">
-        <label class="field-label" for="a-spend">Spend / month <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Monthly paid spend behind the creatives in this test.">?</span>
+        <label class="field-label" for="pg-searches">Monthly searches on keywords based on page gaps
+          <span class="tip" tabindex="0" data-tip="Short terms buyers search for the facts your pages lack, like “genesys fraud detection” or “deepfake detection banks”. Integrations, compliance, pricing and “best X for Y” usually have searches. 12-month average, one country.">?</span>
         </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="a-spend" value="20000" min="0" step="1000"></div>
+        <input class="field-input" type="number" id="pg-searches" value="500" min="0" step="100">
       </div>
       <div class="f">
-        <label class="field-label" for="a-creatives">Creatives checked <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Ad creatives run against their landing pages in this test.">?</span>
+        <label class="field-label" for="pg-cpc">Average cost per click
+          <span class="tip r" tabindex="0" data-tip="What advertisers pay Google for one click on those terms. Use the low end of Keyword Planner’s bid, or the CPC in Semrush or Ahrefs.">?</span>
         </label>
-        <input class="field-input" type="number" id="a-creatives" value="4" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-mismatch">Ad and page disagreed <span class="req">*</span>
-          <span class="tip r" tabindex="0" data-tip="Creatives promising something the page does not deliver. The committee run says what the page answers. The ad run says what the creative promised. This is the gap between them.">?</span>
-        </label>
-        <input class="field-input" type="number" id="a-mismatch" value="2" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-review-days">Days to your next review <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="How long a mismatch runs before your normal process would catch it. Their own cadence, not ours. Most teams never catch it, so this is the cautious read.">?</span>
-        </label>
-        <input class="field-input" type="number" id="a-review-days" value="30" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-campaigns">Campaigns / year <span class="req">*</span>
-          <span class="tip r" tabindex="0" data-tip="Paid campaign launches a year. Each one can carry the same mismatch.">?</span>
-        </label>
-        <input class="field-input" type="number" id="a-campaigns" value="6" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="a-acc">Accuracy <span class="req">*</span>
-          <span class="tip r" tabindex="0" data-tip="Share of what the run called that your team confirmed. Ask them: of the findings we gave you, how many had you already seen or agreed with? Every dollar in this section is cut by it. Our published rate across all customers is 84%.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="a-acc" value="85" min="0" max="100" step="1"></div>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="pg-cpc" value="6" min="0" step="0.5"></div>
       </div>
     </div>
-    <div class="alert hidden" id="a-alert"></div>
-    <div class="req-key">Budget you stop wasting, not budget that comes back. The slide says so before anyone asks.</div>
   </section>
 
-  <!-- EMAIL -->
-  <section class="sec hidden" id="sec-email">
-    <div class="sec-h"><span class="sec-t">Email</span><span class="sec-v" id="tot-email">—</span></div>
-
-    <div class="seg" id="seg-email-track">
-      <button type="button" class="seg-btn active" data-etrack="a">Newsletter</button>
-      <button type="button" class="seg-btn" data-etrack="b">Outbound</button>
-    </div>
-
-    <div class="grid" style="margin-top: 16px;">
-      <div class="f">
-        <label class="field-label" for="e-rev">Reviewers / email <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Marketers who review an email before it goes out. PMM, content, demand gen. Charged at the marketing rate in Setup.">?</span>
-        </label>
-        <input class="field-input" type="number" id="e-rev" value="4" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-hours">Hours each, per round <span class="req">*</span></label>
-        <input class="field-input" type="number" id="e-hours" value="0.75" min="0" step="0.25">
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-agency">Copywriter / round
-          <span class="tip r" tabindex="0" data-tip="Outside copy fees for one revision round on one email.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="e-agency" value="800" min="0" step="100"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-rounds-now">Review rounds today <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Copy rounds a send goes through today, before it leaves. Their number, not ours.">?</span>
-        </label>
-        <input class="field-input" type="number" id="e-rounds-now" value="3" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-rounds-after">Review rounds after <span class="req">*</span></label>
-        <input class="field-input" type="number" id="e-rounds-after" value="1" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-days">Days / round</label>
-        <input class="field-input" type="number" id="e-days" value="2" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-sends">Sends / month <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Emails sent per month.">?</span>
-        </label>
-        <input class="field-input" type="number" id="e-sends" value="6" min="0" step="1">
-      </div>
-
-      <div class="f">
-        <label class="field-label" for="e-acc">Accuracy <span class="req">*</span>
-          <span class="tip r" tabindex="0" data-tip="Share of what the run called that your team confirmed. Ask them: of the findings we gave you, how many had you already seen or agreed with? Every dollar in this section is cut by it. Our published rate across all customers is 84%.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="e-acc" value="85" min="0" max="100" step="1"></div>
-      </div>
-    </div>
-
-    <div class="grid" id="e-ctx-a">
-      <div class="f">
-        <label class="field-label" for="e-cac">Cost / contact
-          <span class="tip" tabindex="0" data-tip="What it cost to acquire one contact on the list.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="e-cac" value="310" min="0" step="10"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-unsub">Unsubs / bad send
-          <span class="tip r" tabindex="0" data-tip="Unsubscribes a single poor send typically produces.">?</span>
-        </label>
-        <input class="field-input" type="number" id="e-unsub" value="140" min="0" step="10">
-      </div>
-    </div>
-    <div class="grid hidden" id="e-ctx-b">
-      <div class="f">
-        <label class="field-label" for="e-domains">Sending domains
-          <span class="tip" tabindex="0" data-tip="How many domains they send outbound from.">?</span>
-        </label>
-        <input class="field-input" type="number" id="e-domains" value="3" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="e-warmup">Warmup weeks
-          <span class="tip" tabindex="0" data-tip="Weeks needed to warm a replacement sending domain.">?</span>
-        </label>
-        <input class="field-input" type="number" id="e-warmup" value="6" min="0" step="1">
-      </div>
-    </div>
-    <div class="alert hidden" id="e-alert"></div>
-  </section>
-
-  <!-- AUDIENCE -->
-  <section class="sec hidden" id="sec-audience">
-    <div class="sec-h"><span class="sec-t">Audience</span><span class="sec-v" id="tot-audience">—</span></div>
-
-    <div class="seg" id="seg-au-track">
-      <button type="button" class="seg-btn active" data-utrack="paid">Cost per lead</button>
-      <button type="button" class="seg-btn" data-utrack="target">Targeting</button>
-      <button type="button" class="seg-btn" data-utrack="expansion">Expansion</button>
-    </div>
-
-    <div class="grid" id="au-paid" style="margin-top: 16px;">
-      <div class="f">
-        <label class="field-label" for="u-cpl-base">Control CPL <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Cost per lead from the audience they were already targeting.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-cpl-base" value="310" min="0" step="10"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-cpl-test">Test CPL <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Cost per lead from the discovered audience.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-cpl-test" value="190" min="0" step="10"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-leads">Leads / month <span class="req">*</span>
-          <span class="tip r" tabindex="0" data-tip="Leads they generate per month at current spend.">?</span>
-        </label>
-        <input class="field-input" type="number" id="u-leads" value="160" min="0" step="10">
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-window">Test window, days
-          <span class="tip" tabindex="0" data-tip="How many days the head-to-head test ran.">?</span>
-        </label>
-        <input class="field-input" type="number" id="u-window" value="14" min="1" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-q-ctrl">MQL→SQL, control</label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="u-q-ctrl" value="22" min="0" max="100" step="0.5"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-q-treat">MQL→SQL, test
-          <span class="tip r" tabindex="0" data-tip="MQL to SQL rate on leads from the discovered audience.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="u-q-treat" value="24" min="0" max="100" step="0.5"></div>
-      </div>
-    </div>
-
-    <div class="grid hidden" id="au-target" style="margin-top: 16px;">
-      <div class="f">
-        <label class="field-label" for="u-ls-spend">Paid social spend / month <span class="req">*</span>
-          <span class="tip" tabindex="0" data-tip="Monthly spend on audiences built by job title. LinkedIn will not let you exclude a job function when you target by title, so the wrong functions come with it.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-ls-spend" value="20000" min="0" step="1000"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-ls-waste">Outside your function <span class="req">*</span>
-          <span class="tip r" tabindex="0" data-tip="Share of the audience sitting outside the job function you sell to. Read it off the platform's own demographics report for the campaign. Do not estimate it.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="u-ls-waste" value="35" min="0" max="100" step="1"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-ls-titles">Titles that fit the content
-          <span class="tip" tabindex="0" data-tip="Titles Audience Discovery ranked above the audience they target today. Context only.">?</span>
-        </label>
-        <input class="field-input" type="number" id="u-ls-titles" value="6" min="0" step="1">
-      </div>
-    </div>
-
-    <div class="grid hidden" id="au-expansion" style="margin-top: 16px;">
-      <div class="f">
-        <label class="field-label" for="u-hours">Hours / assessment
-          <span class="tip" tabindex="0" data-tip="Internal marketing hours one vertical assessment takes today. Charged at the marketing rate in Setup.">?</span>
-        </label>
-        <input class="field-input" type="number" id="u-hours" value="80" min="0" step="5">
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-research">Research firm cost
-          <span class="tip" tabindex="0" data-tip="Outside research or analyst spend per vertical assessment.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="u-research" value="15000" min="0" step="1000"></div>
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-verticals">Assessments / year
-          <span class="tip r" tabindex="0" data-tip="Vertical assessments they run per year.">?</span>
-        </label>
-        <input class="field-input" type="number" id="u-verticals" value="2" min="0" step="1">
-      </div>
-      <div class="f">
-        <label class="field-label" for="u-weeks">Weeks / assessment
-          <span class="tip" tabindex="0" data-tip="Elapsed weeks one assessment takes end to end.">?</span>
-        </label>
-        <input class="field-input" type="number" id="u-weeks" value="8" min="0" step="1">
-      </div>
-    </div>
-
+  <section class="sec" id="sec-aud">
+    <div class="sec-h"><span class="sec-t"><a href="audience-discovery.html">Audience Discovery</a></span><span class="sec-v" id="v-aud">&mdash;</span></div>
     <div class="grid">
       <div class="f">
-        <label class="field-label" for="u-acc">Accuracy <span class="req">*</span>
-          <span class="tip " tabindex="0" data-tip="Share of what the run called that your team confirmed. Ask them: of the findings we gave you, how many had you already seen or agreed with? Every dollar in this section is cut by it. Our published rate across all customers is 84%.">?</span>
+        <label class="field-label" for="aud-spend">LinkedIn spend a month
+          <span class="tip" tabindex="0" data-tip="Spend on the campaigns that send people to this page. Campaign Manager, last 90 days, divided by 3.">?</span>
         </label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="u-acc" value="85" min="0" max="100" step="1"></div>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="aud-spend" value="20000" min="0" step="1000"></div>
       </div>
       <div class="f">
-        <label class="field-label" for="u-newsegs">New segments found
-          <span class="tip" tabindex="0" data-tip="Sub-verticals surfaced that they have not marketed into.">?</span>
+        <label class="field-label" for="aud-share">Share on roles with no seat
+          <span class="tip r" tabindex="0" data-tip="Students, entry level, sales, HR and vendors. Read it off Campaign Manager › Demographics by job function and seniority. Don’t estimate it.">?</span>
         </label>
-        <input class="field-input" type="number" id="u-newsegs" value="4" min="0" step="1">
+        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="aud-share" value="30" min="0" max="100" step="1"></div>
       </div>
     </div>
-    <div class="alert hidden" id="u-alert"></div>
+  </section>
+
+  <section class="sec" id="sec-ads">
+    <div class="sec-h"><span class="sec-t"><a href="ad-campaign-simulation.html">Ad Funnels</a></span><span class="sec-v" id="v-ads">&mdash;</span></div>
+    <div class="grid">
+      <div class="f" id="ads-spend-f">
+        <label class="field-label" for="ads-spend">LinkedIn spend a month
+          <span class="tip" tabindex="0" data-tip="Spend on the campaigns that send people to this page.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="ads-spend" value="20000" min="0" step="1000"></div>
+      </div>
+      <div class="f hidden" id="ads-spend-shared">
+        <span class="field-label">LinkedIn spend a month</span>
+        <div class="f-shared">Same as Audience Discovery, <b id="ads-spend-echo">$0</b></div>
+      </div>
+      <div class="f">
+        <label class="field-label" for="ads-leads">LinkedIn leads a month
+          <span class="tip r" tabindex="0" data-tip="Leads from LinkedIn on this page, from Campaign Manager or your CRM with utm_source=linkedin.">?</span>
+        </label>
+        <input class="field-input" type="number" id="ads-leads" value="80" min="0" step="5">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sec-email">
+    <div class="sec-h"><span class="sec-t"><a href="email-campaign-simulation.html">Email Sequences</a></span><span class="sec-v" id="v-email">&mdash;</span></div>
+    <div class="grid">
+      <div class="f">
+        <label class="field-label" for="em-leads">Leads a month from email
+          <span class="tip" tabindex="0" data-tip="Leads, replies that become leads, or demo requests from the sequence each month.">?</span>
+        </label>
+        <input class="field-input" type="number" id="em-leads" value="40" min="0" step="5">
+      </div>
+      <div class="f">
+        <label class="field-label" for="em-cpl">Cost per lead
+          <span class="tip r" tabindex="0" data-tip="Your blended cost per lead. We use it to count how many extra leads pay for WhyUser.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="em-cpl" value="250" min="0" step="10"></div>
+      </div>
+    </div>
   </section>
 
 </div>
 
-<!-- ============================ SLIDE ============================ -->
+<!-- ============================ THE SLIDE ============================ -->
 <aside class="calc-out">
   <div class="slide" id="slide">
-    <!-- Print only: the sheet gets forwarded to people who were not on the
-         call, so it needs provenance. The mark removes itself if the image
-         path 404s, leaving the wordmark. -->
     <div class="print-brand">
       <img src="images/whyuser-dog-badge.png" alt="" onerror="this.remove()">
       <span class="wu-wordmark">Why<span class="wu-wordmark-user">User</span></span>
     </div>
     <div class="slide-top">
       <div class="slide-co" id="slide-company">Your company</div>
-      <div class="slide-dt" id="slide-date">—</div>
+      <div class="slide-dt" id="slide-date">&mdash;</div>
     </div>
-
-    <div class="line">
-      <div class="line-tag"><span class="line-n">1 · Accuracy</span></div>
-      <div class="line-lead" id="l1-lead">—</div>
+    <div class="roi-rows" id="roi-rows"></div>
+    <div class="roi-sum" id="roi-counted"><span><b id="roi-total-k">Total per year</b></span><span><b id="roi-total">&mdash;</b></span></div>
+    <div class="roi-sum follow" id="roi-share"><span id="roi-share-k">WhyUser contribution (40%)</span><span id="roi-share-v">&mdash;</span></div>
+    <div class="roi-sum follow" id="roi-cost"><span id="roi-plan">WhyUser price</span><span id="roi-price">&mdash;</span></div>
+    <div class="roi-panel" id="roi-panel">
+      <div><span class="k">ROI</span><span class="sub" id="roi-sub">&mdash;</span></div>
+      <span class="n" id="roi-n">&mdash;</span>
     </div>
-
-    <div class="line">
-      <div class="line-tag"><span class="line-n" id="l2-name">2 · —</span><span class="line-flag on">In the ratio</span><button type="button" class="math-toggle no-print" id="l2-toggle">Show the arithmetic</button></div>
-      <div class="line-lead" id="l2-lead">—</div>
-      <div class="math" id="l2-math"></div>
-      <div class="line-note" id="l2-note"></div>
-    </div>
-
-    <div class="line">
-      <div class="line-tag"><span class="line-n">3 · Context</span></div>
-      <div class="line-lead" id="l3-lead">—</div>
-    </div>
-
-    <div class="line">
-      <div class="line-tag"><span class="line-n">4 · Speed</span><span class="line-flag">Not added</span></div>
-      <div class="line-lead" id="l4-lead">—</div>
-      <div class="math" id="l4-math"></div>
-      <div class="line-note" id="l4-note"></div>
-    </div>
-
-    <div class="ask">
-      <div class="ask-row">
-        <div class="ask-cost"><b id="ask-cost">—</b> / year</div>
-        <div class="ask-ratio" id="ask-ratio">—</div>
-      </div>
-      <div class="line-note" id="ask-warn" style="display:none"></div>
-    </div>
-
   </div>
 
   <div class="slide-actions no-print">
     <button class="btn primary" id="btn-copy">Copy</button>
     <button class="btn" onclick="window.print()">Print</button>
+    <button type="button" class="math-toggle" id="math-toggle" aria-expanded="false" aria-controls="math">Show the math</button>
   </div>
+  <div class="math-panel hidden no-print" id="math"></div>
 </aside>
 
 </div>
 
-<div class="wu-notes no-print">
-  <div class="wu-note">
-    <h3>Why no CTR or CVR</h3>
-    <p>The roles that decide are the smallest slice of your traffic. Fix them and your page numbers do not move.</p>
-    <p class="wu-calc">Economic Buyer                        <b>7% of your traffic</b>
-Lift that slice 2% → 3%               <b>3,800</b> sessions per arm   =  2 years
-Blended, that same fix reads          2.00% → <b>2.07%</b>
-To see 2.07% at all                   <b>600,000</b> sessions per arm  =  never</p>
-    <p>And analytics cannot tell you which sessions were theirs.</p>
-    <p><b>So we count what you can count. We never claim a lift.</b></p>
-  </div>
-
-</div>
-
-<div class="folds no-print">
-  <details class="fold" open>
-    <summary><span>How each number is built</span></summary>
-    <div class="fold-b">
-      <table class="ref"><tbody>
-        <tr><td>Pages &amp; content <b>· counted</b></td><td><code>(rounds today − rounds after) × hours saved × marketing rate × assets/yr × your confirmed rate</code><br>What it costs in team time to get one asset through review, before and after.</td></tr>
-        <tr><td>Learning cycles <b>· counted</b></td><td><code>hours saved × cycles/yr × marketing rate × your confirmed rate</code><br>The work of finding out whether a shipped asset is working. <b>No overlap with the review line</b>: that one is the argument before a page ships, this one is the cycle after it.<br>Two things are deliberately absent. The <i>wait</i>, because nobody sits idle while traffic accumulates, so calendar time never becomes money — it is on line 4, in days. And the <i>run's own cost</i>, because the plan price is already the denominator of the ratio; deducting it here would charge for it twice.</td></tr>
-        <tr><td>Ads <b>· protected</b></td><td><code>spend/mo × (flagged ÷ checked) × (days to next review ÷ 30) × campaigns/yr × your confirmed rate</code><br>The committee run says what the page answers, the ad run says what the creative promised, and we count the gap.<br><b>No overlap with the pages line.</b> That one counts marketing hours before launch, this one counts paid clicks after it.</td></tr>
-        <tr><td>Email <b>· counted</b></td><td><code>(reviewers × hours × rounds removed × marketing rate + copywriter × rounds removed) × sends/mo × 12 × your confirmed rate</code></td></tr>
-        <tr><td>Audience — cost per lead <b>· observed</b></td><td><code>(control CPL − test CPL) × leads/mo × 12 × haircut</code><br>Haircut is 0.5 when the test window is under 30 days. No confirmed-rate haircut: this one you measured.</td></tr>
-        <tr><td>Audience — targeting <b>· protected</b></td><td><code>paid social spend/mo × share outside your target function × 12</code><br>Read the share off the platform's own demographics report, never an estimate.</td></tr>
-        <tr><td>Audience — expansion <b>· counted</b></td><td><code>(hours × marketing rate + research cost) × assessments/yr</code></td></tr>
-        <tr><td>Line 4 — speed</td><td><code>rounds removed × 5 days</code> per asset, <code>14 days</code> per post-launch read, and the same arithmetic per send on email. Those two day figures are ours, not theirs, and they are printed on the slide. Listed, never summed: those cycles run in parallel, and a summed figure is the double count a CFO looks for.</td></tr>
-        <tr><td>Accuracy</td><td>Set per section, because a page run and an ad run are not graded by the same people on the same evidence. Every counted and protected line in a section is cut by its own rate. Blank, and we use our published 84% and say so.<br>The measured cost-per-lead line is never cut: that one you observed, so a haircut would be us discounting your own data.</td></tr>
-        <tr><td>The ratio</td><td><code>(every line above) ÷ annual price</code>, always rounded down.</td></tr>
-      </tbody></table>
-    </div>
-  </details>
-</div>
-
 <div class="mini no-print" id="mini">
-  <span class="mini-r" id="mini-r">—</span>
-  <span class="mini-v" id="mini-v">—</span>
-  <a href="#slide">See the slide</a>
+  <span class="mini-v" id="mini-v">&mdash;</span>
+  <a href="#slide">See the ROI</a>
 </div>
 
 </div>
@@ -4830,12 +4505,12 @@ To see 2.07% at all                   <b>600,000</b> sessions per arm  =  never<
                     <span class="nav-mark"><img src="images/whyuser-dog-badge.png" alt=""></span>
                     <span class="footer-brand-name">Why<span class="wu-wordmark-user">User</span> Inc.</span>
                 </div>
-                <p class="footer-tagline">WhyUser is pre-launch buyer simulation for B2B marketing. Know your buyer, rehearse the launch with your buying committee, and ship the fix before you spend. Every finding cites a buyer.</p>
+                <p class="footer-tagline">WhyUser is the pre-launch buyer simulation platform for search and AI visibility, lead conversion and audience targeting. Every finding cites a buyer.</p>
             </div>
 
             <div><h4>Product</h4><ul>
                 <li><a href="buyer-personas.html">Buyer Context</a></li>
-                <li><a href="buyer-questions.html">Buyer Questions</a></li>
+                <li><a href="buyer-answer-gap.html">Buyer Answer Gap</a></li>
                 <li><a href="committee-simulation.html">Pages &amp; Content</a></li>
                 <li><a href="ad-campaign-simulation.html">Ad Funnels</a></li>
                 <li><a href="email-campaign-simulation.html">Email Sequences</a></li>
@@ -4905,676 +4580,251 @@ To see 2.07% at all                   <b>600,000</b> sessions per arm  =  never<
 
 <script>
 /* ============================================================
-   WHYUSER — ROI CALCULATOR
-   Builds the one-page business case from the proof playbooks.
-     · exactly one line feeds the ratio
-     · context and speed never enter the arithmetic
-     · every figure is counted or observed, never modelled
+   WHYUSER — ROI CALCULATOR v4 (19 Nov 2026)
+   Two inputs per feature, one table, one ROI. No lifts.
+   Inputs are monthly, as Semrush, Ahrefs and Campaign Manager
+   report them. The card shows every figure for one period:
+   a month, a quarter or a year (default).
+     · Buyer Answer Gap: searches × CPC, at Google Ads prices.
+     · Pages & Content (Common Patterns guide): searches on the
+       keywords behind page gaps × CPC.
+     · Audience Discovery: LinkedIn spend × share on roles with
+       no seat on the buying committee.
+     · Ad Funnels: LinkedIn spend on the page.
+     · Email Sequences: email leads × cost per lead.
+     · WhyUser contribution: the share of the total the visitor
+       credits to WhyUser (default 40%).
+     · ROI = total × contribution ÷ WhyUser price, both for the
+       same period, rounded down. Price per period = annual plan
+       ÷ 12 × 1, 3 or 12.
    ============================================================ */
 (function () {
   'use strict';
 
   var $ = function (id) { return document.getElementById(id); };
-  var n = function (id) { var e = $(id); var v = e ? parseFloat(e.value) : 0; return isFinite(v) ? v : 0; };
-  var s = function (id) { var e = $(id); return e ? (e.value || '').trim() : ''; };
+  var num = function (id) { var e = $(id); var v = e ? parseFloat(e.value) : NaN; return isFinite(v) && v > 0 ? v : 0; };
+  var str = function (id) { var e = $(id); return e ? (e.value || '').trim() : ''; };
   var money = function (v) { return '$' + Math.round(v).toLocaleString('en-US'); };
+  var money2 = function (v) {
+    return Math.abs(v - Math.round(v)) < 0.005 ? money(v)
+      : '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
   var qty = function (v) { return Math.round(v).toLocaleString('en-US'); };
-  var dec = function (v) { return (Math.round(v * 100) / 100).toString(); };
-  /* Ratios always round DOWN. The slide never overstates itself. */
-  var ratioStr = function (r) {
-    if (!isFinite(r) || r <= 0) return '—';
-    return (r >= 10 ? Math.floor(r) : Math.floor(r * 10) / 10) + ':1';
+  var dec1 = function (v) { return (Math.round(v * 10) / 10).toLocaleString('en-US'); };
+  var two = function (r) { return (Math.floor(r * 100) / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  /* ROI rounds down, so it never flatters. */
+  var roiStr = function (r) { return (r >= 10 ? Math.floor(r) : Math.floor(r * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: r >= 10 ? 0 : 1 }) + '×'; };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+
+  var PLANS = { standard: { name: 'Standard', annual: 12000 }, scale: { name: 'Scale', annual: 24000 } };
+  var PERIODS = { month: { m: 1, word: 'month', short: 'mo' }, quarter: { m: 3, word: 'quarter', short: 'qtr' }, year: { m: 12, word: 'year', short: 'yr' } };
+  var ORDER = ['bag', 'pages', 'aud', 'ads', 'email'];
+  var NAMES = { bag: 'Buyer Answer Gap', pages: 'Pages & Content', aud: 'Audience Discovery', ads: 'Ad Funnels', email: 'Email Sequences' };
+  var UI = { feats: { bag: true, pages: true, aud: true, ads: true, email: true }, plan: 'scale', period: 'year' };
+
+  function annual() { return UI.plan === 'enterprise' ? num('in-price') : PLANS[UI.plan].annual; }
+  function per() { return PERIODS[UI.period] || PERIODS.year; }
+  function contrib() { return Math.min(num('in-contrib'), 100) / 100; }
+  /* Audience Discovery and Ad Funnels read the same LinkedIn spend. */
+  function linkedInSpend() { return UI.feats.aud ? num('aud-spend') : num('ads-spend'); }
+
+  /* v is the monthly value; the card scales it to the chosen period. */
+  function row(v, line, f, need) {
+    var p = per();
+    if (!(v > 0)) return { ok: false, v: 0, big: '—', head: '—', line: need, f: '' };
+    return {
+      ok: true, v: v * p.m, big: money(v * p.m), head: money(v * p.m) + '/' + p.short,
+      line: line, f: f + (p.m > 1 ? ' × ' + p.m + ' months' : '')
+    };
+  }
+
+  /* Each returns { ok, v, big, head, line, f }, for the chosen period. */
+  var F = {
+    bag: function () {
+      var S = num('bag-searches'), C = num('bag-cpc');
+      return row(S * C, 'Searches a ' + per().word + ' on buyer questions your pages don’t answer, at Google Ads prices.',
+        qty(S) + ' searches × ' + money2(C), 'Add your searches and cost per click.');
+    },
+    /* Common Patterns guide: the keywords behind the facts your pages lack. */
+    pages: function () {
+      var S = num('pg-searches'), C = num('pg-cpc');
+      return row(S * C, 'Searches a ' + per().word + ' on facts your pages lack, at Google Ads prices.',
+        qty(S) + ' searches × ' + money2(C), 'Add your searches and cost per click.');
+    },
+    aud: function () {
+      var SP = num('aud-spend'), sh = Math.min(num('aud-share'), 100);
+      return row(SP * sh / 100, 'LinkedIn spend a ' + per().word + ' on roles with no seat.',
+        money(SP) + ' × ' + dec1(sh) + '% on roles with no seat', 'Add your LinkedIn spend and the share on roles with no seat.');
+    },
+    ads: function () {
+      var SP = linkedInSpend(), N = num('ads-leads'), cpl = N > 0 ? SP / N : 0;
+      return row(N > 0 ? SP : 0, 'LinkedIn spend a ' + per().word + ' on this page, ' + money2(cpl) + ' a lead.',
+        money(SP) + ' spend', 'Add your LinkedIn spend and leads.');
+    },
+    email: function () {
+      var N = num('em-leads'), C = num('em-cpl');
+      return row(N * C, 'Email leads a ' + per().word + ' at ' + money2(C) + ' each.',
+        qty(N) + ' leads × ' + money2(C), 'Add your email leads and cost per lead.');
+    }
   };
-  var plural = function (v, one, many) { return Math.abs(v) === 1 ? one : many; };
 
-  var UI = {
-    features: { committee: true, ad: false, email: false, audience: false },
-    plan: 'scale',
-    etrack: 'a',
-    utrack: 'paid',
-    utrackReady: true
-  };
-
-  /* Grades, in the order they are allowed to appear on the slide.
-       counted    — work that stops being done. Hours × rate.
-       protected  — spend that stops going nowhere. Not money returned.
-       observed   — a result the customer measured themselves.
-       Nothing else reaches the slide: a line we cannot put in one of
-       these three words is a line we do not state.                      */
-  var GRADE = { counted: 'Counted', protected: 'Protected', observed: 'Observed' };
-
-  /* Assumed so the form stays short. Both appear on the slide in line 4,
-     so nothing here is hidden from the person reading it. */
-  var DAYS_PER_ROUND = 5;   /* calendar days one round of review adds        */
-  var DAYS_TO_READ = 14;    /* days of traffic before a read means anything  */
-  var RUN_CREDITS = 20;     /* a page or content run, per the pricing page    */
-  var PLAN_CREDITS = { standard: 2400, scale: 5400 };
-
-  /* What one run costs on their plan. Enterprise sets its own allowance, so
-     we return 0 and the comparison drops itself rather than guessing. */
-  /* One place decides what a section's accuracy is, so the slide, the
-     header and line 1 can never disagree about it. */
-  function accOf(id) {
-    var v = n(id);
-    return (v > 0 && v <= 100) ? v / 100 : 0.84;
-  }
-  function activeAccuracies() {
-    var out = [];
-    if (UI.features.committee) out.push({ id: 'c-acc', label: 'pages', pct: Math.round(accOf('c-acc') * 100) });
-    if (UI.features.ad) out.push({ id: 'a-acc', label: 'ads', pct: Math.round(accOf('a-acc') * 100) });
-    if (UI.features.email) out.push({ id: 'e-acc', label: 'email', pct: Math.round(accOf('e-acc') * 100) });
-    if (UI.features.audience && UI.utrack !== 'paid') {
-      out.push({ id: 'u-acc', label: 'audience', pct: Math.round(accOf('u-acc') * 100) });
-    }
-    return out;
-  }
-
-  function runCost() {
-    var credits = PLAN_CREDITS[UI.plan];
-    return credits ? price() / credits * RUN_CREDITS : 0;
-  }
-
-  /* ============================================================
-     CANDIDATES
-     One entry per way a feature removes cost. A feature with two
-     ways (ads) contributes only the one that is picked.
-     ============================================================ */
-  function buildCandidates() {
-    var rate = n('sh-rate');            /* marketing loaded rate */
-    var list = [];
-
-    /* Accuracy is per run type, because a page run and an ad run are not
-       graded by the same people on the same evidence. Blank falls back to
-       our published 84% and the form says so. */
-    var cConf = accOf('c-acc'), cPct = Math.round(cConf * 100);
-    var aConf = accOf('a-acc'), aPct = Math.round(aConf * 100);
-    var eConf = accOf('e-acc'), ePct = Math.round(eConf * 100);
-    var uConf = accOf('u-acc'), uPct = Math.round(uConf * 100);
-
-    /* --- pages and content: review rounds the team stops running.
-       This is the marketing line. It replaces the old sales-hours line,
-       which counted someone else's budget and which no marketing leader
-       can bank. Same evidence, the buyer's own cost centre. --- */
-    if (UI.features.committee) {
-      var cHrs = n('c-hrs');
-      var cRR = Math.max(0, n('c-rounds-now') - n('c-rounds-after'));
-      var cAssets = n('c-assets');
-      var costNow = n('c-rounds-now') * cHrs * rate;
-      var costAfter = n('c-rounds-after') * cHrs * rate;
-      var cSaved = Math.max(0, costNow - costAfter);
-      var cNet = cSaved * cAssets * cConf;
-      var cBlock = null;
-      if (cRR <= 0) cBlock = 'Rounds after is not lower than rounds today, so nothing is removed.';
-      else if (cAssets <= 0) cBlock = 'No assets a year, so nothing is counted.';
-      else if (cHrs <= 0) cBlock = 'A round has to cost some team time.';
-
-      list.push({
-        id: 'rework', feature: 'committee', tag: 'pages and content',
-        short: 'Review cost per asset', name: 'Review cost per asset',
-        grade: 'counted', annual: cNet, blocked: cBlock,
-        lead: 'Getting one asset through review costs <strong>' + money(costNow) + '</strong> of team time today. ' +
-              'With the run answering the argument, <strong>' + money(costAfter) + '</strong>.',
-        headline: '<strong>' + money(costNow) + ' → ' + money(costAfter) + '</strong> to get one asset through review.',
-        math: [
-          qty(n('c-rounds-now')) + ' rounds × ' + dec(cHrs) + ' hrs a round × ' + money(rate) + '  =  ' + money(costNow) + ' per asset today',
-          qty(n('c-rounds-after')) + ' rounds after  =  ' + money(costAfter) + ' per asset',
-          'saved  =  ' + money(cSaved) + ' × ' + qty(cAssets) + ' assets a year  =  ' + money(cSaved * cAssets),
-          '× ' + cPct + '% of our calls you confirmed  =  ' + money(cNet) + ' per year'
-        ],
-        speed: cRR > 0 ? {
-          days: cRR * DAYS_PER_ROUND, unit: 'off every asset',
-          per: qty(cRR) + ' rounds × ' + qty(DAYS_PER_ROUND) + ' days'
-        } : null,
-        context: 'Pages ship on opinion today, and ' + qty(n('c-bounce')) + '% of visitors leave without converting.'
-      });
-
-      /* --- the learning cycle: the work of finding out what went wrong.
-         The review line counts the argument BEFORE a page ships. This
-         counts the cycle AFTER it ships: pulling the numbers, writing
-         the read, the meeting. Different hours, different week, so the
-         two never touch the same dollar.
-
-         The WAIT is deliberately not money. Nobody sits idle for a
-         fortnight while traffic accumulates, so calendar time × rate
-         would count hours that were always worked. The wait is on
-         line 4, in days, where it is true. --- */
-      var lPer = cHrs * rate;
-      var lCycles = n('c-learn-cycles');
-      var lNet = lPer * lCycles * cConf;
-
-      var rc = runCost();
-      var lMath = [
-        dec(cHrs) + ' hrs a cycle × ' + money(rate) + '  =  ' + money(lPer) + ' per cycle today',
-        '× ' + qty(lCycles) + ' cycles a year  =  ' + money(lPer * lCycles),
-        '× ' + cPct + '% of our calls you confirmed  =  ' + money(lNet) + ' per year'
-      ];
-      if (rc > 0) {
-        lMath.splice(1, 0, 'a run instead  =  ' + money(rc) + ' of credits, about 30 minutes');
-      }
-
-      list.push({
-        id: 'learn', feature: 'committee', tag: 'learning cycles',
-        short: 'Cost per learning cycle', name: 'Cost per learning cycle',
-        grade: 'counted', annual: lNet,
-        blocked: (cHrs > 0 && lCycles > 0) ? null : 'Learning cycles a year and team hours are both needed.',
-
-        lead: 'Finding out whether an asset works costs <strong>' + money(lPer) + ' of team time and ' +
-              qty(DAYS_TO_READ) + ' days</strong> today' +
-              (rc > 0 ? '. A run costs <strong>' + money(rc) + '</strong> and about thirty minutes.' : '.'),
-        math: lMath,
-        speed: {
-          days: DAYS_TO_READ, unit: 'off every read',
-          per: qty(DAYS_TO_READ) + ' days of traffic → 30 min'
-        },
-        context: rc > 0
-          ? 'One learning cycle costs ' + money(lPer) + ' and ' + qty(DAYS_TO_READ) +
-            ' days today. A run costs ' + money(rc) + ' and thirty minutes.'
-          : null
-      });
-    }
-
-    /* --- ads: the seam the committee run cannot see on its own.
-       The pages line counts marketing hours before launch. This counts
-       paid clicks after it. A click that bounces on a mismatch never
-       becomes an opportunity, so the two never touch the same dollar. --- */
-    if (UI.features.ad) {
-      var aSpend = n('a-spend'), aChk = n('a-creatives'), aMis = n('a-mismatch');
-      var aShare = aChk > 0 ? aMis / aChk : 0;
-      var aMonthly = aSpend * aShare;
-      var aPerCampaign = aMonthly * (n('a-review-days') / 30);
-      var aGross = aPerCampaign * n('a-campaigns');
-      var aNet = aGross * aConf;
-      var aBlock = null;
-      if (aChk <= 0) aBlock = 'No creatives were checked, so nothing is counted.';
-      else if (aMis > aChk) aBlock = 'More disagreements than creatives checked.';
-      else if (aMis <= 0) aBlock = 'Nothing was flagged, so nothing is counted.';
-      else if (aSpend <= 0 || n('a-campaigns') <= 0) aBlock = 'Spend and campaigns a year are both needed.';
-
-      list.push({
-        id: 'ad-scent', feature: 'ad', tag: 'ad spend',
-        short: 'Ad spend repointed', name: 'Ad spend repointed',
-        grade: 'protected', annual: aNet, blocked: aBlock,
-        lead: '<strong>' + qty(aMis) + ' of ' + qty(aChk) + ' creatives</strong> promised what the page does not deliver. The click is already paid for.',
-        math: [
-          money(aSpend) + ' a month × ' + qty(aMis) + ' of ' + qty(aChk) + ' flagged  =  ' + money(aMonthly) + ' a month behind the break',
-          '× ' + qty(n('a-review-days')) + ' days to your next review ÷ 30  =  ' + money(aPerCampaign) + ' a campaign',
-          '× ' + qty(n('a-campaigns')) + ' campaigns a year  =  ' + money(aGross),
-          '× ' + aPct + '% of our calls you confirmed  =  ' + money(aNet) + ' per year'
-        ],
-        speed: null,
-        context: money(aSpend) + '/month running behind creatives never checked against the page they land on.'
-      });
-    }
-
-    /* --- email: the same rework line, on the send cycle --- */
-    if (UI.features.email) {
-      var eRR = Math.max(0, n('e-rounds-now') - n('e-rounds-after'));
-      var eHours = n('e-rev') * n('e-hours') * eRR * rate;
-      var ePerEmail = eHours + n('e-agency') * eRR;
-      var eMonthly = ePerEmail * n('e-sends');
-      var eNet = eMonthly * 12 * eConf;
-
-      list.push({
-        id: 'email-cycle', feature: 'email', tag: 'email',
-        short: 'Email rework removed', name: 'Email rework removed',
-        grade: 'counted', annual: eNet,
-        blocked: eRR > 0 ? null : 'Rounds after is not lower than rounds today.',
-        lead: '<strong>' + qty(eRR) + ' copy ' + plural(eRR, 'round', 'rounds') + ' back</strong> on every send. Same team, more sends.',
-        math: [
-          qty(n('e-rev')) + ' reviewers × ' + dec(n('e-hours')) + ' hrs × ' + qty(eRR) + ' ' + plural(eRR, 'round', 'rounds') + ' × ' + money(rate) + '  =  ' + money(eHours),
-          '+ ' + money(n('e-agency')) + ' copywriter × ' + qty(eRR) + '  =  ' + money(ePerEmail) + ' per email',
-          '× ' + qty(n('e-sends')) + ' sends a month × 12  =  ' + money(eMonthly * 12),
-          '× ' + ePct + '% of our calls you confirmed  =  ' + money(eNet) + ' per year'
-        ],
-        speed: eRR > 0 && n('e-days') > 0 ? {
-          days: eRR * n('e-days'), unit: 'off every send',
-          per: qty(eRR) + ' ' + plural(eRR, 'round', 'rounds') + ' × ' + qty(n('e-days')) + ' days'
-        } : null,
-        context: UI.etrack === 'a'
-          ? 'Contacts cost ' + money(n('e-cac')) + ' each. One bad send burns ' + qty(n('e-unsub')) + ' of them.'
-          : qty(n('e-domains')) + ' sending domains. Burning one costs ' + qty(n('e-warmup')) + ' weeks of warmup.'
-      });
-    }
-
-    /* --- audience --- */
-    if (UI.features.audience) {
-      if (UI.utrack === 'paid') {
-        var base = n('u-cpl-base'), test = n('u-cpl-test'), leads = n('u-leads'), win = n('u-window');
-        var haircut = win < 30 ? 0.5 : 1;
-        var uMonthly = Math.max(0, base - test) * leads;
-        var pct = base > 0 ? Math.round((1 - test / base) * 100) : 0;
-        var qBlock = null;
-        if (test >= base) qBlock = 'The discovered audience is not cheaper per lead.';
-        else if (n('u-q-treat') < n('u-q-ctrl')) qBlock = 'Lead quality fell, so this number cannot be stated.';
-
-        var uMath = [
-          'Control ' + money(base) + ' per lead → discovered ' + money(test) + '  =  ' + pct + '% lower',
-          '× ' + qty(leads) + ' leads a month  =  ' + money(uMonthly) + ' a month'
-        ];
-        if (haircut < 1) uMath.push('Test ran ' + qty(win) + ' days, so we halve the annual figure ourselves');
-        uMath.push('=  ' + money(uMonthly * 12 * haircut) + ' per year');
-
-        list.push({
-          id: 'aud-cpl', feature: 'audience', tag: 'cost per lead',
-          short: 'Cost per lead, measured', name: 'Cost per lead, measured',
-          grade: 'observed', annual: uMonthly * 12 * haircut, blocked: qBlock,
-          lead: '<strong>' + qty(win) + '-day head-to-head.</strong> Same creative, same page, same budget. Only the audience changed.',
-          math: uMath,
-          speed: null,
-          context: 'Cost per lead fell and quality held: MQL to SQL ' + dec(n('u-q-ctrl')) + '% → ' +
-                   dec(n('u-q-treat')) + '%.'
-        });
-      } else if (UI.utrack === 'target') {
-        /* Title targeting cannot exclude a job function, so spend reaches
-           people you never sell to. The share is read off the platform's
-           own demographics report, which makes it observed, not modelled. */
-        var tSpend = n('u-ls-spend'), tWaste = n('u-ls-waste');
-        var tMonthly = tSpend * (tWaste / 100);
-        var tBlock = null;
-        if (tWaste > 100) tBlock = 'Share outside your function cannot exceed 100%.';
-        else if (tSpend <= 0 || tWaste <= 0) tBlock = 'Spend and the share outside your function are both needed.';
-
-        list.push({
-          id: 'aud-target', feature: 'audience', tag: 'targeting',
-          short: 'Spend reaching the wrong function', name: 'Spend reaching the wrong function',
-          grade: 'protected', annual: tMonthly * 12 * uConf, blocked: tBlock,
-          lead: '<strong>' + dec(tWaste) + '% of the audience</strong> you paid for sits outside the function you sell to.',
-          math: [
-            money(tSpend) + ' a month × ' + dec(tWaste) + '% outside your function  =  ' + money(tMonthly) + ' a month',
-            '× 12  =  ' + money(tMonthly * 12),
-            '× ' + uPct + '% of our calls you confirmed  =  ' + money(tMonthly * 12 * uConf) + ' per year'
-          ],
-          speed: null,
-          context: 'Targeting by title cannot exclude a job function. ' + qty(n('u-ls-titles')) +
-                   ' titles scored above the audience you buy today, with the skills and seniority to build them from.'
-        });
-      } else {
-        var vHours = n('u-hours') * rate;
-        var vPer = vHours + n('u-research');
-        list.push({
-          id: 'aud-research', feature: 'audience', tag: 'vertical research',
-          short: 'Research cost removed', name: 'Research cost removed',
-          grade: 'counted', annual: vPer * n('u-verticals') * uConf,
-          blocked: n('u-verticals') > 0 ? null : 'No assessments a year means nothing is removed.',
-          lead: 'Assessing a new vertical takes us <strong>' + qty(n('u-hours')) + ' hours plus a ' +
-                money(n('u-research')) + ' research project</strong>.',
-          math: [
-            qty(n('u-hours')) + ' hrs × ' + money(rate) + '  =  ' + money(vHours),
-            '+ ' + money(n('u-research')) + ' research  =  ' + money(vPer) + ' per vertical',
-            '× ' + qty(n('u-verticals')) + ' a year  =  ' + money(vPer * n('u-verticals')),
-            '× ' + uPct + '% of our calls you confirmed  =  ' + money(vPer * n('u-verticals') * uConf) + ' per year'
-          ],
-          speed: n('u-weeks') > 0 ? {
-            days: n('u-weeks') * 7, unit: 'off every assessment',
-            per: qty(n('u-weeks')) + ' weeks × 7 days'
-          } : null,
-          context: qty(n('u-newsegs')) + ' sub-verticals scored above our primary audience. None tested.'
-        });
-      }
-    }
-
-    return list;
-  }
-
-  function price() {
-    if (UI.plan === 'standard') return 12000;
-    if (UI.plan === 'scale') return 24000;
-    return n('sh-price');
-  }
-
-  /* ============================================================
-     RENDER
-     ============================================================ */
-  var CUR = { live: [], name: '—' };
-  var CTX = [];
+  var LAST = { rows: [], total: 0, share: 0, c: 0, price: 0, roi: 0 };
 
   function render() {
-    var list = buildCandidates();
-    var live = list.filter(function (c) { return !c.blocked && c.annual > 0; });
-    var totalAnnual = live.reduce(function (t, c) { return t + c.annual; }, 0);
-    var p = price();
-    var ratio = p > 0 ? totalAnnual / p : 0;
+    var A = annual(), p = per(), price = A / 12 * p.m;
+    var on = function (k) { return !!UI.feats[k]; };
+    var rows = ORDER.filter(on).map(function (k) { var o = F[k](); o.id = k; o.name = NAMES[k]; return o; });
+    var total = rows.reduce(function (t, o) { return t + o.v; }, 0);
+    var c = contrib(), share = total * c;
+    /* Both sides are for the same period: share uses monthly values × p.m, price uses annual ÷ 12 × p.m. */
+    var roi = price > 0 && share > 0 ? share / price : 0;
+    LAST = { rows: rows, total: total, share: share, c: c, price: price, roi: roi };
 
-    ['committee', 'ad', 'email', 'audience'].forEach(function (f) {
-      var el = $('tot-' + f);
-      if (!el) return;
-      var sum = live.filter(function (x) { return x.feature === f; })
-                    .reduce(function (t, x) { return t + x.annual; }, 0);
-      el.textContent = sum > 0 ? money(sum) + '/yr' : '—';
-    });
+    rows.forEach(function (o) { $('v-' + o.id).textContent = o.head; });
+    var sh = $('ads-spend-shared'), own = $('ads-spend-f');
+    sh.classList.toggle('hidden', !on('aud'));
+    own.classList.toggle('hidden', on('aud'));
+    $('ads-spend-echo').textContent = money(num('aud-spend'));
 
-    var accs = activeAccuracies();
-    var pcts = accs.map(function (a) { return a.pct; });
-    var lo = Math.min.apply(null, pcts), hi = Math.max.apply(null, pcts);
-    $('acc-rate').textContent = pcts.length
-      ? (lo === hi ? lo + '% confirmed' : lo + '–' + hi + '% confirmed')
-      : '—';
+    var co = str('cs-company');
+    $('slide-company').textContent = co || 'Your company';
+    $('slide-date').textContent = str('cs-date');
+    var priceStr = price > 0 ? money(price) : '—';
 
-    renderSlide(list, live, totalAnnual, p, ratio);
-    renderAlerts(list);
+    $('roi-rows').innerHTML = rows.map(function (o) {
+      return '<div class="roi-row' + (o.ok ? '' : ' none') + '">' +
+        '<span><span class="nm">' + esc(o.name) + '</span><small>' + esc(o.line) + '</small></span>' +
+        '<span class="v">' + esc(o.big) + '</span></div>';
+    }).join('');
+
+    $('roi-total-k').textContent = 'Total per ' + p.word;
+    $('roi-total').textContent = total > 0 ? money(total) : '—';
+    var cStr = dec1(c * 100) + '%';
+    $('roi-share-k').textContent = 'WhyUser contribution (' + cStr + ')';
+    $('roi-share-v').textContent = share > 0 ? money(share) : '—';
+    $('roi-plan').textContent = 'WhyUser price per ' + p.word;
+    $('roi-price').textContent = priceStr;
+
+    $('roi-panel').className = 'roi-panel' + (roi > 0 ? '' : ' none');
+    $('roi-n').textContent = roi > 0 ? roiStr(roi) : '—';
+    $('roi-sub').textContent = roi > 0 ? 'Return on WhyUser' : 'Add your numbers';
+
+    var mrow = function (n, v, f, cls) {
+      return '<div class="mrow' + (cls ? ' ' + cls : '') + '"><span class="mn">' + esc(n) + '</span><span class="mv">' + esc(v) + '</span>' +
+        (f ? '<span class="mf">' + esc(f) + '</span>' : '') + '</div>';
+    };
+    $('math').innerHTML = rows.map(function (o) { return mrow(o.name, o.big, o.ok ? o.f : ''); }).join('') +
+      mrow('Total per ' + p.word, total > 0 ? money(total) : '—', '', 'sum') +
+      mrow('WhyUser contribution', share > 0 ? money(share) : '—', total > 0 ? money(total) + ' × ' + cStr : '', 'sum follow') +
+      mrow('WhyUser price per ' + p.word, priceStr, price > 0 ? money(A) + ' a year' + (p.m !== 12 ? ' ÷ 12' + (p.m > 1 ? ' × ' + p.m : '') : '') : '', 'sum follow') +
+      (roi > 0 ? mrow('Return on WhyUser', roiStr(roi), money(share) + ' ÷ ' + money(price) + ' = ' + two(roi), 'tot') : '');
+
+    $('mini-v').textContent = roi > 0 ? 'ROI ' + roiStr(roi) + ' · ' + money(share) + '/' + p.short : 'Add your numbers';
     updateHash();
   }
 
-  function renderSlide(list, live, totalAnnual, p, ratio) {
-    $('slide-company').textContent = s('cs-company') || 'Your company';
-    $('slide-date').textContent = s('cs-date');
-
-    /* --- line 1 --- */
-    var assets = n('ac-assets');
-    var a1 = activeAccuracies();
-    var uniq = [];
-    a1.forEach(function (a) { if (uniq.indexOf(a.pct) === -1) uniq.push(a.pct); });
-    var tail = !a1.length ? ''
-      : uniq.length === 1
-        ? ' You confirmed <strong>' + uniq[0] + '%</strong> of what we called.'
-        : ' You confirmed ' + joinList(a1.map(function (a) {
-            return '<strong>' + a.pct + '%</strong> on ' + a.label;
-          })) + '.';
-    $('l1-lead').innerHTML = 'Tested blind on <strong>' + qty(assets) + ' ' +
-      plural(assets, 'asset', 'assets') + '</strong>.' + tail;
-
-    /* --- line 2: one candidate keeps its own arithmetic, several aggregate --- */
-    var lead, math;
-    var name = 'Marketing efficiency';
-    if (!live.length) {
-      lead = 'No eligible line.'; math = [];
-    } else if (live.length === 1) {
-      lead = live[0].lead;
-      math = [{ h: live[0].short, g: money(live[0].annual) + ' / yr  ·  ' + GRADE[live[0].grade].toLowerCase() }];
-      live[0].math.forEach(function (m) { math.push({ r: m }); });
-    } else {
-      var head = live.filter(function (c) { return c.headline; })[0];
-      var kind = live.filter(function (c) { return c.grade === 'protected'; }).length
-        ? 'work and spend that stops going nowhere'
-        : 'work the team stops doing';
-      lead = (head ? head.headline + ' ' : '') +
-             'Across ' + joinList(live.map(function (c) { return c.tag; })) + ', <strong>' +
-             money(totalAnnual) + ' a year</strong> of ' + kind + '.';
-      /* Every line shows how it was built. A number nobody can follow
-         is a number nobody defends in the room. */
-      math = [];
-      live.forEach(function (c) {
-        math.push({ h: c.short, g: money(c.annual) + ' / yr  ·  ' + GRADE[c.grade].toLowerCase() });
-        c.math.forEach(function (m) { math.push({ r: m }); });
-      });
-      math.push({ t: '=  ' + money(totalAnnual) + ' per year' });
-    }
-    $('l2-name').textContent = '2 · ' + name;
-    /* The toggle only means something when there is arithmetic to show. */
-    var tEl = $('l2-toggle');
-    if (tEl) tEl.style.display = live.length ? '' : 'none';
-    $('l2-lead').innerHTML = lead;
-    $('l2-math').innerHTML = (math.length && typeof math[0] === 'object')
-      ? math.map(function (m) {
-          if (m.h) return '<span class="mh">' + m.h + '<span class="mg">' + m.g + '</span></span>';
-          if (m.t) return '<span class="mt">' + m.t + '</span>';
-          return '<span class="mr">' + m.r + '</span>';
-        }).join('')
-      : math.map(function (m, i) {
-          return i === math.length - 1 ? '<b>' + m + '</b>' : m;
-        }).join('\n');
-    CUR = { live: live, name: name };
-
-    /* --- the double-count answer, stated before anyone asks --- */
-    /* Two short sentences at most. Anything longer belongs in the
-       reference table below the calculator, not on the sheet. */
-    var notes = [];
-    var has = function (id) { return live.filter(function (c) { return c.id === id; }).length > 0; };
-    if (has('rework') && has('learn')) {
-      notes.push('No double count: one is before the page ships, the other after.');
-    }
-    if (live.filter(function (c) { return c.grade === 'protected'; }).length) {
-      notes.push('Protected spend is redirected, not returned.');
-    }
-    $('l2-note').textContent = notes.join(' ');
-
-    /* --- line 3 --- */
-    var ctx = [];
-    live.forEach(function (c) { if (c.context && ctx.indexOf(c.context) === -1) ctx.push(c.context); });
-    CTX = ctx.slice(0, 3);
-    $('l3-lead').innerHTML = CTX.map(function (x) { return '<span class="ctx">' + x + '</span>'; }).join('');
-
-    /* --- line 4: the same removals, in calendar time --- */
-    /* Cycles run in parallel across assets, so these are never summed.
-       An annual days figure would be the double count a CFO looks for. */
-    var timed = live.filter(function (c) { return c.speed && c.speed.days > 0; });
-    if (timed.length) {
-      $('l4-lead').innerHTML = timed.length === 1
-        ? '<strong>' + qty(timed[0].speed.days) + ' days</strong> ' + timed[0].speed.unit + ', same team.'
-        : 'Work ships sooner on every cycle, same team.';
-      var sm = timed.map(function (c) {
-        return pad(qty(c.speed.days) + ' days ' + c.speed.unit, 30) + '   ' + c.speed.per;
-      });
-      $('l4-math').innerHTML = sm.join('\n');
-      $('l4-note').textContent = 'Line 2 in time, not extra to it. Never summed: these cycles overlap.';
-    } else {
-      $('l4-lead').textContent = 'No review rounds removed, so no velocity to state.';
-      $('l4-math').textContent = '';
-      $('l4-note').textContent = '';
-    }
-
-
-
-    /* --- the ask --- */
-    $('ask-cost').textContent = money(p);
-    var rEl = $('ask-ratio');
-    rEl.textContent = ratioStr(ratio);
-    rEl.className = 'ask-ratio' + (!live.length ? ' none' : ratio < 3 ? ' thin' : '');
-
-    /* Above 8:1 an input is almost always a default nobody replaced. */
-    var warn = $('ask-warn');
-    if (warn) {
-      var tooGood = live.length && ratio >= 8;
-      warn.textContent = tooGood
-        ? 'Above 8:1 usually means a default nobody replaced. Check every input against their own numbers before you send this.'
-        : '';
-      warn.style.display = tooGood ? '' : 'none';
-    }
-
-    $('mini-r').textContent = ratioStr(ratio);
-    $('mini-v').textContent = live.length ? money(totalAnnual) + '/yr' : 'nothing eligible';
-  }
-
-  function pad(str, w) { while (str.length < w) str += ' '; return str; }
-  function joinList(a) {
-    if (a.length === 1) return a[0];
-    return a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
-  }
-
-  /* ---------- inline alerts, only when something is wrong ---------- */
-  function alertEl(id, html) {
-    var el = $(id);
-    if (!el) return;
-    if (!html) { el.className = 'alert hidden'; el.innerHTML = ''; return; }
-    el.className = 'alert';
-    el.innerHTML = '<div>' + html + '</div>';
-  }
-
-  function renderAlerts(list) {
-    var blocked = function (f) {
-      var c = list.filter(function (x) { return x.feature === f; })[0];
-      return c && c.blocked ? c.blocked : null;
-    };
-    alertEl('c-alert', UI.features.committee ? blocked('committee') : null);
-    alertEl('a-alert', UI.features.ad ? blocked('ad') : null);
-    alertEl('e-alert', UI.features.email ? blocked('email') : null);
-    alertEl('u-alert', UI.features.audience ? blocked('audience') : null);
-
-    var blank = activeAccuracies().filter(function (a) { var v = n(a.id); return !(v > 0 && v <= 100); });
-    alertEl('acc-alert', blank.length
-      ? 'No accuracy set for ' + joinList(blank.map(function (a) { return a.label; })) +
-        '. Using our published 84% until you have their number.'
-      : null);
-    /* Only when the line is otherwise healthy, so a real block still wins. */
-    if (UI.features.committee && !blocked('committee') && n('sh-rate') >= 140) {
-      alertEl('c-alert', 'That looks like a sales-loaded rate. Every counted line here is marketing time — PMM, content and web. Using the sales rate is the first thing a CFO catches.');
-    }
-
-  }
-
-  /* ============================================================
-     EXPORT
-     ============================================================ */
-  function stripTags(h) { return String(h).replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, ''); }
-  function mathLines(id) {
-    var el = $(id);
-    if (el.querySelector('.mr, .mh, .mt')) {
-      return [].map.call(el.children, function (c) {
-        return (c.className === 'mr' ? '   ' : '') + c.innerText.replace(/\s+/g, ' ').trim();
-      });
-    }
-    return stripTags(el.innerHTML).split('\n').filter(function (l) { return l.trim(); });
-  }
-
+  /* ---------- copy: the slide as plain text ---------- */
+  function pad(s, w) { s = String(s); while (s.length < w) s += ' '; return s; }
   function slideText() {
-    var o = [];
-    o.push('WHYUSER — THE BUSINESS CASE');
-    o.push((s('cs-company') || 'Our company') + '  ·  ' + s('cs-date'));
+    var p = per(), o = [(str('cs-company') || 'Our company') + ' · ' + str('cs-date'), ''];
+    LAST.rows.forEach(function (r) { o.push(pad(r.name, 30) + pad(r.big, 12) + r.line); });
     o.push('');
-    o.push('1. ACCURACY');
-    o.push(stripTags($('l1-lead').innerHTML));
-    o.push('');
-    o.push('2. MARKETING EFFICIENCY');
-    o.push(stripTags($('l2-lead').innerHTML));
-    mathLines('l2-math').forEach(function (l) { o.push('   ' + l); });
-    if ($('l2-note').textContent) o.push($('l2-note').textContent);
-    o.push('');
-    o.push('3. CONTEXT');
-    CTX.forEach(function (l) { o.push(l); });
-    o.push('');
-    o.push('4. SPEED');
-    o.push(stripTags($('l4-lead').innerHTML));
-    mathLines('l4-math').forEach(function (l) { o.push('   ' + l); });
-    if ($('l4-note').textContent) o.push($('l4-note').textContent);
-    o.push('');
-    o.push('THE ASK');
-    o.push('Cost: ' + $('ask-cost').textContent + ' a year.   Ratio: ' + $('ask-ratio').textContent);
+    o.push(pad('Total per ' + p.word, 30) + (LAST.total > 0 ? money(LAST.total) : '—'));
+    o.push(pad('WhyUser contribution (' + dec1(LAST.c * 100) + '%)', 30) + (LAST.share > 0 ? money(LAST.share) : '—'));
+    o.push(pad('WhyUser price per ' + p.word, 30) + (LAST.price > 0 ? money(LAST.price) : '—'));
+    o.push(pad('ROI', 30) + (LAST.roi > 0 ? roiStr(LAST.roi) + ', return on WhyUser' : '—'));
     return o.join('\n');
   }
 
-  /* ============================================================
-     STATE IN THE URL — no browser storage
-     ============================================================ */
+  /* ---------- state in the URL, no browser storage ---------- */
+  var touched = false, hashTimer = null;
   function collect() {
-    var data = { ui: UI, v: {} };
-    document.querySelectorAll('.field-input, .meta-input').forEach(function (el) {
-      if (el.id && el.id !== 'cs-date') data.v[el.id] = el.value;
-    });
-    return data;
+    var d = { ui: UI, v: {} };
+    document.querySelectorAll('.field-input, .meta-input').forEach(function (el) { if (el.id && el.id !== 'cs-date') d.v[el.id] = el.value; });
+    return d;
   }
-  /* The address bar stays clean until the reader edits something. Writing
-     state on first paint turned every cold visit to /roi.html into a
-     1.5kB base64 URL, which looks broken and is ugly on a shared screen. */
-  var touched = false;
-  var hashTimer = null;
   function updateHash() {
     if (!touched) return;
     clearTimeout(hashTimer);
-    hashTimer = setTimeout(writeHash, 400);
-  }
-  function writeHash() {
-    try { history.replaceState(null, '', '#c=' + btoa(unescape(encodeURIComponent(JSON.stringify(collect()))))); }
-    catch (e) { /* non-fatal */ }
+    hashTimer = setTimeout(function () {
+      try { history.replaceState(null, '', '#c=' + btoa(unescape(encodeURIComponent(JSON.stringify(collect()))))); } catch (e) { /* non-fatal */ }
+    }, 400);
   }
   function restore() {
     var h = location.hash || '';
     if (h.indexOf('#c=') !== 0) return;
     try {
-      var data = JSON.parse(decodeURIComponent(escape(atob(h.slice(3)))));
-      if (data.ui) Object.keys(data.ui).forEach(function (k) { UI[k] = data.ui[k]; });
-      if (!UI.features) UI.features = { committee: true, ad: false, email: false, audience: false };
-      if (['paid', 'target', 'expansion'].indexOf(UI.utrack) === -1) UI.utrack = 'paid';
-      Object.keys(data.v || {}).forEach(function (id) { var el = $(id); if (el) el.value = data.v[id]; });
-    } catch (e) { /* non-fatal */ }
+      var d = JSON.parse(decodeURIComponent(escape(atob(h.slice(3)))));
+      if (d.ui && d.ui.feats) {
+        ORDER.forEach(function (k) { UI.feats[k] = !!d.ui.feats[k]; });
+        if (!ORDER.some(function (k) { return UI.feats[k]; })) UI.feats.bag = true;
+      }
+      if (d.ui && ['standard', 'scale', 'enterprise'].indexOf(d.ui.plan) !== -1) UI.plan = d.ui.plan;
+      if (d.ui && PERIODS[d.ui.period]) UI.period = d.ui.period;
+      /* Old links may carry inputs that no longer exist; they are skipped. */
+      Object.keys(d.v || {}).forEach(function (id) {
+        var el = $(id);
+        if (el && (el.classList.contains('field-input') || el.classList.contains('meta-input'))) el.value = d.v[id];
+      });
+    } catch (e) { /* an old or broken link opens the defaults */ }
   }
 
-  /* ============================================================
-     WIRING
-     ============================================================ */
+  /* ---------- wiring ---------- */
   function applyUI() {
-    ['committee', 'ad', 'email', 'audience'].forEach(function (f) {
-      var on = !!UI.features[f];
-      $('sec-' + f).classList.toggle('hidden', !on);
-      var b = document.querySelector('#seg-features [data-feat="' + f + '"]');
-      if (b) b.classList.toggle('active', on);
+    ORDER.forEach(function (k) {
+      $('sec-' + k).classList.toggle('hidden', !UI.feats[k]);
+      var b = document.querySelector('#seg-features [data-feat="' + k + '"]');
+      if (b) { b.classList.toggle('active', !!UI.feats[k]); b.setAttribute('aria-pressed', UI.feats[k] ? 'true' : 'false'); }
     });
     document.querySelectorAll('#seg-plan .seg-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.plan === UI.plan);
+      var on = b.dataset.plan === UI.plan;
+      b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('#seg-period .seg-btn').forEach(function (b) {
+      var on = b.dataset.period === UI.period;
+      b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     $('f-custom-price').classList.toggle('hidden', UI.plan !== 'enterprise');
-    document.querySelectorAll('#seg-email-track .seg-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.etrack === UI.etrack);
-    });
-    $('e-ctx-a').classList.toggle('hidden', UI.etrack !== 'a');
-    $('e-ctx-b').classList.toggle('hidden', UI.etrack !== 'b');
-    document.querySelectorAll('#seg-au-track .seg-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.utrack === UI.utrack);
-    });
-    $('au-paid').classList.toggle('hidden', UI.utrack !== 'paid');
-    $('au-target').classList.toggle('hidden', UI.utrack !== 'target');
-    $('au-expansion').classList.toggle('hidden', UI.utrack !== 'expansion');
   }
-
-  function flash(btn, msg) {
-    var old = btn.textContent;
-    btn.textContent = msg;
-    setTimeout(function () { btn.textContent = old; }, 1500);
+  function flash(btn, msg) { var old = btn.textContent; btn.textContent = msg; setTimeout(function () { btn.textContent = old; }, 1500); }
+  function copy(text, btn) {
+    var done = function () { flash(btn, 'Copied'); };
+    var fallback = function () {
+      var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) { /* noop */ }
+      document.body.removeChild(ta); done();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
   }
-  function fallbackCopy(text, done) {
-    var ta = document.createElement('textarea');
-    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); } catch (e) { /* noop */ }
-    document.body.removeChild(ta); done();
-  }
-  function copy(text, btn, msg) {
-    var done = function () { flash(btn, msg); };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
-    } else fallbackCopy(text, done);
-  }
-
   function bind() {
     document.querySelectorAll('.field-input, .meta-input').forEach(function (el) {
       el.addEventListener('input', function () { touched = true; render(); });
-      el.addEventListener('change', function () { touched = true; render(); });
     });
     document.querySelectorAll('#seg-features .seg-btn').forEach(function (b) {
       b.addEventListener('click', function () {
-        var f = b.dataset.feat, next = !UI.features[f];
-        if (!next && Object.keys(UI.features).filter(function (k) { return UI.features[k]; }).length === 1) return;
-        touched = true;
-        UI.features[f] = next;
-        applyUI(); render();
+        var k = b.dataset.feat, next = !UI.feats[k];
+        if (!next && ORDER.filter(function (x) { return UI.feats[x]; }).length === 1) return; /* keep one on */
+        touched = true; UI.feats[k] = next; applyUI(); render();
       });
     });
-    [['seg-plan', 'plan', 'plan'], 
-     ['seg-email-track', 'etrack', 'etrack'], ['seg-au-track', 'utrack', 'utrack']].forEach(function (t) {
-      document.querySelectorAll('#' + t[0] + ' .seg-btn').forEach(function (b) {
-        b.addEventListener('click', function () { touched = true; UI[t[1]] = b.dataset[t[2]]; applyUI(); render(); });
-      });
+    document.querySelectorAll('#seg-plan .seg-btn').forEach(function (b) {
+      b.addEventListener('click', function () { touched = true; UI.plan = b.dataset.plan; applyUI(); render(); });
     });
-    $('btn-copy').addEventListener('click', function () { copy(slideText(), this, 'Copied'); });
-
-    /* Collapsed by default: the sheet reads as a few numbers, and the
-       arithmetic is one click away. Print always shows it, because a
-       forwarded sheet cannot be clicked. */
-    var mEl = $('l2-math'), tEl = $('l2-toggle');
-    mEl.classList.add('collapsed');
-    tEl.addEventListener('click', function () {
-      var hidden = mEl.classList.toggle('collapsed');
-      tEl.textContent = hidden ? 'Show the arithmetic' : 'Hide the arithmetic';
+    document.querySelectorAll('#seg-period .seg-btn').forEach(function (b) {
+      b.addEventListener('click', function () { touched = true; UI.period = b.dataset.period; applyUI(); render(); });
+    });
+    $('btn-copy').addEventListener('click', function () { copy(slideText(), this); });
+    $('math-toggle').addEventListener('click', function () {
+      var hidden = $('math').classList.toggle('hidden');
+      this.textContent = hidden ? 'Show the math' : 'Hide the math';
+      this.setAttribute('aria-expanded', hidden ? 'false' : 'true');
     });
   }
 
-  /* ---------- boot ---------- */
   $('cs-date').value = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  restore();
-  applyUI();
-  bind();
-  render();
+  restore(); applyUI(); bind(); render();
 })();
-
 </script>
 
     <!-- Nav behaviour: Product dropdown + mobile menu -->

@@ -72,6 +72,13 @@
   status = 301
   force = true
 
+# Buyer Questions was renamed Buyer Answer Gap, 18 Nov 2026.
+[[redirects]]
+  from = "/buyer-questions.html"
+  to = "/buyer-answer-gap.html"
+  status = 301
+  force = true
+
 
 # ═══════════════════════════════════════════════════════════════════
 # compare/ FLATTENED. The four comparison pages moved to the site root

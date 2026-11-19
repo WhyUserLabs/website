@@ -8,6 +8,7 @@
        readers and Google to the canonical page.
        lastmod 2026-11-19: ROI calculator rebuilt; homepage, FAQ and Buyer Answer Gap
        copy no longer claims more AI citations or more leads.
+       Pricing links the ROI calculator from its top buttons.
        lastmod 2026-11-18: Buyer Questions renamed Buyer Answer Gap; the page moved
        to buyer-answer-gap.html. Homepage and FAQ copy changed.
        lastmod 2026-11-07: new best-tools pages (ad, landing page,
@@ -25,7 +26,7 @@
        date. The noindex stubs in benchmarks/api_management/
        (nominate.html, reply.html, which-row.html) are left out. -->
   <url><loc>https://whyuser.com/</loc><lastmod>2026-11-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://whyuser.com/pricing.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://whyuser.com/pricing.html</loc><lastmod>2026-11-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://whyuser.com/buyer-personas.html</loc><lastmod>2026-11-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
     <image:image><image:loc>https://whyuser.com/images/persona-graph.svg</image:loc></image:image>
   </url>

@@ -27,11 +27,11 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-08-12T00:00:00+00:00">
-<meta property="article:modified_time" content="2026-11-19T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-11-20T00:00:00+00:00">
 
     <title>ROI Calculator | WhyUser</title>
-    <meta name="description" content="Two numbers per feature. See what Buyer Answer Gap, Pages &amp; Content, Audience Discovery, Ad Funnels and Email Sequences are worth, and your return on WhyUser by month, quarter or year.">
-    <meta name="keywords" content="B2B marketing ROI calculator, AEO ROI, buyer answer gap, LinkedIn ad waste, roles with no seat, buying committee simulation, pre-launch testing ROI">
+    <meta name="description" content="Two numbers per feature. See what Question Coverage, Audience Discovery, Ad Funnels and Email Sequences are worth, and your return on WhyUser by month, quarter or year.">
+    <meta name="keywords" content="B2B marketing ROI calculator, AEO ROI, question coverage, LinkedIn ad waste, roles with no seat, buying committee simulation, pre-launch testing ROI">
     <link rel="canonical" href="https://whyuser.com/roi.html">
 
     <meta property="og:type" content="website">
@@ -3724,7 +3724,7 @@ body {
       "@id": "https://whyuser.com/roi.html#webpage",
       "url": "https://whyuser.com/roi.html",
       "name": "WhyUser ROI Calculator",
-      "description": "Two numbers per feature. See what Buyer Answer Gap, Pages & Content, Audience Discovery, Ad Funnels and Email Sequences are worth, and your return on WhyUser by month, quarter or year.",
+      "description": "Two numbers per feature. See what Question Coverage, Audience Discovery, Ad Funnels and Email Sequences are worth, and your return on WhyUser by month, quarter or year.",
       "inLanguage": "en",
       "dateModified": "2026-11-19",
       "isPartOf": {
@@ -4054,10 +4054,10 @@ body {
                             <span class="nav-dd-desc">Personas from real buyer quotes, dated.</span>
                         </span>
                     </a>
-                    <a href="buyer-answer-gap.html" class="nav-dd-item" role="menuitem">
+                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Buyer Answer Gap</span>
+                            <span class="nav-dd-name">Question Coverage</span>
                             <span class="nav-dd-desc">Where rivals out-answer you.</span>
                         </span>
                     </a>
@@ -4252,7 +4252,7 @@ body {
             <div class="nav-m-group">
                 <span class="nav-m-label">Know your buyer</span>
                 <a href="buyer-personas.html" class="nav-m-link">Buyer Context</a>
-                <a href="buyer-answer-gap.html" class="nav-m-link">Buyer Answer Gap</a>
+                <a href="question-coverage.html" class="nav-m-link">Question Coverage</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Rehearse before you spend</span>
@@ -4334,8 +4334,7 @@ body {
     <div class="setup-row">
       <div class="setup-k">Features</div>
       <div class="seg" id="seg-features">
-        <button type="button" class="seg-btn active" data-feat="bag">Buyer Answer Gap</button>
-        <button type="button" class="seg-btn active" data-feat="pages">Pages &amp; Content</button>
+        <button type="button" class="seg-btn active" data-feat="bag">Question Coverage</button>
         <button type="button" class="seg-btn active" data-feat="aud">Audience Discovery</button>
         <button type="button" class="seg-btn active" data-feat="ads">Ad Funnels</button>
         <button type="button" class="seg-btn active" data-feat="email">Email Sequences</button>
@@ -4372,7 +4371,7 @@ body {
   </section>
 
   <section class="sec" id="sec-bag">
-    <div class="sec-h"><span class="sec-t"><a href="buyer-answer-gap.html">Buyer Answer Gap</a></span><span class="sec-v" id="v-bag">&mdash;</span></div>
+    <div class="sec-h"><span class="sec-t"><a href="question-coverage.html">Question Coverage</a></span><span class="sec-v" id="v-bag">&mdash;</span></div>
     <div class="grid">
       <div class="f">
         <label class="field-label" for="bag-searches">Monthly searches on keywords based on buyer questions
@@ -4385,24 +4384,6 @@ body {
           <span class="tip r" tabindex="0" data-tip="What advertisers pay Google for one click on those terms. Use the low end of Keyword Planner’s bid, or the CPC in Semrush or Ahrefs.">?</span>
         </label>
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="bag-cpc" value="6" min="0" step="0.5"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="sec-pages">
-    <div class="sec-h"><span class="sec-t"><a href="committee-simulation.html">Pages &amp; Content</a></span><span class="sec-v" id="v-pages">&mdash;</span></div>
-    <div class="grid">
-      <div class="f">
-        <label class="field-label" for="pg-searches">Monthly searches on keywords based on page gaps
-          <span class="tip" tabindex="0" data-tip="Short terms buyers search for the facts your pages lack, like “genesys fraud detection” or “deepfake detection banks”. Integrations, compliance, pricing and “best X for Y” usually have searches. 12-month average, one country.">?</span>
-        </label>
-        <input class="field-input" type="number" id="pg-searches" value="1000" min="0" step="100">
-      </div>
-      <div class="f">
-        <label class="field-label" for="pg-cpc">Average cost per click
-          <span class="tip r" tabindex="0" data-tip="What advertisers pay Google for one click on those terms. Use the low end of Keyword Planner’s bid, or the CPC in Semrush or Ahrefs.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="pg-cpc" value="6" min="0" step="0.5"></div>
       </div>
     </div>
   </section>
@@ -4521,7 +4502,7 @@ body {
 
             <div><h4>Product</h4><ul>
                 <li><a href="buyer-personas.html">Buyer Context</a></li>
-                <li><a href="buyer-answer-gap.html">Buyer Answer Gap</a></li>
+                <li><a href="question-coverage.html">Question Coverage</a></li>
                 <li><a href="committee-simulation.html">Pages &amp; Content</a></li>
                 <li><a href="ad-campaign-simulation.html">Ad Funnels</a></li>
                 <li><a href="email-campaign-simulation.html">Email Sequences</a></li>
@@ -4596,9 +4577,7 @@ body {
    Inputs are monthly, as Semrush, Ahrefs and Campaign Manager
    report them. The card shows every figure for one period:
    a month, a quarter or a year (default).
-     · Buyer Answer Gap: searches × CPC, at Google Ads prices.
-     · Pages & Content (Common Patterns guide): searches on the
-       keywords behind page gaps × CPC.
+     · Question Coverage: searches × CPC, at Google Ads prices.
      · Audience Discovery: LinkedIn spend × share on roles with
        no seat on the buying committee.
      · Ad Funnels: LinkedIn spend on the page.
@@ -4629,9 +4608,9 @@ body {
 
   var PLANS = { standard: { name: 'Standard', annual: 12000 }, scale: { name: 'Scale', annual: 24000 } };
   var PERIODS = { month: { m: 1, word: 'month', short: 'mo' }, quarter: { m: 3, word: 'quarter', short: 'qtr' }, year: { m: 12, word: 'year', short: 'yr' } };
-  var ORDER = ['bag', 'pages', 'aud', 'ads', 'email'];
-  var NAMES = { bag: 'Buyer Answer Gap', pages: 'Pages & Content', aud: 'Audience Discovery', ads: 'Ad Funnels', email: 'Email Sequences' };
-  var UI = { feats: { bag: true, pages: true, aud: true, ads: true, email: true }, plan: 'scale', period: 'year' };
+  var ORDER = ['bag', 'aud', 'ads', 'email'];
+  var NAMES = { bag: 'Question Coverage', aud: 'Audience Discovery', ads: 'Ad Funnels', email: 'Email Sequences' };
+  var UI = { feats: { bag: true, aud: true, ads: true, email: true }, plan: 'scale', period: 'year' };
 
   function annual() { return UI.plan === 'enterprise' ? num('in-price') : PLANS[UI.plan].annual; }
   function per() { return PERIODS[UI.period] || PERIODS.year; }
@@ -4654,12 +4633,6 @@ body {
     bag: function () {
       var S = num('bag-searches'), C = num('bag-cpc');
       return row(S * C, 'Searches a ' + per().word + ' on buyer questions your pages don’t answer, at Google Ads prices.',
-        qty(S) + ' searches × ' + money2(C), 'Add your searches and cost per click.');
-    },
-    /* Common Patterns guide: the keywords behind the facts your pages lack. */
-    pages: function () {
-      var S = num('pg-searches'), C = num('pg-cpc');
-      return row(S * C, 'Searches a ' + per().word + ' on facts your pages lack, at Google Ads prices.',
         qty(S) + ' searches × ' + money2(C), 'Add your searches and cost per click.');
     },
     aud: function () {

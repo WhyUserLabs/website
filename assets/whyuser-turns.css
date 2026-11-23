@@ -1,0 +1,40 @@
+/* Multi-turn chat visual (from question-coverage.html #turns), shared by comparison pages. */
+.t1-ex{margin-left:auto;font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.t1-note{font-size:12.5px;color:var(--faint);margin:.6rem 0 0}
+.t1-conv{border:1px solid var(--rule);border-radius:18px;background:var(--surface);padding:1.25rem;box-shadow:0 1px 2px rgba(9,9,11,.04),0 18px 40px -28px rgba(9,9,11,.3)}
+.t1-conv-top{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin-bottom:1.1rem;font-size:.875rem}
+.t1-persona{display:inline-flex;align-items:center;gap:.45rem;padding:.3rem .75rem;border-radius:999px;background:color-mix(in srgb,var(--brand) 10%,transparent);color:var(--ink);font-weight:600}
+.t1-persona i{color:var(--brand)}
+.t1-asks{color:var(--dim)}
+.t1-turns{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+@media (min-width:1000px){.t1-turns{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}}
+.t1-turn{position:relative;display:flex;flex-direction:column;gap:.6rem;padding:1rem;border-radius:14px;background:var(--paper-cool);border:1px solid var(--rule);border-top:3px solid var(--rule-strong)}
+.t1-turn.win{border-top-color:var(--signal-green)}
+.t1-turn.lose{border-top-color:var(--signal-red)}
+@media (min-width:1000px){.t1-turn:not(:last-child)::after{content:"";position:absolute;right:-1.2rem;top:2.6rem;width:.9rem;height:.9rem;border-top:2px solid var(--faint);border-right:2px solid var(--faint);transform:rotate(45deg)}}
+@media (max-width:999px){.t1-turn:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-.85rem;width:.7rem;height:.7rem;margin-left:-.35rem;border-bottom:2px solid var(--faint);border-right:2px solid var(--faint);transform:rotate(45deg)}}
+.t1-tn{display:flex;align-items:center;justify-content:space-between;gap:.4rem;font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.t1-flag{font-family:'Figtree',system-ui,sans-serif;font-style:normal;font-size:11px;font-weight:700;letter-spacing:0;text-transform:none;padding:.12rem .5rem;border-radius:999px;color:var(--dk-t-991b1b,#991b1b);background:rgba(220,38,38,.1)}
+.t1-q{align-self:flex-end;max-width:92%;padding:.55rem .75rem;border-radius:12px 12px 3px 12px;background:var(--brand);color:var(--paper);font-size:.875rem;font-weight:500;line-height:1.35}
+.t1-a{max-width:95%;padding:.55rem .75rem;border-radius:12px 12px 12px 3px;background:var(--surface);border:1px solid var(--rule);font-size:.875rem;line-height:1.4;color:var(--ink-soft)}
+.t1-a small{display:block;font-size:10.5px;font-family:'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.15rem}
+.t1-a b.you{color:var(--signal-green)}
+.t1-a b.rv{color:var(--signal-red)}
+.t1-cov{margin-top:auto;display:grid;gap:.35rem;padding-top:.55rem;border-top:1px dashed var(--rule-strong);font-size:.8125rem;color:var(--mute)}
+.t1-cov b{color:var(--ink)}
+.t1-dots{display:flex;gap:.3rem}
+.t1-dots i{width:.7rem;height:.7rem;border-radius:50%;background:var(--rule-strong)}
+.t1-turn.win .t1-dots i.on{background:var(--signal-green)}
+.t1-turn.lose .t1-dots i.on{background:var(--signal-amber)}
+.t1-conv-foot{margin-top:1.25rem;padding-top:1.1rem;border-top:1px solid var(--rule);display:grid;gap:.75rem}
+.t1-conv-foot > p{margin:0;font-size:.9375rem;color:var(--mute);line-height:1.5}
+.t1-conv-foot > p b{color:var(--ink)}
+.t1-pathcov{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem;font-size:.875rem;color:var(--mute)}
+.t1-pathcov .lbl{font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.t1-pathcov .bar{position:relative;width:7rem;height:.5rem;border-radius:999px;background:var(--rule)}
+.t1-pathcov .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--signal-amber)}
+.t1-pathcov .bar i.after{background:var(--signal-green)}
+.t1-pathcov b{color:var(--ink)}
+.t1-pathcov > i{color:var(--faint)}
+@media (min-width:1000px){.t1-turns.t1-turns3{grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}.t1-turns3 .t1-turn:not(:last-child)::after{right:-1.45rem}}
+.lp .t1-conv{margin-top:1.5rem}

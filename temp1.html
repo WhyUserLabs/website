@@ -3356,7 +3356,7 @@ body { background-image: none; }
 .t1-step p{margin:0;color:var(--mute);font-size:1.0625rem;line-height:1.6;max-width:36rem}
 .t1-pc{display:flex;flex-direction:column;gap:.9rem}
 .t1-pc .wu-prob-k{margin-bottom:0}
-.t1-pc .wu-prob-claim{margin:0;font-size:1.0625rem;line-height:1.45}
+.t1-pc .wu-prob-claim{margin:0;font-family:'Figtree',system-ui,sans-serif;font-size:1.125rem;font-weight:500;line-height:1.5;letter-spacing:-.005em}
 .t1-ask{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
 .t1-ask div{display:grid;gap:.3rem;align-content:start}
 .t1-ask small{font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
@@ -3434,6 +3434,59 @@ body { background-image: none; }
 .t1-pathcov .bar i.after{background:var(--signal-green)}
 .t1-pathcov b{color:var(--ink)}
 .t1-pathcov > i{color:var(--faint)}
+/* ── Platform tree (root → three cards → result) ── */
+.t1-root,.t1-result{max-width:48rem;margin:0 auto;text-align:center;padding:2.25rem 1.75rem;border:1px solid color-mix(in srgb,var(--brand) 30%,var(--rule));border-radius:18px;background:color-mix(in srgb,var(--brand) 7%,var(--surface))}
+.t1-result{max-width:58rem}
+.t1-root .h2,.t1-result .h2{margin:.25rem 0 0}
+.t1-root .t1-sub,.t1-result .t1-sub{margin-left:auto;margin-right:auto}
+.t1-fan{position:relative;height:3.5rem}
+.t1-fan i{position:absolute;width:2px;margin-left:-1px;background:var(--rule-bold)}
+.t1-fan::before,.t1-fan::after{content:"";position:absolute;background:var(--rule-bold)}
+.t1-fan .d1{left:calc((100% - 2.5rem) / 6)}
+.t1-fan .d2{left:50%}
+.t1-fan .d3{left:calc(100% - (100% - 2.5rem) / 6)}
+.t1-fan::after{top:50%;height:2px;margin-top:-1px;left:calc((100% - 2.5rem) / 6);right:calc((100% - 2.5rem) / 6)}
+.t1-fan .d2::before{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--brand)}
+.t1-fan-out::before{left:50%;width:2px;margin-left:-1px;top:0;height:50%}
+.t1-fan-out i{top:50%;bottom:0}
+.t1-fan-out .d2::before{top:0}
+.t1-fan-in::before{left:50%;width:2px;margin-left:-1px;top:50%;bottom:0}
+.t1-fan-in i{top:0;bottom:50%}
+.t1-fan-in .d2::before{top:100%}
+@media (max-width:999px){.t1-fan{height:2rem}.t1-fan::before,.t1-fan::after,.t1-fan .d1,.t1-fan .d3{display:none}.t1-fan .d2{top:0;bottom:0}.t1-fan .d2::before{display:none}}
+@media (min-width:1000px){.t1-cards{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto auto auto 1fr;row-gap:0;column-gap:1.25rem}.t1-card{grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:.85rem}}
+.t1-card{padding:0 0 1.35rem;overflow:hidden;gap:.85rem}
+.t1-card > *:not(.t1-card-hd){margin-left:1.35rem;margin-right:1.35rem}
+.t1-card-hd{padding:.95rem 1.35rem;font-family:'Fraunces',Georgia,serif;font-size:1.125rem;font-weight:600;letter-spacing:-.01em;color:var(--ink);border-bottom:1px solid var(--rule)}
+.t1-c1 .t1-card-hd{background:color-mix(in srgb,var(--brand) 12%,var(--surface))}
+.t1-c2 .t1-card-hd{background:color-mix(in srgb,var(--signal-green) 12%,var(--surface))}
+.t1-c3 .t1-card-hd{background:color-mix(in srgb,var(--signal-amber) 14%,var(--surface))}
+.t1-card .t1-mock{width:auto;margin-top:.35rem}
+.t1-card h3{margin-top:.35rem}
+.t1-feat{list-style:none;padding:0;margin-top:.15rem;margin-bottom:0;border-top:1px solid var(--rule);align-self:start}
+.t1-feat li{padding:.55rem 0;border-bottom:1px solid var(--rule);font-size:.875rem;color:var(--ink-soft)}
+.t1-feat li:last-child{border-bottom:0}
+.t1-draft{display:grid;gap:.4rem}
+.t1-draft .pg{font-family:'Geist Mono',monospace;font-size:11px;color:var(--dim);margin-top:.2rem}
+.t1-draft .pg:not(:first-child){margin-top:.7rem}
+.t1-draft .del{padding:.5rem .7rem;border-radius:8px;background:rgba(220,38,38,.07);color:var(--mute);text-decoration:line-through;font-size:.8125rem}
+.t1-draft .add{padding:.5rem .7rem;border-radius:8px;background:rgba(16,185,129,.11);border:1px solid rgba(16,185,129,.25);color:var(--ink);font-size:.8125rem;font-weight:500}
+.t1-draft .meta{display:flex;justify-content:space-between;align-items:center;gap:.4rem;font-size:11.5px;color:var(--dim)}
+.t1-rtiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;margin-top:1.5rem;text-align:left}
+.t1-rtiles > div{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:.8rem .9rem}
+.t1-rtiles .wk{display:block;font-family:'Geist Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand)}
+.t1-rtiles b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.4rem;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin:.25rem 0 .1rem}
+.t1-rtiles > div > span:last-child{font-size:.8125rem;color:var(--mute)}
+@media (max-width:760px){.t1-rtiles{grid-template-columns:1fr}}
+.t1-pc .wu-prob-claim{max-width:none;hyphens:manual;-webkit-hyphens:manual;text-wrap:pretty}
+@media (min-width:1000px){.wu-prob-grid:has(.t1-pc){grid-template-rows:auto auto auto auto 1fr;row-gap:0}.t1-pc{grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:.9rem}.t1-pc .t1-solved{align-self:end;justify-self:start}}
+.t1-card-hd{display:grid;gap:.15rem}
+.t1-card-hd b{font-family:'Fraunces',Georgia,serif;font-size:1.3rem;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+.t1-card-hd span{font-family:'Figtree',system-ui,sans-serif;font-size:.875rem;font-weight:500;color:var(--mute)}
+@media (min-width:1000px){.t1-cards{grid-template-rows:auto auto 1fr}.t1-card{grid-row:span 3}}
+.t1-card .t1-mock{align-self:start;margin-top:.6rem}
+.t1-card > p{margin-top:.5rem;font-size:1rem;line-height:1.5;color:var(--mute)}
+@media (min-width:1000px){.t1-turns.t1-turns3{grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem}.t1-turns3 .t1-turn:not(:last-child)::after{right:-1.45rem}}
 .t1-br{display:none}
 @media (max-width:640px){.t1-br{display:inline}.t1-h1{--fit:6.6 !important}}
 @media (max-width:640px){.t1-hero-fig .wu-sc-ev li{grid-template-columns:minmax(0,1fr) auto;row-gap:.3rem}.t1-hero-fig .wu-sc-ev b{grid-column:1 / -1 !important}.t1-hero-fig .wu-sc-ev em{grid-column:1}.t1-hero-fig .wu-sc-ev span{grid-column:2}.t1-tiles{grid-template-columns:1fr}.t1-vs{grid-template-columns:1fr 1fr}.t1-vs > .k,.t1-vs > .hd:first-child{display:none}}
@@ -3804,12 +3857,100 @@ body { background-image: none; }
         </div>
     </section>
 
-    <!-- 4 · SOLUTION · vertical timeline -->
+    <!-- 4 · PLATFORM · tree: root → three capabilities → result -->
+    <section id="platform" class="section-rule">
+        <div class="wrap">
+            <div class="t1-tree">
+                <div class="t1-root">
+                    <span class="section-eyebrow" style="justify-content:center">WhyUser Platform</span>
+                    <h2 class="h2">From buyer question<br><span class="v3-accent">to answer on your site.</span></h2>
+                    <p class="t1-sub">WhyUser connects what buyers ask, what your site says, and what AI repeats.</p>
+                </div>
+                <div class="t1-fan t1-fan-out" aria-hidden="true"><i class="d1"></i><i class="d2"></i><i class="d3"></i></div>
+                <div class="t1-cards">
+                    <article class="t1-card t1-c1">
+                        <div class="t1-card-hd"><b>Buyer Questions</b><span>Know what buyers ask</span></div>
+                        <p>Every question by role, and who answers it: you, a rival or no one.</p>
+                        <div class="t1-mock">
+                        <svg class="t1-srcsvg" viewBox="0 0 340 384" role="img" aria-label="Six sources feed both Buyer Questions and Personas. Search Console, AEO Prompts and Checklists feed Buyer Questions. Buyer Questions feed Personas. Personas run Committee Simulations, which add simulated questions.">
+                            <defs><marker id="t1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker></defs>
+                            <rect class="grp" x="8" y="8" width="324" height="124" rx="10"/>
+                            <text class="gt" x="20" y="28">FEED BOTH</text>
+                            <rect class="pill" x="20" y="38" width="146" height="24" rx="12"/><text class="pt" x="93" y="54">Vendor Profile</text>
+                            <rect class="pill" x="174" y="38" width="146" height="24" rx="12"/><text class="pt" x="247" y="54">Market Research</text>
+                            <rect class="pill" x="20" y="68" width="146" height="24" rx="12"/><text class="pt" x="93" y="84">Competitor Reviews</text>
+                            <rect class="pill" x="174" y="68" width="146" height="24" rx="12"/><text class="pt" x="247" y="84">Temporal Intelligence</text>
+                            <rect class="pill" x="20" y="98" width="146" height="24" rx="12"/><text class="pt" x="93" y="114">Call Transcripts</text>
+                            <rect class="pill" x="174" y="98" width="146" height="24" rx="12"/><text class="pt" x="247" y="114">CRM</text>
+                            <path class="ln" d="M90 132V166" marker-end="url(#t1a)"/>
+                            <path class="ln" d="M250 132V166" marker-end="url(#t1a)"/>
+                            <rect class="hub" x="20" y="168" width="140" height="44" rx="10"/><text class="ht" x="90" y="195">Buyer Questions</text>
+                            <rect class="hub2" x="180" y="168" width="140" height="44" rx="10"/><text class="ht2" x="250" y="195">Personas</text>
+                            <path class="ln" d="M160 190H178" marker-end="url(#t1a)"/>
+                            <rect class="grp" x="8" y="248" width="184" height="128" rx="10"/>
+                            <text class="gt" x="20" y="268">FEED BUYER QUESTIONS</text>
+                            <rect class="pill" x="20" y="278" width="160" height="24" rx="12"/><text class="pt" x="100" y="294">Search Console</text>
+                            <rect class="pill" x="20" y="308" width="160" height="24" rx="12"/><text class="pt" x="100" y="324">AEO Prompts</text>
+                            <rect class="pill" x="20" y="338" width="160" height="24" rx="12"/><text class="pt" x="100" y="354">Checklists</text>
+                            <path class="ln" d="M90 248V214" marker-end="url(#t1a)"/>
+                            <rect class="box" x="208" y="248" width="124" height="56" rx="10"/><text class="bt" x="270" y="272">Committee</text><text class="bt" x="270" y="289">Simulations</text>
+                            
+                            <path class="ln" d="M290 212V246" marker-end="url(#t1a)"/>
+                            <path class="ln" d="M228 248V230H130V214" marker-end="url(#t1a)"/>
+                        </svg>
+                        </div>
+                    </article>
+                    <article class="t1-card t1-c2">
+                        <div class="t1-card-hd"><b>Content Fixes</b><span>Answer on your site</span></div>
+                        <p>Drafts from your facts, placed on the right page. You approve.</p>
+                        <div class="t1-mock t1-draft" aria-hidden="true">
+                            <div class="pg"><i class="fa-regular fa-file-lines"></i> codedeploy.com/pricing</div>
+                            <div class="del">Talk to sales for pricing.</div>
+                            <div class="add">Monthly or yearly billing. From $40 a seat a month.</div>
+                            <div class="meta"><span class="t1-tag ok">Answers &ldquo;Can I pay monthly?&rdquo;</span><span>Budget holder</span></div>
+                        </div>
+                    </article>
+                    <article class="t1-card t1-c3">
+                        <div class="t1-card-hd"><b>Persona Tests</b><span>Test the follow-ups</span></div>
+                        <p>Personas ask the next question, turn after turn. WhyUser checks your site at each.</p>
+                        <div class="t1-mock t1-fu" aria-hidden="true">
+                        
+                        <div class="a"><small>Your Setup page says</small>&ldquo;Works with GitHub Actions.&rdquo;</div>
+                        <small>A persona asks next</small>
+                        <ul>
+                            <li>Which runners? <span class="t1-tag no">Rival A</span></li>
+                            <li>Roll back on failure? <span class="t1-tag no">Rival B</span></li>
+                            <li>Do I need YAML? <span class="t1-tag ok">Answered</span></li>
+                        </ul>
+                    </div>
+                    </article>
+                </div>
+                <div class="t1-fan t1-fan-in" aria-hidden="true"><i class="d1"></i><i class="d2"></i><i class="d3"></i></div>
+                <div class="t1-result">
+                    <span class="section-eyebrow" style="justify-content:center">Result</span>
+                    <h2 class="h2">Your site answers.<br><span class="v3-accent">You have the number.</span></h2>
+                    <p class="t1-sub">Gaps closed by week 2. AI accuracy by week 5.</p>
+                    <div class="t1-rtiles" aria-label="Example results">
+                        <div><span class="wk">Week 2</span><b>43% <span class="up">&rarr; 60%</span></b><span>Coverage</span></div>
+                        <div><span class="wk">Week 2</span><b>7 gaps, 5 follow-ups</b><span>Closed</span></div>
+                        <div><span class="wk">Week 5</span><b>13 <span class="up">&rarr; 26</span> of 48</b><span>AI gets facts right</span></div>
+                    </div>
+                    <p class="t1-note">Example</p>
+                    <div class="hero-ctas" style="justify-content:center;margin:1.25rem 0 0">
+                        <a href="#access" class="btn btn-primary btn-lg">Get your free gap list <i class="fa-solid fa-arrow-right" style="font-size:12.5px"></i></a>
+                        <a href="reports/buyer-questions-whyuser-sample.html" class="btn btn-ghost btn-lg">See a sample</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 · WORKFLOW · vertical timeline -->
     <section id="how" class="section-rule">
         <div class="wrap">
             <div class="t1-how">
                 <div class="section-head t1-how-head">
-                    <span class="section-eyebrow">Solution</span>
+                    <span class="section-eyebrow">Workflow</span>
                     <h2 class="h2">Find. Fix.<br><span class="v3-accent">Test. Track.</span></h2>
                     <p class="t1-sub">One loop. Your first number in two weeks.</p>
                 </div>
@@ -3871,121 +4012,41 @@ body { background-image: none; }
             </div>
             <div class="t1-conv">
                 <div class="t1-conv-top">
-                    <span class="t1-persona"><i class="fa-solid fa-user" aria-hidden="true"></i> Champion persona &middot; Platform lead, 50-person team</span>
-                    <span class="t1-asks">asks ChatGPT &middot; 4 turns</span>
+                    <span class="t1-persona"><i class="fa-solid fa-user" aria-hidden="true"></i> Champion persona</span>
+                    <span class="t1-asks">asks ChatGPT &middot; 3 turns</span>
                     <span class="t1-ex">Example</span>
                 </div>
-                <ol class="t1-turns">
+                <ol class="t1-turns t1-turns3">
                     <li class="t1-turn win">
                         <span class="t1-tn">Turn 1</span>
                         <div class="t1-q">Does CodeDeploy work with GitHub Actions?</div>
-                        <div class="t1-a"><small>AI answer</small>Yes. Cites <b class="you">your docs</b>.</div>
-                        <div class="t1-cov"><span class="t1-dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span><b>4 of 5</b> next questions answered on your site</span></div>
+                        <div class="t1-a">Yes. Cites <b class="you">your docs</b>.</div>
+                        <div class="t1-cov"><span class="t1-dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span><b>4 of 5</b> next questions on your site</span></div>
                     </li>
                     <li class="t1-turn lose">
                         <span class="t1-tn">Turn 2 <em class="t1-flag">Rival A takes over</em></span>
                         <div class="t1-q">How long does setup take?</div>
-                        <div class="t1-a"><small>AI answer</small>About an hour. Cites <b class="rv">Rival A&rsquo;s setup guide</b>.</div>
-                        <div class="t1-cov"><span class="t1-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span><span><b>1 of 5</b> answered on your site</span></div>
+                        <div class="t1-a">About an hour. Cites <b class="rv">Rival A&rsquo;s guide</b>.</div>
+                        <div class="t1-cov"><span class="t1-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span><span><b>1 of 5</b> on your site</span></div>
                     </li>
                     <li class="t1-turn lose">
                         <span class="t1-tn">Turn 3</span>
-                        <div class="t1-q">Who like us uses it?</div>
-                        <div class="t1-a"><small>AI answer</small>Names <b class="rv">Rival A&rsquo;s customers</b>. None for you.</div>
-                        <div class="t1-cov"><span class="t1-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span><span><b>1 of 5</b> answered on your site</span></div>
-                    </li>
-                    <li class="t1-turn lose">
-                        <span class="t1-tn">Turn 4</span>
                         <div class="t1-q">How do I pitch this to my VP?</div>
-                        <div class="t1-a"><small>AI answer</small>Generic tips. Quotes <b class="rv">Rival A&rsquo;s ROI page</b>.</div>
-                        <div class="t1-cov"><span class="t1-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span><span><b>1 of 5</b> answered on your site</span></div>
+                        <div class="t1-a">Quotes <b class="rv">Rival A&rsquo;s ROI page</b>.</div>
+                        <div class="t1-cov"><span class="t1-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span><span><b>1 of 5</b> on your site</span></div>
                     </li>
                 </ol>
                 <div class="t1-conv-foot">
-                    <p><b>Your content holds turn 1. Rival A takes over at turn 2.</b> WhyUser lists the 13 open questions, drafts the fixes, and runs the same path again.</p>
-                    <div class="t1-pathcov" aria-label="Path coverage: 7 of 20 questions before fixes, 15 of 20 after">
+                    <p><b>Rival A takes over at turn 2.</b> WhyUser drafts the fixes and runs the path again.</p>
+                    <div class="t1-pathcov" aria-label="Path coverage: 6 of 15 questions before fixes, 13 of 15 after">
                         <span class="lbl">Path coverage</span>
-                        <span class="bar"><i style="width:35%"></i></span><b>7 of 20</b>
+                        <span class="bar"><i style="width:40%"></i></span><b>6 of 15</b>
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span class="bar"><i class="after" style="width:75%"></i></span><b>15 of 20</b><span class="lbl">after fixes</span>
+                        <span class="bar"><i class="after" style="width:87%"></i></span><b>13 of 15</b><span class="lbl">after fixes</span>
                     </div>
-                    <p class="t1-note">AI answers are real. The persona&rsquo;s questions are simulated, and labeled until a real buyer asks one.</p>
+                    <p class="t1-note">AI answers are real. Persona questions are simulated.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 5 · WHAT YOU GET · three cards -->
-    <section id="get" class="section-rule">
-        <div class="wrap">
-            <div class="section-head" style="max-width: 50rem">
-                <span class="section-eyebrow">What you get</span>
-                <h2 class="h2 v3-fit" style="--fit:11.4">From question, to answer,<br><span class="v3-accent">to number.</span></h2>
-            </div>
-            <div class="t1-cards">
-                <article class="t1-card">
-                    <span class="t1-card-n">01</span>
-                    <h3>Know what buyers ask</h3>
-                    <p>Every question by role, from your calls, CRM and market. See who answers it: you, a rival or no one.</p>
-                    <div class="t1-mock">
-                        <svg class="t1-srcsvg" viewBox="0 0 340 384" role="img" aria-label="Six sources feed both Buyer Questions and Personas. Search Console, AEO Prompts and Checklists feed Buyer Questions. Buyer Questions feed Personas. Personas run Committee Simulations, which add simulated questions.">
-                            <defs><marker id="t1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker></defs>
-                            <rect class="grp" x="8" y="8" width="324" height="124" rx="10"/>
-                            <text class="gt" x="20" y="28">FEED BOTH</text>
-                            <rect class="pill" x="20" y="38" width="146" height="24" rx="12"/><text class="pt" x="93" y="54">Vendor Profile</text>
-                            <rect class="pill" x="174" y="38" width="146" height="24" rx="12"/><text class="pt" x="247" y="54">Market Research</text>
-                            <rect class="pill" x="20" y="68" width="146" height="24" rx="12"/><text class="pt" x="93" y="84">Competitor Reviews</text>
-                            <rect class="pill" x="174" y="68" width="146" height="24" rx="12"/><text class="pt" x="247" y="84">Temporal Intelligence</text>
-                            <rect class="pill" x="20" y="98" width="146" height="24" rx="12"/><text class="pt" x="93" y="114">Call Transcripts</text>
-                            <rect class="pill" x="174" y="98" width="146" height="24" rx="12"/><text class="pt" x="247" y="114">CRM</text>
-                            <path class="ln" d="M90 132V166" marker-end="url(#t1a)"/>
-                            <path class="ln" d="M250 132V166" marker-end="url(#t1a)"/>
-                            <rect class="hub" x="20" y="168" width="140" height="44" rx="10"/><text class="ht" x="90" y="195">Buyer Questions</text>
-                            <rect class="hub2" x="180" y="168" width="140" height="44" rx="10"/><text class="ht2" x="250" y="195">Personas</text>
-                            <path class="ln" d="M160 190H178" marker-end="url(#t1a)"/>
-                            <rect class="grp" x="8" y="248" width="184" height="128" rx="10"/>
-                            <text class="gt" x="20" y="268">FEED BUYER QUESTIONS</text>
-                            <rect class="pill" x="20" y="278" width="160" height="24" rx="12"/><text class="pt" x="100" y="294">Search Console</text>
-                            <rect class="pill" x="20" y="308" width="160" height="24" rx="12"/><text class="pt" x="100" y="324">AEO Prompts</text>
-                            <rect class="pill" x="20" y="338" width="160" height="24" rx="12"/><text class="pt" x="100" y="354">Checklists</text>
-                            <path class="ln" d="M90 248V214" marker-end="url(#t1a)"/>
-                            <rect class="box" x="208" y="248" width="124" height="56" rx="10"/><text class="bt" x="270" y="272">Committee</text><text class="bt" x="270" y="289">Simulations</text>
-                            <text class="nt" x="270" y="324">add questions,</text><text class="nt" x="270" y="338">labeled Simulated</text>
-                            <path class="ln" d="M290 212V246" marker-end="url(#t1a)"/>
-                            <path class="ln" d="M228 248V230H130V214" marker-end="url(#t1a)"/>
-                        </svg>
-                    </div>
-                </article>
-                <article class="t1-card">
-                    <span class="t1-card-n">02</span>
-                    <h3>Answer it on your site</h3>
-                    <p>WhyUser drafts each answer from your facts. Personas ask the follow-ups, and the platform checks your site for each.</p>
-                    <div class="t1-mock t1-fu" aria-hidden="true">
-                        <div class="q"><small>Buyer question &middot; Technical lead</small>Works with GitHub Actions?</div>
-                        <div class="a"><small>Your Setup page says</small>&ldquo;Works with GitHub Actions.&rdquo;</div>
-                        <small>A persona asks next</small>
-                        <ul>
-                            <li>Which runners? <span class="t1-tag no">Rival A</span></li>
-                            <li>Roll back on failure? <span class="t1-tag no">Rival B</span></li>
-                            <li>Do I need YAML? <span class="t1-tag ok">Answered</span></li>
-                        </ul>
-                    </div>
-                </article>
-                <article class="t1-card">
-                    <span class="t1-card-n">03</span>
-                    <h3>Show it worked</h3>
-                    <p>Numbers you can report. Gaps closed by week 2, AI accuracy by week 5.</p>
-                    <div class="t1-mock" aria-hidden="true">
-                        <div class="t1-nums">
-                            <div><span class="wk">WEEK 2</span><b>43% &rarr; 60%</b><span>Coverage</span></div>
-                            <div><span class="wk">WEEK 2</span><b>7</b><span>Gaps closed</span></div>
-                            <div><span class="wk">WEEK 2</span><b>5 of 7</b><span>Follow-ups closed</span></div>
-                            <div><span class="wk">WEEK 5</span><b>13 &rarr; 26 of 48</b><span>AI gets facts right</span></div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <p class="t1-note" style="text-align:center">Follow-ups stay labeled Simulated until a real buyer asks one.</p>
         </div>
     </section>
 

@@ -53,7 +53,7 @@ Agent counts, behavioral states and accuracy are **identical on every plan**. Pl
 
 [Full pricing](https://whyuser.com/pricing.html). Annual plans, priced per month.
 
-- [ROI calculator](https://whyuser.com/roi.html): two numbers per feature. It adds up buyer-question searches at Google Ads prices, LinkedIn spend (including spend on roles with no seat on the buying committee) and email leads at cost per lead. It credits WhyUser with a share the visitor sets (40% by default) and divides that by the plan price for the same month, quarter or year.
+- [ROI calculator](https://whyuser.com/roi.html): covers two features. Buyer Questions for AI Visibility (on by default) prices only the gap: searches × (buyer questions not answered ÷ total buyer questions) × cost per click, at Google Ads prices (an estimate). Ad Funnel Simulation counts LinkedIn spend on people outside the buying committee, read from Campaign Manager, and shows the projected week-4 cost per real-buyer lead on the same budget. It credits WhyUser with a share the visitor sets (50% by default) and divides that by the plan price for the same month, quarter or year.
 
 - **Standard**: $1,000/month on an annual contract, 200 credits a month. Includes Buyer Personas and Committees, Buyer Questions Coverage, Page & Content Simulations, Audience Discovery, and email support within 1 business day.
 - **Scale**: $2,000/month on an annual contract, 400 credits a month. Includes everything in Standard, plus AI Visibility Multi-Turn Chats, Ad Funnel Simulations, Email Sequence Simulations and a shared Slack channel.

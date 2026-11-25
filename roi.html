@@ -27,11 +27,11 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="author" content="WhyUser Inc.">
 <meta property="article:published_time" content="2026-08-12T00:00:00+00:00">
-<meta property="article:modified_time" content="2026-11-23T00:00:00+00:00">
+<meta property="article:modified_time" content="2026-11-25T00:00:00+00:00">
 
     <title>ROI Calculator | WhyUser</title>
-    <meta name="description" content="Two numbers per feature. See what Buyer Questions Coverage, Audience Discovery, Ad Funnel Simulation and Email Sequences are worth, and your return on WhyUser by month, quarter or year.">
-    <meta name="keywords" content="B2B marketing ROI calculator, AEO ROI, question coverage, LinkedIn ad waste, roles with no seat, buying committee simulation, pre-launch testing ROI">
+    <meta name="description" content="See what your buyer-question gap and LinkedIn spend outside the buying committee cost you, priced from your own numbers, and your return on WhyUser by month, quarter or year.">
+    <meta name="keywords" content="B2B marketing ROI calculator, AEO ROI, buyer questions coverage, ad funnel simulation, LinkedIn ad waste, cost per real-buyer lead">
     <link rel="canonical" href="https://whyuser.com/roi.html">
 
     <meta property="og:type" content="website">
@@ -3724,9 +3724,9 @@ body {
       "@id": "https://whyuser.com/roi.html#webpage",
       "url": "https://whyuser.com/roi.html",
       "name": "WhyUser ROI Calculator",
-      "description": "Two numbers per feature. See what Buyer Questions Coverage, Audience Discovery, Ad Funnel Simulation and Email Sequences are worth, and your return on WhyUser by month, quarter or year.",
+      "description": "See what your buyer-question gap and LinkedIn spend outside the buying committee cost you, priced from your own numbers, and your return on WhyUser by month, quarter or year.",
       "inLanguage": "en",
-      "dateModified": "2026-11-23",
+      "dateModified": "2026-11-25",
       "isPartOf": {
         "@id": "https://whyuser.com/#website"
       },
@@ -3753,9 +3753,10 @@ body {
 <!-- WHYUSER:SEO-SUPPLEMENT:END -->
 <style>
 /* ============================================================
-   ROI CALCULATOR v4 (19 Nov 2026) — two inputs per feature,
-   one table, one ROI. No lifts. ROI = all rows × WhyUser
-   contribution ÷ WhyUser price, for the same period.
+   ROI CALCULATOR v5 (25 Nov 2026) — two features: Buyer
+   Questions Coverage and Ad Funnel Simulation. No lifts.
+   ROI = all rows × WhyUser contribution ÷ WhyUser price,
+   for the same period.
    Colour comes only from mapped tokens, so dark-theme.css flips it.
    ============================================================ */
 
@@ -3801,6 +3802,9 @@ body {
 /* A label that wraps keeps its input level with the one beside it. */
 .calc-in .grid { align-items: end; }
 @media (max-width: 460px) { .calc-in .grid { grid-template-columns: 1fr; } }
+.sec-note { margin: -4px 0 14px; font-size: 13px; line-height: 1.5; color: var(--ink-muted); }
+.roi-row small.m1 { margin-top: 5px; color: var(--ink); }
+.roi-row small.m1 b { font-family: var(--mono); font-weight: 700; color: var(--emerald); }
 .f { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .f > label.field-label, .f > .field-label {
   font-size: 12.5px !important; font-weight: 500 !important; line-height: 1.3;
@@ -3815,11 +3819,6 @@ body {
 .f .input-wrap-dollar .field-input { padding-left: 24px; }
 .f .input-wrap-percent .field-input { padding-right: 24px; }
 .f .input-wrap-dollar::before, .f .input-wrap-percent::after { font-size: 12.5px; }
-.f-shared {
-  font-size: 12.5px; line-height: 1.45; color: var(--ink-faint);
-  padding: 9px 10px; border: 1px dashed var(--line); border-radius: var(--radius);
-}
-.f-shared b { font-family: var(--mono); color: var(--ink); font-weight: 600; }
 
 /* --- tooltip --------------------------------------------------------- */
 .tip {
@@ -4318,7 +4317,7 @@ body {
 <header class="wu-head">
   <div>
     <h1 class="wu-h1">ROI <em>Calculator</em></h1>
-    <p class="wu-sub">Enter two numbers for each feature to see your ROI.</p>
+    <p class="wu-sub">Enter your numbers for each feature to see your ROI.</p>
   </div>
   <div class="wu-head-meta no-print">
     <div class="meta-field">
@@ -4342,10 +4341,8 @@ body {
     <div class="setup-row">
       <div class="setup-k">Features</div>
       <div class="seg" id="seg-features">
-        <button type="button" class="seg-btn active" data-feat="bag">Buyer Questions</button>
-        <button type="button" class="seg-btn active" data-feat="aud">Audience Discovery</button>
-        <button type="button" class="seg-btn active" data-feat="ads">Ad Funnel Simulation</button>
-        <button type="button" class="seg-btn active" data-feat="email">Email Sequences</button>
+        <button type="button" class="seg-btn active" data-feat="bag">Buyer Questions for AI Visibility</button>
+        <button type="button" class="seg-btn" data-feat="ads">Ad Funnel Simulation</button>
       </div>
     </div>
     <div class="setup-row">
@@ -4371,85 +4368,64 @@ body {
       </div>
       <div class="setup-row">
         <label class="setup-k" for="in-contrib">WhyUser contribution
-          <span class="tip" tabindex="0" data-tip="The share of these numbers you credit to WhyUser. Other work moves them too. 40% is a cautious start.">?</span>
+          <span class="tip" tabindex="0" data-tip="The share of these numbers you credit to WhyUser. Other work moves them too. 50% splits the credit evenly.">?</span>
         </label>
-        <div class="input-wrap input-wrap-percent contrib"><input class="field-input" type="number" id="in-contrib" value="40" min="0" max="100" step="5"></div>
+        <div class="input-wrap input-wrap-percent contrib"><input class="field-input" type="number" id="in-contrib" value="50" min="0" max="100" step="5"></div>
       </div>
     </div>
   </section>
 
   <section class="sec" id="sec-bag">
-    <div class="sec-h"><span class="sec-t"><a href="question-coverage.html">Buyer Questions Coverage</a></span><span class="sec-v" id="v-bag">&mdash;</span></div>
+    <div class="sec-h"><span class="sec-t"><a href="question-coverage.html">Buyer Questions for AI Visibility</a></span><span class="sec-v" id="v-bag">&mdash;</span></div>
     <div class="grid">
       <div class="f">
         <label class="field-label" for="bag-searches">Monthly searches on keywords based on buyer questions
           <span class="tip" tabindex="0" data-tip="The 12-month average for terms buyers type before they pick a vendor, like pricing, alternatives, “vs” and “best X for Y”. Not your category name alone. From Semrush, Ahrefs or Google Keyword Planner.">?</span>
         </label>
-        <input class="field-input" type="number" id="bag-searches" value="1000" min="0" step="100">
+        <input class="field-input" type="number" id="bag-searches" value="3000" min="0" step="100">
       </div>
       <div class="f">
         <label class="field-label" for="bag-cpc">Average cost per click
           <span class="tip r" tabindex="0" data-tip="What advertisers pay Google for one click on those terms. Use the low end of Keyword Planner’s bid, or the CPC in Semrush or Ahrefs.">?</span>
         </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="bag-cpc" value="6" min="0" step="0.5"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="sec-aud">
-    <div class="sec-h"><span class="sec-t"><a href="audience-discovery.html">Audience Discovery</a></span><span class="sec-v" id="v-aud">&mdash;</span></div>
-    <div class="grid">
-      <div class="f">
-        <label class="field-label" for="aud-spend">LinkedIn spend a month
-          <span class="tip" tabindex="0" data-tip="Spend on the campaigns that send people to this page. Campaign Manager, last 90 days, divided by 3.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="aud-spend" value="20000" min="0" step="1000"></div>
+        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="bag-cpc" value="12" min="0" step="0.5"></div>
       </div>
       <div class="f">
-        <label class="field-label" for="aud-share">Share on roles with no seat
-          <span class="tip r" tabindex="0" data-tip="Students, entry level, sales, HR and vendors. Read it off Campaign Manager › Demographics by job function and seniority. Don’t estimate it.">?</span>
+        <label class="field-label" for="bag-total">Total buyer questions
+          <span class="tip" tabindex="0" data-tip="From your Buyer Questions run: the questions your buyers ask that your sales lead rated real.">?</span>
         </label>
-        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="aud-share" value="30" min="0" max="100" step="1"></div>
+        <input class="field-input" type="number" id="bag-total" value="32" min="0" step="1">
+      </div>
+      <div class="f">
+        <label class="field-label" for="bag-unans">Buyer questions not answered
+          <span class="tip r" tabindex="0" data-tip="Of those, the ones your site doesn’t answer, including ones only a rival answers. From the same run, week 0.">?</span>
+        </label>
+        <input class="field-input" type="number" id="bag-unans" value="10" min="0" step="1">
       </div>
     </div>
   </section>
 
   <section class="sec" id="sec-ads">
     <div class="sec-h"><span class="sec-t"><a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></span><span class="sec-v" id="v-ads">&mdash;</span></div>
+    <p class="sec-note">Some of your LinkedIn spend reaches people who never help pick a vendor, like students, sales reps and HR. They are outside the buying committee. WhyUser finds them so you can cut them.</p>
     <div class="grid">
-      <div class="f" id="ads-spend-f">
+      <div class="f">
         <label class="field-label" for="ads-spend">LinkedIn spend a month
-          <span class="tip" tabindex="0" data-tip="Spend on the campaigns that send people to this page.">?</span>
+          <span class="tip" tabindex="0" data-tip="Spend on the campaigns that send people to your page. Campaign Manager, last 90 days, divided by 3.">?</span>
         </label>
         <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="ads-spend" value="20000" min="0" step="1000"></div>
       </div>
-      <div class="f hidden" id="ads-spend-shared">
-        <span class="field-label">LinkedIn spend a month</span>
-        <div class="f-shared">Same as Audience Discovery, <b id="ads-spend-echo">$0</b></div>
+      <div class="f">
+        <label class="field-label" for="ads-share">Share of spend outside the buying committee
+          <span class="tip r" tabindex="0" data-tip="Spend on roles that don’t help pick a vendor: students, entry level, sales, HR, recruiters and vendors. Read it off Campaign Manager › Demographics by job function and seniority, last 90 days. Don’t estimate it.">?</span>
+        </label>
+        <div class="input-wrap input-wrap-percent"><input class="field-input" type="number" id="ads-share" value="30" min="0" max="100" step="1"></div>
       </div>
       <div class="f">
-        <label class="field-label" for="ads-leads">LinkedIn leads a month
-          <span class="tip r" tabindex="0" data-tip="Leads from LinkedIn on this page, from Campaign Manager or your CRM with utm_source=linkedin.">?</span>
+        <label class="field-label" for="ads-real">Real-buyer leads a month
+          <span class="tip" tabindex="0" data-tip="LinkedIn leads whose job title is on your list of real buyers. From your CRM, with utm_source=linkedin. Used for the week-4 metric only.">?</span>
         </label>
-        <input class="field-input" type="number" id="ads-leads" value="80" min="0" step="5">
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="sec-email">
-    <div class="sec-h"><span class="sec-t"><a href="email-campaign-simulation.html">Email Sequences</a></span><span class="sec-v" id="v-email">&mdash;</span></div>
-    <div class="grid">
-      <div class="f">
-        <label class="field-label" for="em-leads">Leads a month from email
-          <span class="tip" tabindex="0" data-tip="Leads, replies that become leads, or demo requests from the sequence each month.">?</span>
-        </label>
-        <input class="field-input" type="number" id="em-leads" value="40" min="0" step="5">
-      </div>
-      <div class="f">
-        <label class="field-label" for="em-cpl">Cost per lead
-          <span class="tip r" tabindex="0" data-tip="Your blended cost per lead. We use it to count how many extra leads pay for WhyUser.">?</span>
-        </label>
-        <div class="input-wrap input-wrap-dollar"><input class="field-input" type="number" id="em-cpl" value="250" min="0" step="10"></div>
+        <input class="field-input" type="number" id="ads-real" value="40" min="0" step="1">
       </div>
     </div>
   </section>
@@ -4469,7 +4445,7 @@ body {
     </div>
     <div class="roi-rows" id="roi-rows"></div>
     <div class="roi-sum" id="roi-counted"><span><b id="roi-total-k">Total per year</b></span><span><b id="roi-total">&mdash;</b></span></div>
-    <div class="roi-sum follow" id="roi-share"><span id="roi-share-k">WhyUser contribution (40%)</span><span id="roi-share-v">&mdash;</span></div>
+    <div class="roi-sum follow" id="roi-share"><span id="roi-share-k">WhyUser contribution (50%)</span><span id="roi-share-v">&mdash;</span></div>
     <div class="roi-sum follow" id="roi-cost"><span id="roi-plan">WhyUser price</span><span id="roi-price">&mdash;</span></div>
     <div class="roi-panel" id="roi-panel">
       <div><span class="k">ROI</span><span class="sub" id="roi-sub">&mdash;</span></div>
@@ -4584,18 +4560,24 @@ body {
 
 <script>
 /* ============================================================
-   WHYUSER — ROI CALCULATOR v4 (19 Nov 2026)
-   Two inputs per feature, one table, one ROI. No lifts.
+   WHYUSER — ROI CALCULATOR v5 (25 Nov 2026)
+   Two features, one table, one ROI. No lifts.
    Inputs are monthly, as Semrush, Ahrefs and Campaign Manager
    report them. The card shows every figure for one period:
    a month, a quarter or a year (default).
-     · Buyer Questions Coverage: searches × CPC, at Google Ads prices.
-     · Audience Discovery: LinkedIn spend × share on roles with
-       no seat on the buying committee.
-     · Ad Funnel Simulation: LinkedIn spend on the page.
-     · Email Sequences: email leads × cost per lead.
+     · Buyer Questions for AI Visibility: searches × (questions not
+       answered ÷ total questions) × CPC. Only the gap is priced,
+       at Google Ads prices. An estimate.
+     · Ad Funnel Simulation: LinkedIn spend × share outside the
+       buying committee. Counted from Campaign Manager, the
+       LinkedIn Ad proof plan's week-0 figure.
+       Week 4 (metric 1, projected, not added): cost per real-buyer
+       lead now = spend ÷ real-buyer leads; after the cut = spend ×
+       (1 − share) ÷ the same real-buyer leads. Roles outside the
+       committee bring no real buyers, so the same budget buys
+       more of them at the lower cost.
      · WhyUser contribution: the share of the total the visitor
-       credits to WhyUser (default 40%).
+       credits to WhyUser (default 50%).
      · ROI = total × contribution ÷ WhyUser price, both for the
        same period, rounded down. Price per period = annual plan
        ÷ 12 × 1, 3 or 12.
@@ -4620,15 +4602,13 @@ body {
 
   var PLANS = { standard: { name: 'Standard', annual: 12000 }, scale: { name: 'Scale', annual: 24000 } };
   var PERIODS = { month: { m: 1, word: 'month', short: 'mo' }, quarter: { m: 3, word: 'quarter', short: 'qtr' }, year: { m: 12, word: 'year', short: 'yr' } };
-  var ORDER = ['bag', 'aud', 'ads', 'email'];
-  var NAMES = { bag: 'Buyer Questions', aud: 'Audience Discovery', ads: 'Ad Funnel Simulation', email: 'Email Sequences' };
-  var UI = { feats: { bag: true, aud: true, ads: true, email: true }, plan: 'scale', period: 'year' };
+  var ORDER = ['bag', 'ads'];
+  var NAMES = { bag: 'Buyer Questions for AI Visibility', ads: 'Ad Funnel Simulation' };
+  var UI = { feats: { bag: true, ads: false }, plan: 'scale', period: 'year' };
 
   function annual() { return UI.plan === 'enterprise' ? num('in-price') : PLANS[UI.plan].annual; }
   function per() { return PERIODS[UI.period] || PERIODS.year; }
   function contrib() { return Math.min(num('in-contrib'), 100) / 100; }
-  /* Audience Discovery and Ad Funnel Simulation read the same LinkedIn spend. */
-  function linkedInSpend() { return UI.feats.aud ? num('aud-spend') : num('ads-spend'); }
 
   /* v is the monthly value; the card scales it to the chosen period. */
   function row(v, line, f, need) {
@@ -4643,24 +4623,24 @@ body {
   /* Each returns { ok, v, big, head, line, f }, for the chosen period. */
   var F = {
     bag: function () {
-      var S = num('bag-searches'), C = num('bag-cpc');
-      return row(S * C, 'Searches a ' + per().word + ' on buyer questions your pages don’t answer, at Google Ads prices.',
-        qty(S) + ' searches × ' + money2(C), 'Add your searches and cost per click.');
-    },
-    aud: function () {
-      var SP = num('aud-spend'), sh = Math.min(num('aud-share'), 100);
-      return row(SP * sh / 100, 'LinkedIn spend a ' + per().word + ' on roles with no seat.',
-        money(SP) + ' × ' + dec1(sh) + '% on roles with no seat', 'Add your LinkedIn spend and the share on roles with no seat.');
+      var S = num('bag-searches'), C = num('bag-cpc'), T = num('bag-total'), U = Math.min(num('bag-unans'), T);
+      var o = row(T > 0 ? S * (U / T) * C : 0,
+        'Searches a ' + per().word + ' on the ' + qty(U) + ' of ' + qty(T) + ' buyer questions your site doesn’t answer, at Google Ads prices. An estimate.',
+        qty(S) + ' searches × ' + qty(U) + ' of ' + qty(T) + ' not answered × ' + money2(C),
+        'Add your searches, cost per click and buyer question counts.');
+      return o;
     },
     ads: function () {
-      var SP = linkedInSpend(), N = num('ads-leads'), cpl = N > 0 ? SP / N : 0;
-      return row(N > 0 ? SP : 0, 'LinkedIn spend a ' + per().word + ' on this page, ' + money2(cpl) + ' a lead.',
-        money(SP) + ' spend', 'Add your LinkedIn spend and leads.');
-    },
-    email: function () {
-      var N = num('em-leads'), C = num('em-cpl');
-      return row(N * C, 'Email leads a ' + per().word + ' at ' + money2(C) + ' each.',
-        qty(N) + ' leads × ' + money2(C), 'Add your email leads and cost per lead.');
+      var SP = num('ads-spend'), sh = Math.min(num('ads-share'), 100), R = num('ads-real');
+      var o = row(SP * sh / 100, 'LinkedIn spend a ' + per().word + ' on people outside the buying committee. Counted from Campaign Manager.',
+        money(SP) + ' × ' + dec1(sh) + '% outside the buying committee', 'Add your LinkedIn spend and the share outside the buying committee.');
+      /* Week 4, metric 1: cost per real-buyer lead, same budget. Shown, not added. */
+      if (SP > 0 && R > 0 && sh > 0) {
+        var now = SP / R, after = SP * (1 - sh / 100) / R;
+        o.m = { now: now, after: after, drop: sh,
+          f: money(SP) + ' ÷ ' + qty(R) + ' now; ' + money(SP) + ' × ' + dec1(100 - sh) + '% ÷ ' + qty(R) + ' after the cut. Not added to the total.' };
+      }
+      return o;
     }
   };
 
@@ -4677,10 +4657,6 @@ body {
     LAST = { rows: rows, total: total, share: share, c: c, price: price, roi: roi };
 
     rows.forEach(function (o) { $('v-' + o.id).textContent = o.head; });
-    var sh = $('ads-spend-shared'), own = $('ads-spend-f');
-    sh.classList.toggle('hidden', !on('aud'));
-    own.classList.toggle('hidden', on('aud'));
-    $('ads-spend-echo').textContent = money(num('aud-spend'));
 
     var co = str('cs-company');
     $('slide-company').textContent = co || 'Your company';
@@ -4689,7 +4665,9 @@ body {
 
     $('roi-rows').innerHTML = rows.map(function (o) {
       return '<div class="roi-row' + (o.ok ? '' : ' none') + '">' +
-        '<span><span class="nm">' + esc(o.name) + '</span><small>' + esc(o.line) + '</small></span>' +
+        '<span><span class="nm">' + esc(o.name) + '</span><small>' + esc(o.line) + '</small>' +
+        (o.m ? '<small class="m1">Week 4, projected: cost per real-buyer lead <b>' + esc(money(o.m.now)) + ' → ' + esc(money(o.m.after)) + '</b>, ' + esc(dec1(o.m.drop)) + '% lower on the same budget.</small>' : '') +
+        '</span>' +
         '<span class="v">' + esc(o.big) + '</span></div>';
     }).join('');
 
@@ -4709,7 +4687,10 @@ body {
       return '<div class="mrow' + (cls ? ' ' + cls : '') + '"><span class="mn">' + esc(n) + '</span><span class="mv">' + esc(v) + '</span>' +
         (f ? '<span class="mf">' + esc(f) + '</span>' : '') + '</div>';
     };
-    $('math').innerHTML = rows.map(function (o) { return mrow(o.name, o.big, o.ok ? o.f : ''); }).join('') +
+    $('math').innerHTML = rows.map(function (o) {
+        return mrow(o.name, o.big, o.ok ? o.f : '') +
+          (o.m ? mrow('Week 4: cost per real-buyer lead (projected)', money(o.m.now) + ' → ' + money(o.m.after), o.m.f) : '');
+      }).join('') +
       mrow('Total per ' + p.word, total > 0 ? money(total) : '—', '', 'sum') +
       mrow('WhyUser contribution', share > 0 ? money(share) : '—', total > 0 ? money(total) + ' × ' + cStr : '', 'sum follow') +
       mrow('WhyUser price per ' + p.word, priceStr, price > 0 ? money(A) + ' a year' + (p.m !== 12 ? ' ÷ 12' + (p.m > 1 ? ' × ' + p.m : '') : '') : '', 'sum follow') +
@@ -4723,7 +4704,10 @@ body {
   function pad(s, w) { s = String(s); while (s.length < w) s += ' '; return s; }
   function slideText() {
     var p = per(), o = [(str('cs-company') || 'Our company') + ' · ' + str('cs-date'), ''];
-    LAST.rows.forEach(function (r) { o.push(pad(r.name, 30) + pad(r.big, 12) + r.line); });
+    LAST.rows.forEach(function (r) {
+      o.push(pad(r.name, 30) + pad(r.big, 12) + r.line);
+      if (r.m) o.push(pad('', 42) + 'Week 4, projected: cost per real-buyer lead ' + money(r.m.now) + ' → ' + money(r.m.after) + ', ' + dec1(r.m.drop) + '% lower on the same budget.');
+    });
     o.push('');
     o.push(pad('Total per ' + p.word, 30) + (LAST.total > 0 ? money(LAST.total) : '—'));
     o.push(pad('WhyUser contribution (' + dec1(LAST.c * 100) + '%)', 30) + (LAST.share > 0 ? money(LAST.share) : '—'));
@@ -4753,12 +4737,18 @@ body {
       var d = JSON.parse(decodeURIComponent(escape(atob(h.slice(3)))));
       if (d.ui && d.ui.feats) {
         ORDER.forEach(function (k) { UI.feats[k] = !!d.ui.feats[k]; });
+        if (d.ui.feats.aud) UI.feats.ads = true; /* Audience Discovery's figure now sits under Ad Funnels */
         if (!ORDER.some(function (k) { return UI.feats[k]; })) UI.feats.bag = true;
       }
       if (d.ui && ['standard', 'scale', 'enterprise'].indexOf(d.ui.plan) !== -1) UI.plan = d.ui.plan;
       if (d.ui && PERIODS[d.ui.period]) UI.period = d.ui.period;
-      /* Old links may carry inputs that no longer exist; they are skipped. */
-      Object.keys(d.v || {}).forEach(function (id) {
+      /* Old links kept the spend inputs under Audience Discovery, and
+         the gap as a percent. Move them over; other old inputs are skipped. */
+      var v = d.v || {};
+      if (v['aud-spend'] !== undefined && v['ads-spend'] === undefined) v['ads-spend'] = v['aud-spend'];
+      if (v['bag-gap'] !== undefined && v['bag-total'] === undefined) { v['bag-total'] = '100'; v['bag-unans'] = v['bag-gap']; }
+      if (v['aud-share'] !== undefined && v['ads-share'] === undefined) v['ads-share'] = v['aud-share'];
+      Object.keys(v).forEach(function (id) {
         var el = $(id);
         if (el && (el.classList.contains('field-input') || el.classList.contains('meta-input'))) el.value = d.v[id];
       });

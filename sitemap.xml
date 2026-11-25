@@ -21,6 +21,9 @@
        (Find); Buyer &amp; Committee Simulations, Ad Funnel, Email (Test).
        Buyer Questions Coverage for AEO shortened to Buyer Questions Coverage;
        "for AEO" stays in its menu description and page headline.
+       lastmod 2026-11-25: ROI calculator covers two features, Buyer Questions
+       for AI Visibility (gap only, on by default) and Ad Funnel Simulation (spend outside the buying
+       committee, plus the week-4 cost per real-buyer lead).
        lastmod 2026-11-23: homepage rebuilt around Buyer Questions for AEO (Find,
        Fix, Test, Track); question-coverage.html rewritten; product names are now
        Buyer Questions for AEO, Committee Simulation and Ad Funnel Simulation on
@@ -95,7 +98,7 @@
   <url><loc>https://whyuser.com/synthetic-personas-vs-buyer-panels.html</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://whyuser.com/docs/</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://whyuser.com/docs/connect-claude.html</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://whyuser.com/roi.html</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://whyuser.com/roi.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://whyuser.com/faq.html</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://whyuser.com/security.html</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://whyuser.com/about.html</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>

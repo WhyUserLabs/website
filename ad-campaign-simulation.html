@@ -158,10 +158,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         {
           "@type": "Question",
-          "name": "How does this fit with Buyer Questions for AEO?",
+          "name": "How does this fit with Buyer Questions Coverage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Buyer Questions for AEO shows what each role asks before the click. Ad Funnel Simulation is the Test step for ads: the committee sees the ad, clicks or scrolls past, then reads the page. You see where the promise breaks, and for whom."
+            "text": "Buyer Questions Coverage shows what each role asks before the click. Ad Funnel Simulation is the Test step for ads: the committee sees the ad, clicks or scrolls past, then reads the page. You see where the promise breaks, and for whom."
           }
         }
       ],
@@ -207,6 +207,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <link rel="stylesheet" href="assets/whyuser-v3.css">
 <link rel="stylesheet" href="assets/whyuser-viz.css">
+<link rel="stylesheet" href="assets/whyuser-how.css">
 <script src="assets/whyuser-anchors.js" defer></script>
 <link rel="stylesheet" href="assets/dark-theme.css">
 </head>
@@ -238,25 +239,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
                     <span class="nav-dd-label">Find what buyers ask</span>
-                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Buyer Questions for AEO</span>
-                            <span class="nav-dd-desc">What buyers ask AI, and who answers.</span>
-                        </span>
-                    </a>
                     <a href="buyer-personas.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-id-card" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Buyer Context</span>
+                            <span class="nav-dd-name">Buyer Personas</span>
                             <span class="nav-dd-desc">Personas from real buyer quotes, dated.</span>
+                        </span>
+                    </a>
+                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Buyer Questions Coverage</span>
+                            <span class="nav-dd-desc">For AEO: what buyers ask AI, and who answers.</span>
+                        </span>
+                    </a>
+                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Audience Discovery</span>
+                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Test before you spend</span>
                     <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Committee Simulation</span>
+                            <span class="nav-dd-name">Buyer &amp; Committee Simulations</span>
                             <span class="nav-dd-desc">Who stalls on your page, and who blocks whom.</span>
                         </span>
                     </a>
@@ -272,13 +280,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span>
                             <span class="nav-dd-name">Email Sequences</span>
                             <span class="nav-dd-desc">Up to five emails, read in order.</span>
-                        </span>
-                    </a>
-                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Audience Discovery</span>
-                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Fix it in Claude</span>
@@ -449,15 +450,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="nav-mobile-inner">
             <div class="nav-m-group">
                 <span class="nav-m-label">Find what buyers ask</span>
-                <a href="question-coverage.html" class="nav-m-link">Buyer Questions for AEO</a>
-                <a href="buyer-personas.html" class="nav-m-link">Buyer Context</a>
+                <a href="buyer-personas.html" class="nav-m-link">Buyer Personas</a>
+                <a href="question-coverage.html" class="nav-m-link">Buyer Questions Coverage</a>
+                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Test before you spend</span>
-                <a href="committee-simulation.html" class="nav-m-link">Committee Simulation</a>
+                <a href="committee-simulation.html" class="nav-m-link">Buyer &amp; Committee Simulations</a>
                 <a href="ad-campaign-simulation.html" class="nav-m-link">Ad Funnel Simulation</a>
                 <a href="email-campaign-simulation.html" class="nav-m-link">Email Sequences</a>
-                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Fix it in Claude</span>
@@ -560,14 +561,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="lp-sec" id="how">
   <div class="wrap">
+  <div class="t1-how">
+    <div class="t1-how-head">
     <span class="lp-eyebrow">How it works</span>
     <h2 class="lp-h2 v3-fit" style="--fit:5.6">Find. Fix.<br><span class="v3-accent">Test. Track.</span></h2>
-    <ol class="vz vq-steps">
-      <li><div class="vq-art"><div class="vq-a-prom"><span><small>Ad says</small><b>Guide</b></span><em>&times;</em><span class="bad"><small>Page says</small><b>Sign up</b></span></div></div><span class="n">01</span><h3>Find where the promise breaks</h3><p>Each role sees the ad in the feed, clicks or scrolls past, then reads the page. Buyer Questions shows what each role came to find.</p></li>
-      <li><div class="vq-art"><div class="vq-a-cre"><span><b>A</b><i></i><i></i></span><span><b>B</b><i></i><i></i></span><em><i class="fa-solid fa-arrow-right"></i></em><span class="pg"><i class="fa-regular fa-file-lines"></i></span></div></div><span class="n">02</span><h3>Fix the page, then the ad</h3><p>Fixes are ranked by severity. A workflow revises the page and matches it to the ad headline, and you approve.</p></li>
-      <li><div class="vq-art"><div class="vq-a-fun"><i style="width:100%"></i><i style="width:45%"></i><i style="width:18%" class="no"></i><i style="width:6%" class="no"></i></div></div><span class="n">03</span><h3>Test the funnel again</h3><p>The same committee runs feed, click and page again. The click and the conversion are scored apart.</p></li>
-      <li><div class="vq-art"><div class="vq-a-feed"><span><i></i><i></i></span><span class="ad"><b>Promoted</b><i></i></span><span><i></i><i></i></span></div></div><span class="n">04</span><h3>Track it after you spend</h3><p>Mark each finding hit or miss against your real cost per lead. When the page behind a live ad changes, the funnel re-runs.</p></li>
+    </div>
+    <ol class="vz t1-steps">
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></span>
+        <div>
+          <span class="t1-step-k">01 &middot; Find</span>
+          <h3>Find where the promise breaks</h3>
+          <p>Each role sees the ad in the feed, clicks or scrolls past, then reads the page. Buyer Questions shows what each role came to find.</p>
+          <div class="vq-art"><div class="vq-a-prom"><span><small>Ad says</small><b>Guide</b></span><em>&times;</em><span class="bad"><small>Page says</small><b>Sign up</b></span></div></div>
+        </div>
+      </li>
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span>
+        <div>
+          <span class="t1-step-k">02 &middot; Fix</span>
+          <h3>Fix the page, then the ad</h3>
+          <p>Fixes are ranked by severity. A workflow revises the page and matches it to the ad headline, and you approve.</p>
+          <div class="vq-art"><div class="vq-a-cre"><span><b>A</b><i></i><i></i></span><span><b>B</b><i></i><i></i></span><em><i class="fa-solid fa-arrow-right"></i></em><span class="pg"><i class="fa-regular fa-file-lines"></i></span></div></div>
+        </div>
+      </li>
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-filter"></i></span>
+        <div>
+          <span class="t1-step-k">03 &middot; Test</span>
+          <h3>Test the funnel again</h3>
+          <p>The same committee runs feed, click and page again. The click and the conversion are scored apart.</p>
+          <div class="vq-art"><div class="vq-a-fun"><i style="width:100%"></i><i style="width:45%"></i><i style="width:18%" class="no"></i><i style="width:6%" class="no"></i></div></div>
+        </div>
+      </li>
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+        <div>
+          <span class="t1-step-k">04 &middot; Track</span>
+          <h3>Track it after you spend</h3>
+          <p>Mark each finding hit or miss against your real cost per lead. When the page behind a live ad changes, the funnel re-runs.</p>
+          <div class="vq-art"><div class="vq-a-feed"><span><i></i><i></i></span><span class="ad"><b>Promoted</b><i></i></span><span><i></i><i></i></span></div></div>
+        </div>
+      </li>
     </ol>
+  </div>
   </div>
 </section>
 
@@ -689,7 +726,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="lp-q"><h3>Are the click and conversion numbers real rates?</h3><p>No. Simulated buyers click and convert far more often than real ones, so each role is judged against an average ad in the same simulation. Treat the result as direction, never as a forecast CTR.</p></div>
       <div class="lp-q"><h3>Can it tell me which creative wins?</h3><p>It ranks the creatives and says when they are too close to call. In the sample run the two creatives were tied, and the page, not the ad, was the problem.</p></div>
       <div class="lp-q"><h3>Why test the page with the ad?</h3><p>Because the click is sold on a promise. If the page does not keep it, the best creative still loses. WhyUser scores the ad and the page apart, so you know which one to fix.</p></div>
-      <div class="lp-q"><h3>How does this fit with Buyer Questions for AEO?</h3><p>Buyer Questions for AEO shows what each role asks before the click. Ad Funnel Simulation is the Test step for ads: the committee sees the ad, clicks or scrolls past, then reads the page. You see where the promise breaks, and for whom.</p></div>
+      <div class="lp-q"><h3>How does this fit with Buyer Questions Coverage?</h3><p>Buyer Questions Coverage shows what each role asks before the click. Ad Funnel Simulation is the Test step for ads: the committee sees the ad, clicks or scrolls past, then reads the page. You see where the promise breaks, and for whom.</p></div>
     </div>
   </div>
 </section>
@@ -699,7 +736,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span>Keep reading</span>
     <a href="sample-report.html">All sample reports &rarr;</a>
     <a href="pre-launch-testing-vs-ab-testing.html">Pre-launch vs A/B testing &rarr;</a>
-    <a href="committee-simulation.html">Committee Simulation &rarr;</a>
+    <a href="committee-simulation.html">Buyer &amp; Committee Simulations &rarr;</a>
     <a href="focus-group-alternatives.html">Focus group alternatives &rarr;</a>
   </div>
 </div>
@@ -728,12 +765,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div><h4>Product</h4><ul>
-                <li><a href="question-coverage.html">Buyer Questions for AEO</a></li>
-                <li><a href="buyer-personas.html">Buyer Context</a></li>
-                <li><a href="committee-simulation.html">Committee Simulation</a></li>
+                <li><a href="buyer-personas.html">Buyer Personas</a></li>
+                <li><a href="question-coverage.html">Buyer Questions Coverage</a></li>
+                <li><a href="audience-discovery.html">Audience Discovery</a></li>
+                <li><a href="committee-simulation.html">Buyer &amp; Committee Simulations</a></li>
                 <li><a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></li>
                 <li><a href="email-campaign-simulation.html">Email Sequences</a></li>
-                <li><a href="audience-discovery.html">Audience Discovery</a></li>
                 <li><a href="workflows.html">Workflows &amp; MCP</a></li>
                 <li><a href="whyuser-in-claude.html">Use in Claude</a></li>
                 <li><a href="pricing.html">Pricing</a></li>

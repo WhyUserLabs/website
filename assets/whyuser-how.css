@@ -1,0 +1,20 @@
+/* HOW IT WORKS · vertical steps (2026-11-24)
+   Same layout as the Find / Fix / Test / Track loop on the homepage and
+   question-coverage.html: heading on the left (sticky on desktop), one
+   numbered node per step on a vertical rail. The product pages keep their
+   small step drawing (.vq-art) under each step's copy. */
+.t1-how{display:grid;gap:2rem}
+@media (min-width:1000px){.t1-how{grid-template-columns:minmax(0,22rem) minmax(0,1fr);gap:5rem;align-items:start}.t1-how-head{position:sticky;top:6.5rem}}
+.t1-how-head{margin-bottom:0}
+.t1-steps{list-style:none;margin:0;padding:0;max-width:44rem}
+.t1-step{display:grid;grid-template-columns:3.25rem minmax(0,1fr);column-gap:1.5rem;position:relative;padding-bottom:2.75rem}
+.t1-step:last-child{padding-bottom:0}
+.t1-step::before{content:"";position:absolute;left:calc(1.625rem - 1px);top:3.25rem;bottom:0;width:2px;background:color-mix(in srgb,var(--brand) 40%,transparent)}
+.t1-step:last-child::before{display:none}
+.t1-node{width:3.25rem;height:3.25rem;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--brand);color:var(--brand);font-size:1.05rem;box-shadow:0 0 0 6px color-mix(in srgb,var(--brand) 9%,transparent);position:relative;z-index:1}
+.t1-step:first-child .t1-node{background:var(--brand);color:var(--paper)}
+.t1-step-k{display:block;margin:.2rem 0 .35rem;font-family:'Geist Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.t1-step h3{margin:0 0 .45rem;font-family:'Fraunces',Georgia,serif;font-size:clamp(1.5rem,2.4vw,1.875rem);font-weight:600;letter-spacing:-.025em;line-height:1.1;color:var(--ink)}
+.t1-step p{margin:0;color:var(--mute);font-size:1.0625rem;line-height:1.6;max-width:36rem}
+.t1-step .vq-art{margin:1rem 0 0;max-width:22rem}
+@media (max-width:640px){.t1-step{grid-template-columns:2.5rem minmax(0,1fr);column-gap:1rem}.t1-node{width:2.5rem;height:2.5rem;font-size:.9rem}.t1-step::before{left:calc(1.25rem - 1px);top:2.5rem}}

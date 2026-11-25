@@ -66,7 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "WebPage",
       "@id": "https://whyuser.com/committee-simulation.html#webpage",
       "url": "https://whyuser.com/committee-simulation.html",
-      "name": "Committee Simulation: landing page testing on your buying committee",
+      "name": "Buyer & Committee Simulations: landing page testing on your buying committee",
       "description": "Test a landing page before launch. 50 simulated buyers across five committee roles show who stalls, which handoff breaks and what to fix, in about 30 minutes.",
       "isPartOf": {
         "@id": "https://whyuser.com/#website"
@@ -121,7 +121,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "How long does a landing page test take, and what does it cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "About 30 minutes. A page test fields 50 simulated buyers, ten for each of the five committee roles, and costs 20 credits. On the Scale plan that is about $89 a page. Pricing."
+            "text": "About 30 minutes. A page test fields 50 simulated buyers, ten for each of the five committee roles, and costs 20 credits. That is about $100 a page. Pricing."
           }
         },
         {
@@ -158,10 +158,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         {
           "@type": "Question",
-          "name": "How does this fit with Buyer Questions for AEO?",
+          "name": "How does this fit with Buyer Questions Coverage?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Buyer Questions for AEO finds what buyers ask and which questions your pages miss. Committee Simulation is the Test step: five roles read the page and show who still stalls, and why. Use them together. Buyer Questions for AEO."
+            "text": "Buyer Questions Coverage finds what buyers ask and which questions your pages miss. Buyer & Committee Simulations are the Test step: five roles read the page and show who still stalls, and why. Use them together. Buyer Questions Coverage."
           }
         }
       ],
@@ -180,7 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Committee Simulation",
+          "name": "Buyer & Committee Simulations",
           "item": "https://whyuser.com/committee-simulation.html"
         }
       ]
@@ -207,6 +207,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/whyuser-fonts.css">
 <link rel="stylesheet" href="assets/whyuser-v3.css">
 <link rel="stylesheet" href="assets/whyuser-viz.css">
+<link rel="stylesheet" href="assets/whyuser-how.css">
 <script src="assets/whyuser-anchors.js" defer></script>
 <link rel="stylesheet" href="assets/dark-theme.css">
 </head>
@@ -238,25 +239,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
                     <span class="nav-dd-label">Find what buyers ask</span>
-                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Buyer Questions for AEO</span>
-                            <span class="nav-dd-desc">What buyers ask AI, and who answers.</span>
-                        </span>
-                    </a>
                     <a href="buyer-personas.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-id-card" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Buyer Context</span>
+                            <span class="nav-dd-name">Buyer Personas</span>
                             <span class="nav-dd-desc">Personas from real buyer quotes, dated.</span>
+                        </span>
+                    </a>
+                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Buyer Questions Coverage</span>
+                            <span class="nav-dd-desc">For AEO: what buyers ask AI, and who answers.</span>
+                        </span>
+                    </a>
+                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Audience Discovery</span>
+                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Test before you spend</span>
                     <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Committee Simulation</span>
+                            <span class="nav-dd-name">Buyer &amp; Committee Simulations</span>
                             <span class="nav-dd-desc">Who stalls on your page, and who blocks whom.</span>
                         </span>
                     </a>
@@ -272,13 +280,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span>
                             <span class="nav-dd-name">Email Sequences</span>
                             <span class="nav-dd-desc">Up to five emails, read in order.</span>
-                        </span>
-                    </a>
-                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Audience Discovery</span>
-                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Fix it in Claude</span>
@@ -449,15 +450,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="nav-mobile-inner">
             <div class="nav-m-group">
                 <span class="nav-m-label">Find what buyers ask</span>
-                <a href="question-coverage.html" class="nav-m-link">Buyer Questions for AEO</a>
-                <a href="buyer-personas.html" class="nav-m-link">Buyer Context</a>
+                <a href="buyer-personas.html" class="nav-m-link">Buyer Personas</a>
+                <a href="question-coverage.html" class="nav-m-link">Buyer Questions Coverage</a>
+                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Test before you spend</span>
-                <a href="committee-simulation.html" class="nav-m-link">Committee Simulation</a>
+                <a href="committee-simulation.html" class="nav-m-link">Buyer &amp; Committee Simulations</a>
                 <a href="ad-campaign-simulation.html" class="nav-m-link">Ad Funnel Simulation</a>
                 <a href="email-campaign-simulation.html" class="nav-m-link">Email Sequences</a>
-                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Fix it in Claude</span>
@@ -507,7 +508,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="see-who-stalls" class="lp-hero vp-hero vz">
   <div class="wrap">
     <div class="vp-copy">
-      <nav class="lp-crumb" aria-label="Breadcrumb"><a href="./">WhyUser</a> / Test / Committee Simulation</nav>
+      <nav class="lp-crumb" aria-label="Breadcrumb"><a href="./">WhyUser</a> / Test / Buyer &amp; Committee Simulations</nav>
       <h1 class="lp-h1 v3-fit" style="--fit:12.7">See who stalls on your page.<br><span class="v3-accent">Before you launch it.</span></h1>
       <p class="lp-sub">Fifty simulated buyers, built from your buyers&rsquo; own words, read your page as five committee roles in three moods. In about 30 minutes you see who stalls, which handoff breaks and what to fix.</p>
       <div class="lp-ctas">
@@ -517,7 +518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="vq-stage">
     <figure class="vq-card">
-      <div class="vq-bar" aria-hidden="true"><span class="vq-dot"></span><b>Committee simulation</b><span class="r">Acme Corp &middot; sample run</span></div>
+      <div class="vq-bar" aria-hidden="true"><span class="vq-dot"></span><b>Buyer &amp; committee simulation</b><span class="r">Acme Corp &middot; sample run</span></div>
       <div class="vq-body">
         <p class="vq-verdict">Every role clicked. The case stalled at the champion.</p>
         <div class="vq-stats"><div class="s"><b>37/50</b><span>moved forward</span></div><div class="s no"><b>0</b><span>without a reservation</span></div><div class="s no"><b>4/7</b><span>handoffs snap</span></div></div>
@@ -546,14 +547,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="lp-sec" id="how">
   <div class="wrap">
+  <div class="t1-how">
+    <div class="t1-how-head">
     <span class="lp-eyebrow">How it works</span>
     <h2 class="lp-h2 v3-fit" style="--fit:5.6">Find. Fix.<br><span class="v3-accent">Test. Track.</span></h2>
-    <ol class="vz vq-steps">
-      <li><div class="vq-art"><div class="vq-a-roles"><span class=""><b>CH</b><u></u><u></u><u></u></span><span class=""><b>TD</b><u></u><u></u><u></u></span><span class=""><b>EB</b><u></u><u></u><u></u></span><span class=""><b>EU</b><u></u><u></u><u></u></span><span class=""><b>GR</b><u></u><u></u><u></u></span></div></div><span class="n">01</span><h3>Find who stalls</h3><p>Five roles, ten buyers each, read the page in three moods, and you see who stalls and which handoff snaps. Buyer Questions adds the questions the page leaves open.</p></li>
-      <li><div class="vq-art"><div class="vq-a-fix"><div><span>1</span><i></i><em>CH EB</em></div><div><span>2</span><i></i><em>TD EU</em></div><div><span>3</span><i></i><em>GR</em></div></div></div><span class="n">02</span><h3>Fix the page</h3><p>Fixes are ranked by evidence, each with the roles it frees. A workflow revises the page, your writer edits, and you approve.</p></li>
-      <li><div class="vq-art"><div class="vq-a-scan"><div class="pg"><i></i><i></i><i class="s"></i><i></i><i class="s"></i></div><svg viewBox="0 0 120 70"><path d="M14,12 C40,10 30,30 60,28 S90,44 72,58"/><circle cx="14" cy="12" r="3.5"/><circle cx="60" cy="28" r="3.5"/><g transform="translate(72 58)"><circle r="7" class="x"/><path d="M-2.6,-2.6L2.6,2.6M2.6,-2.6L-2.6,2.6" class="xp"/></g></svg></div></div><span class="n">03</span><h3>Test it again</h3><p>The same committee reads the new version: same buyers, same seeds. You see which roles now move forward, before you launch.</p></li>
-      <li><div class="vq-art"><div class="vq-a-url"><span class="u"><i class="fa-solid fa-lock"></i>staging/pricing</span><span class="vq-chips"><i>PDF</i><i>Pasted copy</i></span></div></div><span class="n">04</span><h3>Track it</h3><p>After launch, mark each finding hit or miss. Daily staging checks catch the next break before buyers do.</p></li>
+    </div>
+    <ol class="vz t1-steps">
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-users"></i></span>
+        <div>
+          <span class="t1-step-k">01 &middot; Find</span>
+          <h3>Find who stalls</h3>
+          <p>Five roles, ten buyers each, read the page in three moods, and you see who stalls and which handoff snaps. Buyer Questions adds the questions the page leaves open.</p>
+          <div class="vq-art"><div class="vq-a-roles"><span class=""><b>CH</b><u></u><u></u><u></u></span><span class=""><b>TD</b><u></u><u></u><u></u></span><span class=""><b>EB</b><u></u><u></u><u></u></span><span class=""><b>EU</b><u></u><u></u><u></u></span><span class=""><b>GR</b><u></u><u></u><u></u></span></div></div>
+        </div>
+      </li>
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span>
+        <div>
+          <span class="t1-step-k">02 &middot; Fix</span>
+          <h3>Fix the page</h3>
+          <p>Fixes are ranked by evidence, each with the roles it frees. A workflow revises the page, your writer edits, and you approve.</p>
+          <div class="vq-art"><div class="vq-a-fix"><div><span>1</span><i></i><em>CH EB</em></div><div><span>2</span><i></i><em>TD EU</em></div><div><span>3</span><i></i><em>GR</em></div></div></div>
+        </div>
+      </li>
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-rotate"></i></span>
+        <div>
+          <span class="t1-step-k">03 &middot; Test</span>
+          <h3>Test it again</h3>
+          <p>The same committee reads the new version: same buyers, same seeds. You see which roles now move forward, before you launch.</p>
+          <div class="vq-art"><div class="vq-a-scan"><div class="pg"><i></i><i></i><i class="s"></i><i></i><i class="s"></i></div><svg viewBox="0 0 120 70"><path d="M14,12 C40,10 30,30 60,28 S90,44 72,58"/><circle cx="14" cy="12" r="3.5"/><circle cx="60" cy="28" r="3.5"/><g transform="translate(72 58)"><circle r="7" class="x"/><path d="M-2.6,-2.6L2.6,2.6M2.6,-2.6L-2.6,2.6" class="xp"/></g></svg></div></div>
+        </div>
+      </li>
+      <li class="t1-step">
+        <span class="t1-node" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+        <div>
+          <span class="t1-step-k">04 &middot; Track</span>
+          <h3>Track it</h3>
+          <p>After launch, mark each finding hit or miss. Daily staging checks catch the next break before buyers do.</p>
+          <div class="vq-art"><div class="vq-a-url"><span class="u"><i class="fa-solid fa-lock"></i>staging/pricing</span><span class="vq-chips"><i>PDF</i><i>Pasted copy</i></span></div></div>
+        </div>
+      </li>
     </ol>
+  </div>
   </div>
 </section>
 
@@ -624,7 +661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="lp-h2 v3-fit" style="--fit:8.29">One report.<br><span class="v3-accent">Ready to forward.</span></h2>
     <p class="lp-lead">Share the link. Anyone on your team can open a role, a handoff or a fix and see the buyer behind it.</p>
     <div class="vz vq-rep">
-      <div class="vq-rep-bar" aria-hidden="true"><span class="vq-dot"></span><b>Committee simulation report</b><span class="r">Acme Corp &middot; sample run</span></div>
+      <div class="vq-rep-bar" aria-hidden="true"><span class="vq-dot"></span><b>Buyer &amp; committee simulation report</b><span class="r">Acme Corp &middot; sample run</span></div>
       <div class="vq-rep-tabs" aria-hidden="true"><span class="on">Committee Journey</span><span class="">Fixes &amp; Findings</span><span class="">Buyer Reads</span><span class="">Audit Trail</span><span class="">Versions</span><span class="">Setup</span></div>
       <div class="vq-rep-grid" style="--c:3">
         <div><span class="ic" aria-hidden="true"><i class="fa-solid fa-route"></i></span><b>Committee Journey</b><small>Each role&rsquo;s path, the seven handoffs, and which ones snap.</small></div>
@@ -678,12 +715,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="lp-eyebrow">Common questions</span>
     <h2 class="lp-h2">Answers, briefly.</h2>
     <div class="lp-faq">
-      <div class="lp-q"><h3>How long does a landing page test take, and what does it cost?</h3><p>About 30 minutes. A page test fields 50 simulated buyers, ten for each of the five committee roles, and costs 20 credits. On the Scale plan that is about $89 a page. <a href="pricing.html">Pricing</a>.</p></div>
+      <div class="lp-q"><h3>How long does a landing page test take, and what does it cost?</h3><p>About 30 minutes. A page test fields 50 simulated buyers, ten for each of the five committee roles, and costs 20 credits. That is about $100 a page. <a href="pricing.html">Pricing</a>.</p></div>
       <div class="lp-q"><h3>Do I need live traffic or recruited users?</h3><p>No. A run needs only a URL, staging included, or a PDF or pasted copy. No tag, no traffic and no panel.</p></div>
       <div class="lp-q"><h3>Which pages can I test?</h3><p>Landing, product, pricing and solution pages, and content pages: blog posts, white papers, case studies and docs. Each runs the same committee.</p></div>
       <div class="lp-q"><h3>What is a handoff, and why does it matter?</h3><p>B2B buyers pass the case to each other: the end user to the champion, the champion to the budget owner. Deals often stall in that pass, even when every role likes the page. WhyUser scores each handoff, so you see which one breaks and why.</p></div>
       <div class="lp-q"><h3>How is this different from a heatmap or an A/B test?</h3><p>Heatmaps and A/B tests need traffic and arrive after launch. They show what happened, not which role left or why. WhyUser runs before launch and names the role, the line and the missing proof. <a href="pre-launch-testing-vs-ab-testing.html">Pre-launch testing vs A/B testing</a>.</p></div>
-      <div class="lp-q"><h3>How does this fit with Buyer Questions for AEO?</h3><p>Buyer Questions for AEO finds what buyers ask and which questions your pages miss. Committee Simulation is the Test step: five roles read the page and show who still stalls, and why. Use them together. <a href="question-coverage.html">Buyer Questions for AEO</a>.</p></div>
+      <div class="lp-q"><h3>How does this fit with Buyer Questions Coverage?</h3><p>Buyer Questions Coverage finds what buyers ask and which questions your pages miss. Buyer &amp; Committee Simulations are the Test step: five roles read the page and show who still stalls, and why. Use them together. <a href="question-coverage.html">Buyer Questions Coverage</a>.</p></div>
     </div>
   </div>
 </section>
@@ -722,12 +759,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div><h4>Product</h4><ul>
-                <li><a href="question-coverage.html">Buyer Questions for AEO</a></li>
-                <li><a href="buyer-personas.html">Buyer Context</a></li>
-                <li><a href="committee-simulation.html">Committee Simulation</a></li>
+                <li><a href="buyer-personas.html">Buyer Personas</a></li>
+                <li><a href="question-coverage.html">Buyer Questions Coverage</a></li>
+                <li><a href="audience-discovery.html">Audience Discovery</a></li>
+                <li><a href="committee-simulation.html">Buyer &amp; Committee Simulations</a></li>
                 <li><a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></li>
                 <li><a href="email-campaign-simulation.html">Email Sequences</a></li>
-                <li><a href="audience-discovery.html">Audience Discovery</a></li>
                 <li><a href="workflows.html">Workflows &amp; MCP</a></li>
                 <li><a href="whyuser-in-claude.html">Use in Claude</a></li>
                 <li><a href="pricing.html">Pricing</a></li>

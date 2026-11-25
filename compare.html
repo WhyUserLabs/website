@@ -232,7 +232,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "Do I need WhyUser if I already have an AEO tool?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Keep the AEO tool. It tracks what AI says about you on the prompts you pick. WhyUser starts from the questions your buyers really ask, by role, checks your pages sentence by sentence, shows the rival page that answers instead, follows each question turn after turn, and grades whether AI gets your facts right. Then it loads those questions into your AEO tool as prompts. Buyer Questions for AEO."
+            "text": "Keep the AEO tool. It tracks what AI says about you on the prompts you pick. WhyUser starts from the questions your buyers really ask, by role, checks your pages sentence by sentence, shows the rival page that answers instead, follows each question turn after turn, and grades whether AI gets your facts right. Then it loads those questions into your AEO tool as prompts. Buyer Questions Coverage."
           }
         },
         {
@@ -317,25 +317,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
                     <span class="nav-dd-label">Find what buyers ask</span>
-                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Buyer Questions for AEO</span>
-                            <span class="nav-dd-desc">What buyers ask AI, and who answers.</span>
-                        </span>
-                    </a>
                     <a href="buyer-personas.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-id-card" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Buyer Context</span>
+                            <span class="nav-dd-name">Buyer Personas</span>
                             <span class="nav-dd-desc">Personas from real buyer quotes, dated.</span>
+                        </span>
+                    </a>
+                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Buyer Questions Coverage</span>
+                            <span class="nav-dd-desc">For AEO: what buyers ask AI, and who answers.</span>
+                        </span>
+                    </a>
+                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Audience Discovery</span>
+                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Test before you spend</span>
                     <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Committee Simulation</span>
+                            <span class="nav-dd-name">Buyer &amp; Committee Simulations</span>
                             <span class="nav-dd-desc">Who stalls on your page, and who blocks whom.</span>
                         </span>
                     </a>
@@ -351,13 +358,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span>
                             <span class="nav-dd-name">Email Sequences</span>
                             <span class="nav-dd-desc">Up to five emails, read in order.</span>
-                        </span>
-                    </a>
-                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Audience Discovery</span>
-                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Fix it in Claude</span>
@@ -528,15 +528,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="nav-mobile-inner">
             <div class="nav-m-group">
                 <span class="nav-m-label">Find what buyers ask</span>
-                <a href="question-coverage.html" class="nav-m-link">Buyer Questions for AEO</a>
-                <a href="buyer-personas.html" class="nav-m-link">Buyer Context</a>
+                <a href="buyer-personas.html" class="nav-m-link">Buyer Personas</a>
+                <a href="question-coverage.html" class="nav-m-link">Buyer Questions Coverage</a>
+                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Test before you spend</span>
-                <a href="committee-simulation.html" class="nav-m-link">Committee Simulation</a>
+                <a href="committee-simulation.html" class="nav-m-link">Buyer &amp; Committee Simulations</a>
                 <a href="ad-campaign-simulation.html" class="nav-m-link">Ad Funnel Simulation</a>
                 <a href="email-campaign-simulation.html" class="nav-m-link">Email Sequences</a>
-                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Fix it in Claude</span>
@@ -607,12 +607,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="lp-h2 v3-fit" style="--fit:14.22">Pick by the job, not the feature.<br><span class="v3-accent">WhyUser does all seven.</span></h2>
     <p class="lp-lead">Seven jobs that demand gen, product marketing and RevOps teams bring to us. Each card names the WhyUser feature that does it, and the tools teams compare for it.</p>
     <div class="vz vz-jobs vz-jobs3">
-      <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-circle-question"></i></span><h3 class="vz-h">Answer what buyers ask AI</h3></div><p class="who">For product marketing and content teams</p><p>See which buyer questions rivals answer and you don&rsquo;t, by role. Personas run multi-turn chats with AI to find where a rival takes over, and your AEO tool tracks the fix.</p><p class="ft">With <a href="question-coverage.html">Buyer Questions for AEO</a></p><div class="tags"><span class="k">Compared with</span><a href="whyuser-vs-hubspot-aeo.html">HubSpot AEO</a><a href="whyuser-vs-profound.html">Profound</a><a href="whyuser-vs-airops.html">AirOps</a><a href="best-aeo-tools.html">Best AEO tools</a><a href="whyuser-vs-chatgpt-and-claude.html">ChatGPT and Claude</a></div></div>
-      <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-window-maximize"></i></span><h3 class="vz-h">Refresh the website without losing buyers</h3></div><p class="who">For demand gen and web teams</p><p>New story, new pages. See which role each page loses, and why, before go-live.</p><p class="ft">With <a href="committee-simulation.html">Committee Simulation</a></p><div class="tags"><span class="k">Compared with</span><a href="best-landing-page-testing-tools.html">Landing page testing tools</a><a href="whyuser-vs-wynter.html">Wynter</a><a href="whyuser-vs-usertesting.html">UserTesting</a><a href="whyuser-vs-internal-review.html">Internal review</a></div></div>
+      <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-circle-question"></i></span><h3 class="vz-h">Answer what buyers ask AI</h3></div><p class="who">For product marketing and content teams</p><p>See which buyer questions rivals answer and you don&rsquo;t, by role. Personas run multi-turn chats with AI to find where a rival takes over, and your AEO tool tracks the fix.</p><p class="ft">With <a href="question-coverage.html">Buyer Questions Coverage</a></p><div class="tags"><span class="k">Compared with</span><a href="whyuser-vs-hubspot-aeo.html">HubSpot AEO</a><a href="whyuser-vs-profound.html">Profound</a><a href="whyuser-vs-airops.html">AirOps</a><a href="best-aeo-tools.html">Best AEO tools</a><a href="whyuser-vs-chatgpt-and-claude.html">ChatGPT and Claude</a></div></div>
+      <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-window-maximize"></i></span><h3 class="vz-h">Refresh the website without losing buyers</h3></div><p class="who">For demand gen and web teams</p><p>New story, new pages. See which role each page loses, and why, before go-live.</p><p class="ft">With <a href="committee-simulation.html">Buyer &amp; Committee Simulations</a></p><div class="tags"><span class="k">Compared with</span><a href="best-landing-page-testing-tools.html">Landing page testing tools</a><a href="whyuser-vs-wynter.html">Wynter</a><a href="whyuser-vs-usertesting.html">UserTesting</a><a href="whyuser-vs-internal-review.html">Internal review</a></div></div>
       <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-rectangle-ad"></i></span><h3 class="vz-h">Launch ads that don&rsquo;t waste the budget</h3></div><p class="who">For paid media teams</p><p>Test the ad and its landing page as one funnel. See who clicks, who bounces, and why, before you pay for clicks.</p><p class="ft">With <a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></p><div class="tags"><span class="k">Compared with</span><a href="best-ad-testing-tools.html">Ad testing tools</a><a href="pre-launch-testing-vs-ab-testing.html">A/B tests</a><a href="focus-group-alternatives.html">Focus groups</a></div></div>
       <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-envelope-open-text"></i></span><h3 class="vz-h">Book more meetings from outbound</h3></div><p class="who">For outbound and SDR teams</p><p>Test the whole sequence and the page each email links to. See who opens, who replies, and where the ask falls flat.</p><p class="ft">With <a href="email-campaign-simulation.html">Email Sequences</a></p><div class="tags"><span class="k">Compared with</span><a href="best-message-testing-tools.html">Message testing tools</a><a href="whyuser-vs-wynter.html">Wynter</a></div></div>
       <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></span><h3 class="vz-h">Break into a new segment</h3></div><p class="who">For ABM and growth teams</p><p>See which job titles your page pulls, and which roles it misses, before you buy the audience.</p><p class="ft">With <a href="audience-discovery.html">Audience Discovery</a></p><div class="tags"><span class="k">Compared with</span><a href="whyuser-vs-evidenza.html">Evidenza</a></div></div>
-      <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span><h3 class="vz-h">Write messaging every buyer role believes</h3></div><p class="who">For product marketing</p><p>Built from what buyers say before and after they engage, not a brainstorm. Every line cites the buyer behind it.</p><p class="ft">With <a href="buyer-personas.html">Buyer Context</a> and <a href="question-coverage.html">Buyer Questions for AEO</a></p><div class="tags"><span class="k">Compared with</span><a href="best-ai-buyer-persona-tools.html">AI persona tools</a><a href="whyuser-vs-delve-ai.html">Delve AI</a><a href="whyuser-vs-synthetic-users.html">Synthetic Users</a><a href="whyuser-vs-minds.html">Minds</a><a href="whyuser-vs-articos.html">Articos</a></div></div>
+      <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span><h3 class="vz-h">Write messaging every buyer role believes</h3></div><p class="who">For product marketing</p><p>Built from what buyers say before and after they engage, not a brainstorm. Every line cites the buyer behind it.</p><p class="ft">With <a href="buyer-personas.html">Buyer Personas</a> and <a href="question-coverage.html">Buyer Questions Coverage</a></p><div class="tags"><span class="k">Compared with</span><a href="best-ai-buyer-persona-tools.html">AI persona tools</a><a href="whyuser-vs-delve-ai.html">Delve AI</a><a href="whyuser-vs-synthetic-users.html">Synthetic Users</a><a href="whyuser-vs-minds.html">Minds</a><a href="whyuser-vs-articos.html">Articos</a></div></div>
       <div class="vz-job"><div class="vz-job-top"><span class="vz-ic" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></span><h3 class="vz-h">Ship the fixes, and prove they worked</h3></div><p class="who">For RevOps and marketing ops</p><p>Ask in Claude, and a workflow revises the page and re-tests it. Staging checks catch the next break before buyers do.</p><p class="ft">With <a href="workflows.html">Workflows &amp; MCP</a></p><div class="tags"><span class="k">Compared with</span><a href="whyuser-vs-chatgpt-and-claude.html">ChatGPT and Claude</a><a href="whyuser-vs-building-it-yourself.html">Build it yourself</a><a href="whyuser-vs-buyertwin.html">BuyerTwin</a></div></div>
     </div>
     <p class="vz-jobs-note">Out of scope: WhyUser does not record real people, coach reps on calls or measure live traffic.</p>
@@ -726,7 +726,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="lp-q"><h3>Can ChatGPT or Claude simulate a buying committee?</h3><p>They can role-play one, and they are excellent for drafting. But the same prompt returns a different answer each time, so you cannot tell whether a fix worked, and nothing is graded against what really happened.</p></div>
       <div class="lp-q"><h3>What are WhyUser’s simulated buyers built from?</h3><p>Evidence, not a prompt. From before buyers engage: reviews, community threads, competitor reviews and the questions they ask. From after: your sales calls, CRM objections and win/loss notes. Every trait cites its source, and you can test with one buyer or the whole committee.</p></div>
       <div class="lp-q"><h3>How did you check these facts?</h3><p>Each comparison page links every claim about another tool to that tool&rsquo;s own site or its G2 page, checked on 6 or 7 November 2026. If something changed, email hello@whyuser.com and we will fix it.</p></div>
-      <div class="lp-q"><h3>Do I need WhyUser if I already have an AEO tool?</h3><p>Keep the AEO tool. It tracks what AI says about you on the prompts you pick. WhyUser starts from the questions your buyers really ask, by role, checks your pages sentence by sentence, shows the rival page that answers instead, follows each question turn after turn, and grades whether AI gets your facts right. Then it loads those questions into your AEO tool as prompts. <a href="question-coverage.html">Buyer Questions for AEO</a>.</p></div>
+      <div class="lp-q"><h3>Do I need WhyUser if I already have an AEO tool?</h3><p>Keep the AEO tool. It tracks what AI says about you on the prompts you pick. WhyUser starts from the questions your buyers really ask, by role, checks your pages sentence by sentence, shows the rival page that answers instead, follows each question turn after turn, and grades whether AI gets your facts right. Then it loads those questions into your AEO tool as prompts. <a href="question-coverage.html">Buyer Questions Coverage</a>.</p></div>
       <div class="lp-q"><h3>How does WhyUser compare with HubSpot AEO and Profound?</h3><p>They track how AI talks about you: HubSpot AEO on 25 suggested prompts for $50 a month, Profound across up to 10 AI engines on a custom Enterprise plan. WhyUser starts from your buyers&rsquo; own questions, grades whether AI gets your facts right, checks your live pages sentence by sentence, and tests each fix. Use them together. <a href="whyuser-vs-hubspot-aeo.html">vs HubSpot AEO</a> &middot; <a href="whyuser-vs-profound.html">vs Profound</a> &middot; <a href="whyuser-vs-airops.html">vs AirOps</a> &middot; <a href="best-aeo-tools.html">Best AEO tools</a>.</p></div>
     </div>
   </div>
@@ -770,12 +770,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div><h4>Product</h4><ul>
-                <li><a href="question-coverage.html">Buyer Questions for AEO</a></li>
-                <li><a href="buyer-personas.html">Buyer Context</a></li>
-                <li><a href="committee-simulation.html">Committee Simulation</a></li>
+                <li><a href="buyer-personas.html">Buyer Personas</a></li>
+                <li><a href="question-coverage.html">Buyer Questions Coverage</a></li>
+                <li><a href="audience-discovery.html">Audience Discovery</a></li>
+                <li><a href="committee-simulation.html">Buyer &amp; Committee Simulations</a></li>
                 <li><a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></li>
                 <li><a href="email-campaign-simulation.html">Email Sequences</a></li>
-                <li><a href="audience-discovery.html">Audience Discovery</a></li>
                 <li><a href="workflows.html">Workflows &amp; MCP</a></li>
                 <li><a href="whyuser-in-claude.html">Use in Claude</a></li>
                 <li><a href="pricing.html">Pricing</a></li>

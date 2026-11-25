@@ -27,14 +27,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="article:published_time" content="2026-11-06T00:00:00+00:00">
 <meta property="article:modified_time" content="2026-11-23T00:00:00+00:00">
 
-<title>Buyer Context: Buyer Personas Built from What Buyers Say | WhyUser</title>
+<title>Buyer Personas Built from What Buyers Say | WhyUser</title>
 <meta name="description" content="WhyUser builds B2B buyer personas from reviews, communities, buyer questions and your own sales calls. Every trait cites a source, and the personas test your pages before launch.">
 <link rel="canonical" href="https://whyuser.com/buyer-personas.html">
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="WhyUser">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Buyer Context: Buyer Personas Built from What Buyers Say | WhyUser">
+<meta property="og:title" content="Buyer Personas Built from What Buyers Say | WhyUser">
 <meta property="og:description" content="WhyUser builds B2B buyer personas from reviews, communities, buyer questions and your own sales calls. Every trait cites a source, and the personas test your pages before launch.">
 <meta property="og:url" content="https://whyuser.com/buyer-personas.html">
 <meta property="og:image" content="https://whyuser.com/og-image.png?v=3">
@@ -42,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="WhyUser: meet your buying committee before your budget does.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Buyer Context: Buyer Personas Built from What Buyers Say | WhyUser">
+<meta name="twitter:title" content="Buyer Personas Built from What Buyers Say | WhyUser">
 <meta name="twitter:description" content="WhyUser builds B2B buyer personas from reviews, communities, buyer questions and your own sales calls. Every trait cites a source, and the personas test your pages before launch.">
 <meta name="twitter:image" content="https://whyuser.com/og-image.png?v=3">
 
@@ -66,7 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "WebPage",
       "@id": "https://whyuser.com/buyer-personas.html#webpage",
       "url": "https://whyuser.com/buyer-personas.html",
-      "name": "Buyer Context: buyer personas built from what your buyers say",
+      "name": "Buyer Personas: built from what your buyers say",
       "description": "WhyUser builds B2B buyer personas from reviews, communities, buyer questions and your own sales calls. Every trait cites a source, and the personas test your pages before launch.",
       "isPartOf": {
         "@id": "https://whyuser.com/#website"
@@ -100,7 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         {
           "@type": "Question",
-          "name": "What is Buyer Context?",
+          "name": "What are Buyer Personas built from?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "The evidence behind your buyers: what they say in public, what they say about your rivals, what they say on your calls, and which concerns are getting louder or going quiet. Every quote is dated, and every finding shows how many sources carry it."
@@ -162,7 +162,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Buyer Context",
+          "name": "Buyer Personas",
           "item": "https://whyuser.com/buyer-personas.html"
         }
       ]
@@ -190,6 +190,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/whyuser-v3.css">
 <link rel="stylesheet" href="assets/whyuser-viz.css">
 <script src="assets/whyuser-anchors.js" defer></script>
+<style>
+/* BEFORE AND AFTER THEY ENGAGE · three lanes (2026-11-24).
+   Before: vendor profile, market research, competitor reviews.
+   After: call transcripts, CRM, custom context. Over time: temporal knowledge. */
+.vz-lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin-top:2rem;align-items:start}
+.vz-lane-hd{margin:0 0 1rem;padding-bottom:.55rem;border-bottom:2px solid var(--vz-brand);position:relative;font-family:'Geist Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--vz-brand)}
+.vz-lane.after .vz-lane-hd{color:var(--vz-ink);border-color:var(--vz-ink)}
+.vz-lane.after .vz-lane-hd::after{content:"";position:absolute;left:-.625rem;bottom:-.4rem;width:.65rem;height:.65rem;border-radius:50%;background:var(--vz-ink);transform:translateX(-50%)}
+.vz-lane.time .vz-lane-hd{color:var(--vz-dim);border-color:var(--vz-dim);border-bottom-style:dashed}
+.vz-lane-items{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+.vz-lane-items li{background:var(--vz-surface);border:1px solid var(--vz-rule);border-radius:14px;padding:1rem 1.05rem;display:grid;grid-template-columns:2.5rem minmax(0,1fr);column-gap:.85rem;align-items:start}
+.vz-lane-items p{font-size:.875rem;line-height:1.5;color:var(--vz-mute);margin:.3rem 0 0}
+.vz-lane-items .vz-trend{margin-top:.6rem}
+@media(max-width:900px){.vz-lanes{grid-template-columns:1fr;gap:1.75rem}.vz-lane.after .vz-lane-hd::after{display:none}}
+</style>
 <link rel="stylesheet" href="assets/dark-theme.css">
 </head>
 <body>
@@ -220,25 +235,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
                 <div class="nav-dd-panel" id="nav-dd-product-panel" role="menu" aria-labelledby="nav-dd-product-trigger">
                     <span class="nav-dd-label">Find what buyers ask</span>
-                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Buyer Questions for AEO</span>
-                            <span class="nav-dd-desc">What buyers ask AI, and who answers.</span>
-                        </span>
-                    </a>
                     <a href="buyer-personas.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-id-card" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Buyer Context</span>
+                            <span class="nav-dd-name">Buyer Personas</span>
                             <span class="nav-dd-desc">Personas from real buyer quotes, dated.</span>
+                        </span>
+                    </a>
+                    <a href="question-coverage.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Buyer Questions Coverage</span>
+                            <span class="nav-dd-desc">For AEO: what buyers ask AI, and who answers.</span>
+                        </span>
+                    </a>
+                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
+                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+                        <span>
+                            <span class="nav-dd-name">Audience Discovery</span>
+                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Test before you spend</span>
                     <a href="committee-simulation.html" class="nav-dd-item" role="menuitem">
                         <span class="nav-dd-ico"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
                         <span>
-                            <span class="nav-dd-name">Committee Simulation</span>
+                            <span class="nav-dd-name">Buyer &amp; Committee Simulations</span>
                             <span class="nav-dd-desc">Who stalls on your page, and who blocks whom.</span>
                         </span>
                     </a>
@@ -254,13 +276,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span>
                             <span class="nav-dd-name">Email Sequences</span>
                             <span class="nav-dd-desc">Up to five emails, read in order.</span>
-                        </span>
-                    </a>
-                    <a href="audience-discovery.html" class="nav-dd-item" role="menuitem">
-                        <span class="nav-dd-ico"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-                        <span>
-                            <span class="nav-dd-name">Audience Discovery</span>
-                            <span class="nav-dd-desc">The titles your content pulls.</span>
                         </span>
                     </a>
                     <span class="nav-dd-label">Fix it in Claude</span>
@@ -431,15 +446,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="nav-mobile-inner">
             <div class="nav-m-group">
                 <span class="nav-m-label">Find what buyers ask</span>
-                <a href="question-coverage.html" class="nav-m-link">Buyer Questions for AEO</a>
-                <a href="buyer-personas.html" class="nav-m-link">Buyer Context</a>
+                <a href="buyer-personas.html" class="nav-m-link">Buyer Personas</a>
+                <a href="question-coverage.html" class="nav-m-link">Buyer Questions Coverage</a>
+                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Test before you spend</span>
-                <a href="committee-simulation.html" class="nav-m-link">Committee Simulation</a>
+                <a href="committee-simulation.html" class="nav-m-link">Buyer &amp; Committee Simulations</a>
                 <a href="ad-campaign-simulation.html" class="nav-m-link">Ad Funnel Simulation</a>
                 <a href="email-campaign-simulation.html" class="nav-m-link">Email Sequences</a>
-                <a href="audience-discovery.html" class="nav-m-link">Audience Discovery</a>
             </div>
             <div class="nav-m-group">
                 <span class="nav-m-label">Fix it in Claude</span>
@@ -488,7 +503,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main class="lp" id="main">
 <section id="buyer-personas-built-from" class="lp-hero">
   <div class="wrap">
-    <nav class="lp-crumb" aria-label="Breadcrumb"><a href="./">WhyUser</a> / Find / Buyer Context</nav>
+    <nav class="lp-crumb" aria-label="Breadcrumb"><a href="./">WhyUser</a> / Find / Buyer Personas</nav>
     <h1 class="lp-h1 v3-fit" style="--fit:12.21">Buyer personas, built from<br>what your buyers say.</h1>
     <p class="lp-sub">You don&rsquo;t write them: WhyUser builds each buyer from real evidence, cites every trait and keeps it current. Then your buyers read your pages before launch.</p>
     <div class="lp-ctas">
@@ -536,10 +551,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         <div class="wu-gr-item">
                             <span>
-                                <span class="wu-gr-n">AI awareness</span>
-                                <span class="wu-gr-m">ChatGPT &middot; Claude &middot; Perplexity</span>
+                                <span class="wu-gr-n">Buyer Questions</span>
+                                <span class="wu-gr-m">Search &middot; AEO prompts &middot; AI answers</span>
                             </span>
-                            <span class="wu-gr-ic" aria-hidden="true"><i class="fa-solid fa-microchip"></i></span>
+                            <span class="wu-gr-ic" aria-hidden="true"><i class="fa-solid fa-circle-question"></i></span>
                             <span class="wu-gr-line" aria-hidden="true"></span>
                         </div>
                     </div>
@@ -587,7 +602,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 </div>
 
-                <p class="sr-only">Six evidence sources compile into your buyer agents. Three are public and work from the first run: company context from your site, ACV and GTM motion; market intelligence from reviews, communities and competitors; and AI awareness of how ChatGPT, Claude and Perplexity describe you. Three are yours and start when you connect them: customer voice from call recordings and CRM objections; institutional knowledge from win/loss notes, positioning and battlecards; and expert knowledge from experiment findings and the corrections your team makes. The agents recompile as your data changes.</p>
+                <p class="sr-only">Six evidence sources compile into your buyer agents. Three are public and work from the first run: company context from your site, ACV and GTM motion; market intelligence from reviews, communities and competitors; and buyer questions from search, AEO prompts and what ChatGPT, Claude and Perplexity answer. Three are yours and start when you connect them: customer voice from call recordings and CRM objections; institutional knowledge from win/loss notes, positioning and battlecards; and expert knowledge from experiment findings and the corrections your team makes. The agents recompile as your data changes.</p>
             </div>
     </div>
   </div>
@@ -598,13 +613,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="lp-eyebrow">Before and after they engage</span>
     <h2 class="lp-h2">Real buyer quotes, dated.</h2>
     <p class="lp-lead">See what buyers say before and after they talk to you, and what is getting louder. This is what each persona is built from.</p>
-    <div class="vz vz-ctx">
-      <div class="vz-ctx-axis" aria-hidden="true"><span>Before they engage</span><span>After they engage</span><span>Over time</span></div>
-      <div class="vz-ctx-cards">
-        <div><small>Before they engage</small><span class="vz-ic"><i class="fa-solid fa-globe" aria-hidden="true"></i></span><h3 class="vz-h">Market research</h3><p>What buyers say in public, each finding with how many sites and quotes carry it.</p></div>
-        <div><small>Before they engage</small><span class="vz-ic"><i class="fa-solid fa-star-half-stroke" aria-hidden="true"></i></span><h3 class="vz-h">Competitor reviews</h3><p>What buyers say about each rival you track: where they win, where they leak.</p></div>
-        <div><small>After they engage</small><span class="vz-ic ink"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><h3 class="vz-h">Your calls</h3><p>Objections and questions from your own calls. The rep&rsquo;s words are never taken for the buyer&rsquo;s.</p></div>
-        <div><small>Over time</small><span class="vz-ic"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span><h3 class="vz-h">What is moving</h3><p>Which concerns are getting louder, going quiet, or showing up for the first time.</p><div class="vz-trend"><span class="up">&uarr; Louder</span><span class="dn">&darr; Quieter</span><span class="nw">New</span></div></div>
+    <div class="vz vz-lanes">
+      <div class="vz-lane">
+        <p class="vz-lane-hd">Before they engage</p>
+        <ul class="vz-lane-items">
+          <li><span class="vz-ic"><i class="fa-solid fa-building" aria-hidden="true"></i></span><div><h3 class="vz-h">Vendor Profile</h3><p>Your site, ACV and go-to-market motion: what buyers see of you first.</p></div></li>
+          <li><span class="vz-ic"><i class="fa-solid fa-globe" aria-hidden="true"></i></span><div><h3 class="vz-h">Market Research</h3><p>What buyers say in public, each finding with how many sites and quotes carry it.</p></div></li>
+          <li><span class="vz-ic"><i class="fa-solid fa-star-half-stroke" aria-hidden="true"></i></span><div><h3 class="vz-h">Competitor Reviews</h3><p>What buyers say about each rival you track: where they win, where they leak.</p></div></li>
+        </ul>
+      </div>
+      <div class="vz-lane after">
+        <p class="vz-lane-hd">After they engage</p>
+        <ul class="vz-lane-items">
+          <li><span class="vz-ic ink"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><div><h3 class="vz-h">Call Transcripts</h3><p>Objections and questions from your own calls. The rep&rsquo;s words are never taken for the buyer&rsquo;s.</p></div></li>
+          <li><span class="vz-ic ink"><i class="fa-solid fa-address-card" aria-hidden="true"></i></span><div><h3 class="vz-h">CRM</h3><p>Deal notes and lost reasons from your CRM, tied to the role that raised them.</p></div></li>
+          <li><span class="vz-ic ink"><i class="fa-solid fa-file-circle-plus" aria-hidden="true"></i></span><div><h3 class="vz-h">Custom Context</h3><p>Anything else you add, like win-loss notes, research and internal docs.</p></div></li>
+        </ul>
+      </div>
+      <div class="vz-lane time">
+        <p class="vz-lane-hd">Over time</p>
+        <ul class="vz-lane-items">
+          <li><span class="vz-ic"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span><div><h3 class="vz-h">Temporal Knowledge</h3><p>Which concerns are getting louder, going quiet, or showing up for the first time.</p><div class="vz-trend"><span class="up">&uarr; Louder</span><span class="dn">&darr; Quieter</span><span class="nw">New</span></div></div></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -689,8 +719,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="lp-eyebrow">Use them</span>
     <h2 class="lp-h2">Put your buyers to work.</h2>
     <div class="v3-pillars">
-      <div class="v3-pillar"><span class="v3-pillar-k">Rehearse</span><h3>Test a launch</h3><p>Your buyers read the page, ad or email before you spend.</p><ul><li><a href="committee-simulation.html">Committee Simulation</a></li><li><a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></li><li><a href="email-campaign-simulation.html">Email Sequences</a></li></ul></div>
-      <div class="v3-pillar"><span class="v3-pillar-k">Target</span><h3>Find who to reach</h3><p>The titles and sub-markets your content already fits.</p><ul><li><a href="audience-discovery.html">Audience Discovery</a></li><li><a href="question-coverage.html">Buyer Questions for AEO</a></li></ul></div>
+      <div class="v3-pillar"><span class="v3-pillar-k">Rehearse</span><h3>Test a launch</h3><p>Your buyers read the page, ad or email before you spend.</p><ul><li><a href="committee-simulation.html">Buyer &amp; Committee Simulations</a></li><li><a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></li><li><a href="email-campaign-simulation.html">Email Sequences</a></li></ul></div>
+      <div class="v3-pillar"><span class="v3-pillar-k">Target</span><h3>Find who to reach</h3><p>The titles and sub-markets your content already fits.</p><ul><li><a href="audience-discovery.html">Audience Discovery</a></li><li><a href="question-coverage.html">Buyer Questions Coverage</a></li></ul></div>
       <div class="v3-pillar"><span class="v3-pillar-k">Write</span><h3>Message one buyer</h3><p>What to say, prove and avoid, with a draft per channel.</p><ul><li><a href="workflows.html#persona-messaging">Write Persona Messaging</a></li></ul></div>
     </div>
   </div>
@@ -702,7 +732,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="lp-h2">Answers, briefly.</h2>
     <div class="lp-faq">
       <div class="lp-q"><h3>What is a WhyUser buyer persona?</h3><p>A simulated buyer compiled from real evidence: reviews, community threads, buyer questions, competitor complaints and, when you connect them, your sales calls, CRM objections and win/loss notes. Every trait cites its source. The buyer is simulated, not a real person.</p></div>
-      <div class="lp-q"><h3>What is Buyer Context?</h3><p>The evidence behind your buyers: what they say in public, what they say about your rivals, what they say on your calls, and which concerns are getting louder or going quiet. Every quote is dated, and every finding shows how many sources carry it.</p></div>
+      <div class="lp-q"><h3>What are Buyer Personas built from?</h3><p>The evidence behind your buyers: what they say in public, what they say about your rivals, what they say on your calls, and which concerns are getting louder or going quiet. Every quote is dated, and every finding shows how many sources carry it.</p></div>
       <div class="lp-q"><h3>How is a buyer persona different from an ICP?</h3><p>An ICP describes the company you sell to: industry, size and stack. A persona describes a person on its buying committee: what they need, fear and must prove. WhyUser covers both. <a href="audience-discovery.html">Audience Discovery</a> finds the titles and sub-markets your content fits, and personas read the content as those people.</p></div>
       <div class="lp-q"><h3>Can I build personas from my own customer interviews and sales calls?</h3><p>Yes. Connect call transcripts, or paste a document or URL with your research on a buyer. WhyUser pulls out the statements, pins them to that buyer, and shows you anything it refused, such as your own marketing. Public evidence works before you connect anything.</p></div>
       <div class="lp-q"><h3>Can a persona predict buyer objections, not just describe a buyer?</h3><p>Yes. Each persona carries the objections and proof needs its role is likely to raise, then reads your real page: which role stalls, on which line, and what proof was missing. One account confirmed 6 of 8 predicted proof needs on 42 recorded sales calls, and 2 more in part.</p></div>
@@ -746,12 +776,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div><h4>Product</h4><ul>
-                <li><a href="question-coverage.html">Buyer Questions for AEO</a></li>
-                <li><a href="buyer-personas.html">Buyer Context</a></li>
-                <li><a href="committee-simulation.html">Committee Simulation</a></li>
+                <li><a href="buyer-personas.html">Buyer Personas</a></li>
+                <li><a href="question-coverage.html">Buyer Questions Coverage</a></li>
+                <li><a href="audience-discovery.html">Audience Discovery</a></li>
+                <li><a href="committee-simulation.html">Buyer &amp; Committee Simulations</a></li>
                 <li><a href="ad-campaign-simulation.html">Ad Funnel Simulation</a></li>
                 <li><a href="email-campaign-simulation.html">Email Sequences</a></li>
-                <li><a href="audience-discovery.html">Audience Discovery</a></li>
                 <li><a href="workflows.html">Workflows &amp; MCP</a></li>
                 <li><a href="whyuser-in-claude.html">Use in Claude</a></li>
                 <li><a href="pricing.html">Pricing</a></li>

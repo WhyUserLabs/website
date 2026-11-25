@@ -1,10 +1,10 @@
 # WhyUser
 
-> WhyUser is the buyer simulation platform for B2B marketing. Buyer Questions for AEO shows what buyers ask AI, by role, which of those questions the customer's pages answer, and which ones a rival's page answers instead, with the rival's quote. Personas built from real buyer evidence then ask AI turn after turn, and WhyUser checks the customer's site at each turn. WhyUser drafts the fix from the customer's facts. Committee Simulation and Ad Funnel Simulation test each page and ad on a simulated buying committee before it is published or paid for. Then the customer tracks coverage and AI accuracy. It works with the customer's AEO tool (Profound, HubSpot AEO, Semrush).
+> WhyUser is the buyer simulation platform for B2B marketing. Buyer Questions Coverage shows what buyers ask AI, by role, which of those questions the customer's pages answer, and which ones a rival's page answers instead, with the rival's quote. Personas built from real buyer evidence then ask AI turn after turn, and WhyUser checks the customer's site at each turn. WhyUser drafts the fix from the customer's facts. Buyer & Committee Simulations and Ad Funnel Simulation test each page and ad on a simulated buying committee before it is published or paid for. Then the customer tracks coverage and AI accuracy. It works with the customer's AEO tool (Profound, HubSpot AEO, Semrush).
 
 WhyUser Inc. is based in San Jose, California. Named customers include ngrok ([customer story](https://whyuser.com/casestudy-ngrok.html)) and Vectara. The product is sold on annual plans, from $1,000 a month on an annual contract. The trial is a free gap list: the top 10 questions a rival answers and the customer doesn't, for one product, back within 48 hours.
 
-**Last updated:** 2026-11-23 (rev 14)
+**Last updated:** 2026-11-24 (rev 15)
 
 ## The distinguishing claim
 
@@ -22,15 +22,15 @@ In a published sample run on a customer's product page (anonymized as Acme Corp)
 
 ## Find, Fix, Test, Track
 
-WhyUser runs one loop. Buyer Questions for AEO is the front door; Committee Simulation and Ad Funnel Simulation are the Test step.
+WhyUser runs one loop. Buyer Questions Coverage is the front door. Buyer & Committee Simulations test each page, Audience Discovery finds who it reaches, and Ad Funnel Simulation and Email Sequences test campaigns.
 
 1. **Find.**
-   - [Buyer Questions for AEO](https://whyuser.com/question-coverage.html) (internal name: Question Coverage): the questions buyers ask, by role, from before they talk to the customer (Search Console, AEO prompts, market research, competitor reviews, trends) and after (sales calls, CRM). Each question is labeled Asked, Searched, Public or Simulated, and marked answered, partly answered or not answered, with the sentence from the customer's page. Questions a rival answers show the rival page and its quote.
-   - [Buyer Context](https://whyuser.com/buyer-personas.html): buyer personas compiled from what buyers say, before and after they engage, never written by hand. Each trait cites its source.
+   - [Buyer Questions Coverage](https://whyuser.com/question-coverage.html) (internal name: Question Coverage): the questions buyers ask, by role, from before they talk to the customer (Search Console, AEO prompts, market research, competitor reviews, trends) and after (sales calls, CRM). Each question is labeled Asked, Searched, Public or Simulated, and marked answered, partly answered or not answered, with the sentence from the customer's page. Questions a rival answers show the rival page and its quote.
+   - [Buyer Personas](https://whyuser.com/buyer-personas.html): buyer personas compiled from what buyers say, before and after they engage, never written by hand. Each trait cites its source.
 2. **Fix.** WhyUser drafts each answer from the customer's facts and places it on the right page, rival-only questions first. The customer's writer edits and the customer approves. [Workflows & MCP](https://whyuser.com/workflows.html) run this in Claude, Cursor or Codex: Revise Content, Revise Email Sequence, Write Persona Messaging, Find Common Patterns and Compare Before and After.
 3. **Test.**
    - Follow-ups: personas ask AI, read the answer and ask again, for 3 to 5 turns. At each turn WhyUser checks the customer's site for the next questions. AI answers are real; persona questions are simulated and labeled.
-   - [Committee Simulation](https://whyuser.com/committee-simulation.html): five buyer roles read a page in three moods. Who stalls, which handoff snaps, and ranked fixes.
+   - [Buyer & Committee Simulations](https://whyuser.com/committee-simulation.html): five buyer roles read a page in three moods. Who stalls, which handoff snaps, and ranked fixes.
    - [Ad Funnel Simulation](https://whyuser.com/ad-campaign-simulation.html): LinkedIn and Google ads, from feed to landing page. Who clicks, who stays, where the ad's promise breaks.
    - Also available: [Email Sequences](https://whyuser.com/email-campaign-simulation.html) (up to five emails, read in order) and [Audience Discovery](https://whyuser.com/audience-discovery.html) (the titles a page pulls).
 4. **Track.** Coverage and gaps closed by week 2, counted. AI accuracy on questions that name the customer by week 5: how often ChatGPT, Perplexity and Google AI Overviews get the facts right and cite the customer's site, with fixed questions next to questions not yet fixed. Google impressions on new pages for category questions by week 8. Committee findings are graded hit or miss after launch.
@@ -39,12 +39,13 @@ WhyUser runs one loop. Buyer Questions for AEO is the front door; Committee Simu
 
 | Run | Agents | Credits | Returns |
 |---|---|---|---|
-| [Landing Page Testing](https://whyuser.com/committee-simulation.html) | 50 | 20 per run | Conflict graph, per-role verdict, ranked fix queue |
-| Content page testing (blog posts, white papers, case studies, docs) | 50 | 20 per run | Same, for non-landing assets |
+| Persona Simulation (landing or content page) | n/a | 5 per run | One buyer persona's read of the page |
+| [Committee Simulation](https://whyuser.com/committee-simulation.html) (landing or content page) | 50 | 20 per run | Conflict graph, per-role verdict, ranked fix queue |
 | [Ad campaign](https://whyuser.com/ad-campaign-simulation.html) | 300 | 50 per creative | Ad-to-page promise check per role, funnel stage by stage, fixes ranked by severity |
 | [Email campaign](https://whyuser.com/email-campaign-simulation.html) | 300 | 20 per subject × body × link combo | Opens, clicks and replies per role, email by email, with a fix per email |
 | [Audience Discovery](https://whyuser.com/audience-discovery.html) | full committee | 50 per run | LinkedIn audiences ranked by seniority and job function, subvertical by seat matrix, page gaps |
-| Community & Competitor Intelligence | n/a | 20 per run | Refreshed competitor and community picture behind the committee |
+| Buyer Intelligence (Market Research, Competitor Reviews, Temporal Intelligence) | n/a | 20 per run; runs 2-4 times a month | Refreshed market, competitor and trend picture behind your buyers |
+| [Buyer Questions Coverage](https://whyuser.com/question-coverage.html) | n/a | 10 base + 5 per use case, per run; runs 2-4 times a month | Which buyer questions your pages answer, and which a rival answers instead |
 
 Agent counts, behavioral states and accuracy are **identical on every plan**. Plans differ in how much you can run, never in how good the answer is.
 
@@ -54,12 +55,12 @@ Agent counts, behavioral states and accuracy are **identical on every plan**. Pl
 
 - [ROI calculator](https://whyuser.com/roi.html): two numbers per feature. It adds up buyer-question searches at Google Ads prices, LinkedIn spend (including spend on roles with no seat on the buying committee) and email leads at cost per lead. It credits WhyUser with a share the visitor sets (40% by default) and divides that by the plan price for the same month, quarter or year.
 
-- **Standard**: $1,000/month on an annual contract, 2,400 credits a year. Includes Buyer Questions for AEO for 3 use cases, Audience Discovery, and persona and committee simulations. Intelligence refreshed 4× a month
-- **Scale**: $2,000/month on an annual contract, 5,400 credits a year. Includes everything in Standard, plus Buyer Questions for AEO for 5 use cases, Ad Funnel Simulation and Email Sequence Simulations. Intelligence refreshed 4× a month
-- **Enterprise**: custom annual pricing, 12,000+ credits, SSO, custom DPA, named engineer
+- **Standard**: $1,000/month on an annual contract, 200 credits a month. Includes Buyer Personas and Committees, Buyer Questions Coverage, Page & Content Simulations, Audience Discovery, and email support within 1 business day.
+- **Scale**: $2,000/month on an annual contract, 400 credits a month. Includes everything in Standard, plus AI Visibility Multi-Turn Chats, Ad Funnel Simulations, Email Sequence Simulations and a shared Slack channel.
+- **Enterprise**: custom annual pricing and credit allowance. Includes everything in Scale, plus multi-workspace support and custom integrations.
 - **Credit pack**: $1,000 per 200 credits, no expiry for the life of the subscription
 
-A landing-page test is 20 credits, which is $89 on Scale and $100 on Standard. Every plan tracks up to 5 competitors. Credits are spendable at any point in the term. The trial is a free gap list: the top 10 questions a rival answers and the customer doesn't, for one product.
+On any plan, a Persona Simulation is 5 credits (about $25) and a Committee Simulation is 20 credits (about $100). Buyer Intelligence (20 credits a run) and Buyer Questions Coverage (10 credits plus 5 per use case a run) each run 2-4 times a month. Plan credits expire at the end of each month; credit packs do not expire while the subscription is active. The trial is a free gap list: the top 10 questions a rival answers and the customer doesn't, for one product.
 
 Every plan can use WhyUser in Claude through the MCP server (Cursor and Codex connect to the same server), and everything in the web app is also available over the API.
 
@@ -67,8 +68,9 @@ Every plan can use WhyUser in Claude through the MCP server (Cursor and Codex co
 
 WhyUser calls this Ground Reality. Buyers are compiled from evidence, never written by hand.
 
-- **Before they meet you:** review sites, community threads, competitor complaints, your own pages, and how all of it shifted over the last 18 months.
-- **After they meet you:** call recordings, CRM notes, win/loss reasons.
+- **Before they engage:** vendor profile (your site, ACV and go-to-market motion), market research (review sites, community threads) and competitor reviews.
+- **After they engage:** call transcripts, CRM notes and lost reasons, and custom context (win/loss notes, research, internal docs).
+- **Over time:** temporal knowledge, meaning which concerns are getting louder, going quiet or showing up for the first time, across the last 18 months.
 - **Static or dynamic, the customer chooses.** Freeze a persona to hold a fixed baseline, or leave it live and it rebuilds when new evidence lands. It never drifts on its own.
 - Where sources disagree, a real buyer's words outrank the model's own draft, which ranks last of the nine streams that merge into one agent.
 - Statements about *selling* — funnel, MQLs, pipeline, ABM — are stripped before they can become a buyer's belief. A buyer has never had an MQL problem.
@@ -88,10 +90,10 @@ The single most common error this corrects: quoting 82% distracted as a fact abo
 
 ## Accuracy and evidence
 
-- [Accuracy and track record](https://whyuser.com/accuracy.html): **473 claims graded, 84% accuracy** across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data, never by WhyUser. Misses stay in the denominator. The page also shows how Buyer Questions for AEO is measured: the customer's sales lead rates each question real (pass bar: half or more), the customer checks 10 answer labels (pass bar: 9 of 10 match), coverage and gaps closed are counted by week 2, and AI accuracy on questions that name the customer gets 9 checks per question (ChatGPT, Perplexity and Google AI Overviews, 3 runs each) marked right, wrong or doesn't know against an answer key the customer writes, with a fix-later half as the control at week 5. Google impressions on new category pages are tracked at week 8; AI citations on category questions are watched, never promised. It ends with what WhyUser does not claim.
+- [Accuracy and track record](https://whyuser.com/accuracy.html): **473 claims graded, 84% accuracy** across live accounts. Every claim is sealed before the campaign runs and before the outcome exists, then graded HIT or MISS by the customer against their own data, never by WhyUser. Misses stay in the denominator. The page also shows how Buyer Questions Coverage is measured: the customer's sales lead rates each question real (pass bar: half or more), the customer checks 10 answer labels (pass bar: 9 of 10 match), coverage and gaps closed are counted by week 2, and AI accuracy on questions that name the customer gets 9 checks per question (ChatGPT, Perplexity and Google AI Overviews, 3 runs each) marked right, wrong or doesn't know against an answer key the customer writes, with a fix-later half as the control at week 5. Google impressions on new category pages are tracked at week 8; AI citations on category questions are watched, never promised. It ends with what WhyUser does not claim.
 - [Buyer proof checks](https://whyuser.com/accuracy.html#proof-checks): a second test. Customers' own teams checked the proof WhyUser said their buyers would need against their sales calls. Account A: 8 proof claims for one committee against 42 sales calls, 6 confirmed and 2 partly, 87.5% (partly counts half). Account B: 38 marked claims across three committees, 33 agreed and 5 not, 86.8% (by committee 82.4%, 85.7%, 92.9%).
 - [ngrok customer story](https://whyuser.com/casestudy-ngrok.html): ngrok used Audience Discovery, Landing Page Testing and Email Sequence Testing before a HealthTech outbound launch. WhyUser surfaced a buyer role missing from its page (3 of 4 known roles, then 4 of 4 after the fix), 100+ HealthTech roles validated by ngrok Sales in hours instead of 4 weeks, and a HIPAA question the security persona raised, fixed with a Trust Center link before any email went out. Live results are ngrok's; WhyUser signals are simulated. ngrok's CRO: "WhyUser showed us the buyer role we were missing and the HIPAA question buyers would ask (and what security personas need), before emails went out."
-- [Six sample reports](https://whyuser.com/sample-report.html), no login and nothing removed: full reports from real design-partner and customer runs, anonymized as Acme Corp. A product page committee run (37 of 50 buyers moved forward, 4 of 7 handoffs snapped), a LinkedIn ad run (134 of 300 impressions clicked; the page did not deliver the guide the ad promised), a five-email cold sequence (the same meeting ask in three emails; 4 replies in 600 sends), an Audience Discovery run (116 of 144 buyers passed across 29 subverticals), Question Coverage (46 questions, 26 not answered on the company's pages) and market trends (93 findings across six checks). All buyers are simulated.
+- [Six sample reports](https://whyuser.com/sample-report.html), no login and nothing removed: full reports from real design-partner and customer runs, anonymized as Acme Corp. A product page committee run (37 of 50 buyers moved forward, 4 of 7 handoffs snapped), a LinkedIn ad run (134 of 300 impressions clicked; the page did not deliver the guide the ad promised), a five-email cold sequence (the same meeting ask in three emails; 4 replies in 600 sends), an Audience Discovery run (116 of 144 buyers passed across 29 subverticals), Buyer Questions Coverage (46 questions, 26 not answered on the company's pages) and market trends (93 findings across six checks). All buyers are simulated.
 - [The same page, twice](https://whyuser.com/one-page-two-answers.html): interactive, no login. One landing page judged by a general AI assistant and by WhyUser, side by side. This is the demo, not the comparison write-up; for that see the Claude vs WhyUser page.
 
 ## Benchmarks

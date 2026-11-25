@@ -3778,7 +3778,7 @@ body { background-image: none; }
 .t1-pq figcaption a{color:var(--brand);font-weight:600;text-decoration:none}
 .t1-pq-wide{margin-top:2rem;max-width:44rem}
 .v3-hero-c .hero-sub{max-width:41rem;margin-left:auto;margin-right:auto;text-wrap:balance}
-.t1-conv{border:1px solid var(--rule);border-radius:18px;background:var(--surface);padding:1.25rem;box-shadow:0 1px 2px rgba(9,9,11,.04),0 18px 40px -28px rgba(9,9,11,.3)}
+.t1-conv{border:0;border-radius:0;background:transparent;padding:0;box-shadow:none} /* 24 Nov 2026: no outer card; the turn cards sit on the page */
 .t1-conv-top{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin-bottom:1.1rem;font-size:.875rem}
 .t1-persona{display:inline-flex;align-items:center;gap:.45rem;padding:.3rem .75rem;border-radius:999px;background:color-mix(in srgb,var(--brand) 10%,transparent);color:var(--ink);font-weight:600}
 .t1-persona i{color:var(--brand)}
@@ -3878,6 +3878,14 @@ body { background-image: none; }
 .hm-vp p{margin:0;font-size:1rem;line-height:1.55;color:var(--ink-soft)}
 .hm-vp-t{font-size:11.5px;font-weight:700;padding:.1rem .55rem;border-radius:999px;background:var(--paper-cool);color:var(--dim);white-space:nowrap}
 .hm-vp-t.ok{color:var(--dk-t-065f46,#065f46);background:rgba(16,185,129,.12)}
+/* What you can show your VP · 2x2, inline with the page (24 Nov 2026): no card box, a hairline above each item. */
+.hm-vp{grid-template-columns:1fr;gap:2rem 3rem;max-width:64rem}
+@media (min-width:760px){.hm-vp{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hm-vp li{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr;gap:.75rem 1rem;align-items:start;padding:1.1rem 0 0;border:0;border-top:1px solid var(--rule);border-radius:0;background:transparent}
+.hm-vp li .hm-vp-wk{grid-column:1;grid-row:1;align-self:center}
+.hm-vp li .hm-vp-t{grid-column:2;grid-row:1;align-self:center}
+.hm-vp li p{grid-column:1 / -1;grid-row:2;font-size:1.0625rem}
+.hm-vp + .v3-cap{margin-top:2rem}
 #show .v3-cap{margin-top:1rem}
 @media (max-width:999px){.t1-card .t1-mock{align-self:stretch}}
 .hm-ev{display:grid;gap:2rem;align-items:center}
@@ -4457,7 +4465,7 @@ body { background-image: none; }
             <div class="wu-story-tabs" role="tablist" aria-label="Choose a workflow">
                 <button type="button" class="wu-story-tab" role="tab" id="st-ai" aria-controls="story-ai" aria-selected="true" tabindex="0"><b>Search &amp; AI visibility</b><span>Dana &middot; CMO</span></button>
                 <button type="button" class="wu-story-tab" role="tab" id="st-web" aria-controls="story-website" aria-selected="false" tabindex="-1"><b>Website refresh</b><span>Sarah &middot; PMM</span></button>
-                <button type="button" class="wu-story-tab" role="tab" id="st-seg" aria-controls="story-segment" aria-selected="false" tabindex="-1"><b>New segment</b><span>Leo &middot; Growth</span></button>
+                <button type="button" class="wu-story-tab" role="tab" id="st-seg" aria-controls="story-segment" aria-selected="false" tabindex="-1"><b>New segment</b><span>Nichole &middot; Growth</span></button>
                 <button type="button" class="wu-story-tab" role="tab" id="st-ad" aria-controls="story-ad" aria-selected="false" tabindex="-1"><b>Ad campaign</b><span>Marcus &middot; Demand gen</span></button>
             </div>
 
@@ -4699,12 +4707,12 @@ body { background-image: none; }
                 </div>
             </div>
 
-            <!-- Leo · Audience Discovery. Shows what it does: ranked audiences
+            <!-- Nichole · Audience Discovery. Shows what it does: ranked audiences
                  for a new segment, then graded after launch. Example data. -->
             <div class="wu-story-panel" role="tabpanel" id="story-segment" aria-labelledby="st-seg" tabindex="0">
                 <div class="wu-story-ph">
                     <h3 class="wu-story-ttl">One new segment, from first page to the right titles.</h3>
-                    <p class="wu-story-who">Leo runs growth. CodeDeploy is selling into healthcare next quarter.</p>
+                    <p class="wu-story-who">Nichole runs growth. CodeDeploy is selling into healthcare next quarter.</p>
                 </div>
 
                 <ol class="wu-story">
@@ -4712,62 +4720,8 @@ body { background-image: none; }
                         <span class="wu-story-n" aria-hidden="true">1</span>
                         <div class="wu-story-txt">
                             <span class="wu-story-k">01 &middot; Find</span>
-                            <h4>Leo starts from what buyers ask.</h4>
-                            <p>Buyer Personas read the new healthcare page and show what healthcare buyers ask. HIPAA and the BAA are missing.</p>
-                            <ul class="wu-story-tags">
-                                <li><a href="buyer-personas.html">Buyer Personas</a></li>
-                                <li><a href="buyer-personas.html#six-sources">Where personas come from</a></li>
-                            </ul>
-                        </div>
-                        <div class="wu-story-fig" aria-hidden="true">
-                            <div class="wu-sc">
-                                <p class="wu-sc-bar"><i class="fa-solid fa-id-card"></i>Buyer Personas <span>codedeploy.com/healthcare</span></p>
-                                <ul class="wu-sc-ev wu-sc-q">
-                                    <li><small>Compliance</small><b>Is it HIPAA-ready?</b><em>Security</em><span class="no">Only rivals</span></li>
-                                    <li><small>Contract</small><b>Will you sign a BAA?</b><em>Budget owner</em><span class="no">Not answered</span></li>
-                                    <li><small>Proof</small><b>Who in healthcare uses it?</b><em>Champion</em><span class="part">Partly</span></li>
-                                    <li><small>Setup</small><b>Works with GitHub Actions?</b><em>Technical lead</em><span class="ok">Answered</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p class="sr-only">Example Buyer Personas read of codedeploy.com/healthcare. Security asks whether it is HIPAA-ready, and only rivals answer. Budget owners ask whether CodeDeploy will sign a BAA, and the page does not answer. Champions ask who in healthcare uses it, and the page answers it partly. Technical leads ask whether it works with GitHub Actions, and the page answers it.</p>
-                    </li>
-
-                    <li class="wu-story-step" id="story-segment-2">
-                        <span class="wu-story-n" aria-hidden="true">2</span>
-                        <div class="wu-story-txt">
-                            <span class="wu-story-k">02 &middot; Fix</span>
-                            <h4>He asks. WhyUser adds the segment&rsquo;s proof.</h4>
-                            <p>WhyUser answers each healthcare question on the page it belongs to. Leo reviews.</p>
-                            <ul class="wu-story-tags">
-                                <li><a href="workflows.html#revise-content">Revise Content</a></li>
-                                <li><a href="#tools">Works in Claude, Cursor or Codex</a></li>
-                            </ul>
-                        </div>
-                        <div class="wu-story-fig" aria-hidden="true">
-                            <div class="wu-sc">
-                                <p class="wu-sc-ask"><span>Leo asks</span>WhyUser: answer the healthcare buyers&rsquo; questions on the new segment page</p>
-                                <div class="v3-diff">
-                                    <p class="v3-del">Deploys for every team</p>
-                                    <p class="v3-ins">HIPAA-ready deploys, with a signed BAA</p>
-                                </div>
-                                <ul class="wu-sc-checks">
-                                    <li><i class="fa-solid fa-check"></i>HIPAA controls on Security<em>Security</em></li>
-                                    <li><i class="fa-solid fa-check"></i>BAA terms on the segment page<em>Budget owner</em></li>
-                                    <li><i class="fa-solid fa-check"></i>A healthcare customer result<em>Champion</em></li>
-                                </ul>
-                                <p class="wu-sc-done"><i class="fa-solid fa-circle-check"></i> 3 of 3 fixes made across 2 pages. Saved for his team.</p>
-                            </div>
-                        </div>
-                        <p class="sr-only">Example: Leo asks WhyUser in Claude to answer the healthcare buyers' questions on the new segment page. The headline changes from Deploys for every team to HIPAA-ready deploys, with a signed BAA. Three of three fixes are made: HIPAA controls on the Security page for security, BAA terms on the segment page for the budget owner, and a healthcare customer result for the champion.</p>
-                    </li>
-
-                    <li class="wu-story-step" id="story-segment-3">
-                        <span class="wu-story-n" aria-hidden="true">3</span>
-                        <div class="wu-story-txt">
-                            <span class="wu-story-k">03 &middot; Test</span>
-                            <h4>Audience Discovery finds who the page reaches.</h4>
-                            <p>Simulated buyers across healthcare subverticals read the page. Leo gets LinkedIn audiences ranked by seniority and job function.</p>
+                            <h4>Nichole runs Audience Discovery.</h4>
+                            <p>It shows which verticals and subverticals the healthcare page reaches, the titles and roles in each, and what resonates, what stalls and why.</p>
                             <ul class="wu-story-tags">
                                 <li><a href="audience-discovery.html">Audience Discovery</a></li>
                                 <li><a href="audience-discovery.html#why-the-rest-are-not">Why the rest are not ready</a></li>
@@ -4775,25 +4729,77 @@ body { background-image: none; }
                         </div>
                         <div class="wu-story-fig" aria-hidden="true">
                             <div class="wu-sc">
-                                <p class="wu-sc-bar"><i class="fa-solid fa-users-viewfinder"></i>Audience Discovery <span>LinkedIn audiences, ranked</span></p>
+                                <p class="wu-sc-bar"><i class="fa-solid fa-users-viewfinder"></i>Audience Discovery <span>codedeploy.com/healthcare</span></p>
                                 <ul class="wu-sc-ev wu-sc-q">
-                                    <li><small>Rank 1</small><b>Senior &middot; Engineering</b><em>Technical lead</em><span class="ok">High</span></li>
-                                    <li><small>Rank 2</small><b>Director &middot; Security</b><em>Security</em><span class="ok">High</span></li>
-                                    <li><small>Rank 3</small><b>VP &middot; Engineering</b><em>Budget owner</em><span class="part">Medium</span></li>
-                                    <li><small>Not ready</small><b>Manager &middot; Compliance</b><em>Champion</em><span class="no">Wants a case study</span></li>
+                                    <li><small>Hospital IT</small><b>Director &middot; Security</b><em>Security</em><span class="ok">Resonates</span></li>
+                                    <li><small>Health tech</small><b>Senior &middot; Engineering</b><em>Technical lead</em><span class="ok">Resonates</span></li>
+                                    <li><small>Clinics</small><b>VP &middot; Operations</b><em>Budget owner</em><span class="part">Stalls: no BAA</span></li>
+                                    <li><small>Payers</small><b>Manager &middot; Compliance</b><em>Champion</em><span class="no">Stalls: no case study</span></li>
                                 </ul>
-                                <p class="wu-sc-done"><i class="fa-solid fa-circle-check"></i> Top 3 audiences exported for LinkedIn Campaign Manager.</p>
                             </div>
                         </div>
-                        <p class="sr-only">Example: Audience Discovery reads the healthcare page with simulated buyers. The top LinkedIn audiences are Senior Engineering and Director Security, both high, then VP Engineering at medium. Manager Compliance is not ready yet and wants a case study. The top three audiences are exported for LinkedIn Campaign Manager. These are simulated buyers.</p>
+                        <p class="sr-only">Example Audience Discovery run on codedeploy.com/healthcare. In hospital IT, security directors respond well, and in health tech, senior engineers respond well. In clinics, operations VPs stall because the page has no BAA. At payers, compliance managers stall because there is no healthcare case study. These are simulated buyers.</p>
+                    </li>
+
+                    <li class="wu-story-step" id="story-segment-2">
+                        <span class="wu-story-n" aria-hidden="true">2</span>
+                        <div class="wu-story-txt">
+                            <span class="wu-story-k">02 &middot; Fix</span>
+                            <h4>She asks. WhyUser fixes the page.</h4>
+                            <p>WhyUser fixes what stalled each role, on the page it belongs to. Nichole reviews.</p>
+                            <ul class="wu-story-tags">
+                                <li><a href="workflows.html#revise-content">Revise Content</a></li>
+                                <li><a href="#tools">Works in Claude, Cursor or Codex</a></li>
+                            </ul>
+                        </div>
+                        <div class="wu-story-fig" aria-hidden="true">
+                            <div class="wu-sc">
+                                <p class="wu-sc-ask"><span>Nichole asks</span>WhyUser: fix what stalled each role on the healthcare page</p>
+                                <div class="v3-diff">
+                                    <p class="v3-del">Deploys for every team</p>
+                                    <p class="v3-ins">HIPAA-ready deploys, with a signed BAA</p>
+                                </div>
+                                <ul class="wu-sc-checks">
+                                    <li><i class="fa-solid fa-check"></i>BAA terms on the segment page<em>Budget owner</em></li>
+                                    <li><i class="fa-solid fa-check"></i>HIPAA controls on Security<em>Security</em></li>
+                                    <li><i class="fa-solid fa-check"></i>A healthcare customer result<em>Champion</em></li>
+                                </ul>
+                                <p class="wu-sc-done"><i class="fa-solid fa-circle-check"></i> 3 of 3 fixes made across 2 pages. Saved for her team.</p>
+                            </div>
+                        </div>
+                        <p class="sr-only">Example: Nichole asks WhyUser in Claude to fix what stalled each role on the healthcare page. The headline changes from Deploys for every team to HIPAA-ready deploys, with a signed BAA. Three of three fixes are made: BAA terms on the segment page for the budget owner, HIPAA controls on the Security page for security, and a healthcare customer result for the champion.</p>
+                    </li>
+
+                    <li class="wu-story-step" id="story-segment-3">
+                        <span class="wu-story-n" aria-hidden="true">3</span>
+                        <div class="wu-story-txt">
+                            <span class="wu-story-k">03 &middot; Test</span>
+                            <h4>She builds a committee, then runs it.</h4>
+                            <p>WhyUser builds a buying committee from the roles Audience Discovery found. The committee reads the page before and after the fixes.</p>
+                            <ul class="wu-story-tags">
+                                <li><a href="committee-simulation.html">Buyer &amp; Committee Simulations</a></li>
+                                <li><a href="buyer-personas.html">Buyer Personas</a></li>
+                            </ul>
+                        </div>
+                        <div class="wu-story-fig" aria-hidden="true">
+                            <div class="wu-sc">
+                                <p class="wu-sc-bar"><i class="fa-solid fa-users"></i>Healthcare committee, of 10 per role <span>before &rarr; after fixes</span></p>
+                                <ul class="v3-cmp">
+                                    <li><b>Security</b><span class="tr" style="--a:30%;--b:80%"><i class="a"></i><i class="b"></i></span><em>3 &rarr; 8</em></li>
+                                    <li><b>Budget owner</b><span class="tr" style="--a:20%;--b:70%"><i class="a"></i><i class="b"></i></span><em>2 &rarr; 7</em></li>
+                                    <li><b>Champion</b><span class="tr" style="--a:40%;--b:80%"><i class="a"></i><i class="b"></i></span><em>4 &rarr; 8</em></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="sr-only">Example: WhyUser builds a healthcare buying committee from the roles Audience Discovery found, and it reads the page before and after the fixes. Security buyers who move forward go from 3 to 8 of 10, budget owners from 2 to 7, and champions from 4 to 8. These are simulated buyers.</p>
                     </li>
 
                     <li class="wu-story-step" id="story-segment-4">
                         <span class="wu-story-n" aria-hidden="true">4</span>
                         <div class="wu-story-txt">
                             <span class="wu-story-k">04 &middot; Track</span>
-                            <h4>He launches, then grades it.</h4>
-                            <p>After launch, Leo grades each ranked audience against his real cost per lead. Misses stay in the count.</p>
+                            <h4>She launches LinkedIn ads, then tracks them.</h4>
+                            <p>Nichole targets the roles and titles Audience Discovery found, then tracks cost per lead for each. Misses stay in the count.</p>
                             <ul class="wu-story-tags">
                                 <li><a href="accuracy.html">How grading works</a></li>
                                 <li><a href="audience-discovery.html">Audience Discovery</a></li>
@@ -4801,21 +4807,21 @@ body { background-image: none; }
                         </div>
                         <div class="wu-story-fig" aria-hidden="true">
                             <div class="wu-sc">
-                                <p class="wu-sc-bar"><i class="fa-solid fa-list-check"></i>Audiences, graded <span>after launch</span></p>
+                                <p class="wu-sc-bar"><i class="fa-brands fa-linkedin"></i>LinkedIn ads, by audience <span>after launch</span></p>
                                 <ul class="wu-sc-finds">
-                                    <li><em>Rank 1 &middot; Senior &middot; Engineering</em>Lowest cost per lead, as ranked.</li>
-                                    <li><em>Rank 2 &middot; Director &middot; Security</em>Second lowest, as ranked.</li>
-                                    <li><em>Rank 3 &middot; VP &middot; Engineering</em>Came in fourth, behind a title we ranked lower.</li>
+                                    <li><em>Hospital IT &middot; Director &middot; Security</em>Lowest cost per lead, as ranked.</li>
+                                    <li><em>Health tech &middot; Senior &middot; Engineering</em>Second lowest, as ranked.</li>
+                                    <li><em>Clinics &middot; VP &middot; Operations</em>Came in fourth, behind a title ranked lower.</li>
                                 </ul>
-                                <p class="wu-sc-grade"><span>After launch</span><b class="ok">Hit</b><b class="ok">Hit</b><b class="miss">Miss</b><small>Every grade is his.</small></p>
+                                <p class="wu-sc-grade"><span>After launch</span><b class="ok">Hit</b><b class="ok">Hit</b><b class="miss">Miss</b><small>Every grade is hers.</small></p>
                             </div>
                         </div>
-                        <p class="sr-only">Example: after launch, Leo grades each ranked audience against his real cost per lead. Senior Engineering has the lowest cost per lead and Director Security the second lowest, both as ranked: two hits. VP Engineering came in fourth, behind a title ranked lower: a miss. The misses stay in the count.</p>
+                        <p class="sr-only">Example: Nichole launches LinkedIn ads targeting the roles and titles Audience Discovery found, then tracks cost per lead for each. Security directors in hospital IT have the lowest cost per lead and senior engineers in health tech the second lowest, both as ranked: two hits. Operations VPs in clinics came in fourth, behind a title ranked lower: a miss. The misses stay in the count.</p>
                     </li>
                 </ol>
 
                 <div class="wu-story-end">
-                    <p class="wu-story-end-h">Leo&rsquo;s segment launched on the right titles. <span>Now find yours.</span></p>
+                    <p class="wu-story-end-h">Nichole&rsquo;s segment launched on the right titles. <span>Now find yours.</span></p>
                     <a href="#access" class="btn btn-primary btn-lg">Get your free gap list <i class="fa-solid fa-arrow-right" style="font-size:12.5px"></i></a>
                 </div>
             </div>
@@ -5071,12 +5077,6 @@ body { background-image: none; }
                 <div class="k">Prompts</div><div class="them">You write them</div><div class="us">Your buyer questions, loaded into your AEO tool</div>
                 <div class="k">Before you publish</div><div class="them">&mdash;</div><div class="us">Your buying committee tests the page and the ad</div>
             </div>
-            <ul class="t1-chips">
-                <li><i class="fa-solid fa-dice" aria-hidden="true"></i> Made-up prompts</li>
-                <li><i class="fa-solid fa-shuffle" aria-hidden="true"></i> A new answer every run</li>
-                <li><i class="fa-solid fa-gauge" aria-hidden="true"></i> A score, not a fix</li>
-                <li><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> One prompt, no follow-ups</li>
-            </ul>
             <p class="t1-works">Works with <b>Profound</b> &middot; <b>HubSpot AEO</b> &middot; <b>Semrush</b></p>
         </div>
     </section>

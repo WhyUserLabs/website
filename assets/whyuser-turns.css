@@ -1,7 +1,7 @@
 /* Multi-turn chat visual (from question-coverage.html #turns), shared by comparison pages. */
 .t1-ex{margin-left:auto;font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
 .t1-note{font-size:12.5px;color:var(--faint);margin:.6rem 0 0}
-.t1-conv{border:1px solid var(--rule);border-radius:18px;background:var(--surface);padding:1.25rem;box-shadow:0 1px 2px rgba(9,9,11,.04),0 18px 40px -28px rgba(9,9,11,.3)}
+.t1-conv{border:0;border-radius:0;background:transparent;padding:0;box-shadow:none} /* 24 Nov 2026: no outer card; the turn cards sit on the page */
 .t1-conv-top{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin-bottom:1.1rem;font-size:.875rem}
 .t1-persona{display:inline-flex;align-items:center;gap:.45rem;padding:.3rem .75rem;border-radius:999px;background:color-mix(in srgb,var(--brand) 10%,transparent);color:var(--ink);font-weight:600}
 .t1-persona i{color:var(--brand)}

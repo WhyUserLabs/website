@@ -40,12 +40,12 @@ WhyUser runs one loop. Buyer Questions Coverage is the front door. Buyer & Commi
 | Run | Agents | Credits | Returns |
 |---|---|---|---|
 | Persona Simulation (landing or content page) | n/a | 5 per run | One buyer persona's read of the page |
-| [Committee Simulation](https://whyuser.com/committee-simulation.html) (landing or content page) | 50 | 20 per run | Conflict graph, per-role verdict, ranked fix queue |
+| [Committee Simulation](https://whyuser.com/committee-simulation.html) (landing or content page) | 50 | — | Conflict graph, per-role verdict, ranked fix queue |
 | [Ad campaign](https://whyuser.com/ad-campaign-simulation.html) | 300 | 50 per creative | Ad-to-page promise check per role, funnel stage by stage, fixes ranked by severity |
 | [Email campaign](https://whyuser.com/email-campaign-simulation.html) | 300 | 20 per subject × body × link combo | Opens, clicks and replies per role, email by email, with a fix per email |
 | [Audience Discovery](https://whyuser.com/audience-discovery.html) | full committee | 50 per run | LinkedIn audiences ranked by seniority and job function, subvertical by seat matrix, page gaps |
-| Buyer Intelligence (Market Research, Competitor Reviews, Temporal Intelligence) | n/a | 20 per run; runs 2-4 times a month | Refreshed market, competitor and trend picture behind your buyers |
-| [Buyer Questions Coverage](https://whyuser.com/question-coverage.html) | n/a | 10 base + 5 per use case, per run; runs 2-4 times a month | Which buyer questions your pages answer, and which a rival answers instead |
+| Buyer Intelligence (Market Research, Competitor Reviews, Temporal Intelligence) | n/a | 20 per run; 4 runs a month on Standard | Refreshed market, competitor and trend picture behind your buyers |
+| [Buyer Questions Coverage](https://whyuser.com/question-coverage.html) | n/a | 20 per run; 4 runs a month on Standard | Which buyer questions your pages answer, and which a rival answers instead |
 
 Agent counts, behavioral states and accuracy are **identical on every plan**. Plans differ in how much you can run, never in how good the answer is.
 
@@ -55,12 +55,12 @@ Agent counts, behavioral states and accuracy are **identical on every plan**. Pl
 
 - [ROI calculator](https://whyuser.com/roi.html): covers two features. Buyer Questions for AI Visibility (on by default) prices only the gap: searches × (buyer questions not answered ÷ total buyer questions) × cost per click, at Google Ads prices (an estimate). Ad Funnel Simulation counts LinkedIn spend on people outside the buying committee, read from Campaign Manager, and shows the projected week-4 cost per real-buyer lead on the same budget. It credits WhyUser with a share the visitor sets (50% by default) and divides that by the plan price for the same month, quarter or year.
 
-- **Standard**: $1,000/month on an annual contract, 200 credits a month. Includes Buyer Personas and Committees, Buyer Questions Coverage, Page & Content Simulations, Audience Discovery, and email support within 1 business day.
-- **Scale**: $2,000/month on an annual contract, 400 credits a month. Includes everything in Standard, plus AI Visibility Multi-Turn Chats, Ad Funnel Simulations, Email Sequence Simulations and a shared Slack channel.
-- **Enterprise**: custom annual pricing and credit allowance. Includes everything in Scale, plus multi-workspace support and custom integrations.
+- **Standard**: $1,000/month on an annual contract, 200 credits a month ($5 a credit). Includes Buyer Intelligence and Buyer Questions Coverage (4 runs a month each), Buyer Personas & Committees, Page & Content Simulations, and Workflows.
+- **Standard Plus**: $2,000/month on an annual contract, 400 credits a month. Includes everything in Standard, plus Buyer Questions Coverage Plus, Audience Discovery, Ad Funnel Simulations and Email Sequence Simulations.
+- **Enterprise**: custom annual pricing and credit allowance. Includes everything in Standard Plus, plus multi-workspace support and custom integrations.
 - **Credit pack**: $1,000 per 200 credits, no expiry for the life of the subscription
 
-On any plan, a Persona Simulation is 5 credits (about $25) and a Committee Simulation is 20 credits (about $100). Buyer Intelligence (20 credits a run) and Buyer Questions Coverage (10 credits plus 5 per use case a run) each run 2-4 times a month. Plan credits expire at the end of each month; credit packs do not expire while the subscription is active. The trial is a free gap list: the top 10 questions a rival answers and the customer doesn't, for one product.
+On any plan, a Workflow run is 1 credit and a Persona Simulation is 5 credits (about $25). Buyer Intelligence and Buyer Questions Coverage are 20 credits a run each, and run 4 times a month on Standard. Audience Discovery (50 credits a run), Ad Funnel Simulation (50 credits a creative) and email campaigns (20 credits a combo) are on Standard Plus and Enterprise. Plan credits expire at the end of each month; credit packs do not expire while the subscription is active. The trial is a free gap list: the top 10 questions a rival answers and the customer doesn't, for one product.
 
 Every plan can use WhyUser in Claude through the MCP server (Cursor and Codex connect to the same server), and everything in the web app is also available over the API.
 
